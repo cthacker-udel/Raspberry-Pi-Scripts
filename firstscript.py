@@ -1,13 +1,24 @@
 from sense_hat import SenseHat
 import random
 
+sense = SenseHat() 
 
-sense = SenseHat()
+
+def flip_vertical():
+    sense.flip_v(True)
+
+def undo_vertical():
+    sense.flip_v(False)
+
+def flip_horizontal():
+    sense.flip_h(True)
+
+def undo_horizontal():
+    sense.flip_h(False)
+
 incrementer = 0
-while True:
+while incrementer <= 270:
+    flip_vertical()
     sense.set_rotation(incrementer)
     sense.show_message("Hello world!")
-    if incrementer == 270:
-        incrementer = 0
-    else:
-        incrementer += 90 
+    incrementer += 90
