@@ -29,10 +29,22 @@ def generate_pixel_list():
 def get_the_pixels():
     return sense.get_pixels()
 
+
+def set_the_pixel(x,y,r,g,b):
+    sense.set_pixel(x,y,r,g,b)
+
+def random_coord():
+    return random.randint(0,7)
+
+def get_the_pixel(x,y):
+    return sense.get_pixel(x,y)
+
+
 incrementer = 0
 while incrementer <= 270:
    # flip_vertical()
-    sense.set_pixels(generate_pixel_list())
+    sense.set_pixel(random_coord(),random_coord(),random_pixel_number(),random_pixel_number(),random_pixel_number())
+   # sense.set_pixels(generate_pixel_list())
    # sense.set_rotation(incrementer)
    # sense.show_message("Hello world!")
     incrementer += 90
