@@ -71,14 +71,14 @@ def display_letter(aletter,textcolor=None,backcolor=None):
     else:
         sense.show_letter(aletter)
 
-incrementer = 0
-while incrementer <= 270:
-    display_letter('a')
-    display_letter('w',[255,0,0])
+#incrementer = 0
+#while incrementer <= 270:
+#    display_letter('a')
+#    display_letter('w',[255,0,0])
    # flip_vertical()
    # scroll_message_default("Message",2.5,[255,0,0])
    # sense.set_pixel(random_coord(),random_coord(),random_pixel_number(),random_pixel_number(),random_pixel_number())
    # sense.set_pixels(generate_pixel_list())
    # sense.set_rotation(incrementer)
    # sense.show_message("Hello world!")
-    incrementer += 90
+#    incrementer += 90
