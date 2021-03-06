@@ -16,4 +16,6 @@ Cameron Thacker - University of Delaware
 
 --------
 
-To be updated!
+- [x] Implement blackjack functionality
+- [x] Implement number guesser functionality
+- [x] Implement rock paper scissors functionality
