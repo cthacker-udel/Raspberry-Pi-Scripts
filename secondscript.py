@@ -1,6 +1,6 @@
 from datetime import datetime
 from firstscript import scroll_message_default
-
+from requests import get
 
 
 now = datetime.now()
