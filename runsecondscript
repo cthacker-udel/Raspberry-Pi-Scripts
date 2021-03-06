@@ -9,4 +9,4 @@ kill -19 $pID
 
 clearhat
 
-python secondscript.py
+python3 secondscript.py
