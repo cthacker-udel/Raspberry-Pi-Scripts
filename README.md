@@ -10,7 +10,7 @@ Cameron Thacker - University of Delaware
 - [x] Implementation of sense-hat API
 - [x] Implementation of current weather display
 - [x] Implementation of current time [24 Hour clock]
-- [x] Implementation of Yoda Translator
+- [x] Implementation of Translator with Menu displaying all available translators, format of call is 'python3 translator.py menu' to display menu and "python3 translator.py <translator> '<message'"
 
 ## TODOS
 
