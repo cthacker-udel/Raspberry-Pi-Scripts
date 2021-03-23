@@ -21,3 +21,7 @@ Cameron Thacker - University of Delaware
 - [x] Implement blackjack functionality
 - [x] Implement number guesser functionality
 - [x] Implement rock paper scissors functionality
+
+Checkers functionality:
+
+- [x] Implement placing checkers on board
