@@ -2,6 +2,8 @@
 #include <unistd.h>
 #include "sense.h"
 #include <stdlib.h>
+#include "checkers.h"
+
 
 #define WHITE 0xFFFF
 #define BLACK 0x0000
