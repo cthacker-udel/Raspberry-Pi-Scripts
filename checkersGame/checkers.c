@@ -1,15 +1,12 @@
-#include <stdio.h>
-#include <unistd.h>
-#include "sense.h"
-#include <stdlib.h>
 #include "checkers.h"
-
 
 #define WHITE 0xFFFF
 #define BLACK 0x0000
 #define RED 0xF800
 #define BLUE 0x1F
 #define GREEN 0x7E0
+
+/*
 
 void display_team_1(pi_framebuffer_t *dev){
     sense_fb_bitmap_t *bm=dev->bitmap;
@@ -61,12 +58,19 @@ void display_team_2(pi_framebuffer_t *dev){
 
 }
 
-
+*/
 
 int main(){
 
-    pi_framebuffer_t *dev = getFrameBuffer();
-    display_team_1(dev);
-    display_team_2(dev);
+    openDisplay();
+    openJoystick();
+    while(1){
+        display_user_team();
+        display_computer_team();
+        checkJoystick();
+    }
+
+    //display_team_1(dev);
+    //display_team_2(dev);
 
 }
