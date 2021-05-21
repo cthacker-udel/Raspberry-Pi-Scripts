@@ -8,6 +8,14 @@ int xCoord;
 
 int yCoord;
 
+int turn;
+
+int coinFlip(){
+    time_t t;
+    srand((unsigned)time(&t));
+
+}
+
 
 void handler(unsigned int code){
     
