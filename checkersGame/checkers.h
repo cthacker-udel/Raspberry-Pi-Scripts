@@ -35,6 +35,8 @@ void closeJoystick(void);
 
 void checkJoystick(void);
 
+checkersPiece *craftPiece(int,int);
+
 
 void display_user_team(void);
 
