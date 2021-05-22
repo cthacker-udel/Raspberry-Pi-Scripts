@@ -14,6 +14,7 @@ checkersPiece *playerCURR;
 
 checkersPiece *computerCURR;
 
+checkersPiece *nextPiece;
 
 void coinFlip(){
     time_t t;
@@ -48,31 +49,123 @@ checkersPiece *getComputerCURR(){
 
 void handler(unsigned int code){
    
-    checkersPiece *tempHead; 
     switch(code){
         case KEY_UP:
             fprintf(stderr,"Pressed up");
-            if(turn == 0){
-                
+            if(turn == 0){ // computer's turn
+                if(playerCURR->next != NULL){
+                    playerCURR = playerCURR->next;
+                }
+                else{
+                    playerCURR = getPlayerTeam();
+                }
+            }
+            else{
+                if(computerCURR->next != NULL){
+                    computerCURR = computerCURR->next;
+                }
+                else{
+                    computerCURR = getComputerTeam();
+                }
             }
             break;
         case KEY_DOWN:
             fprintf(stderr,"Pressed down");
+            if(turn == 0){
+                if(playerCURR->next != NULL){
+                    playerCURR = playerCURR->next;
+                }
+                else{
+                    playerCURR = getPlayerTeam();
+                }
+            }
+            else{
+                if(computerCURR->next != NULL){
+                    computerCURR = computerCURR->next;
+                }
+                else{
+                    computerCURR = getComputerTeam();
+                }
+            }
             break;
         case KEY_LEFT:
             fprintf(stderr,"Pressed left");
+            if(turn == 0){
+                if(playerCURR->next != NULL){
+                    playerCURR = playerCURR->next;
+                }
+                else{
+                    playerCURR = getPlayerTeam();
+                }
+            }
+            else{
+                if(computerCURR->next != NULL){
+                    computerCURR = computerCURR->next;
+                }
+                else{
+                    computerCURR = getComputerTeam();
+                }
+            }
             break;
         case KEY_RIGHT:
             fprintf(stderr,"Pressed right");
+            if(turn == 0){
+                if(playerCURR->next != NULL){
+                    playerCURR = playerCURR->next;
+                }
+                else{
+                    playerCURR = getPlayerTeam();
+                }
+            }
+            else{
+                if(computerCURR->next != NULL){
+                    computerCURR = computerCURR->next;
+                }
+                else{
+                    computerCURR = getComputerTeam();
+                }
+            }
             break;
         case KEY_ENTER:
             fprintf(stderr,"Pressed Enter");
+            if(turn == 0){
+                if(playerCURR->next != NULL){
+                    playerCURR = playerCURR->next;
+                }
+                else{
+                    playerCURR = getPlayerTeam();
+                }
+            }
+            else{
+                if(computerCURR->next != NULL){
+                    computerCURR = computerCURR->next;
+                }
+                else{
+                    computerCURR = getComputerTeam();
+                }
+            }
             break;
     }
 
 }
 
-
+checkersPiece *findNextPiece(checkersPiece *currPiece, char direction){
+    checkersPiece *nextPiece;
+    double dist;
+    if(turn == 1){
+        checkersPiece *tempHead = computerCURR;
+        switch(direction){
+        
+            case 'u':
+                while(tempHead != NULL){
+                    if(tempHead != currPiece && fabs(currPiece->yCoord - tempHead->yCoord) <= 1){
+                        return nextPiece;
+                    }  
+                }
+        
+        }
+    }
+}
 
 
 
@@ -93,6 +186,10 @@ void closeJoystick(void){
 
 void checkJoystick(void){
     pollJoystick(joystick,handler,delay);
+}
+
+void setDelay(int newDelay){
+    delay = newDelay;
 }
 
 int getTurn(){

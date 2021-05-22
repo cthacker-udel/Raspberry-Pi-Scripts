@@ -51,6 +51,8 @@ void coinFlip();
 
 int getTurn();
 
+void setDelay(int);
+
 void currCursor(checkersPiece *);
 
 void display_user_team(void);

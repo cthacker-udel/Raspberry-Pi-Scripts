@@ -82,17 +82,16 @@ checkersPiece *getComputerTeam(){
 
 void currCursor(checkersPiece *currPiece){
     
-    int delay = 100000;
-    
     printf("\n\nThe current turn is : %d",getTurn());
 
-
+    setDelay(750);
     int x = currPiece->xCoord;
     int y = currPiece->yCoord;
     sense_fb_bitmap_t *bm = fb->bitmap;
-    while(delay != 0){
+    while(1){
         bm->pixel[x][y] = BLACK;
-        delay--;
+        checkJoystick();
+        break;
     }
     if(getTurn() == 0){
         bm->pixel[x][y] = RED;

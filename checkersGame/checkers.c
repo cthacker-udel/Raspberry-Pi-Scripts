@@ -12,6 +12,12 @@ int main(){
     coinFlip();
     while(1){
         checkJoystick();
+        if(getTurn() == 1){
+            currCursor(getComputerCURR());
+        }
+        else{
+            currCursor(getPlayerCURR());
+        }
     }
 
 }
