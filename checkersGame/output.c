@@ -22,6 +22,7 @@ pi_framebuffer_t *fb = NULL;
 
 checkersPiece *PLAYERHEAD = NULL;
 
+checkersPiece *COMPUTERHEAD = NULL;
 
 
 void openDisplay(void){
@@ -166,20 +167,85 @@ void display_computer_team(){
     else{
         sense_fb_bitmap_t *bm = fb->bitmap;
 
+        checkersPiece *newPiece;
+
+        if(COMPUTERHEAD == NULL){
+            COMPUTERHEAD = craftPiece(1,7);
+        }
+
         bm->pixel[1][7] = BLUE;
+
+        newPiece = craftPiece(3,7);
+        newPiece->next = COMPUTERHEAD;
+        COMPUTERHEAD = newPiece;
+
+
         bm->pixel[3][7] = BLUE;
+    
+        newPiece = craftPiece(5,7);
+        newPiece->next = COMPUTERHEAD;
+        COMPUTERHEAD = newPiece;
+
         bm->pixel[5][7] = BLUE;
+
+        newPiece = craftPiece(7,7);
+        newPiece->next = COMPUTERHEAD;
+        COMPUTERHEAD = newPiece;
+
+
         bm->pixel[7][7] = BLUE;
 
+        newPiece = craftPiece(0,6);
+        newPiece->next = COMPUTERHEAD;
+        COMPUTERHEAD = newPiece;
+
+
         bm->pixel[0][6] = BLUE;
+
+        newPiece = craftPiece(2,6);
+        newPiece->next = COMPUTERHEAD;
+        COMPUTERHEAD = newPiece;
+
         bm->pixel[2][6] = BLUE;
+
+        newPiece = craftPiece(4,6);
+        newPiece->next = COMPUTERHEAD;
+        COMPUTERHEAD = newPiece;
+
         bm->pixel[4][6] = BLUE;
+
+        newPiece = craftPiece(6,6);
+        newPiece->next = COMPUTERHEAD;
+        COMPUTERHEAD = newPiece;
+
         bm->pixel[6][6] = BLUE;
 
+        newPiece = craftPiece(1,5);
+        newPiece->next = COMPUTERHEAD;
+        COMPUTERHEAD = newPiece;
+
+
         bm->pixel[1][5] = BLUE;
+    
+        newPiece = craftPiece(3,5);
+        newPiece->next = COMPUTERHEAD;
+        COMPUTERHEAD = newPiece;
+
         bm->pixel[3][5] = BLUE;
+
+        newPiece = craftPiece(5,5);
+        newPiece->next = COMPUTERHEAD;
+        COMPUTERHEAD = newPiece;
+
         bm->pixel[5][5] = BLUE;
+    
+        newPiece = craftPiece(7,5);
+        newPiece->next = COMPUTERHEAD;
+        COMPUTERHEAD = newPiece;
+
         bm->pixel[7][5] = BLUE;
+
+        showTeam(COMPUTERHEAD);
     }
 
 }

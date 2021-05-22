@@ -4,8 +4,11 @@ int main(){
 
     openDisplay();
     openJoystick();
+    fprintf(stderr,"\n\nDisplaying the user team\n");
     display_user_team();
+    fprintf(stderr,"\n\nDisplaying the computer team\n");
     display_computer_team();
+    fprintf(stderr,"\n\n");
     while(1){
         checkJoystick();
     }
