@@ -10,7 +10,4 @@ int main(){
         checkJoystick();
     }
 
-    //display_team_1(dev);
-    //display_team_2(dev);
-
 }
