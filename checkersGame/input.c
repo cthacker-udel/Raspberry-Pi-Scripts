@@ -13,7 +13,13 @@ int turn;
 int coinFlip(){
     time_t t;
     srand((unsigned)time(&t));
-
+    int flipNum = rand();
+    if(flipNum % 2 == 0){
+        turn = 1; // Opponent's turn
+    }
+    else{
+        turn = 0; // Player's turn
+    }
 }
 
 
