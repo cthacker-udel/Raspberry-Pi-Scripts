@@ -60,6 +60,17 @@ checkersPiece *craftPiece(int x, int y){
 
 }
 
+void showTeam(checkersPiece *TEAM){
+
+    checkersPiece *tempHead = TEAM;
+    int number = 1;
+    while(tempHead){
+        printf("Piece # %d | (%d,%d)\n",number++,tempHead->xCoord,tempHead->yCoord);
+        tempHead = tempHead->next;
+    }
+
+}
+
 
 void display_user_team(){
     if(fb == NULL){
@@ -141,6 +152,8 @@ void display_user_team(){
         PLAYERHEAD = newPiece;
 
         bm->pixel[6][2] = RED;
+
+        showTeam(PLAYERHEAD);
     }
 }
 
