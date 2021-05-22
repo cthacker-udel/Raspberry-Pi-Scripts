@@ -7,14 +7,14 @@
 #include <string.h>
 #include <stddef.h>
 #include <math.h>
-
+#include <time.h>
 
 typedef struct piece{
 
     int xCoord;
     int yCoord;
     int isKing;
-    checkersPiece *next;
+    struct piece *next;
 
 }checkersPiece;
 
