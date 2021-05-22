@@ -39,6 +39,19 @@ checkersPiece *craftPiece(int,int);
 
 void showTeam(checkersPiece *);
 
+checkersPiece *getPlayerTeam();
+
+checkersPiece *getComputerTeam();
+
+checkersPiece *getPlayerCURR();
+
+checkersPiece *getComputerCURR();
+
+void coinFlip();
+
+int getTurn();
+
+void currCursor(checkersPiece *);
 
 void display_user_team(void);
 

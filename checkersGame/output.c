@@ -72,6 +72,37 @@ void showTeam(checkersPiece *TEAM){
 
 }
 
+checkersPiece *getPlayerTeam(){
+    return PLAYERHEAD;
+}
+
+checkersPiece *getComputerTeam(){
+    return COMPUTERHEAD;
+}
+
+void currCursor(checkersPiece *currPiece){
+    
+    int delay = 100000;
+    
+    printf("\n\nThe current turn is : %d",getTurn());
+
+
+    int x = currPiece->xCoord;
+    int y = currPiece->yCoord;
+    sense_fb_bitmap_t *bm = fb->bitmap;
+    while(delay != 0){
+        bm->pixel[x][y] = BLACK;
+        delay--;
+    }
+    if(getTurn() == 0){
+        bm->pixel[x][y] = RED;
+    }
+    else if(getTurn() == 1){
+        bm->pixel[x][y] = BLUE;
+    }
+
+}
+
 
 void display_user_team(){
     if(fb == NULL){

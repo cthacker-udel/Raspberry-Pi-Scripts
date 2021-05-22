@@ -9,6 +9,7 @@ int main(){
     fprintf(stderr,"\n\nDisplaying the computer team\n");
     display_computer_team();
     fprintf(stderr,"\n\n");
+    coinFlip();
     while(1){
         checkJoystick();
     }

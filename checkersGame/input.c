@@ -10,7 +10,12 @@ int yCoord;
 
 int turn;
 
-int coinFlip(){
+checkersPiece *playerCURR;
+
+checkersPiece *computerCURR;
+
+
+void coinFlip(){
     time_t t;
     srand((unsigned)time(&t));
     int flipNum = rand();
@@ -20,14 +25,36 @@ int coinFlip(){
     else{
         turn = 0; // Player's turn
     }
+    if(turn == 1){
+        computerCURR = getComputerTeam();
+        currCursor(computerCURR);
+    }
+    else{
+        playerCURR = getPlayerTeam();
+        currCursor(playerCURR);
+
+    }
+}
+
+
+checkersPiece *getPlayerCURR(){
+    return playerCURR;
+}
+
+checkersPiece *getComputerCURR(){
+    return computerCURR;
 }
 
 
 void handler(unsigned int code){
-    
+   
+    checkersPiece *tempHead; 
     switch(code){
         case KEY_UP:
             fprintf(stderr,"Pressed up");
+            if(turn == 0){
+                
+            }
             break;
         case KEY_DOWN:
             fprintf(stderr,"Pressed down");
@@ -66,4 +93,8 @@ void closeJoystick(void){
 
 void checkJoystick(void){
     pollJoystick(joystick,handler,delay);
+}
+
+int getTurn(){
+    return turn;
 }
