@@ -1,3 +1,5 @@
+# Author - cthacker-udel
+
 LDFLAGS:= -L ~/lib -lsense -lm
 INCLUDE:= -I ~/include
 
