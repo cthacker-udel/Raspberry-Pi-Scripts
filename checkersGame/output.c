@@ -44,6 +44,11 @@ void clearDisplay(void){
     clearFrameBuffer(fb,BLACK);
 }
 
+
+pi_framebuffer_t * getDisplay(){
+    return fb;
+}
+
 /*
  *
  * Display teams
@@ -100,6 +105,11 @@ void currCursor(checkersPiece *currPiece){
         bm->pixel[x][y] = BLUE;
     }
 
+}
+
+void displayChooseMove(int x, int y){
+    sense_fb_bitmap_t *bm = fb->bitmap;
+    bm->pixel[x][y] = GREEN;
 }
 
 

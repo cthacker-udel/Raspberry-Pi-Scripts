@@ -58,3 +58,13 @@ void currCursor(checkersPiece *);
 void display_user_team(void);
 
 void display_computer_team(void);
+
+pi_framebuffer_t *getDisplay();
+
+int getChooseMove();
+
+int getXCoord();
+
+int getYCoord();
+
+void displayChooseMove(int,int);
