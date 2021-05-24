@@ -4,6 +4,7 @@ int main(){
 
     openDisplay();
     openJoystick();
+    clearDisplay();
     fprintf(stderr,"\n\nDisplaying the user team\n");
     display_user_team();
     fprintf(stderr,"\n\nDisplaying the computer team\n");

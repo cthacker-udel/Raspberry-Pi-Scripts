@@ -65,7 +65,7 @@ void handler(unsigned int code){
             fprintf(stderr,"Pressed up\n");
             if(chooseMove && yCoord > 0){
                 yCoord--;
-                displayChooseMove(xCoord,yCoord);
+                displayChooseMove(xCoord,yCoord,'g');
             }
             else if(turn == 0){ // computer's turn
                 if(playerCURR->next != NULL){
@@ -88,7 +88,7 @@ void handler(unsigned int code){
             fprintf(stderr,"Pressed down\n");
             if(chooseMove && yCoord < 7){
                 yCoord++;
-                displayChooseMove(xCoord,yCoord);    
+                displayChooseMove(xCoord,yCoord,'g');    
             }
             else if(turn == 0){
                 if(playerCURR->next != NULL){
@@ -111,7 +111,7 @@ void handler(unsigned int code){
             fprintf(stderr,"Pressed left\n");
             if(chooseMove && xCoord > 0){
                 xCoord--;
-                displayChooseMove(xCoord,yCoord);
+                displayChooseMove(xCoord,yCoord,'g');
             }
             else if(turn == 0){
                 if(playerCURR->next != NULL){
@@ -134,7 +134,7 @@ void handler(unsigned int code){
             fprintf(stderr,"Pressed right\n");
             if(chooseMove && xCoord < 7){
                 xCoord++;
-                displayChooseMove(xCoord,yCoord);
+                displayChooseMove(xCoord,yCoord,'g');
             }
             else if(turn == 0){
                 if(playerCURR->next != NULL){
@@ -156,6 +156,10 @@ void handler(unsigned int code){
         case KEY_ENTER:
             fprintf(stderr,"Pressed Enter\n");
             if(turn == 0){
+                if(chooseMove == 1){
+                    displayChooseMove(xCoord,yCoord,'o');
+                    chooseMove = 0;
+                }
                 /*
                 if(playerCURR->next != NULL){
                     playerCURR = playerCURR->next;

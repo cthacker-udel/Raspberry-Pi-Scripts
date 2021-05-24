@@ -107,9 +107,24 @@ void currCursor(checkersPiece *currPiece){
 
 }
 
-void displayChooseMove(int x, int y){
+void displayChooseMove(int x, int y, char color){
     sense_fb_bitmap_t *bm = fb->bitmap;
-    bm->pixel[x][y] = GREEN;
+    switch(color){
+        case 'g':
+            bm->pixel[y][x] = GREEN;
+            break;
+        case 'b':
+            bm->pixel[y][x] = BLUE;
+            break;
+        case 'r':
+            bm->pixel[y][x] = RED;
+            break;
+        case 'o':
+            bm->pixel[y][x] = ORANGE;
+            break;
+        default:
+            break;
+    }
 }
 
 

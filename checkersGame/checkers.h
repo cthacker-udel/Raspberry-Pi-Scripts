@@ -67,4 +67,6 @@ int getXCoord();
 
 int getYCoord();
 
-void displayChooseMove(int,int);
+void displayChooseMove(int,int,char);
+
+void clearDisplay(void);
