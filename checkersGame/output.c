@@ -87,7 +87,9 @@ checkersPiece *getComputerTeam(){
 
 void currCursor(checkersPiece *currPiece){
     
-    printf("\n\nThe current turn is : %d",getTurn());
+    printf("\n\nThe current turn is : %s",getTurn() == 1? "computer": "player");
+
+    printf("\n\nCurrent coordinates of cursor are : %d,%d\n",currPiece->xCoord,currPiece->yCoord);
 
     setDelay(750);
     int x = currPiece->xCoord;
@@ -111,20 +113,29 @@ void displayChooseMove(int x, int y, char color){
     sense_fb_bitmap_t *bm = fb->bitmap;
     switch(color){
         case 'g':
-            bm->pixel[y][x] = GREEN;
+            bm->pixel[x][y] = GREEN;
             break;
         case 'b':
-            bm->pixel[y][x] = BLUE;
+            bm->pixel[x][y] = BLUE;
             break;
         case 'r':
-            bm->pixel[y][x] = RED;
+            bm->pixel[x][y] = RED;
             break;
         case 'o':
-            bm->pixel[y][x] = ORANGE;
+            bm->pixel[x][y] = ORANGE;
+            break;
+        case 'z':
+            bm->pixel[x][y] = BLACK;
             break;
         default:
             break;
     }
+}
+
+int getColorVal(int x, int y){
+    sense_fb_bitmap_t *bm = fb->bitmap;
+    int colorVal = bm->pixel[x][y];
+    return colorVal;
 }
 
 

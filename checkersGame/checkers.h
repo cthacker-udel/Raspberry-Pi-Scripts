@@ -70,3 +70,6 @@ int getYCoord();
 void displayChooseMove(int,int,char);
 
 void clearDisplay(void);
+
+int getColorVal(int,int);
+
