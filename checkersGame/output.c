@@ -87,9 +87,9 @@ checkersPiece *getComputerTeam(){
 
 void currCursor(checkersPiece *currPiece){
     
-    printf("\n\nThe current turn is : %s",getTurn() == 1? "computer": "player");
+    printf("\n\n---------------\nThe current turn is : %s",getTurn() == 1? "computer": "player");
 
-    printf("\n\nCurrent coordinates of cursor are : %d,%d\n",currPiece->xCoord,currPiece->yCoord);
+    printf("\n\nCurrent coordinates of cursor are : %d,%d\n--------------------------\n",currPiece->xCoord,currPiece->yCoord);
 
     setDelay(750);
     int x = currPiece->xCoord;

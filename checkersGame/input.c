@@ -68,7 +68,7 @@ void handler(unsigned int code){
    
     switch(code){
         case KEY_UP:
-            fprintf(stderr,"Pressed up\n");
+            fprintf(stderr,"\n}U}U}U\nPressed up\n}U}U}U\n");
             if(chooseMove && xCoord >= 0){
                 if(xCoord == 0){
                     xCoord = 7;
@@ -90,7 +90,6 @@ void handler(unsigned int code){
 
                 int currColor = getColorVal(xCoord,yCoord); 
                 
-                fprintf(stderr,"\nThe current color of the pixel you are moving to is : %d",currColor);
                 if(currColor == 0){
                     displayChooseMove(xCoord,yCoord,'g');
                 }
@@ -103,7 +102,7 @@ void handler(unsigned int code){
                 prevColor = currColor;
                 prevY = yCoord;
                 prevX = xCoord;
-                fprintf(stderr,"\nEntered keyup choosemove if\n");
+                printf("\n################\nGreen cursor coords : %d,%d\n###################\n",xCoord,yCoord); 
             }
             else if(turn == 0){ // computer's turn
                 if(playerCURR->next != NULL){
@@ -123,7 +122,7 @@ void handler(unsigned int code){
             }
             break;
         case KEY_DOWN:
-            fprintf(stderr,"Pressed down\n");
+            fprintf(stderr,"\n$D$D$D\nPressed down\n$D$D$D\n");
             if(chooseMove && xCoord <= 7){
                 if(xCoord == 7){
                     xCoord = 0;
@@ -155,7 +154,7 @@ void handler(unsigned int code){
                 prevColor = currColor;
                 prevY = yCoord;
                 prevX = xCoord;
-                fprintf(stderr,"\nEntered keydown choosemove if");
+                printf("\n################\nGreen cursor coords : %d,%d\n###################\n",xCoord,yCoord); 
             }
             else if(turn == 0){
                 if(playerCURR->next != NULL){
@@ -175,7 +174,7 @@ void handler(unsigned int code){
             }
             break;
         case KEY_LEFT:
-            fprintf(stderr,"Pressed left\n");
+            fprintf(stderr,"\n@L@L@L\nPressed left\n@L@L@L\n");
             if(chooseMove && yCoord >= 0){
                 if(yCoord == 0){
                     yCoord = 7;
@@ -207,7 +206,7 @@ void handler(unsigned int code){
                 prevColor = currColor;
                 prevY = yCoord;
                 prevX = xCoord;
-                fprintf(stderr,"\nEntered keyleft choosemove if\n");
+                printf("\n################\nGreen cursor coords : %d,%d\n###################\n",xCoord,yCoord); 
             }
             else if(turn == 0){
                 if(playerCURR->next != NULL){
@@ -227,9 +226,8 @@ void handler(unsigned int code){
             }
             break;
         case KEY_RIGHT:
-            fprintf(stderr,"Pressed right\n");
+            fprintf(stderr,"\n^R^R^R\nPressed right\n^R^R^R\n");
             if(chooseMove && yCoord <= 7){
-                printf("\nEntering keyright choosemove if");
                 if(yCoord == 7){
                     yCoord = 0;
                 }
@@ -260,7 +258,7 @@ void handler(unsigned int code){
                 prevColor = currColor;
                 prevY = yCoord;
                 prevX = xCoord;
-                fprintf(stderr,"\nReached end of keyright choosemove if\n");
+                printf("\n################\nGreen cursor coords : %d,%d\n###################\n",xCoord,yCoord);
             }
             else if(turn == 0){
                 if(playerCURR->next != NULL){
@@ -280,7 +278,7 @@ void handler(unsigned int code){
             }
             break;
         case KEY_ENTER:
-            fprintf(stderr,"Pressed Enter\n");
+            fprintf(stderr,"\n!=!=!=\nPressed Enter\n!=!=!=\n");
             if(turn == 0){
                 chooseMove = 1;
                 xCoord = playerCURR->xCoord;
@@ -289,13 +287,11 @@ void handler(unsigned int code){
                 prevY = yCoord;
             }
             else{
-                fprintf(stderr,"\nEntered key_enter computer turn");
                 chooseMove = 1;
                 xCoord = computerCURR->xCoord;
                 yCoord = computerCURR->yCoord;
                 prevX = xCoord;
                 prevY = yCoord;
-                fprintf(stderr,"computerCURRX = %d\ncomputerCURRY = %d\nxCoord = %d\nyCoord = %d\n",computerCURR->xCoord,computerCURR->yCoord,xCoord,yCoord);
             }
             break;
     }
@@ -391,12 +387,6 @@ void closeJoystick(void){
 
 
 void checkJoystick(void){
-    if(turn == 0){
-        fprintf(stderr,"\nPlayer's turn\n");
-    }
-    if(turn == 1){
-        fprintf(stderr,"\nComputer's turn\n");
-    }
     pollJoystick(joystick,handler,delay);
 }
 
