@@ -90,15 +90,15 @@ void handler(unsigned int code){
 
                 int currColor = getColorVal(xCoord,yCoord); 
                 
-                if(currColor == 0){
-                    displayChooseMove(xCoord,yCoord,'g');
-                }
-                else if(currColor == 31){
-                    displayChooseMove(xCoord,yCoord,'b');
-                }
-                else if(currColor == 63488){
-                    displayChooseMove(xCoord,yCoord,'r');
-                }
+                //if(currColor == 0){
+                //    displayChooseMove(xCoord,yCoord,'g');
+                //}
+                //else if(currColor == 31){
+                //    displayChooseMove(xCoord,yCoord,'g');
+                //}
+                //else if(currColor == 63488){
+                displayChooseMove(xCoord,yCoord,'g');
+                //}
                 prevColor = currColor;
                 prevY = yCoord;
                 prevX = xCoord;
@@ -142,15 +142,7 @@ void handler(unsigned int code){
 
                 int currColor = getColorVal(xCoord,yCoord);
 
-                if(currColor == 0){
-                    displayChooseMove(xCoord,yCoord,'g');
-                }
-                else if(currColor == 31){
-                    displayChooseMove(xCoord,yCoord,'b');
-                }
-                else if(currColor == 63488){
-                    displayChooseMove(xCoord,yCoord,'r');
-                }
+                displayChooseMove(xCoord,yCoord,'g');
                 prevColor = currColor;
                 prevY = yCoord;
                 prevX = xCoord;
@@ -194,15 +186,7 @@ void handler(unsigned int code){
 
                 int currColor = getColorVal(xCoord,yCoord);
 
-                if(currColor == 0){
-                    displayChooseMove(xCoord,yCoord,'g');
-                }
-                else if(currColor == 31){
-                    displayChooseMove(xCoord,yCoord,'b');
-                }
-                else{
-                    displayChooseMove(xCoord,yCoord,'r');
-                }
+                displayChooseMove(xCoord,yCoord,'g');
                 prevColor = currColor;
                 prevY = yCoord;
                 prevX = xCoord;
@@ -246,15 +230,7 @@ void handler(unsigned int code){
 
                 int currColor = getColorVal(xCoord,yCoord);
 
-                if(currColor == 0){
-                    displayChooseMove(xCoord,yCoord,'g');
-                }
-                else if(currColor == 31){
-                    displayChooseMove(xCoord,yCoord,'b');
-                }
-                else{
-                    displayChooseMove(xCoord,yCoord,'r');
-                }
+                displayChooseMove(xCoord,yCoord,'g');
                 prevColor = currColor;
                 prevY = yCoord;
                 prevX = xCoord;
