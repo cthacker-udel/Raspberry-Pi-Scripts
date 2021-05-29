@@ -283,7 +283,9 @@ void handler(unsigned int code){
             fprintf(stderr,"\n!=!=!=\nPressed Enter\n!=!=!=\n");
             if(turn == 0){
                 if(chooseMove == 1){ // move selected
-                    validMove(playerCURR,xCoord,yCoord);
+                    if(validMove(playerCURR,xCoord,yCoord)){
+                        turn = 0;
+                    }
                 }
                 else{
                     chooseMove = 1;
@@ -361,6 +363,10 @@ int validMove(checkersPiece *currPiece, int x2, int y2){
                 // just update move, add functionality if opposing player is in space
                 if(fabs(x2 - currPiece->xCoord) == 1 && fabs(y2 - currPiece->yCoord) == 1 && getColorVal(x2,y2) == 2016){
                     fprintf(stderr,"\n\n------ VALID MOVE -------\n\n");
+                    bm->pixel[currPiece->xCoord][currPiece->yCoord] = BLACK;
+                    currPiece->xCoord = x2;
+                    currPiece->yCoord = y2;
+                    bm->pixel[x2][y2] = RED;
                     return 1;
                 }
                 else if(fabs(x2 - currPiece->xCoord == 2) && fabs(y2 - currPiece->yCoord) == 2 && getColorVal(x2,y2) == 2016){
