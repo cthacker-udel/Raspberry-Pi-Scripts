@@ -19,6 +19,8 @@ typedef struct piece{
 }checkersPiece;
 
 
+int validMove(checkersPiece *, int, int);
+
 checkersPiece *makePiece(int x, int y, int isKing);
 
 void display_team_1(pi_framebuffer_t *dev);
