@@ -19,6 +19,8 @@ typedef struct piece{
 }checkersPiece;
 
 
+void setTurn(int);
+
 int validMove(checkersPiece *, int, int);
 
 checkersPiece *makePiece(int x, int y, int isKing);

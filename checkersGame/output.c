@@ -87,7 +87,7 @@ checkersPiece *getComputerTeam(){
 
 void currCursor(checkersPiece *currPiece){
     
-    printf("\n\n---------------\nThe current turn is : %s",getTurn() == 1? "computer": "player");
+    printf("\n\n---------------\nThe current turn(%d) is : %s",getTurn(),getTurn() == 1? "computer": "player");
 
     printf("\n\nCurrent coordinates of cursor are : %d,%d\n--------------------------\n",currPiece->xCoord,currPiece->yCoord);
 
@@ -153,7 +153,6 @@ void display_user_team(){
         }
 
         bm->pixel[0][0] = RED;
-
         newPiece = craftPiece(2,0);
         newPiece->next = PLAYERHEAD;
         PLAYERHEAD = newPiece;

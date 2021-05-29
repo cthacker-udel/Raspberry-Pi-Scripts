@@ -43,14 +43,13 @@ void coinFlip(){
     else{
         turn = 0; // Player's turn
     }
+    computerCURR = getComputerTeam();
+    playerCURR = getPlayerTeam();
     if(turn == 1){
-        computerCURR = getComputerTeam();
         currCursor(computerCURR);
     }
     else{
-        playerCURR = getPlayerTeam();
         currCursor(playerCURR);
-
     }
 }
 
@@ -284,7 +283,7 @@ void handler(unsigned int code){
             if(turn == 0){
                 if(chooseMove == 1){ // move selected
                     if(validMove(playerCURR,xCoord,yCoord)){
-                        turn = 0;
+                        setTurn(1);
                     }
                 }
                 else{
@@ -297,8 +296,9 @@ void handler(unsigned int code){
             }
             else{
                 if(chooseMove == 1){
-                    printf("\n\nREACHED ELSE KEY_ENTER");
-                    turn = 0;
+                    if(validMove(computerCURR,xCoord,yCoord)){
+                        setTurn(0);
+                    }
                 }
                 else{
                     chooseMove = 1;
@@ -394,6 +394,7 @@ int validMove(checkersPiece *currPiece, int x2, int y2){
                 }
                 else{
                     fprintf(stderr,"\n\n Reached else \nStats : \nCURR(x,y) = (%d,%d)\nGREEN(x,y) = (%d,%d)\nCURRCOLOR = %d\n\n",currPiece->xCoord,currPiece->yCoord,x2,y2,getColorVal(x2,y2));
+                    return 0;
                 }
                 //bm->pixel[xCoord][yCoord] = RED;
                 //bm->pixel[currPiece->xCoord][currPiece->yCoord] = BLACK;
@@ -403,15 +404,45 @@ int validMove(checkersPiece *currPiece, int x2, int y2){
             }
         }
         else{
-            if(bm->pixel[xCoord][yCoord] == BLUE){
+            if(bm->pixel[x2][y2] == BLUE){
+                fprintf(stderr,"\n\n -------------------- INVALID MOVE ----------------------- \n\n");
                 return 0;
             }
             else{
-                bm->pixel[xCoord][yCoord] = BLUE;
-                bm->pixel[currPiece->xCoord][currPiece->yCoord] = BLACK;
-                turn = 0;
-                currPiece->xCoord = xCoord;
-                currPiece->yCoord = yCoord;
+                if(fabs(x2 - currPiece->xCoord) == 1 && fabs(y2 - currPiece->yCoord) == 1 && getColorVal(x2,y2) == 2016){
+                    fprintf(stderr,"\n\n ------------ VALID MOVE ------------- \n\n");
+                    bm->pixel[currPiece->xCoord][currPiece->yCoord] = BLACK;
+                    currPiece->xCoord = x2;
+                    currPiece->yCoord = y2;
+                    bm->pixel[x2][y2] = BLUE;
+                    return 1;
+                }
+                else if(fabs(x2 - currPiece->xCoord) == 2 && fabs(y2 - currPiece->yCoord) == 2 && getColorVal(x2,y2) == 2016){
+                    if(x2 > currPiece->xCoord){
+                        if(getColorVal(x2-1,y2-1) == 63488 || getColorVal(x2-1,y2+1) == 63488){
+                            fprintf(stderr,"\n\n ---------- VALID MOVE ------------- \n\n");
+                            return 1;
+                        }
+                        else{
+                            fprintf(stderr,"\n\n ----------- INVALID MOVE -------------- \n\n");
+                            return 0;
+                        }
+                    }
+                    else if(x2 < currPiece->xCoord){
+                        if(getColorVal(x2+1,y2-1) == 63488 || getColorVal(x2+1,y2+1) == 63488){
+                            fprintf(stderr,"\n\n -------------- VALID MOVE --------------- \n\n");
+                            return 1;
+                        }
+                        else{
+                            return 0;
+                        }
+                    }
+                }
+                else{
+                    fprintf(stderr,"\n\n Reached else \nStats : \nCURR(x,y) = (%d,%d)\nGREEN(x,y) = (%d,%d)\nCURRCOLOR = %d\n\n",currPiece->xCoord,currPiece->yCoord,x2,y2,getColorVal(x2,y2));
+                    return 0;
+                }
+
             }
         }
     }
@@ -450,6 +481,10 @@ void setDelay(int newDelay){
 
 int getTurn(){
     return turn;
+}
+
+void setTurn(int newTurn){
+    turn = newTurn;
 }
 
 int getXCoord(){
