@@ -77,6 +77,27 @@ void showTeam(checkersPiece *TEAM){
 
 }
 
+
+void displayNumberOfComputerPieces(){
+    int count = 0;
+    checkersPiece *head = COMPUTERHEAD;
+    while(head != NULL){
+        head = head->next;
+        count++;
+    }
+    fprintf(stderr,"\n\n()()()()()() COMPUTER PIECES - %d ()()()()()()\n\n",count);
+}
+
+void displayNumberOfPlayerPieces(){
+    int count = 0;
+    checkersPiece *head = PLAYERHEAD;
+    while(head != NULL){
+        head = head->next;
+        count++;
+    }
+    fprintf(stderr,"\n\n[][][][][][] PLAYER PIECES - %d [][][][][][]\n\n",count);
+}
+
 checkersPiece *getPlayerTeam(){
     return PLAYERHEAD;
 }
@@ -100,6 +121,77 @@ void currCursor(checkersPiece *currPiece){
         bm->pixel[x][y] = BLACK;
         break;
     }
+}
+
+
+void removePlayerPiece(int x, int y){
+
+    checkersPiece *head = PLAYERHEAD;
+    checkersPiece *prevPiece;
+
+    if(head->xCoord == x && head->yCoord == y){
+        if(head->next == NULL){
+            head = NULL;
+            printf("\n\n~~~~~~ COMPUTER WON ~~~~~~\n\n");
+            return;
+        }
+        else{
+            displayNumberOfPlayerPieces();
+            checkersPiece *tempHead = head->next;
+            head->next = NULL;
+            head = NULL;
+            PLAYERHEAD = tempHead;
+            displayNumberOfPlayerPieces();
+            return;
+        }
+    }
+
+    while(head->next != NULL){
+        prevPiece = head;
+        head = head->next;
+        if(head->xCoord == x && head->yCoord == y){
+            prevPiece->next = head->next;
+            head->next = NULL;
+            head = NULL;
+            return;
+        }
+    }
+
+}
+
+void removeComputerPiece(int x, int y){
+    
+    checkersPiece *head = COMPUTERHEAD;
+    checkersPiece *prevPiece;
+
+    if(head->xCoord == x && head->yCoord == y){
+        if(head->next == NULL){
+            head = NULL;
+            printf("\n\n~~~~~~~~~ PLAYER WON ~~~~~~~~~\n\n");
+            return;
+        }
+        else{
+            displayNumberOfComputerPieces();
+            checkersPiece *tempHead = head->next;
+            head->next = NULL;
+            head = NULL;
+            COMPUTERHEAD = tempHead;
+            displayNumberOfComputerPieces();
+            return;
+        }
+    }
+
+    while(head->next != NULL){
+        prevPiece = head;
+        head = head->next;
+        if(head->xCoord == x && head->yCoord == y){
+            prevPiece->next = head->next;
+            head->next = NULL;
+            head = NULL;
+            return;
+        }
+    }
+
 }
 
 void displayChooseMove(int x, int y, char color){

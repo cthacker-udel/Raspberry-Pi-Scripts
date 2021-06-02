@@ -27,6 +27,10 @@ checkersPiece *makePiece(int x, int y, int isKing);
 
 void display_created_user_team(void);
 
+void removeComputerPiece(int,int);
+
+void removePlayerPiece(int,int);
+
 void display_created_computer_team(void);
 
 void display_team_1(pi_framebuffer_t *dev);

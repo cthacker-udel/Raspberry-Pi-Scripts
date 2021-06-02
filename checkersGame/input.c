@@ -295,8 +295,6 @@ void handler(unsigned int code){
                     chooseMove = 1;
                     xCoord = playerCURR->xCoord;
                     yCoord = playerCURR->yCoord;
-                    prevX = xCoord;
-                    prevY = yCoord;
                 }
             }
             else{
@@ -349,7 +347,9 @@ int validMove(checkersPiece *currPiece, int x2, int y2){
 
     pi_framebuffer_t *fb = getDisplay();
    
-    sense_fb_bitmap_t *bm = fb->bitmap;  
+    sense_fb_bitmap_t *bm = fb->bitmap; 
+
+    fprintf(stderr,"\n\n Reached else \nStats : \nCURR(x,y) = (%d,%d)\nGREEN(x,y) = (%d,%d)\nCURRCOLOR = %d\n\n",currPiece->xCoord,currPiece->yCoord,x2,y2,getColorVal(x2,y2));
 
     if(currPiece->xCoord == 7 && x2 == 0){
         fprintf(stderr,"\n\n --------------- INVALID MOVE ---------------- \n\n");
@@ -368,7 +368,7 @@ int validMove(checkersPiece *currPiece, int x2, int y2){
             else{
                 // just update move, add functionality if opposing player is in space
                 if(fabs(x2 - currPiece->xCoord) == 1 && fabs(y2 - currPiece->yCoord) == 1 && getColorVal(x2,y2) == 2016){
-                    fprintf(stderr,"\n\n------ VALID MOVE -------(1 - user)\n\n");
+                    fprintf(stderr,"\n\n------ VALID MOVE -------(1 - user) - Standard Move\n\n");
                     bm->pixel[currPiece->xCoord][currPiece->yCoord] = BLACK;
                     currPiece->xCoord = x2;
                     currPiece->yCoord = y2;
@@ -376,8 +376,8 @@ int validMove(checkersPiece *currPiece, int x2, int y2){
                 }
                 else if(fabs(x2 - currPiece->xCoord) == 2 && fabs(y2 - currPiece->yCoord) == 2 && getColorVal(x2,y2) == 2016){
                     if(x2 > currPiece->xCoord){
-                        if(getColorVal(x2-1,y2-1) == 31 || getColorVal(x2-1,y2+1) == 31){
-                            fprintf(stderr,"\n\n--------- VALID MOVE -----------(2 - user)\n\n");
+                        if(getColorVal(x2+1,y2-1) == 31 || getColorVal(x2+1,y2+1) == 31){
+                            fprintf(stderr,"\n\n--------- VALID MOVE -----------(2 - user) - ATTACK!(left to right)\n\n");
                             return 1;
                         }
                         else{
@@ -387,7 +387,17 @@ int validMove(checkersPiece *currPiece, int x2, int y2){
                     }
                     else if(x2 < currPiece->xCoord){
                         if(getColorVal(x2+1,y2-1) == 31 || getColorVal(x2+1,y2+1) == 31){
-                            fprintf(stderr,"\n\n ---------------- VALID MOVE ---------------- (3 - user)\n\n");
+                            fprintf(stderr,"\n\n ---------------- VALID MOVE ---------------- (3 - user) - Attack(Right to left)\n\n");
+                            if(getColorVal(x2+1,y2-1) == 31){
+                                bm->pixel[x2+1][y2-1] = BLACK;
+                                bm->pixel[x2][y2] = RED;
+                                bm->pixel[currPiece->xCoord][currPiece->yCoord] = BLACK;
+                                currPiece->xCoord = x2;
+                                currPiece->yCoord = y2;
+                                removeComputerPiece(x2+1,y2-1);
+                                computerCURR = getComputerTeam();
+                                return 1;
+                            }
                             return 1;
                         }
                         else{
