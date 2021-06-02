@@ -13,6 +13,8 @@ int main(){
     coinFlip();
     while(1){
         checkJoystick();
+        display_created_user_team();
+        display_created_computer_team();
         if(getTurn() == 1){
             currCursor(getComputerCURR());
         }

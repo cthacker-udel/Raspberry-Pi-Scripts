@@ -96,17 +96,10 @@ void currCursor(checkersPiece *currPiece){
     int y = currPiece->yCoord;
     sense_fb_bitmap_t *bm = fb->bitmap;
     while(1){
-        bm->pixel[x][y] = BLACK;
         checkJoystick();
+        bm->pixel[x][y] = BLACK;
         break;
     }
-    if(getTurn() == 0){
-        bm->pixel[x][y] = RED;
-    }
-    else if(getTurn() == 1){
-        bm->pixel[x][y] = BLUE;
-    }
-
 }
 
 void displayChooseMove(int x, int y, char color){
@@ -136,6 +129,34 @@ int getColorVal(int x, int y){
     sense_fb_bitmap_t *bm = fb->bitmap;
     int colorVal = bm->pixel[x][y];
     return colorVal;
+}
+
+
+void display_created_user_team(){
+
+    sense_fb_bitmap_t *bm = fb->bitmap;
+
+    checkersPiece *head = PLAYERHEAD;
+
+    while(head != NULL){
+        bm->pixel[head->xCoord][head->yCoord] = RED;
+        head = head->next;
+    }
+
+}
+
+
+void display_created_computer_team(){
+    
+    sense_fb_bitmap_t *bm = fb->bitmap;
+
+    checkersPiece *head = COMPUTERHEAD;
+
+    while(head != NULL){
+        bm->pixel[head->xCoord][head->yCoord] = BLUE;
+        head = head->next;
+    }
+
 }
 
 
