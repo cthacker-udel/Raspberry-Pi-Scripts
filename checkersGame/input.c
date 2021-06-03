@@ -398,6 +398,17 @@ int validMove(checkersPiece *currPiece, int x2, int y2){
                                 computerCURR = getComputerTeam();
                                 return 1;
                             }
+                            else{
+                                bm->pixel[x2+1][y2+1] = BLACK;
+                                bm->pixel[x2][y2] = RED;
+                                bm->pixel[currPiece->xCoord][currPiece->yCoord] = BLACK;
+                                currPiece->xCoord = x2;
+                                currPiece->yCoord = y2;
+                                removeComputerPiece(x2+1,y2+1);
+                                computerCURR = getComputerTeam();
+                                return 1;
+                            }
+
                             return 1;
                         }
                         else{
