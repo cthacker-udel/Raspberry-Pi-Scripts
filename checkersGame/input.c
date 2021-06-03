@@ -378,7 +378,7 @@ int validMove(checkersPiece *currPiece, int x2, int y2){
                     if(x2 > currPiece->xCoord){
                         if(getColorVal(x2-1,y2-1) == 31 || getColorVal(x2-1,y2+1) == 31){
                             fprintf(stderr,"\n\n--------- VALID MOVE -----------(2 - user) - ATTACK!(left to right)\n\n");
-                            if(getColorVal(x2-1,y2-1) == 31){
+                            if(getColorVal(x2-1,y2-1) == 31 && currPiece->xCoord == x2-2 && currPiece->yCoord == y2-2){
                                 bm->pixel[x2-1][y2-1] = BLACK;
                                 bm->pixel[x2][y2] = RED;
                                 bm->pixel[currPiece->xCoord][currPiece->yCoord] = BLACK;
@@ -388,7 +388,7 @@ int validMove(checkersPiece *currPiece, int x2, int y2){
                                 computerCURR = getComputerTeam();
                                 return 1;
                             }
-                            else{
+                            else if(getColorVal(x2-1,y2+1) == 31 && currPiece->xCoord == x2+2 && currPiece->yCoord == y2-2){
                                 bm->pixel[x2-1][y2+1] = BLACK;
                                 bm->pixel[x2][y2] = RED;
                                 bm->pixel[currPiece->xCoord][currPiece->yCoord] = BLACK;
@@ -407,7 +407,7 @@ int validMove(checkersPiece *currPiece, int x2, int y2){
                     else if(x2 < currPiece->xCoord){
                         if(getColorVal(x2+1,y2-1) == 31 || getColorVal(x2+1,y2+1) == 31){
                             fprintf(stderr,"\n\n ---------------- VALID MOVE ---------------- (3 - user) - Attack(Right to left)\n\n");
-                            if(getColorVal(x2+1,y2-1) == 31){
+                            if(getColorVal(x2+1,y2-1) == 31 && currPiece->xCoord == x2+2 && currPiece->yCoord == y2-2){
                                 bm->pixel[x2+1][y2-1] = BLACK;
                                 bm->pixel[x2][y2] = RED;
                                 bm->pixel[currPiece->xCoord][currPiece->yCoord] = BLACK;
@@ -417,7 +417,7 @@ int validMove(checkersPiece *currPiece, int x2, int y2){
                                 computerCURR = getComputerTeam();
                                 return 1;
                             }
-                            else{
+                            else if(getColorVal(x2+1,y2+1) == 31 && currPiece->xCoord == x2+2 && currPiece->yCoord == y2+2){
                                 bm->pixel[x2+1][y2+1] = BLACK;
                                 bm->pixel[x2][y2] = RED;
                                 bm->pixel[currPiece->xCoord][currPiece->yCoord] = BLACK;
