@@ -462,8 +462,27 @@ int validMove(checkersPiece *currPiece, int x2, int y2){
                 else if(fabs(x2 - currPiece->xCoord) == 2 && fabs(y2 - currPiece->yCoord) == 2 && getColorVal(x2,y2) == 2016){
                     if(x2 > currPiece->xCoord){
                         if(getColorVal(x2-1,y2-1) == 63488 || getColorVal(x2-1,y2+1) == 63488){
-                            fprintf(stderr,"\n\n ---------- VALID MOVE ------------- \n\n");
-                            return 1;
+                            fprintf(stderr,"\n\n ---------- VALID MOVE ------------- (computer - left to right) \n\n");
+                            if(getColorVal(x2-1,y2-1) == 63488 && currPiece->xCoord == x2-2 && currPiece->yCoord == y2-2){
+                                bm->pixel[x2-1][y2-1] = BLACK;
+                                bm->pixel[x2][y2] = BLUE;
+                                bm->pixel[currPiece->xCoord][currPiece->yCoord] = BLACK;
+                                currPiece->xCoord = x2;
+                                currPiece->yCoord = y2;
+                                removePlayerPiece(x2-1,y2-1);
+                                playerCURR = getPlayerTeam();
+                                return 1;
+                            }
+                            else if(getColorVal(x2-1,y2+1) == 63488 && currPiece->xCoord == x2+2 && currPiece->yCoord == y2-2){
+                                bm->pixel[x2-1][y2+1] = BLACK;
+                                bm->pixel[x2][y2] = BLUE;
+                                bm->pixel[currPiece->xCoord][currPiece->yCoord] = BLACK;
+                                currPiece->xCoord = x2;
+                                currPiece->yCoord = y2;
+                                removePlayerPiece(x2-1,y2+1);
+                                playerCURR = getPlayerTeam();
+                                return 1;
+                            }
                         }
                         else{
                             fprintf(stderr,"\n\n ----------- INVALID MOVE -------------- \n\n");
@@ -472,8 +491,30 @@ int validMove(checkersPiece *currPiece, int x2, int y2){
                     }
                     else if(x2 < currPiece->xCoord){
                         if(getColorVal(x2+1,y2-1) == 63488 || getColorVal(x2+1,y2+1) == 63488){
-                            fprintf(stderr,"\n\n -------------- VALID MOVE --------------- \n\n");
-                            return 1;
+                            fprintf(stderr,"\n\n -------------- VALID MOVE ---------------(computer - Right to left) \n\n");
+                            fprintf(stderr,"\n\n Reached else \nStats : \nCURR(x,y) = (%d,%d)\nGREEN(x,y) = (%d,%d)\nCURRCOLOR = %d\n\n",currPiece->xCoord,currPiece->yCoord,x2,y2,getColorVal(x2,y2));
+                            if(getColorVal(x2+1,y2-1) == 63488 && currPiece->xCoord == x2+2 && currPiece->yCoord == y2-2){
+                                printf("\n\n First if\n\n");
+                                bm->pixel[x2+1][y2-1] = BLACK;
+                                bm->pixel[x2][y2] = BLUE;
+                                bm->pixel[currPiece->xCoord][currPiece->yCoord] = BLACK;
+                                currPiece->xCoord = x2;
+                                currPiece->yCoord = y2;
+                                removePlayerPiece(x2+1,y2-1);
+                                playerCURR = getPlayerTeam();
+                                return 1;
+                            }
+                            else if(getColorVal(x2+1,y2+1) == 63488 && currPiece->xCoord == x2+2 && currPiece->yCoord == y2+2){
+                                printf("\n\n else \n\n");
+                                bm->pixel[x2+1][y2+1] = BLACK;
+                                bm->pixel[x2][y2] = BLUE;
+                                bm->pixel[currPiece->xCoord][currPiece->yCoord] = BLACK;
+                                currPiece->xCoord = x2;
+                                currPiece->yCoord = y2;
+                                removePlayerPiece(x2+1,y2+1);
+                                playerCURR = getPlayerTeam();
+                                return 1;
+                            }
                         }
                         else{
                             return 0;

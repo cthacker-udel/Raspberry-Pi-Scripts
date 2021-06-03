@@ -129,6 +129,8 @@ void removePlayerPiece(int x, int y){
     checkersPiece *head = PLAYERHEAD;
     checkersPiece *prevPiece;
 
+    fprintf(stderr,"\nRemove player piece passed the value : %d,%d",x,y);
+
     if(head->xCoord == x && head->yCoord == y){
         if(head->next == NULL){
             head = NULL;
@@ -146,6 +148,7 @@ void removePlayerPiece(int x, int y){
         }
     }
 
+    displayNumberOfPlayerPieces();
     while(head->next != NULL){
         prevPiece = head;
         head = head->next;
@@ -153,6 +156,7 @@ void removePlayerPiece(int x, int y){
             prevPiece->next = head->next;
             head->next = NULL;
             head = NULL;
+            displayNumberOfPlayerPieces();
             return;
         }
     }
