@@ -388,7 +388,7 @@ int validMove(checkersPiece *currPiece, int x2, int y2){
                                 computerCURR = getComputerTeam();
                                 return 1;
                             }
-                            else if(getColorVal(x2-1,y2+1) == 31 && currPiece->xCoord == x2+2 && currPiece->yCoord == y2-2){
+                            else if(getColorVal(x2-1,y2+1) == 31 && currPiece->xCoord == x2-2 && currPiece->yCoord == y2+2){
                                 bm->pixel[x2-1][y2+1] = BLACK;
                                 bm->pixel[x2][y2] = RED;
                                 bm->pixel[currPiece->xCoord][currPiece->yCoord] = BLACK;
@@ -464,6 +464,7 @@ int validMove(checkersPiece *currPiece, int x2, int y2){
                         if(getColorVal(x2-1,y2-1) == 63488 || getColorVal(x2-1,y2+1) == 63488){
                             fprintf(stderr,"\n\n ---------- VALID MOVE ------------- (computer - left to right) \n\n");
                             if(getColorVal(x2-1,y2-1) == 63488 && currPiece->xCoord == x2-2 && currPiece->yCoord == y2-2){
+                                printf("\nReched if\n");
                                 bm->pixel[x2-1][y2-1] = BLACK;
                                 bm->pixel[x2][y2] = BLUE;
                                 bm->pixel[currPiece->xCoord][currPiece->yCoord] = BLACK;
@@ -473,7 +474,8 @@ int validMove(checkersPiece *currPiece, int x2, int y2){
                                 playerCURR = getPlayerTeam();
                                 return 1;
                             }
-                            else if(getColorVal(x2-1,y2+1) == 63488 && currPiece->xCoord == x2+2 && currPiece->yCoord == y2-2){
+                            else if(getColorVal(x2-1,y2+1) == 63488 && currPiece->xCoord == x2-2 && currPiece->yCoord == y2+2){
+                                printf("\nReached else\n");
                                 bm->pixel[x2-1][y2+1] = BLACK;
                                 bm->pixel[x2][y2] = BLUE;
                                 bm->pixel[currPiece->xCoord][currPiece->yCoord] = BLACK;
