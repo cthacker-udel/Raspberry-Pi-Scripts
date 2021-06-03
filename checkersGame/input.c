@@ -376,9 +376,28 @@ int validMove(checkersPiece *currPiece, int x2, int y2){
                 }
                 else if(fabs(x2 - currPiece->xCoord) == 2 && fabs(y2 - currPiece->yCoord) == 2 && getColorVal(x2,y2) == 2016){
                     if(x2 > currPiece->xCoord){
-                        if(getColorVal(x2+1,y2-1) == 31 || getColorVal(x2+1,y2+1) == 31){
+                        if(getColorVal(x2-1,y2-1) == 31 || getColorVal(x2-1,y2+1) == 31){
                             fprintf(stderr,"\n\n--------- VALID MOVE -----------(2 - user) - ATTACK!(left to right)\n\n");
-                            return 1;
+                            if(getColorVal(x2-1,y2-1) == 31){
+                                bm->pixel[x2-1][y2-1] = BLACK;
+                                bm->pixel[x2][y2] = RED;
+                                bm->pixel[currPiece->xCoord][currPiece->yCoord] = BLACK;
+                                currPiece->xCoord = x2;
+                                currPiece->yCoord = y2;
+                                removeComputerPiece(x2-1,y2-1);
+                                computerCURR = getComputerTeam();
+                                return 1;
+                            }
+                            else{
+                                bm->pixel[x2-1][y2+1] = BLACK;
+                                bm->pixel[x2][y2] = RED;
+                                bm->pixel[currPiece->xCoord][currPiece->yCoord] = BLACK;
+                                currPiece->xCoord = x2;
+                                currPiece->yCoord = y2;
+                                removeComputerPiece(x2-1,y2+1);
+                                computerCURR = getComputerTeam();
+                                return 1;
+                            }
                         }
                         else{
                             fprintf(stderr,"\n\n ------------- INVALID MOVE --------------- \n\n");
@@ -408,8 +427,6 @@ int validMove(checkersPiece *currPiece, int x2, int y2){
                                 computerCURR = getComputerTeam();
                                 return 1;
                             }
-
-                            return 1;
                         }
                         else{
                             fprintf(stderr,"\n\n --------------- INVALID MOVE ---------------- \n\n");
