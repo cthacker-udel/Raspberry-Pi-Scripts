@@ -135,6 +135,7 @@ void removePlayerPiece(int x, int y){
         if(head->next == NULL){
             head = NULL;
             printf("\n\n~~~~~~ COMPUTER WON ~~~~~~\n\n");
+            raise(SIGABRT);
             return;
         }
         else{
@@ -172,6 +173,7 @@ void removeComputerPiece(int x, int y){
         if(head->next == NULL){
             head = NULL;
             printf("\n\n~~~~~~~~~ PLAYER WON ~~~~~~~~~\n\n");
+            raise(SIGABRT);
             return;
         }
         else{

@@ -353,17 +353,53 @@ int validMove(checkersPiece *currPiece, int x2, int y2){
 
     if(currPiece->xCoord == 7 && x2 == 0){
         fprintf(stderr,"\n\n --------------- INVALID MOVE ---------------- \n\n");
-        return 0;
+        chooseMove = 0;
+        if(getColorVal(x2,y2) == 31){
+            bm->pixel[x2][y2] = BLUE;
+            return 0;
+        }
+        else if(getColorVal(x2,y2) == 63488){
+            bm->pixel[x2][y2] = RED;
+            return 0;
+        }
+        else{
+            bm->pixel[x2][y2] = BLACK;
+            return 0;    
+        }
     }
     else if(currPiece->yCoord == 7 && y2 == 0){
         fprintf(stderr,"\n\n ------------------- INVALID MOVE ----------------- \n\n");
-        return 0;
+        chooseMove = 0;
+        if(getColorVal(x2,y2) == 31){
+            bm->pixel[x2][y2] = BLUE;
+            return 0;
+        }
+        else if(getColorVal(x2,y2) == 63488){
+            bm->pixel[x2][y2] = RED;
+            return 0;
+        }
+        else{
+            bm->pixel[x2][y2] = BLACK;
+            return 0;
+        }
     }
     else{
         if(turn == 0){
             if(bm->pixel[x2][y2] == RED){
                 fprintf(stderr,"\n\n --------------------- INVALID MOVE ------------------------ \n\n");
-                return 0;
+                chooseMove = 0;
+                if(getColorVal(x2,y2) == 31){
+                    bm->pixel[x2][y2] = BLUE;
+                    return 0;
+                }
+                else if(getColorVal(x2,y2) == 63488){
+                    bm->pixel[x2][y2] = RED;
+                    return 0;
+                }
+                else{
+                    bm->pixel[x2][y2] = BLACK;
+                    return 0;
+                }
             }
             else{
                 // just update move, add functionality if opposing player is in space
@@ -401,7 +437,19 @@ int validMove(checkersPiece *currPiece, int x2, int y2){
                         }
                         else{
                             fprintf(stderr,"\n\n ------------- INVALID MOVE --------------- \n\n");
-                            return 0;
+                            chooseMove = 0;
+                            if(getColorVal(x2,y2) == 31){
+                                bm->pixel[x2][y2] = BLUE;
+                                return 0;
+                            }
+                            else if(getColorVal(x2,y2) == 63488){
+                                bm->pixel[x2][y2] = RED;
+                                return 0;
+                            }
+                            else{
+                                bm->pixel[x2][y2] = BLACK;
+                                return 0;
+                            }
                         }
                     }
                     else if(x2 < currPiece->xCoord){
@@ -430,14 +478,38 @@ int validMove(checkersPiece *currPiece, int x2, int y2){
                         }
                         else{
                             fprintf(stderr,"\n\n --------------- INVALID MOVE ---------------- \n\n");
-                            return 0;
+                            chooseMove = 0;
+                            if(getColorVal(x2,y2) == 31){
+                                bm->pixel[x2][y2] = BLUE;
+                                return 0;
+                            }
+                            else if(getColorVal(x2,y2) == 63488){
+                                bm->pixel[x2][y2] = RED;
+                                return 0;
+                            }
+                            else{
+                                bm->pixel[x2][y2] = BLACK;
+                                return 0;
+                            }
                         }
                     
                     }
                 }
                 else{
                     fprintf(stderr,"\n\n Reached else \nStats : \nCURR(x,y) = (%d,%d)\nGREEN(x,y) = (%d,%d)\nCURRCOLOR = %d\n\n",currPiece->xCoord,currPiece->yCoord,x2,y2,getColorVal(x2,y2));
-                    return 0;
+                    chooseMove = 0;
+                    if(getColorVal(x2,y2) == 31){
+                        bm->pixel[x2][y2] = BLUE;
+                        return 0;
+                    }
+                    else if(getColorVal(x2,y2) == 63488){
+                        bm->pixel[x2][y2] = RED;
+                        return 0;
+                    }
+                    else{
+                        bm->pixel[x2][y2] = BLACK;
+                        return 0;
+                    }
                 }
                 //bm->pixel[xCoord][yCoord] = RED;
                 //bm->pixel[currPiece->xCoord][currPiece->yCoord] = BLACK;
@@ -449,7 +521,19 @@ int validMove(checkersPiece *currPiece, int x2, int y2){
         else{
             if(bm->pixel[x2][y2] == BLUE){
                 fprintf(stderr,"\n\n -------------------- INVALID MOVE ----------------------- \n\n");
-                return 0;
+                chooseMove = 0;
+                if(getColorVal(x2,y2) == 31){
+                    bm->pixel[x2][y2] = BLUE;
+                    return 0;
+                }
+                else if(getColorVal(x2,y2) == 63488){
+                    bm->pixel[x2][y2] = RED;
+                    return 0;
+                }
+                else{
+                    bm->pixel[x2][y2] = BLACK;
+                    return 0;
+                }
             }
             else{
                 if(fabs(x2 - currPiece->xCoord) == 1 && fabs(y2 - currPiece->yCoord) == 1 && getColorVal(x2,y2) == 2016){
@@ -488,7 +572,19 @@ int validMove(checkersPiece *currPiece, int x2, int y2){
                         }
                         else{
                             fprintf(stderr,"\n\n ----------- INVALID MOVE -------------- \n\n");
-                            return 0;
+                            chooseMove = 0;
+                            if(getColorVal(x2,y2) == 31){
+                                bm->pixel[x2][y2] = BLUE;
+                                return 0;
+                            }
+                            else if(getColorVal(x2,y2) == 63488){
+                                bm->pixel[x2][y2] = RED;
+                                return 0;
+                            }
+                            else{
+                                bm->pixel[x2][y2] = BLACK;
+                                return 0;
+                            }
                         }
                     }
                     else if(x2 < currPiece->xCoord){
@@ -519,13 +615,37 @@ int validMove(checkersPiece *currPiece, int x2, int y2){
                             }
                         }
                         else{
-                            return 0;
+                            chooseMove = 0;
+                            if(getColorVal(x2,y2) == 31){
+                                bm->pixel[x2][y2] = BLUE;
+                                return 0;
+                            }
+                            else if(getColorVal(x2,y2) == 63488){
+                                bm->pixel[x2][y2] = RED;
+                                return 0;
+                            }
+                            else{
+                                bm->pixel[x2][y2] = BLACK;
+                                return 0;
+                            }
                         }
                     }
                 }
                 else{
                     fprintf(stderr,"\n\n Reached else \nStats : \nCURR(x,y) = (%d,%d)\nGREEN(x,y) = (%d,%d)\nCURRCOLOR = %d\n\n",currPiece->xCoord,currPiece->yCoord,x2,y2,getColorVal(x2,y2));
-                    return 0;
+                    chooseMove = 0;
+                    if(getColorVal(x2,y2) == 31){
+                        bm->pixel[x2][y2] = BLUE;
+                        return 0;
+                    }
+                    else if(getColorVal(x2,y2) == 63488){
+                        bm->pixel[x2][y2] = RED;
+                        return 0;
+                    }
+                    else{
+                        bm->pixel[x2][y2] = BLACK;
+                        return 0;
+                    }
                 }
 
             }
