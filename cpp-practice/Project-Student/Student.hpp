@@ -1,8 +1,10 @@
-#include <string>
+using namespace std;
+#include <iostream>
 #include <ctype.h>
 #include <stdio.h>
 #include <iostream>
-using namespace std;
+#include <string>
+#include <vector>
 
 class Student{
     string name;
