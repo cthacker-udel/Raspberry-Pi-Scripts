@@ -13,6 +13,21 @@
 
 pi_framebuffer_t *fb = NULL;
 
+pokerCard *HEAD = NULL;
+
+pokerCard *createCard(char suit, int rank){
+    
+}
+
+
+void constructDeck(){
+
+
+
+}
+
+
+
 void openDisplay(void){
 
     if(!fb){

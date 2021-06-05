@@ -11,6 +11,7 @@ typedef struct card{
 
     char suit;
     int rank;
+    char *name;
     struct card *next;
 
 
