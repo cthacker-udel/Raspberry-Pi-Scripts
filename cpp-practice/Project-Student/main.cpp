@@ -1,13 +1,10 @@
-#include "Student.hpp"
+#include "School.hpp"
 
 
 int main(void){
 
-    Student student1;
+    School newSchool("Thacker University");
 
-    Student student2("Cameron Thacker",23);
-
-    cout << student2.toString() << endl;
-
+    cout << newSchool.toString() << endl;
 
 }

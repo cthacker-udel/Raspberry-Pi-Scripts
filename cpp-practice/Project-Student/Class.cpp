@@ -18,7 +18,7 @@ int Class::getSection(){
     return section;
 }
 
-vector<Student> getStudents(){
+vector<Student> Class::getStudents(){
     return students;
 }
 
