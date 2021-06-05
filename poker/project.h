@@ -7,3 +7,15 @@
 #include <stddef.h>
 #include <math.h>
 
+
+void openJoystick(void);
+void closeJoystick(void);
+void checkJoystick(void);
+void handler(unsigned int);
+
+
+
+void openDisplay(void);
+void closeDisplay(void);
+void clearDisplay(void);
+
