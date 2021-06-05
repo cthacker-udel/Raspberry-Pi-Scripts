@@ -7,12 +7,20 @@
 #include <stddef.h>
 #include <math.h>
 
+typedef struct card{
+
+    char suit;
+    int rank;
+    struct card *next;
+
+
+}pokerCard;
+
 
 void openJoystick(void);
 void closeJoystick(void);
 void checkJoystick(void);
 void handler(unsigned int);
-
 
 
 void openDisplay(void);
