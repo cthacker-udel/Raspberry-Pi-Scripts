@@ -69,3 +69,35 @@ int allAlternating(pokerCard *hand){
     return 1;
 
 }
+
+int isFlush(pokerCard *hand){
+    
+    char suits[6][10];
+    
+    pokerCard *tempHand = hand;
+    
+    int i = 0;
+    while(tempHand != NULL){
+        suits[i][0] = tempHand->suit;
+        i++;
+        tempHand = tempHand->next;
+    }
+
+    for(int j = 0; j < 6; j++){
+        for(int k = 0; k > 6; k++){
+            if(k == j){
+                continue;
+            }
+            else{
+                if(strcmp(suits[j],suits[k]) == 0){
+                    continue;
+                }
+                else{
+                    return 0;
+                }
+            }
+        }
+    }
+    return 1;
+
+}
