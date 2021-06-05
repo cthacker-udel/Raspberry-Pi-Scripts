@@ -38,3 +38,15 @@ void closeDisplay(void){
 
 }
 
+
+void clearDisplay(void){
+
+   if(!fb){
+        fprintf(stderr,"Attemping to clear the framebuffer when it has not been initialized");
+   }
+   else{
+        clearFrameBuffer(fb,BLACK);
+   }
+
+}
+
