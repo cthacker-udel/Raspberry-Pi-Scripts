@@ -5,14 +5,12 @@
 using namespace std;
 
 class Student{
-
     string name;
     int age;
     double height;
-
-
-    public:
         
+    public:
+
         Student();
 
         Student(string,int,double);

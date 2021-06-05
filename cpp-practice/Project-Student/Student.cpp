@@ -20,23 +20,23 @@ Student::Student(string newName, int newAge, double newHeight){
 }
 
 
-int getAge(){
+int Student::getAge(){
     return age;
 }
 
 
-string getName(){
+string Student::getName(){
     return name;
 }
 
-double getHeight(){
+double Student::getHeight(){
     return height;
 }
 
-string toString(Student theStudent){
+string Student::toString(Student theStudent){
     string theResult;
 
-    theResult += theStudent.name + " is " + theStudent.age " years old ";
+    theResult += theStudent.name + " is " + to_string(theStudent.age) + " years old ";
 
     return theResult;
 }
