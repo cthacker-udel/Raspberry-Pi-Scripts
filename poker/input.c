@@ -23,3 +23,15 @@ void openJoystick(void){
     }
 
 }
+
+void closeJoystick(void){
+
+    if(!joystick){
+        fprintf(stderr,"Attempting to close a joystick device that has already been closed");
+    }
+    else{
+        freeJoystick(joystick);
+        joystick = NULL;
+    }
+
+}
