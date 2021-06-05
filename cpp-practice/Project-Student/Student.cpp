@@ -33,10 +33,10 @@ double Student::getHeight(){
     return height;
 }
 
-string Student::toString(Student theStudent){
+string Student::toString(){
     string theResult;
 
-    theResult += theStudent.name + " is " + to_string(theStudent.age) + " years old ";
+    theResult += this->name + " is " + to_string(this->age) + " years old ";
 
     return theResult;
 }
