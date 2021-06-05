@@ -22,4 +22,9 @@ Cameron Thacker - University of Delaware
 
 Checkers functionality:
 
-- [x] Implement placing checkers on board
+- [x] Implement double move for pieces
+- [x] Implement ability to move backwards and forwards between each team's pieces
+
+Poker functionality:
+
+- [x] Implement input and output functionality
