@@ -134,6 +134,43 @@ int isThreePair(pokerCard *hand){
 
 }
 
+int isTwoPair(pokerCard *hand){
+    int ranks[5];
+    int pairs[2] = {0,0};
+
+    int i = 0;
+    int pairsIndex = 0;
+    pokerCard *tempHand = hand;
+    while(tempHand != NULL){
+        ranks[i] = tempHand->rank;
+        tempHand = tempHand->next;
+    }
+
+    for(i = 0; i < 5; i++){
+        for(int j = 0; j < 5; j++){
+            if(i == j){
+                continue;
+            }
+            else if(ranks[i] == ranks[j]){
+                for(int k = 0; k < 2; k++){
+                    if(pairs[k] == ranks[j]){
+                        break;
+                    }
+                }
+                pairs[pairsIndex] = ranks[i];
+                pairsIndex++;
+            }
+        }
+    }
+    for(int j = 0; j < 2; j++){
+        if(pairs[j] == 0){
+            return 0;
+        }
+    }
+    return 1;
+}
+
+
 
 
 int isPair(pokerCard *hand){
