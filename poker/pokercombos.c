@@ -102,6 +102,40 @@ int isFlush(pokerCard *hand){
 
 }
 
+int isThreePair(pokerCard *hand){
+    int ranks[5];
+
+    int i = 0;
+    pokerCard *tempHand = hand;
+
+    while(tempHand != NULL){
+        ranks[i] = tempHand->rank;
+        tempHand = tempHand->next;
+    }
+
+    int count = 0;
+    for(i = 0; i < 5; i++){
+        for(int j = 0; j < 5; j++){
+            if(i == j){
+                continue;
+            }
+            else if(ranks[i] == ranks[j]){
+                count++;
+            }
+        }
+        if(count == 3){
+            return 1;
+        }
+        else{
+            count = 0;
+        }
+    }
+    return 0;
+
+}
+
+
+
 int isPair(pokerCard *hand){
     
     int ranks[5];
