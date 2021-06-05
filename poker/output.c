@@ -13,3 +13,17 @@ void openDisplay(void){
     }
 
 }
+
+
+void closeDisplay(void){
+
+   if(fb){
+    fb = NULL;
+    freeFrameBuffer(fb);
+   }
+   else{
+    fprintf(stderr,"Attempting to close a framebuffer that has not been initialized or otherwise already closed");
+   }
+
+}
+
