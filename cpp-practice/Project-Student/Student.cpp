@@ -32,3 +32,11 @@ string getName(){
 double getHeight(){
     return height;
 }
+
+string toString(Student theStudent){
+    string theResult;
+
+    theResult += theStudent.name + " is " + theStudent.age " years old ";
+
+    return theResult;
+}

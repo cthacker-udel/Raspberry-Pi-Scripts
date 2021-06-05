@@ -25,6 +25,8 @@ class Student{
 
         double getHeight();
 
+        string toString(Student);
+
 };
 
 
