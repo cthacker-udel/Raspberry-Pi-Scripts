@@ -6,10 +6,11 @@
 #include <stdlib.h>
 #include <stddef.h>
 #include <math.h>
+#include <string.h>
 
 typedef struct card{
 
-    char suit;
+    char *suit;
     int rank;
     char *name;
     struct card *next;
@@ -28,3 +29,8 @@ void openDisplay(void);
 void closeDisplay(void);
 void clearDisplay(void);
 
+pokerCard *constructDeck(void);
+
+void displayHand(pokerCard *);
+
+int countCards(pokerCard *);

@@ -15,14 +15,59 @@ pi_framebuffer_t *fb = NULL;
 
 pokerCard *HEAD = NULL;
 
-pokerCard *createCard(char suit, int rank){
-    
+pokerCard *createCard(char *suit, int rank, char *name){
+   
+    pokerCard *newCard = (pokerCard *)malloc(sizeof(pokerCard));
+    newCard->suit = (char *)malloc(sizeof(char) * (strlen(suit)+1));
+    newCard->name = (char *)malloc(sizeof(char) * (strlen(name)+1));
+    strcpy(newCard->suit,suit);
+    newCard->rank = rank;
+    strcpy(newCard->name,name);
+    newCard->next = NULL;
+    return newCard;
+
+}
+
+void displayHand(pokerCard *hand){
+    pokerCard *tempHand = hand;
+    while(tempHand != NULL){
+        fprintf(stderr,"\n%s of %s\n",tempHand->name,tempHand->suit);
+        tempHand = tempHand->next;
+    }
+}
+
+pokerCard * getDeck(void){
+    return HEAD;
+}
+
+int countCards(pokerCard *hand){
+    int count = 0;
+    pokerCard *tempHand = hand;
+    while(tempHand != NULL){
+        count++;
+        tempHand = tempHand->next;
+    }
+    return count;
 }
 
 
-void constructDeck(){
-
-
+pokerCard * constructDeck(void){
+    
+    char suits[][10] = {"Hearts","Clubs","Diamonds","Spades"};
+    char names[][10] = {"Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten","Jack","Queen","King","Ace"};
+    for(int i = 0; i < 4; i++){
+        for(int j = 1; j <= 13; j++){
+            if(HEAD == NULL){
+                HEAD = createCard(suits[i],j,names[j-1]);
+            }
+            else{
+                pokerCard *newHead = createCard(suits[i],j,names[j-1]);
+                newHead->next = HEAD;
+                HEAD = newHead;
+            }
+        }
+    }
+    return HEAD;
 
 }
 
