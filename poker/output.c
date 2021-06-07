@@ -141,6 +141,15 @@ pokerCard *shuffle(pokerCard *deck){
 
 }
 
+pokerCard *combineHands(pokerCard *stack1, pokerCard *stack2){
+    pokerCard *tempHead = stack1;
+    while(tempHead->next != NULL){
+        tempHead = tempHead->next;
+    }
+    tempHead->next = stack2;
+    return tempHead;
+}
+
 
 pokerCard *createCard(char *suit, int rank, char *name){
    
