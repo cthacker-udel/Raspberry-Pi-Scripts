@@ -1,4 +1,5 @@
 #include "Student.hpp"
+#include <vector>
 
 class Class{
 

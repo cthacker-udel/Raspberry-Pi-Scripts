@@ -1,10 +1,5 @@
 using namespace std;
-#include <iostream>
-#include <ctype.h>
-#include <stdio.h>
-#include <iostream>
 #include <string>
-#include <vector>
 
 class Student{
     string name;
