@@ -15,6 +15,48 @@ pi_framebuffer_t *fb = NULL;
 
 pokerCard *HEAD = NULL;
 
+pokerCard *shuffle(pokerCard *deck){
+    int numCards = countCards(deck);
+    int middle = numCards / 2;
+
+    pokerCard *cut = deck;
+
+    printf("\nCUT = \n");
+    displayHandNoNewLine(cut);
+
+    for(int i = 0; i < middle; i++){
+        cut = cut->next;
+    }
+
+    pokerCard *riffle = cut->next;
+    cut->next = 0;
+    
+    printf("\nNEW RIFFLE = \n");
+    displayHandNoNewLine(riffle);
+    printf("\nNEW DECK = \n");
+    displayHandNoNewLine(deck);
+
+    pokerCard *newDeck = 0;
+    while(riffle || deck){
+        pokerCard *newCard;
+        if(riffle != NULL && drand48() < .5){
+            newCard = riffle;
+            riffle = riffle->next;
+            newCard->next = newDeck;
+            newDeck = newCard;
+        }
+        else if(deck){
+            newCard = deck;
+            deck = deck->next;
+            newCard->next = newDeck;
+            newDeck = newCard;
+        }
+    }
+    return newDeck;
+
+}
+
+
 pokerCard *createCard(char *suit, int rank, char *name){
    
     pokerCard *newCard = (pokerCard *)malloc(sizeof(pokerCard));
@@ -28,12 +70,24 @@ pokerCard *createCard(char *suit, int rank, char *name){
 
 }
 
+void displayHandNoNewLine(pokerCard *hand){
+    pokerCard *tempHand = hand;
+    fprintf(stderr,"\n-------------------Displaying Cards-------------------\n");
+    while(tempHand != NULL){
+        fprintf(stderr,"%s of %s,",tempHand->name,tempHand->suit);
+        tempHand = tempHand->next;
+    }
+    fprintf(stderr,"\n------------------------------------------------------\n");
+}
+
 void displayHand(pokerCard *hand){
     pokerCard *tempHand = hand;
+    fprintf(stderr,"\n-------------------\nDisplaying Cards\n-------------------\n");
     while(tempHand != NULL){
         fprintf(stderr,"\n%s of %s\n",tempHand->name,tempHand->suit);
         tempHand = tempHand->next;
     }
+    fprintf(stderr,"\n----------------------------------------------------------\n");
 }
 
 pokerCard * getDeck(void){

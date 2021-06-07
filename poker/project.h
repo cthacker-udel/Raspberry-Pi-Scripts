@@ -34,3 +34,7 @@ pokerCard *constructDeck(void);
 void displayHand(pokerCard *);
 
 int countCards(pokerCard *);
+
+pokerCard *shuffle(pokerCard *);
+
+void displayHandNoNewLine(pokerCard *);
