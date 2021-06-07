@@ -45,18 +45,18 @@ pokerCard *getDeck();
 
 pokerCard *draw(pokerCard *);
 
-pokerCard *addToHand(pokerCard *);
+pokerCard *initialPlayerHand();
 
-pokerCard *initialPlayerHand(void);
+pokerCard *initialComputerHand();
 
-pokerCard *initialComputerHand(void);
-
-pokerCard *initialTableCards(void);
+pokerCard *initialTableCards();
 
 pokerCard *getPlayerHand();
+
+pokerCard *addToHand(pokerCard *);
 
 pokerCard *getComputerHand();
 
 pokerCard *getTableCards();
 
-void startGame(void);
+void startGame();

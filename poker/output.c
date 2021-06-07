@@ -23,16 +23,14 @@ pokerCard *tableCards = NULL;
 
 pokerCard *addToHand(pokerCard *hand){
 
-    if(hand != NULL){
-        pokerCard *temp = hand;
-        while(temp->next != NULL){
-            temp = temp->next;
-        }
-        temp->next = draw(getDeck());
-        return temp;
+    if(hand == NULL){
+        hand = draw(getDeck());
+        return hand;
     }
     else{
-        hand = draw(getDeck());
+        pokerCard *newCard = draw(getDeck());
+        newCard->next = hand;
+        hand = newCard;
         return hand;
     }
 
@@ -40,22 +38,22 @@ pokerCard *addToHand(pokerCard *hand){
 
 
 pokerCard *initialComputerHand(){
-    pokerCard *computerHand;
+    pokerCard *computerHand = NULL;
     computerHand = addToHand(computerHand);
     computerHand = addToHand(computerHand);
     return computerHand;
 }
 
 
-pokerCard *initialPlayerHand(){
-    pokerCard *playerHand;
+pokerCard *initialPlayerHand(pokerCard *deck){
+    pokerCard *playerHand = NULL;
     playerHand = addToHand(playerHand);
     playerHand = addToHand(playerHand);
     return playerHand;
 }
 
-pokerCard *initialTableCards(){
-    pokerCard *tableCards;
+pokerCard *initialTableCards(pokerCard *deck){
+    pokerCard *tableCards = NULL;
     tableCards = addToHand(tableCards);
     tableCards = addToHand(tableCards);
     return tableCards;
@@ -91,11 +89,11 @@ pokerCard *getTableCards(){
     return tableCards;
 }
 
-void startGame(){
+void startGame(pokerCard *deck){
 
-    playerHand = initialPlayerHand();
-    computerHand = initialComputerHand();
-    tableCards = initialTableCards();
+    playerHand = initialPlayerHand(deck);
+    computerHand = initialComputerHand(deck);
+    tableCards = initialTableCards(deck);
     printf("\n\nPLAYER HAND : ");
     displayHand(playerHand);
     printf("\n\nCOMPUTER HAND : ");

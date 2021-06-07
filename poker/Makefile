@@ -1,8 +1,8 @@
+SHELL:=/bin/bash
 LDFLAGS := -L ~/lib -lsense -lm
 INCLUDE := -I ~/include
 
 all: poker
-
 
 poker: project.h input.o output.o main.o
 	cc -o poker input.o output.o main.o $(LDFLAGS) $(INCLUDE)
@@ -21,7 +21,7 @@ outputtest: output.o outputtest.o project.h
 
 
 run: poker
-	./poker
+	./random_poker.sh
 
 
 clean:
