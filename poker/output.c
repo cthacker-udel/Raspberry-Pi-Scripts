@@ -15,14 +15,104 @@ pi_framebuffer_t *fb = NULL;
 
 pokerCard *HEAD = NULL;
 
+pokerCard *playerHand = NULL;
+
+pokerCard *computerHand = NULL;
+
+pokerCard *tableCards = NULL;
+
+pokerCard *addToHand(pokerCard *hand){
+
+    if(hand != NULL){
+        pokerCard *temp = hand;
+        while(temp->next != NULL){
+            temp = temp->next;
+        }
+        temp->next = draw(getDeck());
+        return temp;
+    }
+    else{
+        hand = draw(getDeck());
+        return hand;
+    }
+
+}
+
+
+pokerCard *initialComputerHand(){
+    pokerCard *computerHand;
+    computerHand = addToHand(computerHand);
+    computerHand = addToHand(computerHand);
+    return computerHand;
+}
+
+
+pokerCard *initialPlayerHand(){
+    pokerCard *playerHand;
+    playerHand = addToHand(playerHand);
+    playerHand = addToHand(playerHand);
+    return playerHand;
+}
+
+pokerCard *initialTableCards(){
+    pokerCard *tableCards;
+    tableCards = addToHand(tableCards);
+    tableCards = addToHand(tableCards);
+    return tableCards;
+}
+
+
+pokerCard *draw(pokerCard *deck){
+    if(deck == NULL){
+        fprintf(stderr,"\n!!!!!!! NO CARDS TO DRAW - DECK EMPTY !!!!!!!\n");
+        return NULL;
+    }
+    else{
+        pokerCard *topCard = deck;
+        pokerCard *prevCard;
+        while(topCard->next != NULL){
+            prevCard = topCard;
+            topCard = topCard->next;
+        }
+        prevCard->next = NULL;
+        return topCard;
+    }
+}
+
+pokerCard *getPlayerHand(){
+    return playerHand;
+}
+
+pokerCard *getComputerHand(){
+    return computerHand;
+}
+
+pokerCard *getTableCards(){
+    return tableCards;
+}
+
+void startGame(){
+
+    playerHand = initialPlayerHand();
+    computerHand = initialComputerHand();
+    tableCards = initialTableCards();
+    printf("\n\nPLAYER HAND : ");
+    displayHand(playerHand);
+    printf("\n\nCOMPUTER HAND : ");
+    displayHand(computerHand);
+    printf("\n\nTABLE CARDS : ");
+    displayHand(tableCards);
+
+
+}
+
+
+
 pokerCard *shuffle(pokerCard *deck){
     int numCards = countCards(deck);
     int middle = numCards / 2;
 
     pokerCard *cut = deck;
-
-    printf("\nCUT = \n");
-    displayHandNoNewLine(cut);
 
     for(int i = 0; i < middle; i++){
         cut = cut->next;
@@ -31,10 +121,6 @@ pokerCard *shuffle(pokerCard *deck){
     pokerCard *riffle = cut->next;
     cut->next = 0;
     
-    printf("\nNEW RIFFLE = \n");
-    displayHandNoNewLine(riffle);
-    printf("\nNEW DECK = \n");
-    displayHandNoNewLine(deck);
 
     pokerCard *newDeck = 0;
     while(riffle || deck){
@@ -52,6 +138,7 @@ pokerCard *shuffle(pokerCard *deck){
             newDeck = newCard;
         }
     }
+    HEAD = newDeck;
     return newDeck;
 
 }
@@ -90,7 +177,7 @@ void displayHand(pokerCard *hand){
     fprintf(stderr,"\n----------------------------------------------------------\n");
 }
 
-pokerCard * getDeck(void){
+pokerCard * getInitialDeck(void){
     return HEAD;
 }
 

@@ -38,3 +38,25 @@ int countCards(pokerCard *);
 pokerCard *shuffle(pokerCard *);
 
 void displayHandNoNewLine(pokerCard *);
+
+pokerCard *getInitialDeck();
+
+pokerCard *getDeck();
+
+pokerCard *draw(pokerCard *);
+
+pokerCard *addToHand(pokerCard *);
+
+pokerCard *initialPlayerHand(void);
+
+pokerCard *initialComputerHand(void);
+
+pokerCard *initialTableCards(void);
+
+pokerCard *getPlayerHand();
+
+pokerCard *getComputerHand();
+
+pokerCard *getTableCards();
+
+void startGame(void);
