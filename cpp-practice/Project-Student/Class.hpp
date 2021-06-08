@@ -19,5 +19,6 @@ class Class{
 
         vector<Student> getStudents();
 
+        void addStudents(int);
 
 };
