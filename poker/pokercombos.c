@@ -100,6 +100,72 @@ int fourOfAKind(pokerCard *hand){
     return 0;
 }
 
+int fullHouse(pokerCard *hand){
+    int numCards = countCards(hand);
+    int ranks[numCards];
+
+    int x = 0;
+    pokerCard *tempHead = hand;
+    while(tempHead != NULL){
+        ranks[x] = tempHead->rank;
+        x++;
+        tempHead = tempHead->next;
+    }
+    int noDups[numCards];
+    int dupFound = 0;
+
+    for(int i = 0; i < numCards; i++){
+        noDups[i] = 0;
+    }
+
+    int dupIndex = 0;
+
+    for(int i = 0; i < numCards; i++){
+        int currNumber = ranks[i];
+        for(int j = 0; j < numCards; j++){
+            if(noDups[j] == currNumber){
+                dupFound = 0;
+                break;
+            }
+            dupFound = 1;
+        }
+        if(dupFound){
+            noDups[dupIndex] = currNumber;
+            dupIndex++;
+        }
+    }
+
+    int count = 0;
+    int threeOfAKindFound = 0;
+    int pairFound = 0;
+    for(int i = 0; i < numCards; i++){
+        if(noDups[i] != 0){
+            int currNumber = noDups[i];
+            for(int j = 0; j < numCards; j++){
+                int currRanksNumber = ranks[j];
+                if(currRanksNumber == currNumber){
+                    count++;
+                }
+            }
+            if(count == 3){
+                threeOfAKindFound = 1;
+                count = 0;
+            }
+            else if(count == 2){
+                pairFound = 1;
+                count = 0;
+            }
+        }
+    }
+    if(threeOfAKindFound && pairFound){
+        return 1;
+    }
+    else{
+        return 0;
+    }
+
+}
+
 int getLowCard(pokerCard *hand){
     int numCards = countCards(hand);
     int ranks[numCards];
