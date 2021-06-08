@@ -54,3 +54,7 @@ void District::displaySchools(void){
 vector<School> District::getSchools(){
     return schools;
 }
+
+void District::addSchool(School newSchool){
+    schools.push_back(newSchool);
+}
