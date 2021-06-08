@@ -142,7 +142,7 @@ void startGame(pokerCard *deck){
     pokerCard *newHand = combineTwoHands(playerHand,computerHand);
     fprintf(stderr,"\n\nCOMBINED PLAYER + COMPUTER HANDS : ");
     displayHand(newHand);
-
+    freePile(newHand);
 
 }
 
