@@ -1,8 +1,77 @@
 #include "project.h"
 
+int min(int,int);
+
+int max(int,int);
+
 int royalFlush(pokerCard *hand){
     if(allSameSuit(hand)){
-        
+        if(allAlternating){
+            
+        }        
+    }
+}
+
+int getHighCard(pokerCard *hand){
+    int numCards = countCards(hand);
+    int ranks[numCards];
+    pokerCard *tempHead = hand;
+    int i = 0;
+    int maxNum = 0;
+    while(tempHead != NULL){
+        ranks[i] = tempHead->rank;
+        i++;
+        tempHead = tempHead->next;
+    }
+
+    for(int i = 0; i < numCards-1; i++){
+        int firstRank = numCards[i];
+        int secondRank = numCards[i+1];
+        maxNum = max(firstRank,secondRank);
+    }
+}
+
+int getLowCard(pokerCard *hand){
+    int numCards = countCards(hand);
+    int ranks[numCards];
+    pokerCard *tempHead = hand;
+    int index = 0;
+    int minNum = 0;
+    while(tempHead != NULL){
+        ranks[index] = tempHead->rank;
+        tempHead = tempHead->next;
+        index++;
+    }
+
+    for(int i = 0; i < numCards-1; i++){
+        int firstRank = numCards[i];
+        int secondRank = numCards[i+1];
+        minNum = min(firstRank,secondRank);
+    }
+    return minNum;
+}
+
+int max(int x, int y){
+    if(x > y){
+        return x;
+    }
+    else if(y > x){
+        return y;
+    }
+    else{
+        return x;
+    }
+}
+
+int min(int x, int y){
+    if(x > y){
+        return y;
+    }
+    else if(y > x){
+        return x;
+    }
+    else{
+        return y;
     }
 }
 
