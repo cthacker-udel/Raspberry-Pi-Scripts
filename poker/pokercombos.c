@@ -1,3 +1,8 @@
+/*
+ * @author - Cameron Thacker
+ *
+ */
+
 #include "project.h"
 
 int min(int,int);
