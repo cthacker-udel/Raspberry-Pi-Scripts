@@ -11,7 +11,7 @@ int max(int,int);
 
 int royalFlush(pokerCard *hand){
     if(allSameSuit(hand)){
-        if(allAlternating){
+        if(allAlternating(hand)){
             if(getLowCard(hand) == 10 && getHighCard(hand) == 13){
                 return 1;
             }
@@ -44,6 +44,20 @@ int getHighCard(pokerCard *hand){
         int firstRank = numCards[i];
         int secondRank = numCards[i+1];
         maxNum = max(firstRank,secondRank);
+    }
+}
+
+int straightFlush(pokerCard *hand){
+    if(allSameSuit(hand)){
+        if(allAlternating(hand)){
+            return 1;
+        }
+        else{
+            return 0;
+        }
+    }
+    else{
+        return 0;
     }
 }
 
