@@ -9,6 +9,40 @@ int min(int,int);
 
 int max(int,int);
 
+int evalHand(pokerCard *hand){
+    if(royalFlush(hand)){
+        return 1;
+    }
+    else if(straightFlush(hand)){
+        return 2;
+    }
+    else if(fourOfAKind(hand)){
+        return 3;
+    }
+    else if(fullHouse(hand)){
+        return 4;
+    }
+    else if(isFlush(hand)){
+        return 5;
+    }
+    else if(isStraight(hand)){
+        return 6;
+    }
+    else if(isThreePair(hand)){
+        return 7;
+    }
+    else if(isTwoPair(hand)){
+        return 8;
+    }
+    else if(isPair(hand)){
+        return 9;
+    }
+    else{
+        return 10;
+    }
+}
+
+
 int royalFlush(pokerCard *hand){
     if(allSameSuit(hand)){
         if(allAlternating(hand)){

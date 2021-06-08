@@ -98,3 +98,5 @@ int isThreePair(pokerCard *);
 int isTwoPair(pokerCard *);
 
 int isPair(pokerCard *);
+
+int evalHand(pokerCard *);
