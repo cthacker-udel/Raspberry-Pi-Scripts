@@ -4,8 +4,8 @@ INCLUDE := -I ~/include
 
 all: poker
 
-poker: project.h input.o output.o main.o
-	cc -o poker input.o output.o main.o $(LDFLAGS) $(INCLUDE)
+poker: project.h input.o output.o main.o pokercombos.o
+	cc -o poker input.o output.o pokercombos.o main.o $(LDFLAGS) $(INCLUDE)
 
 
 inputtest: input.o inputtest.o project.h

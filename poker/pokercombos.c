@@ -75,8 +75,8 @@ int getHighCard(pokerCard *hand){
     }
 
     for(int i = 0; i < numCards-1; i++){
-        int firstRank = numCards[i];
-        int secondRank = numCards[i+1];
+        int firstRank = ranks[i];
+        int secondRank = ranks[i+1];
         maxNum = max(firstRank,secondRank);
     }
 }
@@ -213,8 +213,8 @@ int getLowCard(pokerCard *hand){
     }
 
     for(int i = 0; i < numCards-1; i++){
-        int firstRank = numCards[i];
-        int secondRank = numCards[i+1];
+        int firstRank = ranks[i];
+        int secondRank = ranks[i+1];
         minNum = min(firstRank,secondRank);
     }
     return minNum;

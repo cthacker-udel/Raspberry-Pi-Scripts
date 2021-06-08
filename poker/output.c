@@ -21,6 +21,8 @@ pokerCard *computerHand = NULL;
 
 pokerCard *tableCards = NULL;
 
+pokerCard *combinedHand = NULL;
+
 pokerCard *addToHand(pokerCard *hand){
 
     if(hand == NULL){
@@ -89,6 +91,10 @@ pokerCard *getTableCards(){
     return tableCards;
 }
 
+pokerCard *getCombinedHand(){
+    return combinedHand;
+}
+
 void freePile(pokerCard *pile){
     pokerCard *tmp;
     while(pile != NULL){
@@ -131,18 +137,19 @@ pokerCard *combineTwoHands(pokerCard *hand1, pokerCard *hand2){
 void startGame(pokerCard *deck){
 
     playerHand = initialPlayerHand(deck);
-    computerHand = initialComputerHand(deck);
+    //computerHand = initialComputerHand(deck);
     tableCards = initialTableCards(deck);
     fprintf(stderr,"\n\nPLAYER HAND : ");
-    displayHand(playerHand);
-    fprintf(stderr,"\n\nCOMPUTER HAND : ");
-    displayHand(computerHand);
-    fprintf(stderr,"\n\nTABLE CARDS : ");
-    displayHand(tableCards);
-    pokerCard *newHand = combineTwoHands(playerHand,computerHand);
-    fprintf(stderr,"\n\nCOMBINED PLAYER + COMPUTER HANDS : ");
-    displayHand(newHand);
-    freePile(newHand);
+    //displayHand(playerHand);
+    //fprintf(stderr,"\n\nCOMPUTER HAND : ");
+    //displayHand(computerHand);
+    //fprintf(stderr,"\n\nTABLE CARDS : ");
+    //displayHand(tableCards);
+    //pokerCard *newHand = combineTwoHands(playerHand,computerHand);
+    combinedHand = combineTwoHands(playerHand,tableCards);
+    //fprintf(stderr,"\n\nCOMBINED PLAYER + COMPUTER HANDS : ");
+    //displayHand(newHand);
+    //freePile(newHand);
 
 }
 

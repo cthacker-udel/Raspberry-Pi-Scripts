@@ -63,6 +63,8 @@ pokerCard *getTableCards();
 
 void startGame();
 
+pokerCard *getCombinedHand();
+
 /*
  *
  * pokercombos prototypes
