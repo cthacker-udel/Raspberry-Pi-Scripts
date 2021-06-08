@@ -99,27 +99,30 @@ void freePile(pokerCard *pile){
 }
 
 pokerCard *combineTwoHands(pokerCard *hand1, pokerCard *hand2){
-    pokerCard *newHand = (pokerCard *)malloc(sizeof(pokerCard) * (countCards(hand1) + countCards(hand2)));
+    int numCardsHand1 = countCards(hand1);
+    int numCardsHand2 = countCards(hand2);
 
-    pokerCard *tempPtr = hand1;
-    while(tempPtr != NULL){
-        if(newHand == NULL){
-            newHand = createCard(tempPtr->suit,tempPtr->rank,tempPtr->name);
-            tempPtr = tempPtr->next;
+    pokerCard *newHand = NULL;
+    
+    pokerCard *tempCard = hand1;
+    while(tempCard != NULL){
+        if(!newHand){
+            newHand = createCard(tempCard->suit,tempCard->rank,tempCard->name);
+            tempCard = tempCard->next;
         }
         else{
-           pokerCard *newCard = createCard(tempPtr->suit,tempPtr->rank,tempPtr->name);
-           newCard->next = newHand;
-           newHand = newCard;
-           tempPtr = tempPtr->next;
+            pokerCard *newCard = createCard(tempCard->suit,tempCard->rank,tempCard->name);
+            newCard->next = newHand;
+            newHand = newCard;
+            tempCard = tempCard->next;
         }
     }
-    tempPtr = hand2;
-    while(tempPtr != NULL){
-        pokerCard *newCard = createCard(tempPtr->suit,tempPtr->rank,tempPtr->name);
+    tempCard = hand2;
+    while(tempCard != NULL){
+        pokerCard *newCard = createCard(tempCard->suit,tempCard->rank,tempCard->name);
         newCard->next = newHand;
         newHand = newCard;
-        tempPtr = tempPtr->next;
+        tempCard = tempCard->next;
     }
     return newHand;
 }
@@ -130,12 +133,15 @@ void startGame(pokerCard *deck){
     playerHand = initialPlayerHand(deck);
     computerHand = initialComputerHand(deck);
     tableCards = initialTableCards(deck);
-    printf("\n\nPLAYER HAND : ");
+    fprintf(stderr,"\n\nPLAYER HAND : ");
     displayHand(playerHand);
-    printf("\n\nCOMPUTER HAND : ");
+    fprintf(stderr,"\n\nCOMPUTER HAND : ");
     displayHand(computerHand);
-    printf("\n\nTABLE CARDS : ");
+    fprintf(stderr,"\n\nTABLE CARDS : ");
     displayHand(tableCards);
+    pokerCard *newHand = combineTwoHands(playerHand,computerHand);
+    fprintf(stderr,"\n\nCOMBINED PLAYER + COMPUTER HANDS : ");
+    displayHand(newHand);
 
 
 }

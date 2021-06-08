@@ -29,6 +29,8 @@ void openDisplay(void);
 void closeDisplay(void);
 void clearDisplay(void);
 
+pokerCard *createCard(char *,int,char *);
+
 pokerCard *constructDeck(void);
 
 void displayHand(pokerCard *);
