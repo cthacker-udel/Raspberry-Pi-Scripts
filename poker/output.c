@@ -89,6 +89,42 @@ pokerCard *getTableCards(){
     return tableCards;
 }
 
+void freePile(pokerCard *pile){
+    pokerCard *tmp;
+    while(pile != NULL){
+        tmp = pile;
+        pile = pile->next;
+        free(tmp);
+    }
+}
+
+pokerCard *combineTwoHands(pokerCard *hand1, pokerCard *hand2){
+    pokerCard *newHand = (pokerCard *)malloc(sizeof(pokerCard) * (countCards(hand1) + countCards(hand2)));
+
+    pokerCard *tempPtr = hand1;
+    while(tempPtr != NULL){
+        if(newHand == NULL){
+            newHand = createCard(tempPtr->suit,tempPtr->rank,tempPtr->name);
+            tempPtr = tempPtr->next;
+        }
+        else{
+           pokerCard *newCard = createCard(tempPtr->suit,tempPtr->rank,tempPtr->name);
+           newCard->next = newHand;
+           newHand = newCard;
+           tempPtr = tempPtr->next;
+        }
+    }
+    tempPtr = hand2;
+    while(tempPtr != NULL){
+        pokerCard *newCard = createCard(tempPtr->suit,tempPtr->rank,tempPtr->name);
+        newCard->next = newHand;
+        newHand = newCard;
+        tempPtr = tempPtr->next;
+    }
+    return newHand;
+}
+
+
 void startGame(pokerCard *deck){
 
     playerHand = initialPlayerHand(deck);
