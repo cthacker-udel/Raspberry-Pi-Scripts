@@ -306,6 +306,15 @@ int isFlush(pokerCard *hand){
 
 }
 
+int isStraight(pokerCard *hand){
+    if(allAlternating(hand)){
+        return 1;
+    }
+    else{
+        return 0;
+    }
+}
+
 int isThreePair(pokerCard *hand){
     int ranks[5];
 
