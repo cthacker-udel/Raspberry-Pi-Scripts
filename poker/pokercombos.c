@@ -61,6 +61,45 @@ int straightFlush(pokerCard *hand){
     }
 }
 
+
+int fourOfAKind(pokerCard *hand){
+    int numCards = countCards(hand);
+    int ranks[numCards];
+
+    int i = 0;
+    pokerCard *tempHead = hand;
+    while(tempHead != NULL){
+        ranks[i] = tempHead->rank;
+        tempHead = tempHead->next;
+        i++;
+    }
+
+    for(int i = 0; i < numCards; i++){
+        int currRank = ranks[i];
+        int count = 1;
+        for(int j = 0; j < numCards; j++){
+            if(j == i){
+                continue;
+            }
+            else{
+                if(ranks[j] == currRank){
+                    count++;
+                }
+                else{
+                    continue;
+                }
+            }
+        }
+        if(count == 4){
+            return 1;
+        }
+        else{
+            count = 1;
+        }
+    }
+    return 0;
+}
+
 int getLowCard(pokerCard *hand){
     int numCards = countCards(hand);
     int ranks[numCards];
