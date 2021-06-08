@@ -1,4 +1,6 @@
 #include "Class.hpp"
+#include <iostream>
+using namespace std;
 
 Class::Class(string newName,int newSection){
     name = newName;

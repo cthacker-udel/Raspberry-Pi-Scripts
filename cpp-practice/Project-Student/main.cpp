@@ -16,7 +16,15 @@ int main(void){
         cin >> numberOfStudents;
         School newSchool(schoolName,numberOfStudents);
         cout << "The new school is : " << newSchool.getName() << " and amount of students is : " << to_string(newSchool.getEnrolled()) << endl;
-        newSchool.addClasses(2);
+        string className;
+        cout << "Enter the class name" << endl;
+        cin >> className;
+        int sectionNumber;
+        cout << "Enter the section number" << endl;
+        cin >> sectionNumber;
+        Class newClass(className,sectionNumber);
+        newClass.addStudents(2);
+        newSchool.addClass(newClass);
         newDistrict.addSchool(newSchool);
     }
     
