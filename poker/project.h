@@ -62,3 +62,39 @@ pokerCard *getComputerHand();
 pokerCard *getTableCards();
 
 void startGame();
+
+/*
+ *
+ * pokercombos prototypes
+ *
+ */
+
+int min(int,int);
+
+int max(int,int);
+
+int royalFlush(pokerCard *);
+
+int getHighCard(pokerCard *);
+
+int straightFlush(pokerCard *);
+
+int fourOfAKind(pokerCard *);
+
+int fullHouse(pokerCard *);
+
+int getLowCard(pokerCard *);
+
+int allSameSuit(pokerCard *);
+
+int allAlternating(pokerCard *);
+
+int isFlush(pokerCard *);
+
+int isStraight(pokerCard *);
+
+int isThreePair(pokerCard *);
+
+int isTwoPair(pokerCard *);
+
+int isPair(pokerCard *);
