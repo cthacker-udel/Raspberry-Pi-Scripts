@@ -16,6 +16,7 @@ int main(void){
         cin >> numberOfStudents;
         School newSchool(schoolName,numberOfStudents);
         cout << "The new school is : " << newSchool.getName() << " and amount of students is : " << to_string(newSchool.getEnrolled()) << endl;
+        newSchool.addClasses(2);
         newDistrict.addSchool(newSchool);
     }
     

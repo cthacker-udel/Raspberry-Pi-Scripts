@@ -28,6 +28,6 @@ class School{
 
         string toString(void);
 
-
+        void addClasses(int);
 
 };

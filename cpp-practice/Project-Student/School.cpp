@@ -1,5 +1,6 @@
 #include "School.hpp"
-
+#include <iostream>
+using namespace std;
 
 School::School(string newName){
     name = newName;
@@ -34,6 +35,19 @@ vector<Class> School::getClasses(){
 
 void School::addClass(Class newClass){
     classes.push_back(newClass);
+}
+
+void School::addClasses(int x){
+    string className;
+    int classSection;
+    for(int i = 0; i < x; i++){
+        cout << "Enter the class name\n";
+        cin >> className;
+        cout << "Enter the section number";
+        cin >> classSection;
+        Class newClass(className,classSection);
+        addClass(newClass);
+    }
 }
 
 string School::toString(void){
