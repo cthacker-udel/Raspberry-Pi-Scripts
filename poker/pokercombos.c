@@ -336,9 +336,10 @@ int isFlush(pokerCard *hand){
         i++;
         tempHand = tempHand->next;
     }
-
+    fprintf(stderr,"\nBefore isFlush forLoop\n");
     for(int j = 0; j < 6; j++){
-        for(int k = 0; k > 6; k++){
+        for(int k = 0; k < 6; k++){
+            fprintf(stderr,"\ninside inner for loop isFlush\n");
             if(k == j){
                 continue;
             }
