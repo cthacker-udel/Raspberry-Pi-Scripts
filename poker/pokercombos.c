@@ -10,31 +10,31 @@ int min(int,int);
 int max(int,int);
 
 int evalHand(pokerCard *hand){
-    if(royalFlush(hand)){
+    if(countCards(hand) == 5 && royalFlush(hand)){
         return 1;
     }
-    else if(straightFlush(hand)){
+    else if(countCards(hand) == 5 && straightFlush(hand)){
         return 2;
     }
-    else if(fourOfAKind(hand)){
+    else if(countCards(hand) >= 4 && fourOfAKind(hand)){
         return 3;
     }
-    else if(fullHouse(hand)){
+    else if(countCards(hand) == 5 && fullHouse(hand)){
         return 4;
     }
-    else if(isFlush(hand)){
+    else if(countCards(hand) == 5 && isFlush(hand)){
         return 5;
     }
-    else if(isStraight(hand)){
+    else if(countCards(hand) == 5 && isStraight(hand)){
         return 6;
     }
-    else if(isThreePair(hand)){
+    else if(countCards(hand) >= 3 && isThreePair(hand)){
         return 7;
     }
-    else if(isTwoPair(hand)){
+    else if(countCards(hand) >= 4 && isTwoPair(hand)){
         return 8;
     }
-    else if(isPair(hand)){
+    else if(countCards(hand) >= 2 && isPair(hand)){
         return 9;
     }
     else{
@@ -381,8 +381,16 @@ int isThreePair(pokerCard *hand){
 
 }
 
+void printRanks(int ranks[], int len){
+    fprintf(stderr,"\nThe ranks are : \n");
+    for(int i = 0; i < len; i++){
+        fprintf(stderr,"%d,",ranks[i]);
+    }
+}
+
 int isTwoPair(pokerCard *hand){
-    int ranks[5];
+    int numCards = countCards(hand);
+    int ranks[numCards];
     int pairs[2] = {0,0};
 
     int i = 0;
@@ -391,28 +399,43 @@ int isTwoPair(pokerCard *hand){
     while(tempHand != NULL){
         ranks[i] = tempHand->rank;
         tempHand = tempHand->next;
+        i++;
     }
 
-    for(i = 0; i < 5; i++){
-        for(int j = 0; j < 5; j++){
+    printRanks(ranks,numCards);
+
+    int loopController = 0;
+
+    for(i = 0; i < numCards; i++){
+        for(int j = 0; j < numCards; j++){
             if(i == j){
                 continue;
             }
             else if(ranks[i] == ranks[j]){
                 for(int k = 0; k < 2; k++){
+                    fprintf(stderr,"\npairs[k] = %d and ranks[j] = %d",pairs[k],ranks[j]);
                     if(pairs[k] == ranks[j]){
+                        loopController = 0;
                         break;
                     }
+                    loopController = 1;
                 }
-                pairs[pairsIndex] = ranks[i];
-                pairsIndex++;
+                if(loopController){
+                    fprintf(stderr,"Assiging pairs[%d] to %d",pairsIndex,ranks[i]);
+                    pairs[pairsIndex] = ranks[i];
+                    pairsIndex++;
+                    loopController = 0;
+                }
             }
         }
     }
     for(int j = 0; j < 2; j++){
+        fprintf(stderr,"\nITER %d\n",pairs[j]);
         if(pairs[j] == 0){
+            fprintf(stderr,"\nreached if---\n");
             return 0;
         }
+        printf("\npairs == %d",pairs[j]);
     }
     return 1;
 }

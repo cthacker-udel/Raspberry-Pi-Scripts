@@ -102,3 +102,5 @@ int isTwoPair(pokerCard *);
 int isPair(pokerCard *);
 
 int evalHand(pokerCard *);
+
+void printRanks(int[],int);
