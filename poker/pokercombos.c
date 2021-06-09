@@ -272,6 +272,9 @@ int allSameSuit(pokerCard *hand){
 }
 
 int allAlternating(pokerCard *hand){
+
+    fprintf(stderr,"\nEntering isAllAlternating\n");
+
     int rank = hand->rank;
     pokerCard *tempHand = hand;
     int numCards = countCards(hand);
@@ -307,11 +310,17 @@ int allAlternating(pokerCard *hand){
 
     // arr sorted
     
+    
+    fprintf(stderr,"\nPrinting sorted array for isAllAlternating\n");
+    for(int i = 0; i < numCards; i++){
+        fprintf(stderr,"%d,",ranks[i]);
+    }
+    
 
     for(int i = 0; i < numCards-1; i++){
         int firstNum = ranks[i];
         int secondNum = ranks[i+1];
-        if(fabs(firstNum - secondNum) <= 1){
+        if(fabs(firstNum - secondNum) == 1){
             continue;
         }
         else{
