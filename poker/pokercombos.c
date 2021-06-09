@@ -169,6 +169,11 @@ int fullHouse(pokerCard *hand){
         }
     }
 
+    fprintf(stderr,"\nPrinting noDups\n");
+    for(int i = 0; i < numCards; i++){
+        fprintf(stderr,"\t %d ",noDups[i]);
+    }
+
     int count = 0;
     int threeOfAKindFound = 0;
     int pairFound = 0;
@@ -182,11 +187,18 @@ int fullHouse(pokerCard *hand){
                 }
             }
             if(count == 3){
+                fprintf(stderr,"Three of a kind found");
+                noDups[i] = 0;
                 threeOfAKindFound = 1;
                 count = 0;
             }
             else if(count == 2){
+                fprintf(stderr,"Two of a kind found");
+                noDups[i] = 0;
                 pairFound = 1;
+                count = 0;
+            }
+            else{
                 count = 0;
             }
         }
@@ -246,9 +258,11 @@ int min(int x, int y){
 
 
 int allSameSuit(pokerCard *hand){
+    fprintf(stderr,"\nEntering allsamesuit\n");
     char *suit = hand->suit;
     pokerCard *tempHand = hand;
     while(tempHand != NULL){
+        fprintf(stderr,"\nsuit == %s and tempHand->suit == %s",suit,tempHand->suit);
         if(strcmp(suit,tempHand->suit) != 0){
             return 0;
         }
@@ -310,6 +324,8 @@ int allAlternating(pokerCard *hand){
 
 int isFlush(pokerCard *hand){
     
+    fprintf(stderr,"\nentering isFlush\n");
+
     char suits[6][10];
     
     pokerCard *tempHand = hand;
@@ -327,6 +343,7 @@ int isFlush(pokerCard *hand){
                 continue;
             }
             else{
+                fprintf(stderr,"\nsuits[j] == %s and suits[k] == %s",suits[j],suits[k]);
                 if(strcmp(suits[j],suits[k]) == 0){
                     continue;
                 }
@@ -367,6 +384,7 @@ int isThreePair(pokerCard *hand){
                 continue;
             }
             else if(ranks[i] == ranks[j]){
+                fprintf(stderr,"ranks[i] == %d and ranks[j] == %d",ranks[i],ranks[j]);
                 count++;
             }
         }

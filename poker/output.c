@@ -58,6 +58,7 @@ pokerCard *initialTableCards(pokerCard *deck){
     pokerCard *tableCards = NULL;
     tableCards = addToHand(tableCards);
     tableCards = addToHand(tableCards);
+    tableCards = addToHand(tableCards);
     return tableCards;
 }
 
