@@ -18,7 +18,9 @@ int main(int argc, char *argv[]){
         srand48(rand());
         srand48(rand());
     }
-    deck = shuffle(deck);
+    for(int i = 0; i < atol(argv[1]); i++){
+        deck = shuffle(deck);
+    }
     startGame();
     while(1){
         checkJoystick();
