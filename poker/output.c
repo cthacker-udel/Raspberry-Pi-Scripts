@@ -149,6 +149,7 @@ void startGame(pokerCard *deck){
         fprintf(stderr,"\nFOLD or Call?(f/c)");
         scanf("%c",&response);
         if(response == 'f'){
+            freePile(playerHand);
             break;
         }
         else if(response == 'c'){
@@ -157,7 +158,12 @@ void startGame(pokerCard *deck){
             combinedHand2 = combineTwoHands(computerHand,tableCards);
         }
     }
-    showDown(combinedHand,combinedHand2);
+    if(playerHand != NULL){
+        showDown(combinedHand,combinedHand2);
+    }
+    else{
+        // throw signal 
+    }
 
 }
 
