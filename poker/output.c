@@ -142,6 +142,126 @@ void startGame(pokerCard *deck){
     tableCards = initialTableCards(deck);
     combinedHand = combineTwoHands(playerHand,tableCards);
     combinedHand2 = combineTwoHands(computerHand,tableCards);
+    while(countCards(tableCards) < 5){
+        fprintf(stderr,"\n\nUSER CURRENT HAND :");
+        displayHand(combinedHand);
+        char response;
+        fprintf(stderr,"\nFOLD or Call?(f/c)");
+        scanf("%c",&response);
+        if(response == 'f'){
+            break;
+        }
+        else if(response == 'c'){
+            tableCards = addToHand(tableCards);
+            combinedHand = combineTwoHands(playerHand,tableCards);
+            combinedHand2 = combineTwoHands(computerHand,tableCards);
+        }
+    }
+    showDown(combinedHand,combinedHand2);
+
+}
+
+int showDown(pokerCard *hand1, pokerCard *hand2){
+    if(royalFlush(hand1) && !royalFlush(hand2)){
+        return 1;
+    }
+    else if(!royalFlush(hand1) && royalFlush(hand2)){
+        return 0;
+    }
+    else if(royalFlush(hand1) && royalFlush(hand2)){
+        return 2;
+    }
+    else{
+        if(straightFlush(hand1) && !straightFlush(hand2)){
+            return 1;
+        }
+        else if(!straightFlush(hand1) && straightFlush(hand2)){
+            return 0;
+        }
+        else if(straightFlush(hand1) && straightFlush(hand2)){
+            return 2;
+        }
+        else{
+            if(fourOfAKind(hand1) && !fourOfAKind(hand2)){
+                return 1;
+            }
+            else if(!fourOfAKind(hand1) && fourOfAKind(hand2)){
+                return 0;
+            }
+            else if(fourOfAKind(hand1) && fourOfAKind(hand2)){
+                return 2;
+            }
+            else{
+                if(fullHouse(hand1) && !fullHouse(hand2)){
+                    return 1;
+                }
+                else if(!fullHouse(hand1) && fullHouse(hand2)){
+                    return 0;
+                }
+                else if(fullHouse(hand1) && fullHouse(hand2)){
+                    return 2;
+                }
+                else{
+                    if(isFlush(hand1) && !isFlush(hand2)){
+                        return 1;
+                    }
+                    else if(!isFlush(hand1) && isFlush(hand2)){
+                        return 0;
+                    }
+                    else if(isFlush(hand1) && isFlush(hand2)){
+                        return 2;
+                    }
+                    else{
+                        if(isStraight(hand1) && !isStraight(hand2)){
+                            return 1;
+                        }
+                        else if(!isStraight(hand1) && isStraight(hand2)){
+                            return 0;
+                        }
+                        else if(isStraight(hand1) && isStraight(hand2)){
+                            return 2;
+                        }
+                        else{
+                            if(isThreePair(hand1) && !isThreePair(hand2)){
+                                return 1;
+                            }
+                            else if(!isThreePair(hand1) && isThreePair(hand2)){
+                                return 0;
+                            }
+                            else if(isThreePair(hand1) && isThreePair(hand2)){
+                                return 2;
+                            }
+                            else{
+                                if(isTwoPair(hand1) && !isTwoPair(hand2)){
+                                    return 1;
+                                }
+                                else if(!isTwoPair(hand1) && isTwoPair(hand2)){
+                                    return 0;
+                                }
+                                else if(isTwoPair(hand1) && isTwoPair(hand2)){
+                                    return 2;
+                                }
+                                else{
+                                    if(isPair(hand1) && !isPair(hand2)){
+                                        return 1;
+                                    }
+                                    else if(!isPair(hand1) && isPair(hand2)){
+                                        return 0;
+                                    }
+                                    else if(isPair(hand1) && isPair(hand2)){
+                                        return 2;
+                                    }
+                                    else{
+                                        return highCard(hand1) > highCard(hand2);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 
