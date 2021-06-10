@@ -372,35 +372,7 @@ int isFlush(pokerCard *hand){
     
     fprintf(stderr,"\nentering isFlush\n");
 
-    char suits[6][10];
-    
-    pokerCard *tempHand = hand;
-    
-    int i = 0;
-    while(tempHand != NULL){
-        suits[i][0] = tempHand->suit;
-        i++;
-        tempHand = tempHand->next;
-    }
-    //fprintf(stderr,"\nBefore isFlush forLoop\n");
-    for(int j = 0; j < 6; j++){
-        for(int k = 0; k < 6; k++){
-            //fprintf(stderr,"\ninside inner for loop isFlush\n");
-            if(k == j){
-                continue;
-            }
-            else{
-                //fprintf(stderr,"\nsuits[j] == %s and suits[k] == %s",suits[j],suits[k]);
-                if(strcmp(suits[j],suits[k]) == 0){
-                    continue;
-                }
-                else{
-                    return 0;
-                }
-            }
-        }
-    }
-    return 1;
+    return allSameSuit(hand);
 
 }
 
