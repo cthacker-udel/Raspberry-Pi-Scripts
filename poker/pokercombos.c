@@ -377,7 +377,7 @@ int isStraight(pokerCard *hand){
 }
 
 int isThreePair(pokerCard *hand){
-    
+
     int numOfCards = countCards(hand);
     int ranks[numOfCards];
 
@@ -387,9 +387,10 @@ int isThreePair(pokerCard *hand){
     while(tempHand != NULL){
         ranks[i] = tempHand->rank;
         tempHand = tempHand->next;
+        i++;
     }
 
-    int count = 0;
+    int count = 1;
     for(i = 0; i < numOfCards; i++){
         for(int j = 0; j < numOfCards; j++){
             if(i == j){
@@ -400,6 +401,7 @@ int isThreePair(pokerCard *hand){
                 count++;
             }
         }
+        fprintf(stderr,"\nTHREE PAIR COUNT = %d",count);
         if(count == 3){
             return 1;
         }

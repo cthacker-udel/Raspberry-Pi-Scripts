@@ -18,7 +18,8 @@ int main(int argc, char *argv[]){
         srand48(rand());
         srand48(rand());
     }
-    for(int i = 0; i < atol(argv[1]); i++){
+    long int atolNum = atol(argv[1]);
+    for(int i = 0; i < atolNum; i++){
         deck = shuffle(deck);
     }
     startGame();
