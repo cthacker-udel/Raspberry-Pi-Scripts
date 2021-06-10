@@ -2,8 +2,8 @@
 all: compile
 	echo "All complete"
 
-compile: Student.o main.o Class.o School.o
-	g++ -o runfile main.o Student.o Class.o School.o
+compile: Student.o main.o Class.o School.o District.o City.o
+	g++ -o runfile main.o Student.o Class.o School.o District.o City.o
 
 run: compile
 	./runfile
