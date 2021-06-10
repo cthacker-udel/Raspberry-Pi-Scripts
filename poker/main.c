@@ -25,8 +25,8 @@ int main(int argc, char *argv[]){
     while(1){
         checkJoystick();
         printf("\n\nNUM OF CARDS : %d\n\n",countCards(deck));
-        displayHandNoNewLine(getCombinedHand());
-
+        displayHand(getCombinedHand());
+        displaySuits(getCombinedHand());
         int result = evalHand(getCombinedHand());
         switch(result){
             case 1:

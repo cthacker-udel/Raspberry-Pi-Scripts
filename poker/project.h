@@ -104,3 +104,5 @@ int isPair(pokerCard *);
 int evalHand(pokerCard *);
 
 void printRanks(int[],int);
+
+void displaySuits(pokerCard *);

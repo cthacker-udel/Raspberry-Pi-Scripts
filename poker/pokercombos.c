@@ -345,15 +345,15 @@ int isFlush(pokerCard *hand){
         i++;
         tempHand = tempHand->next;
     }
-    fprintf(stderr,"\nBefore isFlush forLoop\n");
+    //fprintf(stderr,"\nBefore isFlush forLoop\n");
     for(int j = 0; j < 6; j++){
         for(int k = 0; k < 6; k++){
-            fprintf(stderr,"\ninside inner for loop isFlush\n");
+            //fprintf(stderr,"\ninside inner for loop isFlush\n");
             if(k == j){
                 continue;
             }
             else{
-                fprintf(stderr,"\nsuits[j] == %s and suits[k] == %s",suits[j],suits[k]);
+                //fprintf(stderr,"\nsuits[j] == %s and suits[k] == %s",suits[j],suits[k]);
                 if(strcmp(suits[j],suits[k]) == 0){
                     continue;
                 }
@@ -377,7 +377,9 @@ int isStraight(pokerCard *hand){
 }
 
 int isThreePair(pokerCard *hand){
-    int ranks[5];
+    
+    int numOfCards = countCards(hand);
+    int ranks[numOfCards];
 
     int i = 0;
     pokerCard *tempHand = hand;
@@ -388,13 +390,13 @@ int isThreePair(pokerCard *hand){
     }
 
     int count = 0;
-    for(i = 0; i < 5; i++){
-        for(int j = 0; j < 5; j++){
+    for(i = 0; i < numOfCards; i++){
+        for(int j = 0; j < numOfCards; j++){
             if(i == j){
                 continue;
             }
             else if(ranks[i] == ranks[j]){
-                fprintf(stderr,"ranks[i] == %d and ranks[j] == %d",ranks[i],ranks[j]);
+                //fprintf(stderr,"ranks[i] == %d and ranks[j] == %d",ranks[i],ranks[j]);
                 count++;
             }
         }
@@ -411,6 +413,23 @@ int isThreePair(pokerCard *hand){
 
 void printRanks(int ranks[], int len){
     fprintf(stderr,"\nThe ranks are : \n");
+    int loopvar = 0;
+    while(1){
+        for(int i = 0; i < len-1; i++){
+            int currVar = ranks[i];
+            int forwardVar = ranks[i+1];
+            if(currVar > forwardVar){
+                ranks[i] = forwardVar;
+                ranks[i+1] = currVar;
+                loopvar = 0;
+                break;
+            }
+            loopvar = 1;
+        }
+        if(loopvar){
+            break;
+        }
+    }
     for(int i = 0; i < len; i++){
         fprintf(stderr,"%d,",ranks[i]);
     }
@@ -441,7 +460,7 @@ int isTwoPair(pokerCard *hand){
             }
             else if(ranks[i] == ranks[j]){
                 for(int k = 0; k < 2; k++){
-                    fprintf(stderr,"\npairs[k] = %d and ranks[j] = %d",pairs[k],ranks[j]);
+                    //fprintf(stderr,"\npairs[k] = %d and ranks[j] = %d",pairs[k],ranks[j]);
                     if(pairs[k] == ranks[j]){
                         loopController = 0;
                         break;
@@ -449,7 +468,7 @@ int isTwoPair(pokerCard *hand){
                     loopController = 1;
                 }
                 if(loopController){
-                    fprintf(stderr,"Assiging pairs[%d] to %d",pairsIndex,ranks[i]);
+                    //fprintf(stderr,"Assiging pairs[%d] to %d",pairsIndex,ranks[i]);
                     pairs[pairsIndex] = ranks[i];
                     pairsIndex++;
                     loopController = 0;
@@ -458,12 +477,12 @@ int isTwoPair(pokerCard *hand){
         }
     }
     for(int j = 0; j < 2; j++){
-        fprintf(stderr,"\nITER %d\n",pairs[j]);
+        //fprintf(stderr,"\nITER %d\n",pairs[j]);
         if(pairs[j] == 0){
-            fprintf(stderr,"\nreached if---\n");
+            //fprintf(stderr,"\nreached if---\n");
             return 0;
         }
-        printf("\npairs == %d",pairs[j]);
+        //printf("\npairs == %d",pairs[j]);
     }
     return 1;
 }
@@ -473,7 +492,8 @@ int isTwoPair(pokerCard *hand){
 
 int isPair(pokerCard *hand){
     
-    int ranks[5];
+    int numOfCards = countCards(hand);
+    int ranks[numOfCards];
     
     int i = 0;
     pokerCard *tempHand = hand;
@@ -484,8 +504,8 @@ int isPair(pokerCard *hand){
     }
 
 
-    for(i = 0; i < 5; i++){
-        for(int j = 0; j < 5; j++){
+    for(i = 0; i < numOfCards; i++){
+        for(int j = 0; j < numOfCards; j++){
             if(i == j){
                 continue;
             }

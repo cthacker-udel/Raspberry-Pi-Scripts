@@ -59,6 +59,10 @@ pokerCard *initialTableCards(pokerCard *deck){
     tableCards = addToHand(tableCards);
     tableCards = addToHand(tableCards);
     tableCards = addToHand(tableCards);
+    tableCards = addToHand(tableCards);
+    tableCards = addToHand(tableCards);
+    tableCards = addToHand(tableCards);
+    tableCards = addToHand(tableCards);
     return tableCards;
 }
 
@@ -246,6 +250,26 @@ int countCards(pokerCard *hand){
         tempHand = tempHand->next;
     }
     return count;
+}
+
+
+void displaySuits(pokerCard *hand){
+    pokerCard *tempHead = hand;
+    int count = 0;
+    char suits[][10] = {"Hearts","Clubs","Diamonds","Spades"};
+    fprintf(stderr,"\nThe suits are :\n");
+    for(int i = 0; i < 4; i++){
+        char *suit = suits[i];
+        while(tempHead != NULL){
+            if(strcmp(suit,tempHead->suit) == 0){
+                count++;
+            }
+            tempHead = tempHead->next;
+        }
+        tempHead = hand;
+        fprintf(stderr,"%s : %d\n",suit,count);
+        count = 0;
+    }
 }
 
 
