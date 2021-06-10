@@ -46,7 +46,7 @@ int evalHand(pokerCard *hand){
 int royalFlush(pokerCard *hand){
     if(allSameSuit(hand)){
         if(allAlternating(hand)){
-            if(getLowCard(hand) == 10 && getHighCard(hand) == 13){
+            if(getLowCard(hand) == 9 && getHighCard(hand) == 13){
                 return 1;
             }
             else{
