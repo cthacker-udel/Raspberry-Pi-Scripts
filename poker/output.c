@@ -109,6 +109,7 @@ void freePile(pokerCard *pile){
     }
 }
 
+
 pokerCard *combineTwoHands(pokerCard *hand1, pokerCard *hand2){
     int numCardsHand1 = countCards(hand1);
     int numCardsHand2 = countCards(hand2);

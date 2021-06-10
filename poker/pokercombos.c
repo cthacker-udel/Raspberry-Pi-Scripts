@@ -10,22 +10,22 @@ int min(int,int);
 int max(int,int);
 
 int evalHand(pokerCard *hand){
-    if(countCards(hand) == 5 && royalFlush(hand)){
+    if(countCards(hand) >= 5 && royalFlush(hand)){
         return 1;
     }
-    else if(countCards(hand) == 5 && straightFlush(hand)){
+    else if(countCards(hand) >= 5 && straightFlush(hand)){
         return 2;
     }
     else if(countCards(hand) >= 4 && fourOfAKind(hand)){
         return 3;
     }
-    else if(countCards(hand) == 5 && fullHouse(hand)){
+    else if(countCards(hand) >= 5 && fullHouse(hand)){
         return 4;
     }
-    else if(countCards(hand) == 5 && isFlush(hand)){
+    else if(countCards(hand) >= 5 && isFlush(hand)){
         return 5;
     }
-    else if(countCards(hand) == 5 && isStraight(hand)){
+    else if(countCards(hand) >= 5 && isStraight(hand)){
         return 6;
     }
     else if(countCards(hand) >= 3 && isThreePair(hand)){
@@ -258,20 +258,32 @@ int min(int x, int y){
 
 
 int allSameSuit(pokerCard *hand){
-    fprintf(stderr,"\nEntering allsamesuit\n");
-    char *suit = hand->suit;
-    pokerCard *tempHand = hand;
-    while(tempHand != NULL){
-        fprintf(stderr,"\nsuit == %s and tempHand->suit == %s",suit,tempHand->suit);
-        if(strcmp(suit,tempHand->suit) != 0){
-            return 0;
+    pokerCard *tempHead = hand;
+    int count = 0;
+    char suits[][10] = {"Hearts","Clubs","Diamonds","Spades"};
+    for(int i = 0; i < 4; i++){
+        char *suit = suits[i];
+        while(tempHead != NULL){
+            if(strcmp(suit,tempHead->suit) == 0){
+                count++;
+            }
+            tempHead = tempHead->next;
         }
-        tempHand = tempHand->next;
+        if(count == 5){
+            return 1;
+        }
+        else{
+            tempHead = hand;
+            count = 0;
+        }
     }
-    return 1;
+    return 0;
+
 }
 
 int allAlternating(pokerCard *hand){
+
+    // atleast 5 cards must alternate
 
     fprintf(stderr,"\nEntering isAllAlternating\n");
 
@@ -286,7 +298,7 @@ int allAlternating(pokerCard *hand){
         tempHand = tempHand->next;
     }
     
-    // sort arr
+    // sort arr, remove duplicates, and look in windows of five cards at a time
     
     int sortVar = 1;
     while(1){
@@ -315,19 +327,44 @@ int allAlternating(pokerCard *hand){
     for(int i = 0; i < numCards; i++){
         fprintf(stderr,"%d,",ranks[i]);
     }
-    
 
-    for(int i = 0; i < numCards-1; i++){
-        int firstNum = ranks[i];
-        int secondNum = ranks[i+1];
-        if(fabs(firstNum - secondNum) == 1){
-            continue;
+    int noDups[7] = {0,0,0,0,0,0,0};
+    
+    // remove duplicates;
+
+    int dupFound = 0;
+
+    int j = 0;
+
+    for(int i = 0; i < numCards; i++){
+        int currNumber = ranks[i];
+        for(int i = 0; i < 7; i++){
+            if(noDups[i] == currNumber){
+                dupFound = 1;
+                break;
+            }
+            else{
+                dupFound = 0;
+            }
         }
-        else{
-            return 0;
+        if(!dupFound){
+            noDups[j] = currNumber;
+            dupFound = 0;
+            j++;
         }
     }
-    return 1;
+
+    for(int i = 0; i < 2; i++){
+        int firstNum = noDups[i];
+        int secondNum = noDups[i+1];
+        int thirdNum = noDups[i+2];
+        int fourthNum = noDups[i+3];
+        int fifthNum = noDups[i+4];
+        if(((firstNum < secondNum) && fabs(firstNum - secondNum) == 1) && ((secondNum < thirdNum) && fabs(secondNum - thirdNum) == 1) && ((thirdNum < fourthNum) && fabs(thirdNum - fourthNum) == 1) && ((fourthNum < fifthNum) && fabs(fourthNum - fifthNum) == 1)){
+            return 1;
+        }
+    }
+    return 0;
 
 }
 
