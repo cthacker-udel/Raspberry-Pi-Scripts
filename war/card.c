@@ -56,3 +56,8 @@ int showdown(warCard *playerCard, warCard *computerCard){
 }
 
 
+void startGame(){
+
+}
+
+
