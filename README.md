@@ -1,6 +1,6 @@
 # Raspberry Pi Scripts
 
-> Author --> Cameron Thacker - University of Delaware
+> Author : Cameron Thacker - University of Delaware
 
 ## Python Library
    
