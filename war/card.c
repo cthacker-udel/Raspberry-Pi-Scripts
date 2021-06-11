@@ -56,6 +56,14 @@ warCard *initializePlayerHand(){
 	}
 }
 
+warCard *initializeComputerHand(){
+	if(deck){
+		for(int i = 0; i < 26; i++){
+			addToHand(computerHand);
+		}
+	}
+}
+
 
 
 
