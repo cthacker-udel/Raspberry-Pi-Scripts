@@ -13,6 +13,18 @@ warCard *createCard(char *rank, char *suit, int val){
 }
 
 
+
+int countCards(warCard *hand){
+	int count = 0;
+	warCard *tempHead = hand;
+	while(tempHead != NULL){
+		count++;
+		tempHead = tempHead->next;
+	}
+	return count;
+}
+
+
 warCard *craftDeck(){
     char suits[][10] = {"Hearts","Clubs","Diamonds","Spades"};
     char ranks[][10] = {"Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten","Jack","Queen","King","Ace"};
