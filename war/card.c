@@ -154,7 +154,25 @@ int showdown(warCard *playerCard, warCard *computerCard){
 
 
 void startGame(){
-
+	initializePlayerHand();
+	initializeComputerHand();
+	int playerWins = 0;
+	int computerWins = 0;
+	while(playerHand || computerHand){
+		fprintf(stderr,"\nEach player DRAW!!\n");
+		warCard *playerCard = deal(playerHand);
+		warCard *computerCard = deal(computerHand);
+		int showdownResult = showdown(playerCard,computerCard);
+		if(showdownResult == 1){
+			playerWins++;
+		}
+		else if(showdownResult == 2){
+			computerWins++;
+		}
+		else{
+			fprintf(stderr,"\nEnded in a draw, no points awarded to either team\n");
+		}
+	}
 }
 
 

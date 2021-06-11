@@ -27,3 +27,11 @@ int showdown(warCard *, warCard *);
 int countCards(warCard *);
 
 void startGame();
+
+void initializePlayerHand();
+
+void initializeComputerHand();
+
+warCard *deal();
+
+warCard *shuffle(warCard *);
