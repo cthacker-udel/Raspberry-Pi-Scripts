@@ -30,3 +30,23 @@ warCard *craftDeck(){
     }
     return deck;
 }
+
+char *getSuit(warCard *card){
+
+	return card->suit;
+
+}
+
+
+char *getRank(warCard *card){
+
+	return card->rank;
+}
+
+
+int getValue(warCard *card){
+
+	return card->val;
+
+}
+
