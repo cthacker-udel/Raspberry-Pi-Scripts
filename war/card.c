@@ -25,6 +25,14 @@ int countCards(warCard *hand){
 }
 
 
+warCard *deal(warCard *hand){
+	warCard *theCard = hand;
+	hand = hand->next;
+	return theCard;
+}
+
+
+
 warCard *shuffle(warCard *deck){
 
 	int middle = countCards(deck) / 2;
@@ -37,11 +45,30 @@ warCard *shuffle(warCard *deck){
 	warCard *riffle = tempHead->next;
 	tempHead->next = NULL;
 	warCard *newDeck;
+	tempHead = deck;
 	for(;tempHead || riffle;){
 		if(riffle && srand() > 0.5){
-		
+			if(!newDeck){
+				warCard *newCard = deal(riffle);
+				newCard->next = newDeck;
+			}
+			else{
+				warCard *newCard = deal(riffle);
+				newDeck = newCard;
+			}
+		}
+		else if(tempHead){
+			if(!newDeck){
+				warCard *newCard = deal(tempHead);
+				newCard->next = newDeck;
+			}
+			else{
+				warCard *newCard = deal(tempHead);
+				newDeck = newCard;
+			}
 		}
 	}
+	return newDeck;
 
 }
 
