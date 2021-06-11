@@ -1,7 +1,7 @@
 
 
-war: cardfunc.o game.o project.h
-	cc -g -o war game.o cardfunc.o project.h
+war: card.o main.o project.h
+	cc -g -o war main.o card.o project.h
 
 
 
