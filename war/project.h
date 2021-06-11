@@ -16,3 +16,10 @@ typedef struct card{
 }warCard;
 
 
+char *getSuit(warCard *);
+
+char *getRank(warCard *);
+
+int getVal(warCard *);
+
+
