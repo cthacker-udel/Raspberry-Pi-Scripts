@@ -24,5 +24,6 @@ int getVal(warCard *);
 
 int showdown(warCard *, warCard *);
 
+int countCards(warCard *);
 
 void startGame();
