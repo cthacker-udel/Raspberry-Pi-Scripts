@@ -23,3 +23,6 @@ char *getRank(warCard *);
 int getVal(warCard *);
 
 int showdown(warCard *, warCard *);
+
+
+void startGame();
