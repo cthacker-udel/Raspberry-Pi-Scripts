@@ -50,3 +50,9 @@ int getValue(warCard *card){
 
 }
 
+
+int showdown(warCard *playerCard, warCard *computerCard){
+	return playerCard->val > computerCard->val? 1: playerCard->val < computerCard->val? 2: 3;
+}
+
+
