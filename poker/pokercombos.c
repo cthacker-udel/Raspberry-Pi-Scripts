@@ -170,9 +170,9 @@ int fullHouse(pokerCard *hand){
     }
 
     //fprintf(stderr,"\nPrinting noDups\n");
-    for(int i = 0; i < numCards; i++){
-        fprintf(stderr,"\t %d ",noDups[i]);
-    }
+    //for(int i = 0; i < numCards; i++){
+    //    fprintf(stderr,"\t %d ",noDups[i]);
+    //}
 
     int count = 0;
     int threeOfAKindFound = 0;
@@ -285,7 +285,7 @@ int allAlternating(pokerCard *hand){
 
     // atleast 5 cards must alternate
 
-    fprintf(stderr,"\nEntering isAllAlternating\n");
+    //fprintf(stderr,"\nEntering isAllAlternating\n");
 
     int rank = hand->rank;
     pokerCard *tempHand = hand;
@@ -324,9 +324,9 @@ int allAlternating(pokerCard *hand){
     
     
     //fprintf(stderr,"\nPrinting sorted array for isAllAlternating\n");
-    for(int i = 0; i < numCards; i++){
-        fprintf(stderr,"%d,",ranks[i]);
-    }
+    //for(int i = 0; i < numCards; i++){
+    //    fprintf(stderr,"%d,",ranks[i]);
+    //}
 
     int noDups[7] = {0,0,0,0,0,0,0};
     
@@ -423,7 +423,7 @@ int isThreePair(pokerCard *hand){
 }
 
 void printRanks(int ranks[], int len){
-    fprintf(stderr,"\nThe ranks are : \n");
+    //fprintf(stderr,"\nThe ranks are : \n");
     int loopvar = 0;
     while(1){
         for(int i = 0; i < len-1; i++){
@@ -441,9 +441,9 @@ void printRanks(int ranks[], int len){
             break;
         }
     }
-    for(int i = 0; i < len; i++){
-        fprintf(stderr,"%d,",ranks[i]);
-    }
+    //for(int i = 0; i < len; i++){
+    //    fprintf(stderr,"%d,",ranks[i]);
+    //}
 }
 
 int isTwoPair(pokerCard *hand){
@@ -460,7 +460,7 @@ int isTwoPair(pokerCard *hand){
         i++;
     }
 
-    printRanks(ranks,numCards);
+    //printRanks(ranks,numCards);
 
     int loopController = 0;
 

@@ -23,6 +23,7 @@ int main(int argc, char *argv[]){
         deck = shuffle(deck);
     }
     startGame();
+    /*
     while(1){
         checkJoystick();
         printf("\n\nNUM OF CARDS : %d\n\n",countCards(deck));
@@ -62,4 +63,5 @@ int main(int argc, char *argv[]){
                 break;
         }
     }
+    */
 }
