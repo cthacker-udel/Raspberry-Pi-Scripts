@@ -364,7 +364,7 @@ void displayHandNoNewLine(pokerCard *hand){
 }
 
 void displayHand(pokerCard *hand){
-    fprintf(stderr,"\nentering displayhand\n");
+    //fprintf(stderr,"\nentering displayhand\n");
     pokerCard *tempHand = hand;
     fprintf(stderr,"\n-------------------\nDisplaying Cards\n-------------------\n");
     while(tempHand != NULL){
