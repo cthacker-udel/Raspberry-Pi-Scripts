@@ -1,4 +1,4 @@
-# Cthacker - Raspberry Pi Python Scripts
+# Raspberry Pi Scripts
 
 Author - [ Cameron Thacker - University of Delaware ]
 
