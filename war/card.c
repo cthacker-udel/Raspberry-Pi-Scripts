@@ -2,6 +2,10 @@
 
 warCard *deck = NULL;
 
+warCard *playerHand = NULL;
+
+warCard *computerHand = NULL;
+
 
 warCard *createCard(char *rank, char *suit, int val){
     warCard *newCard = (warCard *)malloc(sizeof(warCard));
@@ -30,6 +34,29 @@ warCard *deal(warCard *hand){
 	hand = hand->next;
 	return theCard;
 }
+
+void addToHand(warCard *hand){
+	if(hand){
+		warCard *newCard = deal(deck);
+		newCard->next = hand;
+		hand = newCard;
+	}
+	else{
+		fprintf(stderr,"\nhand passed into the function is NULL\n");
+		hand = deal(deck);
+	}
+}
+
+
+warCard *initializePlayerHand(){
+	if(deck){
+		for(int i = 0; i < 26; i++){
+			addToHand(playerHand); 
+		}
+	}
+}
+
+
 
 
 
