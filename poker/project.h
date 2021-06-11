@@ -106,3 +106,5 @@ int evalHand(pokerCard *);
 void printRanks(int[],int);
 
 void displaySuits(pokerCard *);
+
+int showDown(pokerCard *, pokerCard *);

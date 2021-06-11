@@ -152,6 +152,9 @@ void startGame(pokerCard *deck){
             freePile(playerHand);
             break;
         }
+        else if(countCards(combinedHand) == 5){
+            break;
+        }
         else if(response == 'c'){
             tableCards = addToHand(tableCards);
             combinedHand = combineTwoHands(playerHand,tableCards);
@@ -162,7 +165,8 @@ void startGame(pokerCard *deck){
         showDown(combinedHand,combinedHand2);
     }
     else{
-        // throw signal 
+        // throw signal
+        raise(SIGABRT); 
     }
 
 }
@@ -258,7 +262,7 @@ int showDown(pokerCard *hand1, pokerCard *hand2){
                                         return 2;
                                     }
                                     else{
-                                        return highCard(hand1) > highCard(hand2);
+                                        return getHighCard(hand1) > getHighCard(hand2);
                                     }
                                 }
                             }
