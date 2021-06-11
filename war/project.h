@@ -8,7 +8,7 @@
 
 typedef struct card{
 
-    int rank;
+    int val;
     char suit[10];
     char rank[10];
 
