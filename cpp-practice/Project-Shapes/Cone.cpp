@@ -1,5 +1,5 @@
 #include "Cone.hpp"
-
+#include <math.h>
 
 Cone::Cone(){
     radius = 10;
