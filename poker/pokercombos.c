@@ -169,7 +169,7 @@ int fullHouse(pokerCard *hand){
         }
     }
 
-    fprintf(stderr,"\nPrinting noDups\n");
+    //fprintf(stderr,"\nPrinting noDups\n");
     for(int i = 0; i < numCards; i++){
         fprintf(stderr,"\t %d ",noDups[i]);
     }
@@ -187,13 +187,13 @@ int fullHouse(pokerCard *hand){
                 }
             }
             if(count == 3){
-                fprintf(stderr,"Three of a kind found");
+                //fprintf(stderr,"Three of a kind found");
                 noDups[i] = 0;
                 threeOfAKindFound = 1;
                 count = 0;
             }
             else if(count == 2){
-                fprintf(stderr,"Two of a kind found");
+                //fprintf(stderr,"Two of a kind found");
                 noDups[i] = 0;
                 pairFound = 1;
                 count = 0;
@@ -323,7 +323,7 @@ int allAlternating(pokerCard *hand){
     // arr sorted
     
     
-    fprintf(stderr,"\nPrinting sorted array for isAllAlternating\n");
+    //fprintf(stderr,"\nPrinting sorted array for isAllAlternating\n");
     for(int i = 0; i < numCards; i++){
         fprintf(stderr,"%d,",ranks[i]);
     }
@@ -370,7 +370,7 @@ int allAlternating(pokerCard *hand){
 
 int isFlush(pokerCard *hand){
     
-    fprintf(stderr,"\nentering isFlush\n");
+    //fprintf(stderr,"\nentering isFlush\n");
 
     return allSameSuit(hand);
 
@@ -410,7 +410,7 @@ int isThreePair(pokerCard *hand){
                 count++;
             }
         }
-        fprintf(stderr,"\nTHREE PAIR COUNT = %d",count);
+        //fprintf(stderr,"\nTHREE PAIR COUNT = %d",count);
         if(count == 3){
             return 1;
         }

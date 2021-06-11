@@ -23,6 +23,8 @@ pokerCard *tableCards = NULL;
 
 pokerCard *combinedHand = NULL;
 
+pokerCard *combinedHand2 = NULL;
+
 pokerCard *addToHand(pokerCard *hand){
 
     if(hand == NULL){
@@ -142,7 +144,7 @@ void startGame(pokerCard *deck){
     tableCards = initialTableCards(deck);
     combinedHand = combineTwoHands(playerHand,tableCards);
     combinedHand2 = combineTwoHands(computerHand,tableCards);
-    while(countCards(tableCards) < 5){
+    while(countCards(tableCards) < 7){
         fprintf(stderr,"\n\nUSER CURRENT HAND :");
         displayHand(combinedHand);
         char response;
@@ -152,7 +154,7 @@ void startGame(pokerCard *deck){
             freePile(playerHand);
             break;
         }
-        else if(countCards(combinedHand) == 5){
+        else if(countCards(combinedHand) == 7){
             break;
         }
         else if(response == 'c'){
@@ -162,7 +164,24 @@ void startGame(pokerCard *deck){
         }
     }
     if(playerHand != NULL){
-        showDown(combinedHand,combinedHand2);
+        int showdownResult = showDown(combinedHand,combinedHand2);
+        switch(showdownResult){
+            case 1:
+                fprintf(stderr,"\nYOU WIN!\n");
+                break;
+            case 2:
+                fprintf(stderr,"\nYOU LOST!\n");
+                break;
+            case 3:
+                fprintf(stderr,"\nIT WAS A TIE, AND YOUR HIGH CARD WON!\n");
+                break;
+            case 4:
+                fprintf(stderr,"\nIT WAS A TIE, AND YOUR HIGH CARD LOST!\n");
+                break;
+            default:
+                fprintf(stderr,"\nRUNNING DEFAULT CASE\n");
+                break;
+        }
     }
     else{
         // throw signal
@@ -176,7 +195,7 @@ int showDown(pokerCard *hand1, pokerCard *hand2){
         return 1;
     }
     else if(!royalFlush(hand1) && royalFlush(hand2)){
-        return 0;
+        return getHighCard(hand1) > getHighCard(hand2)? 3: 4;
     }
     else if(royalFlush(hand1) && royalFlush(hand2)){
         return 2;
@@ -186,7 +205,7 @@ int showDown(pokerCard *hand1, pokerCard *hand2){
             return 1;
         }
         else if(!straightFlush(hand1) && straightFlush(hand2)){
-            return 0;
+            return getHighCard(hand1) > getHighCard(hand2)? 3: 4;
         }
         else if(straightFlush(hand1) && straightFlush(hand2)){
             return 2;
@@ -196,7 +215,7 @@ int showDown(pokerCard *hand1, pokerCard *hand2){
                 return 1;
             }
             else if(!fourOfAKind(hand1) && fourOfAKind(hand2)){
-                return 0;
+                return getHighCard(hand1) > getHighCard(hand2)? 3: 4;
             }
             else if(fourOfAKind(hand1) && fourOfAKind(hand2)){
                 return 2;
@@ -206,7 +225,7 @@ int showDown(pokerCard *hand1, pokerCard *hand2){
                     return 1;
                 }
                 else if(!fullHouse(hand1) && fullHouse(hand2)){
-                    return 0;
+                    return getHighCard(hand1) > getHighCard(hand2)? 3: 4;
                 }
                 else if(fullHouse(hand1) && fullHouse(hand2)){
                     return 2;
@@ -216,7 +235,7 @@ int showDown(pokerCard *hand1, pokerCard *hand2){
                         return 1;
                     }
                     else if(!isFlush(hand1) && isFlush(hand2)){
-                        return 0;
+                        return getHighCard(hand1) > getHighCard(hand2)? 3: 4;
                     }
                     else if(isFlush(hand1) && isFlush(hand2)){
                         return 2;
@@ -226,7 +245,7 @@ int showDown(pokerCard *hand1, pokerCard *hand2){
                             return 1;
                         }
                         else if(!isStraight(hand1) && isStraight(hand2)){
-                            return 0;
+                            return getHighCard(hand1) > getHighCard(hand2)? 3: 4;
                         }
                         else if(isStraight(hand1) && isStraight(hand2)){
                             return 2;
@@ -236,7 +255,7 @@ int showDown(pokerCard *hand1, pokerCard *hand2){
                                 return 1;
                             }
                             else if(!isThreePair(hand1) && isThreePair(hand2)){
-                                return 0;
+                                return getHighCard(hand1) > getHighCard(hand2)? 3: 4;
                             }
                             else if(isThreePair(hand1) && isThreePair(hand2)){
                                 return 2;
@@ -246,7 +265,7 @@ int showDown(pokerCard *hand1, pokerCard *hand2){
                                     return 1;
                                 }
                                 else if(!isTwoPair(hand1) && isTwoPair(hand2)){
-                                    return 0;
+                                    return getHighCard(hand1) > getHighCard(hand2)? 3: 4;
                                 }
                                 else if(isTwoPair(hand1) && isTwoPair(hand2)){
                                     return 2;
@@ -256,13 +275,13 @@ int showDown(pokerCard *hand1, pokerCard *hand2){
                                         return 1;
                                     }
                                     else if(!isPair(hand1) && isPair(hand2)){
-                                        return 0;
+                                        return getHighCard(hand1) > getHighCard(hand2)? 3: 4;
                                     }
                                     else if(isPair(hand1) && isPair(hand2)){
                                         return 2;
                                     }
                                     else{
-                                        return getHighCard(hand1) > getHighCard(hand2);
+                                        return getHighCard(hand1) > getHighCard(hand2)? 3: 4;
                                     }
                                 }
                             }
