@@ -25,6 +25,8 @@ int countCards(warCard *hand){
 }
 
 
+
+
 warCard *craftDeck(){
     char suits[][10] = {"Hearts","Clubs","Diamonds","Spades"};
     char ranks[][10] = {"Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten","Jack","Queen","King","Ace"};
