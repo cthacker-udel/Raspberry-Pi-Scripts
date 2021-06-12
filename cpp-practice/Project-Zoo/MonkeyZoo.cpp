@@ -37,6 +37,7 @@ void MonkeyZoo::displayMonkeys(){
 		cout << "We have no monkeys currently occupying " << name << " at the moment" << endl;
 	}
 	else{
+		cout << "The Zoo : " << name << " contains " << monkeys.size() << " monkeys " << endl;
 		for(int i = 0; i < monkeys.size(); i++){
 			string printString;
 			printString += "-----------------------\n";
