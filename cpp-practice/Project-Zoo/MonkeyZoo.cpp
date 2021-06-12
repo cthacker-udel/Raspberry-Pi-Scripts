@@ -30,6 +30,7 @@ vector<Monkey> MonkeyZoo::getMonkeys(){
 
 void MonkeyZoo::addMonkey(Monkey newMonkey){
 	monkeys.push_back(newMonkey);
+	occupants++;
 }
 
 void MonkeyZoo::displayMonkeys(){
