@@ -38,7 +38,12 @@ void MonkeyZoo::displayMonkeys(){
 	}
 	else{
 		for(int i = 0; i < monkeys.size(); i++){
-	
+			string printString;
+			printString += "-----------------------\n";
+			printString += "Monkey : " + ++i + "\n";
+			printString += monkeys[i].toString();
+			printString += "\n-----------------------\n";
+			cout << printString << endl;
 		}
 	}
 }

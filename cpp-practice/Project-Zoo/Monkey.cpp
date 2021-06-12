@@ -33,6 +33,6 @@ string Monkey::getName(){
 
 string Monkey::toString(){
 	string theString;
-	theString += "Name : " + name + "\nNumber of Bananas Eaten : " + numBananasEaten;
+	theString += "Name : " + name + "\nNumber of Bananas Eaten : " + numBananasEaten + "\nIs Happy : " + isHappy()? "Yes" : "No";
 	return theString;
 }
