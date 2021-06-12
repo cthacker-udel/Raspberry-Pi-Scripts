@@ -13,3 +13,15 @@ ZebraZoo::ZebraZoo(string newName){
 	occupants = 0;
 
 }
+
+int ZebraZoo::getNumberOfOccupants(){
+	return occupants;
+}
+
+
+void ZebraZoo::addZebra(Zebra newZebra){
+	zebras.push_back(newZebra);
+	occupants++;
+}
+
+
