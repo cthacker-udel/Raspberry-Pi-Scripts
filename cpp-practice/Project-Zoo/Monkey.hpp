@@ -13,6 +13,8 @@ class Monkey{
 
 		int getNumberOfBananasEaten();
 
-		int isHappy();
+		bool isHappy();
+
+		string getName();
 
 }
