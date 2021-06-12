@@ -30,3 +30,9 @@ int Monkey::getNumberOfBananasEaten(){
 string Monkey::getName(){
 	return name;
 }
+
+string Monkey::toString(){
+	string theString;
+	theString += "Name : " + name + "\nNumber of Bananas Eaten : " + numBananasEaten;
+	return theString;
+}

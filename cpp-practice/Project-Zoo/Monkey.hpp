@@ -17,4 +17,6 @@ class Monkey{
 
 		string getName();
 
+		string toString();
+
 }
