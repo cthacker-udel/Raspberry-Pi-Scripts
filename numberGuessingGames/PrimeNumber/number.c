@@ -24,7 +24,7 @@ int getRandomNumber(){
 	return rand();
 }
 
-void getPlayerGuess(){
+int getPlayerGuess(){
 	printf("\nPLAYER : GUESS IF THE NUMBER IS PRIME(y/n)? q to quit\n");
 	char *guess = (char *)malloc(sizeof(char) * 4);
 	scanf("%s",guess);

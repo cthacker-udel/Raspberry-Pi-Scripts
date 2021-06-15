@@ -8,7 +8,7 @@
 
 int getRandomNumber();
 
-void getPlayerGuess();
+int getPlayerGuess();
 
 void printComputerGuess();
 

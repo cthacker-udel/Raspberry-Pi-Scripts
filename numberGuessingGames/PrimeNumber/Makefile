@@ -10,4 +10,4 @@ run: exec
 
 
 clean:
-	rm -rf *.o game 
+	rm -rf *.o game *.gch
