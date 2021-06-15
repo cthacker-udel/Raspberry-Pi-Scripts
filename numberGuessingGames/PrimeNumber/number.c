@@ -11,3 +11,7 @@ void printComputerGuess(){
 	printf("\nCOMPUTER GUESSED NUMBER\n");
 }
 
+void seedRandomNumber(int theNumber){
+	srand(theNumber);
+}
+
