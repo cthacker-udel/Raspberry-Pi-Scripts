@@ -8,4 +8,9 @@ int main(int argc, char *argv[]){
 		seedRandomNumber(rand());
 		seedRandomNumber(rand());
 	}
+	while(1){
+		printComputerGuess();
+	}
+
+
 }
