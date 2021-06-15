@@ -1,12 +1,35 @@
 #include "project.h"
 
-
+int playerScore = 0;
+int computerScore = 0;
 
 int generateRandomNumber(){
 
     long number = rand();
     int twoNumber = rand() % number;
     return twoNumber;
+
+}
+
+void displayScore(){
+
+    printf("\n!#!#!#!#SCORE DISPLAY!#!#!#!#\n\nPLAYER SCORE : %d\n\nCOMPUTER SCORE : %d\n\n",playerScore,computerScore);
+
+}
+
+void correctGuess(){
+
+    printf("\n\nTHE GUESS IS\n\n....");
+    printf("CORRECT!\n");
+    playerScore++;
+
+}
+
+void incorrectGuess(){
+
+    printf("\n\nTHE GUESS IS\n\n....");
+    printf("INCORRECT!\n");
+    computerScore++;
 
 }
 
