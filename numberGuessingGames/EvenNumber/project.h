@@ -15,4 +15,4 @@ void correctGuess();
 
 void incorrectGuess();
 
-
+void displayScore();

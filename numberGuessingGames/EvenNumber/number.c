@@ -13,7 +13,7 @@ int generateRandomNumber(){
 
 void displayScore(){
 
-    printf("\n!#!#!#!#SCORE DISPLAY!#!#!#!#\n\nPLAYER SCORE : %d\n\nCOMPUTER SCORE : %d\n\n",playerScore,computerScore);
+    printf("\n!#!#!#!#SCORE DISPLAY!#!#!#!#\n\nPLAYER SCORE : %d\n\nCOMPUTER SCORE : %d\n\n!#!#!#!#!#!#!#!#\n",playerScore,computerScore);
 
 }
 
@@ -42,7 +42,6 @@ void getPlayerGuess(){
 
 int getComputerGuess(){
 
-    printf("\n\nCOMPUTER, GUESS AN EVEN NUMBER\n\n");
     int guess;
     while(1){
         int theNumber = generateRandomNumber();
