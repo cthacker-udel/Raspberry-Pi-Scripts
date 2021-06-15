@@ -1,3 +1,4 @@
+#include "project.h"
 
 int getRandomNumber(){
 	return rand();
