@@ -1,5 +1,4 @@
 #include "project.h"
-#include "number.c"
 
 int main(int argc, char *argv[]){
 
@@ -18,7 +17,7 @@ int main(int argc, char *argv[]){
 
     printf("\n\n-~-~-~-~WELCOME TO THE EVEN NUMBER GUESSING GAME-~-~-~-~");
 
-    char *guess = NULL;
+    char *guess = (char *)malloc(sizeof(char) * 20);
 
     while(1){
 
@@ -27,7 +26,13 @@ int main(int argc, char *argv[]){
         scanf("%s",guess);
         printf("The guess is : %s",guess);
         printf("The computer guess is : %d",theNumber);
-        
+        if(tolower(guess[0]) == 'e' && tolower(guess[3]) == 'n' && strlen(guess) == 4 && theNumber % 2 == 0){
+		correctGuess();
+	}
+	else{
+		incorrectGuess();
+	}
+	displayScore();
 
     }
 

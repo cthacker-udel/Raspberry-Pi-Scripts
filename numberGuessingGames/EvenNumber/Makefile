@@ -11,3 +11,6 @@ compile: project.h main.o number.o
 
 run: compile
 	./evenNumberGame
+
+clean:
+	rm -rf *.o evenNumberGame

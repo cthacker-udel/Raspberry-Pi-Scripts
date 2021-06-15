@@ -10,3 +10,9 @@ int generateRandomNumber();
 void getPlayerGuess();
 
 int getComputerGuess();
+
+void correctGuess();
+
+void incorrectGuess();
+
+
