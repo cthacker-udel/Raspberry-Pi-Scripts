@@ -33,12 +33,9 @@ void incorrectGuess(){
 
 }
 
-int getPlayerGuess(){
+void getPlayerGuess(){
 
     printf("\n\nPLAYER, GUESS AN EVEN NUMBER\n\n");
-    int guess;
-    scanf("%d",&guess);
-    return guess;
 
 }
 

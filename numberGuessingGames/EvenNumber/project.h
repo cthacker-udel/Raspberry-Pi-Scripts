@@ -7,6 +7,6 @@
 
 int generateRandomNumber();
 
-int getPlayerGuess();
+void getPlayerGuess();
 
 int getComputerGuess();
