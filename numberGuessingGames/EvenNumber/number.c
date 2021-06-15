@@ -35,7 +35,7 @@ void incorrectGuess(){
 
 void getPlayerGuess(){
 
-    printf("\n\nPLAYER, GUESS AN EVEN NUMBER\n\n");
+    printf("\n\nPLAYER, GUESS IF THE NUMBER IS EVEN OR ODD\n\n");
 
 }
 

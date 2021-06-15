@@ -29,6 +29,9 @@ int main(int argc, char *argv[]){
         if(tolower(guess[0]) == 'e' && tolower(guess[3]) == 'n' && strlen(guess) == 4 && theNumber % 2 == 0){
 		correctGuess();
 	}
+	else if(tolower(guess[0]) == 'o' && tolower(guess[2]) == 'd' && strlen(guess) == 3 && theNumber % 2 != 0){
+		printf("\nSAFE BET, NUMBER WAS NOT EVEN, NO POINT DEDUCTION\n");
+	}
 	else{
 		incorrectGuess();
 	}
