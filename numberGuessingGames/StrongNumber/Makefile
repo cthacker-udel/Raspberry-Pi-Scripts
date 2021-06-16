@@ -6,7 +6,7 @@ game: main.o number.o project.h
 	cc -g -c $< project.h
 
 run: game
-	./random_number_script
+	./random_number_script.sh
 
 clean:
 	rm -rf *.o *.gch game

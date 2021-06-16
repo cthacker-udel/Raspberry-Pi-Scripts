@@ -25,8 +25,9 @@ int main(int argc, char *argv[]){
 			correctGuess();
 		}
 		else if(!isStrongNumber(number) && answer == 1){
-			inCorrectGuess();
+			incorrectGuess();
 		}		
 	}
 	displayScore();
+	getWinner();
 }

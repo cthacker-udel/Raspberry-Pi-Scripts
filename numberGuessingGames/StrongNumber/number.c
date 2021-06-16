@@ -58,7 +58,7 @@ int generateRandomNumber(){
 	return rand();
 }
 
-int isNumberStrong(int number){
+int isStrongNumber(int number){
 	int sum = 0;
 	int tempNum = number;
 	while(number > 10){
