@@ -4,4 +4,12 @@
 #include <stddef.h>
 #include <ctype.h>
 
+int factorial(int);
 
+int isStrongNumber(int);
+
+int getUserInput();
+
+void seedRandomNumber(int);
+
+int generateRandomNumber();

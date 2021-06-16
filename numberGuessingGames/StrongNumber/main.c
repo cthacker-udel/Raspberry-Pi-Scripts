@@ -9,7 +9,6 @@ int main(int argc, char *argv[]){
 		seedRandomNumber(7);
 	}
 	while(1){
-
-
+		
 	}
 }
