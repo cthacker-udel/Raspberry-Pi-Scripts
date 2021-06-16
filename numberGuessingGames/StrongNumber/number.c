@@ -10,8 +10,17 @@ int generateRandomNumber(){
 
 int isNumberStrong(int number){
 	int sum = 0;
+	int tempNum = number;
 	while(number > 10){
-
+		sum += factorial(number % 10);
+		number = number / 10;
+	}
+	sum += number;
+	if(sum == tempNum){
+		return 1;
+	}
+	else{
+		return 0;
 	}
 }
 
