@@ -4,6 +4,20 @@ void seedRandomNumber(int number){
 	srand(number);
 }
 
+int getUserInput(){
+	while(1){
+		printf("\nUSER : ENTER 1 IF NUMBER IS STRONG NUMBER OR 0 IF NOT\n");
+		int answer;
+		scanf("%d",&answer);
+		if(answer != 1 && answer != 0){
+			continue;
+		}
+		else{
+			return answer;
+		}
+	}
+}
+
 int generateRandomNumber(){
 	return rand();
 }
