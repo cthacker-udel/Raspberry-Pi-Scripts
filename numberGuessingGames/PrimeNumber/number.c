@@ -62,7 +62,7 @@ int isPrime(int number){
 void printComputerGuess(){
 	int number = getRandomNumber();
 	printf("\nCOMPUTER GUESSED NUMBER : %d\n",number);
-	int res = getPlayerGuess()
+	int res = getPlayerGuess();
 	if(res == 2){
 		quit_var = 0;
 	}
