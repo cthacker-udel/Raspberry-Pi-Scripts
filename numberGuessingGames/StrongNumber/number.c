@@ -11,6 +11,18 @@ void displayScore(){
 	printf("\n~-~-~-SCORE~-~-~-\nUSER : %d\nCOMPUTER : %d\n~-~-~-~-~-~-~-~-~-\n",userScore,computerScore);
 }
 
+void getWinner(){
+	if(userScore > computerScore){
+		printf("\n~-~-~-FINAL GAME RESULTS~-~-~-\nWINNER : USER\n~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-\n");
+	}
+	else if(computerScore > userScore){
+		printf("\n~-~-~-FINAL GAME RESULTS~-~-~-\nWINNER : COMPUTER\n~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-\n");	
+	}
+	else{
+		printf("\n~-~-~-FINAL GAME RESULTS~-~-~-\nTIE\n~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-\n");
+	}	
+}
+
 void correctGuess(){
 	printf("~-~-~-ANSWER RESULT~-~-~-\n--- CORRECT ---\n~-~-~-~-~-~-~-~-~-~-~-~-~-\n");
 	userScore++;
