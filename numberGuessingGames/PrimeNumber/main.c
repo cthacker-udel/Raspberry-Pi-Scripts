@@ -12,6 +12,7 @@ int main(int argc, char *argv[]){
 		printComputerGuess();
 	}
 	displayScore();
+	declareWinner();
 
 
 }

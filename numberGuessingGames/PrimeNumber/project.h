@@ -8,6 +8,8 @@
 
 int getRandomNumber();
 
+void declareWinner();
+
 int getPlayerGuess();
 
 void printComputerGuess();

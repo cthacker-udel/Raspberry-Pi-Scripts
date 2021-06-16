@@ -12,6 +12,18 @@ int getQuitVar(){
 	return quit_var;
 }
 
+void declareWinner(){
+	if(computerScore > playerScore){
+		printf("\n------------\nCOMPUTER WINS!\n------------\n");
+	}
+	else if(playerScore > computerScore){
+		printf("\n------------\nPLAYER WINS!\n------------\n");
+	}
+	else{
+		printf("\n------------\nTIE! NEITHER PLAYER WINS!\n------------\n");
+	}
+}
+
 int getPlayerScore(){
 	return playerScore;
 }
@@ -50,7 +62,7 @@ int isPrime(int number){
 		return 1;
 	} 
 	else{
-		for(int i = 0; i <= sqrt(number); i++){
+		for(int i = 1; i < number; i++){
 			if(number % i == 0){
 				return 0;
 			}
