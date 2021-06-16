@@ -1,7 +1,28 @@
 #include "project.h"
 
+int userScore;
+int computerScore;
+
 void seedRandomNumber(int number){
 	srand(number);
+}
+
+void displayScore(){
+	printf("\n~-~-~-SCORE~-~-~-\nUSER : %d\nCOMPUTER : %d\n~-~-~-~-~-~-~-~-~-\n",userScore,computerScore);
+}
+
+void correctGuess(){
+	printf("~-~-~-ANSWER RESULT~-~-~-\n--- CORRECT ---\n~-~-~-~-~-~-~-~-~-~-~-~-~-\n");
+	userScore++;
+	computerScore--;
+	displayScore();
+}
+
+void incorrectGuess(){
+	printf("~-~-~-ANSWER RESULT~-~-~-\n--- INCORRECT ---\n~-~-~-~-~-~-~-~-~-~-~-~-~-\n");
+	userScore--;
+	computerScore++;
+	displayScore();
 }
 
 int getUserInput(){

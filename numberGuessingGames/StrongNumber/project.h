@@ -13,3 +13,7 @@ int getUserInput();
 void seedRandomNumber(int);
 
 int generateRandomNumber();
+
+void correctGuess();
+
+void incorrectGuess();
