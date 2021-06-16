@@ -27,10 +27,13 @@ void incorrectGuess(){
 
 int getUserInput(){
 	while(1){
-		printf("\nUSER : ENTER 1 IF NUMBER IS STRONG NUMBER OR 0 IF NOT\n");
+		printf("\nUSER : ENTER 1 IF NUMBER IS STRONG NUMBER OR 0 IF NOT, 99 to quit program\n");
 		int answer;
 		scanf("%d",&answer);
-		if(answer != 1 && answer != 0){
+		if(answer == 99){
+			return 99;
+		}
+		else if(answer != 1 && answer != 0){
 			continue;
 		}
 		else{

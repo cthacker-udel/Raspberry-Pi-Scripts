@@ -13,16 +13,16 @@ int main(int argc, char *argv[]){
 		printf("\nCOMPUTER GENERATED NUMBER\n");
 		int answer = getUserInput();
 		if(isStrongNumber(number) & answer == 1){
-			// correct guess
+			correctGuess();
 		}
 		else if(isStrongNumber(number) && answer == 0){
-			// incorrect guess
+			incorrectGuess();
 		}
 		else if(!isStrongNumber(number) && answer == 0){
-			// correct guess
+			correctGuess();
 		}
 		else if(!isStrongNumber(number) && answer == 1){
-			// incorrect guess
+			inCorrectGuess();
 		}		
 	}
 }
