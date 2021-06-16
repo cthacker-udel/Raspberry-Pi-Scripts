@@ -12,7 +12,10 @@ int main(int argc, char *argv[]){
 		int number = generateRandomNumber();
 		printf("\nCOMPUTER GENERATED NUMBER\n");
 		int answer = getUserInput();
-		if(isStrongNumber(number) & answer == 1){
+		if(answer == 99){
+			break;
+		}
+		else if(isStrongNumber(number) & answer == 1){
 			correctGuess();
 		}
 		else if(isStrongNumber(number) && answer == 0){
@@ -25,4 +28,5 @@ int main(int argc, char *argv[]){
 			inCorrectGuess();
 		}		
 	}
+	displayScore();
 }
