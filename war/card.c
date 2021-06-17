@@ -1,7 +1,5 @@
 #include "project.h"
 
-warCard *deck = NULL;
-
 warCard *playerHand = NULL;
 
 warCard *computerHand = NULL;
@@ -31,8 +29,12 @@ int countCards(warCard *hand){
 
 warCard *deal(warCard *hand){
 	warCard *theCard = hand;
-	hand = hand->next;
-    theCard->next = NULL;
+    warCard *prevCard;
+    while(theCard->next != NULL){
+        prevCard = theCard;
+        theCard = theCard->next;
+    }
+    prevCard->next = NULL;
 	return theCard;
 }
 
@@ -45,14 +47,14 @@ warCard * addToHand(warCard *hand, warCard *iDeck){
 	}
 	else{
 		fprintf(stderr,"\nhand passed into the function is NULL\n");
-		hand = deal(deck);
+		hand = deal(iDeck);
         return hand;
 	}
 }
 
 
 warCard *initializePlayerHand(warCard *iDeck){
-	if(deck){
+	if(iDeck){
 		for(int i = 0; i < 26; i++){
 			playerHand = addToHand(playerHand,iDeck); 
 		}
@@ -60,7 +62,7 @@ warCard *initializePlayerHand(warCard *iDeck){
 }
 
 warCard *initializeComputerHand(warCard *iDeck){
-	if(deck){
+	if(iDeck){
 		for(int i = 0; i < 26; i++){
 			computerHand = addToHand(computerHand,iDeck);
 		}
@@ -124,21 +126,22 @@ warCard *shuffle(warCard *deck){
 
 
 warCard *craftDeck(){
+    warCard *iDeck = NULL;
     char suits[][10] = {"Hearts","Clubs","Diamonds","Spades"};
     char ranks[][10] = {"Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten","Jack","Queen","King","Ace"};
     for(int j = 0; j < 4; j++){
         for(int i = 1; i <= 13; i++){
-            if(deck == NULL){
-                deck = createCard(ranks[i-1],suits[j],i);
+            if(iDeck == NULL){
+                iDeck = createCard(ranks[i-1],suits[j],i);
             }
             else{
                 warCard *newCard = createCard(ranks[i-1],suits[j],i);
-                newCard->next = deck;
-                deck = newCard;
+                newCard->next = iDeck;
+                iDeck = newCard;
             }
         }
     }
-    return deck;
+    return iDeck;
 }
 
 char *getSuit(warCard *card){
