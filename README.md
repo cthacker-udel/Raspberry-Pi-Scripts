@@ -20,6 +20,7 @@
 - [x] Checkers
 - [x] Etch-A-Sketch
 - [x] Poker
+- [x] Blackjack
 
 ## C++ Library
 
