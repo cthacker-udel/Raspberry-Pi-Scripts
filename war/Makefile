@@ -1,5 +1,7 @@
 
 
+all: war
+
 war: card.o main.o project.h
 	cc -g -o war main.o card.o project.h
 

@@ -1,8 +1,10 @@
 #include "project.h"
 
-int main(void){
+int main(int argc, char *argv[]){
 
     warCard *deck = craftDeck();
-    printHand(deck);
+    printNumberOfCards(deck);
+    warCard *newCard = deal(deck);
+    printNumberOfCards(deck);
 
 }

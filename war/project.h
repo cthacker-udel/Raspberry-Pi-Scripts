@@ -5,7 +5,7 @@
 #include <stddef.h>
 #include <math.h>
 #include <string.h>
-
+#include <unistd.h>
 
 typedef struct card{
 
@@ -17,6 +17,8 @@ typedef struct card{
 }warCard;
 
 warCard *craftDeck();
+
+void printNumberOfCards(warCard *);
 
 void printHand(warCard *);
 
@@ -30,7 +32,7 @@ int showdown(warCard *, warCard *);
 
 int countCards(warCard *);
 
-void startGame();
+void startGame(warCard *);
 
 warCard * initializePlayerHand();
 
@@ -39,3 +41,5 @@ warCard * initializeComputerHand();
 warCard *deal();
 
 warCard *shuffle(warCard *);
+
+warCard *addToHand(warCard *, warCard *);

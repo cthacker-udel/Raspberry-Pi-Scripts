@@ -32,36 +32,49 @@ int countCards(warCard *hand){
 warCard *deal(warCard *hand){
 	warCard *theCard = hand;
 	hand = hand->next;
+    theCard->next = NULL;
 	return theCard;
 }
 
-void addToHand(warCard *hand){
+warCard * addToHand(warCard *hand, warCard *iDeck){
 	if(hand){
-		warCard *newCard = deal(deck);
+		warCard *newCard = deal(iDeck);
 		newCard->next = hand;
 		hand = newCard;
+        return hand;
 	}
 	else{
 		fprintf(stderr,"\nhand passed into the function is NULL\n");
 		hand = deal(deck);
+        return hand;
 	}
 }
 
 
-warCard *initializePlayerHand(){
+warCard *initializePlayerHand(warCard *iDeck){
 	if(deck){
 		for(int i = 0; i < 26; i++){
-			addToHand(playerHand); 
+			playerHand = addToHand(playerHand,iDeck); 
 		}
 	}
 }
 
-warCard *initializeComputerHand(){
+warCard *initializeComputerHand(warCard *iDeck){
 	if(deck){
 		for(int i = 0; i < 26; i++){
-			addToHand(computerHand);
+			computerHand = addToHand(computerHand,iDeck);
 		}
 	}
+}
+
+void printNumberOfCards(warCard *hand){
+    int count = 0;
+    warCard *tempHand = hand;
+    while(tempHand != NULL){
+        count++;
+        tempHand = tempHand->next;
+    }
+    printf("\nThe number of cards is : %d\n",count);
 }
 
 
@@ -163,15 +176,18 @@ int showdown(warCard *playerCard, warCard *computerCard){
 }
 
 
-void startGame(){
-	initializePlayerHand();
-	initializeComputerHand();
+void startGame(warCard *iDeck){
+	playerHand = initializePlayerHand(iDeck);
+	computerHand = initializeComputerHand(iDeck);
 	int playerWins = 0;
 	int computerWins = 0;
 	while(playerHand || computerHand){
 		fprintf(stderr,"\nEach player DRAW!!\n");
 		warCard *playerCard = deal(playerHand);
 		warCard *computerCard = deal(computerHand);
+        printHand(playerCard);
+        printHand(computerCard);
+        sleep(2);
 		int showdownResult = showdown(playerCard,computerCard);
 		if(showdownResult == 1){
 			playerWins++;
