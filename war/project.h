@@ -4,6 +4,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <math.h>
+#include <string.h>
 
 
 typedef struct card{
@@ -11,10 +12,13 @@ typedef struct card{
     int val;
     char suit[10];
     char rank[10];
-
+    struct card *next;
 
 }warCard;
 
+warCard *craftDeck();
+
+void printHand(warCard *);
 
 char *getSuit(warCard *);
 
@@ -28,9 +32,9 @@ int countCards(warCard *);
 
 void startGame();
 
-void initializePlayerHand();
+warCard * initializePlayerHand();
 
-void initializeComputerHand();
+warCard * initializeComputerHand();
 
 warCard *deal();
 

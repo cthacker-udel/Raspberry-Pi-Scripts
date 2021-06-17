@@ -82,7 +82,7 @@ warCard *shuffle(warCard *deck){
 	warCard *newDeck;
 	tempHead = deck;
 	for(;tempHead || riffle;){
-		if(riffle && srand() > 0.5){
+		if(riffle && drand48() > 0.5){
 			if(!newDeck){
 				warCard *newCard = deal(riffle);
 				newCard->next = newDeck;
@@ -133,6 +133,16 @@ char *getSuit(warCard *card){
 	return card->suit;
 
 }
+
+void printHand(warCard *hand){
+    int count = 1;
+    warCard *tempHand = hand;
+    while(tempHand != NULL){
+        printf("\nCARD %d : %s of %s, rank : %d",count++,tempHand->rank,tempHand->suit,tempHand->val);
+        tempHand = tempHand->next;
+    }
+}
+
 
 
 char *getRank(warCard *card){
