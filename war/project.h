@@ -43,3 +43,5 @@ warCard *deal();
 warCard *shuffle(warCard *);
 
 warCard *addToHand(warCard *, warCard *);
+
+void listNodes(warCard *);

@@ -28,6 +28,9 @@ int countCards(warCard *hand){
 
 
 warCard *deal(warCard *hand){
+    if(hand == NULL){
+        return NULL;
+    }
 	warCard *theCard = hand;
     warCard *prevCard;
     while(theCard->next != NULL){
@@ -79,6 +82,24 @@ void printNumberOfCards(warCard *hand){
     printf("\nThe number of cards is : %d\n",count);
 }
 
+int numberOfCards(warCard *hand){
+    int count = 0;
+    warCard *tempHead = hand;
+    while(tempHead != NULL){
+        count++;
+        tempHead = tempHead->next;
+    }
+    return count;
+}
+
+void listNodes(warCard *list){
+    int count = 0;
+    while(list != NULL){
+        printf("\n-----\nNODE %d : %d\n-----",count++,list->val);
+        list = list->next;
+    }
+}
+
 
 
 
@@ -94,13 +115,22 @@ warCard *shuffle(warCard *deck){
 	}
 	warCard *riffle = tempHead->next;
 	tempHead->next = NULL;
-	warCard *newDeck;
+	warCard *newDeck = NULL;
 	tempHead = deck;
+    printf("Number of cards in riffle : %d and Number of cards in tempHead = %d\n",numberOfCards(riffle),numberOfCards(tempHead));
 	for(;tempHead || riffle;){
-		if(riffle && drand48() > 0.5){
-			if(!newDeck){
+        printf("Number of cards in riffle : %d and Number of cards in tempHead = %d\n",numberOfCards(riffle),numberOfCards(tempHead));
+		if(riffle && drand48() < 0.5){
+            if(riffle->next == NULL){
+                warCard *newCard = riffle;
+                newCard->next = newDeck;
+                riffle = NULL;
+                newDeck = newCard;
+            }
+            else if(newDeck){
 				warCard *newCard = deal(riffle);
 				newCard->next = newDeck;
+                newDeck = newCard;
 			}
 			else{
 				warCard *newCard = deal(riffle);
@@ -108,9 +138,16 @@ warCard *shuffle(warCard *deck){
 			}
 		}
 		else if(tempHead){
-			if(!newDeck){
+            if(tempHead->next == NULL){
+                warCard *newCard = tempHead;
+                newCard->next = newDeck;
+                tempHead = NULL;
+                newDeck = newCard;
+            }
+            else if(newDeck){
 				warCard *newCard = deal(tempHead);
 				newCard->next = newDeck;
+                newDeck = newCard;
 			}
 			else{
 				warCard *newCard = deal(tempHead);
@@ -118,6 +155,7 @@ warCard *shuffle(warCard *deck){
 			}
 		}
 	}
+    printf("Number of cards in riffle : %d and Number of cards in tempHead = %d\n",numberOfCards(riffle),numberOfCards(tempHead));
 	return newDeck;
 
 }
