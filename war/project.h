@@ -45,3 +45,7 @@ warCard *shuffle(warCard *);
 warCard *addToHand(warCard *, warCard *);
 
 void listNodes(warCard *);
+
+warCard *getPlayerHand();
+
+warCard *getComputerHand();
