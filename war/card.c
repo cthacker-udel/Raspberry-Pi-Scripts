@@ -202,6 +202,14 @@ int showdown(warCard *playerCard, warCard *computerCard){
 	return playerCard->val > computerCard->val? 1: playerCard->val < computerCard->val? 2: 3;
 }
 
+warCard *getPlayerHand(){
+    return playerHand;
+}
+
+warCard *getComputerHand(){
+    return computerHand;
+}
+
 
 void startGame(warCard *iDeck){
 	playerHand = initializePlayerHand(iDeck);
