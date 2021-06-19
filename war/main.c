@@ -3,31 +3,24 @@
 int main(int argc, char *argv[]){
 
     if(argc > 1){
+        printf("\nEntered first if\n");
+        sleep(2);
         int number = atol(argv[1]);
-        srand(number);
+        printf("\nNumber = %d",number);
+        srand48(number);
     }
     else{
         srand(7);
     }
 
     warCard *deck = craftDeck();
-    //printNumberOfCards(deck);
     //printHand(deck);
-    //sleep(2);
+    printf("Before shuffle : %p --- %s of %s",deck,deck->rank,deck->suit);
+    //printHandNoNewLine(deck);
     deck = shuffle(deck);
-    printf("########\n");
-    printHand(deck);
-    printNumberOfCards(deck);
-    deck = initializePlayerHand(deck);
-    initializeComputerHand(deck);
-    warCard *playerHand = getPlayerHand();
-    warCard *computerHand = getComputerHand();
-    printNumberOfCards(playerHand);
-    printNumberOfCards(computerHand);
-    for(int i = 0; i < 7; i++){
-        playerHand = shuffle(playerHand);
-        computerHand = shuffle(computerHand);
-    }
-    printNumberOfCards(playerHand);
-    printNumberOfCards(computerHand);
+    printf("\nAfter shuffle : %p--- %s of %s",deck,deck->rank,deck->suit);
+    printf("\n\n-------------\n\n");
+    //printHandNoNewLine(deck);
+    //printHand(deck);
+    //startGame(deck);
 }

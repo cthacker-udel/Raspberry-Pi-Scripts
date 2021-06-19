@@ -31,6 +31,9 @@ warCard *deal(warCard *hand){
     if(hand == NULL){
         return NULL;
     }
+    if(hand->next == NULL){
+        return hand;
+    }
 	warCard *theCard = hand;
     warCard *prevCard;
     while(theCard->next != NULL){
@@ -131,8 +134,9 @@ warCard *shuffle(warCard *deck){
     warCard *newDeck = 0;
         
     while(riffle || deck){
+        printf("|Number of cards in riffle : %d and Number of cards in deck = %d|",numberOfCards(riffle),numberOfCards(deck));
         warCard *newCard;
-        if(riffle != NULL && drand48() < .5){
+        if(riffle != NULL && drand48() < 0.5){
             newCard = riffle;
             riffle = riffle->next;
             newCard->next = newDeck;
@@ -145,7 +149,7 @@ warCard *shuffle(warCard *deck){
             newDeck = newCard;
         }
     }
-    printf("Number of cards in riffle : %d and Number of cards in deck = %d\n",numberOfCards(riffle),numberOfCards(deck));
+    //printf("Number of cards in riffle : %d and Number of cards in deck = %d\n",numberOfCards(riffle),numberOfCards(deck));
     return newDeck;
 }
 
@@ -213,30 +217,76 @@ warCard *getComputerHand(){
     return computerHand;
 }
 
+void addToPlayerHand(warCard *card){
+    card->next = playerHand;
+    playerHand = card;
+}
+
+void addToComputerHand(warCard *card){
+    card->next = computerHand;
+    computerHand = card;
+}
+
+void printHandNoNewLine(warCard *hand){
+    warCard *tempHand = hand;
+    int count = 1;
+    while(tempHand != NULL){
+        printf("CARD : %d : %s of %s, rank : %d",count++,tempHand->rank,tempHand->suit,tempHand->val);
+        tempHand = tempHand->next;
+    }
+}
+
+int getWinner(int playerWinsTotal, int computerWinsTotal){
+    if(playerWinsTotal > computerWinsTotal){
+        printf("\nPLAYER WINS, MORE VICTORIES ACQUIRED\n");
+    }
+    else if(computerWinsTotal > playerWinsTotal){
+        printf("\nCOMPUTER WINS, MORE VICTORIES ACQUIRED\n");
+    }
+    else{
+        printf("\nTIE GAME, SAME AMOUNT OF VICTORIES ACQUIRED\n");
+    }
+}
+
 
 void startGame(warCard *iDeck){
-    initializePlayerHand(iDeck);
-	initializeComputerHand(iDeck);
+    iDeck = initializePlayerHand(iDeck);
+	iDeck = initializeComputerHand(iDeck);
 	int playerWins = 0;
 	int computerWins = 0;
-	while(playerHand || computerHand){
-		fprintf(stderr,"\nEach player DRAW!!\n");
+	while(playerHand && computerHand){
+        int numPlayerCards = countCards(playerHand);
+        int numComputerCards = countCards(computerHand);
+		fprintf(stderr,"\nEach player DRAW!!\nTOTAL PLAYER CARDS : %d\nTOTAL COMPUTER CARDS : %d\nTOTAL PLAYER VICTORIES : %d\nTOTAL COMPUTER VICTORIES : %d",numPlayerCards,numComputerCards,playerWins,computerWins);
 		warCard *playerCard = deal(playerHand);
 		warCard *computerCard = deal(computerHand);
         printHand(playerCard);
         printHand(computerCard);
-        sleep(2);
+        //sleep(2);
 		int showdownResult = showdown(playerCard,computerCard);
 		if(showdownResult == 1){
-			playerWins++;
+            playerWins++;
+            if(numComputerCards == 1){
+                break;
+            }
+            printf("\nPLAYER WINS!\n");
+            //sleep(2);
+            addToPlayerHand(computerCard);
 		}
 		else if(showdownResult == 2){
 			computerWins++;
+            if(numPlayerCards == 1){
+                break;
+            }
+            printf("\nCOMPUTER WINS!\n");
+            //sleep(2);
+            addToComputerHand(playerCard);
 		}
 		else{
 			fprintf(stderr,"\nEnded in a draw, no points awarded to either team\n");
 		}
 	}
+    getWinner(playerWins,computerWins);
 }
 
 

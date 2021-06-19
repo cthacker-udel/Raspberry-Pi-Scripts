@@ -38,6 +38,8 @@ warCard *initializePlayerHand(warCard *);
 
 warCard *initializeComputerHand(warCard *);
 
+void printHandNoNewLine(warCard *);
+
 warCard *deal();
 
 warCard *shuffle(warCard *);
