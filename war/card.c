@@ -107,57 +107,35 @@ void listNodes(warCard *list){
 warCard *shuffle(warCard *deck){
 
 	int middle = countCards(deck) / 2;
-	warCard *tempHead = deck;
-	int count = 0;
-	while(count != middle){
-		tempHead = tempHead->next;
-		count++;
-	}
-	warCard *riffle = tempHead->next;
-	tempHead->next = NULL;
-	warCard *newDeck = NULL;
-	tempHead = deck;
-    printf("Number of cards in riffle : %d and Number of cards in tempHead = %d\n",numberOfCards(riffle),numberOfCards(tempHead));
-	for(;tempHead || riffle;){
-        printf("Number of cards in riffle : %d and Number of cards in tempHead = %d\n",numberOfCards(riffle),numberOfCards(tempHead));
-		if(riffle && drand48() < 0.5){
-            if(riffle->next == NULL){
-                warCard *newCard = riffle;
-                newCard->next = newDeck;
-                riffle = NULL;
-                newDeck = newCard;
-            }
-            else if(newDeck){
-				warCard *newCard = deal(riffle);
-				newCard->next = newDeck;
-                newDeck = newCard;
-			}
-			else{
-				warCard *newCard = deal(riffle);
-				newDeck = newCard;
-			}
-		}
-		else if(tempHead){
-            if(tempHead->next == NULL){
-                warCard *newCard = tempHead;
-                newCard->next = newDeck;
-                tempHead = NULL;
-                newDeck = newCard;
-            }
-            else if(newDeck){
-				warCard *newCard = deal(tempHead);
-				newCard->next = newDeck;
-                newDeck = newCard;
-			}
-			else{
-				warCard *newCard = deal(tempHead);
-				newDeck = newCard;
-			}
-		}
-	}
-    printf("Number of cards in riffle : %d and Number of cards in tempHead = %d\n",numberOfCards(riffle),numberOfCards(tempHead));
-	return newDeck;
+    
+    warCard *cut = deck;
 
+    for(int i = 0; i < middle; i++){
+        cut = cut->next;
+    }
+
+    warCard *riffle = cut->next;
+    cut->next = 0;
+
+    warCard *newDeck = 0;
+        
+    while(riffle || deck){
+        warCard *newCard;
+        if(riffle != NULL && drand48() < .5){
+            newCard = riffle;
+            riffle = riffle->next;
+            newCard->next = newDeck;
+            newDeck = newCard;
+        }
+        else if(deck){
+            newCard = deck;
+            deck = deck->next;
+            newCard->next = newDeck;
+            newDeck = newCard;
+        }
+    }
+    printf("Number of cards in riffle : %d and Number of cards in deck = %d\n",numberOfCards(riffle),numberOfCards(deck));
+    return newDeck;
 }
 
 

@@ -12,6 +12,10 @@ int main(int argc, char *argv[]){
 
     warCard *deck = craftDeck();
     printNumberOfCards(deck);
+    printHand(deck);
+    sleep(2);
     deck = shuffle(deck);
+    printf("########\n");
+    printHand(deck);
     printNumberOfCards(deck);
 }
