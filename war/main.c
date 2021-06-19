@@ -18,4 +18,8 @@ int main(int argc, char *argv[]){
     printf("########\n");
     printHand(deck);
     printNumberOfCards(deck);
+    warCard *playerHand = getPlayerHand();
+    warCard *computerHand = getComputerHand();
+    printNumberOfCards(playerHand);
+    printNumberOfCards(computerHand);
 }

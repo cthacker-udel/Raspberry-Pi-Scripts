@@ -34,9 +34,9 @@ int countCards(warCard *);
 
 void startGame(warCard *);
 
-warCard * initializePlayerHand();
+void initializePlayerHand(warCard *);
 
-warCard * initializeComputerHand();
+void initializeComputerHand(warCard *);
 
 warCard *deal();
 
