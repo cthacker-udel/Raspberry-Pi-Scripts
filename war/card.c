@@ -56,7 +56,7 @@ warCard * addToHand(warCard *hand, warCard *iDeck){
 }
 
 
-void initializePlayerHand(warCard *iDeck){
+warCard *initializePlayerHand(warCard *iDeck){
     warCard *newCard;
 	if(iDeck){
 		for(int i = 0; i < 26; i++){
@@ -65,11 +65,13 @@ void initializePlayerHand(warCard *iDeck){
             newCard->next = playerHand;
             playerHand = newCard;
 		}
+        return iDeck;
 	}
 }
 
-void initializeComputerHand(warCard *iDeck){
+warCard *initializeComputerHand(warCard *iDeck){
 	warCard *newCard;
+    printNumberOfCards(iDeck);
     if(iDeck){
 		for(int i = 0; i < 26; i++){
             newCard = iDeck;
@@ -77,6 +79,7 @@ void initializeComputerHand(warCard *iDeck){
             newCard->next = computerHand;
             computerHand = newCard;
 		}
+        return iDeck;
 	}
 }
 
@@ -212,8 +215,8 @@ warCard *getComputerHand(){
 
 
 void startGame(warCard *iDeck){
-	playerHand = initializePlayerHand(iDeck);
-	computerHand = initializeComputerHand(iDeck);
+    initializePlayerHand(iDeck);
+	initializeComputerHand(iDeck);
 	int playerWins = 0;
 	int computerWins = 0;
 	while(playerHand || computerHand){
