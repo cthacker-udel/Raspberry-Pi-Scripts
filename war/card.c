@@ -57,17 +57,25 @@ warCard * addToHand(warCard *hand, warCard *iDeck){
 
 
 warCard *initializePlayerHand(warCard *iDeck){
+    warCard *newCard;
 	if(iDeck){
 		for(int i = 0; i < 26; i++){
-			playerHand = addToHand(playerHand,iDeck); 
+            newCard = iDeck;
+            iDeck = iDeck->next;
+            newCard->next = playerHand;
+            playerHand = newCard;
 		}
 	}
 }
 
 warCard *initializeComputerHand(warCard *iDeck){
-	if(iDeck){
+	warCard *newCard;
+    if(iDeck){
 		for(int i = 0; i < 26; i++){
-			computerHand = addToHand(computerHand,iDeck);
+            newCard = iDeck;
+            iDeck = iDeck->next;
+            newCard->next = computerHand;
+            computerHand = newCard;
 		}
 	}
 }
