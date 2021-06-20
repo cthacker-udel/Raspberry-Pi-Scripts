@@ -8,6 +8,7 @@ class Player{
 
     string name;
     int points;
+    friend class Game;
 
     public:
 
