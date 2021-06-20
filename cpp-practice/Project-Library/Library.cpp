@@ -66,6 +66,13 @@ void Library::setBooks(vector<Book> newBooks){
 
 }
 
+void Library::clearBooks(){
+
+    books.clear();
+
+}
+
+
 void Library::setName(string newName){
 
     libraryName = newName;

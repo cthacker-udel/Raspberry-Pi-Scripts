@@ -32,4 +32,6 @@ class Library{
 
         void addBook(Book);
 
+        void clearBooks();
+
 };
