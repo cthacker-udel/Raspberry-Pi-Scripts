@@ -261,7 +261,7 @@ void startGame(warCard *iDeck){
 		warCard *computerCard = deal(computerHand);
         printHand(playerCard);
         printHand(computerCard);
-        //sleep(2);
+        sleep(3);
 		int showdownResult = showdown(playerCard,computerCard);
 		if(showdownResult == 1){
             playerWins++;
@@ -269,7 +269,7 @@ void startGame(warCard *iDeck){
                 break;
             }
             printf("\nPLAYER WINS!\n");
-            //sleep(2);
+            sleep(3);
             addToPlayerHand(computerCard);
 		}
 		else if(showdownResult == 2){
@@ -278,7 +278,7 @@ void startGame(warCard *iDeck){
                 break;
             }
             printf("\nCOMPUTER WINS!\n");
-            //sleep(2);
+            sleep(3);
             addToComputerHand(playerCard);
 		}
 		else{
