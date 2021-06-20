@@ -1,5 +1,4 @@
 #include "Book.hpp"
-#include <string.h>
 
 
 Book::Book(string newName){

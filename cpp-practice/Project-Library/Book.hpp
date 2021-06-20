@@ -1,3 +1,6 @@
+#include <string>
+using namespace std;
+
 class Book{
 
     string name;
