@@ -15,5 +15,13 @@ class Player{
 
         Player(string);
 
+        int getPoints();
+
+        void setPoints(int);
+
+        string getName();
+
+        void setName(string);
+
 
 };
