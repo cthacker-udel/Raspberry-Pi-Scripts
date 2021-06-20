@@ -28,6 +28,8 @@
 - [x] Dog Game (Move a player throughout a forest entering the commands up(u),down(d),left(l),right(r) avoiding traps and trying to reach the end point[E] without running out of strength
 - [x] Implementation of Shapes properties (area,surface area, volume, etc)
 - [x] Implementation of mock data structure of a city - school relationship
+- [x] Implementation of Zoo structure, animal class that the animal type of Zoo inherits Zebra.cpp --> ZebraZoo.cpp
+- [x] Implementation of Library structure, Book class containing name and information, and library containing an array of Books
 
 ## TODOS
 
