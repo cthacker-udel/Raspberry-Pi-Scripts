@@ -11,6 +11,10 @@ class Game{
 
         Game();
 
+        Game(string);
+
+        Game(string,string);
+
         void setPlayer1(Player player1);
 
         void setPlayer2(Player player2);
