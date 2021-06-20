@@ -149,8 +149,6 @@ warCard *shuffle(warCard *deck){
         }
     }
     //printf("Number of cards in riffle : %d and Number of cards in deck = %d\n",numberOfCards(riffle),numberOfCards(deck));
-    printf("\n------------\n");
-    printHandNoNewLine(newDeck);
     return newDeck;
 }
 
