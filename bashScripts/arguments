@@ -1,7 +1,0 @@
-#!/bin/bash
-
-# access some arguments
-echo The command entered was $0
-echo My name is $1
-
-echo -e "I am $2 years old\n\t$# arguments were passed in"
