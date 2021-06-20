@@ -1,6 +1,10 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include <stdlib.h>
+#include <time.h>
+#include <stdio.h>
+#include <ctype.h>
 using namespace std;
 
 

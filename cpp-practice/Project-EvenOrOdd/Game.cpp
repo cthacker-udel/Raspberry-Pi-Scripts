@@ -70,12 +70,62 @@ void Game::displayScore(){
 
 void Game::startGame(){
 
+    /*
+
+    Implementation : 2 players, 1 player, TODO : 0 players
+
+    */
+
+
+    srand(time(NULL));
     cout << "\n\n------ Welcome to the game : even or odd! ------\n\n" << endl;
     displayRules();
+    string guess;
+    bool turn = true;
     while(1){
-
-
-
+        int computerRandom = rand() % 10000 + 1;
+        cout << "\nEven or Odd?\n";
+        cin >> guess;
+        if(tolower(guess.at(0)) == 'e' && computerRandom % 2 == 0){
+            cout << "\nCorrect guess! Number was : " << computerRandom << " and you guessed even, you gain 1 point while the opposing player loses 1 point" << endl;
+            if(numPlayers == 2 && turn){
+                player1.points++;
+                player2.points--;
+                turn = !turn;
+                displayScore();
+            }
+            else if(numPlayers == 2 && !turn){
+                player1.points--;
+                player2.points++;
+                turn = !turn;
+                displayScore();
+            }
+            else if(numPlayers == 1){
+                player1.points++;
+                player2.points--;
+                displayScore();
+            }
+        }
+        else if(tolower(guess.at(0)) == 'e' && computerRandom % 2 != 0){
+            cout << "\nIncorrect guess! Number was : " << computerRandom << " and you guessed even, you lose 1 point while the opposing player gains 1 point" << endl;
+            if(numPlayers == 2 && turn){
+                player1.points--;
+                player2.points++;
+                turn = !turn;
+                displayScore();
+            }
+            else if(numPlayers == 2 && !turn){
+                player1.points++;
+                player2.points--;
+                turn = !turn;
+                displayScore();
+            }
+            else if(numPlayers == 1){
+                player1.points--;
+                player2.points++;
+                displayScore();
+            }
+        }
     }
 
 
