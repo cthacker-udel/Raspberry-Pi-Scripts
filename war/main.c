@@ -6,8 +6,6 @@ int main(int argc, char *argv[]){
     
     deck = craftDeck();
     if(argc > 1){
-        printf("\nEntered first if\n");
-        sleep(2);
         int number = atol(argv[1]);
         printf("\nNumber = %d",number);
         srand48(number);
@@ -17,6 +15,7 @@ int main(int argc, char *argv[]){
     }
     else{
         srand((unsigned)time(NULL));
+        srand48((unsigned)time(NULL));
     }
     printHandNoNewLine(deck);
     int times;
@@ -29,6 +28,5 @@ int main(int argc, char *argv[]){
     for(int i = 0; i < times; i++){
         deck = shuffle(deck);
     }
-    printf("\n\n-----------------\n\n");
-    printHandNoNewLine(deck);
+    startGame(deck);
 }
