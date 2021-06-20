@@ -1,10 +1,10 @@
 #include "project.h"
 
-
+warCard *deck = NULL;
 
 int main(int argc, char *argv[]){
     
-    warCard *deck = craftDeck();
+    deck = craftDeck();
     if(argc > 1){
         printf("\nEntered first if\n");
         sleep(2);
@@ -16,8 +16,9 @@ int main(int argc, char *argv[]){
         }
     }
     else{
-        srand(7);
+        srand((unsigned)time(NULL));
     }
+    printHandNoNewLine(deck);
     int times;
     if(drand48() < 0.5){
         times = rand() % 51;
@@ -28,4 +29,6 @@ int main(int argc, char *argv[]){
     for(int i = 0; i < times; i++){
         deck = shuffle(deck);
     }
+    printf("\n\n-----------------\n\n");
+    printHandNoNewLine(deck);
 }
