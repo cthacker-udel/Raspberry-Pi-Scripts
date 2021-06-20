@@ -256,7 +256,9 @@ void startGame(warCard *iDeck){
 	while(playerHand && computerHand){
         int numPlayerCards = countCards(playerHand);
         int numComputerCards = countCards(computerHand);
+        fprintf(stderr,"\n\n#####################################################-----STATS-----##############################################################\n\n");
 		fprintf(stderr,"\nEach player DRAW!!\nTOTAL PLAYER CARDS : %d\nTOTAL COMPUTER CARDS : %d\nTOTAL PLAYER VICTORIES : %d\nTOTAL COMPUTER VICTORIES : %d",numPlayerCards,numComputerCards,playerWins,computerWins);
+        fprintf(stderr,"\n##################################################################################################################################\n\n");
 		warCard *playerCard = deal(playerHand);
 		warCard *computerCard = deal(computerHand);
         printHand(playerCard);
