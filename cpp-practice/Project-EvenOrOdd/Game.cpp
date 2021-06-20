@@ -126,7 +126,51 @@ void Game::startGame(){
                 displayScore();
             }
         }
+        else if(tolower(guess.at(0)) == 'o' && computerRandom % 2 != 0){
+            cout << "\nCorrect guess! Number was : " << computerRandom << " and you guessed odd, you gain 1 point while the opposing player loses 1 point" << endl;
+            if(numPlayers == 2 && turn){
+                player1.points++;
+                player2.points--;
+                turn = !turn;
+                displayScore();
+            }
+            else if(numPlayers == 2 && !turn){
+                player1.points--;
+                player2.points++;
+                turn = !turn;
+                displayScore();
+            }
+            else if(numPlayers == 1){
+                player1.points++;
+                player2.points--;
+                displayScore();
+            }
+        }
+        else if(tolower(guess.at(0)) == 'o' && computerRandom % 2 == 0){
+            cout << "\nIncorrect guess! Number was : " << computerRandom << " and you guessed odd, you lose 1 point while the opposing player gains 1 point" << endl;
+            if(numPlayers == 2 && turn){
+                player1.points--;
+                player2.points++;
+                turn = !turn;
+                displayScore();
+            }
+            else if(numPlayers == 2 && !turn){
+                player1.points++;
+                player2.points--;
+                turn = !turn;
+                displayScore();
+            }
+            else if(numPlayers == 1){
+                player1.points--;
+                player2.points++;
+                displayScore();
+            }
+        }
+        else if(tolower(guess.at(0)) == 'q'){
+            break;
+        }
     }
+    displayScore();
 
 
 }
