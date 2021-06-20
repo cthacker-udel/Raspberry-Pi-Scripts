@@ -21,6 +21,7 @@
 - [x] Etch-A-Sketch
 - [x] Poker
 - [x] Blackjack
+- [x] War
 
 ## C++ Library
 
