@@ -6,7 +6,7 @@ class Library{
     vector<Book> books;
     string libraryName;
     int founded;
-    int baseCost;
+    double baseCost;
 
     public:
 
@@ -16,7 +16,7 @@ class Library{
 
         int getFounded();
 
-        int getBaseCost();
+        double getBaseCost();
 
         vector<Book> getBooks();
 
@@ -24,7 +24,7 @@ class Library{
 
         void setFounded(int);
 
-        void setBaseCost(int);
+        void setBaseCost(double);
 
         void setBooks(vector<Book>);
 
