@@ -16,6 +16,7 @@ int main(int argc, char *argv[]){
     warCard *deck = craftDeck();
     //printHand(deck);
     printf("Before shuffle : %p --- %s of %s",deck,deck->rank,deck->suit);
+    printHandNoNewLine(deck);
     //printHandNoNewLine(deck);
     deck = shuffle(deck);
     printf("\nAfter shuffle : %p--- %s of %s",deck,deck->rank,deck->suit);

@@ -131,10 +131,9 @@ warCard *shuffle(warCard *deck){
     warCard *riffle = cut->next;
     cut->next = 0;
 
-    warCard *newDeck = 0;
-        
+    warCard *newDeck = 0;    
     while(riffle || deck){
-        printf("|Number of cards in riffle : %d and Number of cards in deck = %d|",numberOfCards(riffle),numberOfCards(deck));
+        //printf("|Number of cards in riffle : %d and Number of cards in deck = %d|",numberOfCards(riffle),numberOfCards(deck));
         warCard *newCard;
         if(riffle != NULL && drand48() < 0.5){
             newCard = riffle;
@@ -150,6 +149,8 @@ warCard *shuffle(warCard *deck){
         }
     }
     //printf("Number of cards in riffle : %d and Number of cards in deck = %d\n",numberOfCards(riffle),numberOfCards(deck));
+    printf("\n------------\n");
+    printHandNoNewLine(newDeck);
     return newDeck;
 }
 
@@ -231,7 +232,7 @@ void printHandNoNewLine(warCard *hand){
     warCard *tempHand = hand;
     int count = 1;
     while(tempHand != NULL){
-        printf("CARD : %d : %s of %s, rank : %d",count++,tempHand->rank,tempHand->suit,tempHand->val);
+        printf("CARD : %d : %s of %s, rank : %d , ",count++,tempHand->rank,tempHand->suit,tempHand->val);
         tempHand = tempHand->next;
     }
 }
