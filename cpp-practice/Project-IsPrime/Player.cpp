@@ -37,3 +37,9 @@ void Player::setPoints(int newPoints){
     points = newPoints;
 
 }
+
+void Player::displayPoints(){
+
+    cout << "\n" << this->name << " has a total of " << this->points << " points \n" << endl;
+
+}

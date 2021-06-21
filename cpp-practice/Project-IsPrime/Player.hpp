@@ -26,5 +26,7 @@ class Player{
 
         void setPoints(int);
 
+        void displayPoints();
 
-}
+
+};
