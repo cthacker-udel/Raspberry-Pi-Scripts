@@ -59,31 +59,260 @@ void Game::incorrectAnswer(){
 
 }
 
+void Game::correctComputerAnswer(){
+
+    cout << "The computer has chosen incorrectly! They gain 1 point\n";
+
+}
+
+void Game::incorrectComputerAnswer(){
+
+    cout << "The computer has chosen incorrectly! They lose 1 point\n";
+
+}
+
+bool isPrime(int number){
+
+    if(number < 2){
+        return true;
+    }
+    else if(number == 2 || number == 3 || number == 5){
+        return true;
+    }
+    else{
+
+        for(int i = 0; i < ((int)sqrt(number))+1; i++){
+            if(number % i == 0){
+                return false;
+            }
+        }
+        return true;
+    }
+
+}
+
 
 
 void Game::startGame(){
 
     srand(time(NULL));
 
-    if(numPlayers == 0){
+    while(1){
 
-        int randomNumber = rand() % 100000;
-        if(turn){
+        if(numPlayers == 0){
 
-
+            int randomNumber = rand() % 100000;
+            if(turn){
+                int computerGuess = rand() % 2 + 1;
+                if(computerGuess == 1 && isPrime(randomNumber)){
+                    player1.points++;
+                    turn = !turn;
+                    correctComputerAnswer();
+                }
+                else if(computerGuess == 1 && !isPrime(randomNumber)){
+                    player1.points--;
+                    turn = !turn;
+                    incorrectComputerAnswer();
+                }
+                else if(computerGuess == 0 && !isPrime(randomNumber)){
+                    player1.points++;
+                    turn = !turn;
+                    correctComputerAnswer();
+                }
+                else if(computerGuess == 0 && isPrime(randomNumber)){
+                    player1.points--;
+                    turn = !turn;
+                    incorrectComputerAnswer();
+                }
+            }
+            else{
+                int computerGuess = rand() % 2 + 1;
+                if((computerGuess == 1 && isPrime(randomNumber))){
+                    player2.points++;
+                    turn = !turn;
+                    correctComputerAnswer();
+                }
+                else if(computerGuess == 1 && !isPrime(randomNumber)){
+                    player2.points--;
+                    turn = !turn;
+                    incorrectComputerAnswer();
+                }
+                else if(computerGuess == 0 && !isPrime(randomNumber)){
+                    player2.points++;
+                    turn = !turn;
+                    correctComputerAnswer();
+                }
+                else if(computerGuess == 0 && isPrime(randomNumber)){
+                    player2.points--;
+                    turn = !turn;
+                    incorrectComputerAnswer();
+                }
+            }
 
         }
+        else if(numPlayers == 1){
 
-    }
-    else if(numPlayers == 1){
+            int randomNumber = rand() % 100000;
 
+                while(1){
 
+                    if(turn){
 
-    }
-    else{
+                        string answer;
+                        cout << "Is the number generated prime or not?(y/n)" << endl;
+                        cin >> answer;
+                        if(tolower(answer[0]) == 'y'){
 
+                            if(isPrime(randomNumber)){
+                                player1.points++;
+                                turn = !turn;
+                                correctAnswer();
+                            }
+                            else{
+                                player1.points--;
+                                turn = !turn;
+                                incorrectAnswer();
+                            }
 
+                        }   
+                        else if(tolower(answer[0]) == 'n'){
 
+                            if(!isPrime(randomNumber)){
+                                player1.points++;
+                                turn = !turn;
+                                correctAnswer();
+                            }
+                            else{
+                                player1.points--;
+                                turn = !turn;
+                                incorrectAnswer();
+                            }
+
+                        }
+
+                        else{
+                            cout << "Enter a valid input" << endl;
+                        }
+
+                    }
+                    else{
+
+                        int computerGuess = rand() % 2 + 1;
+                        switch(computerGuess){
+
+                            case 1:
+
+                                if(isPrime(randomNumber)){
+                                    player2.points++;
+                                    turn = !turn;
+                                    correctComputerAnswer();
+                                }
+                                else{
+                                    player2.points--;
+                                    turn = !turn;
+                                    incorrectComputerAnswer();
+                                }
+
+                                break;
+
+                            case 2:
+
+                                if(!isPrime(randomNumber)){
+                                    player2.points++;
+                                    turn = !turn;
+                                    correctComputerAnswer();
+                                }
+                                else{
+                                    player2.points--;
+                                    turn = !turn;
+                                    incorrectComputerAnswer();
+                                }
+
+                                break;
+                        }
+
+                    }
+                }
+
+        }
+        else{
+
+            int randomNumber = rand() % 100000;
+
+            while(1){
+
+                if(turn){
+
+                    string answer;
+                    cout << "Is the number generated prime or not?(y/n)\n";
+                    cin >> answer;
+                    if(tolower(answer[0]) == 'y'){
+                        if(isPrime(randomNumber)){
+                            player1.points++;
+                            turn = !turn;
+                            correctAnswer();
+                        }
+                        else{
+                            player1.points--;
+                            turn = !turn;
+                            incorrectAnswer();
+                        }
+                    }
+                    else if(tolower(answer[0]) == 'n'){
+                        if(!isPrime(randomNumber)){
+                            player1.points++;
+                            turn = !turn;
+                            correctAnswer();
+                        }
+                        else{
+                            player1.points--;
+                            turn = !turn;
+                            incorrectAnswer();
+                        }
+                    }
+                    else{
+                        cout << "Enter a valid input" << endl;
+                    }
+
+                }
+                else{
+
+                    string answer;
+                    cout << "Is the number generated prime or not?(y/n)\n";
+                    cin >> answer;
+                    if(tolower(answer[0]) == 'y'){
+                        if(isPrime(randomNumber)){
+                            player2.points++;
+                            turn = !turn;
+                            correctAnswer();
+                        }
+                        else{
+                            player2.points--;
+                            turn = !turn;
+                            incorrectAnswer();
+                        }
+                    }
+                    else if(tolower(answer[0]) == 'n'){
+                        if(!isPrime(randomNumber)){
+                            player2.points++;
+                            turn = !turn;
+                            correctAnswer();
+                        }
+                        else{
+                            player2.points--;
+                            turn = !turn;
+                            incorrectAnswer();
+                        }
+                    }
+                    else{
+                        cout << "Enter a valid input" << endl;
+                    }
+
+                }
+
+            }
+
+        }
     }
 
 

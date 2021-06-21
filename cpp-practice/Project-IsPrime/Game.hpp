@@ -26,5 +26,13 @@ class Game{
 
         void incorrectAnswer();
 
+        void correctComputerAnswer();
+
+        void incorrectComputerAnswer();
+
+        void startGame();
+
+        bool isPrime(int);
+
 
 };
