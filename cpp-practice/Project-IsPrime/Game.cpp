@@ -267,11 +267,13 @@ void Game::startGame(){
                             player1.points++;
                             turn = !turn;
                             correctAnswer();
+                            player1.displayPoints();
                         }
                         else{
                             player1.points--;
                             turn = !turn;
                             incorrectAnswer();
+                            player1.displayPoints();
                         }
                     }
                     else if(tolower(answer[0]) == 'n'){
@@ -279,11 +281,13 @@ void Game::startGame(){
                             player1.points++;
                             turn = !turn;
                             correctAnswer();
+                            player1.displayPoints();
                         }
                         else{
                             player1.points--;
                             turn = !turn;
                             incorrectAnswer();
+                            player1.displayPoints();
                         }
                     }
                     else{
@@ -301,11 +305,13 @@ void Game::startGame(){
                             player2.points++;
                             turn = !turn;
                             correctAnswer();
+                            player2.displayPoints();
                         }
                         else{
                             player2.points--;
                             turn = !turn;
                             incorrectAnswer();
+                            player2.displayPoints();
                         }
                     }
                     else if(tolower(answer[0]) == 'n'){
@@ -313,11 +319,13 @@ void Game::startGame(){
                             player2.points++;
                             turn = !turn;
                             correctAnswer();
+                            player2.displayPoints();
                         }
                         else{
                             player2.points--;
                             turn = !turn;
                             incorrectAnswer();
+                            player2.displayPoints();
                         }
                     }
                     else{
