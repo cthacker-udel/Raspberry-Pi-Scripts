@@ -175,11 +175,13 @@ void Game::startGame(){
                                 player1.points++;
                                 turn = !turn;
                                 correctAnswer();
+                                player1.displayPoints();
                             }
                             else{
                                 player1.points--;
                                 turn = !turn;
                                 incorrectAnswer();
+                                player1.displayPoints();
                             }
 
                         }   
@@ -189,11 +191,13 @@ void Game::startGame(){
                                 player1.points++;
                                 turn = !turn;
                                 correctAnswer();
+                                player1.displayPoints();
                             }
                             else{
                                 player1.points--;
                                 turn = !turn;
                                 incorrectAnswer();
+                                player1.displayPoints();
                             }
 
                         }
@@ -214,11 +218,13 @@ void Game::startGame(){
                                     player2.points++;
                                     turn = !turn;
                                     correctComputerAnswer();
+                                    player2.displayPoints();
                                 }
                                 else{
                                     player2.points--;
                                     turn = !turn;
                                     incorrectComputerAnswer();
+                                    player2.displayPoints();
                                 }
 
                                 break;
@@ -229,11 +235,13 @@ void Game::startGame(){
                                     player2.points++;
                                     turn = !turn;
                                     correctComputerAnswer();
+                                    player2.displayPoints();
                                 }
                                 else{
                                     player2.points--;
                                     turn = !turn;
                                     incorrectComputerAnswer();
+                                    player2.displayPoints();
                                 }
 
                                 break;
