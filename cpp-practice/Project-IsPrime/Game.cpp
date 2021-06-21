@@ -108,21 +108,25 @@ void Game::startGame(){
                     player1.points++;
                     turn = !turn;
                     correctComputerAnswer();
+                    player1.displayPoints();
                 }
                 else if(computerGuess == 1 && !isPrime(randomNumber)){
                     player1.points--;
                     turn = !turn;
                     incorrectComputerAnswer();
+                    player1.displayPoints();
                 }
                 else if(computerGuess == 0 && !isPrime(randomNumber)){
                     player1.points++;
                     turn = !turn;
                     correctComputerAnswer();
+                    player1.displayPoints();
                 }
                 else if(computerGuess == 0 && isPrime(randomNumber)){
                     player1.points--;
                     turn = !turn;
                     incorrectComputerAnswer();
+                    player1.displayPoints();
                 }
             }
             else{
@@ -131,21 +135,25 @@ void Game::startGame(){
                     player2.points++;
                     turn = !turn;
                     correctComputerAnswer();
+                    player2.displayPoints();
                 }
                 else if(computerGuess == 1 && !isPrime(randomNumber)){
                     player2.points--;
                     turn = !turn;
                     incorrectComputerAnswer();
+                    player2.displayPoints();
                 }
                 else if(computerGuess == 0 && !isPrime(randomNumber)){
                     player2.points++;
                     turn = !turn;
                     correctComputerAnswer();
+                    player2.displayPoints();
                 }
                 else if(computerGuess == 0 && isPrime(randomNumber)){
                     player2.points--;
                     turn = !turn;
                     incorrectComputerAnswer();
+                    player2.displayPoints();
                 }
             }
 
