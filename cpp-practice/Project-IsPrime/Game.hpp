@@ -30,8 +30,6 @@ class Game{
 
         void incorrectComputerAnswer();
 
-        void startGame();
-
         bool isPrime(int);
 
 

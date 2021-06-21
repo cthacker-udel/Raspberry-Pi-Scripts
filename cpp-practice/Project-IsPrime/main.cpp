@@ -5,6 +5,4 @@ int main(void){
 
     Game game("Cameron");
 
-    
-
 }
