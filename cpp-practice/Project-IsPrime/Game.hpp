@@ -5,6 +5,7 @@ class Game{
 
     Player player1;
     Player player2;
+    int numPlayers;
 
     public:
 
@@ -15,6 +16,8 @@ class Game{
         Game(string,string);
 
         void startGame();
+
+        void displayRules();
 
 
 };
