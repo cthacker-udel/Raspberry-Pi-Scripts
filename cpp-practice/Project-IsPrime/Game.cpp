@@ -41,6 +41,24 @@ void Game::displayRules(){
 
 }
 
+void Game::displayPrompt(){
+
+    cout << "Player, please choose an option (y/n) if number is prime \n" << endl;
+
+}
+
+void Game::correctAnswer(){
+
+    cout << "You have chosen correctly! You gain 1 point \n";
+
+}
+
+void Game::incorrectAnswer(){
+
+    cout << "You have chosen incorrectly! You lose 1 point\n";
+
+}
+
 
 
 void Game::startGame(){
@@ -49,7 +67,12 @@ void Game::startGame(){
 
     if(numPlayers == 0){
 
+        int randomNumber = rand() % 100000;
+        if(turn){
 
+
+
+        }
 
     }
     else if(numPlayers == 1){

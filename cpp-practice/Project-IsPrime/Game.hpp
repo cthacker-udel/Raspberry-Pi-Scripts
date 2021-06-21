@@ -6,6 +6,7 @@ class Game{
     Player player1;
     Player player2;
     int numPlayers;
+    bool turn;
 
     public:
 
@@ -18,6 +19,12 @@ class Game{
         void startGame();
 
         void displayRules();
+
+        void displayPrompt();
+
+        void correctAnswer();
+
+        void incorrectAnswer();
 
 
 };
