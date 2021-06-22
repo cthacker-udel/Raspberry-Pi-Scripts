@@ -14,6 +14,8 @@ typedef struct trainCar{
 }car;
 
 
+car *createCar(int,char *);
+
 void addCar(car *);
 
 void deleteCar(car *);

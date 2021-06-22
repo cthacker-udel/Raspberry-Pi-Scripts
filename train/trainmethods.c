@@ -18,7 +18,7 @@ void addCar(car *theCar){
 int numCars(){
 
     car *tempHead = HEAD;
-    int count = 0;`
+    int count = 0;
     while(tempHead != NULL){
         count++;
         tempHead = tempHead->next;
@@ -92,8 +92,6 @@ void insertCar(car *theCar, int index){
 
     }
 
-
-
 }
 
 void reverseTrain(){
@@ -149,6 +147,43 @@ car * findCar(int index){
     else{
         return NULL;
     }
+
+}
+
+
+void sortCars(){
+
+    car *tempHead = HEAD;
+
+    int numOfCars = numCars();
+
+    if(numOfCars > 1){
+        int loopVar = 1;
+        while(1){
+
+            car *prevNode = HEAD;
+            car *forwardNode;
+            while(forwardNode != NULL){
+                forwardNode = prevNode->next;
+                if(prevNode->weight > forwardNode->weight){
+                    prevNode->next = forwardNode->next;
+                    forwardNode->next = prevNode;
+                    if(prevNode == HEAD){
+                        HEAD = forwardNode;
+                        loopVar = 0;
+                    }
+                    break;
+                }
+                loopVar = 1;
+            }
+            if(loopVar){
+                break;
+            }
+        }
+    }
+
+
+
 
 }
 
