@@ -26,12 +26,14 @@ void findCar(int);
 
 void sortCars();
 
-void addHead();
+void addHead(car *);
 
-void addTail();
+void addTail(car *);
 
 void removeHead();
 
 void removeTail();
 
 int numCars();
+
+void displayTrain();
