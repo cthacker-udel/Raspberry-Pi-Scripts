@@ -188,6 +188,12 @@ void addHead(car *theCar){
     HEAD = theCar;
 }
 
-
+void addTail(car *theCar){
+    car *tempHead = HEAD;
+    while(tempHead->next != NULL){
+        tempHead = tempHead->next;
+    }
+    tempHead->next = theCar;
+}
 
 
