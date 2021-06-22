@@ -181,10 +181,13 @@ void sortCars(){
             }
         }
     }
-
-
-
-
 }
+
+void addHead(car *theCar){
+    theCar->next = HEAD;
+    HEAD = theCar;
+}
+
+
 
 
