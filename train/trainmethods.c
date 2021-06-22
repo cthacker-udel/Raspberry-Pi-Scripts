@@ -3,6 +3,16 @@
 
 car *HEAD = NULL;
 
+
+car *createCar(int weight, char *name){
+
+    car *newCar = (car *)malloc(sizeof(car));
+    newCar->weight = weight;
+    strcpy(newCar->name,name);
+    return newCar;
+
+}
+
 void addCar(car *theCar){
 
     if(HEAD == NULL){
