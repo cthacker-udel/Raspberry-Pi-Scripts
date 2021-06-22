@@ -8,26 +8,24 @@ int main(void){
         int choice;
         printMenu();
         scanf("%d",&choice);
+        char *name = (char *)malloc(sizeof(char) * 1000);
+        int weight;
         switch(choice){
 
             case 1:
-                char *name;
                 printf("\n\n### USER INPUT ###\n\n");
                 printf("\tEnter the name of the train car\n");
                 fgets(name,1000,stdin);
                 printf("\tEnter the weight of the train car\n");
-                int weight;
                 scanf("%d",&weight);
                 addCar(createCar(weight,name));
                 break;
             
             case 2:
-                char *name;
                 printf("\n\n### USER INPUT ###\n\n");
                 printf("\tEnter the name of the train car\n");
                 fgets(name,1000,stdin);
                 printf("\tEnter the weight of the train car\n");
-                int weight;
                 scanf("%d",&weight);
                 deleteCar(createCar(weight,name));
                 break;
@@ -37,12 +35,11 @@ int main(void){
                 break;
 
             case 4:
-                int weight;
                 printf("\n\n### USER INPUT ###\n\n");
                 printf("\tEnter the weight of the car you want to find\n");
                 scanf("%d",&weight);
-                int index = findCar(weight);
-                printf("\n\tThe train car is located at index : %d\n",index);
+                car *foundCar = findCar(weight);
+                printf("\n\tThe train car found is : NAME[%s] weighing %d pounds\n",foundCar->name,foundCar->weight);
                 break;
 
             case 5:
@@ -50,23 +47,19 @@ int main(void){
                 break;
 
             case 6:
-                char *name;
                 printf("\n\n### USER INPUT ###\n\n");
                 printf("\tEnter the name of the train car\n");
                 fgets(name,1000,stdin);
                 printf("\tEnter the weight of the train car\n");
-                int weight;
                 scanf("%d",&weight);
                 addHead(createCar(weight,name));
                 break;
 
             case 7:
-                char *name;
                 printf("\n\n### USER INPUT ###\n\n");
                 printf("\tEnter the name of the train car\n");
                 fgets(name,1000,stdin);
                 printf("\tEnter the weight of the train car\n");
-                int weight;
                 scanf("%d",&weight);
                 addTail(createCar(weight,name));
                 break;
@@ -82,7 +75,7 @@ int main(void){
             case 10:
                 displayTrain();
                 break;
-                
+
             default:
                 return 1;
         }
