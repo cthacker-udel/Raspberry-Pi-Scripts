@@ -26,3 +26,10 @@ void findCar(int);
 
 void sortCars();
 
+void addHead();
+
+void addTail();
+
+void removeHead();
+
+void removeTail();
