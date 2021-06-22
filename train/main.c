@@ -1,5 +1,4 @@
-#include "project.h"
-
+#include "trainmethods.c"
 
 int main(void){
 
@@ -15,7 +14,7 @@ int main(void){
             case 1:
                 printf("\n\n### USER INPUT ###\n\n");
                 printf("\tEnter the name of the train car\n");
-                fgets(name,1000,stdin);
+                scanf("%s",name);
                 printf("\tEnter the weight of the train car\n");
                 scanf("%d",&weight);
                 addCar(createCar(weight,name));

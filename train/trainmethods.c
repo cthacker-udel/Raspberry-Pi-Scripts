@@ -7,6 +7,7 @@ car *HEAD = NULL;
 car *createCar(int weight, char *name){
 
     car *newCar = (car *)malloc(sizeof(car));
+    printf("\nString = %s",name);
     newCar->weight = weight;
     strcpy(newCar->name,name);
     return newCar;
