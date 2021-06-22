@@ -118,17 +118,25 @@ void reverseTrain(){
     if(numOfCars == 1){
         return;
     }
+    else if(numOfCars == 2){
+        car *newCard = HEAD->next;
+        newCard->next = HEAD;
+        HEAD->next = NULL;
+        HEAD = newCard;
+    }
     else{
         car *prevNode = HEAD;
         car *currNode = HEAD->next;
         car *forwardNode;
         prevNode->next = NULL;
         while(forwardNode != NULL){
+            printf("Entering while\n");
             forwardNode = currNode->next;
             currNode->next = prevNode;
             prevNode = currNode;
             currNode = forwardNode;
         }
+        HEAD = prevNode;
     }
 
 }
@@ -256,11 +264,12 @@ void displayTrain(){
     while(tempHead != NULL){
         if(count == 1){
             printf("\nHEAD OF TRAIN : Weight[%d] Name[%s]\n",tempHead->weight,tempHead->name);
-            count++;
         }
         else{
-            printf("\nTRAIN CAR %d : Weight[%d] Name[%s]\n",count++,tempHead->weight,tempHead->name);
+            printf("\nTRAIN CAR %d : Weight[%d] Name[%s]\n",count,tempHead->weight,tempHead->name);
         }
+        count++;
+        tempHead = tempHead->next;
     }
 }
 
