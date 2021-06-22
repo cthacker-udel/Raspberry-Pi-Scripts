@@ -1,4 +1,4 @@
-#include "trainmethods.c"
+#include "project.h"
 
 int main(void){
 

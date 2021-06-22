@@ -11,4 +11,4 @@ run: main
 
 
 clean:
-	rm -rf *.o trainRun
+	rm -rf *.o *.gch trainRun
