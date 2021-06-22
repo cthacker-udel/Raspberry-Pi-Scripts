@@ -13,6 +13,12 @@ car *createCar(int weight, char *name){
 
 }
 
+void printMenu(){
+
+    printf("\n-~-~-~-~-MENU-~-~-~-~\n-~-~-~-~-~-~-~-~-~-~-~\n1 : Add Car\n2 : Delete Car\n3 : Reverse Train\n4 : Find Car\n5 : Sort Cars\n6 : Add Head\n7 : Add Tail\n8 : Remove Head\n9 : Remove Tail\n10 : Display Train\n-~-~-~-~-~-~-~-~-\n");
+
+}
+
 void addCar(car *theCar){
 
     if(HEAD == NULL){
