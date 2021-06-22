@@ -33,3 +33,5 @@ void addTail();
 void removeHead();
 
 void removeTail();
+
+int numCars();
