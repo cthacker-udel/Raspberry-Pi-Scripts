@@ -211,4 +211,25 @@ void removeHead(){
     }
 }
 
+void removeTail(){
+
+    int NumOfCars = numCars();
+
+    if(NumOfCars < 2){
+        HEAD = NULL;
+    }
+    else{
+
+        car *tempHead = HEAD->next;
+        car *prevNode;
+        while(tempHead->next != NULL){
+            prevNode = tempHead;
+            tempHead = tempHead->next;
+        }
+        prevNode->next = NULL;
+        tempHead = NULL;
+    }
+
+}
+
 
