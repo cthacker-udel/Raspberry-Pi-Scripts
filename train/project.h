@@ -12,3 +12,17 @@ typedef struct trainCar{
     struct trainCar *next;
 
 }car;
+
+
+void addCar(car *);
+
+void deleteCar(car *);
+
+void reverseTrain();
+
+void insertCar(car *, int);
+
+void findCar(int);
+
+void sortCars();
+
