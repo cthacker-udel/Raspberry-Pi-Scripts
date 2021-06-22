@@ -232,4 +232,18 @@ void removeTail(){
 
 }
 
+void displayTrain(){
+    car *tempHead = HEAD;
+    int count = 1;
+    while(tempHead != NULL){
+        if(count == 1){
+            printf("\nHEAD OF TRAIN : Weight[%d] Name[%s]\n",tempHead->weight,tempHead->name);
+            count++;
+        }
+        else{
+            printf("\nTRAIN CAR %d : Weight[%d] Name[%s]\n",count++,tempHead->weight,tempHead->name);
+        }
+    }
+}
+
 
