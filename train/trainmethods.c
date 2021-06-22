@@ -118,3 +118,38 @@ void reverseTrain(){
 }
 
 
+car * findCar(int index){
+
+    int numOfCars = numCars();
+    if(numOfCars > 0){
+        if(index <= 0){
+            return HEAD;
+        }
+        else if(index >= numOfCars){
+            car *tempHead = HEAD;
+            while(tempHead->next != NULL){
+                tempHead = tempHead->next;
+            }
+            return tempHead;
+        }
+        else{
+
+            int count = 0;
+            car *tempHead = HEAD;
+            while(tempHead != NULL){
+                count++;
+                tempHead = tempHead->next;
+                if(count == index){
+                    return tempHead;
+                }
+            }
+
+        }
+    }
+    else{
+        return NULL;
+    }
+
+}
+
+

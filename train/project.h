@@ -22,7 +22,7 @@ void reverseTrain();
 
 void insertCar(car *, int);
 
-void findCar(int);
+car * findCar(int);
 
 void sortCars();
 
