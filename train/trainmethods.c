@@ -196,4 +196,19 @@ void addTail(car *theCar){
     tempHead->next = theCar;
 }
 
+void removeHead(){
+
+    int NumOfCars = numCars();
+
+    if(NumOfCars < 2){
+        HEAD = NULL;
+    }
+    else{
+        car *nextCar = HEAD->next;
+        HEAD->next = NULL;
+        HEAD = NULL;
+        HEAD = nextCar;
+    }
+}
+
 
