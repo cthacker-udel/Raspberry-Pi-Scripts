@@ -20,7 +20,7 @@ car *createCar(int,char *);
 
 void addCar(car *);
 
-void deleteCar(car *);
+void deleteCar(int,char *);
 
 void reverseTrain();
 

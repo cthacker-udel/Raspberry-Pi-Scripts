@@ -45,29 +45,42 @@ int numCars(){
 
 }
 
-void deleteCar(car *theCar){
+void deleteCar(int weight, char *name){
 
     int theNumCars = numCars();
     if(theNumCars == 0){
         return;
     }
     else if(theNumCars == 1){
-        removeHead();
+        if(HEAD->weight == weight && strcmp(HEAD->name,name) == 0){
+            removeHead();
+            return;
+        }
+        else{
+            return;
+        }
+    }
+    else if(HEAD->weight == weight && strcmp(HEAD->name,name) == 0){
+        car *tempCar = HEAD->next;
+        HEAD->next = NULL;
+        HEAD = NULL;
+        HEAD = tempCar;
     }
     else{
-
         car *tempCar = HEAD;
         car *prevNode;
-        while(tempCar->next != NULL){
+        while(tempCar != NULL){
             prevNode = tempCar;
-            if(tempCar == theCar){
+            tempCar = tempCar->next;
+            if(tempCar->weight == weight && strcmp(tempCar->name,name) == 0){
+                printf("\n\nReached inner if in while loop\n\n");
                 prevNode->next = tempCar->next;
                 tempCar->next = NULL;
                 tempCar = NULL;
                 return;
             }
-            tempCar = tempCar->next;
         }
+        printf("\n\nReached last return in deleteCar\n\n");
         return;    
     }
 }
