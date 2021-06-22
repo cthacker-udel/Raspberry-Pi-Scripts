@@ -31,9 +31,11 @@ int main(void){
                 scanf("%d",&weight);
                 deleteCar(createCar(weight,name));
                 break;
+
             case 3:
                 reverseTrain();
                 break;
+
             case 4:
                 int weight;
                 printf("\n\n### USER INPUT ###\n\n");
@@ -42,9 +44,11 @@ int main(void){
                 int index = findCar(weight);
                 printf("\n\tThe train car is located at index : %d\n",index);
                 break;
+
             case 5:
                 sortCars();
                 break;
+
             case 6:
                 char *name;
                 printf("\n\n### USER INPUT ###\n\n");
@@ -55,6 +59,7 @@ int main(void){
                 scanf("%d",&weight);
                 addHead(createCar(weight,name));
                 break;
+
             case 7:
                 char *name;
                 printf("\n\n### USER INPUT ###\n\n");
@@ -65,15 +70,19 @@ int main(void){
                 scanf("%d",&weight);
                 addTail(createCar(weight,name));
                 break;
+
             case 8:
                 removeHead();
                 break;
+
             case 9:
                 removeTail();
                 break;
+
             case 10:
                 displayTrain();
                 break;
+                
             default:
                 return 1;
         }
