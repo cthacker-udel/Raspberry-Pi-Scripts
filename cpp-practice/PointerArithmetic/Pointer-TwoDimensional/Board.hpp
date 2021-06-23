@@ -12,9 +12,9 @@ class Board{
 
         Board();
 
-        int **getBoard;
+        int **getBoard();
 
-        void setBoard(int *);
+        void setBoard(int **);
 
 
 };

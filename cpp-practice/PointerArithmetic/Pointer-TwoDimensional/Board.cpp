@@ -3,6 +3,16 @@
 
 Board::Board(){
 
-    board
+}
+
+int **Board::getBoard(){
+
+    return board;
+
+}
+
+void Board::setBoard(int **newBoard){
+
+    newBoard = board;
 
 }
