@@ -22,6 +22,7 @@
 - [x] Poker
 - [x] Blackjack
 - [x] War
+- [x] Train (Linked List)
 
 ## C++ Library
 
