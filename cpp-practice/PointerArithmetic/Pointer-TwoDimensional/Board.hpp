@@ -6,13 +6,13 @@ using namespace std;
 
 class Board{
 
-    int *board;
+    int **board;
 
     public:
 
         Board();
 
-        int *getBoard;
+        int **getBoard;
 
         void setBoard(int *);
 
