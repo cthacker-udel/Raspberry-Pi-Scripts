@@ -192,30 +192,44 @@ car * findCar(int index){
 
 void sortCars(){
 
-    car *tempHead = HEAD;
 
     int numOfCars = numCars();
 
     if(numOfCars > 1){
         int loopVar = 1;
         while(1){
-
+            car *tempHead = HEAD;
+            //displayTrain();
+            //sleep(3);
             car *prevNode = HEAD;
             car *forwardNode;
-            while(forwardNode != NULL){
+            while(prevNode != NULL && forwardNode != NULL){
                 forwardNode = prevNode->next;
-                if(prevNode->weight > forwardNode->weight){
+                if(forwardNode != NULL && prevNode->weight > forwardNode->weight){
                     prevNode->next = forwardNode->next;
                     forwardNode->next = prevNode;
                     if(prevNode == HEAD){
                         HEAD = forwardNode;
                         loopVar = 0;
                     }
+                    else{
+                        HEAD = tempHead;
+                        car *temp = HEAD;
+                        while(temp->next != NULL){
+                            if(temp->next == prevNode){
+                                temp->next = forwardNode;
+                                break;
+                            }
+                        }
+                        loopVar = 0; 
+                    }
                     break;
                 }
                 loopVar = 1;
+                prevNode = prevNode->next;
             }
             if(loopVar){
+                HEAD = tempHead;
                 break;
             }
         }

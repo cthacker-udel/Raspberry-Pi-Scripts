@@ -4,6 +4,8 @@
 #include <stddef.h>
 #include <stdio.h>
 #include <ctype.h>
+#include <unistd.h>
+#include <time.h>
 
 typedef struct trainCar{
 
