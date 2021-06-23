@@ -48,7 +48,7 @@ int main(void){
             case 6:
                 printf("\n\n### USER INPUT ###\n\n");
                 printf("\tEnter the name of the train car\n");
-                fgets(name,1000,stdin);
+                scanf("%s",name);
                 printf("\tEnter the weight of the train car\n");
                 scanf("%d",&weight);
                 addHead(createCar(weight,name));
