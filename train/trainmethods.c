@@ -273,8 +273,8 @@ void removeTail(){
     }
     else{
 
-        car *tempHead = HEAD->next;
-        car *prevNode;
+        car *tempHead = HEAD;
+        car *prevNode = NULL;
         while(tempHead->next != NULL){
             prevNode = tempHead;
             tempHead = tempHead->next;
