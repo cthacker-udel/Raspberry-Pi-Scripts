@@ -26,7 +26,17 @@ int **Board::getBoard(){
 }
 
 
-int **Board::craftBoard(){
+void Board::craftBoard(){
+
+    for(int i = 0; i < size; i++){
+
+        for(int j = 0; j < size; j++){
+
+            *(*(board+j)+i) = j;
+
+        }
+
+    }
 
 }
 

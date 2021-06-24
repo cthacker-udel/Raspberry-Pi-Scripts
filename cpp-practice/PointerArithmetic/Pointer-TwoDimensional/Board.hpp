@@ -27,7 +27,7 @@ class Board{
 
         int primeCount();
 
-        int **craftBoard();
+        void craftBoard();
 
 
 };
