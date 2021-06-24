@@ -40,3 +40,19 @@ int *toArray();
 node *createNode(int);
 
 void displayStack();
+
+int sumStack();
+
+int minusStack();
+
+int multiplyStack();
+
+int evenCount();
+
+int oddCount();
+
+int primeCount();
+
+int positiveCount();
+
+int negativeCount();
