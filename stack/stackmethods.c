@@ -40,4 +40,13 @@ int size(void){
     return count;
 }
 
+int pop(void){
+    if(HEAD == NULL){
+        return -1;
+    }
+    else{
+        return HEAD->value;
+    }
+}
+
 
