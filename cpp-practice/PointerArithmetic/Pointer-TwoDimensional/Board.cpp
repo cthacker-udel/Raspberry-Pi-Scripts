@@ -25,6 +25,22 @@ int **Board::getBoard(){
 
 }
 
+int Board::sumBoard(){
+
+    int sum = 0;
+    for(int i = 0; i < size; i++){
+
+        for(int j = 0; j < size; j++){
+        
+            sum += *(*(board+i)+j);
+        
+        }
+
+    }
+    return sum;
+
+}
+
 
 void Board::craftBoard(){
 
@@ -32,7 +48,7 @@ void Board::craftBoard(){
 
         for(int j = 0; j < size; j++){
 
-            *(*(board+j)+i) = j;
+            *(*(board+i)+j) = j;
 
         }
 
