@@ -49,6 +49,45 @@ void Board::printBoard(){
 
 }
 
+void Board::getCoords(){
+
+    int x;
+    int y;
+    int value;
+
+    // verifying x coordinate
+
+    while(true){
+
+        cout << "\nEnter a x coordinate\n" << endl;
+        cin >> x;
+        if(x < 0 || x >= size){
+            cout << "\nPlease enter a valid coordinate between 0-" << size-1 << endl;
+            continue;
+        }
+        break;
+
+    }
+
+    // verifying y coordinate
+
+    while(true){
+
+        cout << "\nEnter a y coordinate\n" << endl;
+        cin >> y;
+        if(y < 0 || y >= size){
+            cout << "\nPlease enter a valid coordinate between 0-" << size-1 << endl;
+            continue;
+        }
+        break;
+
+    }
+
+    cout << "\nEnter a value to put into the array\n" << endl;
+    cin >> value;
+    setCoord(x,y,value);
+}
+
 void Board::setCoord(int x, int y, int value){
     *(*(board+x)+y) = value;
 }
