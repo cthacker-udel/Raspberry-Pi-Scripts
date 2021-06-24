@@ -19,6 +19,12 @@ Board::~Board(){
 
 }
 
+void Board::craftBoard(){
+
+    board = new int[size];
+
+}
+
 void Board::setBoard(int *newBoard){
     board = newBoard;
 }
