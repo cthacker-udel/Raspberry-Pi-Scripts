@@ -20,4 +20,14 @@ int push(int newValue){
     }
 }
 
+void displayStack(){
+    node *tempHead = HEAD;
+    int count = 1;
+    printf("\n\n~-~-~-~-DISPLAYING STACK~-~-~-~-\n\n");
+    while(tempHead != NULL){
+        printf("\n------\nNODE %d : %d\n------\n",count++,tempHead->value);
+        tempHead = tempHead->next;
+    }
+}
+
 
