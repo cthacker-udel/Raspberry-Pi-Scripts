@@ -45,7 +45,20 @@ int pop(void){
         return -1;
     }
     else{
-        return HEAD->value;
+        if(HEAD->next == NULL){
+            int value = HEAD->value;
+            HEAD = NULL;
+            free(HEAD);
+            return value;
+        }
+        else{
+            node *tempNode = HEAD->next;
+            int value = HEAD->value;
+            HEAD = NULL;
+            free(HEAD);
+            HEAD = tempNode;
+            return value;
+        }
     }
 }
 
