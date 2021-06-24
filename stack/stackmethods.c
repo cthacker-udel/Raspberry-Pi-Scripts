@@ -72,4 +72,13 @@ int peek(void){
     }
 }
 
+int empty(void){
+    if(HEAD == NULL){
+        return 1;
+    }
+    else{
+        return 0;
+    }
+}
+
 
