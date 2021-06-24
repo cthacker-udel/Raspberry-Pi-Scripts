@@ -1,7 +1,6 @@
 package javaPractice.ProjectRandomNumbers;
 
 import java.security.SecureRandom;
-import java.util.Scanner;
 
 public class numberGame {
     
