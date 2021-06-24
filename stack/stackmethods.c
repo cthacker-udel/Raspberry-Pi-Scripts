@@ -62,4 +62,14 @@ int pop(void){
     }
 }
 
+int peek(void){
+    if(HEAD == NULL){
+        return -1;
+    }
+    else{
+        int value = HEAD->value;
+        return value;
+    }
+}
+
 
