@@ -46,7 +46,11 @@ void Board::printBoard(){
         }
         cout << endl;
     }
-    
+
+}
+
+void Board::setCoord(int x, int y, int value){
+    *(*(board+x)+y) = value;
 }
 
 int Board::sumBoard(){

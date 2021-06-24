@@ -7,4 +7,6 @@ int main(void){
 
     board.craftBoard();
 
+    board.printBoard();
+
 }
