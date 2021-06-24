@@ -35,6 +35,20 @@ int **Board::getBoard(){
 
 }
 
+void Board::printBoard(){
+
+    for(int i = 0; i < size; i++){
+        cout << "Row " << i << " : ";
+        for(int j = 0; j < size; j++){
+
+            cout << *(*(board+i)+j) << ",";
+
+        }
+        cout << endl;
+    }
+    
+}
+
 int Board::sumBoard(){
 
     int sum = 0;

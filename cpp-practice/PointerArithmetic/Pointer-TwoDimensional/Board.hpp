@@ -33,5 +33,7 @@ class Board{
 
         bool isPrime(int);
 
+        void printBoard();
+
 
 };
