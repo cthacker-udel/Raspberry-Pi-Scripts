@@ -13,6 +13,12 @@ Board::Board(int newSize){
 
 }
 
+Board::~Board(){
+
+    delete []board;
+
+}
+
 void Board::setBoard(int *newBoard){
     board = newBoard;
 }

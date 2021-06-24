@@ -12,7 +12,9 @@ class Board{
 
         Board();
 
-        Board(int);+
+        Board(int);
+
+        ~Board();
 
         int *getBoard();
 
