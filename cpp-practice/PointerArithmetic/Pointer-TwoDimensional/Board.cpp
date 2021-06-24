@@ -41,6 +41,22 @@ int Board::sumBoard(){
 
 }
 
+int Board::evenCount(){
+
+    int count = 0;
+
+    for(int i = 0; i < size; i++){
+        for(int j = 0; j < size; j++){
+            int value = *(*(board+i)+j);
+            if(value % 2 == 0 && value != 0){
+                count++:
+            }
+        }
+    }
+    return count;
+
+}
+
 
 void Board::craftBoard(){
 
