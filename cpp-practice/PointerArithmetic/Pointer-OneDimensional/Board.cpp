@@ -25,6 +25,16 @@ void Board::craftBoard(){
 
 }
 
+int Board::sumBoard(){
+
+    int sum = 0;
+    for(int i = 0; i < size; i++){
+        sum += *(board+i);
+    }
+    return sum;
+
+}
+
 void Board::setBoard(int *newBoard){
     board = newBoard;
 }
