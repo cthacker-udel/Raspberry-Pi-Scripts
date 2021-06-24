@@ -12,3 +12,27 @@ typedef struct stackNode{
     struct stackNode *next;
 
 }node;
+
+int push(int);
+
+int pop(void);
+
+int peek(void);
+
+int empty(void);
+
+int search(int);
+
+void clear(void);
+
+node *clone(void);
+
+int get(int);
+
+int size();
+
+int lastIndexOf(int);
+
+void toString();
+
+int *toArray();
