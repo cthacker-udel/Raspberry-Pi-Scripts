@@ -77,6 +77,33 @@ int Board::oddCount(){
 
 }
 
+bool Board::isPrime(int number){
+
+    if(number < 0){
+        return false;
+    }
+    else if(number < 2){
+        return true;
+    }
+    else if(number == 2 || number == 3 || number == 5){
+        return true;
+    }
+    else{
+
+        int theSqrt = sqrt(number);
+        for(int i = 0; i < theSqrt; i++){
+            if(number % i == 0){
+                return false;
+            }
+        }
+        return true;
+
+
+    }
+
+}
+
+
 
 void Board::craftBoard(){
 

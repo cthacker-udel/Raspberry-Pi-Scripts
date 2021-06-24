@@ -29,5 +29,7 @@ class Board{
 
         void craftBoard();
 
+        bool isPrime(int);
+
 
 };
