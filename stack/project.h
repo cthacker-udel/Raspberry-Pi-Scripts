@@ -6,4 +6,9 @@
 #include <string.h>
 #include <math.h>
 
+typedef struct stackNode{
 
+    int value;
+    struct stackNode *next;
+
+}node;
