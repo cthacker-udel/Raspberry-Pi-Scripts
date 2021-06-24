@@ -1,3 +1,4 @@
+package javaPractice.ProjectRandomNumbers.EvenNumbers;
 import java.util.Random;
 
 public class numberMethods {
