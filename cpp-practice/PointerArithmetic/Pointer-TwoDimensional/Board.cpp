@@ -3,6 +3,20 @@
 
 Board::Board(){
 
+    size = 4;
+
+}
+
+Board::Board(int newSize){
+
+    size = newSize;
+
+}
+
+Board::~Board(){
+
+    cout << "Destroying the Board" << endl;
+
 }
 
 int **Board::getBoard(){
@@ -13,7 +27,7 @@ int **Board::getBoard(){
 
 
 int **Board::craftBoard(){
-    
+
 }
 
 
