@@ -35,6 +35,19 @@ int Board::sumBoard(){
 
 }
 
+int Board::primeCount(){
+
+    int count = 0;
+    for(int i = 0; i < size; i++){
+        int value = *(board+i);
+        if(isPrime(value)){
+            count++;
+        }
+    }
+    return count;
+
+}
+
 int Board::evenCount(){
 
     int count = 0;
