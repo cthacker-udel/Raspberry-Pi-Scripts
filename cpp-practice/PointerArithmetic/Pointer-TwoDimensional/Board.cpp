@@ -11,6 +11,12 @@ int **Board::getBoard(){
 
 }
 
+
+int **Board::craftBoard(){
+    
+}
+
+
 void Board::setBoard(int **newBoard){
 
     newBoard = board;

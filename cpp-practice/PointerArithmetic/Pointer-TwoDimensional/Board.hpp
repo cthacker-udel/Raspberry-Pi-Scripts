@@ -7,10 +7,13 @@ using namespace std;
 class Board{
 
     int **board;
+    int size;
 
     public:
 
         Board();
+        
+        Board(int);
 
         int **getBoard();
 
