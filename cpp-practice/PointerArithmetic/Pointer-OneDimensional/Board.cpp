@@ -35,6 +35,19 @@ int Board::sumBoard(){
 
 }
 
+int Board::evenCount(){
+
+    int count = 0;
+    for(int i = 0; i < size; i++){
+        int value = *(board+i);
+        if(value % 2 == 0){
+            count++;
+        }
+    }
+    return count;
+
+}
+
 void Board::setBoard(int *newBoard){
     board = newBoard;
 }
