@@ -49,7 +49,7 @@ int Board::evenCount(){
         for(int j = 0; j < size; j++){
             int value = *(*(board+i)+j);
             if(value % 2 == 0 && value != 0){
-                count++:
+                count++;
             }
         }
     }
@@ -126,6 +126,8 @@ bool Board::isPrime(int number){
 
 
 void Board::craftBoard(){
+
+    board = new int*[size];
 
     for(int i = 0; i < size; i++){
 
