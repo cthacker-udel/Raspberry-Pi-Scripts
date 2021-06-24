@@ -1,7 +1,7 @@
-package javaPractice.ProjectRandomNumbers.EvenNumbers;
+package javaPractice.ProjectRandomNumbers;
 import java.security.SecureRandom;
 
-public class numberMethods {
+public class numberMethods extends numberGame{
 
     public int getRandomNumber(){
 
@@ -24,6 +24,29 @@ public class numberMethods {
         SecureRandom secureRandom = new SecureRandom();
         secureRandom.setSeed(System.currentTimeMillis());
         return secureRandom.ints().parallel().filter(e -> e % 2 != 0).findFirst().getAsInt();
+
+    }
+
+    public void printRules(){
+
+        String rules = "";
+        // part 1
+        rules += "\nThe computer will randomly generate either an even, odd, or prime number\n";
+        // part 2
+        rules += "\nThe user will either guess even,odd,or prime, and if they guess correctly, their score increases by 1 and the computers decreases by 1, and if they guess incorrectly, their score decreases by 1 and the computer's score increases by 1\n";
+        System.out.println(rules);
+
+    }
+
+    public void printUserScore(){
+
+        System.out.println(String.format("\nThe user has : %d points!\n",super.getUserScore()));
+
+    }
+
+    public void printComputerScore(){
+
+        System.out.println(String.format("\nThe computer has : %d points!\n",super.getComputerScore()));
 
     }
 

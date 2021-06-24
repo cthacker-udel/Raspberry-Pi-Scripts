@@ -1,4 +1,4 @@
-package javaPractice.ProjectRandomNumbers.EvenNumbers;
+package javaPractice.ProjectRandomNumbers;
 
 public class theMain{
 
