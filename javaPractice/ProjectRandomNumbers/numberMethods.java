@@ -1,5 +1,6 @@
 package javaPractice.ProjectRandomNumbers;
 import java.security.SecureRandom;
+import java.util.Scanner;
 
 public class numberMethods extends numberGame{
 
@@ -35,6 +36,68 @@ public class numberMethods extends numberGame{
         // part 2
         rules += "\nThe user will either guess even,odd,or prime, and if they guess correctly, their score increases by 1 and the computers decreases by 1, and if they guess incorrectly, their score decreases by 1 and the computer's score increases by 1\n";
         System.out.println(rules);
+
+    }
+
+    public int promptUser(){
+
+        Scanner scanner = new Scanner(System.in);
+        String userAnswer;
+        
+        while(true){
+            System.out.println("\n~-~-USER ANSWERS : even,odd,prime (quit - exit program)\n");
+            userAnswer = scanner.nextLine();
+            if(userAnswer.equalsIgnoreCase("even") || userAnswer.equalsIgnoreCase("odd") || userAnswer.equalsIgnoreCase("prime") || userAnswer.equalsIgnoreCase("quit")){
+                scanner.close();
+                return userAnswer.equalsIgnoreCase("even")? 0: userAnswer.equalsIgnoreCase("odd")? 1: userAnswer.equalsIgnoreCase("prime")? 2: 3;
+            }
+            else{
+                System.out.println("\nPlease enter a valid input\n");
+                continue;
+            }
+        }
+
+    }
+
+    public void correctAnswer(int number){
+
+        String part = "";
+        if(isPrime(number)){
+            part = "number was prime -->" + Integer.toString(number);
+        }
+        else if(number % 2 == 0){
+            part = "number was even -->" + Integer.toString(number);
+        }
+        else if(number % 2 != 0){
+            part = "number was odd -->" + Integer.toString(number);
+        }
+
+        System.out.println(String.format("\nCorrect Answer(%s) : You gain 1 point while the computer loses 1 point\n",part));
+    }
+
+    public void decideWinner(){
+
+        String part = super.getUserScore() > super.getComputerScore()? "USER": super.getUserScore() < super.getComputerScore()? "COMPUTER": "TIE";
+        this.printUserScore();
+        this.printComputerScore();
+        System.out.println(String.format("The winner is : %s",part));
+
+    }
+
+    public void incorrectAnswer(int number){
+
+        String part = "";
+        if(isPrime(number)){
+            part = "number was prime -->" + Integer.toString(number);
+        }
+        else if(number % 2 == 0){
+            part = "number was even -->" + Integer.toString(number);
+        }
+        else if(number % 2 != 0){
+            part = "number was odd -->" + Integer.toString(number);
+        }
+
+        System.out.println(String.format("\nIncorrect Answer(%s) : You lose 1 point while the computer gains 1 point\n",part));
 
     }
 

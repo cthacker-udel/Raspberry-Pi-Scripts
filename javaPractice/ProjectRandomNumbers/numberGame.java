@@ -1,5 +1,8 @@
 package javaPractice.ProjectRandomNumbers;
 
+import java.security.SecureRandom;
+import java.util.Scanner;
+
 public class numberGame {
     
     private int userScore;
@@ -50,7 +53,33 @@ public class numberGame {
 
     public void startGame(){
 
-        
+        numberMethods methods = new numberMethods();
+        SecureRandom secureRandom = new SecureRandom();
+        secureRandom.setSeed(System.currentTimeMillis());
+        methods.printRules();
+        while(true){
+
+            int computerChoice = secureRandom.ints().parallel().map(e -> e % 3 + 1).filter(e -> e == 0 || e == 1 || e == 2).findFirst().getAsInt();
+            int playerChoice = methods.promptUser();
+            if(playerChoice == 3){
+                break;
+            }
+            int randomNumber = computerChoice == 0? methods.getRandomEvenNumber(): computerChoice == 1? methods.getRandomOddNumber(): methods.getRandomPrimeNumber();
+            if(computerChoice == playerChoice){
+                methods.correctAnswer(randomNumber);
+                this.userScore++;
+                this.computerScore--;
+            }
+            else{
+                methods.incorrectAnswer(randomNumber);
+                this.userScore--;
+                this.computerScore++;
+            }
+            methods.printUserScore();
+            methods.printComputerScore();
+
+        }
+        methods.decideWinner();
 
     }
 
