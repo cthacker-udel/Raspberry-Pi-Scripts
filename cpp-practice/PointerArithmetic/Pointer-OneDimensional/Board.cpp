@@ -3,6 +3,13 @@
 
 Board::Board(){
 
+    size = 4;
+
+}
+
+Board::Board(int newSize){
+
+    size = newSize;
 
 }
 

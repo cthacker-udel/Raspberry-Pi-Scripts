@@ -6,14 +6,37 @@ using namespace std;
 class Board{
 
     int *board;
+    int size;
 
     public:
 
         Board();
 
+        Board(int);+
+
         int *getBoard();
 
         void setBoard(int *);
+
+        void craftBoard();
+
+        int sumBoard();
+
+        int evenCount();
+
+        int oddCount();
+        
+        int primeCount();
+
+        bool isPrime(int);
+
+        void printBoard();
+
+        void setCoord(int,int);
+
+        void getCoords();
+
+
 
 
 }
