@@ -30,4 +30,14 @@ void displayStack(){
     }
 }
 
+int size(void){
+    int count = 0;
+    node *tempHead = HEAD;
+    while(tempHead != NULL){
+        count++;
+        tempHead = tempHead->next;
+    }
+    return count;
+}
+
 
