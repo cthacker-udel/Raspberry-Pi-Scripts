@@ -16,5 +16,15 @@ class Board{
 
         void setBoard(int **);
 
+        int sumBoard();
+
+        int evenCount();
+
+        int oddCount();
+
+        int primeCount();
+
+        int **craftBoard();
+
 
 };
