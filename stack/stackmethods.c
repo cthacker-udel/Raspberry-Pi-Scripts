@@ -81,4 +81,18 @@ int empty(void){
     }
 }
 
+int search(int value){
+    node *tempNode = HEAD;
+    int index = 0;
+    while(tempNode->value != value){
+        if(tempNode->value == value){
+            return index;
+        }
+        tempNode = tempNode->next;
+        index++;
+
+    }
+    return -1;
+}
+
 
