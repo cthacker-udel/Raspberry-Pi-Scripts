@@ -15,6 +15,8 @@ class Board{
         
         Board(int);
 
+        ~Board();
+
         int **getBoard();
 
         void setBoard(int **);

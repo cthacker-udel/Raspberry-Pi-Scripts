@@ -15,6 +15,16 @@ Board::Board(int newSize){
 
 Board::~Board(){
 
+    for(int i = 0; i < size; i++){
+
+        delete []*(board+i);
+
+    }
+
+}
+
+Board::~Board(){
+
     cout << "Destroying the Board" << endl;
 
 }
