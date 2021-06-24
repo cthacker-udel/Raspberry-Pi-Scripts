@@ -36,3 +36,5 @@ int lastIndexOf(int);
 void toString();
 
 int *toArray();
+
+node *createNode(int);
