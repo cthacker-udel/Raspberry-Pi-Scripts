@@ -56,3 +56,5 @@ int primeCount();
 int positiveCount();
 
 int negativeCount();
+
+void printMenu();
