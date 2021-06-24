@@ -11,10 +11,12 @@ node *createNode(int newValue){
 
 int push(int newValue){
     if(HEAD == NULL){
-        // 1 line
+        HEAD = createNode(newValue);
     }
     else{
-        // 2 lines
+        node *newNode = createNode(newValue);
+        newNode->next = HEAD;
+        HEAD = newNode;
     }
 }
 
