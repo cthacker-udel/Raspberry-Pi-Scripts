@@ -38,3 +38,5 @@ void toString();
 int *toArray();
 
 node *createNode(int);
+
+void displayStack();
