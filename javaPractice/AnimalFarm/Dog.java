@@ -10,6 +10,7 @@ public class Dog extends Farm implements Animal{
         this.numLegs = 4;
         this.bark = "Woof!";
         this.name = "Roger";
+        this.age = -1;
 
     }
 
@@ -18,6 +19,7 @@ public class Dog extends Farm implements Animal{
         this.numLegs = 4;
         this.bark = "Woof!";
         this.name = newName;
+        this.age = -1;
 
     }
 
@@ -27,6 +29,18 @@ public class Dog extends Farm implements Animal{
         this.name = newName;
         this.bark = "Woof!";
         this.age = age;
+
+    }
+
+    public void setNumLegs(int newNumLegs){
+
+        this.numLegs = newNumLegs;
+
+    }
+
+    public void setAge(int newAge){
+
+        this.age = newAge;
 
     }
 
