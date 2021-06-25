@@ -1,9 +1,12 @@
-public class Giraffe extends Farm implements Animal {
+import java.util.Comparator;
+
+public class Giraffe extends Farm implements Animal, Comparator<Animal> {
 
     private int numLegs;
     private String roar;
     private String name;
     private int age;
+    private int height;
 
     public Giraffe(){
 
@@ -11,6 +14,7 @@ public class Giraffe extends Farm implements Animal {
         this.roar = "AAA";
         this.name = "Gerry";
         this.age = -1;
+        this.height = -1;
 
     }
 
@@ -20,6 +24,7 @@ public class Giraffe extends Farm implements Animal {
         this.roar = "AAA";
         this.name = newName;
         this.age = -1;
+        this.height = -1;
 
     }
 
@@ -29,6 +34,19 @@ public class Giraffe extends Farm implements Animal {
         this.roar = "AAA";
         this.name = newName;
         this.age = newAge;
+        this.height = -1;
+
+    }
+
+    public int getHeight(){
+
+        return this.height;
+
+    }
+
+    public void setHeight(int newHeight){
+
+        this.height = newHeight;
 
     }
 
@@ -59,6 +77,15 @@ public class Giraffe extends Farm implements Animal {
     @Override
     public int getAge() {
         return this.age;
+    }
+
+    @Override
+    public int compare(Animal o1, Animal o2) {
+        
+        Giraffe o1G = ((Giraffe)o1);
+        Giraffe o2G = ((Giraffe)o2);
+
+        return o1G.height > o2G.height? 1: o1G.height < o2G.height? -1: 0;
     }
     
 }
