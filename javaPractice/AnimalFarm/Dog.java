@@ -3,6 +3,7 @@ public class Dog extends Farm implements Animal{
     int numLegs;
     String bark;
     String name;
+    int age;
 
     public Dog(){
 
@@ -12,11 +13,20 @@ public class Dog extends Farm implements Animal{
 
     }
 
-    public Dog(int newNumLegs, String newName){
+    public Dog(String newName){
 
-        this.numLegs = newNumLegs;
+        this.numLegs = 4;
+        this.bark = "Woof!";
+        this.name = newName;
+
+    }
+
+    public Dog(int age, String newName){
+
+        this.numLegs = 4;
         this.name = newName;
         this.bark = "Woof!";
+        this.age = age;
 
     }
 
@@ -34,6 +44,11 @@ public class Dog extends Farm implements Animal{
 
         return this.numLegs;
 
+    }
+
+    @Override
+    public int getAge() {
+        return age;
     }
     
 }

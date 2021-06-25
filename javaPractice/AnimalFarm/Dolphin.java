@@ -3,6 +3,7 @@ public class Dolphin extends Farm implements Animal{
     int numLegs;
     String squeal;
     String name;
+    int age;
 
     public Dolphin(){
 
@@ -12,11 +13,20 @@ public class Dolphin extends Farm implements Animal{
 
     }
 
-    public Dolphin(int newNumLegs, String newName){
+    public Dolphin(String newName){
 
-        this.numLegs = newNumLegs;
+        this.numLegs = 0;
         this.squeal = "AAAAA";
         this.name = newName;
+
+    }
+
+    public Dolphin(int age, String newName){
+
+        this.numLegs = 0;
+        this.squeal = "AAAAA";
+        this.name = newName;
+        this.age = age;
 
     }
 
@@ -28,6 +38,11 @@ public class Dolphin extends Farm implements Animal{
     @Override
     public String getName() {
         return this.name;
+    }
+
+    @Override
+    public int getAge() {
+        return age;
     }
     
 }
