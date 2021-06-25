@@ -30,6 +30,7 @@ public class Giraffe extends Farm implements Animal, Comparator<Giraffe> {
 
     public Giraffe(int newAge, String newName){
 
+        this.numLegs = 4;
         this.age = newAge;
         this.roar = "AAA";
         this.name = newName;
@@ -59,6 +60,12 @@ public class Giraffe extends Farm implements Animal, Comparator<Giraffe> {
     public void setNumLegs(int newNumLegs){
 
         this.numLegs = newNumLegs;
+
+    }
+
+    public int getNumLegs(){
+
+        return this.numLegs;
 
     }
     

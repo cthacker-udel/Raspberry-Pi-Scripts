@@ -1,9 +1,12 @@
-public class Zebra extends Farm implements Animal{
+import java.util.Comparator;
+
+public class Zebra extends Farm implements Animal, Comparator<Zebra>{
 
     int numLegs;
     String roar;
     String name;
     int age;
+    int stripes;
 
     public Zebra(){
 
@@ -11,6 +14,7 @@ public class Zebra extends Farm implements Animal{
         this.roar = "HYEU";
         this.name = "Ezekiel";
         this.age = -1;
+        this.stripes = -1;
 
     }
 
@@ -20,6 +24,7 @@ public class Zebra extends Farm implements Animal{
         this.roar = "HYEU";
         this.name = newName;
         this.age = -1;
+        this.stripes = -1;
 
     }
 
@@ -29,7 +34,18 @@ public class Zebra extends Farm implements Animal{
         this.roar = "HYEU";
         this.name = newName;
         this.age = -1;
+        this.stripes = -1;
 
+    }
+
+    public int getStripes(){
+
+        return this.stripes;
+
+    }
+
+    public void setStripes(int newStripes){
+        this.stripes = newStripes;
     }
 
     public void setAge(int newAge){
@@ -55,6 +71,11 @@ public class Zebra extends Farm implements Animal{
     @Override
     public int getAge() {
         return this.age;
+    }
+
+    @Override
+    public int compare(Zebra o1, Zebra o2) {
+        return o1.stripes > o2.stripes? 1: o1.stripes < o2.stripes? -1 : 0;
     }
     
 }
