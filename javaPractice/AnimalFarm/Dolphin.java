@@ -1,9 +1,12 @@
-public class Dolphin extends Farm implements Animal{
+import java.util.Comparator;
+
+public class Dolphin extends Farm implements Animal, Comparator<Dolphin>{
 
     int numLegs;
     String squeal;
     String name;
     int age;
+    int weight;
 
     public Dolphin(){
 
@@ -11,6 +14,7 @@ public class Dolphin extends Farm implements Animal{
         this.squeal = "AAAAA";
         this.name = "Donny";
         this.age = -1;
+
 
     }
 
@@ -30,6 +34,14 @@ public class Dolphin extends Farm implements Animal{
         this.name = newName;
         this.age = age;
 
+    }
+
+    public void setWeight(int newWeight){
+        this.weight = newWeight;
+    }
+
+    public int getWeight(){
+        return this.weight;
     }
 
     public void setNumLegs(int newNumLegs){
@@ -63,6 +75,11 @@ public class Dolphin extends Farm implements Animal{
     @Override
     public int getAge() {
         return age;
+    }
+
+    @Override
+    public int compare(Dolphin o1, Dolphin o2) {
+        return o1.weight > o2.weight? o1.weight < o2.weight? -1 : 0;
     }
     
 }
