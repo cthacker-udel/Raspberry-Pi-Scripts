@@ -10,6 +10,7 @@ public class Dolphin extends Farm implements Animal{
         this.numLegs = 0;
         this.squeal = "AAAAA";
         this.name = "Donny";
+        this.age = -1;
 
     }
 
@@ -18,6 +19,7 @@ public class Dolphin extends Farm implements Animal{
         this.numLegs = 0;
         this.squeal = "AAAAA";
         this.name = newName;
+        this.age = -1;
 
     }
 
@@ -27,6 +29,24 @@ public class Dolphin extends Farm implements Animal{
         this.squeal = "AAAAA";
         this.name = newName;
         this.age = age;
+
+    }
+
+    public void setNumLegs(int newNumLegs){
+
+        this.numLegs = newNumLegs;
+
+    }
+
+    public int getNumLegs(){
+
+        return this.numLegs;
+
+    }
+
+    public void setAge(int newAge){
+
+        this.age = newAge;
 
     }
 
