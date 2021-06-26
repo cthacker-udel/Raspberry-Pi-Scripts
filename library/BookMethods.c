@@ -103,3 +103,10 @@ void addTwoStarReview(book *newBook){
 void addOneStarReview(book *newBook){
     newBook->oneStarReviews++;
 }
+
+void sortByISBN(){
+
+    book *tempHead = HEAD;
+    
+
+}
