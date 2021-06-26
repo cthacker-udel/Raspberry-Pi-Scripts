@@ -4,12 +4,26 @@
 Board::Board(){
 
     size = 4;
+    board = new int*[size];
 
 }
 
 Board::Board(int newSize){
 
     size = newSize;
+    board = new int*[size];
+
+}
+
+void Board::createBoard(){
+    
+    int number = 0;
+    for(int i = 0; i < size; i++){
+        for(int j = 0; j < size; j++){
+            *(*(board+i)+j) = number;
+            number++;
+        }
+    }
 
 }
 
