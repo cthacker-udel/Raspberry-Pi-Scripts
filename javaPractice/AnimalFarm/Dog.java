@@ -6,6 +6,7 @@ public class Dog extends Farm implements Animal, Comparator<Dog>{
     String bark;
     String name;
     int age;
+    int weight;
 
     public Dog(){
 
@@ -13,6 +14,7 @@ public class Dog extends Farm implements Animal, Comparator<Dog>{
         this.bark = "Woof!";
         this.name = "Roger";
         this.age = -1;
+        this.weight = -1;
 
     }
 
@@ -22,6 +24,7 @@ public class Dog extends Farm implements Animal, Comparator<Dog>{
         this.bark = "Woof!";
         this.name = newName;
         this.age = -1;
+        this.weight = -1;
 
     }
 
@@ -31,6 +34,7 @@ public class Dog extends Farm implements Animal, Comparator<Dog>{
         this.name = newName;
         this.bark = "Woof!";
         this.age = age;
+        this.weight = -1;
 
     }
 
@@ -70,6 +74,18 @@ public class Dog extends Farm implements Animal, Comparator<Dog>{
     @Override
     public int compare(Dog o1, Dog o2) {
         return o1.age > o2.age? 1: o1.age < o2.age? -1 : 0;
+    }
+
+    public int getWeight(){
+
+        return this.weight;
+
+    }
+
+    public void setWeight(int newWeight){
+
+        this.weight = newWeight;
+
     }
     
 }
