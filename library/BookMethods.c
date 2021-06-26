@@ -14,3 +14,9 @@ int getNumBooks(void){
     return count;
 
 }
+
+void printMenu(){
+
+    printf("\n~-~-~-~-MENU~-~-~-~-\n1)");
+
+}
