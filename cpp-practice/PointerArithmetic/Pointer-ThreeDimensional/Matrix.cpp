@@ -30,3 +30,17 @@ Matrix::~Matrix(){
 
 }
 
+int Matrix::sumMatrix(){
+
+    int sum = 0;
+    for(int i = 0; i < size1; i++){
+        for(int j = 0; j < size2; j++){
+            for(int k = 0; k < size3; k++){
+                sum += *(*(*(board+i)+j)+k);
+            }
+        }
+    }
+    return sum;
+
+}
+
