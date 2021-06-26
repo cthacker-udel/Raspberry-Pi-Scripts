@@ -44,3 +44,13 @@ void addISBN(book *newBook){
     newBook->ISBN = ISBN;
 
 }
+
+void addName(book *newBook){
+
+    char name[100];
+    do{
+        printf("\nPlease enter a name to give to the book\n");
+    }while(scanf("%s",name));
+    strcpy(newBook->name,name);
+
+}
