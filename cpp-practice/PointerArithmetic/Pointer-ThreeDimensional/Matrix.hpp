@@ -22,6 +22,8 @@ class Matrix{
 
         void createMatrix();
 
+        void printMatrix();
+
         int sumMatrix();
 
         int avgMatrix();

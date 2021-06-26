@@ -36,6 +36,21 @@ void Matrix::createMatrix(){
 
 }
 
+void Matrix::printMatrix(){
+
+    int value = size1 * size2 * size3;
+    cout << "Matrix should have values up to " << value << endl;
+    for(int i = 0; i < size1; i++){
+        for(int j = 0; j < size2; j++){
+            for(int k = 0; k < size3; k++){
+                cout << *(*(*(board+i)+j)+k) << " , ";
+            }
+        }
+    }
+    cout << endl;
+
+}
+
 Matrix::~Matrix(){
 
     for(int i = 0; i < size1; i++){
