@@ -2,11 +2,11 @@ import java.util.Comparator;
 
 public class Cat extends Farm implements Animal, Comparator<Cat> {
 
-    int numLegs;
-    String speak;
-    String name;
-    int age;
-    int weight;
+    private int numLegs;
+    private String speak;
+    private String name;
+    private int age;
+    private int weight;
 
     public Cat(){
 
