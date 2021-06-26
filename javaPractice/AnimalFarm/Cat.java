@@ -1,9 +1,12 @@
-public class Cat extends Farm implements Animal {
+import java.util.Comparator;
+
+public class Cat extends Farm implements Animal, Comparator<Cat> {
 
     int numLegs;
     String speak;
     String name;
     int age;
+    int weight;
 
     public Cat(){
 
@@ -63,6 +66,19 @@ public class Cat extends Farm implements Animal {
     @Override
     public int getAge() {
         return this.age;
+    }
+
+    public int getWeight(){
+        return this.weight;
+    }
+
+    public void setWeight(int newWeight){
+        this.weight = newWeight;
+    }
+
+    @Override
+    public int compare(Cat o1, Cat o2) {
+        return o1.weight > o2.weight? 1: o1.weight < o2.weight? -1: 0;
     }
     
 }
