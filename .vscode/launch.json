@@ -5,6 +5,17 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "C++ Launch (Windows)",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "C:\\Users\\flyin\\Desktop\\Lab2\\Raspberry-Pi-Scripts\\cpp-practice\\PointerArithmetic\\Pointer-TwoDimensional\\main.exe",
+            "externalConsole": true,
+            "logging": {
+                "moduleLoad": false,
+                "trace": true
+            },
+        },
+        {
             "type": "java",
             "name": "Launch Farm",
             "request": "launch",

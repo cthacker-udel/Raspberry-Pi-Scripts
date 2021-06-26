@@ -19,6 +19,7 @@ void Board::createBoard(){
     
     int number = 0;
     for(int i = 0; i < size; i++){
+        *(board+i) = new int[size];
         for(int j = 0; j < size; j++){
             *(*(board+i)+j) = number;
             number++;
