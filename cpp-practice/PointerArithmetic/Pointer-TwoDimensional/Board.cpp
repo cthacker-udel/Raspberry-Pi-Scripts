@@ -27,6 +27,19 @@ void Board::createBoard(){
 
 }
 
+void Board::printBoard(){
+    cout << "Value should be from 0 - " << (size*size)-1 << "\n\n" << endl;
+    cout << "[ ";
+    for(int i = 0; i < size; i++){
+        cout << "[ ";
+        for(int j = 0; j < size-1; j++){
+            cout << *(*(board+i)+j) << ", ";
+        }
+        cout << *(*(board+i)+size-1) << " ]," << endl;
+    }
+
+}
+
 Board::~Board(){
 
     for(int i = 0; i < size; i++){

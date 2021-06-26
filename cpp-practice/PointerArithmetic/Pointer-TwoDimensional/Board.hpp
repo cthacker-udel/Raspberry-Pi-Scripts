@@ -19,6 +19,8 @@ class Board{
 
         void createBoard();
 
+        void printBoard();
+
         int **getBoard();
 
         void setBoard(int **);
