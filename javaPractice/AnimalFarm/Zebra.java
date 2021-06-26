@@ -2,11 +2,11 @@ import java.util.Comparator;
 
 public class Zebra extends Farm implements Animal, Comparator<Zebra>{
 
-    int numLegs;
-    String roar;
-    String name;
-    int age;
-    int stripes;
+    private int numLegs;
+    private String roar;
+    private String name;
+    private int age;
+    private int stripes;
 
     public Zebra(){
 
