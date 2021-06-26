@@ -1,4 +1,6 @@
-public class Dolphin extends Farm implements Animal{
+import java.util.Comparator;
+
+public class Dolphin extends Farm implements Animal, Comparator<Dolphin>{
 
     int numLegs;
     String squeal;
@@ -63,6 +65,11 @@ public class Dolphin extends Farm implements Animal{
     @Override
     public int getAge() {
         return age;
+    }
+
+    @Override
+    public int compare(Dolphin o1, Dolphin o2) {
+        return o1.age > o2.age? 1: o1.age < o2.age? -1 : 0;
     }
     
 }
