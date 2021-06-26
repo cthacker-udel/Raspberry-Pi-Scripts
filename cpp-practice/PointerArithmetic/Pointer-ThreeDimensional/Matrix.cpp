@@ -83,3 +83,20 @@ int Matrix::evenCount(){
 
 }
 
+int Matrix::oddCount(){
+
+    int count = 0;
+    for(int i = 0; i < size1; i++){
+        for(int j = 0; j < size2; j++){
+            for(int k = 0; k < size3; k++){
+                int value = *(*(*(board+i)+j)+k);
+                if(value % 2 != 0){
+                    count++;
+                }
+            }
+        }
+    }
+    return count;
+
+}
+
