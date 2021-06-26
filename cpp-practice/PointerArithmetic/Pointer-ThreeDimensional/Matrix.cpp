@@ -19,6 +19,23 @@ Matrix::Matrix(int newSize1, int newSize2, int newSize3){
 
 }
 
+void Matrix::createMatrix(){
+
+    int number = 0;
+
+    for(int i = 0; i < size1; i++){
+        *(board+i) = new int*[size1];
+        for(int j = 0; j < size2; j++){
+            *(*(board+i)+j) = new int[size2];
+            for(int k = 0; k < size3; k++){
+                *(*(*(board+i)+j)+k) = number;
+                number++;
+            }
+        }
+    }
+
+}
+
 Matrix::~Matrix(){
 
     for(int i = 0; i < size1; i++){

@@ -20,6 +20,8 @@ class Matrix{
 
         ~Matrix();
 
+        void createMatrix();
+
         int sumMatrix();
 
         int avgMatrix();
