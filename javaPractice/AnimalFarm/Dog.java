@@ -73,7 +73,7 @@ public class Dog extends Farm implements Animal, Comparator<Dog>{
 
     @Override
     public int compare(Dog o1, Dog o2) {
-        return o1.age > o2.age? 1: o1.age < o2.age? -1 : 0;
+        return o1.weight > o2.weight? 1: o1.weight < o2.weight? -1 : 0;
     }
 
     public int getWeight(){
