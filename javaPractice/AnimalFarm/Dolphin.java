@@ -2,11 +2,11 @@ import java.util.Comparator;
 
 public class Dolphin extends Farm implements Animal, Comparator<Dolphin>{
 
-    int numLegs;
-    String squeal;
-    String name;
-    int age;
-    int weight;
+    private int numLegs;
+    private String squeal;
+    private String name;
+    private int age;
+    private int weight;
 
     public Dolphin(){
 
