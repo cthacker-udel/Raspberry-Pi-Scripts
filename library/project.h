@@ -64,7 +64,9 @@ void addTwoStarReview(book *);
 
 void addOneStarReview(book *);
 
-void sortByISBN();
+void sortByISBNAscending();
+
+void sortByISBNDescending();
 
 void sortByName(book *);
 
