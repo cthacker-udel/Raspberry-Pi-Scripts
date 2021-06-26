@@ -87,3 +87,8 @@ void addAuthor(book *newBook){
 void addFiveStarReview(book *newBook){
     newBook->fiveStarReviews++;
 }
+
+void addFourStarReview(book *newBook){
+    newBook->fourStarReviews++;
+}
+
