@@ -18,6 +18,8 @@ class Matrix{
 
         Matrix(int,int,int);
 
+        ~Matrix();
+
         int sumMatrix();
 
         int avgMatrix();
