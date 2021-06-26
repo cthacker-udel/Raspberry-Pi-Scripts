@@ -2,11 +2,11 @@ import java.util.Comparator;
 
 public class Dog extends Farm implements Animal, Comparator<Dog>{
 
-    int numLegs;
-    String bark;
-    String name;
-    int age;
-    int weight;
+    private int numLegs;
+    private String bark;
+    private String name;
+    private int age;
+    private int weight;
 
     public Dog(){
 
