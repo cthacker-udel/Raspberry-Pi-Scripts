@@ -68,7 +68,9 @@ void sortByISBNAscending();
 
 void sortByISBNDescending();
 
-void sortByName(book *);
+void sortByNameAscending(book *);
+
+void sortByNameDescending(book *);
 
 void sortByPages(book *);
 
