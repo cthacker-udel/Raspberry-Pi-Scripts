@@ -1,4 +1,6 @@
-public class Dog extends Farm implements Animal{
+import java.util.Comparator;
+
+public class Dog extends Farm implements Animal, Comparator<Dog>{
 
     int numLegs;
     String bark;
@@ -63,6 +65,11 @@ public class Dog extends Farm implements Animal{
     @Override
     public int getAge() {
         return age;
+    }
+
+    @Override
+    public int compare(Dog o1, Dog o2) {
+        return o1.age > o2.age? 1: o1.age < o2.age? -1 : 0;
     }
     
 }
