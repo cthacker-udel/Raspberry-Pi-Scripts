@@ -20,3 +20,9 @@ void printMenu(){
     printf("\n~-~-~-~-MENU~-~-~-~-\n1)");
 
 }
+
+book *createBook(){
+
+    book *newBook = (book *)malloc(sizeof(book));
+    return newBook;
+}
