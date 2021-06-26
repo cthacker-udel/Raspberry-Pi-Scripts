@@ -117,3 +117,21 @@ void Board::printBoard(){
 
 
 }
+
+void Board::setCoord(int index, int value){
+
+    *(board+index) = value;
+
+}
+
+int Board::getIndex(int value){
+
+    for(int i = 0; i < size; i++){
+        if(*(board+i) == value){
+            return i;
+        }
+    }
+    return -1;
+
+}
+
