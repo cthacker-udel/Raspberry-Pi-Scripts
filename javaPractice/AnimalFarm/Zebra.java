@@ -56,7 +56,11 @@ public class Zebra extends Farm implements Animal, Comparator<Zebra>{
 
         this.numLegs = newNumLegs;
 
-    }   
+    }
+
+    public int getNumLegs(){
+        return this.numLegs;
+    }
 
     @Override
     public void speak() {
