@@ -50,12 +50,6 @@ Board::~Board(){
 
 }
 
-Board::~Board(){
-
-    cout << "Destroying the Board" << endl;
-
-}
-
 int **Board::getBoard(){
 
     return board;
