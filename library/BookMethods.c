@@ -83,3 +83,7 @@ void addAuthor(book *newBook){
     }while(scanf("%s",author));
     strcpy(newBook->author,author);
 }
+
+void addFiveStarReview(book *newBook){
+    newBook->fiveStarReviews++;
+}
