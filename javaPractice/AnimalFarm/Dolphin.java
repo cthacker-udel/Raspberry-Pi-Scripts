@@ -79,7 +79,7 @@ public class Dolphin extends Farm implements Animal, Comparator<Dolphin>{
 
     @Override
     public int compare(Dolphin o1, Dolphin o2) {
-        return o1.weight > o2.weight? o1.weight < o2.weight? -1 : 0;
+        return o1.weight > o2.weight? 1: o1.weight < o2.weight? -1 : 0;
     }
     
 }
