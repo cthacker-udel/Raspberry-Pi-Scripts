@@ -32,7 +32,7 @@ class Matrix{
 
         int primeCount();
 
-        bool isPrime();
+        bool isPrime(int);
 
         
 
