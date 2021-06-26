@@ -1,6 +1,6 @@
 import java.util.Comparator;
 
-public class Dolphin extends Farm implements Animal, Comparator<Dolphin>, Comparable<Dolphin>{
+public class Dolphin extends Farm implements Animal, Comparator<Object>, Comparable<Dolphin>{
 
     private int numLegs;
     private String squeal;
@@ -78,8 +78,49 @@ public class Dolphin extends Farm implements Animal, Comparator<Dolphin>, Compar
     }
 
     @Override
-    public int compare(Dolphin o1, Dolphin o2) {
-        return o1.weight > o2.weight? 1: o1.weight < o2.weight? -1 : 0;
+    public int compare(Object o1, Object o2) {
+        int o1Weight = 0;
+        int o2Weight = 0;
+        if(o1 instanceof Rhinoceros){
+            o1Weight = ((Rhinoceros)o1).getWeight();
+        }
+        else if(o1 instanceof Zebra){
+            o1Weight = ((Zebra)o1).getWeight();
+        }
+        else if(o1 instanceof Giraffe){
+            o1Weight = ((Giraffe)o1).getWeight();
+        }
+        else if(o1 instanceof Dolphin){
+            o1Weight = ((Dolphin)o1).getWeight();
+        }
+        else if(o1 instanceof Dog){
+            o1Weight = ((Dog)o1).getWeight();
+        }
+        else if(o1 instanceof Cat){
+            o1Weight = ((Cat)o1).getWeight();
+        }
+
+
+        if(o2 instanceof Rhinoceros){
+            o2Weight = ((Rhinoceros)o2).getWeight();
+        }
+        else if(o2 instanceof Zebra){
+            o2Weight = ((Zebra)o2).getWeight();
+        }
+        else if(o2 instanceof Giraffe){
+            o2Weight = ((Giraffe)o2).getWeight();
+        }
+        else if(o2 instanceof Dolphin){
+            o2Weight = ((Dolphin)o2).getWeight();
+        }
+        else if(o2 instanceof Dog){
+            o2Weight = ((Dog)o2).getWeight();
+        }
+        else if(o2 instanceof Cat){
+            o2Weight = ((Cat)o2).getWeight();
+        }
+
+        return o1Weight > o2Weight? 1: o1Weight < o2Weight? -1: 0;
     }
 
     @Override
