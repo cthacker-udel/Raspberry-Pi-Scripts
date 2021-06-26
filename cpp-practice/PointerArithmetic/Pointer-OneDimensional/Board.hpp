@@ -36,9 +36,7 @@ class Board{
 
         void setCoord(int,int);
 
-        void getCoords();
+        int getIndex(int);
 
 
-
-
-}
+};
