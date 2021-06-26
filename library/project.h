@@ -72,7 +72,9 @@ void sortByNameAscending(book *);
 
 void sortByNameDescending(book *);
 
-void sortByPages(book *);
+void sortByPagesAscending(book *);
+
+void sortByPagesDescending(book *);
 
 void sortByChapters(book *);
 
