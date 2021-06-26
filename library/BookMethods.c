@@ -26,3 +26,5 @@ book *createBook(){
     book *newBook = (book *)malloc(sizeof(book));
     return newBook;
 }
+
+void addBook()
