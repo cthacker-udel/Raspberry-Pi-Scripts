@@ -92,3 +92,7 @@ void addFourStarReview(book *newBook){
     newBook->fourStarReviews++;
 }
 
+void addThreeStarReview(book *newBook){
+    newBook->threeStarReviews++;
+}
+
