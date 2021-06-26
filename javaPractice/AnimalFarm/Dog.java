@@ -1,6 +1,6 @@
 import java.util.Comparator;
 
-public class Dog extends Farm implements Animal, Comparator<Dog>{
+public class Dog extends Farm implements Animal, Comparator<Dog>, Comparable<Dog>{
 
     private int numLegs;
     private String bark;
@@ -86,6 +86,11 @@ public class Dog extends Farm implements Animal, Comparator<Dog>{
 
         this.weight = newWeight;
 
+    }
+
+    @Override
+    public int compareTo(Dog o) {
+        return this.weight > o.weight? 1: this.weight < o.weight? -1 : 0;
     }
     
 }

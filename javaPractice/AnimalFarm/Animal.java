@@ -1,4 +1,4 @@
-public interface Animal {
+public interface Animal{
     
     void speak();
 
