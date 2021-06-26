@@ -100,3 +100,6 @@ void addTwoStarReview(book *newBook){
     newBook->twoStarReviews++;
 }
 
+void addOneStarReview(book *newBook){
+    newBook->oneStarReviews++;
+}
