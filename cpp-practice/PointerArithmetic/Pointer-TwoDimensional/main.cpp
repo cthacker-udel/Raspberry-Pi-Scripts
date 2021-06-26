@@ -1,11 +1,11 @@
-#include "Board.hpp"
+#include "Board.cpp"
 
 
 int main(void){
 
     Board board;
 
-    board.craftBoard();
+    board.createBoard();
 
     board.printBoard();
 

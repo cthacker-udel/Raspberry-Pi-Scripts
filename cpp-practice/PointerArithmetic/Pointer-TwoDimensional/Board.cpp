@@ -62,6 +62,7 @@ int **Board::getBoard(){
 
 }
 
+/*
 void Board::printBoard(){
 
     for(int i = 0; i < size; i++){
@@ -75,6 +76,7 @@ void Board::printBoard(){
     }
 
 }
+*/
 
 void Board::getCoords(){
 
@@ -218,7 +220,7 @@ bool Board::isPrime(int number){
 }
 
 
-
+/*
 void Board::craftBoard(){
 
     board = new int*[size];
@@ -234,6 +236,7 @@ void Board::craftBoard(){
     }
 
 }
+*/
 
 
 void Board::setBoard(int **newBoard){
