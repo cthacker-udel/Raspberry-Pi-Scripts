@@ -2,12 +2,12 @@ import java.util.Comparator;
 
 public class Rhinoceros extends Farm implements Animal, Comparator<Rhinoceros>{
 
-    int numLegs;
-    String roar;
-    String name;
-    int age;
-    int weight;
-    int height;
+    private int numLegs;
+    private String roar;
+    private String name;
+    private int age;
+    private int weight;
+    private int height;
 
     public Rhinoceros(){
 
