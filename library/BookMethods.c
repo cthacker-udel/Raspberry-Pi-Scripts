@@ -74,3 +74,12 @@ void addChapters(book *newBook){
     newBook->chapters = chapters;
 
 }
+
+void addAuthor(book *newBook){
+
+    char author[100];
+    do{
+        printf("\nPlease enter the name of the book author\n");
+    }while(scanf("%s",author));
+    strcpy(newBook->author,author);
+}
