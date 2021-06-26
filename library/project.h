@@ -80,7 +80,9 @@ void sortByChaptersAscending(book *);
 
 void sortByChaptersDescending(book *);
 
-void sortByAuthor(book *);
+void sortByAuthorAscending(book *);
+
+void sortByAuthorDescending(book *);
 
 void sortByNumFiveStarReviews(book *);
 
