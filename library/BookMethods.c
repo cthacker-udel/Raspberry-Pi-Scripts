@@ -27,4 +27,10 @@ book *createBook(){
     return newBook;
 }
 
-void addBook()
+void addBook(book *newBook){
+
+    book *tempHead = HEAD;
+    newBook->next = tempHead;
+    HEAD = newBook;
+
+}
