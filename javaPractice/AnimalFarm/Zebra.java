@@ -8,6 +8,7 @@ public class Zebra extends Farm implements Animal, Comparator<Object>, Comparabl
     private int age;
     private int stripes;
     private int weight;
+    private int height;
 
     public Zebra(){
 
@@ -37,6 +38,14 @@ public class Zebra extends Farm implements Animal, Comparator<Object>, Comparabl
         this.age = -1;
         this.stripes = -1;
 
+    }
+
+    public int getHeight(){
+        return this.height;
+    }
+
+    public void setHeight(int newHeight){
+        this.height = newHeight;
     }
 
     public int getStripes(){

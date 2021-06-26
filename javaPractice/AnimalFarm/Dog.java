@@ -7,6 +7,7 @@ public class Dog extends Farm implements Animal, Comparator<Object>, Comparable<
     private String name;
     private int age;
     private int weight;
+    private int height;
 
     public Dog(){
 
@@ -64,6 +65,14 @@ public class Dog extends Farm implements Animal, Comparator<Object>, Comparable<
 
         return this.numLegs;
 
+    }
+
+    public int getHeight(){
+        return this.height;
+    }
+
+    public void setHeight(int newHeight){
+        this.height = newHeight;
     }
 
     @Override

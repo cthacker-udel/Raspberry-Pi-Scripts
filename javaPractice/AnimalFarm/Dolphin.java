@@ -7,6 +7,7 @@ public class Dolphin extends Farm implements Animal, Comparator<Object>, Compara
     private String name;
     private int age;
     private int weight;
+    private int height;
 
     public Dolphin(){
 
@@ -34,6 +35,14 @@ public class Dolphin extends Farm implements Animal, Comparator<Object>, Compara
         this.name = newName;
         this.age = age;
 
+    }
+
+    public void setHeight(int newHeight){
+        this.height = newHeight;
+    }
+
+    public int getHeight(){
+        return this.height;
     }
 
     public void setWeight(int newWeight){

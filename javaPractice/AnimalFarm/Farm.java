@@ -7,13 +7,169 @@ public class Farm{
 
     static List<Object> animalList = new ArrayList<>();
 
+
+    static class SortByName implements Comparator<Object>{
+
+        @Override
+        public int compare(Object o1, Object o2) {
+            String o1Name = "";
+            String o2Name = "";
+            if(o1 instanceof Rhinoceros){
+                o1Name = ((Rhinoceros)o1).getName();
+            }
+            else if(o1 instanceof Zebra){
+                o1Name = ((Zebra)o1).getName();
+            }
+            else if(o1 instanceof Giraffe){
+                o1Name = ((Giraffe)o1).getName();
+            }
+            else if(o1 instanceof Dolphin){
+                o1Name = ((Dolphin)o1).getName();
+            }
+            else if(o1 instanceof Dog){
+                o1Name = ((Dog)o1).getName();
+            }
+            else if(o1 instanceof Cat){
+                o1Name = ((Cat)o1).getName();
+            }
+
+            if(o2 instanceof Rhinoceros){
+                o2Name = ((Rhinoceros)o2).getName();
+            }
+            else if(o2 instanceof Zebra){
+                o2Name = ((Zebra)o2).getName();
+            }
+            else if(o2 instanceof Giraffe){
+                o2Name = ((Giraffe)o2).getName();
+            }
+            else if(o2 instanceof Dolphin){
+                o2Name = ((Dolphin)o2).getName();
+            }
+            else if(o2 instanceof Dog){
+                o2Name = ((Dog)o2).getName();
+            }
+            else if(o2 instanceof Cat){
+                o2Name = ((Cat)o2).getName();
+            }
+
+            return o1Name.compareToIgnoreCase(o2Name);
+
+        }
+
+    }
+
+    static class SortByHeight implements Comparator<Object>{
+
+        @Override
+        public int compare(Object o1, Object o2) {
+            int o1Height = 0;
+            int o2Height = 0;
+            if(o1 instanceof Rhinoceros){
+                o1Height = ((Rhinoceros)o1).getHeight();
+            }
+            else if(o1 instanceof Zebra){
+                o1Height = ((Zebra)o1).getHeight();
+            }
+            else if(o1 instanceof Giraffe){
+                o1Height = ((Giraffe)o1).getHeight();
+            }
+            else if(o1 instanceof Dolphin){
+                o1Height = ((Dolphin)o1).getHeight();
+            }
+            else if(o1 instanceof Dog){
+                o1Height = ((Dog)o1).getHeight();
+            }
+            else if(o1 instanceof Cat){
+                o1Height = ((Cat)o1).getHeight();
+            }
+
+
+            if(o2 instanceof Rhinoceros){
+                o2Height = ((Rhinoceros)o2).getHeight();
+            }
+            else if(o2 instanceof Zebra){
+                o2Height = ((Zebra)o2).getHeight();
+            }
+            else if(o2 instanceof Giraffe){
+                o2Height = ((Giraffe)o2).getHeight();
+            }
+            else if(o2 instanceof Dolphin){
+                o2Height = ((Dolphin)o2).getHeight();
+            }
+            else if(o2 instanceof Dog){
+                o2Height = ((Dog)o2).getHeight();
+            }
+            else if(o2 instanceof Cat){
+                o2Height = ((Cat)o2).getHeight();
+            }
+
+            return o1Height > o2Height? 1: o1Height < o2Height? -1: 0;
+        }
+
+        
+
+    }
+
+    static class SortByWeight implements Comparator<Object>{
+
+        @Override
+        public int compare(Object o1, Object o2) {
+            int o1Weight = 0;
+            int o2Weight = 0;
+            if(o1 instanceof Rhinoceros){
+                o1Weight = ((Rhinoceros)o1).getWeight();
+            }
+            else if(o1 instanceof Zebra){
+                o1Weight = ((Zebra)o1).getWeight();
+            }
+            else if(o1 instanceof Giraffe){
+                o1Weight = ((Giraffe)o1).getWeight();
+            }
+            else if(o1 instanceof Dolphin){
+                o1Weight = ((Dolphin)o1).getWeight();
+            }
+            else if(o1 instanceof Dog){
+                o1Weight = ((Dog)o1).getWeight();
+            }
+            else if(o1 instanceof Cat){
+                o1Weight = ((Cat)o1).getWeight();
+            }
+
+
+            if(o2 instanceof Rhinoceros){
+                o2Weight = ((Rhinoceros)o2).getWeight();
+            }
+            else if(o2 instanceof Zebra){
+                o2Weight = ((Zebra)o2).getWeight();
+            }
+            else if(o2 instanceof Giraffe){
+                o2Weight = ((Giraffe)o2).getWeight();
+            }
+            else if(o2 instanceof Dolphin){
+                o2Weight = ((Dolphin)o2).getWeight();
+            }
+            else if(o2 instanceof Dog){
+                o2Weight = ((Dog)o2).getWeight();
+            }
+            else if(o2 instanceof Cat){
+                o2Weight = ((Cat)o2).getWeight();
+            }
+
+            return o1Weight > o2Weight? 1: o1Weight < o2Weight? -1: 0;
+        }
+
+        
+
+    }
+
     public static void main(String[] args){
 
         animalList.add(new Zebra("Zebra1"));
         animalList.add(new Dolphin("Dolphin1"));
         animalList.add(new Dog("Dog1"));
         Object[] animalArr = animalList.toArray(Object[]::new);
-        Arrays.sort(animalArr);
+        SortByWeight weightSorter = new SortByWeight();
+        Arrays.sort(animalArr,weightSorter);
         for(int i = 0; i < animalArr.length; i++){
             Object obj = animalArr[i];
             if(obj instanceof Cat){

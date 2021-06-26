@@ -7,6 +7,7 @@ public class Cat extends Farm implements Animal, Comparator<Object>, Comparable<
     private String name;
     private int age;
     private int weight;
+    private int height;
 
     public Cat(){
 
@@ -33,6 +34,14 @@ public class Cat extends Farm implements Animal, Comparator<Object>, Comparable<
         this.name = newName;
         this.age = age;
 
+    }
+
+    public int getHeight(){
+        return this.height;
+    }
+
+    public void setHeight(int newHeight){
+        this.height = newHeight;
     }
 
     public int getNumLegs(){
