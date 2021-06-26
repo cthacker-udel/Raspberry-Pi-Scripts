@@ -33,11 +33,11 @@ class Board{
 
         int primeCount();
 
-        void craftBoard();
+        //void craftBoard();
 
         bool isPrime(int);
 
-        void printBoard();
+        //void printBoard();
 
         void setCoord(int,int,int);
 
