@@ -106,7 +106,7 @@ public class Giraffe extends Farm implements Animal, Comparator<Giraffe>, Compar
 
     @Override
     public int compareTo(Giraffe o) {
-        return o1.height > o2.height? 1: o1.height < o2.height? -1: 0;
+        return this.height > o.height? 1: this.height < o.height? -1: 0;
     }
     
 }

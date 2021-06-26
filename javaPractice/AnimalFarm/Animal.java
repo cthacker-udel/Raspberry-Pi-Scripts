@@ -8,5 +8,6 @@ public interface Animal{
 
     int getAge();
 
+    int getWeight();
 
 }

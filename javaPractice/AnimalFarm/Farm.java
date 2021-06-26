@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 public class Farm{
@@ -10,9 +12,10 @@ public class Farm{
         animalList.add(new Zebra("Zebra1"));
         animalList.add(new Dolphin("Dolphin1"));
         animalList.add(new Dog("Dog1"));
-        ArrayList<Object> updatedAnimalList = (ArrayList<Object>)animalList.stream().sorted().collect(ArrayList::new,ArrayList::add,ArrayList::addAll);
-        for(int i = 0; i < updatedAnimalList.size(); i++){
-            Object obj = updatedAnimalList.get(i);
+        Object[] animalArr = animalList.toArray(Object[]::new);
+        Arrays.sort(animalArr);
+        for(int i = 0; i < animalArr.length; i++){
+            Object obj = animalArr[i];
             if(obj instanceof Cat){
                 System.out.println(String.format("\nObject at index %d is : Cat",i));
                 obj = (Cat)obj;

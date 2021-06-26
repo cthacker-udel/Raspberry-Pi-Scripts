@@ -84,7 +84,7 @@ public class Dolphin extends Farm implements Animal, Comparator<Dolphin>, Compar
 
     @Override
     public int compareTo(Dolphin o) {
-        return o1.weight > o2.weight? 1: o1.weight < o2.weight? -1 : 0;
+        return this.weight > o.weight? 1: this.weight < o.weight? -1 : 0;
     }
     
 }

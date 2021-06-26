@@ -83,7 +83,7 @@ public class Cat extends Farm implements Animal, Comparator<Cat>, Comparable<Cat
 
     @Override
     public int compareTo(Cat o) {
-        return o1.weight > o2.weight? 1: o1.weight < o2.weight? -1: 0;
+        return this.weight > o.weight? 1: this.weight < o.weight? -1: 0;
     }
     
 }
