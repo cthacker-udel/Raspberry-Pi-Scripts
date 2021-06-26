@@ -54,3 +54,13 @@ void addName(book *newBook){
     strcpy(newBook->name,name);
 
 }
+
+void addPages(book *newBook){
+
+    int pages;
+    do{
+        printf("\nPlease enter the amount of pages the book has\n");
+    }while(scanf("%d",&pages));
+    newBook->pages = pages;
+
+}
