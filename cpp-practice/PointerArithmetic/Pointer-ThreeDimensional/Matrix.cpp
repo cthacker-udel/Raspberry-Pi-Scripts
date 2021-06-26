@@ -44,3 +44,25 @@ int Matrix::sumMatrix(){
 
 }
 
+int Matrix::avgMatrix(){
+
+    int totalNumbers = size1 * size2 * size3;
+    int theSum = sumMatrix();
+    return (theSum*1.0) / totalNumbers;
+
+}
+
+int Matrix::subMatrix(){
+
+    int sum = 0;
+    for(int i = 0; i < size1; i++){
+        for(int j = 0; j < size2; j++){
+            for(int k = 0; k < size3; k++){
+                sum -= *(*(*(board+i)+j)+k);
+            }
+        }
+    }
+    return sum;
+
+}
+
