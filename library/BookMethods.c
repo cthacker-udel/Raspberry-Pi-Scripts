@@ -64,3 +64,13 @@ void addPages(book *newBook){
     newBook->pages = pages;
 
 }
+
+void addChapters(book *newBook){
+
+    int chapters;
+    do{
+        printf("\nPlease enter the amount of chapters the book has\n");
+    }while(scanf("%d",&chapters));
+    newBook->chapters = chapters;
+
+}
