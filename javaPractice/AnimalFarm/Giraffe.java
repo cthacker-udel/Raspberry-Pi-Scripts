@@ -1,6 +1,6 @@
 import java.util.Comparator;
 
-public class Giraffe extends Farm implements Animal, Comparator<Giraffe> {
+public class Giraffe extends Farm implements Animal, Comparator<Giraffe>, Comparable<Giraffe> {
 
     private int numLegs;
     private String roar;
@@ -101,6 +101,11 @@ public class Giraffe extends Farm implements Animal, Comparator<Giraffe> {
 
     @Override
     public int compare(Giraffe o1, Giraffe o2) {
+        return o1.height > o2.height? 1: o1.height < o2.height? -1: 0;
+    }
+
+    @Override
+    public int compareTo(Giraffe o) {
         return o1.height > o2.height? 1: o1.height < o2.height? -1: 0;
     }
     

@@ -1,6 +1,6 @@
 import java.util.Comparator;
 
-public class Zebra extends Farm implements Animal, Comparator<Zebra>{
+public class Zebra extends Farm implements Animal, Comparator<Zebra>, Comparable<Zebra>{
 
     private int numLegs;
     private String roar;
@@ -79,6 +79,11 @@ public class Zebra extends Farm implements Animal, Comparator<Zebra>{
 
     @Override
     public int compare(Zebra o1, Zebra o2) {
+        return o1.stripes > o2.stripes? 1: o1.stripes < o2.stripes? -1 : 0;
+    }
+
+    @Override
+    public int compareTo(Zebra o) {
         return o1.stripes > o2.stripes? 1: o1.stripes < o2.stripes? -1 : 0;
     }
     

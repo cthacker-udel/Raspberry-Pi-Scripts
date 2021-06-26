@@ -1,6 +1,6 @@
 import java.util.Comparator;
 
-public class Rhinoceros extends Farm implements Animal, Comparator<Rhinoceros>{
+public class Rhinoceros extends Farm implements Animal, Comparator<Rhinoceros>, Comparable<Rhinoceros>{
 
     private int numLegs;
     private String roar;
@@ -75,6 +75,11 @@ public class Rhinoceros extends Farm implements Animal, Comparator<Rhinoceros>{
 
     @Override
     public int compare(Rhinoceros o1, Rhinoceros o2) {
+        return o1.weight > o2.weight? 1: o1.weight < o2.weight? -1: 0;
+    }
+
+    @Override
+    public int compareTo(Rhinoceros o) {
         return o1.weight > o2.weight? 1: o1.weight < o2.weight? -1: 0;
     }
 
