@@ -38,6 +38,8 @@ library* getLibrary();
 
 void setBooks(book *);
 
+library *createLibrary();
+
 void printMenu();
 
 int getNumBooks(void);
