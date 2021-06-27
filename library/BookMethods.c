@@ -90,6 +90,7 @@ void addName(book *newBook){
     do{
         printf("\nPlease enter a name to give to the book\n");
     }while(!scanf("%s",name));
+    newBook->name = (char *)malloc(sizeof(char) * strlen(name));
     strcpy(newBook->name,name);
 
 }
