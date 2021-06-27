@@ -49,6 +49,8 @@ void setLibraryFounder(char *);
 
 void printMenu();
 
+void displayBooks();
+
 int getNumBooks(void);
 
 book *createBook();
