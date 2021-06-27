@@ -78,38 +78,38 @@ void sortByISBNAscending();
 
 void sortByISBNDescending();
 
-void sortByNameAscending(book *);
+void sortByNameAscending();
 
-void sortByNameDescending(book *);
+void sortByNameDescending();
 
-void sortByPagesAscending(book *);
+void sortByPagesAscending();
 
-void sortByPagesDescending(book *);
+void sortByPagesDescending();
 
-void sortByChaptersAscending(book *);
+void sortByChaptersAscending();
 
-void sortByChaptersDescending(book *);
+void sortByChaptersDescending();
 
-void sortByAuthorAscending(book *);
+void sortByAuthorAscending();
 
-void sortByAuthorDescending(book *);
+void sortByAuthorDescending();
 
-void sortByFiveStarReviewsAscending(book *);
+void sortByFiveStarReviewsAscending();
 
-void sortByFiveStarReviewsDescending(book *);
+void sortByFiveStarReviewsDescending();
 
-void sortByFourStarReviewsAscending(book *);
+void sortByFourStarReviewsAscending();
 
-void sortByFourStarReviewsDescending(book *);
+void sortByFourStarReviewsDescending();
 
-void sortByThreeStarReviewsAscending(book *);
+void sortByThreeStarReviewsAscending();
 
-void sortByThreeStarReviewsDescending(book *);
+void sortByThreeStarReviewsDescending();
 
-void sortByTwoStarReivewsAscending(book *);
+void sortByTwoStarReivewsAscending();
 
-void sortByTwoStarReivewsDescending(book *);
+void sortByTwoStarReivewsDescending();
 
-void sortByOneStarReviewsAscending(book *);
+void sortByOneStarReviewsAscending();
 
-void sortByOneStarReviewsDescending(book *);
+void sortByOneStarReviewsDescending();
