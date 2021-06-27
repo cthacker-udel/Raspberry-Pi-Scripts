@@ -8,6 +8,13 @@ library* getLibrary(){
 
 void setBooks(book *theBooks){
     theLibrary->books = theBooks;
+    book *tempHead = theLibrary->books;
+    int count = 0;
+    while(tempHead != NULL){
+        count++;
+        tempHead = tempHead->next;
+    }
+    theLibrary->numBooks = count;
 }
 
 library *createLibrary(){
