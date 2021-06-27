@@ -28,3 +28,18 @@ Board::Board(int newSize1, int newSize2, int newSize3, int newSize4){
     *(*(*(board+0)+0)+0) = new int[size4];
 
 }
+
+Board::~Board(){
+
+    for(int i = 0; i < size1; i++){
+        for(int j = 0; j < size2; j++){
+            for(int k = 0; k < size3; k++){
+                delete []*(*(*(board+i)+j)+k);
+            }
+            delete []*(*(board+i)+j);
+        }
+        delete []*(board+i);
+    }
+    delete []board;
+
+}
