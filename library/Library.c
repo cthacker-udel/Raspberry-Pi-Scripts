@@ -1,8 +1,12 @@
 #include "project.h"
 
-library theLibrary = NULL;
+library *theLibrary = NULL;
 
-library getLibrary(){
+library* getLibrary(){
     return theLibrary;
+}
+
+void setBooks(book *theBooks){
+    theLibrary->books = theBooks;
 }
 

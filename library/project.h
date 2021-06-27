@@ -34,7 +34,9 @@ typedef struct theLibrary{
 }library;
 
 
-library getLibrary();
+library* getLibrary();
+
+void setBooks(book *);
 
 void printMenu();
 
