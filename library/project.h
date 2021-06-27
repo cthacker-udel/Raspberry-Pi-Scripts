@@ -88,7 +88,9 @@ void sortByNumFiveStarReviewsAscending(book *);
 
 void sortByNumFiveStarReviewsDescending(book *);
 
-void sortByNumFourStarReviews(book *);
+void sortByNumFourStarReviewsAscending(book *);
+
+void sortByNumFourStarReviewsDescending(book *);
 
 void sortByNumThreeStarReviews(book *);
 
