@@ -8,7 +8,7 @@ compile: main.o BookMethods.o Library.o project.h
 
 
 clean:
-	rm -rf *.o *.gch
+	rm -rf exec *.o *.gch
 
 
 run: compile
