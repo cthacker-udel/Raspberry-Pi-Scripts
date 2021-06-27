@@ -40,6 +40,9 @@ void setBooks(book *);
 
 library *createLibrary();
 
+void setLibraryName(char *name);
+
+
 void printMenu();
 
 int getNumBooks(void);

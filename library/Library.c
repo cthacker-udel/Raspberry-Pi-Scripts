@@ -17,3 +17,7 @@ library *createLibrary(){
 
 }
 
+void setLibraryName(char *name){
+    strcpy(theLibrary->name,name);
+}
+
