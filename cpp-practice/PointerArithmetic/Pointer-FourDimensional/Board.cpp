@@ -57,3 +57,7 @@ void Board::createBoard(){
     }
 
 }
+
+void Board::setBoard(int ****newBoard){
+    board = newBoard;
+}
