@@ -264,46 +264,6 @@ void sortByNameDescending(){
 
 }
 
-void sortByPagesAscending(){
-
-    int loopvar = 1;
-    while(1){
-        book *tempHead = HEAD;
-        book *prevNode = HEAD;
-        book *forwardNode;
-        while(prevNode != NULL && forwardNode != NULL){
-            forwardNode = prevNode->next;
-            if(forwardNode != NULL && prevNode->pages > forwardNode->pages){
-                prevNode->next = forwardNode->next;
-                forwardNode->next = prevNode;
-                if(prevNode == HEAD){
-                    HEAD = forwardNode;
-                    loopvar = 0;
-                }
-                else{
-                    HEAD = tempHead;
-                    book *temp = HEAD;
-                    while(temp->next != NULL){
-                        if(temp->next == prevNode){
-                            temp->next = forwardNode;
-                            break;
-                        }
-                    }
-                    loopvar = 0;
-                }
-                break;
-            }
-            loopvar = 1;
-            prevNode = prevNode->next;
-        }
-        if(loopvar){
-            HEAD = tempHead;
-            break;
-        }
-    }
-
-}
-
 void sortByPagesDescending(){
 
     int loopvar = 1;
