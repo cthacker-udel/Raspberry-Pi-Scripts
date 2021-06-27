@@ -100,4 +100,6 @@ void sortByTwoStarReivewsAscending(book *);
 
 void sortByTwoStarReivewsDescending(book *);
 
-void sortByNumOneStarReviews(book *);
+void sortByOneStarReviewsAscending(book *);
+
+void sortByOneStarReviewsDescending(book *);
