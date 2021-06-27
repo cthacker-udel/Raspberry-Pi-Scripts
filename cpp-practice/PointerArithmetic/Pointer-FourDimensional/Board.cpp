@@ -61,3 +61,19 @@ void Board::createBoard(){
 void Board::setBoard(int ****newBoard){
     board = newBoard;
 }
+
+int Board::sumBoard(){
+
+    int sum = 0;
+    for(int i = 0; i < size1; i++){
+        for(int j = 0; j < size2; j++){
+            for(int k = 0; k < size3; k++){
+                for(int l = 0; l < size4; l++){
+                    sum += *(*(*(*(board+i)+j)+k)+l);
+                }
+            }
+        }
+    }
+    return sum;
+
+}
