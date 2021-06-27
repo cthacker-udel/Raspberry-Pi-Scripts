@@ -50,6 +50,66 @@ int main(void){
                 break;
             case 13:
                 sortByISBNAscending();
+                break;
+            case 14:
+                sortByISBNDescending();
+                break;
+            case 15:
+                sortByNameAscending();
+                break;
+            case 16:
+                sortByNameDescending();
+                break;
+            case 17:
+                sortByPagesAscending();
+                break;
+            case 18:
+                sortByPagesDescending();
+                break;
+            case 19:
+                sortByChaptersDescending();
+                break;
+            case 20:
+                sortByChaptersAscending();
+                break;
+            case 21:
+                sortByAuthorAscending();
+                break;
+            case 22:
+                sortByAuthorDescending();
+                break;
+            case 23:
+                sortByFiveStarReviewsAscending();
+                break;
+            case 24:
+                sortByFiveStarReviewsDescending();
+                break;
+            case 25:
+                sortByFourStarReviewsAscending();
+                break;
+            case 26:
+                sortByFourStarReviewsDescending();
+                break;
+            case 27:
+                sortByThreeStarReviewsAscending();
+                break;
+            case 28:
+                sortByThreeStarReviewsDescending();
+                break;
+            case 29:
+                sortByTwoStarReviewsAscending();
+                break;
+            case 30:
+                sortByTwoStarReviewsDescending();
+                break;
+            case 31:
+                sortByOneStarReviewsAscending();
+                break;
+            case 32:
+                sortByOneStarReviewsDescending();
+                break;
+            default:
+                break;
         }
         
 
