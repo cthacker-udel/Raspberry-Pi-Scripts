@@ -107,9 +107,9 @@ void sortByThreeStarReviewsAscending();
 
 void sortByThreeStarReviewsDescending();
 
-void sortByTwoStarReivewsAscending();
+void sortByTwoStarReviewsAscending();
 
-void sortByTwoStarReivewsDescending();
+void sortByTwoStarReviewsDescending();
 
 void sortByOneStarReviewsAscending();
 
