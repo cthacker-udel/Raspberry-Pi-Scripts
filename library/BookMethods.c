@@ -7,6 +7,41 @@ book *getHead(){
     return HEAD;
 }
 
+void displayCurrBook(book *theBook){
+
+    printf("\n-=-=-=-=CURRENT BOOK-=-=-=-=\n");
+    if(theBook->ISBN != 0){
+        printf("ISBN : %d\n",theBook->ISBN);
+    }
+    if(theBook->name != 0){
+        printf("Name : %s\n",theBook->name);
+    }
+    if(theBook->pages != 0){
+        printf("Pages : %d\n",theBook->pages);
+    }
+    if(theBook->chapters != 0){
+        printf("Chapters : %d\n",theBook->chapters);
+    }
+    if(theBook->author != 0){
+        printf("Author : %s\n",theBook->author);
+    }
+    if(theBook->fiveStarReviews != 0){
+        printf("Five Star Reviews : %d\n",theBook->fiveStarReviews);
+    }
+    if(theBook->fourStarReviews != 0){
+        printf("Four Star Reviews : %d\n",theBook->fourStarReviews);
+    }
+    if(theBook->threeStarReviews != 0){
+        printf("Three Star Reviews : %d\n",theBook->threeStarReviews);
+    }
+    if(theBook->twoStarReviews != 0){
+        printf("Two Star Reviews : %d\n",theBook->twoStarReviews);
+    }
+    if(theBook->oneStarReviews != 0){
+        printf("One Star Reviews : %d\n",theBook->oneStarReviews);
+    }
+}
+
 int getNumBooks(void){
 
     int count = 0;

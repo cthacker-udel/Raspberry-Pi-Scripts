@@ -33,6 +33,8 @@ typedef struct theLibrary{
 
 }library;
 
+void displayCurrBook(book *);
+
 book *getHead();
 
 library* getLibrary();

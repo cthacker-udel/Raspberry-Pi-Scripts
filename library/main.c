@@ -7,17 +7,32 @@ int main(void){
     book *books = getHead();
     book *newBook;
     int choice = 0;
+    int dupCreationCheck = 0;
     while(1){
 
         printMenu();
         scanf("%d",&choice);
         switch(choice){
             case 1:
-                newBook = createBook();
-                break;
+                if(!dupCreationCheck){
+                    newBook = createBook();
+                    dupCreationCheck = 1;
+                    break;
+                }
+                else{
+                    printf("\nBook already created, must add it before creating another book\n");
+                    break;
+                }
             case 2:
-                addBook(newBook);
-                break;
+                if(dupCreationCheck){
+                    addBook(newBook);
+                    dupCreationCheck = 0;
+                    break;
+                }
+                else{
+                    printf("\nBook must be created using option 1 first, before adding the book using this option\n");
+                    break;
+                }
             case 3:
                 addISBN(newBook);
                 break;
