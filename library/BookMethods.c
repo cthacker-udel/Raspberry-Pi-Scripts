@@ -121,6 +121,7 @@ void addAuthor(book *newBook){
     do{
         printf("\nPlease enter the name of the book author\n");
     }while(!scanf("%s",author));
+    newBook->author = (char *)malloc(sizeof(char) * strlen(author));
     strcpy(newBook->author,author);
 }
 
