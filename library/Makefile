@@ -1,6 +1,6 @@
 
-compile: BookMethods.o Library.o project.h
-	cc -g -o exec BookMethods.o Library.o project.h
+compile: main.o BookMethods.o Library.o project.h
+	cc -g -o exec main.o BookMethods.o Library.o project.h
 
 
 %.o: %.c project.h
