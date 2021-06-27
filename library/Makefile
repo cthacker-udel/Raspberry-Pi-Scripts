@@ -1,4 +1,6 @@
 
+all: compile
+
 compile: main.o BookMethods.o Library.o project.h
 	cc -g -o exec main.o BookMethods.o Library.o project.h
 
