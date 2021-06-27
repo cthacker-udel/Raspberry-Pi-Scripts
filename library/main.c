@@ -125,6 +125,8 @@ int main(void){
             case 32:
                 sortByOneStarReviewsDescending();
                 break;
+            case 33:
+                printf("\n--==--==--The number of books in the library--==--==--\nAvailable : %d\n--==--==--==--==--==--==--==--==--==--==--==--==--=\n",getNumBooks());
             default:
                 break;
         }
