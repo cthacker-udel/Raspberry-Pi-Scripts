@@ -5,7 +5,7 @@ int main(void){
 
     library *theLibrary = getLibrary();
     book *books = getHead();
-    book *newBook;
+    book *newBook = NULL;
     int choice = 0;
     int dupCreationCheck = 0;
     while(1){
@@ -13,6 +13,9 @@ int main(void){
         printMenu();
         scanf("%d",&choice);
         switch(choice){
+            if(newBook){
+                displayCurrBook(newBook);
+            }
             case 1:
                 if(!dupCreationCheck){
                     newBook = createBook();
