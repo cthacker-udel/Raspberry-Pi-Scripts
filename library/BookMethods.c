@@ -54,7 +54,7 @@ void addName(book *newBook){
     char name[100];
     do{
         printf("\nPlease enter a name to give to the book\n");
-    }while(scanf("%s",name));
+    }while(!scanf("%s",name));
     strcpy(newBook->name,name);
 
 }
@@ -64,7 +64,7 @@ void addPages(book *newBook){
     int pages;
     do{
         printf("\nPlease enter the amount of pages the book has\n");
-    }while(scanf("%d",&pages));
+    }while(!scanf("%d",&pages));
     newBook->pages = pages;
 
 }
@@ -74,7 +74,7 @@ void addChapters(book *newBook){
     int chapters;
     do{
         printf("\nPlease enter the amount of chapters the book has\n");
-    }while(scanf("%d",&chapters));
+    }while(!scanf("%d",&chapters));
     newBook->chapters = chapters;
 
 }
@@ -84,7 +84,7 @@ void addAuthor(book *newBook){
     char author[100];
     do{
         printf("\nPlease enter the name of the book author\n");
-    }while(scanf("%s",author));
+    }while(!scanf("%s",author));
     strcpy(newBook->author,author);
 }
 
