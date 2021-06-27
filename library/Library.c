@@ -21,3 +21,5 @@ void setLibraryName(char *name){
     strcpy(theLibrary->name,name);
 }
 
+void setLibraryFounded(int newFounded);
+

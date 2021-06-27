@@ -42,6 +42,7 @@ library *createLibrary();
 
 void setLibraryName(char *name);
 
+void setLibraryFounded(int);
 
 void printMenu();
 
