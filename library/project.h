@@ -33,6 +33,7 @@ typedef struct theLibrary{
 
 }library;
 
+book *getHead();
 
 library* getLibrary();
 
