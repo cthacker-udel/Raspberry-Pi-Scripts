@@ -44,7 +44,7 @@ void addISBN(book *newBook){
     int ISBN;
     do{
         printf("\nPlease enter ISBN number to apply to book\n");
-    }while(scanf("%d",&ISBN));
+    }while(!scanf("%d",&ISBN));
     newBook->ISBN = ISBN;
 
 }
