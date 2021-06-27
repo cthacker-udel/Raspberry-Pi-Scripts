@@ -44,6 +44,8 @@ void setLibraryName(char *name);
 
 void setLibraryFounded(int);
 
+void setLibraryFounder(char *);
+
 void printMenu();
 
 int getNumBooks(void);
