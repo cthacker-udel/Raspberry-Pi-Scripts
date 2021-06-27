@@ -29,6 +29,7 @@ int main(void){
                 if(dupCreationCheck){
                     addBook(newBook);
                     dupCreationCheck = 0;
+                    newBook = NULL;
                     break;
                 }
                 else{
