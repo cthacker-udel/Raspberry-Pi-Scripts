@@ -27,3 +27,7 @@ void setLibraryFounded(int newFounded){
 
 }
 
+void setLibraryFounder(char *founder){
+    strcpy(theLibrary->founder,founder);
+}
+
