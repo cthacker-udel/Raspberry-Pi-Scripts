@@ -158,3 +158,32 @@ Node *SLL::getNNode(int n){
 
 }
 
+Node *SLL::removeNNode(int n){
+
+    int count = 0;
+    int numberOfNodes = size();
+    if(numberOfNodes == 0){
+        return NULL;
+    }
+    else if(n >= numberOfNodes){
+        removeLast();
+    }
+    else if(n == 0){
+        removeFirst();
+    }
+    else{
+
+        Node *tempHead = first;
+        Node *prevNode;
+        while(tempHead != NULL){
+            prevNode = tempHead;
+            tempHead = tempHead->next;
+            if(count == 0){
+
+            }
+        }
+
+    }
+
+}
+
