@@ -25,3 +25,23 @@ Cook::~Cook(){
 
 }
 
+
+int Cook::getAge(){
+
+    return age;
+
+}
+
+string Cook::getName(){
+
+    return name;
+
+}
+
+
+int Cook::getNumberOfRecipes(){
+
+    return numberOfRecipes;
+
+}
+
