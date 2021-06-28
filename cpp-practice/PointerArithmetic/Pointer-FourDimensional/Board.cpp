@@ -116,3 +116,24 @@ int Board::oddCount(){
     return count;
 
 }
+
+bool isPrime(int number){
+    if(number < 2){
+        return true;
+    }
+    else if(number == 2 || number == 3 || number == 5){
+        return true;
+    }
+    else if(number % 2 == 0 || number % 3 == 0 || number % 5 == 0){
+        return false;
+    }
+    else{
+        int sqrtNumber = sqrt(number);
+        for(int i = 2; i < sqrtNumber; i++){
+            if(number % i == 0){
+                return false;
+            }
+        }
+        return true;
+    }
+}
