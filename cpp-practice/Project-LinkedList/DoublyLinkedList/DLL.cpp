@@ -74,3 +74,15 @@ Node *DLL::getLast(){
     return TAIL;
 
 }
+
+int DLL::size(){
+
+    int count = 0;
+    Node *tempHead = HEAD;
+    while(tempHead->next != NULL){
+        count++;
+        tempHead = tempHead->next;
+    }
+    return count;
+
+}
