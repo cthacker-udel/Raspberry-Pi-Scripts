@@ -106,3 +106,9 @@ void SLL::removeLast(){
 
 }
 
+Node *SLL::getFirst(){
+
+    return this->first;
+
+}
+
