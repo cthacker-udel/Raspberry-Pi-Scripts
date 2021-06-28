@@ -28,3 +28,37 @@ void DLL::addLast(Node *newNode){
     }
 
 }
+
+Node *createNode(){
+
+    int val;
+    while(1){
+
+        cout << "\nPlease enter a value to assign to the new Node : ";
+        cin >> val;
+        if(val == 0){
+            continue;
+        }
+        else{
+            break;
+        }
+    }
+
+    Node *newNode = new Node(val);
+    return newNode;
+
+}
+
+void DLL::removeFirst(){
+
+    if(HEAD->next == NULL){
+        HEAD = NULL;
+        TAIL = NULL;
+    }
+    else{
+
+
+
+    }
+
+}

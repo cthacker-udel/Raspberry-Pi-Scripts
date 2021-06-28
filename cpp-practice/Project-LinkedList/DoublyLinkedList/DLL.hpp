@@ -13,6 +13,8 @@ class DLL{
 
         DLL();
 
+        Node *createNode();
+
         void addFirst(Node *);
 
         void addLast(Node *);
@@ -30,6 +32,6 @@ class DLL{
         Node *getNNode(int);
 
         Node *removeNNode(int);
-        
+
 
 };
