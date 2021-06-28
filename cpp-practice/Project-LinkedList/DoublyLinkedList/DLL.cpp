@@ -13,3 +13,18 @@ void DLL::addFirst(Node *newNode){
     TAIL = newNode;
 
 }
+
+void DLL::addLast(Node *newNode){
+
+    if(HEAD == NULL){
+        HEAD = newNode;
+        TAIL = newNode;
+    }
+    else{
+
+        TAIL->next = newNode;
+        TAIL = newNode;
+
+    }
+
+}

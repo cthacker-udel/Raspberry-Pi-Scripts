@@ -6,6 +6,7 @@ using namespace std;
 
 class Node{
 
+    friend class DLL;
     int value;
     Node *next;
     Node *previous;
