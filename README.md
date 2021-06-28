@@ -23,6 +23,7 @@
 - [x] Blackjack
 - [x] War
 - [x] Train (Linked List)
+- [x] Library Implemenation (Linked list, sorting linked list, adding attributes onto node before appending onto list)
 
 ## C++ Library
 
@@ -31,6 +32,7 @@
 - [x] Implementation of mock data structure of a city - school relationship
 - [x] Implementation of Zoo structure, animal class that the animal type of Zoo inherits Zebra.cpp --> ZebraZoo.cpp
 - [x] Implementation of Library structure, Book class containing name and information, and library containing an array of Books
+- [x] Implementation of One,Two,Three,Four Dimensional pointer arrays
 
 ## TODOS
 
