@@ -15,3 +15,13 @@ Cook::Cook(string newName, int newAge, int newNumberOfRecipes){
     numberOfRecipes = newNumberOfRecipes;
 
 }
+
+Cook::~Cook(){
+
+    delete &name;
+    delete &age;
+    delete &numberOfRecipes;
+    delete this;
+
+}
+
