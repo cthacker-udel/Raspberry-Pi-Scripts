@@ -15,9 +15,9 @@ class SLL{
 
         Node *pop();
 
-        void addFirst(int);
+        void addFirst(Node *);
 
-        void addLast(int);
+        void addLast(Node *);
 
         void removeFirst();
 
