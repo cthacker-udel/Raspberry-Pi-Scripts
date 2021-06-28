@@ -23,6 +23,7 @@ void DLL::addLast(Node *newNode){
     else{
 
         TAIL->next = newNode;
+        newNode->previous = TAIL;
         TAIL = newNode;
 
     }
@@ -60,6 +61,12 @@ void DLL::removeFirst(){
         HEAD = NULL;
         HEAD = newHead;
     }
+
+}
+
+void DLL::removeLast(){
+
+
 
 }
 
