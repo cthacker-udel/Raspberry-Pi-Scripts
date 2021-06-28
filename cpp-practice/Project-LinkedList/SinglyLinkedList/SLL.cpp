@@ -66,3 +66,20 @@ void SLL::addLast(Node *newNode){
     push(newNode);
 }
 
+void SLL::removeFirst(void){
+
+    if(this->first == NULL){
+        return;
+    }
+    else if(this->first->next = NULL){
+        first = NULL;
+        last = NULL;
+    }
+    else{
+        Node *nextNode = first->next;
+        first = NULL;
+        first = nextNode;
+    }
+
+}
+
