@@ -56,9 +56,9 @@ void DLL::removeFirst(){
         TAIL = NULL;
     }
     else{
-
-
-
+        Node *newHead = HEAD->next;
+        HEAD = NULL;
+        HEAD = newHead;
     }
 
 }
