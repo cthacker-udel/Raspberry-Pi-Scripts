@@ -172,3 +172,25 @@ void Board::printBoard(){
     }
 
 }
+
+void Board::setCoord(int x1, int x2, int x3, int x4,int value){
+
+    while(1){
+        if(x1 < 0 || x1 > size1 || x2 < 0 || x2 > size2 || x3 < 0 || x3 > size3 || x4 < 0 || x4 > size4){
+            printf("\n-=-=-=Enter valid coordinates(Curr coords : %d,%d,%d,%d)-=-=-=\n",x1,x2,x3,x4);
+            printf("x1:");
+            scanf("%d",&x1);
+            printf("x2:");
+            scanf("%d",&x2);
+            printf("x3:");
+            scanf("%d",&x3);
+            printf("x4:");
+            scanf("%d",&x4);
+        }
+        else{
+            break;
+        }
+    }
+    *(*(*(*(board+x1)+x2)+x3)+x4) = value;
+
+}

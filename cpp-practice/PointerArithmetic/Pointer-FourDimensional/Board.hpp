@@ -37,7 +37,7 @@ class Board{
 
         void printBoard();
 
-        void setCoord(int,int,int,int);
+        void setCoord(int,int,int,int,int);
 
 
 };
