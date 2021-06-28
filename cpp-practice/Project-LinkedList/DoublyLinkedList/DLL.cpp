@@ -62,3 +62,15 @@ void DLL::removeFirst(){
     }
 
 }
+
+Node *DLL::getFirst(){
+
+    return HEAD;
+
+}
+
+Node *DLL::getLast(){
+
+    return TAIL;
+
+}
