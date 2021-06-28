@@ -7,6 +7,19 @@ DLL::DLL(){
 
 }
 
+void DLL::push(Node *newNode){
+
+    if(TAIL != NULL){
+        TAIL->next = newNode;
+        newNode->previous = TAIL;
+        TAIL = newNode;
+    }
+    else{
+        return;
+    }
+
+}
+
 void DLL::addFirst(Node *newNode){
 
     HEAD = newNode;
