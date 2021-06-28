@@ -20,6 +20,19 @@ void DLL::push(Node *newNode){
 
 }
 
+Node *DLL::pop(){
+
+    if(TAIL != NULL){
+        Node *prevNode = TAIL->previous;
+        TAIL = NULL;
+        prevNode->next = NULL;
+    }
+    else{
+        return;
+    }
+
+}
+
 void DLL::addFirst(Node *newNode){
 
     HEAD = newNode;
