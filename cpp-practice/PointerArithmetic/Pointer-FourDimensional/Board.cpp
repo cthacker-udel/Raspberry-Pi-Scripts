@@ -117,7 +117,26 @@ int Board::oddCount(){
 
 }
 
-bool isPrime(int number){
+int Board::primeCount(){
+
+    int count = 0;
+    for(int i = 0; i < size1; i++){
+        for(int j = 0; j < size2; j++){
+            for(int k = 0; k < size3; k++){
+                for(int l = 0; l < size4; l++){
+                    int value = *(*(*(*(board+i)+j)+k)+l);
+                    if(isPrime(value)){
+                        count++:
+                    }
+                }
+            }
+        }
+    }
+    return count;
+
+}
+
+bool Board::isPrime(int number){
     if(number < 2){
         return true;
     }
