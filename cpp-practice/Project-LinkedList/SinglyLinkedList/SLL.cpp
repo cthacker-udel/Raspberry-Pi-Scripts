@@ -118,3 +118,22 @@ Node *SLL::getLast(){
 
 }
 
+int SLL::size(){
+
+    int count = 0;
+    Node *tempHead = this->first;
+    
+    while(tempHead != NULL){
+        tempHead = tempHead->next;
+        count++;
+    }
+
+    return count;
+}
+
+Node *SLL::getNNode(int n){
+
+
+
+}
+

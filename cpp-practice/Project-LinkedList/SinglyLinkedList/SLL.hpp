@@ -27,6 +27,8 @@ class SLL{
 
         Node *getLast();
 
+        int size();
+
         Node *getNNode(int);
 
         Node *removeNNode(int);
