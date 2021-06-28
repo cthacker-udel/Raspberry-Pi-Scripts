@@ -51,3 +51,14 @@ Node *SLL::pop(){
 
 }
 
+void SLL::addFirst(Node *newNode){
+
+    if(this->first != NULL){
+        return;
+    }
+    else{
+        this->first = newNode;
+    }
+
+}
+
