@@ -112,3 +112,9 @@ Node *SLL::getFirst(){
 
 }
 
+Node *SLL::getLast(){
+
+    return this->last;
+
+}
+
