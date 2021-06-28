@@ -62,3 +62,7 @@ void SLL::addFirst(Node *newNode){
 
 }
 
+void SLL::addLast(Node *newNode){
+    push(newNode);
+}
+
