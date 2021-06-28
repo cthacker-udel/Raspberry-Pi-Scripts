@@ -133,7 +133,28 @@ int SLL::size(){
 
 Node *SLL::getNNode(int n){
 
+    int index = 0;
+    int numberOfNodes = size();
+    if(numberOfNodes == 0){
+        return NULL;
+    }
+    else if(n >= numberOfNodes){
+        return this->last;
+    }
+    else{
 
+        Node *tempHead = this->first;
+        while(tempHead != NULL){
+            if(index == n){
+                return tempHead;
+            }
+            else{
+                tempHead = tempHead->next;
+            }
+        }
+        return last;
+
+    }
 
 }
 
