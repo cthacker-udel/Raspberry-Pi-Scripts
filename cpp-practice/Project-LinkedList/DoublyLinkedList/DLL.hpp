@@ -15,6 +15,10 @@ class DLL{
 
         Node *createNode();
 
+        void push(Node *);
+
+        Node *pop();
+
         void addFirst(Node *);
 
         void addLast(Node *);
