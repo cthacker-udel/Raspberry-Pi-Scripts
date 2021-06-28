@@ -92,6 +92,19 @@ void DLL::removeFirst(){
 
 void DLL::removeLast(){
 
+    if(HEAD == NULL){
+        return;
+    }
+    else if(HEAD->next == NULL){
+        HEAD = NULL;
+        TAIL = NULL;
+    }
+    else{
+        Node *newTail = TAIL->previous;
+        newTail->next = NULL;
+        TAIL = NULL;
+    }
+
 
 
 }
