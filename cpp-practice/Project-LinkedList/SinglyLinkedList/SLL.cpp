@@ -83,3 +83,26 @@ void SLL::removeFirst(void){
 
 }
 
+void SLL::removeLast(){
+
+    if(this->last == NULL){
+        return;
+    }
+    else if(first == last){
+        first = NULL;
+        last = NULL;
+    }
+    else{
+
+        Node *tempHead = first;
+        while(tempHead->next != last){
+            tempHead = tempHead->next;
+        }
+        tempHead->next = NULL;
+        last = NULL;
+        last = tempHead;
+
+    }
+
+}
+
