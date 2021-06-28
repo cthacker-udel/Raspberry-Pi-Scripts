@@ -156,3 +156,19 @@ bool Board::isPrime(int number){
         return true;
     }
 }
+
+void Board::printBoard(){
+
+    for(int i = 0; i < size1; i++){
+        for(int j = 0; j < size2; j++){
+            for(int k = 0; k < size3; k++){
+                cout << "[ ";
+                for(int l = 0; l < size4; l++){
+                    cout << *(*(*(*(board+i)+j)+k)+l) << ", ";
+                }
+                cout << " ] " << endl;
+            }
+        }
+    }
+
+}
