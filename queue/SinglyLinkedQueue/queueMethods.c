@@ -148,3 +148,19 @@ int size(){
     }
     return count;
 }
+
+int clear(){
+    if(HEAD == NULL){
+        printf("\n-=-=-=ERROR : ATTEMPTING TO CLEAR AN ALREADY EMPTY LIST-=-=-=\n");
+        return 0;
+    }
+    else{
+        node *tempHead = HEAD;
+        while(tempHead != NULL){
+            node *prevNode = tempHead;
+            tempHead = tempHead->next;
+            free(prevNode);
+        }
+        return 1;
+    }
+}
