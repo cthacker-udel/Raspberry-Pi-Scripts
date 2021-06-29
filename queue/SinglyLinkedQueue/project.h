@@ -24,7 +24,7 @@ node *peek();
 
 node *poll();
 
-node *remove();
+node *removeHead();
 
 int contains(node *);
 
