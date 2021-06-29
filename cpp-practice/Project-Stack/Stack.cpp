@@ -37,3 +37,14 @@ Node Stack::pop(){
     return *tempHead;
 
 }
+
+Node Stack::peek(){
+
+    if(head != NULL){
+        return *head;
+    }
+    else{
+        return NULL;
+    }
+
+}
