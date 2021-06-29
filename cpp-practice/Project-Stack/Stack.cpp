@@ -55,3 +55,18 @@ bool Stack::empty(){
     return theSize == 0? true: false;
 
 }
+
+int Stack::search(Node *theNode){
+
+    int index = 0;
+    Node *tempHead = head;
+    while(tempHead != NULL){
+        if(tempHead == theNode){
+            return index;
+        }
+        index++;
+        tempHead = tempHead->next;
+    }
+    return -1;
+
+}
