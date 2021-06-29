@@ -48,3 +48,20 @@ node *element(){
     return tempHead;
 
 }
+
+int offer(node *newNode){
+
+    if(size() == MAX_SIZE){
+        printf("\n-=-=-=ERROR : MAX SIZE : UNABLE TO ADD ELEMENT : INCREASE SIZE -=-=-=\n");
+        return 0;
+    }
+    else{
+        node *tempHead = HEAD;
+        while(tempHead->next != NULL){
+            tempHead = tempHead->next;
+        }
+        tempHead->next = newNode;
+        return 1;
+    }
+
+}
