@@ -22,7 +22,7 @@ int offer(node *);
 
 node *peek();
 
-node *poll();
+node poll();
 
 node removeHead();
 

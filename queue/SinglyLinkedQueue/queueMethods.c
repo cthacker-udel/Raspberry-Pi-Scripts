@@ -67,7 +67,7 @@ node *peek(){
     return TAIL;
 }
 
-node *poll(){
+node poll(){
     if(HEAD == NULL){
         return NULL;
     }
@@ -76,9 +76,11 @@ node *poll(){
         while(tempHead->next != TAIL){
             tempHead = tempHead->next;
         }
+        node theNode = *TAIL;
         tempHead->next = NULL;
         TAIL = NULL;
         TAIL = tempHead;
+        return theNode;
     }
 }
 
