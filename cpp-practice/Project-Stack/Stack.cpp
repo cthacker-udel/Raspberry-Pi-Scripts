@@ -48,3 +48,10 @@ Node Stack::peek(){
     }
 
 }
+
+bool Stack::empty(){
+
+    int theSize = size();
+    return theSize == 0? true: false;
+
+}
