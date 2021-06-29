@@ -16,9 +16,9 @@ class Stack{
 
         Node push(Node *);
 
-        Node *pop();
+        Node pop();
 
-        Node *peek();
+        Node peek();
 
         bool empty();
 
