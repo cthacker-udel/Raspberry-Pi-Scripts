@@ -81,3 +81,20 @@ node *poll(){
         TAIL = tempHead;
     }
 }
+
+node removeHead(){
+    if(HEAD == NULL){
+        return NULL;
+    }
+    else{
+        node *tempHead = HEAD;
+        while(tempHead->next != TAIL){
+            tempHead = tempHead->next;
+        }
+        tempHead->next = NULL;
+        node returnNode = *TAIL;
+        TAIL = NULL;
+        TAIL = tempHead;
+        return returnNode; 
+    }
+}
