@@ -8,7 +8,7 @@
 typedef struct queueNode{
 
     int value;
-    queueNode *next;
+    struct queueNode *next;
 
 }node;
 
