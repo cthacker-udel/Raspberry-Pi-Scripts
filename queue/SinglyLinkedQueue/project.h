@@ -22,9 +22,9 @@ int offer(node *);
 
 node *peek();
 
-node poll();
+node *poll();
 
-node removeHead();
+node *removeHead();
 
 int contains(node *);
 

@@ -67,7 +67,7 @@ node *peek(){
     return TAIL;
 }
 
-node poll(){
+node *poll(){
     if(HEAD == NULL){
         return NULL;
     }
@@ -80,11 +80,11 @@ node poll(){
         tempHead->next = NULL;
         TAIL = NULL;
         TAIL = tempHead;
-        return theNode;
+        return &theNode;
     }
 }
 
-node removeHead(){
+node *removeHead(){
     if(HEAD == NULL){
         return NULL;
     }
@@ -97,7 +97,7 @@ node removeHead(){
         node returnNode = *TAIL;
         TAIL = NULL;
         TAIL = tempHead;
-        return returnNode; 
+        return &returnNode; 
     }
 }
 
