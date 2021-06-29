@@ -4,3 +4,26 @@ typedef struct queueNode{
     queueNode *next;
 
 }node;
+
+int add(node *);
+
+node *element();
+
+int offer(node *);
+
+node *peek();
+
+node *poll();
+
+node *remove();
+
+int contains(node *);
+
+int isEmpty();
+
+int removeAll();
+
+int size();
+
+int clear();
+
