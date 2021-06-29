@@ -33,3 +33,8 @@ int add(node *newNode){
     }
 
 }
+
+int increaseSize(int amount){
+    MAX_SIZE += amount;
+    return 1;
+}
