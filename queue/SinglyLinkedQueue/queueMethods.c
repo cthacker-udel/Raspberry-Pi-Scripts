@@ -76,11 +76,12 @@ node *poll(){
         while(tempHead->next != TAIL){
             tempHead = tempHead->next;
         }
-        node theNode = *TAIL;
+        node *theNode = (node *)malloc(sizeof(node));
+        *theNode = *TAIL;
         tempHead->next = NULL;
         TAIL = NULL;
         TAIL = tempHead;
-        return &theNode;
+        return theNode;
     }
 }
 
@@ -93,11 +94,12 @@ node *removeHead(){
         while(tempHead->next != TAIL){
             tempHead = tempHead->next;
         }
+        node *returnNode = (node *)malloc(sizeof(node));
         tempHead->next = NULL;
-        node returnNode = *TAIL;
+        *returnNode = *TAIL;
         TAIL = NULL;
         TAIL = tempHead;
-        return &returnNode; 
+        return returnNode; 
     }
 }
 
