@@ -14,6 +14,8 @@ typedef struct queueNode{
 
 int add(node *);
 
+int increaseSize(int);
+
 node *element();
 
 int offer(node *);
