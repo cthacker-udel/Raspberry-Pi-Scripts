@@ -14,7 +14,7 @@ class Stack{
 
         int size();
 
-        Node *push(Node *);
+        Node push(Node *);
 
         Node *pop();
 

@@ -17,3 +17,13 @@ int Stack::size(){
     return count;
 
 }
+
+Node Stack::push(Node *newNode){
+
+    Node tempNode = *newNode;
+    Node *tempHead = head;
+    newNode->next = head;
+    head = newNode;
+    return tempNode;
+
+}
