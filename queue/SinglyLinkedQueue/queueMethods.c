@@ -122,3 +122,19 @@ int contains(node *theNode){
 int isEmpty(){
     return size() == 0? 1: 0;
 }
+
+int removeAll(){
+    if(HEAD == NULL){
+        printf("\n-=-=-=ERROR : ATTEMPTING TO REMOVE AN ALREADY EMPTY LIST-=-=-=\n");
+        return 0;
+    }
+    else{
+        node *tempHead = HEAD;
+        while(tempHead != NULL){
+            node *prevNode = tempHead;
+            tempHead = tempHead->next;
+            free(prevNode);
+        }
+        return 1;
+    }
+}
