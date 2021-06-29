@@ -100,3 +100,21 @@ node removeHead(){
         return returnNode; 
     }
 }
+
+int contains(node *theNode){
+    if(HEAD == NULL){
+        return 0;
+    }
+    else{
+        node *tempHead = HEAD;
+        while(tempHead != NULL){
+            if(tempHead == theNode){
+                return 1;
+            }
+            else{
+                tempHead = tempHead->next;
+            }
+        }
+        return 0;
+    }
+}
