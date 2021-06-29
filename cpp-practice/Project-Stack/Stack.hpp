@@ -10,6 +10,8 @@ class Stack{
 
     public:
 
+        Stack();
+
         int size();
 
         Node *push(Node *);

@@ -6,6 +6,7 @@ using namespace std;
 
 class Node{
 
+    friend class Stack;
     int value;
     Node *next;
 
