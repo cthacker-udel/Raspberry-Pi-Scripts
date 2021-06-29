@@ -27,3 +27,13 @@ Node Stack::push(Node *newNode){
     return tempNode;
 
 }
+
+Node Stack::pop(){
+
+    Node *tempHead = head;
+    while(tempHead->next != NULL){
+        tempHead = tempHead->next;
+    }
+    return *tempHead;
+
+}
