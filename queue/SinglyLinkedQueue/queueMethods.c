@@ -66,3 +66,18 @@ int offer(node *newNode){
 node *peek(){
     return TAIL;
 }
+
+node *poll(){
+    if(HEAD == NULL){
+        return NULL;
+    }
+    else{
+        node *tempHead = HEAD;
+        while(tempHead->next != TAIL){
+            tempHead = tempHead->next;
+        }
+        tempHead->next = NULL;
+        TAIL = NULL;
+        TAIL = tempHead;
+    }
+}
