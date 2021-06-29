@@ -16,4 +16,4 @@ class Node{
         Node(int);
 
 
-}
+};
