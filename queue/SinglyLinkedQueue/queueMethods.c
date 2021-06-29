@@ -41,11 +41,7 @@ int increaseSize(int amount){
 
 node *element(){
     
-    node *tempHead = HEAD;
-    while(tempHead->next != NULL){
-        tempHead = tempHead->next;
-    }
-    return tempHead;
+    return TAIL;
 
 }
 
@@ -61,7 +57,12 @@ int offer(node *newNode){
             tempHead = tempHead->next;
         }
         tempHead->next = newNode;
+        TAIL = newNode;
         return 1;
     }
 
+}
+
+node *peek(){
+    return TAIL;
 }
