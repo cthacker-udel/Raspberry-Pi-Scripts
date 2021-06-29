@@ -118,3 +118,7 @@ int contains(node *theNode){
         return 0;
     }
 }
+
+int isEmpty(){
+    return size() == 0? 1: 0;
+}
