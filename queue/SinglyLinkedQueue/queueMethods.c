@@ -38,3 +38,13 @@ int increaseSize(int amount){
     MAX_SIZE += amount;
     return 1;
 }
+
+node *element(){
+    
+    node *tempHead = HEAD;
+    while(tempHead->next != NULL){
+        tempHead = tempHead->next;
+    }
+    return tempHead;
+
+}
