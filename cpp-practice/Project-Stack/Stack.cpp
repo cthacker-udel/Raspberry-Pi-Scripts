@@ -87,3 +87,17 @@ bool Stack::contains(Node *theNode){
     return false;
 
 }
+
+
+void Stack::printStack(){
+
+    Node *tempHead = head;
+    int nodeNum = 0;
+    while(tempHead != NULL){
+
+        cout << "Node at index : " << nodeNum++ << " has a value of : " << tempHead->value << endl;
+        tempHead = tempHead->next;
+        
+    }
+
+}

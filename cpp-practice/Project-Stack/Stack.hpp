@@ -1,6 +1,7 @@
 #include <string>
 #include <stdlib.h>
 #include <cmath>
+#include <iostream>
 #include "Node.hpp"
 using namespace std;
 
