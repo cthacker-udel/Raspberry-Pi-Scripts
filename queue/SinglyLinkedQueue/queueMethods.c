@@ -138,3 +138,13 @@ int removeAll(){
         return 1;
     }
 }
+
+int size(){
+    int count = 0;
+    node *tempHead = HEAD;
+    while(tempHead != NULL){
+        tempHead = tempHead->next;
+        count++;
+    }
+    return count;
+}
