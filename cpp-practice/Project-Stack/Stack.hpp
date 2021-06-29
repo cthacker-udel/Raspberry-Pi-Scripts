@@ -8,6 +8,26 @@ class Stack{
 
     Node *head;
 
+    public:
+
+        int size();
+
+        Node *push(Node *);
+
+        Node *pop();
+
+        Node *peek();
+
+        bool empty();
+
+        int search(Node *);
+
+        Node *clone();
+
+        bool contains(Node *);
+
+        void printStack();
+
 
 
 
