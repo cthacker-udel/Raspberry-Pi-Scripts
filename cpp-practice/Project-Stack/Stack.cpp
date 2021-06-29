@@ -74,3 +74,16 @@ int Stack::search(Node *theNode){
 Node *Stack::clone(){
     return this->head;
 }
+
+bool Stack::contains(Node *theNode){
+
+    Node *tempHead = head;
+    while(tempHead != NULL){
+        if(tempHead == theNode){
+            return true;
+        }
+        tempHead = tempHead->next;
+    }
+    return false;
+
+}
