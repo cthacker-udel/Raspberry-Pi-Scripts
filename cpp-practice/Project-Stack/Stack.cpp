@@ -70,3 +70,7 @@ int Stack::search(Node *theNode){
     return -1;
 
 }
+
+Node *Stack::clone(){
+    return this->head;
+}
