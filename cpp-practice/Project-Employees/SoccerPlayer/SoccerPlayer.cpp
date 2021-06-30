@@ -99,3 +99,27 @@ void SoccerPlayer::setRedCards(int newRedCards){
     redCards = newRedCards;
 
 }
+
+int SoccerPlayer::getPassComplete(){
+
+    return passComplete;
+
+}
+
+void SoccerPlayer::setPassComplete(int newPassComplete){
+
+    passComplete = newPassComplete;
+
+}
+
+int SoccerPlayer::getPassAtt(){
+
+    return passAtt;
+
+}
+
+void SoccerPlayer::setPassAtt(int newPassAtt){
+
+    passAtt = newPassAtt;
+
+}
