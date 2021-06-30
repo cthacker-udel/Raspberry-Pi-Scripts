@@ -19,6 +19,12 @@ class FootballPlayer{
 
         FootballPlayer(string);
 
+        FootballPlayer(string,int);
+
+        ~FootballPlayer();
+
+        void setAge(int);
+
         int getAge();
 
         string getName();
