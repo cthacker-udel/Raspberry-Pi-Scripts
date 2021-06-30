@@ -104,3 +104,27 @@ int increaseSize(int newSize){
 
 }
 
+
+int contains(node *newNode){
+
+    if(TAIL == NULL){
+
+        printf("\n-=-=-=CONTAINS ERROR-=-=-=\nThe Doubly Linked Queue you are trying to test if it contains a node is currently empty, please add a node to test if it contains a node\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
+        return 0;
+
+    }
+    else{
+
+        node *tempHead = HEAD;
+        while(tempHead != NULL){
+            if(tempHead == newNode){
+                return 1;
+            }
+            tempHead = tempHead->next;
+        }
+        return 0;
+
+    }
+
+}
+
