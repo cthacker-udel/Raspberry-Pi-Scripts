@@ -168,3 +168,23 @@ int size(){
 
 }
 
+int clear(){
+
+    if(HEAD == NULL){
+        printf("\n-=-=-=CLEAR ERROR-=-=-=\nThe Doubly Linked Queue you are trying to clear is currently empty\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
+        return 0;
+    }
+    else{
+
+        node *tempHead = HEAD;
+        node *prevNode;
+        while(tempHead != NULL){
+            prevNode = tempHead;
+            tempHead = tempHead->next;
+            free(prevNode);
+        }
+
+    }
+
+}
+
