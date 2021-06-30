@@ -42,3 +42,9 @@ string FootballPlayer::getName(){
     return name;
 
 }
+
+void FootballPlayer::setName(string newName){
+
+    name = newName;
+
+}
