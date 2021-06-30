@@ -3,12 +3,26 @@
 SoccerPlayer::SoccerPlayer(){
 
     name = "Ronaldo";
-    age = 40;
-    goals = 1000;
-    shotsAtt = 2000;
-    yellowCards = 40;
-    redCards = 20;
-    passComplete = 10000;
-    passAtt = 20000;
+    age = -1;
+    goals = -1;
+    shotsAtt = -1;
+    yellowCards = -1;
+    redCards = -1;
+    passComplete = -1;
+    passAtt = -1;
+
+}
+
+SoccerPlayer::SoccerPlayer(string newName){
+
+    name = newName;
+    age = -1;
+    goals = -1;
+    shotsAtt = -1;
+    yellowCards = -1;
+    redCards = -1;
+    passComplete = -1;
+    passAtt = -1;
+
 
 }
