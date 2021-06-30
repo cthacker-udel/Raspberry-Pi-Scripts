@@ -87,3 +87,15 @@ void SoccerPlayer::setYellowCards(int newYellowCards){
     yellowCards = newYellowCards;
 
 }
+
+int SoccerPlayer::getRedCards(){
+
+    return redCards;
+
+}
+
+void SoccerPlayer::setRedCards(int newRedCards){
+
+    redCards = newRedCards;
+
+}
