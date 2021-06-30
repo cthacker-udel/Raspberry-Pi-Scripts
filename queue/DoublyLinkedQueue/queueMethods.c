@@ -188,3 +188,14 @@ int clear(){
 
 }
 
+int *toArray(){
+
+    int *arr = (int *)malloc(sizeof(int) * size());
+    node *tempHead = HEAD;
+    for(int i = 0; tempHead != NULL; i++, tempHead = tempHead->next){
+        *(arr+i) = tempHead->value;
+    }
+    return arr;
+
+}
+
