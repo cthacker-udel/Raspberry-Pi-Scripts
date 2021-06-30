@@ -38,3 +38,9 @@ node *craftNode(){
     return newNode;
 
 }
+
+node *element(){
+
+    return TAIL;
+
+}
