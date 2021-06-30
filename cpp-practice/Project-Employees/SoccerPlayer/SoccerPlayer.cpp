@@ -75,3 +75,15 @@ void SoccerPlayer::setShotsAtt(int newShotsAtt){
     shotsAtt = newShotsAtt;
 
 }
+
+int SoccerPlayer::getYellowCards(){
+
+    return yellowCards;
+
+}
+
+void SoccerPlayer::setYellowCards(int newYellowCards){
+
+    yellowCards = newYellowCards;
+
+}
