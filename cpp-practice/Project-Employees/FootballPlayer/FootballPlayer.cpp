@@ -36,3 +36,9 @@ int FootballPlayer::getAge(){
     return age;
 
 }
+
+string FootballPlayer::getName(){
+    
+    return name;
+
+}
