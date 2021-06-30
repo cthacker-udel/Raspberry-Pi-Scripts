@@ -31,3 +31,8 @@ void FootballPlayer::setAge(int newAge){
     age = newAge;
 }
 
+int FootballPlayer::getAge(){
+
+    return age;
+
+}
