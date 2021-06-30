@@ -64,3 +64,15 @@ node *peek(){
     return TAIL;
 
 }
+
+node *poll(){
+
+    if(TAIL == NULL){
+        printf("\n-=-=-=ERROR : TAIL IS NULL-=-=-=\nThe Doubly Linked Queue you are attempting to poll from is currently empty, please add a node to the list to poll from it\n-=-=-=-=-=-=-=-=-=-=-=-=\n");
+        return NULL;
+    }
+    else{
+
+    }
+
+}
