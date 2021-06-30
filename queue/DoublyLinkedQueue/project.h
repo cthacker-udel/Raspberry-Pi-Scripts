@@ -21,7 +21,7 @@ typedef struct queueNode{
 
 node *craftNode();
 
-int *add(node *);
+int add(node *);
 
 node *element();
 

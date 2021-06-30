@@ -80,3 +80,20 @@ node *poll(){
 
 }
 
+node *removeHead(){
+
+    if(TAIL == NULL){
+        printf("\n-=-=-=ERROR : TAIL IS NULL-=-=-=\nThe Doubly Linked Queue you are trying to remove the head from is empty, please add a node to the list to remove a node\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
+        return NULL;
+    }
+    else{
+
+        node *newTail = TAIL->previous;
+        newTail->next = NULL;
+        TAIL = null;
+        TAIL = newTail;
+
+    }
+
+}
+
