@@ -33,3 +33,15 @@ SoccerPlayer::~SoccerPlayer(){
     delete this;
 
 }
+
+string SoccerPlayer::getName(){
+
+    return name;
+
+}
+
+int SoccerPlayer::getAge(){
+
+    return age;
+
+}
