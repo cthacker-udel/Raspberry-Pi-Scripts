@@ -149,6 +149,7 @@ int removeAll(){
             tempHead = tempHead->next;
             free(prevNode);
         }
+        return 1;
 
     }
 
