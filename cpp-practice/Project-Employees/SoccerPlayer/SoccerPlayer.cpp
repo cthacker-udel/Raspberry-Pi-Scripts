@@ -51,3 +51,15 @@ void SoccerPlayer::setAge(int newAge){
     age = newAge;
 
 }
+
+int SoccerPlayer::getGoals(){
+
+    return goals;
+
+}
+
+void SoccerPlayer::setGoals(int newGoals){
+
+    goals = newGoals;
+
+}
