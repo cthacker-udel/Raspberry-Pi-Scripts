@@ -26,3 +26,10 @@ SoccerPlayer::SoccerPlayer(string newName){
 
 
 }
+
+SoccerPlayer::~SoccerPlayer(){
+
+    cout << "Deleting soccer player" << endl;
+    delete this;
+
+}

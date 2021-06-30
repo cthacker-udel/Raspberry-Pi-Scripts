@@ -20,6 +20,8 @@ class SoccerPlayer{
 
         SoccerPlayer(string);
 
+        ~SoccerPlayer();
+
         string getName();
 
         int getAge();
