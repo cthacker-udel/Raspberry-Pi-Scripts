@@ -128,3 +128,9 @@ int contains(node *newNode){
 
 }
 
+int isEmpty(){
+
+    return (TAIL == NULL || HEAD == NULL)? 1: 0;
+
+}
+
