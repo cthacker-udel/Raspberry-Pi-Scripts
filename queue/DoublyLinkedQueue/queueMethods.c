@@ -134,3 +134,24 @@ int isEmpty(){
 
 }
 
+int removeAll(){
+
+    if(HEAD == NULL){
+        printf("\n-=-=-=-=REMOVEALL ERROR-=-=-=-=\nThe Doubly Linked Queue you are currently trying to remove all nodes from is currently empty, try adding nodes before removing all of them\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
+        return 0;
+    }
+    else{
+
+        node *tempHead = HEAD;
+        node *prevNode;
+        while(tempHead != NULL){
+            prevNode = tempHead;
+            tempHead = tempHead->next;
+            free(prevNode);
+        }
+
+    }
+
+
+}
+
