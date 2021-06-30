@@ -90,10 +90,17 @@ node *removeHead(){
 
         node *newTail = TAIL->previous;
         newTail->next = NULL;
-        TAIL = null;
+        TAIL = NULL;
         TAIL = newTail;
 
     }
+
+}
+
+int increaseSize(int newSize){
+
+    MAX_SIZE += newSize;
+    return 1;
 
 }
 
