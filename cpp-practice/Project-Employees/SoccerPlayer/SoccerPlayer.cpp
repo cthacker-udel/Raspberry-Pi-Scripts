@@ -45,3 +45,9 @@ int SoccerPlayer::getAge(){
     return age;
 
 }
+
+void SoccerPlayer::setAge(int newAge){
+
+    age = newAge;
+
+}
