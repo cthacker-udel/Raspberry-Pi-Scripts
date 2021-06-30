@@ -44,3 +44,17 @@ node *element(){
     return TAIL;
 
 }
+
+int offer(node *newNode){
+
+    if(size() == MAX_SIZE){
+        printf("\n-=-=-=SIZE ERROR-=-=-=\nAttempting to insert node when list has reached max size, please increase the size\n-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
+        return 0;
+    }
+    else{
+        TAIL->next = newNode;
+        newNode->previous = TAIL;
+        TAIL = newNode;
+    }
+
+}
