@@ -26,3 +26,8 @@ FootballPlayer::~FootballPlayer(){
     cout << "Deleting football player : " << name << endl;
     delete this;
 }
+
+void FootballPlayer::setAge(int newAge){
+    age = newAge;
+}
+
