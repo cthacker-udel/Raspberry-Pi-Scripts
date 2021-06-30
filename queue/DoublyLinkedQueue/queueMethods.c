@@ -72,7 +72,11 @@ node *poll(){
         return NULL;
     }
     else{
-
+        node *newTail = TAIL->previous;
+        newTail->next = NULL;
+        TAIL = NULL;
+        TAIL = newTail;
     }
 
 }
+
