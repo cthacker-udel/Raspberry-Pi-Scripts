@@ -63,3 +63,15 @@ void SoccerPlayer::setGoals(int newGoals){
     goals = newGoals;
 
 }
+
+int SoccerPlayer::getShotsAtt(){
+
+    return shotsAtt;
+
+}
+
+void SoccerPlayer::setShotsAtt(int newShotsAtt){
+
+    shotsAtt = newShotsAtt;
+
+}
