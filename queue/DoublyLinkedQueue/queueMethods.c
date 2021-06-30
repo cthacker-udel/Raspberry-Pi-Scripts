@@ -27,3 +27,14 @@ int add(node *newNode){
     }
 
 }
+
+node *craftNode(){
+
+    int value;
+    printf("\n-=-=-=USER INPUT-=-=-=\nEnter a value to assign to new node : ");
+    scanf("%d",&value);
+    node *newNode = (node *)malloc(sizeof(node));
+    newNode->value = value;
+    return newNode;
+
+}
