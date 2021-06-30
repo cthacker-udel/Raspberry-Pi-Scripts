@@ -21,7 +21,8 @@ int add(node *newNode){
                 tempHead = tempHead->next;
             }
             tempHead->next = newNode;
-            TAIL = newNode
+            newNode->previous = TAIL;
+            TAIL = newNode;
         }
     }
 
