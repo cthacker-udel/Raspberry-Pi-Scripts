@@ -43,3 +43,20 @@ void clear(){
         free(prevNode);
     }
 }
+
+int contains(node *theNode){
+
+    node *tempHead = HEAD;
+    while(tempHead != NULL){
+
+        if(tempHead == theNode){
+
+            return 1;
+
+        }
+        tempHead = tempHead->next;
+
+    }
+    return 0;
+
+}
