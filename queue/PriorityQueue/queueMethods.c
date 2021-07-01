@@ -60,3 +60,21 @@ int contains(node *theNode){
     return 0;
 
 }
+
+int offer(node *theNode){
+
+    if(size() == max_size){
+
+        printf("\n-=-=-=SIZE ERROR-=-=-=\nYou are trying to add a node to a list that has reached max size, increase the max size\n-=-=-=-=-=-=-=-=-=-=");
+        return 0;
+
+    }
+    else{
+
+        TAIL->next = theNode;
+        theNode->previous = TAIL;
+        TAIL = theNode;
+
+    }
+
+}
