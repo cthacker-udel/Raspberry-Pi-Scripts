@@ -85,3 +85,22 @@ node *peek(){
     return TAIL;
 
 }
+
+node *poll(){
+
+    if(size() == 1){
+
+        free(HEAD);
+        free(TAIL);
+
+    }
+    else{
+
+        node *prevNode = TAIL->previous;
+        prevNode->next = NULL;
+        free(TAIL);
+        TAIL = prevNode;
+
+    }
+
+}
