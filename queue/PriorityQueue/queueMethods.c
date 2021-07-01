@@ -32,3 +32,14 @@ void increaseSize(int addSize){
     max_size += addSize;
 
 }
+
+void clear(){
+
+    node *currNode = HEAD;
+    node *prevNode;
+    while(currNode != NULL){
+        prevNode = currNode;
+        currNode = currNode->next;
+        free(prevNode);
+    }
+}
