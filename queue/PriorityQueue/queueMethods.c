@@ -104,3 +104,12 @@ node *poll(){
     }
 
 }
+
+int remove(node *theNode){
+
+    if(!contains(theNode)){
+        printf("\nThe linked list does not contain the node you are trying to remove\n");
+        return 0;
+    }
+
+}
