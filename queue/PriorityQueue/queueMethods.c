@@ -9,6 +9,12 @@ int add(node *newNode){
 
         HEAD = newNode;
         TAIL = newNode;
+        return 1;
+    }
+    else if(size() == max_size){
+
+        printf("\n-=-=-=ERROR : MAX SIZE-=-=-=\nLinked List is at max size, cannot add nodes\n-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
+        return 0;
 
     }
     else{
@@ -16,7 +22,13 @@ int add(node *newNode){
         TAIL->next = newNode;
         newNode->previous = TAIL;
         TAIL = newNode;
-
+        return 1;
     }
+
+}
+
+void increaseSize(int addSize){
+
+    max_size += addSize;
 
 }
