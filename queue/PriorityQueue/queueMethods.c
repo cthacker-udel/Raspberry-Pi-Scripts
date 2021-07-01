@@ -78,3 +78,10 @@ int offer(node *theNode){
     }
 
 }
+
+
+node *peek(){
+
+    return TAIL;
+
+}
