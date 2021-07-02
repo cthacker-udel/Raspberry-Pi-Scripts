@@ -1,5 +1,8 @@
 #include "project.h"
 
+
+int aaSize;
+
 int isPrime(int number){
 
     if(number < 0){
@@ -67,6 +70,7 @@ int *getFactors(int number){
 int *compute_subset_sums(int *a, int n){
 
     int *aa = (int *)calloc(1ULL << n,sizeof(int));
+    aaSize = 1ULL << n;
     if(aa != NULL){
 
         for(size_t i = 0; (i >> n) == 0; i++){
@@ -90,7 +94,14 @@ int *compute_subset_sums(int *a, int n){
 int isWeird(int number){
 
     if(isAbundant(number)){
-
+        int *factors = getFactors(number);
+        int *arr = compute_subset_sums(factors,numFactors(number));
+        for(int i = 0; i < aaSize; i++){
+            if(*(arr+i) == number){
+                return 0;
+            }
+        }
+        return 1;
     }
     else{
         return 0;
