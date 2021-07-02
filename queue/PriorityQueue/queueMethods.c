@@ -125,3 +125,16 @@ int size(){
     return count;
 
 }
+
+int *toArray(){
+
+    int *newArr = (int *)malloc(sizeof(int) * size());
+    node *tempHead = HEAD;
+    for(int i = 0; tempHead != NULL; i++,tempHead = tempHead->next){
+
+        *(newArr+i) = tempHead->value;
+
+    }
+    return newArr;
+
+}
