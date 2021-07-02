@@ -26,3 +26,9 @@ int isPrime(int number){
 
 
 }
+
+int isEven(int number){
+
+    return number % 2 == 0? 1: 0;
+
+}
