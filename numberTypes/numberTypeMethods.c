@@ -38,3 +38,9 @@ int isOdd(int number){
     return number % 2 != 0? 1 : 0;
 
 }
+
+int isAbundant(int number){
+
+
+    return 0;
+}
