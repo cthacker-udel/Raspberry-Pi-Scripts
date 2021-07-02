@@ -130,6 +130,23 @@ int numberLength(int number){
 int isAutomorphic(int number){
 
     int square = number*number;
+    int numLength = numberLength(square);
+    char *squareStr = (char *)malloc(sizeof(char) * numLength+1);
+    char *endStr = (char *)malloc(sizeof(char) * numberLength(number)+1);
+    sprintf(squareStr,"%d",square);
+    sprintf(endStr,"%d",number);
+    int startIndex = strlen(squareStr)-1;
+    for(int i = strlen(endStr)-1; i >= 0; i--){
+        char findStr = *(endStr+i);
+        char findStrSq = *(squareStr+startIndex);
+        if(findStr != findStrSq){
+            return 0;
+        }
+        else{
+            startIndex--;
+        }
+    }
+    return 1;
 
 }
 
