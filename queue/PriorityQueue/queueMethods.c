@@ -22,6 +22,7 @@ int add(node *newNode){
         TAIL->next = newNode;
         newNode->previous = TAIL;
         TAIL = newNode;
+        sort();
         return 1;
     }
 
@@ -74,6 +75,7 @@ int offer(node *theNode){
         TAIL->next = theNode;
         theNode->previous = TAIL;
         TAIL = theNode;
+        sort();
 
     }
 
@@ -100,6 +102,7 @@ node *poll(){
         prevNode->next = NULL;
         free(TAIL);
         TAIL = prevNode;
+        sort();
 
     }
 
@@ -142,5 +145,56 @@ int *toArray(){
 int isEmpty(){
 
     return HEAD == NULL? 1: 0;
+
+}
+
+void sort(){
+
+    int numNodes = size();
+
+    if(numNodes > 1){
+
+        int loopVar = 1;
+        while(1){
+
+            node *tempHead = HEAD;
+            node *prevNode = HEAD;
+            node *forwardNode;
+
+            while(prevNode != NULL && forwardNode != NULL){
+
+                forwardNode = prevNode->next;
+                if(forwardNode != NULL && prevNode->value > forwardNode->value){
+
+                    prevNode->next = forwardNode->next;
+                    forwardNode->next = prevNode;
+                    if(prevNode == HEAD){
+                        HEAD = forwardNode;
+                        loopVar = 0;
+                    }
+                    else{
+
+                        HEAD = tempHead;
+                        node *temp = HEAD;
+                        while(temp->next != NULL){
+                            if(temp->next == prevNode){
+                                temp->next = forwardNode;
+                                break;
+                            }
+                        }
+                        loopVar = 0;
+
+                    }
+                    break;
+
+                }
+
+            }
+
+
+        }
+
+    }
+
 
 }
