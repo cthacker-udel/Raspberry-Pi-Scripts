@@ -138,3 +138,9 @@ int *toArray(){
     return newArr;
 
 }
+
+int isEmpty(){
+
+    return HEAD == NULL? 1: 0;
+
+}
