@@ -113,3 +113,15 @@ int remove(node *theNode){
     }
 
 }
+
+int size(){
+
+    node *tempHead = HEAD;
+    int count = 0;
+    while(tempHead != NULL){
+        tempHead = tempHead->next;
+        count++;
+    }
+    return count;
+
+}
