@@ -114,6 +114,25 @@ int isDeficient(int number){
     }
 }
 
+int numberLength(int number){
+
+    int count = 0;
+    while(number > 9){
+        number = number / 10;
+        count++;
+    }
+    count++;
+    return count;
+
+
+}
+
+int isAutomorphic(int number){
+
+    int square = number*number;
+
+}
+
 
 int isWeird(int number){
 
