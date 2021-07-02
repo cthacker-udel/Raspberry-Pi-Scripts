@@ -39,11 +39,69 @@ int isOdd(int number){
 
 }
 
+int numFactors(int number){
+    int numFactors = 0;
+    for(int i = 1; i < number; i++){
+        if(number % i == 0){
+            numFactors++;
+        }
+    }
+    return numFactors;
+}
+
+int *getFactors(int number){
+
+    int *factors = (int *)malloc(sizeof(int) * numFactors(number));
+
+    int index = 0;
+    for(int i = 1; i < number; i++){
+        if(number % i == 0){
+            *(factors+index) = i;
+            index++;
+        }
+    }
+    return factors;
+
+}
+
+int *compute_subset_sums(int *a, int n){
+
+    int *aa = (int *)calloc(1ULL << n,sizeof(int));
+    if(aa != NULL){
+
+        for(size_t i = 0; (i >> n) == 0; i++){
+
+            int sum = 0;
+            for(int j = 0; j < n; j++){
+                if((i >> j) & 1){
+                    sum += a[j];
+                }
+            }
+            aa[i] = sum;
+
+        }
+
+    }
+    return aa;
+
+}
+
+
+int isWeird(int number){
+
+    if(isAbundant(number)){
+
+    }
+    else{
+        return 0;
+    }
+
+}
+
 int isAbundant(int number){
 
     int sum = 0;
-    int sqrtNumber = sqrt(number)+1;
-    for(int i = 1; i < sqrtNumber; i++){
+    for(int i = 1; i < number; i++){
         if(number % i == 0){
             sum += i;
         }

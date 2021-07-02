@@ -10,3 +10,11 @@ int isEven(int);
 int isOdd(int);
 
 int isAbundant(int);
+
+int isWeird(int);
+
+int *getFactors(int);
+
+int numFactors(int);
+
+int *compute_subset_sums(int *, int );
