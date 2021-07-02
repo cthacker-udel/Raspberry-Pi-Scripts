@@ -41,6 +41,15 @@ int isOdd(int number){
 
 int isAbundant(int number){
 
+    int sum = 0;
+    int sqrtNumber = sqrt(number)+1;
+    for(int i = 1; i < sqrtNumber; i++){
+        if(number % i == 0){
+            sum += i;
+        }
+    }
+    return sum > number? 1: 0;
+
 
     return 0;
 }
