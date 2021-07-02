@@ -67,6 +67,18 @@ int *getFactors(int number){
 
 }
 
+int sumFactors(int number){
+
+    int sum = 0;
+    for(int i = 1; i < number; i++){
+        if(number % i == 0){
+            sum += i;
+        }
+    }
+    return sum;
+
+}
+
 int *compute_subset_sums(int *a, int n){
 
     int *aa = (int *)calloc(1ULL << n,sizeof(int));
@@ -87,6 +99,12 @@ int *compute_subset_sums(int *a, int n){
 
     }
     return aa;
+
+}
+
+int isDeficient(int number){
+
+    int two_n = number * 2;
 
 }
 

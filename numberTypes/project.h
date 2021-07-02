@@ -18,3 +18,5 @@ int *getFactors(int);
 int numFactors(int);
 
 int *compute_subset_sums(int *, int );
+
+int sumFactors(int);
