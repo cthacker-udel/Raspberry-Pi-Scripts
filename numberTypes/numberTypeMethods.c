@@ -105,7 +105,13 @@ int *compute_subset_sums(int *a, int n){
 int isDeficient(int number){
 
     int two_n = number * 2;
-
+    int sumOfFactors = sumFactors(number);
+    if(sumOfFactors < two_n){
+        return 1;
+    }
+    else{
+        return 0;
+    }
 }
 
 
