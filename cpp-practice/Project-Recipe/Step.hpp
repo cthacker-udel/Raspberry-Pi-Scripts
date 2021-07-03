@@ -5,7 +5,7 @@ using namespace std;
 class Step{
 
     string step;
-    int times;
+    int time;
 
     public:
 

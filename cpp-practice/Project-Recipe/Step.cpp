@@ -9,12 +9,12 @@ Step::Step(string newStep){
 Step::Step(string newStep, int newTimes){
 
     this->step = newStep;
-    this->times = newTimes;
+    this->time = newTimes;
 
 }
 
-void Step::setTimes(int newTimes){
+void Step::setTime(int newTimes){
 
-    this->times = newTimes;
+    this->time = newTimes;
 
 }
