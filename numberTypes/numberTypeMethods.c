@@ -141,6 +141,20 @@ int factorial(int number){
 
 }
 
+int isFactorion(int number){
+    
+    int origNumber = number;
+    int sum = 0;
+    while(number > 9){
+        int rightDigit = number % 10;
+        sum += factorial(rightDigit);
+        number = number / 10;
+    }
+    sum += factorial(number);
+    return sum == origNumber? 1: 0;
+
+}
+
 int isEquivalent(int number1, int number2){
 
     if(sumFactors(number1) == sumFactors(number2)){
