@@ -26,3 +26,5 @@ int isDeficient(int);
 int numberLength(int);
 
 int isAutomorphic(int);
+
+int isAmicable(int,int);

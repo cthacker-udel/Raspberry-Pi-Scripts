@@ -79,6 +79,56 @@ int sumFactors(int number){
 
 }
 
+int isAmicable(int num1, int num2){
+
+    int *factorsNum1 = getFactors(num1);
+
+    int *factorsNum2 = getFactors(num2);
+
+    int *sum_factors_num1 = compute_subset_sums(factorsNum1,numFactors(num1));
+
+    int subsetLen = aaSize;
+
+    int *sum_factors_num2 = computer_subset_sums(factorsNum2,numFactors(num2));
+
+    int subset2Len = aaSize;
+
+    int isSumNum2 = 0;
+
+    int isSumNum1 = 0;
+
+    for(int i = 0; i < subsetLen; i++){
+
+        if(*(sum_factors_num1) == num2){
+            isSumNum2 = 1;
+            break;
+        }
+
+    }
+
+    for(int i = 0; i < subset2Len; i++){
+
+        if(*(sum_factors_num2) == num1){
+            isSumNum1 = 1;
+        }
+
+    }
+
+    if(isSumNum2 && isSumNum1){
+
+        return 1;
+
+    }
+    else{
+
+        return 0;
+
+    }
+
+
+}
+
+
 int *compute_subset_sums(int *a, int n){
 
     int *aa = (int *)calloc(1ULL << n,sizeof(int));
