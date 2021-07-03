@@ -13,6 +13,6 @@ class Step{
 
         Step(string,int);
 
-        void setTimes();
+        void setTimes(int);
 
 }
