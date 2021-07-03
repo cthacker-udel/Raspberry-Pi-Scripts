@@ -128,6 +128,21 @@ int isAmicable(int num1, int num2){
 
 }
 
+int isCircular(int number){
+
+    if(number % 10 == 0 || number % 10 == 1 || number % 10 == 5 || number % 10 == 6){
+
+        return 1;
+
+    }
+    else{
+
+        return 0;
+
+    }
+
+}
+
 
 int *compute_subset_sums(int *a, int n){
 
