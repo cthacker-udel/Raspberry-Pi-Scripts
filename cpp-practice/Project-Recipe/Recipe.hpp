@@ -19,7 +19,7 @@ class Recipe{
 
         vector<Ingredient> getIngredients();
 
-        vector<Step> getSteps;
+        vector<Step> getSteps();
 
         void addIngredient(Ingredient);
 
