@@ -161,6 +161,23 @@ int isHappy(int number){
 
 }
 
+int isHarshad(int number){
+
+    int origNumber = number;
+    int sum = 0;
+    while(number > 9){
+
+        int rightDigit = number % 10;
+        sum += rightDigit;
+        number = number / 10;
+
+
+    }
+    sum += number;
+    return origNumber % sum == 0? 1: 0;
+
+}
+
 int isFactorion(int number){
     
     int origNumber = number;
