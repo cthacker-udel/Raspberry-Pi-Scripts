@@ -128,6 +128,19 @@ int isAmicable(int num1, int num2){
 
 }
 
+int factorial(int number){
+
+    if(number == 1){
+        return 1;
+    }
+    else{
+
+        return number * factorial(number-1);
+
+    }
+
+}
+
 int isEquivalent(int number1, int number2){
 
     if(sumFactors(number1) == sumFactors(number2)){
