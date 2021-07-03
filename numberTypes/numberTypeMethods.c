@@ -141,6 +141,26 @@ int factorial(int number){
 
 }
 
+int isHappy(int number){
+
+    int sum = 0;
+    while(number != 1){
+
+        while(number > 9){
+            int rightDigit = number % 10;
+            sum += (rightDigit * rightDigit);
+            number = number / 10;
+        }
+        sum += (number * number);
+        number = sum;
+        sum = 0;
+
+    }
+    return 1;
+
+
+}
+
 int isFactorion(int number){
     
     int origNumber = number;
