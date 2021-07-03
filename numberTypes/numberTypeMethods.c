@@ -178,6 +178,28 @@ int isHarshad(int number){
 
 }
 
+int isKaprekar(int number){
+
+    char numberStr[100];
+    sprintf(numberStr,"%d",number);
+    const int numDigits = strlen(numberStr);
+    int square = number*number;
+    char squareStr[100];
+    sprintf(squareStr,"%d",square);
+    char leftSide[numDigits];
+    char rightSide[numDigits];
+    for(int i = 0; i < numDigits; i++){
+        leftSide[i] = squareStr[i];
+    }
+    for(int i = strlen(squareStr)-1, j = 0; j < numDigits; j++,i--){
+        rightSide[j] = squareStr[i];
+    }
+    long numOne = strtoumax(leftSide,(char **)NULL,10);
+    long numTwo = strtoumax(rightSide,(char **)NULL,10);
+    return numOne + numTwo == number;
+
+}
+
 int isFactorion(int number){
     
     int origNumber = number;
