@@ -6,6 +6,7 @@ using namespace std;
 
 class Ingredient{
 
+    friend class Recipe;
     string name;
     string qtyMeasurement;
     int quantity;
