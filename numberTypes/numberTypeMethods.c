@@ -128,6 +128,21 @@ int isAmicable(int num1, int num2){
 
 }
 
+int isEquivalent(int number1, int number2){
+
+    if(sumFactors(number1) == sumFactors(number2)){
+
+        return 1;
+
+    }
+    else{
+
+        return 0;
+
+    }
+
+}
+
 int isComposite(int number){
 
     if(!isPrime(number)){
