@@ -135,10 +135,32 @@ void removeTail(){
 
 void deleteStudent(int theId){
 
-    if(HEAD->idNum == theId){
+    if(HEAD == NULL || TAIL == NULL){
+        printf("\nYou are attempting to delete a student when the linked list is empty\n");
+        return;
+    }
+    else if(HEAD->idNum == theId){
         removeHead();
     }
     else if(TAIL->idNum == theId){
+        removeTail();
+    }
+    else{
+
+        Student *tempHead = HEAD;
+        while(tempHead != NULL){
+            if(tempHead->idNum == theId){
+                Student *prevNode = tempHead->prev;
+                tempHead->prev = NULL;
+                prevNode->next = tempHead->next;
+                tempHead->next->prev = prevNode;
+                tempHead->next = NULL;
+                tempHead = NULL;
+                return;
+            }
+        }
+        printf("\nThe student was not found\n");
+        return;
 
     }
 
