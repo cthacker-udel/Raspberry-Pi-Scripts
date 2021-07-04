@@ -47,4 +47,6 @@ int findStudent(int);
 
 void pop();
 
-void push(school *, Student *);
+void push(school *,Student *);
+
+int numStudents();

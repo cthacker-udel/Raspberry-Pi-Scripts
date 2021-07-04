@@ -187,3 +187,9 @@ void pop(){
     removeTail();
 
 }
+
+void push(school *theSchool, Student *theStudent){
+
+    addStudent(theSchool,theStudent);
+
+}
