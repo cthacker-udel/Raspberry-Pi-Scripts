@@ -38,6 +38,7 @@
 - [x] Implementation of One,Two,Three,Four Dimensional pointer arrays
 - [x] Implementation of Linked List (Singly, Doubly)
 - [x] Implementation of Stack  
+- [x] Implementation of Othello game
 
 ## TODOS
 
