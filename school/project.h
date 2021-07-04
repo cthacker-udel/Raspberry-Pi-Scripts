@@ -5,13 +5,13 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <string.h>
+#include <time.h>
 
 typedef struct theStudent{
 
     char *name;
     int age;
     int height;
-    char *school;
     int grade;
     int idNum;
     struct theStudent *next;
