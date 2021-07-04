@@ -22,6 +22,8 @@ class Car{
 
         Car(string,int,int);
 
+        ~Car();
+
         void setDriver(Driver);
 
         int getHP();
@@ -33,5 +35,7 @@ class Car{
         int getMilesDriven();
 
         void setMilesDriven(int);
+
+        Car *constructCar();
 
 };

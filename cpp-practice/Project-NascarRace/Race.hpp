@@ -24,5 +24,7 @@ class Race{
 
         int getNumOfCars();
 
+        void addHead();
+
 
 };
