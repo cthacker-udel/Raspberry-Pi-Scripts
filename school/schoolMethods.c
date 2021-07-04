@@ -116,13 +116,30 @@ void removeHead(){
 
 }
 
+void removeTail(){
+
+    if(TAIL->prev != NULL){
+
+        Student *prevNode = TAIL->prev;
+        prevNode->next = NULL;
+        TAIL->prev = NULL;
+        TAIL = NULL;
+        TAIL = prevNode;
+
+    }
+    else{
+        TAIL = NULL;
+    }
+
+}
+
 void deleteStudent(int theId){
 
     if(HEAD->idNum == theId){
         removeHead();
     }
     else if(TAIL->idNum == theId){
-        
+
     }
 
 }
