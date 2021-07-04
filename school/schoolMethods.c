@@ -165,3 +165,19 @@ void deleteStudent(int theId){
     }
 
 }
+
+int findStudent(int theId){
+
+    Student *tempHead = HEAD;
+    int index = 0;
+    while(tempHead != NULL){
+        if(tempHead->idNum == theId){
+            return index;
+        }
+        index++;
+        tempHead = tempHead->next;
+    }
+    printf("\nThe student could not be found\n");
+    return -1;
+
+}
