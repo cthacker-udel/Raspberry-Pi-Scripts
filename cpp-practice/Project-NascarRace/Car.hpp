@@ -12,6 +12,7 @@ class Car{
     int mph;
     string model;
     int milesDriven;
+    Car *next;
 
     public:
 
