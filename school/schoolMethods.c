@@ -35,6 +35,7 @@ void addStudent(school *theSchool, Student *newStudent){
         HEAD = newStudent;
         TAIL = newStudent;
         theSchool->linkHead = HEAD;
+        theSchool->attendance = 1;
     }
     else{
 
@@ -42,6 +43,7 @@ void addStudent(school *theSchool, Student *newStudent){
         newStudent->prev = TAIL;
         newStudent->next = NULL;
         TAIL = newStudent;
+        theSchool->attendance++;
 
     }
 
@@ -83,5 +85,17 @@ Student *createStudent(){
 
     return newStudent;
 
+
+}
+
+void displaySchool(school *theSchool){
+
+    printf("\nDisplaying the school : %s [attendance : %d]\n",theSchool->name,theSchool->attendance);
+    Student *tempHead = theSchool->linkHead;
+    int count = 1;
+    while(tempHead != NULL){
+        printf("\nStudent %d : %s\n",count++,tempHead->name);
+        tempHead = tempHead->next;
+    }
 
 }

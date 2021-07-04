@@ -35,7 +35,7 @@ school *createSchool();
 
 Student *createStudent();
 
-void displaySchool();
+void displaySchool(school *);
 
 void deleteStudent(int);
 
