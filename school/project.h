@@ -31,6 +31,8 @@ typedef struct theSchool{
 
 void addStudent(school *,Student *);
 
+void printMenu();
+
 school *createSchool();
 
 Student *createStudent();

@@ -3,6 +3,12 @@
 Student *HEAD = NULL;
 Student *TAIL = NULL;
 
+void printMenu(){
+
+    printf("\n-=-=-=-=MENU-=-=-=-=\n1)Add Student\n2)Display School\n3)Delete student\n4)Find student\n5)Create School\n6)Exit program");
+
+}
+
 school *createSchool(){
 
     school *newSchool = (school *)malloc(sizeof(school));
@@ -15,7 +21,7 @@ school *createSchool(){
 
     do{
         printf("\nPlease enter the name of the school with enough characters less than or equal to the amount previously specified\n");
-    }while(scanf("%s",newSchool->name));
+    }while(scanf("%s",newSchool->name) != 1);
 
     newSchool->attendance = 0;
     printf("\nSchool has been created successfully\n");
