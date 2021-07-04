@@ -100,7 +100,6 @@ Car *Race::constructCar(){
 
 void Race::addHead(){
 
-
-
+    head = constructCar();
 
 }
