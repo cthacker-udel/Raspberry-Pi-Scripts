@@ -35,6 +35,8 @@ school *createSchool();
 
 Student *createStudent();
 
+void displaySchool();
+
 void deleteStudent(int);
 
 int findStudent(int);
