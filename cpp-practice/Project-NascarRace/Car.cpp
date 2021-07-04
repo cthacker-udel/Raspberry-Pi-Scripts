@@ -19,3 +19,39 @@ Car::Car(string theModel, int theHp, int theMph){
     theDriver = Driver();
 
 }
+
+void Car::setDriver(Driver newDriver){
+
+    theDriver = newDriver;
+
+}
+
+int Car::getHP(){
+
+    return hp;
+
+}
+
+int Car::getMPH(){
+
+    return mph;
+
+}
+
+string Car::getModel(){
+
+    return model;
+
+}
+
+int Car::getMilesDriven(){
+
+    return milesDriven;
+
+}
+
+void Car::setMilesDriven(int newMilesDriven){
+
+    milesDriven = newMilesDriven;
+
+}
