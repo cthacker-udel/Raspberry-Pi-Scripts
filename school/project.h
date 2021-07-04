@@ -39,6 +39,10 @@ void displaySchool(school *);
 
 void deleteStudent(int);
 
+void removeHead();
+
+void removeTail();
+
 int findStudent(int);
 
 void pop();

@@ -94,8 +94,35 @@ void displaySchool(school *theSchool){
     Student *tempHead = theSchool->linkHead;
     int count = 1;
     while(tempHead != NULL){
-        printf("\nStudent %d : %s\n",count++,tempHead->name);
+        printf("\n(%d)Student %d : %s\n",tempHead->idNum,count++,tempHead->name);
         tempHead = tempHead->next;
+    }
+
+}
+
+void removeHead(){
+
+    if(HEAD->next != NULL){
+
+        Student *tempNext = HEAD->next;
+        HEAD->next = NULL;
+        tempNext->prev = NULL;
+        HEAD = NULL;
+        HEAD = tempNext;
+    }
+    else{
+        HEAD = NULL;
+    }
+
+}
+
+void deleteStudent(int theId){
+
+    if(HEAD->idNum == theId){
+        removeHead();
+    }
+    else if(TAIL->idNum == theId){
+        
     }
 
 }
