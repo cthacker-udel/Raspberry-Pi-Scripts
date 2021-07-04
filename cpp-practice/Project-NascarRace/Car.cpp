@@ -28,47 +28,6 @@ Car::~Car(){
     delete this;
 }
 
-Car *Car::constructCar(){
-
-    /*
-
-    Construct Driver first
-
-    */
-
-   string driverName;
-   int driverAge;
-
-
-   cout << "Enter the drivers name" << endl;
-   cin >> driverName;
-   cout << "Enter the drivers age" << endl;
-   cin >> driverAge;
-   Driver newDriver(driverName,driverAge);
-
-   /*
-
-    Constructing car
-
-   */
-
-    int carHp;
-    int carMph;
-    string carModel;
-
-
-    cout << "Enter the horsepower of the car" << endl;
-    cin >> carHp;
-    cout << "Enter the mph of the car" << endl;
-    cin >> carMph;
-    cout << "Enter the model of the car" << endl;
-    cin >> carModel;
-
-    Car *newCar = new Car(newDriver,carModel,carHp,carMph);
-    return newCar;
-
-}
-
 void Car::setDriver(Driver newDriver){
 
     theDriver = newDriver;

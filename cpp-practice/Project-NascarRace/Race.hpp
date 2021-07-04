@@ -25,6 +25,8 @@ class Race{
         int getNumOfCars();
 
         void addHead();
+        
+        Car *constructCar();
 
 
 };

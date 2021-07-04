@@ -36,6 +36,4 @@ class Car{
 
         void setMilesDriven(int);
 
-        Car *constructCar();
-
 };
