@@ -1,6 +1,7 @@
 #include <string>
 #include <cmath>
 #include <iostream>
+#include <stdlib.h>
 using namespace std;
 
 class Driver{
@@ -12,6 +13,8 @@ class Driver{
     int racesTied;
 
     public:
+
+        Driver();
 
         Driver(string);
 

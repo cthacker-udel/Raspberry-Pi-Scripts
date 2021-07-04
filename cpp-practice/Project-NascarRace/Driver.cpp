@@ -1,5 +1,15 @@
 #include "Driver.hpp"
 
+Driver::Driver(){
+
+    name = "Boonhaeur";
+    age = 40;
+    racesWon = 900;
+    racesLost = -1;
+    racesTied = 0;
+
+}
+
 Driver::Driver(string newName){
 
     name = newName;

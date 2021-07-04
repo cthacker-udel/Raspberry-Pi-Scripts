@@ -1,6 +1,7 @@
 #include <string>
 #include <cmath>
 #include <iostream>
+#include <stdlib.h>
 #include "Driver.hpp"
 using namespace std;
 
