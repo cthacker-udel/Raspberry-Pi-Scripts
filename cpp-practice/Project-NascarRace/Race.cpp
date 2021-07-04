@@ -43,3 +43,15 @@ Car *Race::getHead(){
     return head;
 
 }
+
+int Race::getNumOfCars(){
+
+    int count = 0;
+    Car *tempHead = head;
+    while(tempHead != NULL){
+        tempHead = tempHead->next;
+        count++;
+    }
+    return count;
+
+}

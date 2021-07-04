@@ -22,5 +22,7 @@ class Race{
 
         Car *getHead();
 
+        int getNumOfCars();
+
 
 };

@@ -7,12 +7,14 @@ using namespace std;
 
 class Car{
 
+    friend class Race;
     Driver theDriver;
     int hp;
     int mph;
     string model;
     int milesDriven;
     Car *next;
+    Car *prev;
 
     public:
 

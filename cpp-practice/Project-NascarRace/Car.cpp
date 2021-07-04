@@ -7,6 +7,8 @@ Car::Car(Driver newDriver, string theModel, int theHP, int theMph){
     mph = theMph;
     model = theModel;
     milesDriven = 0;
+    next = NULL;
+    prev = NULL;
 
 }
 
@@ -17,6 +19,8 @@ Car::Car(string theModel, int theHp, int theMph){
     mph = theMph;
     milesDriven = 0;
     theDriver = Driver();
+    next = NULL;
+    prev = NULL;
 
 }
 
