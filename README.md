@@ -26,6 +26,7 @@
 - [x] Library Implemenation (Linked list, sorting linked list, adding attributes onto node before appending onto list)
 - [x] Stack implementation
 - [x] Queue implementation 
+- [x] School implementation (Linked List with strings as values, instead of integers)
 
 ## C++ Library
 
