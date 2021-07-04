@@ -193,3 +193,15 @@ void push(school *theSchool, Student *theStudent){
     addStudent(theSchool,theStudent);
 
 }
+
+int numStudents(){
+
+    Student *tempHead = HEAD;
+    int count = 0;
+    while(tempHead != NULL){
+        count++;
+        tempHead = tempHead->next;
+    }
+    return count;
+
+}
