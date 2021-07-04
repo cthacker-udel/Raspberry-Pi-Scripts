@@ -14,6 +14,8 @@ typedef struct theStudent{
     char *school;
     int grade;
     int idNum;
+    struct theStudent *next;
+    struct theStudent *prev;
 
 
 }Student;
@@ -23,8 +25,7 @@ typedef struct theSchool{
 
     char *name;
     int attendance;
-    Student *next;
-    Student *prev;
+    Student *linkHead;
 
 }school;
 
