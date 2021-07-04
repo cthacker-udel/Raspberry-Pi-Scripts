@@ -24,6 +24,10 @@ Car::Car(string theModel, int theHp, int theMph){
 
 }
 
+Car::~Car(){
+    delete this;
+}
+
 Car *Car::constructCar(){
 
     /*
