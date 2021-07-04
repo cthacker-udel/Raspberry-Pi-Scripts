@@ -181,3 +181,9 @@ int findStudent(int theId){
     return -1;
 
 }
+
+void pop(){
+
+    removeTail();
+
+}
