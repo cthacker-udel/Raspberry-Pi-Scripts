@@ -27,3 +27,15 @@ int fib(int n){
 
 
 }
+
+void printArr(int *arr, int len){
+
+    if(len == 0){
+        cout << *arr << endl;
+    }
+    else{
+        cout << *(arr+len-1);
+        printArr(arr,len-1);
+    }
+
+}
