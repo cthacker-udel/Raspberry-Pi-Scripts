@@ -33,3 +33,22 @@ void push(node *newNode){
 
 
 }
+
+int pop(){
+
+    if(HEAD == NULL){
+        return NULL;
+    }
+    else{
+        node *tempHead = HEAD;
+        node *prevNode;
+        while(tempHead->next != NULL){
+            prevNode = tempHead;
+            tempHead = tempHead->next;
+        }
+        prevNode->next = NULL;
+        tempHead = NULL;
+        return 1;
+    }
+
+}

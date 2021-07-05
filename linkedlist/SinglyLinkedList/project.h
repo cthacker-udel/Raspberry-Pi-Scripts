@@ -15,7 +15,7 @@ node *createNode();
 
 void push(node *);
 
-node *pop();
+int pop();
 
 void insertNode(int);
 
