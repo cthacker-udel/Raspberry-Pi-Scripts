@@ -17,6 +17,8 @@ void push(node *);
 
 int pop();
 
+int numNodes();
+
 void insertNode(int);
 
 void deleteNode(int);

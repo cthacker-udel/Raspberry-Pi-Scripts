@@ -52,3 +52,23 @@ int pop(){
     }
 
 }
+
+int numNodes(){
+
+    int count = 0;
+    node *tempHead = HEAD;
+    while(tempHead != NULL){
+        count++;
+        tempHead = tempHead->next;
+    }
+    return count;
+
+
+}
+
+
+void insertNode(int index){
+
+
+
+}
