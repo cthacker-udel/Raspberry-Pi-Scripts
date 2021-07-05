@@ -73,3 +73,27 @@ int sumDigits(int number){
         return number % 10 + sumDigits(number / 10);
     }
 }
+
+int max = 0;
+
+int largestArr(int *arr, int len){
+
+    if(len == 0){
+        if(*arr > max){
+            max = *arr;
+            return max;
+        }
+        else{
+            return max;
+        }
+    }
+    else{
+        if((*arr+len-1) > max){
+            max = *(arr+len-1);
+        }
+        else{
+            largestArr(arr,len-1);
+        }
+    }
+
+}
