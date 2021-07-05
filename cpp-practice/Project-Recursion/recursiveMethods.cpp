@@ -64,3 +64,12 @@ int gcd(int number1, int number2){
     }
 
 }
+
+int sumDigits(int number){
+    if(number < 10){
+        return number;
+    }
+    else{
+        return number % 10 + sumDigits(number / 10);
+    }
+}
