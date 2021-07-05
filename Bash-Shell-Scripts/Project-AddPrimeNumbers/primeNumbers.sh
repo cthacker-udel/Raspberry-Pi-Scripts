@@ -18,7 +18,16 @@ is_prime(){
 
 }
 
+read -p "How many prime numbers do you want to generate?" num
 
-while [ count -lt 5 ]; do
+
+while [ count -lt ${num} ]; do
     echo -e "\nGenerating first prime number\n"
     number=$(shuf -i 1-10000 -n 1)
+    if [ is_prime $number -eq 1 ]; then
+        echo -e "\nThe number ${number} is prime"
+        ((count++))
+    else
+        echo -e "\nThe number ${number} is not prime\n"
+    fi
+done
