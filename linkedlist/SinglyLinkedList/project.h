@@ -19,6 +19,10 @@ int pop();
 
 int numNodes();
 
+void addHead(node *);
+
+void addTail(node *);
+
 void insertNode(int);
 
 void deleteNode(int);

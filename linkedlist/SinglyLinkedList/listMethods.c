@@ -66,8 +66,19 @@ int numNodes(){
 
 }
 
+void addHead(node *newNode){
+
+    newNode->next = HEAD;
+    HEAD = newNode;
+
+}
+
 
 void insertNode(int index){
+
+    if(index == 0){
+
+    }
 
 
 
