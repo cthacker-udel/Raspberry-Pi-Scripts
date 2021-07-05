@@ -50,3 +50,17 @@ int countDigits(int number){
     }
 
 }
+
+int gcd(int number1, int number2){
+
+    if(number1 == number2){
+        return number1;
+    }
+    if(number1 > number2){
+        gcd(number1 - number2,number2);
+    }
+    else if(number2 > number1){
+        gcd(number1,number2 - number1);
+    }
+
+}
