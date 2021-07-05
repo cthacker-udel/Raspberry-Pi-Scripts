@@ -73,6 +73,16 @@ void addHead(node *newNode){
 
 }
 
+void addTail(node *newNode){
+
+    node *tempHead = HEAD;
+    while(tempHead->next != NULL){
+        tempHead = tempHead->next;
+    }
+    tempHead->next = newNode;
+
+}
+
 
 void insertNode(int index){
 
