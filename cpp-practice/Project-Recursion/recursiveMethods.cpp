@@ -39,3 +39,14 @@ void printArr(int *arr, int len){
     }
 
 }
+
+int countDigits(int number){
+
+    if(number < 10){
+        return 1;
+    }
+    else{
+        return 1 + countDigits(number / 10);
+    }
+
+}
