@@ -97,3 +97,15 @@ int largestArr(int *arr, int len){
     }
 
 }
+
+void reverseString(string theString){
+
+    if(theString.length() == 1){
+        cout << theString;
+    }
+    else{
+        cout << theString.at(theString.length()-1);
+        reverseString(theString.substr(0,theString.length()-1));
+    }
+
+}
