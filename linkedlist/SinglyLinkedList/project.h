@@ -13,7 +13,7 @@ typedef struct theNode{
 
 node *createNode();
 
-node *push();
+void push(node *);
 
 node *pop();
 

@@ -11,6 +11,25 @@ node *createNode(){
 
     node *newNode = (node *)malloc(sizeof(node));
     newNode->value = theVal;
+    newNode->next = NULL;
     return newNode;
+
+}
+
+void push(node *newNode){
+
+    if(HEAD == NULL){
+        HEAD = newNode;
+    }
+    else{
+
+        node *tempHead = HEAD;
+        while(tempHead->next != NULL){
+            tempHead = tempHead->next;
+        }
+        tempHead->next = newNode;
+
+    }
+
 
 }
