@@ -163,21 +163,21 @@ while true; do
             item_drop_num=$(shuf -i 0-1 -n 1)
             echo -e "\nItem drop num : $item_drop_num"
             type_of_drop $item_drop_num
-            echo "Resofreturn = $?"
-            if [ $? -eq 0 ]; then
+            drop_result=$?
+            if [ $drop_result -eq 0 ]; then
                 echo -e "\nThe zombie did not drop an item"
-            elif [ $? -eq 1 ]; then
+            elif [ $drop_result -eq 1 ]; then
                 echo -e "\nThe zombie dropped a medkit, that heals you by 10HP!"
                 your_hp=$((your_hp + 10))
-            elif [ $? -eq 2 ]; then
+            elif [ $drop_result -eq 2 ]; then
                 rand_ammo=$(shuf -i 10-20 -n 1)
                 echo -e "\nThe zombie dropped $rand_ammo shotgun ammo!"
                 your_shotgun_ammo=$((your_shotgun_ammo + rand_ammo))
-            elif [ $? -eq 3 ]; then
+            elif [ $drop_result -eq 3 ]; then
                 rand_ammo=$((shuf -i 10-30 -n 1))
                 echo -e "\nThe zombie dropped $rand_ammo pistol ammo!"
                 your_pistol_ammo=$((your_pistol_ammo + rand_ammo))
-            elif [ $? -eq 4 ]; then
+            elif [ $drop_result -eq 4 ]; then
                 rand_ammo=$((shuf -i 5-40 -n 1))
                 echo -e "\nThe zombie dropped $rand_ammo machine gun ammo!"
                 your_machine_gun_ammo=$((your_machine_gun_ammo + rand_ammo))
