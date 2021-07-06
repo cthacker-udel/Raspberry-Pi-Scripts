@@ -119,3 +119,14 @@ int factorial(int number){
         return number * factorial(number-1);
     }
 }
+
+void printBinary(int number){
+
+    while(number != 0){
+        int remainder = number % 2;
+        number = number / 2;
+        cout << remainder;
+    }
+    cout << endl;
+
+}
