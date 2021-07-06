@@ -87,6 +87,28 @@ void addTail(node *newNode){
 void insertNode(int index){
 
     if(index == 0){
+        addHead(createNode());
+    }
+    else if(index >= numNodes()){
+        addTail(createNode());
+    }
+    else{
+
+        node *prevNode;
+        node *tempHead = HEAD;
+        int count = 0;
+        while(tempHead->next != NULL){
+            prevNode = tempHead;
+            tempHead = tempHead->next;
+            if(count == index){
+                node *newNode = createNode();
+                prevNode->next = newNode;
+                newNode->next = tempHead;
+                return;
+            }
+        }
+        return;
+
 
     }
 
