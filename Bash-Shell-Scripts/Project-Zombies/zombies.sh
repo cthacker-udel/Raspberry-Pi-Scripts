@@ -19,41 +19,41 @@ successful_shot(){
         #shotgun
         rand_num=$(shuf -i 1-100 -n 1)
         if [ $((rand_num % 2)) -eq 0 -o $((rand_num % 3)) -eq 0 -o $((rand_num % 5)) -eq 0]; then
-            #killed zombie
+            return 1
         else
-            #missed zombie
+            return 0
         fi
     elif [ $arg -eq 2 ]; then
         #pistol
         rand_num=$(shuf -i 1-100 -n 1)
         if [ $((rand_num % 2)) -eq 0 -o $((rand_num % 3)) -eq 0 ]; then
-            #killed zombie
+            return 1
         else
-            #missed zombie
+            return 0
         fi
     elif [ $arg -eq 3 ]; then 
         #machine gun
         rand_num=$(shuf -i 1-100 -n 1)
         if [ $((rand_num % 2)) -eq 0 -o $((rand_num % 5)) -eq 0 -o $((rand_num % 3)) -eq 0 -o $((rand_num % 2)) -ne 0 -o $? -eq 1 ]; then
-            #killed zombie
+            return 1
         else
-            #missed zombie
+            return 0
         fi
     elif [ $arg -eq 4 ]; then
         #baseball bat
         rand_num=$(shuf -i 1-100 -n 1)
         if [ $((rand_num % 2)) -eq 0 ]; then
-            #killed zombie
+            return 1
         else
-            #missed zombie
+            return 0
         fi
     elif [ $arg -eq 5 ]; then
         #hand-to-hand
         rand_num=$(shuf -i 1-100 -n 1)
         if [ $((rand_num % 2)) -ne 1]; then
-            #killed zombie
+            return 1
         else
-            #missed zombie
+            return 0
         fi
     fi
 
