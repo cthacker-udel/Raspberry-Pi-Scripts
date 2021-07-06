@@ -29,6 +29,19 @@ successful_shot(){
 
 }
 
+is_prime(){
+
+    num=$1
+    loop_num=$((num-1))
+    for i in {2..${loop_num}}; do
+        if [ $((num % i == 0)) ]; then
+            return 0
+        fi
+    done
+    return 1
+
+}
+
 type_of_drop(){
 
     if [ $1 -eq 1 ]; then
@@ -50,13 +63,19 @@ echo -e "\nWelcome to the Zombie Survival Game! You are trying to survive the ho
 
 read -p "Enter your players name : " name
 
-opponent_hp=0
-your_hp=0
+your_hp=100
 your_shotgun_ammo=0
 your_pistol_ammo=0
 your_machine_gun_ammo=0
 
 while true; do
-    #zombie appears, prompt is given
+    echo -e "\nA zombie appears! Choose how to deal with it, here is your ammo status : "
+    echo -e "\n1) Shotgun : $your_shotgun_ammo"
+    echo -e "\n2) Pistol : $your_pistol_ammo"
+    echo -e "\n3) Machine gun : $your_machine_gun_ammo"
+    echo -e "\n4) Baseball bat"
+    echo -e "\n5) Hand-To-Hand"
+    read answer
+    
 done
 
