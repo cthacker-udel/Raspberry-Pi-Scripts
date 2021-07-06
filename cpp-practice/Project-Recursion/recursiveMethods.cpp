@@ -126,10 +126,14 @@ int factorial(int number){
 
 void printBinary(int number){
 
+    string res;
     while(number != 0){
         int remainder = number % 2;
         number = number / 2;
-        cout << remainder;
+        res += to_string(remainder);
+    }
+    for(int i = res.length()-1; i >= 0; i--){
+        cout << res.at(i);
     }
     cout << endl;
 
