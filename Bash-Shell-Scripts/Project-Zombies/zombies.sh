@@ -1,12 +1,14 @@
-#!/bin/bash
+#!/bin/bash -x
 
 random_drop(){
 
     rand_num=$(shuf -i 1-100 -n 1)
     if [ $((rand_num % 2)) -eq 0 ]; then
         # drop successful
+        echo "if"
     else
         # drop unsuccessful
+        echo "Else"
     fi
 
 }
@@ -18,7 +20,7 @@ successful_shot(){
     if [ $arg -eq 1 ]; then
         #shotgun
         rand_num=$(shuf -i 1-100 -n 1)
-        if [ $((rand_num % 2)) -eq 0 -o $((rand_num % 3)) -eq 0 -o $((rand_num % 5)) -eq 0]; then
+        if [ $((rand_num % 2)) -eq 0 -o $((rand_num % 3)) -eq 0 -o $((rand_num % 5)) -eq 0 ]; then
             return 1
         else
             return 0
@@ -50,7 +52,7 @@ successful_shot(){
     elif [ $arg -eq 5 ]; then
         #hand-to-hand
         rand_num=$(shuf -i 1-100 -n 1)
-        if [ $((rand_num % 2)) -ne 1]; then
+        if [ $((rand_num % 2)) -ne 1 ]; then
             return 1
         else
             return 0
@@ -62,11 +64,12 @@ successful_shot(){
 is_prime(){
 
     num=$1
-    loop_num=$((num-1))
-    for i in {2..${loop_num}}; do
-        if [ $((num % i == 0)) ]; then
+    loop_num=2
+    while [ $loop_num -lt $num ]; do
+        if [ $((num % loop_num)) -eq 0 ]; then
             return 0
         fi
+        ((loop_num++))
     done
     return 1
 
@@ -77,10 +80,13 @@ type_of_drop(){
     if [ $1 -eq 1 ]; then
         # randomize drop
         rand_num=$(shuf -i 1-100 -n 1)
-        if [ $((rand_num % 2)) -ne 0 ]; then
+        echo -e "Rand num : $rand_num"
+        res=$((rand_num % 2))
+        echo "Res = $res"
+        if [ $((rand_num % 2)) -eq 1 ]; then
             # medkit drop
             return 1
-        elif [ $((rand_num % 2)) -eq 0]; then
+        elif [ $((rand_num % 2)) -eq 0 ]; then
             #ammo drop
             type_of_ammo=$(shuf -i 1-3 -n 1)
             if [ $type_of_ammo -eq 1 ]; then
@@ -110,30 +116,54 @@ echo -e "\nWelcome to the Zombie Survival Game! You are trying to survive the ho
 read -p "Enter your players name : " name
 
 your_hp=100
-your_shotgun_ammo=$(shuf -i 10-30 -n 1)
-your_pistol_ammo=$(shuf -i 15-45 -n 1)
-your_machine_gun_ammo=$(shuf -i 8-100 -n 1) 
+your_shotgun_ammo=$(shuf -i 4-20 -n 1)
+your_pistol_ammo=$(shuf -i 10-30 -n 1)
+your_machine_gun_ammo=$(shuf -i 8-40 -n 1) 
 
 while true; do
     if [ $your_hp -le 0 ]; then
         echo "You ran out of HP!"
         exit 2
     fi
-    echo -e "\nA zombie appears! Choose how to deal with it, here is your ammo status : "
+    echo -e "\nA zombie appears! \n[HP : $your_hp]\nChoose how to deal with it, here is your ammo status : "
     echo -e "\n1) Shotgun : $your_shotgun_ammo"
     echo -e "\n2) Pistol : $your_pistol_ammo"
     echo -e "\n3) Machine gun : $your_machine_gun_ammo"
     echo -e "\n4) Baseball bat"
     echo -e "\n5) Hand-To-Hand"
     read answer
-    if [ $answer -ne 1 -o $answer -ne 2 -o $answer -ne 3 -o $answer -ne 4 -o $answer -ne 5 ]; then
+    if [ $answer -ne 1 -a $answer -ne 2 -a $answer -ne 3 -a $answer -ne 4 -a $answer -ne 5 ]; then
         echo -e "\nChoose a correct input 1-5\n"
     else
+        if [ $answer -eq 1 -a $your_shotgun_ammo -le 0 ]; then
+            echo "Out of ammo in shotgun! Choose another weapon"
+            continue
+        fi
+        if [ $answer -eq 2 -a $your_pistol_ammo -le 0 ]; then
+            echo "Out of ammo in pistol! Choose another weapon"
+            continue
+        fi
+        if [ $answer -eq 3 -a $your_machine_gun_ammo -le 0 ]; then
+            echo "Out of machine gun ammo! Choose another weapon!"
+            continue
+        fi
         successful_shot $answer
         if [ $? -eq 1 ]; then
             #zombie killed
+            echo -e "\nZombie killed!"
+            if [ $answer -eq 1 ]; then
+                your_shotgun_ammo=$((your_shotgun_ammo - 2))
+            fi
+            if [ $answer -eq 2 ]; then
+                your_pistol_ammo=$((your_pistol_ammo - 1))
+            fi
+            if [ $answer -eq 3 ]; then
+                your_machine_gun_ammo=$((your_machine_gun_ammo - 5))
+            fi
             item_drop_num=$(shuf -i 0-1 -n 1)
+            echo -e "\nItem drop num : $item_drop_num"
             type_of_drop $item_drop_num
+            echo "Resofreturn = $?"
             if [ $? -eq 0 ]; then
                 echo -e "\nThe zombie did not drop an item"
             elif [ $? -eq 1 ]; then
@@ -154,6 +184,15 @@ while true; do
             fi
         else
             #zombie missed
+            if [ "$answer" -eq 1 ]; then
+                your_shotgun_ammo=$((your_shotgun_ammo - 6))
+            fi
+            if [ "$answer" -eq 2 ]; then
+                your_pistol_ammo=$((your_pistol_ammo - 3))
+            fi
+            if [ "$answer" -eq 3 ]; then
+                your_machine_gun_ammo=$((your_machine_gun_ammo - 10))
+            fi
             echo -e "\nYou missed the zombie! You lost 10HP!"
             your_hp=$((your_hp - 10))
         fi
