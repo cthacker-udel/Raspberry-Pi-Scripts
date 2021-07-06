@@ -94,9 +94,9 @@ echo -e "\nWelcome to the Zombie Survival Game! You are trying to survive the ho
 read -p "Enter your players name : " name
 
 your_hp=100
-your_shotgun_ammo=0
-your_pistol_ammo=0
-your_machine_gun_ammo=0
+your_shotgun_ammo=$(shuf -i 10-30 -n 1)
+your_pistol_ammo=$(shuf -i 15-45 -n 1)
+your_machine_gun_ammo=$(shuf -i 8-100 -n 1) 
 
 while true; do
     echo -e "\nA zombie appears! Choose how to deal with it, here is your ammo status : "
