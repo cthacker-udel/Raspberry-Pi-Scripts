@@ -41,7 +41,7 @@
 - [x] Implementation of Othello game
 
 
-### Bash Script Library
+## Bash Script Library
 
 - [x] Zombie Survival Implementation
 - [x] Generate N prime numbers implementation
