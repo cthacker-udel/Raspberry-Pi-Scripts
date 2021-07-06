@@ -145,11 +145,12 @@ void startGame(pokerCard *deck){
     combinedHand = combineTwoHands(playerHand,tableCards);
     combinedHand2 = combineTwoHands(computerHand,tableCards);
     while(countCards(tableCards) < 7){
-        fprintf(stderr,"\n\nUSER CURRENT HAND :");
+        fprintf(stderr,"\n\nUSER CURRENT HAND + TABLE CARDS : ");
         displayHand(combinedHand);
         char response;
-        fprintf(stderr,"\nFOLD or Call?(f/c)");
-        scanf("%c",&response);
+        do{
+            fprintf(stderr,"\nFOLD or Call?(f/c)");
+        }while(scanf(" %c",&response) != 1);
         if(response == 'f'){
             freePile(playerHand);
             break;
@@ -162,6 +163,9 @@ void startGame(pokerCard *deck){
             combinedHand = combineTwoHands(playerHand,tableCards);
             combinedHand2 = combineTwoHands(computerHand,tableCards);
         }
+        else{
+            fprintf(stderr,"\nInvalid input\n");
+        }
     }
     if(playerHand != NULL){
         int showdownResult = showDown(combinedHand,combinedHand2);
@@ -170,13 +174,16 @@ void startGame(pokerCard *deck){
                 fprintf(stderr,"\nYOU WIN!\n");
                 break;
             case 2:
-                fprintf(stderr,"\nYOU LOST!\n");
+                fprintf(stderr,"\nYOU LOST!\nOPPONENTS HAND : ");
+                displayHand(combinedHand2);
                 break;
             case 3:
-                fprintf(stderr,"\nIT WAS A TIE, AND YOUR HIGH CARD WON!\n");
+                fprintf(stderr,"\nIT WAS A TIE, AND YOUR HIGH CARD WON!\nOPPONENTS HAND :");
+                displayHand(combinedHand2);
                 break;
             case 4:
-                fprintf(stderr,"\nIT WAS A TIE, AND YOUR HIGH CARD LOST!\n");
+                fprintf(stderr,"\nIT WAS A TIE, AND YOUR HIGH CARD LOST!\nOPPONENTS HAND :");
+                displayHand(combinedHand2);
                 break;
             default:
                 fprintf(stderr,"\nRUNNING DEFAULT CASE\n");
@@ -190,98 +197,186 @@ void startGame(pokerCard *deck){
 
 }
 
+int compareHighCards(pokerCard *hand1, pokerCard *hand2){
+    int numCards1 = countCards(hand1);
+    int numCards2 = countCards(hand2);
+    int hand1Arr[numCards1];
+    int hand2Arr[numCards2];
+    pokerCard *tempHead1 = hand1;
+    pokerCard *tempHead2 = hand2;
+    int hand1Index = 0;
+    int hand2Index = 0;
+    while(tempHead1 != NULL){
+        hand1Arr[hand1Index] = tempHead1->rank;
+        tempHead1 = tempHead1->next;
+        hand1Index++;
+    }
+    while(tempHead2 != NULL){
+        hand2Arr[hand2Index] = tempHead2->rank;
+        tempHead2 = tempHead2->next;
+        hand2Index++;
+    }
+    // cocktail sort both arrays
+    int loopVar = 1;
+    while(1){
+    
+        for(int i = 0, j = numCards1-1; i < numCards1-1 && j >= 1; i++,j--){
+            int currI = hand1Arr[i];
+            int forwardI = hand1Arr[i+1];
+            int currJ = hand1Arr[j];
+            int prevJ = hand1Arr[j-1];
+            if(currI > forwardI){
+                hand1Arr[i] = forwardI;
+                hand1Arr[i+1] = currI;
+                loopVar = 0;
+                break;
+            }
+            else if(currJ < prevJ){
+                hand1Arr[j] = prevJ;
+                hand1Arr[j-1] = currJ;
+                loopVar = 0;
+                break;
+            }
+            loopVar = 1;
+        }
+        if(loopVar){
+            break;
+        }
+    }
+    while(1){
+    
+        for(int i = 0, j = numCards2-1; i < numCards2-1 && j >= 1; i++, j--){
+            int currI = hand2Arr[i];
+            int forwardI = hand2Arr[i+1];
+            int currJ = hand2Arr[j];
+            int prevJ = hand2Arr[j-1];
+            if(currI > forwardI){
+                hand2Arr[i] = forwardI;
+                hand2Arr[i+1] = currI;
+                loopVar = 0;
+                break;
+            }
+            else if(currJ < prevJ){
+                hand2Arr[j] = prevJ;
+                hand2Arr[j-1] = currJ;
+                loopVar = 0;
+                break;
+            }
+            loopVar = 1;
+        }
+        if(loopVar){
+            break;
+        }
+
+    }
+
+    for(int i = numCards1-1, j = numCards2-1; i >= 0 && j >= 0; i--,j--){
+        int currI = hand1Arr[i];
+        int currJ = hand2Arr[j];
+        if(currI > currJ){
+            return 3; // players high card is higher
+        }
+        else if(currJ > currI){
+            return 4; // computers high card is higher
+        }
+    }
+    return 0;
+
+}
+
+
 int showDown(pokerCard *hand1, pokerCard *hand2){
     if(royalFlush(hand1) && !royalFlush(hand2)){
         return 1;
     }
     else if(!royalFlush(hand1) && royalFlush(hand2)){
-        return getHighCard(hand1) > getHighCard(hand2)? 3: 4;
+        return 2;
     }
     else if(royalFlush(hand1) && royalFlush(hand2)){
-        return 2;
+        return compareHighCards(hand1,hand2);
     }
     else{
         if(straightFlush(hand1) && !straightFlush(hand2)){
             return 1;
         }
         else if(!straightFlush(hand1) && straightFlush(hand2)){
-            return getHighCard(hand1) > getHighCard(hand2)? 3: 4;
+            return 2;
         }
         else if(straightFlush(hand1) && straightFlush(hand2)){
-            return 2;
+            return compareHighCards(hand1,hand2);
         }
         else{
             if(fourOfAKind(hand1) && !fourOfAKind(hand2)){
                 return 1;
             }
             else if(!fourOfAKind(hand1) && fourOfAKind(hand2)){
-                return getHighCard(hand1) > getHighCard(hand2)? 3: 4;
+                return 2;
             }
             else if(fourOfAKind(hand1) && fourOfAKind(hand2)){
-                return 2;
+                return compareHighCards(hand1,hand2);
             }
             else{
                 if(fullHouse(hand1) && !fullHouse(hand2)){
                     return 1;
                 }
                 else if(!fullHouse(hand1) && fullHouse(hand2)){
-                    return getHighCard(hand1) > getHighCard(hand2)? 3: 4;
+                    return 2;
                 }
                 else if(fullHouse(hand1) && fullHouse(hand2)){
-                    return 2;
+                    return compareHighCards(hand1,hand2);
                 }
                 else{
                     if(isFlush(hand1) && !isFlush(hand2)){
                         return 1;
                     }
                     else if(!isFlush(hand1) && isFlush(hand2)){
-                        return getHighCard(hand1) > getHighCard(hand2)? 3: 4;
+                        return 2;
                     }
                     else if(isFlush(hand1) && isFlush(hand2)){
-                        return 2;
+                        return compareHighCards(hand1,hand2);
                     }
                     else{
                         if(isStraight(hand1) && !isStraight(hand2)){
                             return 1;
                         }
                         else if(!isStraight(hand1) && isStraight(hand2)){
-                            return getHighCard(hand1) > getHighCard(hand2)? 3: 4;
+                            return 2;
                         }
                         else if(isStraight(hand1) && isStraight(hand2)){
-                            return 2;
+                            return compareHighCards(hand1,hand2);
                         }
                         else{
                             if(isThreePair(hand1) && !isThreePair(hand2)){
                                 return 1;
                             }
                             else if(!isThreePair(hand1) && isThreePair(hand2)){
-                                return getHighCard(hand1) > getHighCard(hand2)? 3: 4;
+                                return 2;
                             }
                             else if(isThreePair(hand1) && isThreePair(hand2)){
-                                return 2;
+                                return compareHighCards(hand1,hand2);
                             }
                             else{
                                 if(isTwoPair(hand1) && !isTwoPair(hand2)){
                                     return 1;
                                 }
                                 else if(!isTwoPair(hand1) && isTwoPair(hand2)){
-                                    return getHighCard(hand1) > getHighCard(hand2)? 3: 4;
+                                    return 2;
                                 }
                                 else if(isTwoPair(hand1) && isTwoPair(hand2)){
-                                    return 2;
+                                    return compareHighCards(hand1,hand2);
                                 }
                                 else{
                                     if(isPair(hand1) && !isPair(hand2)){
                                         return 1;
                                     }
                                     else if(!isPair(hand1) && isPair(hand2)){
-                                        return getHighCard(hand1) > getHighCard(hand2)? 3: 4;
-                                    }
-                                    else if(isPair(hand1) && isPair(hand2)){
                                         return 2;
                                     }
+                                    else if(isPair(hand1) && isPair(hand2)){
+                                        return compareHighCards(hand1,hand2);
+                                    }
                                     else{
-                                        return getHighCard(hand1) > getHighCard(hand2)? 3: 4;
+                                        return compareHighCards(hand1,hand2);
                                     }
                                 }
                             }
