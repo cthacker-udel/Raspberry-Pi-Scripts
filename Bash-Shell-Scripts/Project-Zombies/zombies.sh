@@ -14,7 +14,7 @@ random_drop(){
 successful_shot(){
 
     arg=$1
-
+    is_prime $arg
     if [ $arg -eq 1 ]; then
         #shotgun
         rand_num=$(shuf -i 1-100 -n 1)
@@ -34,7 +34,7 @@ successful_shot(){
     elif [ $arg -eq 3 ]; then 
         #machine gun
         rand_num=$(shuf -i 1-100 -n 1)
-        if [ $((rand_num % 2)) -eq 0 -o $((rand_num % 5)) -eq 0 -o $((rand_num % 3)) -eq 0 -o $((rand_num % 2)) -ne 0 ]; then
+        if [ $((rand_num % 2)) -eq 0 -o $((rand_num % 5)) -eq 0 -o $((rand_num % 3)) -eq 0 -o $((rand_num % 2)) -ne 0 -o $? -eq 1 ]; then
             #killed zombie
         else
             #missed zombie
