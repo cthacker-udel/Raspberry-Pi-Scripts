@@ -167,3 +167,30 @@ int lcm(int num1, int num2, int lcmNumber){
 
 
 }
+
+void printOddEven(int start, int end){
+
+    if(start == end){
+
+        if(start % 2 != 0){
+            cout << "Odd : " << start << endl;
+        }
+        else{
+            cout << "Even : " << end << endl;
+        }
+
+    }
+    else{
+        if(start % 2 == 0){
+            cout << "Even : " << start << endl;
+            printOddEven(start+1,end);
+        }
+        else{
+            cout << "Odd : " << start << endl;
+            printOddEven(start+1,end);
+        }
+
+    }
+
+
+}
