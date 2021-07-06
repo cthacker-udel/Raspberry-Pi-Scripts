@@ -138,3 +138,20 @@ void printBinary(int number){
     cout << endl;
 
 }
+
+bool isPrime(int number, int numberCopy){
+
+    if(numberCopy == 1){
+        cout << number << " is prime!" << endl;
+        return true;
+    }
+    else if(number % numberCopy == 0){
+        cout << number << " is not prime!" << endl;
+        return false;
+    }
+    else{
+        return isPrime(number,numberCopy-1);
+    }
+
+
+}
