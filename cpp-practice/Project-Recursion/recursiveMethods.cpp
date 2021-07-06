@@ -62,6 +62,7 @@ int gcd(int number1, int number2){
     else if(number2 > number1){
         gcd(number1,number2 - number1);
     }
+    return 1;
 
 }
 
@@ -74,27 +75,30 @@ int sumDigits(int number){
     }
 }
 
-int max = 0;
+int maxNum = 0;
 
 int largestArr(int *arr, int len){
 
-    if(len == 0){
-        if(*arr > max){
-            max = *arr;
-            return max;
+    
+    if(len <= 1){
+        if(*arr > maxNum){
+            maxNum = *arr;
+            return maxNum;
         }
         else{
-            return max;
+            return maxNum;
         }
     }
     else{
-        if((*arr+len-1) > max){
-            max = *(arr+len-1);
+        if((*arr+len-1) > maxNum){
+            maxNum = *(arr+len-1);
+            largestArr(arr,len-1);
         }
         else{
             largestArr(arr,len-1);
         }
     }
+    return 1;
 
 }
 

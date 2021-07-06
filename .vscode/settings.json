@@ -3,6 +3,7 @@
         "vector": "cpp",
         "iostream": "cpp",
         "ostream": "cpp",
-        "cstdlib": "c"
+        "cstdlib": "c",
+        "limits": "cpp"
     },
 }
