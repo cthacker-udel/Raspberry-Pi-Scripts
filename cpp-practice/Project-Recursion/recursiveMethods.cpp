@@ -155,3 +155,15 @@ bool isPrime(int number, int numberCopy){
 
 
 }
+
+int lcm(int num1, int num2, int lcmNumber){
+
+    if(lcmNumber % num1 == 0 && lcmNumber % num2 == 0){
+        return lcmNumber;
+    }
+    else{
+        return lcm(num1,num2,++lcmNumber);
+    }
+
+
+}
