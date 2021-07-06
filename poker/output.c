@@ -174,13 +174,16 @@ void startGame(pokerCard *deck){
                 fprintf(stderr,"\nYOU WIN!\n");
                 break;
             case 2:
-                fprintf(stderr,"\nYOU LOST!\n");
+                fprintf(stderr,"\nYOU LOST!\nOPPONENTS HAND : ");
+                displayHand(combinedHand2);
                 break;
             case 3:
-                fprintf(stderr,"\nIT WAS A TIE, AND YOUR HIGH CARD WON!\n");
+                fprintf(stderr,"\nIT WAS A TIE, AND YOUR HIGH CARD WON!\nOPPONENTS HAND :");
+                displayHand(combinedHand2);
                 break;
             case 4:
-                fprintf(stderr,"\nIT WAS A TIE, AND YOUR HIGH CARD LOST!\n");
+                fprintf(stderr,"\nIT WAS A TIE, AND YOUR HIGH CARD LOST!\nOPPONENTS HAND :");
+                displayHand(combinedHand2);
                 break;
             default:
                 fprintf(stderr,"\nRUNNING DEFAULT CASE\n");
@@ -193,6 +196,56 @@ void startGame(pokerCard *deck){
     }
 
 }
+
+int compareHighCards(pokerCard *hand1, pokerCard *hand2){
+    int numCards1 = countCards(hand1);
+    int numCards2 = countCards(hand2);
+    int hand1Arr[numCards1];
+    int hand2Arr[numCard2];
+    pokerCard *tempHead1 = hand1;
+    pokerCard *tempHead2 = hand2;
+    int hand1Index = 0;
+    int hand2Index = 0;
+    while(tempHead1 != NULL){
+        hand1Arr[hand1Index] = tempHead1->rank;
+        tempHead1 = tempHead1->next;
+        hand1Index++;
+    }
+    while(tempHead2 != NULL){
+        hand2Arr[hand2Index] = tempHead2->rank;
+        tempHead2 = tempHead2->next;
+        hand2Index++;
+    }
+    // cocktail sort both arrays
+    int loopvar = 1;
+    while(1){
+    
+        for(int i = 0, j = numCards1-1; i < numCards1-1 && j >= 1; i++,j--){
+            int currI = hand1Arr[i];
+            int forwardI = hand1Arr[i+1];
+            int currJ = hand1Arr[j];
+            int prevJ = hand1Arr[j-1];
+            if(currI > forwardI){
+                hand1Arr[i] = forwardI;
+                hand1Arr[i+1] = currI;
+                loopVar = 0;
+                break;
+            }
+            else if(currJ < prevJ){
+                hand1Arr[j] = prevJ;
+                hand1Arr[j-1] = currJ;
+                loopVar = 0;
+                break;
+            }
+            loopVar = 1;
+        }
+        if(loopVar){
+            break;
+        }
+    
+    }
+}
+
 
 int showDown(pokerCard *hand1, pokerCard *hand2){
     if(royalFlush(hand1) && !royalFlush(hand2)){
