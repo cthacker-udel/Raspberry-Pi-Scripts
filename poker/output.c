@@ -242,8 +242,46 @@ int compareHighCards(pokerCard *hand1, pokerCard *hand2){
         if(loopVar){
             break;
         }
-    
     }
+    while(1){
+    
+        for(int i = 0, j = numCards2-1; i < numCards2-1 && j >= 1; i++, j--){
+            int currI = hand2Arr[i];
+            int forwardI = hand2Arr[i+1];
+            int currJ = hand2Arr[j];
+            int prevJ = hand2Arr[j-1];
+            if(currI > forwardI){
+                hand2Arr[i] = forwardI;
+                hand2Arr[i+1] = currI;
+                loopVar = 0;
+                break;
+            }
+            else if(currJ < prevJ){
+                hand2Arr[j] = prevJ;
+                hand2Arr[j-1] = currJ;
+                loopVar = 0;
+                break;
+            }
+            loopVar = 1;
+        }
+        if(loopVar){
+            break;
+        }
+
+    }
+
+    for(int i = numCards1-1, j = numCards2-1; i >= 0 && j >= 0; i--,j--){
+        int currI = hand1Arr[i];
+        int currJ = hand2Arr[j];
+        if(currI > currJ){
+            return 1; // players high card is higher
+        }
+        else if(currJ > currI){
+            return 2; // computers high card is higher
+        }
+    }
+    return 0;
+
 }
 
 
