@@ -145,7 +145,7 @@ bool isPrime(int number, int numberCopy){
         cout << number << " is prime!" << endl;
         return true;
     }
-    else if(number % numberCopy == 0){
+    else if(numberCopy != number && number % numberCopy == 0){
         cout << number << " is not prime!" << endl;
         return false;
     }
