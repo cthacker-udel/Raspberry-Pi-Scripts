@@ -106,6 +106,16 @@ while true; do
     echo -e "\n4) Baseball bat"
     echo -e "\n5) Hand-To-Hand"
     read answer
+    if [ $answer -ne 1 -o $answer -ne 2 -o $answer -ne 3 -o $answer -ne 4 -o $answer -ne 5 ]; then
+        echo -e "\nChoose a correct input 1-5\n"
+    else
+        successful_shot $answer
+        if [ $? -eq 1 ]; then
+            #zombie killed
+        else
+            #zombie missed
+        fi
+    fi
     
 done
 
