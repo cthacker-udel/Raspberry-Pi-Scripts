@@ -52,4 +52,11 @@ read -p "Enter your players name : " name
 
 opponent_hp=0
 your_hp=0
+your_shotgun_ammo=0
+your_pistol_ammo=0
+your_machine_gun_ammo=0
+
+while true; do
+    #zombie appears, prompt is given
+done
 
