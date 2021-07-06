@@ -116,6 +116,6 @@ int factorial(int number){
         return 1;
     }
     else{
-        return number * fact
+        return number * factorial(number-1);
     }
 }
