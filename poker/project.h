@@ -108,3 +108,5 @@ void printRanks(int[],int);
 void displaySuits(pokerCard *);
 
 int showDown(pokerCard *, pokerCard *);
+
+int compareHighCards(pokerCard *,pokerCard *);
