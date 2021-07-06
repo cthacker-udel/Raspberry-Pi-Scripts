@@ -8,8 +8,6 @@ pokerCard *getDeck(){
 
 
 int main(int argc, char *argv[]){
-    openDisplay();
-    openJoystick();
     deck = constructDeck();
     if(argc > 1){
         srand48(atol(argv[1]));
