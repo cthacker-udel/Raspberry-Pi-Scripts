@@ -1,17 +1,4 @@
-#!/bin/bash -x
-
-random_drop(){
-
-    rand_num=$(shuf -i 1-100 -n 1)
-    if [ $((rand_num % 2)) -eq 0 ]; then
-        # drop successful
-        echo "if"
-    else
-        # drop unsuccessful
-        echo "Else"
-    fi
-
-}
+#!/bin/bash
 
 successful_shot(){
 
@@ -77,13 +64,10 @@ is_prime(){
 
 type_of_drop(){
 
-    if [ $1 -eq 1 ]; then
+    if [ $1 -ne 0 ]; then
         # randomize drop
         rand_num=$(shuf -i 1-100 -n 1)
-        echo -e "Rand num : $rand_num"
-        res=$((rand_num % 2))
-        echo "Res = $res"
-        if [ $((rand_num % 2)) -eq 1 ]; then
+        if [ $((rand_num % 2)) -ne 0 ]; then
             # medkit drop
             return 1
         elif [ $((rand_num % 2)) -eq 0 ]; then
@@ -160,25 +144,25 @@ while true; do
             if [ $answer -eq 3 ]; then
                 your_machine_gun_ammo=$((your_machine_gun_ammo - 5))
             fi
-            item_drop_num=$(shuf -i 0-1 -n 1)
-            echo -e "\nItem drop num : $item_drop_num"
+            item_drop_num=$(shuf -i 0-2 -n 1)
             type_of_drop $item_drop_num
             drop_result=$?
             if [ $drop_result -eq 0 ]; then
                 echo -e "\nThe zombie did not drop an item"
             elif [ $drop_result -eq 1 ]; then
-                echo -e "\nThe zombie dropped a medkit, that heals you by 10HP!"
-                your_hp=$((your_hp + 10))
+                rand_hp=$(shuf -i 2-10 -n 1)
+                echo -e "\nThe zombie dropped a medkit, that heals you by ${rand_hp}HP!"
+                your_hp=$((your_hp + rand_hp))
             elif [ $drop_result -eq 2 ]; then
                 rand_ammo=$(shuf -i 10-20 -n 1)
                 echo -e "\nThe zombie dropped $rand_ammo shotgun ammo!"
                 your_shotgun_ammo=$((your_shotgun_ammo + rand_ammo))
             elif [ $drop_result -eq 3 ]; then
-                rand_ammo=$((shuf -i 10-30 -n 1))
+                rand_ammo=$(shuf -i 10-30 -n 1)
                 echo -e "\nThe zombie dropped $rand_ammo pistol ammo!"
                 your_pistol_ammo=$((your_pistol_ammo + rand_ammo))
             elif [ $drop_result -eq 4 ]; then
-                rand_ammo=$((shuf -i 5-40 -n 1))
+                rand_ammo=$(shuf -i 5-40 -n 1)
                 echo -e "\nThe zombie dropped $rand_ammo machine gun ammo!"
                 your_machine_gun_ammo=$((your_machine_gun_ammo + rand_ammo))
             fi
