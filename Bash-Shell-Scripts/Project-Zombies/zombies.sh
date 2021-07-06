@@ -101,8 +101,8 @@ read -p "Enter your players name : " name
 
 your_hp=100
 your_shotgun_ammo=$(shuf -i 4-20 -n 1)
-your_pistol_ammo=$(shuf -i 10-30 -n 1)
-your_machine_gun_ammo=$(shuf -i 8-40 -n 1) 
+your_pistol_ammo=$(shuf -i 10-20 -n 1)
+your_machine_gun_ammo=$(shuf -i 8-15 -n 1) 
 
 while true; do
     if [ $your_hp -le 0 ]; then
@@ -150,19 +150,19 @@ while true; do
             if [ $drop_result -eq 0 ]; then
                 echo -e "\nThe zombie did not drop an item"
             elif [ $drop_result -eq 1 ]; then
-                rand_hp=$(shuf -i 2-10 -n 1)
+                rand_hp=$(shuf -i 1-10 -n 1)
                 echo -e "\nThe zombie dropped a medkit, that heals you by ${rand_hp}HP!"
                 your_hp=$((your_hp + rand_hp))
             elif [ $drop_result -eq 2 ]; then
-                rand_ammo=$(shuf -i 10-20 -n 1)
+                rand_ammo=$(shuf -i 1-15 -n 1)
                 echo -e "\nThe zombie dropped $rand_ammo shotgun ammo!"
                 your_shotgun_ammo=$((your_shotgun_ammo + rand_ammo))
             elif [ $drop_result -eq 3 ]; then
-                rand_ammo=$(shuf -i 10-30 -n 1)
+                rand_ammo=$(shuf -i 1-20 -n 1)
                 echo -e "\nThe zombie dropped $rand_ammo pistol ammo!"
                 your_pistol_ammo=$((your_pistol_ammo + rand_ammo))
             elif [ $drop_result -eq 4 ]; then
-                rand_ammo=$(shuf -i 5-40 -n 1)
+                rand_ammo=$(shuf -i 1-10 -n 1)
                 echo -e "\nThe zombie dropped $rand_ammo machine gun ammo!"
                 your_machine_gun_ammo=$((your_machine_gun_ammo + rand_ammo))
             fi
@@ -177,8 +177,9 @@ while true; do
             if [ "$answer" -eq 3 ]; then
                 your_machine_gun_ammo=$((your_machine_gun_ammo - 10))
             fi
-            echo -e "\nYou missed the zombie! You lost 10HP!"
-            your_hp=$((your_hp - 10))
+            rand_lost_hp=$(shuf -i 10-30 -n 1)
+            echo -e "\nYou missed the zombie! You lost ${rand_lost_hp}HP!"
+            your_hp=$((your_hp - rand_lost_hp))
         fi
     fi
     
