@@ -41,5 +41,13 @@ string Party::check_party_size(Party theParty){
 
 }
 
+float Party::check_party_ratio(Party theParty){
+
+    int numWerewolves = werewolves;
+    int numVampires = vampires *2 ;
+    return (numVampires * 1.0) / numWerewolves;
+
+}
+
 
 
