@@ -51,3 +51,15 @@ float Monster::average_undead_spookiness(vector<Monster> monsters){
 
 
 }
+
+int Monster::count_spooky_monsters(vector<Monster> monsters){
+
+    int count = 0;
+    for(int i = 0; i < monsters.size(); i++){
+        if(monsters.at(i).spookiness >= 2){
+            count++;
+        }
+    }
+    return count;
+
+}
