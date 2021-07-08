@@ -24,3 +24,12 @@ int Costume::total_price(vector<Costume> costumes){
     return total;
 
 }
+
+int Costume::count_sizes(vector<Costume> costumes){
+
+    int total = 0;
+    for(int i = 0; i < costumes.size(); i++){
+        total += costumes.at(i).sizes.size();
+    }
+
+}
