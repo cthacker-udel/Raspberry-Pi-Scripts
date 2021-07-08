@@ -26,3 +26,14 @@ int Monster::count_undead_monsters(vector<Monster> monsters){
     return count;
 
 }
+
+float Monster::average_spookiness(vector<Monster> monsters){
+
+    int numMonsters = monsters.size();
+    float totalSpookiness = 0.0;
+    for(int i = 0; i < monsters.size(); i++){
+        totalSpookiness += monsters.at(i).spookiness;
+    }
+    return totalSpookiness / numMonsters;
+
+}
