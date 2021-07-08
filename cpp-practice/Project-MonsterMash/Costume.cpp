@@ -8,6 +8,13 @@ Costume::Costume(string newLabel, int newPrice, vector<char> newSizes){
 
 }
 
+int Costume::count_costumes(vector<Costume> costumes){
+
+    return costumes.size();
+
+}
+
+
 int Costume::total_price(vector<Costume> costumes){
 
     int total = 0;
