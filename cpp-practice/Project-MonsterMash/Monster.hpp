@@ -20,13 +20,13 @@ class Monster{
 
         int count_undead_monsters(vector<Monster>);
 
-        float average_spookiness(Monster[]);
+        float average_spookiness(vector<Monster>);
 
-        float average_undead_spookiness(Monster[]);
+        float average_undead_spookiness(vector<Monster>);
 
-        int count_spooky_monsters(Monster[]);
+        int count_spooky_monsters(vector<Monster>);
 
-        int count_vampires(Monster[]);
+        int count_vampires(vector<Monster>);
 
 
 };
