@@ -1,11 +1,11 @@
 #include "Monster.hpp"
 
-Monster::Monster(){
+Monster::Monster(string newName, string newKind, int newSpookiness, bool newUndead){
 
-    name = "";
-    kind = "";
-    spookiness = 0;
-    undead = false;
+    name = newName;
+    kind = newKind;
+    spookiness = newSpookiness;
+    undead = newUndead;
 
 }
 

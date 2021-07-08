@@ -14,7 +14,7 @@ class Monster{
 
     public:
 
-        Monster();
+        Monster(string,string,int,bool);
 
         int countMonsters(vector<Monster>);
 

@@ -1,11 +1,11 @@
 #include "Party.hpp"
 
-Party::Party(){
+Party::Party(string newType,int newWerewolves,int newVampires,int newWitches){
 
-    werewolves = 0;
-    vampires = 0;
-    witches = 0;
-    type = "";
+    werewolves = newWerewolves;
+    vampires = newVampires;
+    witches = newWitches;
+    type = newType;
 
 }
 

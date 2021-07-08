@@ -12,7 +12,7 @@ class Party{
 
     public:
 
-        Party();
+        Party(string,int,int,int);
 
         int sumGuests(Party);
 
