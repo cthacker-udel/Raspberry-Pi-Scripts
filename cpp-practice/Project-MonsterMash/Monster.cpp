@@ -37,3 +37,17 @@ float Monster::average_spookiness(vector<Monster> monsters){
     return totalSpookiness / numMonsters;
 
 }
+
+float Monster::average_undead_spookiness(vector<Monster> monsters){
+
+    int numUndead = count_undead_monsters(monsters);
+    float totalUndeadSpookiness = 0.0;
+    for(int i = 0; i < monsters.size(); i++){
+        if(monsters.at(i).undead){
+            totalUndeadSpookiness += monsters.at(i).spookiness;
+        }
+    }
+    return totalUndeadSpookiness / numUndead;
+
+
+}
