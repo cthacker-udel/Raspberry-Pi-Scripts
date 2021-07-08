@@ -2,6 +2,7 @@
 #include <cmath>
 #include <iostream>
 #include <stdlib.h>
+#include <vector>
 using namespace std;
 
 class Monster{
@@ -15,7 +16,7 @@ class Monster{
 
         Monster();
 
-        int countMonsters(Monster[]);
+        int countMonsters(vector<Monster>);
 
         int count_undead_monsters(Monster[]);
 
