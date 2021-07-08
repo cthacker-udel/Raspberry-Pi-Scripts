@@ -9,11 +9,11 @@ class Costume{
 
     string label;
     int price;
-    char size;
+    vector<char> sizes;
 
     public:
 
-        Costume(string,int,char);
+        Costume(string,int,vector<char>);
 
         int count_costumes(vector<Costume>);
 
