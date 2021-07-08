@@ -43,3 +43,16 @@ int Costume::max_price(vector<Costume> costumes){
     return theMax;
 
 }
+
+string Costume::most_expensive_costume(vector<Costume> costumes){
+
+    int theMax = max_price(costumes);
+    string maxLabel;
+    for(int i = 0; i < costumes.size(); i++){
+        if(costumes.at(i).price == theMax){
+            maxLabel = costumes.at(i).label;
+        }
+    }
+    return maxLabel;
+
+}
