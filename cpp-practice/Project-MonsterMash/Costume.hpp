@@ -13,9 +13,23 @@ class Costume{
 
     public:
 
-        Costume();
+        Costume(string,int,char);
 
-        
+        int count_costumes(vector<Costume>);
+
+        int total_price(vector<Costume>);
+
+        int count_sizes(vector<Costume>);
+
+        int max_price(vector<Costume>);
+
+        string most_expensive_costume(vector<Costume>);
+
+        string find_last_medium(vector<Costume>);
+
+        string find_first_small(vector<Costume>);
+
+
 
 
 };
