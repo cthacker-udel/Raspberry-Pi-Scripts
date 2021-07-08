@@ -56,3 +56,18 @@ string Costume::most_expensive_costume(vector<Costume> costumes){
     return maxLabel;
 
 }
+
+string Costume::find_last_medium(vector<Costume> costumes){
+
+    string lastMedium;
+    for(int i = costumes.size()-1; i >= 0; i--){
+        vector<char> theSizes = costumes.at(i).sizes;
+        for(int j = 0; j < theSizes.size(); j++){
+            if(theSizes.at(j) == 'M'){
+                return costumes.at(i).label;
+            }
+        }
+    }
+    return "";
+
+}
