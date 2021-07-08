@@ -33,3 +33,13 @@ int Costume::count_sizes(vector<Costume> costumes){
     }
 
 }
+
+int Costume::max_price(vector<Costume> costumes){
+
+    int theMax = 0;
+    for(int i = 0; i < costumes.size(); i++){
+        theMax = fmax(theMax,costumes.at(i).price);
+    }
+    return theMax;
+
+}
