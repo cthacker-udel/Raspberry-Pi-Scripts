@@ -14,7 +14,7 @@
 /* down and you'll see the constructors)                      */
 /**************************************************************/
 /********************* method 1 *******************************/
-void AVL::printTreeIO(TNode *tmp) {
+void AVL::printTreePost(TNode *tmp) {
 	if (tmp == NULL) {
 		return;
 	}
@@ -24,7 +24,7 @@ void AVL::printTreeIO(TNode *tmp) {
 	}
 }
 /********************* method 2 *******************************/
-void AVL::printTreePost(TNode *tmp) {
+void AVL::printTreePre(TNode *tmp) {
 	if (tmp == NULL) {
 		return;
 	}
@@ -81,7 +81,7 @@ TNode *AVL::find(string a) {
 	return NULL;
 }
 /********************* method 4 *******************************/
-void AVL::printTreePre(TNode *tmp) {
+void AVL::printTreeIO(TNode *tmp) {
 	if (tmp == NULL) {
 		return;
 	}
