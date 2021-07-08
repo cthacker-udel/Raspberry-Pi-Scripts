@@ -6,5 +6,6 @@ int main(void){
     cout << "The factorial of 4 is : " << factorial_four << endl;
     printBinary(312);
     isPrime(12,12);
+    printOddEven(1,30);
 
 }
