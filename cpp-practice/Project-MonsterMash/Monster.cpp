@@ -63,3 +63,15 @@ int Monster::count_spooky_monsters(vector<Monster> monsters){
     return count;
 
 }
+
+int Monster::count_vampires(vector<Monster> monsters){
+
+    int count = 0;
+    for(int i = 0; i < monsters.size(); i++){
+        if(monsters.at(i).kind.compare("vampire") == 0){
+            count++;
+        }
+    }
+    return count;
+
+}
