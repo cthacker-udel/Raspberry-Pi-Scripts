@@ -7,3 +7,13 @@ Costume::Costume(string newLabel, int newPrice, vector<char> newSizes){
     sizes = newSizes;
 
 }
+
+int Costume::total_price(vector<Costume> costumes){
+
+    int total = 0;
+    for(int i = 0; i < costumes.size(); i++){
+        total += costumes.at(i).price;
+    }
+    return total;
+
+}
