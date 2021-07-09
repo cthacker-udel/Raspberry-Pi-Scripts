@@ -19,3 +19,22 @@ int Grave::count_grave_all(vector<Grave> graves){
     return count;
 
 }
+
+int Grave::count_grave_characters(vector<Grave> graves){
+
+    int count = 0;
+    for(int i = 0; i < graves.size(); i++){
+
+        string theMsg = graves.at(i).message;
+        for(int j = 0; j < theMsg.length(); j++){
+            char theChar = theMsg.at(j);
+            if(theChar != ' ' && theChar != '\n'){
+                count++;
+            }
+        }
+
+    }
+    return count;
+}
+
+
