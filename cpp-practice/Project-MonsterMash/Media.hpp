@@ -12,6 +12,8 @@ class Media{
 
     public:
 
+        string getKind();
+
         Media(string,string,int);
 
         int total_duration(vector<Media>);

@@ -60,3 +60,26 @@ string Media::longest_kind(vector<Media> medias){
     return "";
 
 }
+
+string Media::getKind(){
+
+    return kind;
+
+}
+
+bool same_kind_of_media(vector<Media> medias){
+
+    if(medias.size() < 1){
+        return true;
+    }
+    else{
+        string firstKind = medias.at(0).getKind();
+        for(int i = 0; i < medias.size(); i++){
+            if(medias.at(i).getKind().compare(firstKind) != 0){
+                return false;
+            }
+        }
+        return true;
+    }
+
+}
