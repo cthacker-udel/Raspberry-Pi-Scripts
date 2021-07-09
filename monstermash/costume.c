@@ -33,3 +33,18 @@ int count_sizes(costume *costumes, int len){
     return total;
 
 }
+
+int max_price(costume *costumes, int len){
+
+    int max_price = 0;
+    for(int i = 0; i < len; i++){
+
+        costume theCostume = *(costumes+i);
+        if(max_price < theCostume.price){
+            max_price = theCostume.price;
+        }
+
+    }
+    return max_price;
+
+}
