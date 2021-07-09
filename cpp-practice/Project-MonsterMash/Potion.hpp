@@ -15,6 +15,8 @@ class Potion{
 
         Potion(string,vector<Ingredient>,int);
 
+        int getTimeRequired();
+
         int total_ingredients(vector<Potion>);
 
         int count_rare_ingredients(vector<Potion>);

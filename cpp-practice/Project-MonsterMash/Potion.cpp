@@ -72,3 +72,23 @@ vector<string> Potion::get_ingredients(vector<Potion> potions){
 
 }
 
+int Potion::getTimeRequired(){
+
+    return timeRequired;
+
+}
+
+int Potion::get_brewing_time(vector<Potion> potions){
+
+    int totalBrewTime = 0;
+
+    for(int i = 0; i < potions.size(); i++){
+
+        Potion thePotion = potions.at(i);
+        totalBrewTime += thePotion.getTimeRequired();
+
+    }
+
+    return totalBrewTime;
+    
+}
