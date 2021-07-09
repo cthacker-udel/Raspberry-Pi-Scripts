@@ -66,3 +66,19 @@ float average_undead_spookiness(monster *theMonsters, int len){
 
 
 }
+
+int count_spooky_monsters(monster *theMonsters, int len){
+
+    int count = 0;
+    for(int i = 0; i < len; i++){
+
+        monster theMonster = *(theMonsters+i);
+        if(theMonster.spookyiness >= 2){
+            count++;
+        }
+
+    }
+    return count;
+
+}
+
