@@ -16,3 +16,9 @@ int were_only_werewolves(party theParty){
     }
 
 }
+
+int total_folks(party theParty){
+
+    return theParty.werewolves + (theParty.vampires * 2) + (theParty.witches * 2);
+
+}
