@@ -90,5 +90,21 @@ int Potion::get_brewing_time(vector<Potion> potions){
     }
 
     return totalBrewTime;
-    
+
+}
+
+float Potion::brew_time_per_ingredient(vector<Potion> potions){
+
+    float totalBrewingTime = get_brewing_time(potions) * 1.0;
+    int totalIngredients = total_ingredients(potions);
+
+    if(totalIngredients == 0){
+        return 0.0;
+    }
+    else{
+
+        return totalBrewingTime / totalIngredients;
+
+    }
+
 }
