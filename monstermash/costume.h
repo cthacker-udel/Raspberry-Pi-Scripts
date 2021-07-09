@@ -4,7 +4,11 @@ typedef struct theCostume{
 
     char *label;
     int price;
-    char **sizes;
+    int numSmall;
+    int numMedium;
+    int numLarge;
+    int numXL;
+    int numXXL;
 
 }costume;
 
