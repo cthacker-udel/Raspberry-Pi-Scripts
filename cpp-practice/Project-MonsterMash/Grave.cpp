@@ -38,3 +38,9 @@ int Grave::count_grave_characters(vector<Grave> graves){
 }
 
 
+int Grave::estimate_grave_cost(vector<Grave> graves){
+
+    int totalGraveChars = count_grave_characters(graves);
+    return totalGraveChars * 2;
+
+}
