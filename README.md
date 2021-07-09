@@ -52,7 +52,7 @@
 
 Checkers functionality:
 
-- [] Implement double move for pieces
+- Implement double move for pieces
 - [x] Implement ability to move backwards and forwards between each team's pieces
 
 Poker functionality:
