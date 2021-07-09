@@ -6,3 +6,13 @@ int sum_guests(party theParty){
 
 }
 
+int were_only_werewolves(party theParty){
+
+    if(theParty.vampires > 0 || theParty.witches > 0){
+        return 0;
+    }
+    else{
+        return 1;
+    }
+
+}
