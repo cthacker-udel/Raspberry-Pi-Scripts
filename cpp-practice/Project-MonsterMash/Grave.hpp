@@ -2,6 +2,7 @@
 #include <vector>
 #include <cmath>
 #include <iostream>
+#include <ctype.h>
 using namespace std;
 
 class Grave{

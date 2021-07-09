@@ -44,3 +44,28 @@ int Grave::estimate_grave_cost(vector<Grave> graves){
     return totalGraveChars * 2;
 
 }
+
+int Grave::count_shouters(vector<Grave> graves){
+
+    bool foundUpper = false;
+    int count = 0;
+
+    for(int i = 0; i < graves.size(); i++){
+        string theMsg = graves.at(i).message;
+        for(int j = 0; j < theMsg.size(); j++){
+            char theChar = theMsg.at(j);
+            if(isupper(theChar)){
+                foundUpper = true;
+            }
+            else{
+                foundUpper = false;
+                break;
+            }
+        }
+        if(foundUpper){
+            count++;
+            foundUpper = false;
+        }    
+    }
+    return count;
+}
