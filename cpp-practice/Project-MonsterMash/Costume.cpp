@@ -71,3 +71,18 @@ string Costume::find_last_medium(vector<Costume> costumes){
     return "";
 
 }
+
+string Costume::find_first_small(vector<Costume> costumes){
+
+    string firstSmall;
+    for(int i = 0; i < costumes.size(); i++){
+        vector<char> theSizes = costumes.at(i).sizes;
+        for(int j = 0; j < theSizes.size(); j++){
+            if(theSizes.at(j) == 'S'){
+                return costumes.at(i).label;
+            }
+        }
+    }
+    return "";
+
+}
