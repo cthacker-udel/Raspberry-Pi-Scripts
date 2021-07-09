@@ -15,5 +15,7 @@ class Ingredient{
 
         bool isRare();
 
+        string getName();
+
 
 };

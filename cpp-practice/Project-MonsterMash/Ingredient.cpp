@@ -12,3 +12,9 @@ bool Ingredient::isRare(){
     return rare;
 
 }
+
+string Ingredient::getName(){
+
+    return name;
+
+}

@@ -36,3 +36,39 @@ int Potion::count_rare_ingredients(vector<Potion> potions){
     return count;
 
 }
+
+vector<string> Potion::get_ingredients(vector<Potion> potions){
+
+    bool foundIngredient = true;
+
+    vector<string> theIngredients;
+    for(int i = 0; i < potions.size(); i++){
+
+        Potion thePotion = potions.at(i);
+        vector<Ingredient> thePotionsIngredients = thePotion.ingredients;
+        
+        for(int j = 0; j < thePotionsIngredients.size(); j++){
+            
+            string ingredient_one = thePotionsIngredients.at(j).getName();
+            
+            for(int k = 0; k < theIngredients.size(); k++){
+
+                string ingredient_two = theIngredients.at(k);
+
+                if(ingredient_one.compare(ingredient_two) == 0){
+                    foundIngredient = false;
+                    break;
+                }
+                foundIngredient = true;
+
+            }
+            if(foundIngredient){
+                theIngredients.push_back(ingredient_one);
+            }
+        }
+
+    }
+    return theIngredients;
+
+}
+
