@@ -48,3 +48,21 @@ int max_price(costume *costumes, int len){
     return max_price;
 
 }
+
+
+char *most_expensive_costume(costume *costumes, int len){
+
+    int theMaxPrice = max_price(costumes,len);
+
+    char *maxName;
+    for(int i = 0; i < len; i++){
+
+        costume theCostume = *(costumes+i);
+        if(theCostume.price == theMaxPrice){
+            maxName = theCostume.label;
+        }
+
+    }
+    return maxName;
+
+}
