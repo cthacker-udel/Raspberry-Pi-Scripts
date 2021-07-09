@@ -66,3 +66,18 @@ char *most_expensive_costume(costume *costumes, int len){
     return maxName;
 
 }
+
+char *find_last_medium(costume *costumes, int len){
+
+    for(int i = len-1; i >= 0; i--){
+
+        costume theCostume = *(costumes+i);
+        if(theCostume.numMedium > 0){
+            return theCostume.label;
+        }
+
+    }
+    return "";
+
+
+}
