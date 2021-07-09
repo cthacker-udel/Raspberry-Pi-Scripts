@@ -108,3 +108,63 @@ float Potion::brew_time_per_ingredient(vector<Potion> potions){
     }
 
 }
+
+vector<Ingredient> Potion::getIngredients(){
+
+    return ingredients;
+
+}
+
+string Potion::getEffect(){
+
+    return effect;
+
+}
+
+string Potion::get_rarest_potion(vector<Potion> potions){
+
+    int maxRareIngredient = 0;
+
+    for(int i = 0; i < potions.size(); i++){
+
+        Potion thePotion = potions.at(i);
+        vector<Ingredient> ingredients = thePotion.ingredients;
+        int count = 0;
+        for(int j = 0; j < ingredients.size(); j++){
+
+            Ingredient theIngredient = ingredients.at(j);
+            if(theIngredient.isRare()){
+                count++;
+            }
+
+        }
+        maxRareIngredient = fmax(maxRareIngredient,count);
+
+    }
+
+    int count = 0;
+
+    for(int i = 0; i < potions.size(); i++){
+
+        Potion thePotion = potions.at(i);
+        vector<Ingredient> ingredients = thePotion.ingredients;
+        int count = 0;
+        for(int j = 0; j < ingredients.size(); j++){
+            
+            Ingredient theIngredient = ingredients.at(j);
+            if(theIngredient.isRare()){
+                count++;
+            }
+
+        }
+        if(count == maxRareIngredient){
+            return thePotion.effect;
+        }
+
+    }
+    return "";
+
+
+
+
+}
