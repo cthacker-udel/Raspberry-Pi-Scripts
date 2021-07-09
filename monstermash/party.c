@@ -38,3 +38,13 @@ char *check_party_size(party theParty){
 
 
 }
+
+float check_party_ratio(party theParty){
+
+    if(theParty.werewolves == 0 || theParty.vampires == 0){
+        return 0;
+    }
+
+    return theParty.werewolves * 1.0 / theParty.vampires;
+
+}
