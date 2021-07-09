@@ -15,8 +15,8 @@ int count_undead_monsters(monster *,int);
 
 float average_spookiness(monster *,int);
 
-float average_undead_spookiness(monster[],int);
+float average_undead_spookiness(monster *,int);
 
-int count_spooky_monsters(monster[],int);
+int count_spooky_monsters(monster *,int);
 
-int count_vampires(monster[],int);
+int count_vampires(monster *,int);
