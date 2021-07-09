@@ -56,3 +56,16 @@ int Treat::count_chocolates(vector<Treat> treats){
     return count;
 
 }
+
+int Treat::get_choco_quantity(vector<Treat> treats){
+
+    int total = 0;
+    for(int i = 0; i < treats.size(); i++){
+        if(treats.at(i).chocolate){
+            total += treats.at(i).quantity;
+        }
+    }
+    return total;
+
+}
+
