@@ -29,3 +29,17 @@ float Treat::find_most_calorific_ratio(vector<Treat> treats){
     return max;
 
 }
+
+string Treat::find_most_calorific(vector<Treat> treats){
+    
+    string mostCalorific;
+    float theMax = find_most_calorific_ratio(treats);
+    for(int i = 0; i < treats.size(); i++){
+        Treat theTreat = treats.at(i);
+        if(theTreat.calories * 1.0 / theTreat.quantity == theMax){
+            return theTreat.name;
+        }
+    }
+    return "";
+
+}
