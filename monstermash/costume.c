@@ -81,3 +81,17 @@ char *find_last_medium(costume *costumes, int len){
 
 
 }
+
+char *find_first_small(costume *costumes, int len){
+
+    for(int i = 0; i < len; i++){
+
+        costume theCostume = *(costumes + i);
+        if(theCostume.numSmall > 0){
+            return theCostume.label;
+        }
+
+    }
+    return "";
+
+}
