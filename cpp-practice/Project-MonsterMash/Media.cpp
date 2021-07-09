@@ -17,3 +17,30 @@ int Media::total_duration(vector<Media> medias){
     return duration;
 
 }
+
+int Media::count_not_long(vector<Media> medias){
+
+    int count = 0;
+    for(int i = 0; i < medias.size(); i++){
+
+         if(medias.at(i).duration < 100){
+             count++;
+         }
+
+    }
+    return count;
+
+}
+
+int Media::take_until_long(vector<Media> medias){
+
+    int count = 0;
+    for(int i = 0; i < medias.size(); i++){
+        if(medias.at(i).duration >= 100){
+            return count;
+        }
+        count++;
+    }
+    return count;
+
+}
