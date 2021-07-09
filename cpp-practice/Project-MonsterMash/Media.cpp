@@ -44,3 +44,19 @@ int Media::take_until_long(vector<Media> medias){
     return count;
 
 }
+
+string Media::longest_kind(vector<Media> medias){
+
+    int max = 0;
+    for(int i = 0; i < medias.size(); i++){
+        max = fmax(max,medias.at(i).duration);
+    }
+
+    for(int i = 0; i < medias.size(); i++){
+        if(medias.at(i).duration == max){
+            return medias.at(i).kind;
+        }
+    }
+    return "";
+
+}
