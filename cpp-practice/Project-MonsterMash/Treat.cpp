@@ -43,3 +43,16 @@ string Treat::find_most_calorific(vector<Treat> treats){
     return "";
 
 }
+
+int Treat::count_chocolates(vector<Treat> treats){
+
+    int count = 0;
+    for(int i = 0; i < treats.size(); i++){
+        Treat theTreat = treats.at(i);
+        if(theTreat.chocolate){
+            count++;
+        }
+    }
+    return count;
+
+}
