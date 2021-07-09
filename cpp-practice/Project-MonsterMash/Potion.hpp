@@ -15,7 +15,18 @@ class Potion{
 
         Potion(string,vector<Ingredient>,int);
 
-        
+        int total_ingredients(vector<Potion>);
+
+        int count_rare_ingredients(vector<Potion>);
+
+        vector<string> get_ingredients(vector<Potion>);
+
+        int get_brewing_time(vector<Potion>);
+
+        float brew_time_per_ingredient(vector<Potion>);
+
+        string get_rarest_potion(vector<Potion>);
+
 
 
 
