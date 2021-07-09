@@ -1,3 +1,5 @@
+#include <string.h>
+
 typedef struct theMonster{
 
     char *name;
