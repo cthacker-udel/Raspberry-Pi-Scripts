@@ -1,3 +1,6 @@
+#include <string.h>
+#include <ctype.h>
+
 typedef struct theGrave{
 
     char *name;
