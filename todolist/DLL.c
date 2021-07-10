@@ -28,27 +28,29 @@ void push(char *name, int priority, int hr, int min){
     }
     else{
         if(priority == 3){
-            dNode *newNode = (dNode *)malloc(sizeof(dNode));
-            newNode->theTask = (task *)malloc(sizeof(task));
-            strcpy(newNode->theTask->name,name);
-            newNode->theTask->id = rand() % 3000;
-            newNode->theTask->priority = priority;
-            newNode->next = NULL;
-            newNode->theTask->hr = hr;
-            newNode->theTask->min = min;
+            dNode *newNode = createNode(name,priority,hr,min);
             theList.last->next = newNode;
             newNode->prev = theList.last;
+            theList.last = newNode;
         }
         else{
-
+            
+            dNode *newNode = createNode(name,priority,hr,min);
             dNode *tempLast = theList.last;
             while(tempLast != NULL){
 
-                if()
+                if(tempLast->theTask->priority == newNode->theTask->priority){
+
+                    newNode->prev = tempLast;
+                    newNode->next = tempLast->next;
+                    tempLast->next->prev = newNode;
+                    return;
+
+                }
 
             }
-
-
+            newNode->next = theList.first;
+            theList.first = newNode;
 
         }
     }
