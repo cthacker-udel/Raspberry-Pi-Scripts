@@ -12,7 +12,6 @@ typedef struct theList{
     int totMins;
 
 }DLL;
-//
 
 void push(char *, int, int, int);
 

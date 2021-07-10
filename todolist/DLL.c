@@ -95,3 +95,47 @@ int remove(int taskId){
     }
 }
 
+void moveUp(int tn){
+
+    if(theList.first == NULL){
+        return;
+    }
+    else{
+
+        dNode *tempLast = theList.last;
+        while(tempLast != NULL){
+
+            if(tempLast->theTask->id == theList.first->theTask->id){
+                // remove head
+                tempLast->prev = theList.last;
+                theList.first = tempLast->next;
+                theList.first->prev = NULL;
+                tempLast->next = NULL;
+                theList.last = tempLast;
+                tempLast->theTask->priority = tempLast->prev->theTask->priority;
+                return;
+            }
+            if(tempLast->theTask->id == theList.last->theTask->id){
+                // move up tail
+                
+            }
+
+            if(tempLast->theTask->id == tn){
+
+                dNode *tempNode = tempLast->prev;
+                tempLast->prev = tempLast->prev->prev;
+                tempLast->prev->next = tempLast;
+                tempLast->next = tempNode;
+                tempNode->prev = tempLast;
+                tempLast->theTask->priority = tempLast->next->theTask->priority;
+
+            }
+            tempLast = tempLast->prev;
+
+        }
+
+    }
+
+
+}
+
