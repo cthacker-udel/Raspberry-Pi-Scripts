@@ -22,13 +22,7 @@ dNode *createNode(char *taskName, int priority, int hr, int min){
 void push(char *name, int priority, int hr, int min){
 
     if(theList.first == NULL || theList.last == NULL){
-        dNode *newNode = (dNode *)malloc(sizeof(dNode));
-        newNode->theTask = (task *)malloc(sizeof(task));
-        strcpy(newNode->theTask->name,name);
-        newNode->theTask->id = rand() % 3000;
-        newNode->theTask->priority = priority;
-        newNode->theTask->hr = hr;
-        newNode->theTask->min = min;
+        dNode *newNode = createNode(name,priority,hr,min);
         theList.first = newNode;
         theList.last = newNode;
     }
