@@ -23,7 +23,37 @@ Pitcher::Pitcher(){
 }
 
 Pitcher::~Pitcher(){
-    
+
     delete this;
+
+}
+
+int Pitcher::getAge(){
+
+    return this->age;
+
+}
+
+int Pitcher::getPitches(){
+
+    return this->pitches;
+
+}
+
+int Pitcher::getStrikes(){
+
+    return this->strikes;
+
+}
+
+int Pitcher::getBalls(){
+
+    return this->balls;
+
+}
+
+int Pitcher::getNoHitters(){
+
+    return this->noHitters;
 
 }
