@@ -13,4 +13,4 @@ typedef struct theTask{
 }task;
 
 
-void printTask();
+void printTask(task);
