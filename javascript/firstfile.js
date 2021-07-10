@@ -151,3 +151,24 @@ const default_values = (the_default="defaultval",two="twovals") => {
 };
 
 default_values("one val","tt");
+
+
+const multiply = (factor) => {
+
+    return number => number * factor;
+
+}
+
+const divide = (value) => {
+
+    return number => number / value;
+
+
+}
+
+
+let first = multiply(10);
+console.log(first(5));
+
+let second = divide(10);
+console.log(second(100));
