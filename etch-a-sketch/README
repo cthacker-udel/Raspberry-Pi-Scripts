@@ -1,0 +1,36 @@
+Cameron Thacker - cthacker - 7022849
+
+Treavien Holley - tholley - 702468968
+
+##########
+# PROJECT
+##########
+
+Etch-a-sketch
+
+#########
+# INPUTS
+#########
+
+Joystick
+
+Accelerometer
+
+##########
+# OUTPUTS
+##########
+
+Framebuffer
+
+##########
+# METHODS
+##########
+
+Reference project.h
+
+##############
+# DESCRIPTION
+##############
+
+This project is a replica of the game etch-a-sketch, where the user draws images on a tablet, and then shakes the tablet to erase all of the drawing, and start again from scratch. This project achieves the replication by utilizing the
+inputs of the Joystick, and the Accelerometer, the source code for the implementation is located in input.c, but to summarize, the joystick determines which pixel you are drawing on, and to switch to the next color, you must press in on the joystick. The shaking mechanism works by tracking the previous accelerometer coordinates and comparing them to the current, and if the change between x,y,or z coordinates denotes a shake, then the framebuffer is cleared. The main function utilizes by checking the joystick, to move the cursor around the sense hat, and also checking the acceleration constantly, comparing the absolute value between the previous accelerometer coordinates, and the current coordinates, and checking if a shake occured, if it did, the sense hat is cleared.

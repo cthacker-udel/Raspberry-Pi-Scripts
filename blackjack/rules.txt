@@ -1,0 +1,37 @@
+In this activity, you'll design and implement a (simplified) game of
+"21/blackjack" using multiple C program files, C structures,
+C pointers, and memory allocation (malloc). 
+
+The complete game will work as follows:
+
+1) A "deck" of cards is created and "shuffled" (randomized). Note:
+   this deck will be a linked-list of "card" structs as defined in
+   "card.h"
+2) A (human) player and a (computer) dealer each will have a "hand"
+   of cards (a pointer to a linked-list of cards). 
+3) The player will be "dealt" two cards. The dealer will be "dealt" one.
+4) The player will be asked to "hit" or "stand". They can type 'h', 'H',
+   or 'hit' to hit; 's', 'S', or 'stand' to stand. 
+   4.1) If they "hit", another card is dealt (added to their hand) and
+        shown.  If the total value of cards exceeds 21, the player loses
+        and the game is over (go to step 6). Otherwise, go back to #4
+   4.2) If they "stand", then the player's score is the sum of the value
+        of their cards.
+5) If the player has not lost, then the dealer keeps getting dealt cards
+   until their hand's total is 17 or greater.
+   5.1) If the dealer's hand exceeds 21, the player wins, and the game is
+        over.
+   5.2) Otherwise, the winner is the hand with the greater total sum. If
+        both hands have the same sum, the dealer wins.
+6) When the game is over, the program should print "Won!" or "Lost!"
+   according to whether the player won or lost.
+
+Note: this is a simplified version of Blackjack/21.
+The rank of a card is just a number between 1-13 (inclusive). 11-13 are
+*not* termed "Jack", "Queen", or "King", and a 1 is not termed "Ace".
+1s are always only worth 1. The maximum value of a card is 10 (so 10-13
+all score 10).
+
+All cards are immediately printed when dealt in the form "RankSuit" as:
+"9C", "11H". Suits are C, D, H, S. Suits do not come into play, but must
+be recorded and printed.
