@@ -3,7 +3,7 @@
 DLL theList;
 
 dNode *createNode(char *taskName, int priority, int hr, int min){
-    
+
     srand(time(NULL));
     dNode *newNode = (dNode *)malloc(sizeof(dNode));
     newNode->theTask = (task *)malloc(sizeof(task));
@@ -13,6 +13,8 @@ dNode *createNode(char *taskName, int priority, int hr, int min){
     newNode->theTask->hr = hr;
     newNode->theTask->min = min;
     newNode->theTask->id = rand() % 3142;
+    newNode->next = NULL;
+    newNode->prev = NULL;
     return newNode;
 
 }
