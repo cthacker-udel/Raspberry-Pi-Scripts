@@ -194,3 +194,13 @@ const triangleArea = (base,height) => {
     return (base * height) / 2;
 
 }
+
+const rotateString = (string) => {
+
+    let currString = String(string);
+    let lastCharacter = currString.charAt(currString.length-1);
+    currString = lastCharacter + currString.substr(0,currString.length-1);
+    return currString;
+
+
+}
