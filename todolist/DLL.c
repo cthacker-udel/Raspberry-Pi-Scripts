@@ -16,7 +16,6 @@ void push(char *name, int priority, int hr, int min){
         theList.last = newNode;
     }
     else{
-
         dNode *newNode = (dNode *)malloc(sizeof(dNode));
         newNode->theTask = (task *)malloc(sizeof(task));
         strcpy(newNode->theTask->name,name);
@@ -27,8 +26,28 @@ void push(char *name, int priority, int hr, int min){
         newNode->theTask->min = min;
         theList.last->next = newNode;
         newNode->prev = theList.last;
+    }
+
+}
+
+task *pop(){
+
+    if(theList.first == NULL){
+        return NULL;
+    }
+    else{
+
+        dNode *theNode = theList.first;
+        theList.first = theList.first->next;
+        task *theTask = theNode->theTask;
+        free(theNode);
+        return theTask;
 
     }
+
+
+
+
 
 }
 
