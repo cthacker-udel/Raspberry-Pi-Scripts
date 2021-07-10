@@ -45,5 +45,11 @@ int count_grave_characters(grave *graves, int len){
     }
     return total;
 
+}
+
+int estimate_grave_cost(grave *graves, int len){
+
+    int total = count_grave_characters(graves,len) * 2;
+    return total;
 
 }
