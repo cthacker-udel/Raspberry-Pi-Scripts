@@ -6,16 +6,12 @@ using namespace std;
 
 class Pitcher{
 
-    string name;
-    int age;
     int pitches;
     int strikes;
     int balls;
     int noHitters;
 
     public:
-
-        Pitcher(string);
 
         Pitcher();
 

@@ -1,20 +1,7 @@
 #include "Pitcher.hpp"
 
-Pitcher::Pitcher(string newName){
-
-    this->name = newName;
-    this->age = 0;
-    this->pitches =0;
-    this->strikes = 0;
-    this->balls = 0;
-    this->noHitters = 0;
-
-}
-
 Pitcher::Pitcher(){
 
-    this->name = "Ron Johnson";
-    this->age = 0;
     this->pitches = 0;
     this->strikes = 0;
     this->balls = 0;
@@ -25,12 +12,6 @@ Pitcher::Pitcher(){
 Pitcher::~Pitcher(){
 
     delete this;
-
-}
-
-int Pitcher::getAge(){
-
-    return this->age;
 
 }
 
@@ -55,12 +36,6 @@ int Pitcher::getBalls(){
 int Pitcher::getNoHitters(){
 
     return this->noHitters;
-
-}
-
-void Pitcher::setAge(int newAge){
-
-    this->age = newAge;
 
 }
 
