@@ -117,7 +117,12 @@ void moveUp(int tn){
             }
             if(tempLast->theTask->id == theList.last->theTask->id){
                 // move up tail
-                
+                dNode *lastLastNode = tempLast->prev;
+                tempLast->prev = tempLast->prev->prev;
+                tempLast->prev->next = tempLast;
+                tempLast->next->prev = lastLastNode;
+                lastLastNode->prev = tempLast;
+                tempLast->next = lastLastNode;
             }
 
             if(tempLast->theTask->id == tn){
@@ -125,6 +130,7 @@ void moveUp(int tn){
                 dNode *tempNode = tempLast->prev;
                 tempLast->prev = tempLast->prev->prev;
                 tempLast->prev->next = tempLast;
+                tempLast->next->prev = tempNode;
                 tempLast->next = tempNode;
                 tempNode->prev = tempLast;
                 tempLast->theTask->priority = tempLast->next->theTask->priority;
@@ -133,6 +139,7 @@ void moveUp(int tn){
             tempLast = tempLast->prev;
 
         }
+        return;
 
     }
 
