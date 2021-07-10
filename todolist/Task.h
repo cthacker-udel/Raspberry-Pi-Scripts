@@ -9,6 +9,7 @@ typedef struct theTask{
     int rank;
     int hr;
     int min;
+    int priority;
 
 }task;
 
