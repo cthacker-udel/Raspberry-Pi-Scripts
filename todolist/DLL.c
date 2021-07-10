@@ -134,7 +134,7 @@ void moveUp(int tn){
                 tempLast->next = tempNode;
                 tempNode->prev = tempLast;
                 tempLast->theTask->priority = tempLast->next->theTask->priority;
-
+                
             }
             tempLast = tempLast->prev;
 
