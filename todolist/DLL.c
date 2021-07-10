@@ -21,21 +21,24 @@ dNode *createNode(char *taskName, int priority, int hr, int min){
 
 void push(char *name, int priority, int hr, int min){
 
+    dNode *newNode = createNode(name,priority,hr,min);
+    
+    theList.totHrs += newNode->theTask->hr;
+    theList.totMins += newNode->theTask->min;
+
     if(theList.first == NULL || theList.last == NULL){
-        dNode *newNode = createNode(name,priority,hr,min);
         theList.first = newNode;
         theList.last = newNode;
     }
     else{
         if(priority == 3){
-            dNode *newNode = createNode(name,priority,hr,min);
+            
             theList.last->next = newNode;
             newNode->prev = theList.last;
             theList.last = newNode;
         }
         else{
             
-            dNode *newNode = createNode(name,priority,hr,min);
             dNode *tempLast = theList.last;
             while(tempLast != NULL){
 
@@ -72,8 +75,13 @@ task *pop(){
 
     }
 
+}
 
+int remove(int taskId){
 
+    if(theList.first == NULL){
+        return 
+    }
 
 
 }
