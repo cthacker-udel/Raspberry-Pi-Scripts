@@ -1,6 +1,7 @@
 #include "DNode.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 typedef struct theList{
 
@@ -14,6 +15,8 @@ typedef struct theList{
 //
 
 void push(char *, int, int, int);
+
+dNode *createNode(char *,int,int,int);
 
 task *pop();
 
