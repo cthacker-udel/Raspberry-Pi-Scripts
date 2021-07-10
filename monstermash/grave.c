@@ -53,3 +53,34 @@ int estimate_grave_cost(grave *graves, int len){
     return total;
 
 }
+
+int count_shouters(grave *graves, int len){
+
+    int count = 0;
+    int foundShouter = 0;
+    for(int i = 0; i < len; i++){
+
+        grave theGrave = *(graves+i);
+        int graveMessageLen = strlen(theGrave.message);
+        for(int j = 0; j < graveMessageLen; j++){
+
+            char graveMessageChar = *(theGrave.message+j);
+            if(toupper(graveMessageChar) == graveMessageChar){
+                continue;
+            }
+            else{
+                foundShouter = 0;
+                break;
+            }
+            foundShouter = 1;
+
+        }
+        if(foundShouter){
+            count++;
+        }
+
+    }
+    return count;
+
+
+}
