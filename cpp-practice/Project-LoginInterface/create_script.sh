@@ -2,10 +2,11 @@
 
 if [ ! -z "logindetails.txt" ]; then
     touch logindetails.txt
-    name=$1
-    cat ${name} >> logindetails.txt
+    firstname=$1
+    lastname=$2
+    echo "${firstname} ${lastname}" >> logindetails.txt
     exit 0
 else
     name=$1
-    cat ${name} >> logindetails.txt
+    echo "${firstname} ${lastname}" >> logindetails.txt
 fi
