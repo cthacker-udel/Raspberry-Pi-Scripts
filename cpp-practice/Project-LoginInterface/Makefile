@@ -11,7 +11,7 @@ run: loginInterface
 	./loginProgram
 
 
-clear:
+clean:
 	rm -rf *.o loginProgram
 
 %.o: %.cpp

@@ -29,7 +29,7 @@ int main(void){
                     cin >> userName;
                     cout << "Enter your password" << endl;
                     cin >> pass;
-                    checkString += "check_password.sh ";
+                    checkString += "./check_password.sh ";
                     checkString += userName;
                     checkString += " " + pass;
                     char *newStr = (char *)malloc(sizeof(char) * checkString.length());
