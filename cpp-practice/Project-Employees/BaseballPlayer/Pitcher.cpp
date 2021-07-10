@@ -57,3 +57,33 @@ int Pitcher::getNoHitters(){
     return this->noHitters;
 
 }
+
+void Pitcher::setAge(int newAge){
+
+    this->age = newAge;
+
+}
+
+void Pitcher::setPitches(int newPitches){
+
+    this->pitches = newPitches;
+
+}
+
+void Pitcher::setStrikes(int newStrikes){
+
+    this->strikes = newStrikes;
+
+}
+
+void Pitcher::setBalls(int newBalls){
+
+    this->balls = newBalls;
+
+}
+
+void Pitcher::setNoHitters(int newNoHitters){
+
+    this->noHitters = newNoHitters;
+
+}
