@@ -80,9 +80,18 @@ task *pop(){
 int remove(int taskId){
 
     if(theList.first == NULL){
-        return 
+        return 0;
     }
-
-
+    else{
+        dNode *tempLast = theList.last;
+        while(tempLast != NULL){
+            if(tempLast->theTask->id == taskId){
+                theList.totHrs -= tempLast->theTask->hr;
+                theList.totMins -= tempLast->theTask->min;
+                return 1;
+            }
+        }
+        return 0;
+    }
 }
 
