@@ -31,6 +31,7 @@ int main(void){
 
                     printNumChoiceMenu();
                     cin >> numChoice;
+                    theRoot.insertRec(numChoice,theRoot);
                     break;
             }
             case 2:{
