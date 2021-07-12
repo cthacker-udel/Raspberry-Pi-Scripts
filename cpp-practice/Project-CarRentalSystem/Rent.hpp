@@ -1,6 +1,7 @@
 #include <cmath>
 #include <string>
 #include <iostream>
+#include <stdlib.h>
 #include "Car.cpp"
 #include "User.cpp"
 using namespace std;
