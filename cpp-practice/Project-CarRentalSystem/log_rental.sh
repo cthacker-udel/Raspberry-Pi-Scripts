@@ -10,7 +10,7 @@ fullname="[Name : $firstname $lastname]"
 carManu=$6
 carYear=$7
 carMiles=$8
-carDetails="[Manufacturer : $carManu | Year : $carYear | Miles : $8]"
+carDetails="[Manufacturer : $carManu | Year : $carYear | Miles : $carMiles]"
 fullStr="$fullname $dob $carDetails"
 
 if [ -z "rentals.txt" ]; then

@@ -3,8 +3,8 @@
 #include <iostream>
 #include <stdlib.h>
 #include <time.h>
-#include "Car.cpp"
-#include "User.cpp"
+#include "Car.hpp"
+#include "User.hpp"
 using namespace std;
 
 
@@ -18,8 +18,6 @@ class Rent{
     double total;
     double rate;
     int id;
-    friend class User;
-    friend class Car;
     User *renter = new User();
     Car *car = new Car();
 

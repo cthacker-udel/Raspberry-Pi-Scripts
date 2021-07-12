@@ -2,12 +2,6 @@
 
 User::User(){
 
-    string newFirst;
-    string newLast;
-    int bYear;
-    int bMonth;
-    int bDay;
-
     cout << "Enter your first name" << endl;
     cin >> this->firstName;
     cout << "Enter your last name" << endl;

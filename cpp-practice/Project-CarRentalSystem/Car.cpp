@@ -2,9 +2,6 @@
 
 Car::Car(){
 
-    string newManufacturer;
-    int carYear;
-    int carMiles;
 
     cout << "Enter the car manufacturer" << endl;
     cin >> this->manufacturer;

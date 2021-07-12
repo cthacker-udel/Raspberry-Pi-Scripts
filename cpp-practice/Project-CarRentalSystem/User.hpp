@@ -10,7 +10,6 @@ class User{
     int birthMonth;
     int birthDay;
     string lastName;
-    friend class Rent;
 
     public:
 
