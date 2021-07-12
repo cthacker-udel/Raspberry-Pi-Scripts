@@ -35,3 +35,16 @@ int count_chocolates(treat *treats, int len){
     return count;
 
 }
+
+int get_choco_quantity(treat *treats, int len){
+
+    int total = 0;
+    for(int i = 0; i < len; i++){
+        treat theTreat = *(treats+i);
+        if(theTreat.chocolate){
+            total += theTreat.quantity;
+        }
+    }
+    return total;
+
+}
