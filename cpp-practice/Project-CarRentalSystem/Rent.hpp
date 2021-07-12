@@ -18,13 +18,14 @@ class Rent{
     double total;
     double rate;
     int id;
+    friend class User;
+    friend class Car;
     User *renter = new User();
     Car *car = new Car();
 
     public:
 
         Rent(string,int,double); // type --> discerns which number to apply to, days, months or years, and rate
-
 
 
 };
