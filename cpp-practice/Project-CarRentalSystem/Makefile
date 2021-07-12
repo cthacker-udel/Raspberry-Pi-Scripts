@@ -11,7 +11,7 @@ run: rentalsystem
 	./rentalsystem
 
 clean:
-	rm -rf *.o rentalsystem
+	rm -rf *.o rentalsystem *.exe
 
 
 %.o: %.cpp

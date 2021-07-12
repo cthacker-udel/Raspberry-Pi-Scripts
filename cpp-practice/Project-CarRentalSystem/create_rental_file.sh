@@ -1,6 +1,7 @@
 #!/bin/bash
 
-if [ -z "rentals.txt" ]; then
+if [ ! -e "rentals.txt" ]; then
     touch rentals.txt
+    echo "Rental file created!"
 fi
 

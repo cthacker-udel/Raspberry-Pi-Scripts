@@ -17,7 +17,9 @@ int main(void){
 
 	            case 1:{
 	                system("./create_rental_file.sh");
-
+                    break;
+                }
+                case 2:{
 	                string rentType;
 	                int numOf;
 	                double rate;
@@ -53,10 +55,11 @@ int main(void){
 	                Rental created
 
 	                */
+                    break;
+                }
 
 
-	            }
-	        }
-	    }
+	      }
+    }
 
 }
