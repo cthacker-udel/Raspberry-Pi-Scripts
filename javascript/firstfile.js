@@ -337,3 +337,73 @@ let countChar = (aStr,aChar) => {
 }
 
 console.log(countChar("baada","d"));
+
+/*
+
+Edabit
+
+ */
+
+function matchHouses(step) {
+
+    if(step == 1){
+        return 6;
+    }
+    else if(step == 0){
+        return 0;
+    }
+    else{
+        return 5 + matchHouses(step-1);
+    }
+
+}
+
+class Person{
+
+    constructor(name,age){
+
+        this.name = name;
+        this.age = age;
+
+    }
+
+    compareAge(other) {
+
+        if (this.age > other.age) {
+            return `${other.name} is youger than me.`;
+        } else if (this.age < other.age) {
+            return `${other.name} is older than me.`;
+        } else {
+            return `${other.name} is the same age as me.`;
+        }
+    }
+
+};
+
+function toBinary(num) {
+    return (num >> 0).toString(2);
+}
+
+function seriesResistance(arr) {
+    let total = 0;
+    for(let i = 0; i < arr.length; i++){
+        total += arr[i];
+    }
+    return total > 1? `${total} ohms`: `${total} ohm`;
+}
+
+/*
+
+
+Edabit
+
+ */
+
+
+/*
+
+Arrays
+
+ */
+
+let listOfNumbers = [2,3,5,7,11];
