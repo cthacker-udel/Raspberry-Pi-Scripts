@@ -499,6 +499,56 @@ function isTrue(relation) {
     return eval(relation.replace("=","=="));
 }
 
+function countTrue(boolArr){
+
+    let count = 0;
+    for(let i = 0; i < boolArr.length; i++){
+        if(boolArr[i]){
+            count++;
+        }
+    }
+    return count;
+
+}
+
+function getOnlyEvens(nums) {
+
+    let newArr = [];
+    for(let i = 0; i < nums.length; i++){
+        if(nums[i] % 2 === 0 && i % 2 === 0){
+            newArr.push(nums[i]);
+        }
+    }
+    return newArr;
+
+}
+
+getOnlyEvens([1,4,7,6]);
+
+function dropRight(numArr,amount=1){
+
+    for(let i = 0; i < amount; i++){
+        numArr.pop();
+    }
+    return numArr;
+
+}
+
+function filterArray(theArr){
+
+    let newArr = [];
+    for(let i = 0; i < theArr.length; i++){
+        if(typeof theArr[i] === String){
+            continue;
+        }
+        else{
+            newArr.push(theArr[i]);
+        }
+    }
+    return newArr;
+
+}
+
 /*
 
 
