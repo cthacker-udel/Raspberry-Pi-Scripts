@@ -15,8 +15,8 @@ class Rent{
     string type;
     double total;
     double rate;
-    User renter;
-    Car car;
+    User *renter = new User();
+    Car *car = new Car();
 
     public:
 
