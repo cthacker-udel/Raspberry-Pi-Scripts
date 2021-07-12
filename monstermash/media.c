@@ -37,3 +37,25 @@ int take_until_long(media *medias, int len){
     return count;
 
 }
+
+char *longest_kind(media *medias, int len){
+
+    if(len == 0){
+        return "";
+    }
+
+    double max = 0.0;
+    for(int i = 0; i < len; i++){
+        media bMedia = *(medias+i);
+        max = fmax(max,bMedia.duration);
+    }
+
+
+    for(int i = 0; i < len; i++){
+        media bMedia = *(medias+i);
+        if(bMedia.duration == max){
+            return bMedia.kind;
+        }
+    }
+
+}
