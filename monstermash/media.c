@@ -10,3 +10,16 @@ int total_duration(media *medias, int len){
     return total;
 
 }
+
+int count_not_long(media *medias, int len){
+
+    int count = 0;
+    for(int i = 0; i < len; i++){
+        media bMedia = *(medias+i);
+        if(bMedia.duration < 100){
+            count++;
+        }
+    }
+    return count;
+
+}
