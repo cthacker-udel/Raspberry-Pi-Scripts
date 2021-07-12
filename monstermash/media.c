@@ -59,3 +59,25 @@ char *longest_kind(media *medias, int len){
     }
 
 }
+
+int same_kind_of_media(media *medias, int len){
+
+    if(len == 0){
+        return 0;
+    }
+    else{
+
+        media firstMedia = *(medias+0);
+        char *firstKind = firstMedia.kind;
+        for(int i = 0; i < len; i++){
+            media bMedia = *(medias+i);
+            if(strcmp(firstKind,bMedia.kind) != 0){
+                return 0;
+            }
+        }
+        return 1;
+
+    }
+
+
+}
