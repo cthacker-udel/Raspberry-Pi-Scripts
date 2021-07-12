@@ -159,7 +159,7 @@ const multiply = (factor) => {
 
 };
 
-const padZero = (length,padder) => {
+const pad = (length,padder) => {
 
     return (animalName,amount) => animalName + " : " + String(amount).padStart(length,padder);
 
@@ -263,6 +263,6 @@ const printFarmAnimals = (cows,chickens) => {
 
 };
 
-let animals = padZero(10,"#");
+let animals = pad(10,"#");
 console.log(animals("Pigs",4));
 console.log(animals("Tiger",10));
