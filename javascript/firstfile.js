@@ -195,6 +195,13 @@ const triangleArea = (base,height) => {
 
 }
 
+const compare = (obj1,obj2) => {
+
+    return (obj1 === obj2)? 1: 0;
+
+}
+
+
 const rotateString = (string) => {
 
     let currString = String(string);
@@ -204,3 +211,38 @@ const rotateString = (string) => {
 
 
 }
+
+const factorial = (number) => {
+
+    if(number === 1){
+        return number;
+    }
+    else{
+        return number * factorial(number-1);
+    }
+
+}
+
+console.log(factorial(5));
+
+
+const findSolution = (target) =>{
+
+    const find = (current,history) => {
+
+        if(current == target){
+            return history;
+        }
+        else if(current > target){
+            return null;
+        }
+        else{
+            return find(current + 3,`(${history} + 3)`) || find(current * 3,`${history} * 3)`);
+        }
+
+    }
+    return find(1,"1");
+
+}
+
+console.log(findSolution(63));
