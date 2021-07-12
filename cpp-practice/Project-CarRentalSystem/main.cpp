@@ -25,16 +25,17 @@ int main(void){
             cout << "Enter proper values (day,month,year)" << endl;
         }
     }
-    do{
+
+
         cout << "How many " << rentType << "(s) do you want to rent for?" << endl;
-    }while(cin >> numOf);
 
-    do{
+        cin >> numOf;
+
         cout << "What is rate you want to rent per mile?(up to 2 decimal places)" << endl;
-    }while(cin >> rate);
 
-    
-    Rent *theRent = new Rent(rentType,numOf,rate);
+        cin >> rate;
+
+        Rent *theRent = new Rent(rentType,numOf,rate);
 
 
 }

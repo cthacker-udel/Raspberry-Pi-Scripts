@@ -2,6 +2,7 @@
 #include <string>
 #include <iostream>
 #include <stdlib.h>
+#include <time.h>
 #include "Car.cpp"
 #include "User.cpp"
 using namespace std;
@@ -16,6 +17,7 @@ class Rent{
     string type;
     double total;
     double rate;
+    int id;
     User *renter = new User();
     Car *car = new Car();
 

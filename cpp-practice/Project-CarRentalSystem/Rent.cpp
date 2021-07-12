@@ -2,6 +2,7 @@
 
 Rent::Rent(string newType, int intValue, double newRate){
 
+    srand(time(NULL));
     if(newType.compare("day") == 0){
         this->days = intValue;
         this->months = 0;
@@ -20,5 +21,6 @@ Rent::Rent(string newType, int intValue, double newRate){
 
     this->rate = newRate;
     this->total = 0;
+    this->id = rand() % 141;
 
 };
