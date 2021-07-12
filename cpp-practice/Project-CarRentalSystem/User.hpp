@@ -15,4 +15,6 @@ class User{
 
         User(string,string,int,int,int);
 
+        User();
+
 };

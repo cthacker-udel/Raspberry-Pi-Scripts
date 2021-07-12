@@ -1,5 +1,11 @@
 #include "User.hpp"
 
+User::User(){
+
+
+    
+}
+
 User::User(string newFirstName, string newLastName, int newBirthYear, int newBirthMonth, int newBirthDay){
 
     this->firstName = newFirstName;
