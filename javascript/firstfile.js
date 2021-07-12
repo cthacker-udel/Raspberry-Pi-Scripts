@@ -157,14 +157,20 @@ const multiply = (factor) => {
 
     return number => number * factor;
 
-}
+};
+
+const padZero = (length,padder) => {
+
+    return (animalName,amount) => animalName + " : " + String(amount).padStart(length,padder);
+
+};
 
 const divide = (value) => {
 
     return number => number / value;
 
 
-}
+};
 
 const displayDate = () => {
 
@@ -177,7 +183,7 @@ const displayDate = () => {
 
     console.log(`Today is : ${currDay === 1? "Monday": currDay === 2? "Tuesday": currDay === 3? "Wednesday": currDay === 4? "Thursday": currDay === 5? "Friday": currDay === 6? "Saturday": "Sunday"}\n Current time is : ${hours} : ${minutes} : ${seconds}`);
 
-}
+};
 
 displayDate();
 
@@ -193,13 +199,13 @@ const triangleArea = (base,height) => {
 
     return (base * height) / 2;
 
-}
+};
 
 const compare = (obj1,obj2) => {
 
     return (obj1 === obj2)? 1: 0;
 
-}
+};
 
 
 const rotateString = (string) => {
@@ -210,7 +216,7 @@ const rotateString = (string) => {
     return currString;
 
 
-}
+};
 
 const factorial = (number) => {
 
@@ -221,7 +227,7 @@ const factorial = (number) => {
         return number * factorial(number-1);
     }
 
-}
+};
 
 console.log(factorial(5));
 
@@ -243,6 +249,20 @@ const findSolution = (target) =>{
     }
     return find(1,"1");
 
-}
+};
 
 console.log(findSolution(63));
+
+const printFarmAnimals = (cows,chickens) => {
+
+    let cowString = String(cows);
+    cowString = cowString.padStart(3,"0");
+    let chickenString = String(chickens);
+    chickenString = chickenString.padStart(3,"0");
+    console.log(`Cows : ${cowString} and Chickens = ${chickenString}`);
+
+};
+
+let animals = padZero(10,"#");
+console.log(animals("Pigs",4));
+console.log(animals("Tiger",10));
