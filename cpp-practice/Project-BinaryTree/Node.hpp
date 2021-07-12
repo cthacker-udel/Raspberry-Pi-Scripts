@@ -6,9 +6,13 @@ class Node{
     
         Node *left;
         Node *right;
+        Node *parent;
+        Node *root;
 
         Node();
 
         Node(int);
+
+        bool insertRec(int, Node *);
 
 };

@@ -24,7 +24,7 @@ void AVL::printTreePost(TNode *tmp) {
 	}
 }
 /********************* method 2 *******************************/
-void AVL::printTreePre(TNode *tmp) {
+void AVL::printTreePost(TNode *tmp) {
 	if (tmp == NULL) {
 		return;
 	}
