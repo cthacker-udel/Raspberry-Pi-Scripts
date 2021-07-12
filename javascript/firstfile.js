@@ -266,3 +266,74 @@ const printFarmAnimals = (cows,chickens) => {
 let animals = pad(10,"#");
 console.log(animals("Pigs",4));
 console.log(animals("Tiger",10));
+
+
+let min = (number1,number2) => {
+
+    return number1 > number2? number2: number2 > number1? number1: number1;
+
+};
+
+console.log(min(2,-10));
+
+
+let isEven = (number) => {
+
+    function abs(val){
+
+        if(val < 0){
+            return -1 * val;
+        }
+        else{
+            return val;
+        }
+
+    };
+
+    if(abs(number) === 0){
+        return true;
+    }
+    else if(abs(number) == 1){
+        return false;
+    }
+    else{
+
+        return number < 0? isEven(number+2) : isEven(number-2);
+
+    }
+
+}
+
+console.log(isEven(50));
+
+
+let beanCounting = (aStr) => {
+
+    let count = 0;
+    for(let i = 0; i < aStr.length; i++){
+        let character = aStr.charAt(i);
+        if(character === "B"){
+            count++;
+        }
+    }
+    return count;
+
+};
+
+console.log(beanCounting("BBab")); // 4
+
+
+let countChar = (aStr,aChar) => {
+
+    let count = 0;
+    for(let i = 0; i < aStr.length; i++){
+        let character = aStr.charAt(i);
+        if(character === aChar){
+            count++;
+        }
+    }
+    return count;
+
+}
+
+console.log(countChar("baada","d"));
