@@ -3,8 +3,11 @@
 #include <iostream>
 #include <cmath>
 #include <stdlib.h>
+using namespace std;
 
 int main(void){
+
+    system("./create_rental_file.sh");
 
     string rentType;
     int numOf;
