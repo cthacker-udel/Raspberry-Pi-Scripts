@@ -1,7 +1,11 @@
 #include <cmath>
 #include <string>
 #include <iostream>
+#include "Car.cpp"
+#include "User.cpp"
 using namespace std;
+
+
 
 class Rent{
 
@@ -11,6 +15,8 @@ class Rent{
     string type;
     double total;
     double rate;
+    User renter;
+    Car car;
 
     public:
 
