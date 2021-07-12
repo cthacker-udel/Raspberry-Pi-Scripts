@@ -21,4 +21,4 @@ Rent::Rent(string newType, int intValue, double newRate){
     this->rate = newRate;
     this->total = 0;
 
-}
+};
