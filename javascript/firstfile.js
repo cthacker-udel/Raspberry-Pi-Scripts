@@ -166,9 +166,41 @@ const divide = (value) => {
 
 }
 
+const displayDate = () => {
+
+    let date = new Date();
+    let currDay = date.getDay();
+    console.log(currDay);
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+    let seconds = date.getSeconds();
+
+    console.log(`Today is : ${currDay === 1? "Monday": currDay === 2? "Tuesday": currDay === 3? "Wednesday": currDay === 4? "Thursday": currDay === 5? "Friday": currDay === 6? "Saturday": "Sunday"}\n Current time is : ${hours} : ${minutes} : ${seconds}`);
+
+}
+
+displayDate();
+
 
 let first = multiply(10);
 console.log(first(5));
 
 let second = divide(10);
 console.log(second(100));
+
+
+const triangleArea = (base,height) => {
+
+    return (base * height) / 2;
+
+}
+
+const rotateString = (string) => {
+
+    let currString = String(string);
+    let lastCharacter = currString.charAt(currString.length-1);
+    currString = lastCharacter + currString.substr(0,currString.length-1);
+    return currString;
+
+
+}
