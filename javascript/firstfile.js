@@ -392,6 +392,35 @@ function seriesResistance(arr) {
     return total > 1? `${total} ohms`: `${total} ohm`;
 }
 
+function whichIsLarger(f, g) {
+    if(f() > g()){
+        return "f";
+    }
+    else if(f() < g()){
+        return "g";
+    }
+    else{
+        return "neither";
+    }
+}
+
+function shiftToLeft(x, y) {
+    return x * (2**y);
+}
+
+function numberSplit(n) {
+    if(n % 2 != 0){
+        let half = Math.floor(n / 2);
+        let numArray = [half,half+1];
+        return numArray;
+    }
+    else{
+        let half = Math.floor(n / 2);
+        let numArray = [half,half];
+        return numArray;
+    }
+}
+
 /*
 
 
