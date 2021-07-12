@@ -22,3 +22,16 @@ float find_most_calorific_ratio(treat *treats, int len){
     return max;
 
 }
+
+int count_chocolates(treat *treats, int len){
+
+    int count = 0;
+    for(int i = 0; i < len; i++){
+        treat theTreat = *(treats+i);
+        if(theTreat.chocolate){
+            count++;
+        }
+    }
+    return count;
+
+}
