@@ -421,6 +421,84 @@ function numberSplit(n) {
     }
 }
 
+function signYourName(obj) {
+    // write your code here
+    // don't use a return statement
+
+    Object.seal(obj);
+
+
+    // DON'T CHANGE OR REMOVE THE LINES BELOW
+    obj.yourSignature = "Whatever";
+    obj.spouseSignature = "Nice Try"
+    return obj;
+}
+
+function toBinary2(num){
+
+  return (num >> 0).toString(2);
+
+}
+
+function flip(y){
+
+    return Number(!y);
+
+}
+
+function doubleChar(aStr){
+
+    let newStr = "";
+    for(let i = 0; i < aStr.length; i++){
+        newStr += aStr.charAt(i);
+        newStr += aStr.charAt(i);
+    }
+    return newStr;
+
+}
+
+function crazyfunction(num1,num2){
+
+    return num1 ^= num2;
+
+}
+
+function emotify(sentence){
+
+    return sentence.replace("sad",":(").replace("smile",":D").replace("grin",":)").replace("mad",":P");
+
+}
+
+function checkTitle(title) {
+    let strArray = title.split(" ");
+    for(let i = 0; i < strArray.length; i++){
+        if(strArray[i].charAt(0) == strArray[i].charAt(0).toUpperCase()){
+            continue;
+        }
+        else{
+            return false;
+        }
+    }
+    return true;
+}
+function isFirstSuperior(arr1, arr2) {
+    for(let i = 0; i < arr1.length; i++){
+
+        let val1 = arr1[i];
+        let val2 = arr2[i];
+        if(val1 > val2){
+            return true;
+        }
+        else if(val2 > val1){
+            return false;
+        }
+    }
+    return false;
+}
+function isTrue(relation) {
+    return eval(relation.replace("=","=="));
+}
+
 /*
 
 
@@ -436,3 +514,7 @@ Arrays
  */
 
 let listOfNumbers = [2,3,5,7,11];
+
+console.log(flip(0));
+
+console.log(crazyfunction(17,35));
