@@ -14,6 +14,11 @@ class Car{
         Car(string,int,int); // manufacturer,year,miles
 
         Car();
+        
+        int getYear();
 
+        int getMiles();
+
+        string getManufacturer();
 
 };

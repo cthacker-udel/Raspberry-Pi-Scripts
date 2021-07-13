@@ -19,3 +19,15 @@ Car::Car(string newManufacturer, int newYear, int newMiles){
     this->miles = newMiles;
 
 }
+
+string Car::getManufacturer(){
+    return this->manufacturer;
+}
+
+int Car::getYear(){
+    return this->year;
+}
+
+int Car::getMiles(){
+    return this->miles;
+}
