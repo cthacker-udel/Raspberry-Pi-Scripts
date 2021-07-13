@@ -56,14 +56,23 @@ int main(void){
 
 	                */
 
+                    cout << "Variables are : \nBirth year : " << theRent.getUser()->getBirthYear() << "\nBirth month : " << theRent.getUser()->getBirthYear() << "\nBirth day : " << theRent.getUser()->getBirthDay() << "\nManufacturer : " << theRent.getCar()->getManufacturer() << "\nModel year : " << theRent.getCar()->getYear() << "\nMiles : " << theRent.getCar()->getMiles() << endl;
+
                     string commandString = "./log_rental.sh ";
                     commandString += theRent.getUser()->getFirstName() + " ";
+                    cout << "The command string is : " << commandString << endl;
                     commandString += theRent.getUser()->getLastName() + " ";
+                    cout << "The command string is : " << commandString << endl;
                     commandString += theRent.getUser()->getBirthYear() + " ";
+                    cout << "The command string is : " << commandString << endl;
                     commandString += theRent.getUser()->getBirthMonth() + " ";
+                    cout << "The command string is : " << commandString << endl;
                     commandString += theRent.getUser()->getBirthDay() + " ";
+                    cout << "The command string is : " << commandString << endl;
                     commandString += theRent.getCar()->getManufacturer() + " ";
+                    cout << "The command string is : " << commandString << endl;
                     commandString += theRent.getCar()->getYear() + " ";
+                    cout << "The command string is : " << commandString << endl;
                     commandString += theRent.getCar()->getMiles();
                     cout << "The command string is : " << commandString << endl;
 
