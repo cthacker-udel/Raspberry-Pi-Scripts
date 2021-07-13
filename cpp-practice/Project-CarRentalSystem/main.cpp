@@ -57,14 +57,14 @@ int main(void){
 	                */
 
                     string commandString = "./log_rental.sh ";
-                    commandString += theRent.getUser()->firstName + " ";
-                    commandString += theRent.getUser()->lastName + " ";
-                    commandString += theRent.getUser()->birthYear + " ";
-                    commandString += theRent.getUser()->birthMonth + " ";
-                    commandString += theRent.getUser()->birthDay + " ";
-                    commandString += theRent.getCar()->manufacturer + " ";
-                    commandString += theRent.getCar()->year + " ";
-                    commandString += theRent.getCar()->miles;
+                    commandString += theRent.getUser()->getFirstName() + " ";
+                    commandString += theRent.getUser()->getLastName() + " ";
+                    commandString += theRent.getUser()->getBirthYear() + " ";
+                    commandString += theRent.getUser()->getBirthMonth() + " ";
+                    commandString += theRent.getUser()->getBirthDay() + " ";
+                    commandString += theRent.getCar()->getManufacturer() + " ";
+                    commandString += theRent.getCar()->getYear() + " ";
+                    commandString += theRent.getCar()->getMiles();
                     cout << "The command string is : " << commandString << endl;
 
                     break;
