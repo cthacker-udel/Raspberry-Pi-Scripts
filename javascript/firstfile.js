@@ -1,3 +1,6 @@
+
+/*
+
 let square_string = "#";
 for(let i = 1; i < 8; i++){
     console.log(square_string);
@@ -338,11 +341,7 @@ let countChar = (aStr,aChar) => {
 
 console.log(countChar("baada","d"));
 
-/*
 
-Edabit
-
- */
 
 function matchHouses(step) {
 
@@ -683,22 +682,33 @@ isAvgWhole([1, 3]);
 
 console.log(repetition("ab",3));
 
-/*
-
-
-Edabit
-
- */
-
-
-/*
-
-Arrays
-
- */
-
 let listOfNumbers = [2,3,5,7,11];
 
 console.log(flip(0));
 
 console.log(crazyfunction(17,35));
+
+*/
+
+let student = {
+
+    name: "Student",
+    classes: []
+
+};
+
+student.name = "Carlson";
+
+student.age = 20;
+
+console.log(student.name);
+
+console.log(student.age);
+
+delete student.age;
+
+console.log(student.age);
+
+console.log("name" in student);
+
+console.log(Object.keys(student));
