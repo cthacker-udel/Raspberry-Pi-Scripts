@@ -663,6 +663,21 @@ function isAvgWhole(numArr){
 
 }
 
+function highestDigit(number){
+
+    let numString = String(number);
+    let max = 0;
+    for(let i = 0; i < numString; i++){
+        let digit = Number.parseInt(numString[i]);
+        if(digit > max){
+            max = digit;
+        }
+    }
+    return max;
+
+}
+
+
 isAvgWhole([1, 3]);
 
 
