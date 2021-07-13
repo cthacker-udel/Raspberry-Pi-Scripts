@@ -18,4 +18,14 @@ class User{
 
         User();
 
+        string getFirstName();
+
+        int getBirthYear();
+
+        int getBirthMonth();
+
+        int getBirthDay();
+
+        string getLastName();
+
 };
