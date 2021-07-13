@@ -56,25 +56,31 @@ int main(void){
 
 	                */
 
-                    cout << "Variables are : \nBirth year : " << theRent.getUser()->getBirthYear() << "\nBirth month : " << theRent.getUser()->getBirthYear() << "\nBirth day : " << theRent.getUser()->getBirthDay() << "\nManufacturer : " << theRent.getCar()->getManufacturer() << "\nModel year : " << theRent.getCar()->getYear() << "\nMiles : " << theRent.getCar()->getMiles() << endl;
 
                     string commandString = "./log_rental.sh ";
                     commandString += theRent.getUser()->getFirstName() + " ";
-                    cout << "The command string is : " << commandString << endl;
+                    //cout << "The command string is : " << commandString << endl;
                     commandString += theRent.getUser()->getLastName() + " ";
-                    cout << "The command string is : " << commandString << endl;
-                    commandString += theRent.getUser()->getBirthYear() + " ";
-                    cout << "The command string is : " << commandString << endl;
-                    commandString += theRent.getUser()->getBirthMonth() + " ";
-                    cout << "The command string is : " << commandString << endl;
-                    commandString += theRent.getUser()->getBirthDay() + " ";
-                    cout << "The command string is : " << commandString << endl;
+                    //cout << "The command string is : " << commandString << endl;
+                    commandString += to_string(theRent.getUser()->getBirthYear()) + " ";
+                    //cout << "The command string is : " << commandString << endl;
+                    commandString += to_string(theRent.getUser()->getBirthMonth()) + " ";
+                    //cout << "The command string is : " << commandString << endl;
+                    commandString += to_string(theRent.getUser()->getBirthDay()) + " ";
+                    //cout << "The command string is : " << commandString << endl;
                     commandString += theRent.getCar()->getManufacturer() + " ";
-                    cout << "The command string is : " << commandString << endl;
-                    commandString += theRent.getCar()->getYear() + " ";
-                    cout << "The command string is : " << commandString << endl;
-                    commandString += theRent.getCar()->getMiles();
-                    cout << "The command string is : " << commandString << endl;
+                    //cout << "The command string is : " << commandString << endl;
+                    commandString += to_string(theRent.getCar()->getYear()) + " ";
+                    //cout << "The command string is : " << commandString << endl;
+                    commandString += to_string(theRent.getCar()->getMiles());
+                    //cout << "The command string is : " << commandString << endl;
+                    char *newCmdString = (char *)malloc(sizeof(char) * commandString.length()+1);
+                    for(int i = 0; i < commandString.length(); i++){
+                        *(newCmdString+i) = commandString.at(i);
+                    }
+                    *(newCmdString+commandString.length()+1) = '\0';
+                    printf("The command string is : %s",newCmdString);
+                    system(newCmdString);
 
                     break;
                 }
