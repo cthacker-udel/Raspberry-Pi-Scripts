@@ -78,6 +78,41 @@ int main(void){
 
                     break;
                 }
+				case 3:{
+
+					string firstName;
+					string lastName;
+					int birthYear;
+					int birthMonth;
+					int birthDay;
+					string carManu;
+					int carYear;
+					int carMiles;
+					cout << "Enter first name" << endl;
+					cin >> firstName;
+					cout << "Enter last name" << endl;
+					cin >> lastName;
+					cout << "Enter birth year" << endl;
+					cin >> birthYear;
+					cout << "Enter birth month" << endl;
+					cin >> birthMonth;
+					cout << "Enter birth day" << endl;
+					cin >> birthDay;
+					cout << "Enter car manufacturer" << endl;
+					cin >> carManu;
+					cout << "Enter car model year" << endl;
+					cin >> carYear;
+					cout << "Enter car miles" << endl;
+					cin >> carMiles;
+					string searchString;
+					string fullname = "[Name : " + firstName + " " + lastName + "]";
+					string dob = "[Date of Birth : " + to_string(birthDay) + "/" + to_string(birthMonth) + "/" + to_string(birthYear) + "]";
+					string carDetails = "[Manufacturer : " + carManu + " | Year : " + to_string(carYear) + " | Miles : " + to_string(carMiles) + "]";
+					searchString = fullname + " " + dob + " " + carDetails;
+
+
+				}
+
 
 
 	      }
