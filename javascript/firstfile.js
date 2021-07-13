@@ -549,6 +549,117 @@ function filterArray(theArr){
 
 }
 
+function redundant(aStr){
+
+    return func1 => aStr;
+
+}
+
+function myPi(aNum){
+
+    return Number.parseFloat(Math.PI.toFixed(aNum));
+}
+
+function sortByLength(strArr){
+
+    strArr.sort((a,b) => a.length - b.length);
+
+    return strArr;
+
+}
+
+function filterArray(aArr){
+
+    let newArr = [];
+    for(let i = 0; i < aArr.length; i++){
+        if(typeof aArr[i] == 'string'){
+            continue;
+        }
+        else{
+            newArr.push(aArr[i]);
+        }
+    }
+    return newArr;
+
+}
+
+function repetition(aStr,times){
+
+    if(times == 1){
+        return aStr;
+    }
+    else{
+        return aStr + repetition(aStr,times-1);
+    }
+
+}
+
+function greetingMaker(salutation) {
+    return function closure(name) {
+        return salutation + ", " + name
+    }
+}
+
+function anotherFunc(aFunc) {
+    let str = "bye"
+    aFunc(str);
+    setTimeout(() => {
+    }, 100)
+}
+
+var doc = "hello"
+
+function callback(str) {
+    doc = str
+}
+
+let promise = new Promise( (resolve,reject) => {
+
+    setTimeout(() => {
+        resolve("astr");
+    },1000)
+
+})
+
+function sumOfCubes(numArr){
+
+    let total = 0;
+    for(let i = 0; i < numArr.length; i++){
+        total += numArr[i]**3;
+    }
+    return total;
+
+}
+
+function generation(x,char){
+
+    if(x === 0){
+        return "me";
+    }
+    else if(x === -3){
+        return char === "m"? "great grandfather": "great grandmother";
+    }
+    else if(x === -2){
+        return char === "m"? "grandfather": "grandmother";
+    }
+    else if(x === -1){
+        return char === "m"? "father": "mother";
+    }
+    else if(x === 1){
+        return char === "m"? "son": "daughter";
+    }
+    else if(x === 2){
+        return char === "m"? "grandson": "granddaughter";
+    }
+    else{
+        return char === "m"? "great grandson": "great granddaughter";
+    }
+
+}
+
+
+console.log(repetition("ab",3));
+
 /*
 
 
