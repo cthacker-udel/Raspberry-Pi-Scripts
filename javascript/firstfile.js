@@ -656,6 +656,14 @@ function generation(x,char){
     }
 
 }
+function isAvgWhole(numArr){
+
+    let sum = numArr.reduce((a,b) => a+b);
+    return Number.isInteger(sum / numArr.length);
+
+}
+
+isAvgWhole([1, 3]);
 
 
 console.log(repetition("ab",3));
