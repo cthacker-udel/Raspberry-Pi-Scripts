@@ -1,6 +1,8 @@
-#!/bin/bash
+#!/bin/bash -x
 
-if [ ! -e rentals.txt]; then
+echo "First are is $?"
+
+if [ ! -e rentals.txt ]; then
     echo "rental logs do not exist : unable to search"
     exit 0
 fi

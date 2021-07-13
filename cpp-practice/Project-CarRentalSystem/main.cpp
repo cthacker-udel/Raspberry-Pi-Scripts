@@ -115,12 +115,13 @@ int main(void){
 					string dob = "[Date of Birth : " + to_string(birthDay) + "/" + to_string(birthMonth) + "/" + to_string(birthYear) + "]";
 					string carDetails = "[Manufacturer : " + carManu + " | Year : " + to_string(carYear) + " | Miles : " + to_string(carMiles) + "]";
 					searchString = fullname + " " + dob + " " + carDetails;
-                    searchString = "./search_rental.sh " + searchString;
+                    searchString = "./search_rental.sh \"" + searchString + "\"";
                     char *newSrchStr = (char *)malloc(sizeof(char) * searchString.length()+1);
                     for(int i = 0; i < searchString.length(); i++){
                         *(newSrchStr+i) = searchString.at(i);
                     }     
                     *(newSrchStr+searchString.length()+1) = '\0';
+                    printf("Search string : %s",newSrchStr);
                     system(newSrchStr);
 
 				}
