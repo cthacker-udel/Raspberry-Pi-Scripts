@@ -634,7 +634,7 @@ function sumOfCubes(numArr){
 function generation(x,char){
 
     if(x === 0){
-        return "me";
+        return "me!";
     }
     else if(x === -3){
         return char === "m"? "great grandfather": "great grandmother";
