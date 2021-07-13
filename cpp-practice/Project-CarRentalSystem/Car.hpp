@@ -7,6 +7,7 @@ class Car{
     string manufacturer;
     int year;
     int miles;
+    friend class Rent;
 
     public:
 

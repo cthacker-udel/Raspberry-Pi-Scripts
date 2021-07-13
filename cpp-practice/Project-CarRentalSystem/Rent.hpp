@@ -24,6 +24,9 @@ class Rent{
     public:
 
         Rent(string,int,double); // type --> discerns which number to apply to, days, months or years, and rate
+        
+        Car *getCar();
 
+        User *getUser();
 
 };

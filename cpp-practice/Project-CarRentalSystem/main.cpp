@@ -55,6 +55,18 @@ int main(void){
 	                Rental created
 
 	                */
+
+                    string commandString = "./log_rental.sh ";
+                    commandString += theRent.getUser()->firstName + " ";
+                    commandString += theRent.getUser()->lastName + " ";
+                    commandString += theRent.getUser()->birthYear + " ";
+                    commandString += theRent.getUser()->birthMonth + " ";
+                    commandString += theRent.getUser()->birthDay + " ";
+                    commandString += theRent.getCar()->manufacturer + " ";
+                    commandString += theRent.getCar()->year + " ";
+                    commandString += theRent.getCar()->miles;
+                    cout << "The command string is : " << commandString << endl;
+
                     break;
                 }
 
