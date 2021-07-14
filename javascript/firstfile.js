@@ -888,5 +888,130 @@ function sortNumsAscending(numArr){
 
 console.log(sortNumsAscending([1, 2, 10, 50, 5]));
 
+function countVowels(aStr){
+
+    let vowels = "aeiouAEIOU";
+    let count = 0;
+    for(let i = 0; i < aStr.length; i++){
+        let aChar = aStr[i];
+        if(vowels.includes(aChar)){
+            count++;
+        }
+    }
+    return count;
+
+}
+
+
+function shiftToRight(aNum,power){
+
+    return Math.floor(aNum / 2**power);
+
+}
+
 
  */
+
+/*
+
+
+Objects and Classes
+
+ */
+
+let obj1 = {
+
+    name: "Hello",
+    task: " World"
+
+};
+
+let obj2 = {
+
+    "the name": "Cameron",
+    "the lvl": 99,
+    "the type": "fire water"
+
+};
+
+console.log(obj2["the name"] + obj2["the lvl"] + obj2["the type"]);
+
+let arr = [1,2,3,4];
+
+console.log("arr = " + arr);
+
+console.log(arr.shift());
+
+arr.unshift(10);
+
+console.log(arr);
+
+let newArr = arr.slice(0,2).concat(arr.slice(3));
+console.log(newArr);
+
+console.log(typeof []);
+
+console.log(obj1.name + obj1.task);
+
+let aStr = "This is a sentence";
+
+let aStrArr = aStr.split(" ");
+
+console.log(aStrArr);
+
+console.log(aStr.repeat(3));
+
+function max(...numbers){
+
+    let maxNum = 0;
+    for(let number of numbers){
+        if(number > maxNum){
+            maxNum = number;
+        }
+    }
+    return maxNum;
+
+}
+
+function min(...numbers){
+
+    if(numbers.length === 0){
+        console.log("Enter numbers to calculate min");
+    }
+    else{
+
+        let minNum = numbers[0];
+        for(let number of numbers){
+            if(number < minNum){
+                minNum = number;
+            }
+        }
+        return minNum;
+
+    }
+
+}
+
+console.log(min());
+
+let numArr = [313212,421431,52342412,413452135,215,12354213];
+
+console.log(min(...numArr));
+
+console.log(JSON.stringify(numArr));
+
+let obj3 = {"name": "Jason","age": 10};
+
+console.log(JSON.stringify(obj3));
+
+
+function range(num1,num2){
+
+    let arr1 = [];
+    for(let i = num1; i < num2; i++){
+        arr1.push(i);
+    }
+    return arr1;
+
+}
+
