@@ -174,7 +174,27 @@ void moveDown(int id){
             firstNext->next->prev = theList.first;
             firstNext->next = theList.first;
             theList.first->prev = firstNext;
+            theList.first = firstNext;
+            return;
         }
+    }
+    if(theList.last->theTask->id == id){
+
+        if(theList.last->prev == NULL){
+            // list only consists of one node
+            printf("\nThe list only consists of one node\n");
+        }
+        else{
+            dNode *lastPrev = theList.last->prev;
+            theList.first->prev = theList.last;
+            theList.last->prev->next = NULL;
+            theList.last->prev = NULL;
+            theList.last->next = theList.first;
+            theList.last = lastPrev;
+            return;
+
+        }
+
     }
 
 }
