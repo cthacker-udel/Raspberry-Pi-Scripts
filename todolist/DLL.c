@@ -185,4 +185,15 @@ void addTime(int h, int m){
 
 }
 
+void removeTime(int h, int m){
+
+    while(m > 59){
+        m -= 60;
+        h++;
+    }
+    theList.totHrs -= h;
+    theList.totMins -= m;
+
+}
+
 
