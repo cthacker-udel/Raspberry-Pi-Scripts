@@ -157,6 +157,19 @@ void printList(){
     dNode *tempFirst = theList.first;
     while(tempFirst != NULL){
         printTask(*(tempFirst->theTask));
+        tempFirst = tempFirst->next;
+    }
+
+}
+
+void printList(int p){
+
+    dNode *tempFirst = theList.first;
+    while(tempFirst != NULL){
+        if(tempFirst->theTask->priority == p){
+            printTask(*(tempFirst->theTask));
+        }
+        tempFirst = tempFirst->next;
     }
 
 }
