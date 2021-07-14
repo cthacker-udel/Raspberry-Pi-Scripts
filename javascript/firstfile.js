@@ -688,7 +688,6 @@ console.log(flip(0));
 
 console.log(crazyfunction(17,35));
 
-*/
 
 function removeVowels(aStr){
 
@@ -778,3 +777,100 @@ function possibleBonus(a, b) {
         return Math.abs(a-b) >= 1 && Math.abs(a-b) <= 6;
     }
 }
+
+
+function differenceTwo(intArr){
+
+    let resArr = [];
+    intArr.sort();
+    for(let i = 0; i < intArr.length; i++){
+        for(let j = 0; j < intArr.length; j++){
+            if(Math.abs(intArr[i] - intArr[j]) === 2){
+                let pair = [];
+                pair[0] = Math.min(intArr[i],intArr[j]);
+                pair[1] = Math.max(intArr[i],intArr[j]);
+                // check if pair is in resArr
+                let pairFound = false;
+                for(let i = 0; i < resArr.length; i++){
+                    if(resArr[i][0] === pair[0] && resArr[i][1] === pair[1]){
+                        pairFound = true;
+                    }
+                }
+                if(!pairFound) {
+                    resArr.push(pair);
+                }
+                else{
+                    pairFound = false;
+                }
+            }
+        }
+    }
+    return resArr;
+
+}
+
+function getAbsSum(intArr){
+
+    let total = 0;
+    for(let i = 0; i < intArr.length; i++){
+        total += Math.abs(intArr[i]);
+    }
+    return total;
+
+}
+
+differentTwo([4,3,1,5,6]);
+
+
+function factorial(aNum){
+
+    if(aNum === 1){
+        return 1;
+    }
+    else{
+        return aNum * factorial(aNum-1);
+    }
+
+}
+
+
+function findLargestNums(matrix){
+
+    let maxArr = [];
+    for(let i = 0; i < matrix.length; i++){
+        let innerArr = matrix[i];
+        let maxNum = 0;
+        // check if arr is all negative
+        let isNegative = false;
+        for(let j = 0; j < innerArr.length; j++){
+            if(innerArr[j] >= 0){
+                isNegative = false;
+                break;
+            }
+            else{
+                isNegative = true;
+            }
+        }
+        if(isNegative){
+            maxNum = innerArr[0]*-1;
+            for(let j = 0; j < innerArr.length; j++){
+                maxNum = Math.min(maxNum,Math.abs(innerArr[j]));
+            }
+            maxArr.push(-maxNum);
+        }
+        else {
+            for (let j = 0; j < innerArr.length; j++) {
+                maxNum = Math.max(maxNum, innerArr[j]);
+            }
+            maxArr.push(maxNum);
+        }
+    }
+    return maxArr;
+
+}
+
+console.log(findLargestNums([[4, 2, 7, 1], [20, 70, 40, 90], [1, 2, 0]]));
+console.log(findLargestNums([[-34, -54, -74], [-32, -2, -65], [-54, 7, -43]]));
+
+
+ */
