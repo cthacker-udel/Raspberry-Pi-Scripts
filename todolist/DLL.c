@@ -152,6 +152,33 @@ Create move down method
 
 */
 
+void moveDown(int id){
+
+    if(theList.first == NULL){
+        // list is empty
+        printf("\nThe list is empty\n");
+    }
+    if(theList.first->theTask->id == id){
+        if(theList.first->next = NULL){
+            // list consists of one node
+            printf("\nThe list only consists of one node\n");
+            return;
+        }
+        else{
+            if(theList.first->next->theTask->priority > theList.first->theTask->priority){
+                theList.first->theTask->priority = theList.first->next->theTask->priority;
+            }
+            dNode *firstNext = theList.first->next;
+            firstNext->prev = NULL;
+            theList.first->next = firstNext->next;
+            firstNext->next->prev = theList.first;
+            firstNext->next = theList.first;
+            theList.first->prev = firstNext;
+        }
+    }
+
+}
+
 void printList(){
 
     dNode *tempFirst = theList.first;
