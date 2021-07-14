@@ -146,3 +146,19 @@ void moveUp(int tn){
 
 }
 
+/*
+
+Create move down method
+
+*/
+
+void printList(){
+
+    dNode *tempFirst = theList.first;
+    while(tempFirst != NULL){
+        printTask(*(tempFirst->theTask));
+    }
+
+}
+
+
