@@ -690,6 +690,63 @@ console.log(crazyfunction(17,35));
 
 */
 
+function removeVowels(aStr){
+
+    let vowels = "aeiouAEIOU";
+    let newStr = "";
+    for(let i = 0; i < aStr.length; i++){
+        let aChar = aStr.charAt(i);
+        if(vowels.includes(aChar)){
+            continue;
+        }
+        else{
+            newStr += aChar;
+        }
+    }
+    return newStr;
+
+}
+
+function bomb(aStr){
+
+    aStr = aStr.toLowerCase();
+    if(aStr.includes("bomb")){
+        return "Duck!!!";
+    }
+    else{
+        return "There is no bomb, relax."
+    }
+
+}
+
+function factorial(num) {
+    if(num === 1){
+        return 1;
+    }
+    else{
+        return num * factorial(num-1);
+    }
+}
+
+
+function singleOccurrence(aStr){
+
+    if(aStr.length === 0){
+        return "";
+    }
+    else{
+        aStr = aStr.toLowerCase();
+        for(let i = 0; i < aStr.length; i++){
+            let aChar = aStr.charAt(i);
+            if(aStr.indexOf(aChar) === aStr.lastIndexOf(aChar)){
+                return aChar.toUpperCase();
+            }
+        }
+
+    }
+
+}
+
 let student = {
 
     name: "Student",
@@ -712,3 +769,12 @@ console.log(student.age);
 console.log("name" in student);
 
 console.log(Object.keys(student));
+
+function possibleBonus(a, b) {
+    if(a > b || a === b){
+        return false;
+    }
+    else{
+        return Math.abs(a-b) >= 1 && Math.abs(a-b) <= 6;
+    }
+}
