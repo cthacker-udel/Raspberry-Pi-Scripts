@@ -1005,10 +1005,12 @@ let obj3 = {"name": "Jason","age": 10};
 console.log(JSON.stringify(obj3));
 
 
-function range(num1,num2){
+function range(num1,num2,step=1){
 
     let arr1 = [];
-    for(let i = num1; i < num2; i++){
+    num1 = Math.min(num1,num2);
+    num2 = Math.max(num1,num2);
+    for(let i = num1; i < num2; i += step){
         arr1.push(i);
     }
     return arr1;
