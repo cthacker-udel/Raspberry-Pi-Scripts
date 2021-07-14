@@ -185,6 +185,9 @@ void moveDown(int id){
             printf("\nThe list only consists of one node\n");
         }
         else{
+            if(theList.first->theTask->priority < theList.last->theTask->priority){
+                theList.last->theTask->priority = theList.first->theTask->priority;
+            }
             dNode *lastPrev = theList.last->prev;
             theList.first->prev = theList.last;
             theList.last->prev->next = NULL;
