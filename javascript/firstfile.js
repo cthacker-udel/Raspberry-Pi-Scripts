@@ -1015,3 +1015,13 @@ function range(num1,num2){
 
 }
 
+function sum(...numArr){
+
+    let total = 0;
+    for(let number of numArr){
+        total += number;
+    }
+    return total;
+
+}
+
