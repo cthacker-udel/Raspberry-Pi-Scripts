@@ -10,11 +10,22 @@ class User{
     int birthMonth;
     int birthDay;
     string lastName;
+    friend class Rent;
 
     public:
 
         User(string,string,int,int,int);
 
         User();
+
+        string getFirstName();
+
+        int getBirthYear();
+
+        int getBirthMonth();
+
+        int getBirthDay();
+
+        string getLastName();
 
 };

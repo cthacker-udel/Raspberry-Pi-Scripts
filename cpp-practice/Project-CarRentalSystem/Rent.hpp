@@ -3,6 +3,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include <time.h>
+#include <stdio.h>
 #include "Car.hpp"
 #include "User.hpp"
 using namespace std;
@@ -24,6 +25,9 @@ class Rent{
     public:
 
         Rent(string,int,double); // type --> discerns which number to apply to, days, months or years, and rate
+        
+        Car *getCar();
 
+        User *getUser();
 
 };

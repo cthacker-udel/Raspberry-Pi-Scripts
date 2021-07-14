@@ -24,3 +24,11 @@ Rent::Rent(string newType, int intValue, double newRate){
     this->id = rand() % 141;
 
 };
+
+Car *Rent::getCar(){
+    return this->car;
+}
+
+User *Rent::getUser(){
+    return this->renter;
+}

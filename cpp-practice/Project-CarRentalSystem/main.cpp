@@ -55,8 +55,77 @@ int main(void){
 	                Rental created
 
 	                */
+
+
+                    string commandString = "./log_rental.sh ";
+                    commandString += theRent.getUser()->getFirstName() + " ";
+                    //cout << "The command string is : " << commandString << endl;
+                    commandString += theRent.getUser()->getLastName() + " ";
+                    //cout << "The command string is : " << commandString << endl;
+                    commandString += to_string(theRent.getUser()->getBirthYear()) + " ";
+                    //cout << "The command string is : " << commandString << endl;
+                    commandString += to_string(theRent.getUser()->getBirthMonth()) + " ";
+                    //cout << "The command string is : " << commandString << endl;
+                    commandString += to_string(theRent.getUser()->getBirthDay()) + " ";
+                    //cout << "The command string is : " << commandString << endl;
+                    commandString += theRent.getCar()->getManufacturer() + " ";
+                    //cout << "The command string is : " << commandString << endl;
+                    commandString += to_string(theRent.getCar()->getYear()) + " ";
+                    //cout << "The command string is : " << commandString << endl;
+                    commandString += to_string(theRent.getCar()->getMiles());
+                    //cout << "The command string is : " << commandString << endl;
+                    char *newCmdString = (char *)malloc(sizeof(char) * commandString.length()+1);
+                    for(int i = 0; i < commandString.length(); i++){
+                        *(newCmdString+i) = commandString.at(i);
+                    }
+                    *(newCmdString+commandString.length()+1) = '\0';
+                    printf("The command string is : %s",newCmdString);
+                    system(newCmdString);
+
                     break;
                 }
+				case 3:{
+
+					string firstName;
+					string lastName;
+					int birthYear;
+					int birthMonth;
+					int birthDay;
+					string carManu;
+					int carYear;
+					int carMiles;
+					cout << "Enter first name" << endl;
+					cin >> firstName;
+					cout << "Enter last name" << endl;
+					cin >> lastName;
+					cout << "Enter birth year" << endl;
+					cin >> birthYear;
+					cout << "Enter birth month" << endl;
+					cin >> birthMonth;
+					cout << "Enter birth day" << endl;
+					cin >> birthDay;
+					cout << "Enter car manufacturer" << endl;
+					cin >> carManu;
+					cout << "Enter car model year" << endl;
+					cin >> carYear;
+					cout << "Enter car miles" << endl;
+					cin >> carMiles;
+					string searchString;
+					string fullname = "[Name : " + firstName + " " + lastName + "]";
+					string dob = "[Date of Birth : " + to_string(birthDay) + "/" + to_string(birthMonth) + "/" + to_string(birthYear) + "]";
+					string carDetails = "[Manufacturer : " + carManu + " | Year : " + to_string(carYear) + " | Miles : " + to_string(carMiles) + "]";
+					searchString = fullname + " " + dob + " " + carDetails;
+                    searchString = "./search_rental.sh \"" + searchString + "\"";
+                    char *newSrchStr = (char *)malloc(sizeof(char) * searchString.length()+1);
+                    for(int i = 0; i < searchString.length(); i++){
+                        *(newSrchStr+i) = searchString.at(i);
+                    }     
+                    *(newSrchStr+searchString.length()+1) = '\0';
+                    printf("Search string : %s",newSrchStr);
+                    system(newSrchStr);
+
+				}
+
 
 
 	      }

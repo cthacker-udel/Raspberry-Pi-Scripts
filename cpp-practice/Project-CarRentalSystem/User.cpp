@@ -24,3 +24,23 @@ User::User(string newFirstName, string newLastName, int newBirthYear, int newBir
     this->birthDay = newBirthDay;
 
 }
+
+string User::getFirstName(){
+    return this->firstName;
+}
+
+string User::getLastName(){
+    return this->lastName;
+}
+
+int User::getBirthYear(){
+    return this->birthYear;
+}
+
+int User::getBirthMonth(){
+    return this->birthMonth;
+}
+
+int User::getBirthDay(){
+    return this->birthDay;
+}
