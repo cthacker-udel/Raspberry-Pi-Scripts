@@ -146,3 +146,104 @@ void moveUp(int tn){
 
 }
 
+/*
+
+Create move down method
+
+*/
+
+void moveDown(int id){
+
+    if(theList.first == NULL){
+        // list is empty
+        printf("\nThe list is empty\n");
+    }
+    if(theList.first->theTask->id == id){
+        if(theList.first->next = NULL){
+            // list consists of one node
+            printf("\nThe list only consists of one node\n");
+            return;
+        }
+        else{
+            if(theList.first->next->theTask->priority > theList.first->theTask->priority){
+                theList.first->theTask->priority = theList.first->next->theTask->priority;
+            }
+            dNode *firstNext = theList.first->next;
+            firstNext->prev = NULL;
+            theList.first->next = firstNext->next;
+            firstNext->next->prev = theList.first;
+            firstNext->next = theList.first;
+            theList.first->prev = firstNext;
+            theList.first = firstNext;
+            return;
+        }
+    }
+    if(theList.last->theTask->id == id){
+
+        if(theList.last->prev == NULL){
+            // list only consists of one node
+            printf("\nThe list only consists of one node\n");
+        }
+        else{
+            if(theList.first->theTask->priority < theList.last->theTask->priority){
+                theList.last->theTask->priority = theList.first->theTask->priority;
+            }
+            dNode *lastPrev = theList.last->prev;
+            theList.first->prev = theList.last;
+            theList.last->prev->next = NULL;
+            theList.last->prev = NULL;
+            theList.last->next = theList.first;
+            theList.last = lastPrev;
+            return;
+
+        }
+
+    }
+
+}
+
+void printList(){
+
+    dNode *tempFirst = theList.first;
+    while(tempFirst != NULL){
+        printTask(*(tempFirst->theTask));
+        tempFirst = tempFirst->next;
+    }
+
+}
+
+void printList(int p){
+
+    dNode *tempFirst = theList.first;
+    while(tempFirst != NULL){
+        if(tempFirst->theTask->priority == p){
+            printTask(*(tempFirst->theTask));
+        }
+        tempFirst = tempFirst->next;
+    }
+
+}
+
+void addTime(int h, int m){
+
+    while(m > 59){
+        m -= 60;
+        h++;
+    }
+    theList.totHrs += h;
+    theList.totMins += m;
+
+}
+
+void removeTime(int h, int m){
+
+    while(m > 59){
+        m -= 60;
+        h++;
+    }
+    theList.totHrs -= h;
+    theList.totMins -= m;
+
+}
+
+
