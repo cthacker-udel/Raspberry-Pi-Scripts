@@ -1168,7 +1168,7 @@ function deepEqual(elem1,elem2){
 console.log(listToArray(newList));
 
 
- */
+
 
 function repeat(n,action){
 
@@ -1291,9 +1291,10 @@ function toArray(aObj){
 
     let newArr = [];
     let newSubArr = [];
+    let keys = Object.keys(aObj);
     for(let eachKey of keys){
         newSubArr.push(eachKey);
-        newSubArr.push(obj[eachKey]);
+        newSubArr.push(aObj[eachKey]);
         newArr.push(newSubArr);
         newSubArr = [];
     }
@@ -1301,5 +1302,180 @@ function toArray(aObj){
 
 }
 
-console.log(toArray({a:1,b:2}));
+function arrayOfMultiples(num,length){
 
+    let newArr = [];
+    for(let i = num; newArr.length < length; i += num){
+        newArr.push(i);
+    }
+    return newArr;
+
+}
+
+function removeLeadingTrailing(aNumStr){
+
+    // check right first
+
+    let number = Number.parseFloat(aNumStr);
+    return String(number);
+
+}
+
+class Rectangle{
+
+    constructor(x,y,width,height){
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+    }
+
+    toString(){
+
+        return `[x=${this.x}, y=${this.y}, width=${this.width}, height=${this.height}]`;
+
+    }
+
+}
+
+let newRectangle = new Rectangle(10,20,30,40);
+console.log(newRectangle.toString());
+
+
+//console.log(toArray({a:1,b:2}));
+
+
+
+
+function isRepdigit(aNum){
+
+    if(aNum < 0){
+        return false;
+    }
+    else{
+        let numString = String(aNum);
+        let firstDigit = numString.charAt(0);
+        for(let i = 0; i < numString.length; i++){
+            if(numString.charAt(i) !== firstDigit){
+                return false;
+            }
+        }
+        return true;
+    }
+
+}
+
+class OnesThreesNines{
+
+    constructor(theNum){
+        this.number = theNum;
+        this.ones = theNum;
+        let tempNum = theNum;
+        this.threes = 0;
+        while(tempNum >= 3){
+            this.threes += 1;
+            tempNum -= 3;
+        }
+        tempNum = theNum;
+        this.nines = 0;
+        while(tempNum >= 9){
+            tempNum -= 9;
+            this.nines += 1;
+        }
+    }
+
+}
+
+function derivative(b, m) {
+    return b * Math.pow(m,b-1);
+}
+
+function concat(...arrays){
+
+    let newArr = [];
+    for(let i = 0; i < arrays.length; i++){
+        arrays[i].forEach(e => newArr.push(e));
+    }
+    return newArr;
+
+}
+
+console.log(concat([1,2,3],[4,5],[6,7]));
+
+function intWithinBounds(num,lower,upper){
+
+    for(let i = lower; i < upper; i++){
+        if(i === num){
+            return true;
+        }
+    }
+    return false;
+
+}
+
+function makePlusFunction(baseNum){
+
+    return m => m+baseNum;
+
+}
+
+function count(aNum){
+
+    aNum = Math.abs(aNum);
+    return String(aNum).length;
+
+}
+
+
+function paths(aNum){
+
+    function factorial(number){
+
+        if(number == 1){
+            return 1;
+        }
+        else{
+            return number * factorial(number-1);
+        }
+
+    }
+
+    return factorial(aNum);
+
+
+}
+
+
+
+function checkEquals(arr1,arr2){
+
+    arr1.sort();
+    arr2.sort();
+    for(let i = 0; i < arr1.length; i++){
+        if(arr1[i] !== arr2[i]){
+            return false;
+        }
+    }
+    return true;
+
+}
+
+console.log(checkEquals([1,2],[1,2]));
+
+ */
+
+function compat(anArr){
+
+    let newArr = [];
+    for(let i = 0; i < anArr.length; i++){
+        let theElem = anArr[i];
+        if(theElem === false || theElem === null || theElem === 0 || theElem === "" || theElem === undefined || Number.isNaN(theElem)){
+            continue;
+        }
+        else{
+            newArr.push(theElem);
+        }
+    }
+    return newArr;
+
+}
