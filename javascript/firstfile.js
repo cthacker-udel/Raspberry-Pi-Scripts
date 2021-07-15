@@ -1141,6 +1141,31 @@ function nth(aList,elem){
 
 }
 
+function deepEqual(elem1,elem2){
+
+    if(typeof elem1 === 'object' && elem1 !== null && typeof elem2 === 'object' && elem2 !== null){
+        let elem1Keys = elem1.keys();
+        let elem2Keys = elem2.keys();
+        elem1Keys.sort();
+        elem2Keys.sort();
+        if(elem1Keys.length !== elem2Keys.length){
+            return false;
+        }
+        else{
+            for(let i = 0; i < elem1Keys.length; i++){
+                if(elem1Keys[i] !== elem2Keys[i]){
+                    return false;
+                }
+            }
+            return true;
+        }
+    }
+    else{
+        return elem1 === elem2;
+    }
+
+}
+
 console.log(listToArray(newList));
 
 
