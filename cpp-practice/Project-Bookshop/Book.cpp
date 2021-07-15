@@ -10,6 +10,7 @@ Book::Book(string newFirst, string newLast, int newYearReleased, int newMonthRel
     this->monthReleased = newMonthReleased;
     this->dayReleased = newDayReleased;
     this->id = rand() % rand();
+    this->isbn = (rand() % 10000) + 1000;
 
 }
 

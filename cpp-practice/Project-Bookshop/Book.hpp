@@ -2,6 +2,7 @@
 #include <cmath>
 #include <stdlib.h>
 #include <time.h>
+#include <vector>
 using namespace std;
 
 class Book{
@@ -12,6 +13,7 @@ class Book{
     int monthReleased;
     int dayReleased;
     int id;
+    int isbn;
 
     public:
 
