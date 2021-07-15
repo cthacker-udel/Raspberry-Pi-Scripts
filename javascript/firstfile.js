@@ -1126,6 +1126,21 @@ function prepend(elem,aList){
 
 }
 
+function nth(aList,elem){
+
+    let index = 0;
+    let node = aList;
+    while(node.rest != null){
+        if(node.value === elem){
+            return index;
+        }
+        node = node.rest;
+        index++;
+    }
+    console.log("Element unable to be found in list");
+
+}
+
 console.log(listToArray(newList));
 
 
