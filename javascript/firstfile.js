@@ -1054,7 +1054,6 @@ function reverseArrayInPlace(theArr){
 
 }
 
-*/
 
 function arrayToList(aArr){
 
@@ -1168,4 +1167,97 @@ function deepEqual(elem1,elem2){
 
 console.log(listToArray(newList));
 
+
+ */
+
+function repeat(n,action){
+
+    for(let i = 0; i < n; i++){
+        action(i);
+    }
+
+};
+
+repeat(10,console.log);
+
+let labels = [];
+
+repeat(20,i => {
+
+    labels.push(`Unit ${i+1}`);
+
+});
+
+console.log(labels);
+
+let squares = [];
+
+repeat(2,i => {
+
+    squares.push(i**2);
+
+});
+
+console.log(squares);
+
+function greaterThan(n){
+
+    return m => m > n;
+
+}
+
+let func1 = greaterThan(10);
+console.log(func1(20));
+
+function lessThan(n){
+
+    return m => m < n;
+
+}
+
+let func2 = lessThan(10);
+console.log(func2(15));
+
+function noisy(f){
+
+    return (...args) => {
+
+        console.log("calling with",args);
+        let result = f(...args);
+        console.log("called with",args,",returned",result);
+        return result;
+
+    };
+
+}
+
+function useless(test,then){
+
+    if(!test){
+        then();
+    }
+
+}
+
+function repeat2(n,action){
+
+    action(n);
+
+}
+
+
+repeat2(3,n => {
+    useless(n % 2 === 0, () => {
+        console.log(n,"is odd");
+    })
+});
+
+let arr = ["A","B"];
+
+arr.forEach(e => console.log(e));
+
+
+
+
+noisy(Math.max)(3,2,1);
 
