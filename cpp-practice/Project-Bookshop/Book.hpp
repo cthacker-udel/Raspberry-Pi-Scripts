@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <vector>
+#include <iostream>
 using namespace std;
 
 class Book{
