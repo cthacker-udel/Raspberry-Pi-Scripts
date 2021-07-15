@@ -910,14 +910,7 @@ function shiftToRight(aNum,power){
 }
 
 
- */
 
-/*
-
-
-Objects and Classes
-
- */
 
 let obj1 = {
 
@@ -1026,4 +1019,113 @@ function sum(...numArr){
     return total;
 
 }
+
+
+function reverseArray(aArr){
+
+    let newArr = aArr.reverse();
+    return newArr;
+
+}
+
+console.log(reverseArray([1,2,3]));
+
+function reverseArrayInPlace(theArr){
+
+
+    let newArr = [];
+    for(let i = theArr.length-1; i >= 0; i--){
+        newArr.push(theArr[i]);
+    }
+    theArr = newArr.slice();
+    return theArr;
+
+
+    let middle = theArr.length / 2;
+    for(let i = 0, j = theArr.length-1; i < middle && j > middle; i++, j--){
+
+        let elem = theArr[i];
+        let elem2 = theArr[j];
+        theArr[i] = elem2;
+        theArr[j] = elem;
+
+    }
+    return theArr;
+
+}
+
+*/
+
+function arrayToList(aArr){
+
+    let list = {
+        value: 0,
+        rest : null
+
+    };
+    let spot;
+    for(let i = 0; i < aArr.length; i++){
+
+        spot = list
+        while(spot.rest != null){
+            spot = spot.rest;
+        }
+        spot.value = aArr[i];
+        spot.rest = {value: 0, rest: null};
+
+    }
+    spot = list;
+    return spot;
+
+}
+
+function listToArray(list){
+
+    let newArr = [];
+
+    let node = list;
+    while(node.rest != null){
+        newArr.push(node.value);
+        node = node.rest;
+    }
+    newArr.push(node.value);
+    return newArr;
+
+}
+
+//console.log(reverseArrayInPlace([1,2,3]));
+
+console.log(arrayToList([1,2,3]));
+
+let newList = {
+
+    value : 10,
+    rest : {
+        value : 20,
+        rest : {
+            value : 30,
+            rest : {
+                value : 40,
+                rest : null
+            }
+        }
+    }
+
+};
+
+function prepend(elem,aList){
+
+    let newList = {
+
+        value: elem,
+        rest : null
+
+    };
+    newList.rest = aList;
+    return newList;
+
+}
+
+console.log(listToArray(newList));
+
 
