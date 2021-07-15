@@ -1261,3 +1261,45 @@ arr.forEach(e => console.log(e));
 
 noisy(Math.max)(3,2,1);
 
+
+function sevenBoom(numArr=[]){
+
+    return numArr.map(e => String(e).includes("7")).includes(true)? "Boom!": "there is no 7 in the array";
+
+}
+
+console.log(sevenBoom([8,97,33,100]));
+
+function findHighest(numArr=[]){
+
+    if(numArr.length === 1){
+        return numArr[0];
+    }
+    else{
+        if(numArr[0] > numArr[numArr.length-1]){
+            return findHighest(numArr.splice(0,numArr.length-1));
+        }
+        else{
+            return findHighest(numArr.splice(1));
+        }
+    }
+
+}
+
+function toArray(aObj){
+
+
+    let newArr = [];
+    let newSubArr = [];
+    for(let eachKey of keys){
+        newSubArr.push(eachKey);
+        newSubArr.push(obj[eachKey]);
+        newArr.push(newSubArr);
+        newSubArr = [];
+    }
+    return newArr;
+
+}
+
+console.log(toArray({a:1,b:2}));
+
