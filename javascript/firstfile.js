@@ -1445,7 +1445,6 @@ function paths(aNum){
 
 }
 
- */
 
 
 function checkEquals(arr1,arr2){
@@ -1463,4 +1462,20 @@ function checkEquals(arr1,arr2){
 
 console.log(checkEquals([1,2],[1,2]));
 
+ */
 
+function compat(anArr){
+
+    let newArr = [];
+    for(let i = 0; i < anArr.length; i++){
+        let theElem = anArr[i];
+        if(theElem === false || theElem === null || theElem === 0 || theElem === "" || theElem === undefined || Number.isNaN(theElem)){
+            continue;
+        }
+        else{
+            newArr.push(theElem);
+        }
+    }
+    return newArr;
+
+}
