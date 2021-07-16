@@ -1509,7 +1509,6 @@ function compat(anArr){
 
 }
 
- */
 
 
 function objectToArray(aObj){
@@ -1812,3 +1811,127 @@ function totalVolume(...args){
 
 
 }
+
+function calculator(num1,operator,num2){
+
+    if(operator === "/" && num2 === 0){
+        return "Can't divide by 0!";
+    }
+    else{
+
+        switch(operator){
+
+            case "-":
+                return num1 - num2;
+            case "+":
+                return num1 + num2;
+            case "*":
+                return num1 * num2;
+            case "/":
+                return num1 / num2;
+            default:
+                return null;
+
+        }
+
+    }
+
+}
+
+
+function sortIt(arr){
+
+    arr.sort((a,b) => typeof a === 'object' && typeof b === 'object'? a[0] - b[0]: typeof a === 'object' && typeof b !== 'object'? a[0] - b: typeof a !== 'object' && typeof b === 'object'? a - b[0]: a-b);
+    return arr;
+
+
+}
+
+
+function weight(radius,height){
+
+    let volumedc = (Math.PI * (radius**2) * height) * 0.001;
+
+    return Number.parseFloat(Number(volumedc).toFixed(2));
+
+
+}
+
+function isSpecialArray(arr){
+
+    for(let i = 0; i < arr.length; i++){
+
+        if(i % 2 === 0){
+            if(arr[i] % 2 === 0){
+                continue;
+            }
+            else{
+                return false;
+            }
+        }
+        else{
+            if(arr[i] % 2 !== 0){
+                continue;
+            }
+            else{
+                return false;
+            }
+        }
+    }
+    return true;
+
+}
+
+function squareDigits(n) {
+    let str = "";
+    let strNum = String(n);
+    for(let eachletter of strNum){
+        let num = Number(eachletter);
+        str += String(num**2);
+    }
+    return Number.parseInt(str);
+}
+
+function tempConversion(temp){
+
+    let arr = [];
+    arr.push(Number.parseFloat(Number(temp*(9/5) + 32).toFixed(2)));
+    arr.push(Number.parseFloat(Number(temp + 273.15).toFixed(2)));
+    if(arr[1] < 0){
+        return "Invalid";
+    }
+    return arr;
+
+}
+
+function findASeat(capacity,train){
+
+    let maxCapacity = capacity / train.length;
+    for(let i = 0; i < train.length; i++){
+
+        let percentage = train[i] / maxCapacity;
+        if((percentage * 100) <= 50){
+            return i;
+        }
+
+    }
+    return -1;
+}
+
+
+ */
+
+function dis(origPrice,discount){
+
+    let rightDiscount = discount / 100;
+    let amtOff = origPrice * rightDiscount;
+    return Number.parseFloat(Number(origPrice - amtOff).toFixed(2));
+
+
+}
+
+dis(100, 75)//, 25)
+dis(211, 50)//, 105.5)
+dis(593, 61)//, 231.27)
+dis(1693, 80)//, 338.6)
+dis(700, 10)//, 630)
