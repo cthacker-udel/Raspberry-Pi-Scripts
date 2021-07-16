@@ -1537,3 +1537,278 @@ function countBoomerangs(arr){
 
 
 }
+
+
+class Rectangle {
+    constructor(sideA, sideB) {
+        this.sideA = sideA
+        this.sideB = sideB
+    }
+    getArea(){return this.sideA*this.sideB}
+    getPerimeter(){return (this.sideA + this.sideB) *2}
+}
+
+
+class Circle {
+
+    constructor(radius){
+
+        this.radius = radius;
+
+    }
+
+    getArea(){
+        return Math.PI * (this.radius**2);
+    }
+
+    getPerimeter(){
+
+        return 2 * Math.PI * this.radius;
+
+    }
+
+}
+
+
+// unquote and use run to test these cases:
+
+let q = new Circle(4.44);
+console.log(q.getArea());
+console.log(q.getPerimeter());
+
+
+function coneVolume(height,radius){
+
+    return Number(Number.parseFloat(((Math.PI * (radius**2)) * height) / 3).toFixed(2));
+
+}
+
+function allTruthy(...arr){
+
+    for(let i = 0; i < arr.length; i++){
+
+        let elem = arr[i];
+        if(elem === false || elem === 0 || elem === "" || elem === null || elem === undefined || Number.isNaN(elem)){
+            return false;
+        }
+
+    }
+    return true;
+
+}
+
+function operation(num1,num2,operation){
+
+    num1 = Number(num1);
+    num2 = Number(num2);
+
+    if(operation === "divide"){
+        if(num2 === 0){
+            return "undefined";
+        }
+        else{
+            return num1 / num2;
+        }
+    }
+    else if(operation === "multiply"){
+
+        return num1 * num2;
+
+    }
+    else if(operation === "add"){
+
+        return num1 + num2;
+
+    }
+    else if(operation === "subtract"){
+
+        return num1 - num2;
+
+    }
+
+}
+
+function objectToArray(obj){
+
+    let firstArr = [];
+    let secondArr = [];
+
+    let keys = Object.keys(obj);
+
+    for(let i = 0; i < keys.length; i++){
+
+        let theKey = keys[i];
+        let value = obj[theKey];
+        secondArr.push(theKey);
+        secondArr.push(value);
+        firstArr.push(secondArr);
+        secondArr = [];
+
+    }
+    if(secondArr.length > 0){
+        firstArr.push(secondArr);
+    }
+    return firstArr;
+
+
+}
+
+function jazzify(arr) {
+
+    for(let i = 0; i < arr.length; i++){
+
+        if(arr[i].endsWith("7")){
+            continue;
+        }
+        else{
+            arr[i] = arr[i].concat("7");
+        }
+
+    }
+    return arr;
+
+}
+
+function ascDesNone(arr,str){
+
+    if(str === "Asc"){
+        arr.sort((a,b) => a-b);
+        return arr;
+    }
+    else if(str === "Des"){
+        arr.sort((a,b) => b-a);
+        return arr;
+    }
+    else{
+        return arr;
+    }
+
+}
+
+
+function addName(obj1,name,value){
+
+    obj1[name] = value;
+    return obj1;
+
+}
+
+function flatten(arr){
+
+    let newArr = [];
+
+    for(let i = 0; i < arr.length; i++){
+
+        if(typeof arr[i] === 'object'){
+
+            for(let j = 0; j < arr[i].length; j++){
+                newArr.push(arr[i][j]);
+            }
+
+        }
+
+    }
+    return newArr;
+
+
+}
+
+function findNemo(astr){
+
+    let words = astr.split(" ");
+    for(let i = 0; i < words.length; i++){
+
+        if(words[i] === "Nemo"){
+            return `I found Nemo at ${i+1}!`;
+        }
+
+    }
+    return "I can't find Nemo :(";
+
+
+}
+
+findNemo("I am Ne mo Nemo !");//, "I found Nemo at 5!")
+findNemo("N e m o is NEMO NeMo Nemo !");//, "I found Nemo at 8!")
+findNemo("I am Nemo's dad Nemo senior .");//, "I found Nemo at 5!")
+findNemo("Oh, hello !");//, "I can't find Nemo :(")
+findNemo("Is it Nemos, Nemona, Nemoor or Garfield?");//, "I can't find Nemo :(")
+findNemo("Nemo is a clown fish, he has white and orange stripes. Nemo , come back!");//, "I found Nemo at 1!")
+
+
+function doesTriangleFit(arr1,arr2){
+
+    let perimeter1 = (arr1[0] + arr1[1] + arr1[2]) / 2;
+    let perimeter2 = (arr2[0] + arr2[1] + arr2[2]) / 2;
+
+    let area1 = Math.sqrt((perimeter1 * (perimeter1 - arr1[0]) * (perimeter1 - arr1[1]) * (perimeter1 - arr1[2])));
+
+    let area2 = Math.sqrt((perimeter2*(perimeter2 - arr2[0]) * (perimeter2-arr2[1]) * (perimeter2-arr2[2])));
+
+    if(Number.isNaN(area1) || Number.isNaN(area2)){
+        return false;
+    }
+    else if(area2 < area1){
+        return false;
+    }
+    else{
+        return true;
+    }
+
+
+
+
+}
+
+function indexMultiplier(arr){
+
+    let total = 0;
+    if(arr.length === 0){
+        return 0;
+    }
+    else{
+
+        for(let i = 0; i < arr.length; i++){
+            total += arr[i] * i;
+        }
+        return total;
+
+    }
+
+}
+
+function capToFront(aStr){
+
+    let newStr = "";
+    for(let eachletter of aStr){
+
+        if(eachletter === eachletter.toUpperCase()){
+            newStr += eachletter;
+        }
+
+    }
+    for(let eachletter of aStr){
+
+        if(eachletter === eachletter.toLowerCase()){
+            newStr += eachletter;
+        }
+
+    }
+    return newStr;
+
+}
+
+function totalVolume(...args){
+
+    let total = 0;
+
+    for(let i = 0; i < args.length; i++){
+
+        let box = args[i];
+        total += (box[0] * box[1] * box[2]);
+
+    }
+    return total;
+
+
+}
