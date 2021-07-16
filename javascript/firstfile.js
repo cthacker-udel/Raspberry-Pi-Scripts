@@ -1462,7 +1462,36 @@ function checkEquals(arr1,arr2){
 
 console.log(checkEquals([1,2],[1,2]));
 
- */
+function towerHanoi(discs) {
+	return (2**discs)-1;
+}
+
+function perimeter(typeOfShape, aNum){
+
+    return typeOfShape === "s"? aNum*4: 6.28 * aNum;
+
+}
+
+function testJackpot(slotOutcome){
+
+    let firstOutcome = slotOutcome[0];
+    for(let i = 0; i < slotOutcome.length; i++){
+        let theChar = slotOutcome[i];
+        if(theChar !== firstOutcome){
+            return false;
+        }
+    }
+    return true;
+
+}
+
+function secondLargest(numArr){
+
+    numArr.sort((a,b) => a-b);
+    return numArr[numArr.length-2];
+
+}
+
 
 function compat(anArr){
 
@@ -1477,5 +1506,34 @@ function compat(anArr){
         }
     }
     return newArr;
+
+}
+
+ */
+
+
+function objectToArray(aObj){
+
+    let theKeys = Object.keys(aObj);
+    for(let i = 0; i < theKeys.length; i++){
+
+
+
+    }
+
+}
+
+function countBoomerangs(arr){
+
+    let count = 0;
+    for(let i = 0; i < arr.length-2; i++){
+
+        if(arr[i] === arr[i+2] && arr[i+1] !== arr[i]){
+            count++;
+        }
+
+    }
+    return count;
+
 
 }
