@@ -1930,11 +1930,11 @@ function dis(origPrice,discount){
 
 }
 
-dis(100, 75)//, 25)
-dis(211, 50)//, 105.5)
-dis(593, 61)//, 231.27)
-dis(1693, 80)//, 338.6)
-dis(700, 10)//, 630)
+//dis(100, 75)//, 25)
+//dis(211, 50)//, 105.5)
+//dis(593, 61)//, 231.27)
+//dis(1693, 80)//, 338.6)
+//dis(700, 10)//, 630)
 
 
 function oddishOrEvenish(aNum){
@@ -1962,3 +1962,114 @@ function numbersSum(arr){
     return total;
 
 }
+
+function getDays(date1,date2){
+
+    const oneDay = 24 * 60 * 60 * 1000;
+    let diffDays = Math.round(Math.abs(date1 - date2) / oneDay);
+    console.log(diffDays);
+    return diffDays;
+
+}
+
+function fruitSalad(arr){
+
+    let newArr = [];
+
+    for(let eachelem of arr){
+        let firstSub = eachelem.substr(0,(eachelem.length) / 2);
+        let secondSub = eachelem.substr(eachelem.length / 2);
+        newArr.push(firstSub);
+        newArr.push(secondSub);
+    }
+    newArr.sort();
+    return newArr.join("");
+
+}
+
+
+//console.log(fruitSalad(['apple', 'pear', 'grapes']));//, 'apargrapepesple')
+
+
+function isTriplet(num1,num2,num3){
+
+    let numArr = [];
+    numArr.push(num1);
+    numArr.push(num2);
+    numArr.push(num3);
+    numArr.sort((a,b) => a-b);
+    return numArr[0]**2 + numArr[1]**2 === numArr[2]**2;
+
+}
+
+function trace(matrix){
+
+    let total = 0;
+    for(let i = 0; i < matrix.length; i++){
+
+        total += matrix[i][i];
+
+    }
+    return total;
+
+
+}
+
+function countOnes(aNum){
+
+    let binaryString = (aNum >>> 0).toString(2);
+    let count = 0;
+    for(let eachelem of binaryString){
+        if(eachelem === "1"){
+            count++;
+        }
+    }
+    return count;
+
+}
+
+
+function evenLast(arr){
+
+    if(arr.length === 0){
+        return 0;
+    }
+    let total = 0;
+    for(let i = 0; i < arr.length; i++){
+        if(i % 2 === 0){
+            total += arr[i];
+        }
+    }
+    return total * arr[arr.length-1];
+
+}
+
+function measureDepth(arr){
+
+    let string = JSON.stringify(arr);
+    let count = 0;
+    for(let eachelem of string){
+        if(eachelem === "["){
+            count++;
+        }
+    }
+    console.log(count);
+    return count;
+
+
+}
+
+
+
+function lineLength([x1,y1],[x2,y2]){
+
+    let sqr1 = (x2-x1)**2;
+    let sqr2 = (y2-y1)**2;
+    return Number.parseFloat(Number(Math.sqrt(sqr1+sqr2)).toFixed(2));
+
+
+
+
+}
+
+measureDepth([[[[[[]]]]]])
