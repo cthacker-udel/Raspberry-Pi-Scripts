@@ -22,6 +22,8 @@ class Pilot{
 
         int getAge();
 
+        void setAge(int);
+
         int getMilesFlown();
 
         int getCitiesTraveled();
@@ -29,6 +31,10 @@ class Pilot{
         vector<Plane> getPlanesThrown();
 
         void addPlane(Plane);
+
+        void addMilesFlown(int);
+
+        void addCityTraveled(int);
 
 
 
