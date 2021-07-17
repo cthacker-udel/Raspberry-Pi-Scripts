@@ -1935,3 +1935,30 @@ dis(211, 50)//, 105.5)
 dis(593, 61)//, 231.27)
 dis(1693, 80)//, 338.6)
 dis(700, 10)//, 630)
+
+
+function oddishOrEvenish(aNum){
+
+    let strNum = String(aNum);
+    let total = 0;
+    for(let i = 0; i < strNum.length; i++){
+        total += Number(strNum[i]);
+    }
+    return total % 2 == 0? "Evenish": "Oddish";
+
+}
+
+function numbersSum(arr){
+
+    let total = 0;
+    for(let i = 0; i < arr.length; i++){
+
+        let elem = arr[i];
+        if(typeof elem == 'number'){
+            total += elem;
+        }
+
+    }
+    return total;
+
+}
