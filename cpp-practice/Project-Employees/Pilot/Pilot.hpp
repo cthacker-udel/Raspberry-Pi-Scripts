@@ -28,6 +28,8 @@ class Pilot{
 
         vector<Plane> getPlanesThrown();
 
+        void addPlane(Plane);
+
 
 
 };

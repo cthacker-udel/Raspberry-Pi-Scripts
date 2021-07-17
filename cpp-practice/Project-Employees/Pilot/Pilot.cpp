@@ -30,8 +30,9 @@ int Pilot::getCitiesTraveled(){
 
 }
 
-vector<Plane> getPlanesThrown(){
+vector<Plane> Pilot::getPlanesThrown(){
 
     return this->planesThrown;
 
 }
+
