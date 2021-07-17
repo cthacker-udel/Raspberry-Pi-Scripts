@@ -42,5 +42,15 @@ void Pilot::addPlane(Plane thePlane){
 
 }
 
+void Pilot::addMilesFlown(int newMilesFlown){
 
+    this->milesFlown += newMilesFlown;
+
+}
+
+void Pilot::addCityTraveled(int newCity){
+
+    this->citiesTraveled += newCity;
+
+}
 
