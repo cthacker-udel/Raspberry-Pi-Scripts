@@ -36,3 +36,9 @@ vector<Plane> Pilot::getPlanesThrown(){
 
 }
 
+void Pilot::addPlane(Plane thePlane){
+
+    this->planesThrown.push_back(thePlane);
+
+}
+
