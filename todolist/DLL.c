@@ -202,6 +202,99 @@ void moveDown(int id){
 
 }
 
+void changePriority(int taskid, int newP){
+
+    if(theList.last == NULL){
+        printf("\nTrying to access an empty list");
+        return;
+    }
+
+    dNode *lastTemp = theList.last;
+
+    while(lastTemp != NULL && lastTemp->theTask->id != taskid){
+        lastTemp = lastTemp->prev;
+    }
+
+    if(lastTemp == NULL){
+        printf("\nUnable to locate task, please re-enter id and new priority\n");
+        return;
+    }
+
+    lastTemp->theTask->priority = newP;
+    // then remove task
+    if(lastTemp == theList.first && lastTemp == theList.last){
+        // list only has one node
+        return;
+    }
+
+    if(lastTemp == theList.first){
+
+        // re assign head first
+        lastTemp->next->prev = NULL;
+        theList.first = lastTemp->next;
+        lastTemp->next = NULL;
+
+    }
+
+    if(lastTemp == theList.last){
+
+        // re assign tail
+        lastTemp->prev->next = NULL;
+        theList.last = lastTemp->prev;
+        lastTemp->prev = NULL;
+
+    }
+
+    dNode *tempLast = theList.last;
+
+    while(tempLast != NULL && tempLast->theTask->priority > tempLast->theTask->priority){
+        tempLast = tempLast->prev;
+    }
+
+    tempLast->next->prev = lastTemp;
+    lastTemp->next = tempLast->next;
+    lastTemp->prev = tempLast;
+    tempLast->next = lastTemp;
+
+
+    // re-assignment complete
+
+
+    /*
+
+    1 ---  1
+    2      2
+    2      2
+    3      2
+           3
+
+    <-- 2
+
+    1   --1
+    2   --2
+    2   --2
+    3   --3
+        --3
+
+    <--- 3
+
+
+    1   --1
+    2   --1
+    2   --2
+    3   --2
+        --3
+
+    <--- 1
+
+
+    */
+
+
+
+
+}
+
 void printList(){
 
     dNode *tempFirst = theList.first;
