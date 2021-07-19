@@ -2127,6 +2127,92 @@ function getNumberOfApples(n,p){
 
 }
 
+function calculateLosses(anObj){
+
+    let keys = Object.keys(anObj);
+
+    let total = 0;
+    for(let i = 0; i < keys.length; i++){
+        total += anObj[keys[i]];
+    }
+    return total === 0? "Lucky you!": total;
+
+}
+
+function isObject(anObj){
+
+    return typeof anObj === 'object' && anObj !== null;
+
+}
+
+function formatBigInt(aNumber,numDecimals){
+
+    let strNum = String(aNumber);
+    strNum = strNum.substring(0,strNum.length);
+    let index = strNum.length - numDecimals;
+    let leftSide = strNum.substring(0,index);
+    let rightSide = strNum.substring(index);
+    let finalResult = leftSide.concat(".").concat(rightSide);
+    return finalResult;
+
+}
+
+function doubleFactorial(number){
+
+    let total = 1;
+    let isOdd = number % 2 !== 0;
+    for(let i = 1; i <= number; i++){
+        if(isOdd && i % 2 !== 0){
+            total *= i;
+        }
+        else if(!isOdd && i % 2 === 0){
+            total *= i;
+        }
+    }
+    return total;
+
+
+}
+
+function matchLastItem(arr){
+
+    let result = "";
+    for(let i = 0; i < arr.length-1; i++){
+
+        result = result.concat(arr[i]);
+
+    }
+    return result === arr[arr.length-1];
+
+}
+
+function validateBinary(theBinary){
+
+    if(theBinary[theBinary.length-1] === "0"){
+        // should have even number of 0
+        return theBinary.substring(0,theBinary.length-1).match(/1/g).length % 2 === 0;
+    }
+    else{
+        return theBinary.substring(0,theBinary.length-1).match(/1/g).length % 2 !== 0;
+    }
+
+}
+
+function rev(anInt){
+
+    if(anInt < 0){
+        anInt = anInt * -1;
+    }
+    let str = "";
+    anInt = String(anInt);
+    for(let i = anInt.length-1; i >= 0; i--){
+        str += anInt[i];
+    }
+    return str;
+
+}
+
+//formatBigInt(1938908490185852058934n, 18)
 
 //getNumberOfApples(12, '100%')
 
