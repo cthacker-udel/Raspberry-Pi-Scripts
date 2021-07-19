@@ -1919,7 +1919,7 @@ function findASeat(capacity,train){
 }
 
 
- */
+
 
 function dis(origPrice,discount){
 
@@ -2067,9 +2067,66 @@ function lineLength([x1,y1],[x2,y2]){
     let sqr2 = (y2-y1)**2;
     return Number.parseFloat(Number(Math.sqrt(sqr1+sqr2)).toFixed(2));
 
+}
 
+//measureDepth([[[[[[]]]]]])
+
+ */
+
+function getLength(nestedArr){
+
+    let total = 0;
+    for(let i = 0; i < nestedArr.length; i++){
+
+        if(typeof nestedArr[i] === 'object'){
+            total += getLength(nestedArr[i]);
+        }
+        else{
+            total += 1;
+        }
+
+    }
+    return total;
+
+}
+
+function boxSeq(steps){
+
+    let total = 0;
+    for(let i = 0; i <= steps; i++){
+
+        if(i !== 0){
+            if(i % 2 !== 0){
+                total += 3;
+            }
+            else{
+                total -= 1;
+            }
+        }
+
+    }
+    return total;
 
 
 }
 
-measureDepth([[[[[[]]]]]])
+//boxSeq(1)
+//console.log(getLength([1, [2, [3, [4, [5, 6]]]]]));
+
+function getNumberOfApples(n,p){
+
+    let percentage = Number.parseFloat(p.substr(0,p.length-1)) / 100;
+    let applesLeft = n * percentage;
+    n -= applesLeft;
+    if(Math.floor(n) === 0){
+        return "The children didn't get any apples";
+    }
+    else{
+        return Math.floor(n);
+    }
+
+}
+
+
+//getNumberOfApples(12, '100%')
+
