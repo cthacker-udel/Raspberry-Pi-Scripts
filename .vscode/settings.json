@@ -4,6 +4,7 @@
         "iostream": "cpp",
         "ostream": "cpp",
         "cstdlib": "c",
-        "limits": "cpp"
+        "limits": "cpp",
+        "limits.h": "c"
     },
 }
