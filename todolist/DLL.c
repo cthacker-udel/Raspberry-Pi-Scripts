@@ -295,6 +295,26 @@ void changePriority(int taskid, int newP){
 
 }
 
+void listDuration(int *th, int *tm, int p){
+
+    dNode *tempLast = theList.last;
+    while(tempLast->prev != NULL){
+
+        if(tempLast->theTask->priority == p){
+            *th += tempLast->theTask->hr;
+            *tm += tempLast->theTask->min;
+        }
+
+    }
+
+    while(tm >= 60){
+        *th += 1;
+        *tm -= 60;
+    }
+
+
+}
+
 void printList(){
 
     dNode *tempFirst = theList.first;
