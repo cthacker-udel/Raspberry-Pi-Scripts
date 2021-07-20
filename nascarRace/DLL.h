@@ -1,5 +1,4 @@
 #include "node.h"
-#include "lodepng.c"
 
 typedef struct theDLL{
 
