@@ -2330,6 +2330,87 @@ function halflifeCalculator(mass,time,numHalfLives){
 
 }
 
+function removeDups(arr){
+
+    let arr2 = [];
+    for(let eachitem of arr){
+        if(!arr2.includes(eachitem)){
+            arr2.push(eachitem);
+        }
+    }
+    return arr2;
+
+}
+
+function factorGroup(aNum){
+
+    let total = 0;
+    for(let i = 1; i <= aNum; i++){
+        if(aNum % i === 0){
+            total++;
+        }
+    }
+    return total % 2 === 0? "even": "odd";
+
+}
+
+function reverseAndNot(i){
+
+    let reverseString = String(i);
+    let newStr = "";
+    for(let i = reverseString.length-1; i >= 0; i--){
+        newStr += reverseString[i];
+    }
+    newStr += String(i);
+    return parseInt(newStr);
+
+}
+
+function stringCycling(aStr,newStr){
+
+    while(aStr.length > newStr.length){
+        aStr = aStr.substring(0,aStr.length-1);
+        aStr.trim();
+    }
+    let loopindex = 0;
+    let origString = aStr;
+    while(aStr.length < newStr.length){
+        if(loopindex === origString.length){
+            loopindex = 0;
+        }
+        aStr += origString[loopindex];
+        loopindex++;
+    }
+    return aStr;
+
+
+}
+
+
+let [actualParam, expectedParam] = [
+    [
+        ["abc", "hello"],
+        ["programming", "edabit"],
+        ["ha", "good morning"],
+        [" ", "python"],
+        ["the quick brown fox jumps over the lazy dog", "abcde"],
+        ["the world in me evolves in hers", "i love Tesh, so much so"],
+        ["a thing of beauty is a joy forever", "indulge me surely"],
+        ["to", "hide"],
+        ["such a feeling coming over me", "top of the world"]
+    ], [
+        "abcab",
+        "progra",
+        "hahahahahaha",
+        "      ",
+        "the q",
+        "the world in me evolves",
+        "a thing of beauty",
+        "toto",
+        "such a feeling c"
+    ]
+]
+for (let i in actualParam) console.log((stringCycling(...actualParam[i]), expectedParam[i]));
 
 
 
