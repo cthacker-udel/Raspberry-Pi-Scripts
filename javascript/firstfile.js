@@ -2303,6 +2303,30 @@ function zipIt(arr1,arr2){
         return newArr;
     }
 
+}
+
+function emphasise(aStr){
+
+    let splitStr = aStr.split(" ");
+    let strArray = [];
+    for(let eachword of splitStr){
+        strArray.push(eachWord.charAt(0).toUpperCase() + eachWord.substring(1).toLowerCase());
+    }
+    let result = strArray.join(" ");
+    return result;
+
+}
+
+function halflifeCalculator(mass,time,numHalfLives){
+
+    let times = 0;
+    for(let i = 0; i < numHalfLives; i++){
+        mass = mass / 2;
+        times++;
+    }
+    let arr = [];
+    arr.push(Number.parseFloat(Number(mass).toFixed(3)),time*times);
+    return arr;
 
 }
 
