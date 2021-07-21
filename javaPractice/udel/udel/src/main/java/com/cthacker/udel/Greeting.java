@@ -1,4 +1,4 @@
-package udel.src.main.java.com.cthacker.udel;
+package com.cthacker.udel;
 
 public class Greeting{
 
@@ -8,7 +8,7 @@ public class Greeting{
     public Greeting(long id, String content){
 
         this.id = id;
-        tihs.content = content;
+        this.content = content;
 
     }
 
