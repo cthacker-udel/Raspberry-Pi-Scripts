@@ -25,3 +25,5 @@ void moveDown(int);
 
 void raceOff(int,int);
 
+void printMenu();
+

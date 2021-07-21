@@ -8,6 +8,7 @@ typedef struct theDriver{
     int racesLost;
     int racesTied;
     int cupsWon;
+    int ranking; // 1-5
 
 }driver;
 
