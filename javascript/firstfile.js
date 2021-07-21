@@ -2283,7 +2283,7 @@ function removeABC(aStr){
 
 }
 
-const REGEXP = /[\S{0}][\?$]/g
+//const REGEXP = /[\S{0}][\?$]/g
 
 
 function zipIt(arr1,arr2){
@@ -2411,6 +2411,40 @@ let [actualParam, expectedParam] = [
     ]
 ]
 for (let i in actualParam) console.log((stringCycling(...actualParam[i]), expectedParam[i]));
+
+
+function bbqSkewers(skewers){
+
+    let nonVegSkewers = 0;
+    let vegSkewers =0;
+    for(let eachskewer of skewers){
+
+        if(eachskewer.includes("x")){
+            nonVegSkewers++;
+        }
+        else if(eachskewer.includes("o")){
+            vegSkewers++;
+        }
+
+    }
+    return [vegSkewers,nonVegSkewers];
+
+}
+
+function uniqueSort(arr){
+
+    let newArr = [];
+    for(let eachelem of arr){
+        if(!newArr.includes(eachelem)){
+            newArr.push(eachelem);
+        }
+    }
+    newArr.sort((a,b) => a-b);
+    return newArr;
+
+}
+
+uniqueSort([1, 5, 8, 2, 3, 4, 4, 4, 10])
 
 
 
