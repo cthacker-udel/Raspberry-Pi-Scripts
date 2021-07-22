@@ -195,20 +195,25 @@ int remove(int idNum){
             return 1;
         }
         if(theList->first->id == idNum){
-            
-
+            dequeue();
+            return 1;
         }
-
         node *tempLast = theList->last;
         while(tempLast != NULL){
             if(tempLast->id == idNum){
-
+                
                 tempLast->prev->next = tempLast->next;
+                tempLast->next->prev = tempLast->prev;
+                tempLast->prev = NULL;
+                tempLast->next = NULL;
+                tempLast = NULL;
+                return 1;
                 
 
             }
             tempLast = tempLast->prev;
         }
+        return 0;
     }
 
 
