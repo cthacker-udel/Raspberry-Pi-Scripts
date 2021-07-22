@@ -83,7 +83,7 @@ node *createNode(){
 
     do{
         printf("\nEnter the name of the driver");
-    while(!scanf("%s",name));
+    }while(!scanf("%s",name));
     
     int age;
     int racesWon;
@@ -126,7 +126,6 @@ node *createNode(){
     newNode->driver->ranking = ranking;
 
     return newNode;
-
 
 
 }
