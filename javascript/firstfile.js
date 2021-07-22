@@ -2447,4 +2447,49 @@ function uniqueSort(arr){
 uniqueSort([1, 5, 8, 2, 3, 4, 4, 4, 10])
 
 
+function parallelResistance(circuits){
+
+    let total = 0;
+    for(let eachresistance of circuits){
+
+        total += 1 / eachresistance;
+
+    }
+    total = 1 / total;
+    return +Number(total).toFixed(1);
+
+}
+
+function totalDistance(stepHeight,stepLength,towerHeight){
+
+    let total_steps = towerHeight / stepHeight;
+    let total_dist = 0;
+    let steps = 0;
+    while(steps < total_steps){
+        total_dist += stepHeight;
+        total_dist += stepLength;
+        steps++;
+    }
+    console.log("total_dist = ",total_dist);
+    return Math.round(total_dist*10) / 10;
+
+}
+
+console.log(totalDistance(0.1, 0.1, 6.0));
+
+function factorChain(arr){
+
+    for(let i = 0; i < arr.length-1; i++){
+        if(arr[i+1] % arr[i] === 0){
+            continue;
+        }
+        else{
+            return false;
+        }
+    }
+    return true;
+
+}
+
+
 
