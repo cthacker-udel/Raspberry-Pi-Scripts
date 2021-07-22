@@ -162,9 +162,21 @@ node *dequeue(){
         printf("\nAttempting to dequeue a list that is empty\n");
         return NULL;
     }
+    else if(theList->first->next == NULL){
+        printf("\nAttempting to dequeue list with only one node, deleting list\n");
+        node *tempNode = theList->first;
+        free(theList->first);
+        free(theList->last);
+        return tempNode;
+    }
     else{
 
         node *nextFirst = theList->first->next;
+        theList->first->next = NULL;
+        nextFirst->prev = NULL;
+        node *tempNode = theList->first;
+        theList->first = nextFirst;
+        return tempNode;
 
     }
 
@@ -183,6 +195,7 @@ int remove(int idNum){
             return 1;
         }
         if(theList->first->id == idNum){
+            
 
         }
 
