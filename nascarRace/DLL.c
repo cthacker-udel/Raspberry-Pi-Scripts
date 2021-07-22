@@ -129,3 +129,22 @@ node *createNode(){
 
 
 }
+
+node *pop(){
+
+    if(theList->last == NULL){
+        printf("\nAttempting to pop a node from the end of the list\n");
+        return NULL;
+    }
+    else{
+
+        theList->last->prev = theList->last;
+        node *lastNode = theList->last->next;
+        theList->last->next->prev = NULL;
+        theList->last->next = NULL;
+        return lastNode;
+
+    }
+
+
+}
