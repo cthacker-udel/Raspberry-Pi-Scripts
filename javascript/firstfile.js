@@ -2492,4 +2492,53 @@ function factorChain(arr){
 }
 
 
+function multiplyNums(aStr){
+
+    return Number(aStr.split(", ").reduce((a,b) => Number(a)*Number(b)));
+
+}
+
+console.log(multiplyNums("10, -2"));
+
+function counterpartCharCode(aletter){
+
+    if(aletter === aletter.toUpperCase()){
+        return aletter.toLowerCase().charCodeAt(0);
+    }
+    else{
+        return aletter.toUpperCase().charCodeAt(0);
+    }
+
+}
+
+function XO(aStr){
+
+    aStr = aStr.toLowerCase();
+    let reO = /o/g[Symbol.matchAll](aStr);
+    let reOLength = Array.from(reO).length;
+    let reX = /x/g[Symbol.matchAll](aStr);
+    let reXLength = Array.from(reX).length;
+    console.log(reOLength,",",reXLength);
+    return reOLength === reXLength;
+
+}
+
+XO("xooxx")
+
+function timeToFinish(sentence1,sentence2){
+
+    let startIndex = sentence2.length;
+    let total = 0;
+    for(let i = startIndex; i < sentence1.length; i++){
+        let char = sentence1.charAt(i);
+        if(char === ' '){
+            continue;
+        }
+        else{
+            total += 0.5;
+        }
+    }
+    return total;
+
+}
 
