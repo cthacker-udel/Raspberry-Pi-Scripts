@@ -136,6 +136,13 @@ node *pop(){
         printf("\nAttempting to pop a node from the end of the list\n");
         return NULL;
     }
+    else if(theList->first->next == NULL){
+        printf("\nOnly one node in list, deleting entire list\n");
+        node *tempNode = theList->first;
+        free(theList->first);
+        free(theList->last);
+        return tempNode;
+    }
     else{
 
         theList->last->prev = theList->last;
@@ -144,6 +151,51 @@ node *pop(){
         theList->last->next = NULL;
         return lastNode;
 
+    }
+
+
+}
+
+node *dequeue(){
+
+    if(theList->first == NULL){
+        printf("\nAttempting to dequeue a list that is empty\n");
+        return NULL;
+    }
+    else{
+
+        node *nextFirst = theList->first->next;
+
+    }
+
+}
+
+int remove(int idNum){
+
+    if(theList->last == NULL || theList->first == NULL){
+        printf("\nAttempting to remove a node when the list is empty\n");
+        return 0;
+    }
+    else{
+
+        if(theList->last->id == idNum){
+            pop();
+            return 1;
+        }
+        if(theList->first->id == idNum){
+
+        }
+
+        node *tempLast = theList->last;
+        while(tempLast != NULL){
+            if(tempLast->id == idNum){
+
+                tempLast->prev->next = tempLast->next;
+                
+
+            }
+            tempLast = tempLast->prev;
+        }
     }
 
 

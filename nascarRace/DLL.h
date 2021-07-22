@@ -17,6 +17,8 @@ node *createNode();
 
 node *pop();
 
+node *dequeue();
+
 int remove(int);
 
 void moveUp(int);
