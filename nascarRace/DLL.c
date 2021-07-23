@@ -218,3 +218,76 @@ int remove(int idNum){
 
 
 }
+
+void moveUp(int id){
+
+
+    if(theList->first == NULL){
+
+        printf("\nThe list has no nodes available, create nodes to move nodes up\n");
+        return;
+
+    }
+    else if(theList->first->next == NULL){
+
+        // list only has one node
+
+        printf("\nList only has one node, must have two nodes to move a node up\n");
+        return;
+
+
+    }
+    else if(theList->first->id == id){
+
+        // first has id
+
+    }
+    else if(theList->last->id == id){
+
+        // last has id
+
+    }
+    else{
+
+        node *lastNode = theList->last;
+        while(lastNode != NULL){
+
+            if(lastNode->id == id){
+
+                node *prevPrev = lastNode->prev->prev;
+                prevPrev->next = lastNode;
+                // check prevprev
+                
+                lastNode->prev->next = lastNode->next;
+                lastNode->prev->prev = lastNode;
+                
+                // check prev node
+                
+                lastNode->next->prev = lastNode->prev;
+                
+                // check next node
+
+                lastNode->next = lastNode->prev;
+                lastNode->prev = prevPrev;
+
+                // check curr node
+
+                if(lastNode->next->driver->ranking < lastNode->driver->ranking){
+                    lastNode->driver->ranking = lastNode->next->driver->ranking;
+                }
+
+                printf("\nNode moved!\n");
+                return;
+
+
+            }
+            lastNode = lastNode->prev;
+
+
+        }
+        printf("\nNode unable to be found, make sure id is correct\n");
+        return;
+
+    }
+
+}
