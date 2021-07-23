@@ -2542,3 +2542,54 @@ function timeToFinish(sentence1,sentence2){
 
 }
 
+function doesBrickFit(height,width,depth,holewidth,holeheight){
+    let holearea = holewidth *holeheight;
+
+    let arr = [];
+    arr.push(height*width);
+    arr.push(height*depth);
+    arr.push(width*depth);
+    const eq = (a) => a <= holearea;
+    return arr.some(eq);
+
+}
+
+doesBrickFit(1,1,1, 1,1)//, true, "cube into square")
+doesBrickFit(1,2,1, 1,1)//, true)
+doesBrickFit(1,2,2, 1,1)//, false)
+doesBrickFit(1,2,2, 1,2)//, true)
+doesBrickFit(1,2,2, 2,1)//, true)
+doesBrickFit(2,2,2, 1,2)//, false)
+
+function inBox(theBox){
+
+    const eq = (a) => a.includes("*");
+    return theBox.some(eq);
+
+}
+
+function missingNum(arr){
+
+    for(let i = 1; i <= 10; i++){
+        if(!arr.includes(i)){
+            return i;
+        }
+    }
+    return null;
+
+}
+
+function progressDays(arr){
+
+    let count = 0;
+    for(let i = 0; i < arr.length; i++){
+        if(i > 0){
+            if(arr[i] > arr[i-1]){
+                count++;
+            }
+        }
+    }
+    return count;
+
+}
+
