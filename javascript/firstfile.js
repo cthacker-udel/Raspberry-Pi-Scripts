@@ -2593,3 +2593,174 @@ function progressDays(arr){
 
 }
 
+function replaceVowel(aStr){
+
+    //const eq = (a) => (a.toLowerCase() === "a" || a.toLowerCase() === "e" || a.toLowerCase() === "i" || a.toLowerCase() === "o" || a.toLowerCase() === "u");
+
+    let newStr = "";
+
+    for(let i = 0; i < aStr.length; i++){
+
+        switch(aStr.charAt(i).toLowerCase()){
+
+            case "a":
+                newStr += "1";
+                break;
+            case "e":
+                newStr += "2";
+                break;
+            case "i":
+                newStr += "3";
+                break;
+            case "o":
+                newStr += "4";
+                break;
+            case "u":
+                newStr += "5";
+                break;
+            default:
+                newStr += aStr.charAt(i);
+        }
+
+    }
+    return newStr;
+
+}
+
+function longestTime(hours,minutes,seconds){
+
+    let newHours = hours;
+    let newMinutes = minutes;
+    newHours = (hours*60)*60;
+    newMinutes = minutes * 60;
+
+    if(newHours > newMinutes && newHours > seconds){
+        return hours;
+    }
+    else if(newMinutes > newHours && newMinutes > seconds){
+        return minutes;
+    }
+    else{
+        return seconds;
+    }
+
+
+}
+
+function reverse(aStr){
+
+    let newStr = "";
+    for(let i = aStr.length-1; i >= 0; i--){
+        newStr += aStr.charAt(i);
+    }
+    return newStr;
+
+}
+
+function specialReverse(aStr,letter){
+
+    let strSplit = aStr.split(" ");
+    let resArr = [];
+    for(let i = 0; i < strSplit.length; i++){
+        if(strSplit[i].charAt(0) === letter){
+            resArr.push(reverse(strSplit[i]));
+        }
+        else{
+            resArr.push(strSplit[i]);
+        }
+    }
+    return resArr.join(" ");
+
+
+}
+
+function clone(arr) {
+    arr.push(arr.slice())
+    return arr
+}
+
+clone([1, 2, 3])
+
+function equal(a,b,c){
+
+    if(a === b && b === c){
+        return 3;
+    }
+    else if(a === b && b !== c){
+        return 2;
+    }
+    else if(a === c && b !== a){
+        return 2;
+    }
+    else{
+        return 0;
+    }
+}
+
+function happyBirthday(age){
+
+    return `Mubashir is just ${20+age % 2}, in base ${Math.floor(age / 2)}!`;
+
+
+}
+
+
+function hackerSpeak(aStr){
+
+    let newStr = "";
+
+    for(let i = 0; i < aStr.length; i++){
+
+        switch(aStr.charAt(i).toLowerCase()){
+
+            case "a":
+                newStr += "4";
+                break;
+            case "e":
+                newStr += "3";
+                break;
+            case "i":
+                newStr += "1";
+                break;
+            case "o":
+                newStr += "0";
+                break;
+            case "s":
+                newStr += "5";
+                break;
+            default:
+                newStr += aStr.charAt(i);
+
+        }
+
+    }
+    return newStr;
+
+}
+
+hackerSpeak("javascript is cool")
+
+function makeTitle(aStr){
+
+    let strArr = aStr.split(" ");
+    let newArr = [];
+    for(let i = 0; i < strArr.length; i++){
+        newArr.push(strArr[i].charAt(0).toUpperCase() + strArr[i].substring(1));
+    }
+    return newArr.join(" ");
+
+}
+
+function isVowelSandwich(aStr){
+
+    let vowels = "aeiouAEIOU";
+
+    if(aStr.length !== 3){
+        return false;
+    }
+
+    const isVowel = (a) => vowels.includes(a);
+
+    return !isVowel(aStr.charAt(0)) && isVowel(aStr.charAt(1)) && !isVowel(aStr.charAt(2));
+
+}
