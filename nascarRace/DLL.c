@@ -291,3 +291,9 @@ void moveUp(int id){
     }
 
 }
+
+void printMenu(){
+
+    print("\n-=-=-=-=MENU-=-=-=-=\n1)Push node\n2)Pop Node\n3)Dequeue Node\n4)Remove node by ID\n5)Move Up Node by ID");
+
+}
