@@ -292,6 +292,49 @@ void moveUp(int id){
 
 }
 
+void moveDown(int id){
+
+    if(theList->first == NULL){
+        printf("\nList is empty, must have nodes to move nodes down\n");
+    }
+    else if(theList->first->next == NULL){
+        printf("\nList only has one node\n");
+    }
+    else{
+
+        if(theList->first->id == id){
+            // first contains id
+            printf("\nFirst node is the node to move down\n");
+        }
+        else if(theList->last->id == id){
+            // last contains id
+            printf("\nLast node is the node to move down\n");
+        }
+        else{
+
+            node *tempLast = theList->last;
+            while(tempLast != NULL){
+
+                if(tempLast->id == id){
+                    // located node
+                    node *prevTemp = tempLast->prev;
+                    node *prevForward = tempLast->next;
+                    // grab both nodes behind and in front
+                    printf("\nLocated node in the middle of list\n");
+
+
+
+                }
+                tempLast = tempLast->prev;
+            }
+
+        }
+
+    }
+
+
+}
+
 void printMenu(){
 
     print("\n-=-=-=-=MENU-=-=-=-=\n1)Push node\n2)Pop Node\n3)Dequeue Node\n4)Remove node by ID\n5)Move Up Node by ID");
