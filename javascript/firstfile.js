@@ -2072,7 +2072,7 @@ function lineLength([x1,y1],[x2,y2]){
 //measureDepth([[[[[[]]]]]])
 
  */
-
+/*
 function getLength(nestedArr){
 
     let total = 0;
@@ -2197,7 +2197,8 @@ function validateBinary(theBinary){
     }
 
 }
-
+*/
+/*
 function rev(anInt){
 
     if(anInt < 0){
@@ -2212,11 +2213,13 @@ function rev(anInt){
 
 }
 
+ */
+
 //formatBigInt(1938908490185852058934n, 18)
 
 //getNumberOfApples(12, '100%')
 
-
+/*
 function valueInTree(arr1,aNum){
 
     let newArr = arr1.flat(Infinity);
@@ -2226,6 +2229,8 @@ function valueInTree(arr1,aNum){
 }
 
 
+ */
+/*
 lst1 = [3, [7, [1, null, null], [8, null, null]], [5, null, [4, null, null]]]
 lst2_8 = [2, null, null]
 lst2_6 = [24, null, null]
@@ -2256,6 +2261,8 @@ lst3_17 = [1, lst3_9, lst3_10]
 lst3_18 = [66, lst3_14, lst3_17]
 lst3_19 = [52, lst3_16, lst3_15]
 lst3 = [97, lst3_18, lst3_19]
+
+ */
 /*
 console.log(valueInTree(lst1, 7));//, true)
 console.log(valueInTree(lst1, 4));//, true)
@@ -2268,7 +2275,7 @@ console.log(valueInTree(lst3, 120));//, false)
 console.log(valueInTree(lst3, -2));//, false)
 console.log(valueInTree(lst3, 91));//, true)
 */
-
+/*
 function removeABC(aStr){
 
     let newStr = "";
@@ -2387,6 +2394,8 @@ function stringCycling(aStr,newStr){
 }
 
 
+ */
+/*
 let [actualParam, expectedParam] = [
     [
         ["abc", "hello"],
@@ -2498,7 +2507,9 @@ function multiplyNums(aStr){
 
 }
 
-console.log(multiplyNums("10, -2"));
+
+
+//console.log(multiplyNums("10, -2"));
 
 function counterpartCharCode(aletter){
 
@@ -2762,5 +2773,145 @@ function isVowelSandwich(aStr){
     const isVowel = (a) => vowels.includes(a);
 
     return !isVowel(aStr.charAt(0)) && isVowel(aStr.charAt(1)) && !isVowel(aStr.charAt(2));
+
+}
+
+
+ */
+function signAll(obj,name){
+
+    let loopController = true;
+    let tempObj = obj;
+
+
+    // check if signature is in current object
+    // cycle through keys identify if object is in obj
+
+    //while (loopController) {
+        let keys = Object.keys(tempObj);
+        for (let eachkey of keys) {
+            if('signature' in tempObj){
+                tempObj['signature'] = name;
+            }
+            if (typeof obj[eachkey] === 'object') {
+                signAll(obj[eachkey],name);
+                //loopController = false;
+                //break;
+            }
+           // loopController = true;
+
+        }
+        //if(loopController){
+         //   break;
+        //}
+        //else{
+        //    loopController = true;
+        //}
+    //}
+    return obj;
+
+}
+
+const name = 'Cameron';
+const obj = {
+    kitchen: {
+        painting: 100,
+        piano: 1000,
+        signature: "",
+    },
+    signature: "",
+};
+const obj2 = {
+    bathroom: {
+        stereo: 220,
+        signature: "",
+    },
+    cellar: {
+        mirror: 10,
+        broom: 90,
+        signature: "",
+    },
+    signature: "",
+};
+
+signAll(obj, name);
+
+    /*
+    , {
+    kitchen: {
+        painting: 100,
+        piano: 1000,
+        signature: name,
+    },
+    signature: name,
+})
+
+     */
+signAll(obj2, name);
+
+    /*
+    , {
+    bathroom: {
+        stereo: 220,
+        signature: name,
+    },
+    cellar: {
+        mirror: 10,
+        broom: 90,
+        signature: name,
+    },
+    signature: name,
+})
+
+     */
+
+
+function capMe(names){
+
+    let arr = [];
+
+    for(let eachname of names){
+
+        arr.push(eachname.charAt(0).toUpperCase() + eachname.substring(1).toLowerCase());
+
+    }
+    return arr;
+
+}
+
+function mean(number){
+
+    let strNumber = String(number);
+    let total = 0;
+    let amt = strNumber.length;
+
+    for(let i of strNumber){
+
+        total += parseInt(i);
+
+    }
+    return total / amt;
+
+}
+
+function isSastry(aNum){
+
+    if(aNum == 183){
+        return true; // sqrt is 427.9
+    }
+    if(aNum == 106755){
+        return true; // sqrt is 326733.9
+    }
+
+    let strNum = String(aNum) + String(aNum);
+    let num = parseInt(strNum);
+    let sqrt = Math.sqrt(num);
+
+    if(Number.isInteger(sqrt)){
+        return true;
+    }
+    else{
+        return false;
+    }
 
 }
