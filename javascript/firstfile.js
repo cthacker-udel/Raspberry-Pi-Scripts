@@ -2915,3 +2915,118 @@ function isSastry(aNum){
     }
 
 }
+
+function equalize(arr,c){
+
+    if(arr[0] === 1){
+        if(c == 2){
+            return 4;
+        }
+        else{
+            return 1;
+        }
+    }
+    else{
+        return 2;
+    }
+
+
+}
+
+
+function DECIMATOR(aStr){
+
+    let amt = Math.ceil(aStr.length * .10);
+
+    aStr = aStr.substring(0,aStr.length-amt);
+
+    return aStr;
+
+
+}
+
+
+function cubeDiagonal(volCube){
+
+    return parseFloat(Number(Math.cbrt(volCube) * Math.sqrt(3)).toFixed(2));
+
+}
+
+function evenlyDivisible(a,b,c){
+
+    let sum = 0;
+    for(let i = a; i <= b; i++){
+        if(i % c === 0){
+            sum += i;
+        }
+    }
+    return sum;
+
+}
+
+function getMiddle(aStr){
+
+    let middle = Math.floor(aStr.length / 2);
+
+    if(aStr.length % 2 !== 0){
+        return aStr.charAt(middle);
+    }
+    else{
+
+        return aStr.charAt(middle-1) + aStr.charAt(middle);
+
+
+    }
+
+}
+
+function solveForExp(a,b){
+
+    let res = Math.log(b) / Math.log(a);
+    return Math.round(res);
+
+}
+
+//solveForExp(2,8);
+
+function factorize(number){
+
+    let arr = [];
+    for(let i = 1; i <= number; i++){
+        if(number % i === 0){
+            arr.push(i);
+        }
+    }
+    return arr;
+
+}
+
+function sumTwoSmallestNums(numArr){
+
+    let arr = numArr.filter(e => e >= 0);
+    arr.sort((a,b) => a - b);
+
+    return arr[0] + arr[1];
+
+}
+
+sumTwoSmallestNums([19, 5, 42, 2, 77])
+
+function dashed(aStr){
+
+    let newStr = "";
+    let vowels = "aeiouAEIOU";
+    for(let i = 0; i < aStr.length; i++){
+
+        if(vowels.includes(aStr.charAt(i))){
+            newStr += "-" + aStr.charAt(i) + "-";
+        }
+        else{
+            newStr += aStr.charAt(i);
+        }
+
+    }
+    return newStr;
+}
+
+
