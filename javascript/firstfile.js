@@ -2780,7 +2780,6 @@ function isVowelSandwich(aStr){
  */
 function signAll(obj,name){
 
-    let loopController = true;
     let tempObj = obj;
 
 
@@ -2896,10 +2895,10 @@ function mean(number){
 
 function isSastry(aNum){
 
-    if(aNum == 183){
+    if(aNum === 183){
         return true; // sqrt is 427.9
     }
-    if(aNum == 106755){
+    if(aNum === 106755){
         return true; // sqrt is 326733.9
     }
 
@@ -2907,19 +2906,14 @@ function isSastry(aNum){
     let num = parseInt(strNum);
     let sqrt = Math.sqrt(num);
 
-    if(Number.isInteger(sqrt)){
-        return true;
-    }
-    else{
-        return false;
-    }
+    return Number.isInteger(sqrt);
 
 }
 
 function equalize(arr,c){
 
     if(arr[0] === 1){
-        if(c == 2){
+        if(c === 2){
             return 4;
         }
         else{
@@ -3027,6 +3021,129 @@ function dashed(aStr){
 
     }
     return newStr;
+}
+
+function neutralise(str1,str2){
+
+    let newStr = "";
+    for(let i = 0; i < str1.length; i++){
+
+        let char1 = str1.charAt(i);
+        let char2 = str2.charAt(i);
+
+        if(char1 === '+' && char2 === '+'){
+            newStr += '+';
+        }
+        else if(char1 === '-' && char2 === '-'){
+            newStr += '-';
+        }
+        else{
+            newStr += '0';
+        }
+
+    }
+    return newStr;
+}
+
+neutralise("--++--", "++--++")
+
+function doubleLetters(aStr){
+
+    for(let i = 0; i < aStr.length-1; i++){
+        let char1 = aStr.charAt(i);
+        let char2 = aStr.charAt(i+1);
+
+        if(char1 === char2){
+            return true;
+        }
+
+    }
+    return false;
+
+}
+
+function isOrthogonal(vect1,vect2){
+
+    let sum = 0;
+    for(let i = 0; i < vect1.length; i++){
+        sum += (vect1[i] * vect2[i]);
+    }
+    return sum;
+
+
+}
+
+function getBudgets(objs){
+
+    let sum = 0;
+    for(let i = 0; i < objs.length; i++){
+
+        sum += objs[i]['budget'];
+
+    }
+    return sum;
+
+}
+
+function solve(aStr){
+
+    let parts = aStr.split(" ");
+    let variable = parts[0];
+    let operator = parts[1];
+    let num1 = parseInt(parts[2]);
+    let rightSide = parseInt(parts[4]);
+    switch(operator){
+
+        case '+':
+            rightSide -= num1;
+            variable = rightSide;
+            return variable
+        case '-':
+            rightSide += num1;
+            variable = rightSide;
+            return variable;
+        default:
+            return 0;
+
+    }
+
+}
+
+function addsNum(num){
+
+    return a => a + num;
+
+}
+
+function isIsogram(aStr){
+
+    aStr = aStr.toLowerCase();
+    let newStr = "";
+    for(let i = 0; i < aStr.length; i++){
+
+        if(newStr.includes(aStr.charAt(i))){
+            return false;
+        }
+        else{
+            newStr += aStr.charAt(i);
+        }
+
+    }
+    return true;
+
+
+}
+
+function numOfSubarrays(arr){
+
+    let ct = 0;
+    for(let i = 0; i < arr.length; i++){
+        if(typeof arr[i] === 'object'){
+            ct++;
+        }
+    }
+    return ct;
+
 }
 
 
