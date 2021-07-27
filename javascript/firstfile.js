@@ -3146,4 +3146,47 @@ function numOfSubarrays(arr){
 
 }
 
+function strMatchBy2char(a,b){
+
+    let ct = 0;
+    if(a.length > b.length){
+        for(let i = 0; i < b.length-1; i++){
+            let iB = b.charAt(i);
+            let iB2 = b.charAt(i+1);
+            let iA = a.charAt(i);
+            let iA2 = a.charAt(i+1);
+            if(iB === iA && iB2 === iA2){
+                ct++;
+            }
+        }
+        return ct;
+    }
+    else if(b.length > a.length){
+        for(let i = 0; i < a.length-1; i++){
+            let iA = a.charAt(i);
+            let iA2 = a.charAt(i+1);
+            let iB = b.charAt(i);
+            let iB2 = b.charAt(i+1);
+            if(iA === iB && iA2 === iB2){
+                ct++;
+            }
+        }
+        return ct;
+    }
+    else{
+        for(let i = 0; i < a.length-1; i++){
+            let iA = a.charAt(i);
+            let iA2 = a.charAt(i+1);
+            let iB = b.charAt(i);
+            let iB2 = b.charAt(i+1);
+            if(iA === iB && iA2 === iB2){
+                ct++;
+            }
+        }
+        return ct;
+    }
+}
+
+
+
 
