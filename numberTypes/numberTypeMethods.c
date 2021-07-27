@@ -373,3 +373,20 @@ int isCircular(int number){
     return number % 10 == 0 || number % 10 == 1 || number % 10 == 5 || number % 10 == 6;
 
 }
+
+int isComposite(int number){
+
+    if(number < 2){
+        return 1;
+    }
+    if(number % 2 == 0 || number % 3 == 0 || number % 5 == 0){
+        return 1;
+    }
+    for(int i = 2; i < number; i++){
+        if(number % i == 0){
+            return 1;
+        }
+    }
+    return 0;
+
+}
