@@ -390,3 +390,9 @@ int isComposite(int number){
     return 0;
 
 }
+
+float cbRoot(int number){
+
+    return pow(number,1.0/3);
+
+}
