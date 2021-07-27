@@ -3321,6 +3321,74 @@ function challenge5(aStr){
 var txt = 'abcdefghijklmnopqrstuvwxyz'
 challenge5(txt)
 
+function formatMath(equation){
+
+    let splitEq = equation.split(" ");
+    let num1 = parseInt(splitEq[0]);
+    let num2 = parseInt(splitEq[2]);
+    let operator = splitEq[1];
+
+    let result;
+
+    switch(operator){
+
+        case '+':
+            result = num1 + num2;
+            return `${num1} + ${num2} = ${result}`;
+        case '-':
+            result = num1 - num2;
+            return `${num1} - ${num2} = ${result}`;
+        case 'x':
+            result = num1 * num2;
+            return `${num1} x ${num2} = ${result}`;
+        case '/':
+            result = Math.round(num1 / num2);
+            return `${num1} / ${num2} = ${result}`;
+        default:
+            console.log("Default reached");
+            return undefined;
+
+    }
+
+}
+
+function formatNum(amt){
+
+    let result = new Intl.NumberFormat('en-US',{style: 'currency', currency: 'USD'}).format(amt).substring(1);
+    result = result.substring(0,result.length-3);
+    return result;
+
+}
+
+console.log(formatNum(1000));
+
+
+function rightDecimal(number){
+
+    let strNum = String(number);
+    let decIndex = strNum.indexOf(".");
+    return parseFloat("0" + strNum.substring(decIndex));
+
+}
+
+function timeSaved(limit,avg,distance){
+
+    // calculate exactly speed limit time
+
+    let limitTime = (distance / limit) * 60;
+    let limitSec = rightDecimal(limitTime) * 60;
+    let speedtime = (distance / avg)*60;
+    let speedSec = rightDecimal(speedtime) * 60;
+    let difference = speedtime - limitTime;
+    return Number(Math.abs(difference).toFixed(1));
+
+}
+
+timeSaved(80, 90, 40)
+timeSaved(80, 90, 4000)
+timeSaved(80, 100, 40 )
+timeSaved(80, 100, 10)
+
 
 
 
