@@ -396,3 +396,9 @@ float cbRoot(int number){
     return pow(number,1.0/3);
 
 }
+
+int cullenNumber(int n){
+
+    return (n * pow(2,n))+1;
+
+}
