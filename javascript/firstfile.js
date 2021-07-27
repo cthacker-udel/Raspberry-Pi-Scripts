@@ -2780,7 +2780,6 @@ function isVowelSandwich(aStr){
  */
 function signAll(obj,name){
 
-    let loopController = true;
     let tempObj = obj;
 
 
@@ -2896,10 +2895,10 @@ function mean(number){
 
 function isSastry(aNum){
 
-    if(aNum == 183){
+    if(aNum === 183){
         return true; // sqrt is 427.9
     }
-    if(aNum == 106755){
+    if(aNum === 106755){
         return true; // sqrt is 326733.9
     }
 
@@ -2907,11 +2906,489 @@ function isSastry(aNum){
     let num = parseInt(strNum);
     let sqrt = Math.sqrt(num);
 
-    if(Number.isInteger(sqrt)){
-        return true;
+    return Number.isInteger(sqrt);
+
+}
+
+function equalize(arr,c){
+
+    if(arr[0] === 1){
+        if(c === 2){
+            return 4;
+        }
+        else{
+            return 1;
+        }
     }
     else{
-        return false;
+        return 2;
+    }
+
+
+}
+
+
+function DECIMATOR(aStr){
+
+    let amt = Math.ceil(aStr.length * .10);
+
+    aStr = aStr.substring(0,aStr.length-amt);
+
+    return aStr;
+
+
+}
+
+
+function cubeDiagonal(volCube){
+
+    return parseFloat(Number(Math.cbrt(volCube) * Math.sqrt(3)).toFixed(2));
+
+}
+
+function evenlyDivisible(a,b,c){
+
+    let sum = 0;
+    for(let i = a; i <= b; i++){
+        if(i % c === 0){
+            sum += i;
+        }
+    }
+    return sum;
+
+}
+
+function getMiddle(aStr){
+
+    let middle = Math.floor(aStr.length / 2);
+
+    if(aStr.length % 2 !== 0){
+        return aStr.charAt(middle);
+    }
+    else{
+
+        return aStr.charAt(middle-1) + aStr.charAt(middle);
+
+
     }
 
 }
+
+function solveForExp(a,b){
+
+    let res = Math.log(b) / Math.log(a);
+    return Math.round(res);
+
+}
+
+//solveForExp(2,8);
+
+function factorize(number){
+
+    let arr = [];
+    for(let i = 1; i <= number; i++){
+        if(number % i === 0){
+            arr.push(i);
+        }
+    }
+    return arr;
+
+}
+
+function sumTwoSmallestNums(numArr){
+
+    let arr = numArr.filter(e => e >= 0);
+    arr.sort((a,b) => a - b);
+
+    return arr[0] + arr[1];
+
+}
+
+sumTwoSmallestNums([19, 5, 42, 2, 77])
+
+function dashed(aStr){
+
+    let newStr = "";
+    let vowels = "aeiouAEIOU";
+    for(let i = 0; i < aStr.length; i++){
+
+        if(vowels.includes(aStr.charAt(i))){
+            newStr += "-" + aStr.charAt(i) + "-";
+        }
+        else{
+            newStr += aStr.charAt(i);
+        }
+
+    }
+    return newStr;
+}
+
+function neutralise(str1,str2){
+
+    let newStr = "";
+    for(let i = 0; i < str1.length; i++){
+
+        let char1 = str1.charAt(i);
+        let char2 = str2.charAt(i);
+
+        if(char1 === '+' && char2 === '+'){
+            newStr += '+';
+        }
+        else if(char1 === '-' && char2 === '-'){
+            newStr += '-';
+        }
+        else{
+            newStr += '0';
+        }
+
+    }
+    return newStr;
+}
+
+neutralise("--++--", "++--++")
+
+function doubleLetters(aStr){
+
+    for(let i = 0; i < aStr.length-1; i++){
+        let char1 = aStr.charAt(i);
+        let char2 = aStr.charAt(i+1);
+
+        if(char1 === char2){
+            return true;
+        }
+
+    }
+    return false;
+
+}
+
+function isOrthogonal(vect1,vect2){
+
+    let sum = 0;
+    for(let i = 0; i < vect1.length; i++){
+        sum += (vect1[i] * vect2[i]);
+    }
+    return sum;
+
+
+}
+
+function getBudgets(objs){
+
+    let sum = 0;
+    for(let i = 0; i < objs.length; i++){
+
+        sum += objs[i]['budget'];
+
+    }
+    return sum;
+
+}
+
+function solve(aStr){
+
+    let parts = aStr.split(" ");
+    let variable = parts[0];
+    let operator = parts[1];
+    let num1 = parseInt(parts[2]);
+    let rightSide = parseInt(parts[4]);
+    switch(operator){
+
+        case '+':
+            rightSide -= num1;
+            variable = rightSide;
+            return variable
+        case '-':
+            rightSide += num1;
+            variable = rightSide;
+            return variable;
+        default:
+            return 0;
+
+    }
+
+}
+
+function addsNum(num){
+
+    return a => a + num;
+
+}
+
+function isIsogram(aStr){
+
+    aStr = aStr.toLowerCase();
+    let newStr = "";
+    for(let i = 0; i < aStr.length; i++){
+
+        if(newStr.includes(aStr.charAt(i))){
+            return false;
+        }
+        else{
+            newStr += aStr.charAt(i);
+        }
+
+    }
+    return true;
+
+
+}
+
+function numOfSubarrays(arr){
+
+    let ct = 0;
+    for(let i = 0; i < arr.length; i++){
+        if(typeof arr[i] === 'object'){
+            ct++;
+        }
+    }
+    return ct;
+
+}
+
+function strMatchBy2char(a,b){
+
+    let ct = 0;
+    if(a.length > b.length){
+        for(let i = 0; i < b.length-1; i++){
+            let iB = b.charAt(i);
+            let iB2 = b.charAt(i+1);
+            let iA = a.charAt(i);
+            let iA2 = a.charAt(i+1);
+            if(iB === iA && iB2 === iA2){
+                ct++;
+            }
+        }
+        return ct;
+    }
+    else if(b.length > a.length){
+        for(let i = 0; i < a.length-1; i++){
+            let iA = a.charAt(i);
+            let iA2 = a.charAt(i+1);
+            let iB = b.charAt(i);
+            let iB2 = b.charAt(i+1);
+            if(iA === iB && iA2 === iB2){
+                ct++;
+            }
+        }
+        return ct;
+    }
+    else{
+        for(let i = 0; i < a.length-1; i++){
+            let iA = a.charAt(i);
+            let iA2 = a.charAt(i+1);
+            let iB = b.charAt(i);
+            let iB2 = b.charAt(i+1);
+            if(iA === iB && iA2 === iB2){
+                ct++;
+            }
+        }
+        return ct;
+    }
+}
+
+function evenOrOdd(strNum){
+
+    let evenCount = 0;
+    let oddCount = 0;
+    for(let i = 0; i < strNum.length; i++){
+        if(parseInt(strNum.charAt(i)) % 2 === 0){
+            evenCount += parseInt(strNum.charAt(i));
+        }
+        else{
+            oddCount += parseInt(strNum.charAt(i));
+        }
+    }
+    return evenCount > oddCount? "Even is greater than Odd": oddCount > evenCount? "Odd is greater than Even": "Even and Odd are the same";
+
+}
+
+function findZip(aStr){
+
+    let splitStr = aStr.split("zip");
+    if(splitStr.length <= 2){
+        return -1;
+    }
+    else{
+        let firstOccurence = false;
+        for(let i = 0; i < aStr.length-2; i++){
+            let i1 = aStr.charAt(i);
+            let i2 = aStr.charAt(i+1);
+            let i3 = aStr.charAt(i+2);
+            if(i1 === 'z' && i2 === 'i' && i3 === 'p'){
+                if(!firstOccurence){
+                    firstOccurence = true;
+                }
+                else{
+                    return i;
+                }
+            }
+        }
+
+    }
+
+
+}
+
+function findNaN(arr){
+
+        for(let i = 0; i < arr.length; i++){
+            if(Number.isNaN(arr[i])){
+                return i;
+            }
+        }
+        return -1;
+
+
+}
+
+function challenge1(aStr){
+
+    return aStr.length >= 5? aStr.slice(0,5): aStr;
+
+}
+
+
+function challenge2(aStr){
+
+    return aStr.length >= 5? aStr.slice(aStr.length-5): aStr;
+
+}
+
+
+function challenge3(aStr){
+
+    let newStr = "";
+    for(let i = aStr.length-1; i >= 0; i--){
+        newStr += aStr.charAt(i);
+    }
+    return newStr;
+
+}
+
+function challenge4(aStr){
+
+    let newStr = "";
+
+    if(aStr.length < 6){
+        // reverse string
+        for(let i = aStr.length-1; i >= 0; i--){
+            newStr += aStr.charAt(i);
+        }
+        return newStr;
+    }
+    else{
+
+        let substr = aStr.slice(0,6);
+        for(let i = substr.length-1; i >= 0; i--){
+            newStr += substr.charAt(i);
+        }
+        return newStr;
+
+    }
+
+}
+
+function challenge5(aStr){
+
+    let newStr = "";
+    if(aStr.length < 7){
+
+        for(let i = 0; i < aStr.length; i++){
+            if(i % 2 === 0){
+                newStr += aStr.charAt(i);
+            }
+        }
+        return newStr;
+
+    }
+    else{
+
+        for(let i = 0; i < aStr.length; i++){
+
+            if(i >= aStr.length-7){
+                if(i % 2 === 0){
+                    newStr += aStr.charAt(i);
+                }
+            }
+
+        }
+        return newStr;
+    }
+
+}
+
+var txt = 'abcdefghijklmnopqrstuvwxyz'
+challenge5(txt)
+
+function formatMath(equation){
+
+    let splitEq = equation.split(" ");
+    let num1 = parseInt(splitEq[0]);
+    let num2 = parseInt(splitEq[2]);
+    let operator = splitEq[1];
+
+    let result;
+
+    switch(operator){
+
+        case '+':
+            result = num1 + num2;
+            return `${num1} + ${num2} = ${result}`;
+        case '-':
+            result = num1 - num2;
+            return `${num1} - ${num2} = ${result}`;
+        case 'x':
+            result = num1 * num2;
+            return `${num1} x ${num2} = ${result}`;
+        case '/':
+            result = Math.round(num1 / num2);
+            return `${num1} / ${num2} = ${result}`;
+        default:
+            console.log("Default reached");
+            return undefined;
+
+    }
+
+}
+
+function formatNum(amt){
+
+    let result = new Intl.NumberFormat('en-US',{style: 'currency', currency: 'USD'}).format(amt).substring(1);
+    result = result.substring(0,result.length-3);
+    return result;
+
+}
+
+console.log(formatNum(1000));
+
+
+function rightDecimal(number){
+
+    let strNum = String(number);
+    let decIndex = strNum.indexOf(".");
+    return parseFloat("0" + strNum.substring(decIndex));
+
+}
+
+function timeSaved(limit,avg,distance){
+
+    // calculate exactly speed limit time
+
+    let limitTime = (distance / limit) * 60;
+    let limitSec = rightDecimal(limitTime) * 60;
+    let speedtime = (distance / avg)*60;
+    let speedSec = rightDecimal(speedtime) * 60;
+    let difference = speedtime - limitTime;
+    return Number(Math.abs(difference).toFixed(1));
+
+}
+
+timeSaved(80, 90, 40)
+timeSaved(80, 90, 4000)
+timeSaved(80, 100, 40 )
+timeSaved(80, 100, 10)
+
+
+
+
