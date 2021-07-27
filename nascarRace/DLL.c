@@ -335,6 +335,71 @@ void moveDown(int id){
 
 }
 
+
+void raceOff(int racer1id, int racer2id){
+
+    node *racer1Node = NULL;
+    node *racer2Node = NULL;
+
+    node *tempLast = theList->last;
+    while(tempLast != NULL){
+        if(tempLast->id == racer1id){
+            racer1Node = tempLast;
+            break;
+        }
+        tempLast = tempLast->prev;
+    }
+
+    tempLast = theList->last;
+    while(tempLast != NULL){
+        if(tempLast->id == racer2id){
+            racer2Node = tempLast;
+            break;
+        }
+        tempLast = tempLast->prev;
+    }
+
+    if(racer1Node == NULL && racer2Node == NULL){
+        printf("\nBoth racer1 and racer2 have not been found, no results have been announced\n");
+        return;
+    }
+    else if(racer1Node == NULL){
+        // racer1 has not been found
+        printf("\nRacer one has not been found, automatic victory for racer2!");
+        racer2Node->driver->racesWon++;
+        printf("\nMoving up racer2 in the list(rankings), and adding a victory to their score sheet\n");
+        moveUp(racer2Node->id);
+    }
+    else if(racer2Node == NULL){
+        printf("\nRacer2 has not been found, automatic victory for racer1!\nMoving up racer1 in the list(rankings) and also adding a victory to their score sheet\n");
+        racer1Node->driver->racesWon++;
+        moveUp(racer1Node->id);
+    }
+    else{
+
+        // even number racer1 wins, odd number racer2 wins
+        int randNumber = rand() * rand() * pow(rand(),2);
+        if(randNumber % 2 == 0){
+            // racer1 wins!
+            printf("\nRacer1 has won! Moving up racer1 in the list(rankings) and also moving racer2 down, wins and losses have been accredited\n");
+            racer1Node->driver->racesWon++;
+            racer2Node->driver->racesLost++;
+            moveUp(racer1Node);
+            moveDown(racer2Node);
+        }
+        else{
+            // racer2 wins!
+            printf("\nRacer2 has won! Moving up racer2 in the list(rankings) and also moving down racer1, wins and losses have been accredited\n");
+            racer2Node->driver->racesWon++;
+            racer1Node->driver->racesLost++;
+            moveUp(racer2Node->id);
+            moveDown(racer1Node->id);
+        }
+
+    }
+
+}
+
 void printMenu(){
 
     print("\n-=-=-=-=MENU-=-=-=-=\n1)Push node\n2)Pop Node\n3)Dequeue Node\n4)Remove node by ID\n5)Move Up Node by ID");
