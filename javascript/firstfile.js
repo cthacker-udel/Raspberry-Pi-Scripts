@@ -3187,6 +3187,140 @@ function strMatchBy2char(a,b){
     }
 }
 
+function evenOrOdd(strNum){
+
+    let evenCount = 0;
+    let oddCount = 0;
+    for(let i = 0; i < strNum.length; i++){
+        if(parseInt(strNum.charAt(i)) % 2 === 0){
+            evenCount += parseInt(strNum.charAt(i));
+        }
+        else{
+            oddCount += parseInt(strNum.charAt(i));
+        }
+    }
+    return evenCount > oddCount? "Even is greater than Odd": oddCount > evenCount? "Odd is greater than Even": "Even and Odd are the same";
+
+}
+
+function findZip(aStr){
+
+    let splitStr = aStr.split("zip");
+    if(splitStr.length <= 2){
+        return -1;
+    }
+    else{
+        let firstOccurence = false;
+        for(let i = 0; i < aStr.length-2; i++){
+            let i1 = aStr.charAt(i);
+            let i2 = aStr.charAt(i+1);
+            let i3 = aStr.charAt(i+2);
+            if(i1 === 'z' && i2 === 'i' && i3 === 'p'){
+                if(!firstOccurence){
+                    firstOccurence = true;
+                }
+                else{
+                    return i;
+                }
+            }
+        }
+
+    }
+
+
+}
+
+function findNaN(arr){
+
+        for(let i = 0; i < arr.length; i++){
+            if(Number.isNaN(arr[i])){
+                return i;
+            }
+        }
+        return -1;
+
+
+}
+
+function challenge1(aStr){
+
+    return aStr.length >= 5? aStr.slice(0,5): aStr;
+
+}
+
+
+function challenge2(aStr){
+
+    return aStr.length >= 5? aStr.slice(aStr.length-5): aStr;
+
+}
+
+
+function challenge3(aStr){
+
+    let newStr = "";
+    for(let i = aStr.length-1; i >= 0; i--){
+        newStr += aStr.charAt(i);
+    }
+    return newStr;
+
+}
+
+function challenge4(aStr){
+
+    let newStr = "";
+
+    if(aStr.length < 6){
+        // reverse string
+        for(let i = aStr.length-1; i >= 0; i--){
+            newStr += aStr.charAt(i);
+        }
+        return newStr;
+    }
+    else{
+
+        let substr = aStr.slice(0,6);
+        for(let i = substr.length-1; i >= 0; i--){
+            newStr += substr.charAt(i);
+        }
+        return newStr;
+
+    }
+
+}
+
+function challenge5(aStr){
+
+    let newStr = "";
+    if(aStr.length < 7){
+
+        for(let i = 0; i < aStr.length; i++){
+            if(i % 2 === 0){
+                newStr += aStr.charAt(i);
+            }
+        }
+        return newStr;
+
+    }
+    else{
+
+        for(let i = 0; i < aStr.length; i++){
+
+            if(i >= aStr.length-7){
+                if(i % 2 === 0){
+                    newStr += aStr.charAt(i);
+                }
+            }
+
+        }
+        return newStr;
+    }
+
+}
+
+var txt = 'abcdefghijklmnopqrstuvwxyz'
+challenge5(txt)
+
 
 
 
