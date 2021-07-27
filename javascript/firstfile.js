@@ -3389,6 +3389,121 @@ timeSaved(80, 90, 4000)
 timeSaved(80, 100, 40 )
 timeSaved(80, 100, 10)
 
+function product(x,y){
+
+    return function(x2,y2){
+
+        return function(x3,y3){
+
+            return x*x2*x3+y*y2*y3;
+
+        }
+
+    }
+
+}
+
+
+
+console.log(product(10,2)(5,0)(2,3));
+
+function iSqrt(num){
+
+    if(num < 0){
+        return "invalid";
+    }
+    else if(num < 2){
+        return 0;
+    }
+    else{
+        let ct = 0;
+        while(num >= 2){
+            num = Math.sqrt(num);
+            ct++;
+        }
+        return ct;
+    }
+
+}
+
+function reverseArr(num){
+
+    let strNum = String(num);
+
+    let arr = [];
+
+    for(let i = strNum.length-1; i >= 0; i--){
+
+        arr.push(parseInt(strNum.charAt(i)));
+
+    }
+    return arr;
+
+}
+
+function oneOddOneEven(num){
+
+    let strNum = String(num);
+
+    let lastDigit = strNum.charAt(1);
+
+    let firstDigit = strNum.charAt(0);
+
+    let isEven1 = parseInt(firstDigit) % 2 === 0;
+
+    let isOdd1 = parseInt(firstDigit) % 2 !== 0;
+
+    let isEven2 = parseInt(lastDigit) % 2 === 0;
+
+    let isOdd2 = parseInt(lastDigit) % 2 !== 0;
+
+    if(isOdd1 && isOdd2){
+        return false;
+    }
+    else if(isEven2 && isEven1){
+        return false;
+    }
+    else{
+        return true;
+    }
+
+}
+
+
+function boomIntensity(x){
+
+    let origString = (x >= 2? "B":"b") + (x >= 2? "o".repeat(x): "oo") + "m";
+
+    if(x !== 0 && x % 2 === 0 && x % 5 === 0){
+
+        return origString.toUpperCase() + "!";
+
+    }
+    else if(x !== 0 && x % 2 === 0){
+
+        return origString + "!";
+
+    }
+    else if(x !== 0 && x % 5 === 0){
+
+        return origString.toUpperCase();
+
+    }
+    else{
+
+        return origString;
+
+    }
+
+
+}
+
+
+
+
+
+
+
 
 
 
