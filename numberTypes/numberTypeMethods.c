@@ -361,3 +361,9 @@ int isAbundant(int number){
 
     return 0;
 }
+
+int catalanNumber(int u_n){
+
+    return factorial(2*u_n) / factorial(u_n+1)*factorial(u_n);
+
+}
