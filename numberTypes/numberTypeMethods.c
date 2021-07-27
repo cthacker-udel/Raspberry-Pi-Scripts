@@ -367,3 +367,9 @@ int catalanNumber(int u_n){
     return factorial(2*u_n) / factorial(u_n+1)*factorial(u_n);
 
 }
+
+int isCircular(int number){
+
+    return number % 10 == 0 || number % 10 == 1 || number % 10 == 5 || number % 10 == 6;
+
+}
