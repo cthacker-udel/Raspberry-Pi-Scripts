@@ -3,7 +3,9 @@
 class Board{
 
     int size = 8;
-    char board[size][size];
+    char **board = new char[size][size];
+    Player player1;
+    Player player2;
 
 
     public:
