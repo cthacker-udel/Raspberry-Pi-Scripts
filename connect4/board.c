@@ -35,8 +35,131 @@ int evalBoard(board *boardArg,int x,int y, int direction){
 
     */
 
+    char **arr = boardArg->theboard;
+    char currPiece;
 
-    
+
+   switch(direction){
+
+        case 1: // North
+
+            currPiece = *(*(arr+x)+y);
+            // go farthest behind
+            if(x == 0){
+                // bottom of board
+            }
+            if(y == 0){
+                // leftmost side of board
+            }
+
+            break;
+
+        case 2: // North-East
+
+            currPiece = *(*(arr+x)+y);
+
+            if(x == 0){
+                // bottom of board
+            }
+            if(y == 0){
+                // leftmost side of board
+            }
+
+
+            break;
+
+        case 3: // East
+
+            currPiece = *(*(arr+x)+y);
+
+            if(x == 0){
+                // bottom of board
+            }
+            if(y == 0){
+                // leftmost side of board
+            }
+
+            break;
+
+        case 4: // South-East
+
+            currPiece = *(*(arr+x)+y);
+
+            if(x == 0){
+                // bottom of board
+            }
+            if(y == 0){
+                // leftmost side of board
+            }
+
+
+            break;
+
+        case 5: // South
+
+            currPiece = *(*(arr+x)+y);
+
+            if(x == 0){
+                // bottom of board
+            }
+            if(y == 0){
+                // leftmost side of board
+            }
+
+            break;
+
+        case 6: // South-West
+
+            currPiece = *(*(arr+x)+y);
+
+            if(x == 0){
+                // bottom of board
+            }
+            if(y == 0){
+                // leftmost side of board
+            }
+
+            break;
+
+        case 7: // West
+
+            currPiece = *(*(arr+x)+y);
+
+            if(x == 0){
+                // bottom of board
+            }
+            if(y == 0){
+                // leftmost side of board
+            }
+
+
+            break;
+
+        case 8: // North-West
+
+            currPiece = *(*(arr+x)+y);
+
+            if(x == 0){
+                // bottom of board
+            }
+            if(y == 0){
+                // leftmost side of board
+            }
+
+
+            break;
+
+        default:
+            printf("\n-=-=-= ERROR : INVALID INPUT -=-=-=\n");
+            // reached default case
+            break;
+
+
+   }
+
+
+
+
 
 
 }
