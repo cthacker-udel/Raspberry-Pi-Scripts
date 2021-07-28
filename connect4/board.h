@@ -7,3 +7,10 @@ typedef struct theBoard{
     player player2;
 
 }board;
+
+
+int evalBoard(board);
+
+
+board *newBoard(int,int);
+

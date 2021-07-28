@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <string.h>
+
 typedef struct thePlayer{
 
     char *name;
@@ -6,3 +9,4 @@ typedef struct thePlayer{
 
 }player;
 
+player *createPlayer();
