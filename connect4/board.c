@@ -15,6 +15,19 @@ board *newBoard(int x, int y){
     player *newPlayer2 = createPlayer();
     theBoard->player1 = newPlayer1;
     theBoard->player1 = newPlayer2;
+
+    // filling out board with base-values
+
+    for(int i = 0; i < theBoard->size; i++){
+
+        for(int j = 0; j < theBoard->size; j++){
+
+            *(*(theBoard->theboard+i)+j) = '?';
+
+        }
+
+    }
+
     return theBoard;
 
 }
