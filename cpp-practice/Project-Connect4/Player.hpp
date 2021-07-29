@@ -7,6 +7,7 @@ class Player{
 
     string name;
     char piece;
+    friend class Board;
 
     public:
 

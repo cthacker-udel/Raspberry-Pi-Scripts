@@ -14,5 +14,7 @@ class Board{
 
         Board();
 
+        bool placePiece(int,int,Player*);
+
 
 };

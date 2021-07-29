@@ -1,6 +1,54 @@
 #include "Board.hpp"
 
 
+bool Board::placePiece(int x, int y, Player *thePlayer){
+    
+
+    char thePiece = *(*(board+x)+y);
+    const char player1Piece = this->player1->piece;
+    const char player2Piece = this->player2->piece;
+
+
+    switch(thePiece){
+
+        case '?':{
+            // valid placement
+            return true;
+            break;
+        }
+        case player1Piece:{
+            if(thePlayer == this->player1){
+                // invalid placement
+                return false;
+            }
+            else{
+                // valid placement
+                return true;
+            }
+            break;
+        }
+        case player2Piece:{
+
+            if(thePlayer == this->player2){
+                // invalid placement
+                return false;
+            }
+            else{
+                return true;
+            }
+
+        }
+        default:{
+            return false;
+        }
+
+
+    }    
+    
+
+
+}
+
 Board::Board(){
 
     this->size = 8;
