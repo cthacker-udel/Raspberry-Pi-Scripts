@@ -2862,7 +2862,7 @@ signAll(obj2, name);
     signature: name,
 })
 
-     */
+
 
 
 function capMe(names){
@@ -3864,6 +3864,8 @@ function reverseWord(aStr){
 }
 
 
+
+
 function reverse(aStr){
 
     let newStr = [];
@@ -3887,6 +3889,8 @@ function add(x){
     return a => a + x;
 
 }
+
+     */
 
 
 
