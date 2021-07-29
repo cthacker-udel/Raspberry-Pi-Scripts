@@ -6,6 +6,16 @@ Board::Board(){
     this->size = 8;
     this->board = new char[size][size];
 
+    for(int i = 0; i < size; i++){
+
+        for(int j = 0; j < size; j++){
+
+            *(*(this->board+i)+j) = '?';
+
+        }
+
+    }
+
     int answer;
 
     cout << "Enter how many players(Max 2)" << endl;
@@ -105,6 +115,17 @@ Board::Board(int newSize){
 
     this->size = newSize;
     this->board = new char[size][size];
+
+
+    for(int i = 0; i < this->size; i++){
+
+        for(int j = 0; j < this->size; j++){
+
+            *(*(board+i)+j) = '?';
+
+        }
+
+    }
 
     int answer;
 
