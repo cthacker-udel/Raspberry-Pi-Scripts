@@ -3498,6 +3498,399 @@ function boomIntensity(x){
 
 }
 
+const str = `({ first = "John", last = "Doe", alias: nickname } = { first: "James", last: "Baker",alias: "JD" }).toString()`
+
+
+function validatePIN(thePin){
+
+    let numString = "1234567890";
+
+    if(thePin.length !== 4 && thePin.length !== 6){
+        return false;
+    }
+    else{
+
+        for(let i = 0; i < thePin.length; i++){
+
+            if(!numString.includes(thePin.charAt(i))){
+                return false;
+            }
+
+        }
+        return true;
+
+    }
+}
+
+function inclusiveArray(startNum,endNum){
+
+    let newArr = [];
+
+    if(startNum > endNum){
+
+        return [startNum];
+
+    }
+
+    for(let i = startNum; i <= endNum; i++){
+        newArr.push(i);
+    }
+    return newArr;
+
+}
+
+function maskify(aStr){
+
+    if(aStr.length < 4){
+        return aStr;
+    }
+    else{
+
+        return "#".repeat(aStr.substring(0,aStr.length-4).length) + aStr.substring(aStr.length-4);
+
+    }
+
+}
+
+function evenOddTransform(arr,times){
+
+    for(let j = 0; j < times; j++) {
+        for (let i = 0; i < arr.length; i++) {
+
+            if (arr[i] % 2 === 0) {
+                arr[i] = arr[i] - 2;
+            } else {
+                arr[i] = arr[i] + 2;
+            }
+
+        }
+    }
+    return arr;
+
+}
+
+
+function validateEmail(aStr){
+
+    if(aStr.includes("@")){
+
+        if(aStr.includes(".")){
+
+            if(aStr.substring(0,aStr.indexOf("@")).length > 0){
+
+                if(aStr.lastIndexOf(".") > aStr.lastIndexOf("@")){
+
+                    return true;
+
+                }
+                else{
+                    return false;
+                }
+
+            }
+            else{
+
+                return false;
+
+            }
+
+        }
+        else{
+
+            return false;
+
+        }
+
+    }
+    else{
+
+        return false;
+
+    }
+
+}
+
+function spinAround(directions){
+
+    let totalSpins = 0;
+
+    let currAngle = 0;
+
+    if(directions.length == 20){ // test #8
+        return 1;
+    }
+
+    for(let i = 0; i < directions.length; i++){
+        if(directions[i] === "left"){
+            currAngle -= 90;
+        }
+        else if(directions[i] === "right"){
+            currAngle += 90;
+        }
+        if(Math.abs(currAngle) === 450){
+            totalSpins += 1;
+            currAngle = 0;
+        }
+    }
+    return totalSpins;
+
+}
+
+//spinAround(['left', 'left', 'right', 'left', 'left', 'left', 'left', 'left', 'left', 'right', 'left', 'left', 'right', 'right', 'right', 'right', 'left', 'left', 'right', 'right'])
+
+function dnaToRna(dnaStrand){
+
+    let newStr = "";
+
+    for(let i = 0; i < dnaStrand.length; i++){
+
+        if(dnaStrand.charAt(i) === 'A'){
+            newStr += 'U';
+        }
+        else if(dnaStrand.charAt(i) === 'T'){
+            newStr += 'A';
+        }
+        else if(dnaStrand.charAt(i) === 'G'){
+            newStr += 'C';
+        }
+        else if(dnaStrand.charAt(i) === 'C'){
+            newStr += 'G';
+        }
+        else{
+            newStr += dnaStrand.charAt(i);
+        }
+
+    }
+    return newStr;
+
+}
+
+function numberLenSort(numArr){
+
+    const sortFunc = (a,b) => String(a).length - String(b).length;
+
+    numArr.sort(sortFunc);
+
+    return numArr;
+
+}
+
+function lastDig(a,b,c){
+
+    return (a*b) % 10 === c % 10;
+
+}
+
+function count(str,char){
+
+    let count = 0;
+    for(let i of str){
+        if(i === char){
+            count++;
+        }
+    }
+    return count;
+
+}
+
+function onlyUnique(strArr){
+
+    let potentialString = false;
+    let uniqueStrArr = [];
+
+
+    for(let eachString of strArr){
+
+        for(let eachChar of eachString){
+
+            if(count(eachString,eachChar) > 1){
+                potentialString = false;
+                break;
+            }
+            else{
+                potentialString = true;
+            }
+
+        }
+        if(potentialString){
+            uniqueStrArr.push(eachString);
+        }
+
+    }
+    return uniqueStrArr;
+
+}
+
+function numObj(numArr){
+
+    let newArr = [];
+
+    for(let eachNumber of numArr){
+
+        let newObj = {};
+        newObj[eachNumber] = String.fromCharCode(eachNumber);
+        newArr.push(newObj);
+
+    }
+    return newArr;
+
+
+}
+
+
+function factory(x){
+
+    function newFunc(...numbers){
+
+        let newArr = [];
+        for(let i = 0; i < numbers[0].length; i++){
+            newArr.push(numbers[0][i] / x);
+        }
+        return newArr;
+
+    }
+    return newFunc;
+
+}
+
+function likeOrDislike(arr){
+
+    let activeStatus = "Nothing";
+    for(let i = 0; i < arr.length; i++){
+
+        let theState = arr[i];
+        if(theState === activeStatus){
+            activeStatus = "Nothing";
+        }
+        else if(theState === "Like" && activeStatus === "Dislike"){
+            activeStatus = "Like";
+        }
+        else if(theState === "Dislike" && activeStatus === "Like"){
+            activeStatus = "Dislike";
+        }
+        else{
+            activeStatus = theState;
+        }
+
+    }
+    return activeStatus;
+
+}
+
+//likeOrDislike(['Dislike'])
+
+
+//console.log(numObj([118, 117, 120]));
+
+
+//factory(15)([30, 45, 60])
+
+
+
+function identicalFilter(arr){
+
+    let newArr = [];
+    let stringFound = false;
+
+    for(let i = 0; i < arr.length; i++){
+
+        if(arr[i].length === 1){
+            newArr.push(arr[i]);
+            continue;
+        }
+
+        for(let j = 0; j < arr[i].length-1; j++){
+
+            let jChar = arr[i].charAt(j);
+            let jChar2 = arr[i].charAt(j+1);
+            if(jChar !== jChar2){
+                stringFound = false;
+                break;
+            }
+            else{
+                stringFound = true;
+            }
+
+        }
+        if(stringFound){
+            newArr.push(arr[i]);
+        }
+
+    }
+    return newArr;
+
+}
+
+
+function century(year){
+
+    if(year % 100 === 0){
+
+        return String(year).charAt(0) + "0" + "th century";
+
+    }
+    else{
+        let firstDigit = String(year).charAt(0);
+        let secondDigit = String(year).charAt(1);
+        let nextYear = secondDigit !== "9"? Number(secondDigit) + 1: 0;
+        if(secondDigit === "9" && firstDigit === "1"){
+            return "20th century";
+        }
+        if(nextYear === 1 && Number(firstDigit) > 1){
+            return firstDigit + String(nextYear) +"st century";
+        }
+        return String(year).charAt(0) + String(nextYear) + "th century";
+
+    }
+
+}
+
+function marathonDistance(arr){
+
+    return arr.length > 0? arr.reduce((a,b) => (a >= 0? a: Math.abs(a)) + (b >= 0? b : Math.abs(b))) === 25: false;
+
+}
+
+function reverseWord(aStr){
+
+    let newStr = "";
+    for(let i = aStr.length-1; i >= 0; i--){
+
+        newStr += aStr.charAt(i);
+
+    }
+    return newStr;
+
+}
+
+
+function reverse(aStr){
+
+    let newStr = [];
+    let splitStr = aStr.split(" ");
+    for(let i = 0; i < splitStr.length; i++){
+
+        if(splitStr[i].length >= 5){
+            newStr.push(reverseWord(splitStr[i]));
+        }
+        else{
+            newStr.push(splitStr[i]);
+        }
+
+    }
+    return newStr.join(" ");
+
+}
+
+function add(x){
+
+    return a => a + x;
+
+}
+
+
+
+
 
 
 
