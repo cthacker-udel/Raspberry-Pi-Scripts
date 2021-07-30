@@ -4043,6 +4043,27 @@ function sameAscii(str1,str2){
 
 }
 
+function magicDate(aStr){
+
+    let day = parseInt(aStr.split(" ")[0]);
+    let month = parseInt(aStr.split(" ")[1]);
+    let year = parseInt(aStr.split(" ")[2]);
+
+    if((month*day) < 10 && (month*day) === year % 10){
+        return true;
+    }
+    else if((month * day) >= 10 && (month*day) === parseInt(String(year).substring(String(year).length-2))){
+        return true;
+    }
+    else if((month * day) > 99 && (month*day) === parseInt(String(year).substring(String(year).length-3))){
+        return true;
+    }
+    else{
+        return false;
+    }
+
+}
+
 
 
 
