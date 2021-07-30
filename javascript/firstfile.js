@@ -4065,6 +4065,22 @@ function magicDate(aStr){
 }
 
 
+function uniqueArr(arr){
+
+    let newArr = arr.filter(e => e > 0);
+    let resArr = [];
+    for(let eachNum of newArr){
+        if(!resArr.includes(eachNum)){
+            resArr.push(eachNum);
+        }
+    }
+    return resArr;
+
+}
+
+console.log(uniqueArr([-5, 1, -7, -5, -2, 3, 3, -5, -1, -1]));
+
+
 
 
 
