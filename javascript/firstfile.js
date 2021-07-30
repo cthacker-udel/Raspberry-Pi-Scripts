@@ -3893,6 +3893,50 @@ function add(x){
      */
 
 
+function removeSpecialCharacters(aStr){
+
+    let newStr = "";
+    let excludeChars = ".!@#$%^\\*()[]{}<~>,`|+=&?";
+    for(let i = 0; i < aStr.length; i++){
+
+        if(excludeChars.includes(aStr.charAt(i))){
+            continue;
+        }
+        else{
+            newStr += aStr.charAt(i);
+        }
+
+    }
+    return newStr;
+
+}
+
+function transformUpvotes(votes){
+
+    splitStr = votes.split(" ");
+    let voteCount = [];
+    for(let i = 0; i < splitStr.length; i++){
+        if(splitStr[i].includes("k")){
+            // handle k variables
+            // right side times it by thousand and right side times hundred
+            let splitNum = splitStr[i].replace("k","").split(".");
+            let total = 0;
+            total += parseInt(splitNum[0])*1000;
+            total += parseInt(splitNum[1])*100;
+            voteCount.push(total);
+
+        }
+        else{
+            voteCount.push(parseInt(splitStr[i]));
+        }
+    }
+    return voteCount;
+
+}
+
+console.log(transformUpvotes("6.8k 13.5k"));
+
+
 
 
 
