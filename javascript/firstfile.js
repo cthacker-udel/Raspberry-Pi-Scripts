@@ -3890,7 +3890,7 @@ function add(x){
 
 }
 
-     */
+
 
 
 function removeSpecialCharacters(aStr){
@@ -3911,9 +3911,11 @@ function removeSpecialCharacters(aStr){
 
 }
 
+
+
 function transformUpvotes(votes){
 
-    splitStr = votes.split(" ");
+    let splitStr = votes.split(" ");
     let voteCount = [];
     for(let i = 0; i < splitStr.length; i++){
         if(splitStr[i].includes("k")){
@@ -3935,6 +3937,111 @@ function transformUpvotes(votes){
 }
 
 console.log(transformUpvotes("6.8k 13.5k"));
+
+
+function warOfNumbers(numbers){
+
+    let evenTotal = numbers.map(e => (e % 2 === 0? e : 0)).reduce((a,b) => a+b);
+    let oddTotal = numbers.map(e => (e % 2 !== 0? e : 0)).reduce((a,b) => a+b);
+    return Math.abs(evenTotal - oddTotal);
+
+}
+
+console.log(warOfNumbers([5, 9, 45, 6, 2, 7, 34, 8, 6, 90, 5, 243]));
+
+
+function reverseImage(matrix){
+
+    for(let i = 0; i < matrix.length; i++){
+        for(let j = 0; j < matrix[i].length; j++){
+
+            if(matrix[i][j] === 0){
+                matrix[i][j] = 1;
+            }
+            else{
+                matrix[i][j] = 0;
+            }
+
+        }
+    }
+    return matrix;
+
+}
+
+function rps(p1,p2){
+
+    let results = {"Rock": "Scissors", "Paper": "Rock", "Scissors": "Paper"};
+
+    if(results[p2] === p1){
+        return "The winner is p2";
+    }
+    else if(results[p1] === p2){
+        return "The winner is p1";
+    }
+    else{
+        return "It's a draw";
+    }
+
+}
+
+console.log(rps("Scissors", "Paper"));
+
+console.log(reverseImage([
+    [1, 0, 0],
+    [0, 1, 0],
+    [0, 0, 1]
+]));
+
+     */
+
+const scores = {"A": 100, "B": 14, "C": 9, "D": 28, "E": 145, "F": 12, "G": 3,
+    "H": 10, "I": 200, "J": 100, "K": 114, "L": 100, "M": 25,
+    "N": 450, "O": 80, "P": 2, "Q": 12, "R": 400, "S": 113, "T": 405,
+    "U": 11, "V": 10, "W": 10, "X": 3, "Y": 210, "Z": 23};
+
+function nameScore(name){
+
+    // find score
+    let total = 0;
+    for(let i = 0; i < name.length; i++){
+        let iChar = name.charAt(i);
+        if(iChar in scores) {
+            total += scores[iChar];
+        }
+    }
+
+    if(total <= 60){
+        return "NOT TOO GOOD";
+    }
+    else if(total >= 61 && total <= 300){
+        return "PRETTY GOOD";
+    }
+    else if(total >= 301 && total <= 599){
+        return "VERY GOOD";
+    }
+    else if(total >= 600){
+        return "THE BEST";
+    }
+
+}
+
+nameScore('BILL GATES')
+
+
+function sameAscii(str1,str2){
+
+    let total1 = 0;
+    let total2 = 0;
+
+    for(let i = 0; i < str1.length; i++){
+        total1 += str1.charCodeAt(i);
+    }
+    for(let i = 0; i < str2.length; i++){
+        total2 += str2.charCodeAt(i);
+    }
+    return total1 === total2;
+
+}
 
 
 
