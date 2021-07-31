@@ -4239,7 +4239,6 @@ function isValidPhoneNumber(number){
             return false;
         }
         try{
-            let res = Number(firstPart.substring(1,firstPart.length-1));
             if(firstPart.length === 5 && firstPart.startsWith("(") && firstPart.endsWith(")")){
                 let secondPart = numSplit[1];
                 if(secondPart.length === 8 && secondPart.includes("-")){
