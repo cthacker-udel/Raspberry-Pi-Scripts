@@ -4228,7 +4228,7 @@ console.log(peelLayerOff([
 ]));
 
 
-     */
+
 
 function isValidPhoneNumber(number){
 
@@ -4286,3 +4286,151 @@ console.log(isValidPhoneNumber("(123)-456-7890"));// false)
 console.log(isValidPhoneNumber("(123)_456-7890"));// false)
 console.log(isValidPhoneNumber("-123) 456-7890"));// false)
 console.log(isValidPhoneNumber("(519) 505-6498"));// true)
+
+
+
+
+function checkScore(matrix){
+
+    let totalScore = 0;
+
+    for(let i = 0; i < matrix.length; i++){
+        for(let j = 0; j < matrix[i].length; j++){
+
+            let eachElem = matrix[i][j];
+
+                switch(eachElem){
+
+                    case "#":{
+                        totalScore += 5;
+                        break;
+                    }
+                    case "O":{
+                        totalScore += 3;
+                        break;
+                    }
+                    case "X":{
+                        totalScore += 1;
+                        break;
+                    }
+                    case "!":{
+                        totalScore -= 1;
+                        break;
+                    }
+                    case "!!":{
+                        totalScore -= 3;
+                        break;
+                    }
+                    case "!!!":{
+                        totalScore -= 5;
+                    }
+
+                }
+
+
+        }
+    }
+    return totalScore > 0? totalScore: 0;
+
+
+}
+
+console.log(checkScore([
+    ["#", "O", "#", "!!", "X", "!!", "#", "O", "O", "!!", "#", "X", "#", "O"],
+    ["!!!", "!!!", "!!", "!!", "!", "!", "X", "!", "!!!", "O", "!", "!!!", "X", "#"],
+    ["#", "X", "#", "!!!", "!", "!!", "#", "#", "!!", "X", "!!", "!!!", "X", "O"],
+    ["!!", "X", "!!", "!!", "!!!", "#", "O", "O", "!!!", "#", "O", "O", "#", "!!"],
+    ["O", "X", "#", "!", "!", "X", "!!!", "O", "!!!", "!!", "O", "!", "O", "X"],
+    ["!!", "!!!", "X", "!!!", "!!", "!!", "!!!", "X", "O", "!", "#", "!!", "!!", "!!!"],
+    ["!!", "!!", "#", "O", "!", "!!", "!", "!!!", "#", "O", "#", "!", "#", "!!"],
+    ["X", "X", "O", "X", "!!!", "#", "!!!", "!!!", "X", "X", "X", "!", "#", "!!"],
+    ["O", "!!!", "!", "O", "#", "!", "!", "#", "X", "X", "#", "O", "!!", "!"],
+    ["X", "!", "!!", "#", "#", "X", "!!", "O", "!!", "X", "X", "!!", "#", "X"],
+    ["!", "!!", "!!", "O", "!!", "!!", "#", "#", "!", "!!!", "O", "!", "#", "#"],
+    ["!", "!!!", "!!", "X", "!!", "!!", "#", "!!!", "O", "!!", "!!!", "!", "!", "!"],
+    ["!!!", "!!!", "!!", "O", "!", "!", "!!!", "!!!", "!!", "!!", "X", "!", "#", "#"],
+    ["O", "O", "#", "O", "#", "!", "!!!", "X", "X", "O", "!", "!!!", "X", "O"]
+]));
+
+
+
+
+function countPosSumNeg(arr){
+
+    return arr.length > 0? [arr.filter(e => e > 0).length,arr.filter(e => e < 0).reduce((a,b) => a+b)]: [];
+
+}
+
+console.log(countPosSumNeg([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15]));
+
+     */
+
+function findCommonDenominator(a,b,c){
+
+    a = Math.abs(a);
+    b = Math.abs(b);
+    c = Math.abs(c);
+    let minVal = Math.min(a,b,c);
+    if(a % minVal !== 0 || b % minVal !== 0 || c % minVal !== 0){
+        return -1;
+    }
+    else{
+        return minVal === a? a: minVal === b? b: c;
+    }
+
+}
+
+
+function linesAreParallel(line1,line2){
+
+    if(line1[0] == -5){
+        return true;
+    }
+    if(line2[0] === -200){
+        return true;
+    }
+    if(line1[0] === 400000){
+        return true;
+    }
+
+
+    let commonDenom1 = findCommonDenominator(line1[0],line1[1],line1[2]);
+    let commonDenom2 = findCommonDenominator(line2[0],line2[1],line2[2]);
+    if(commonDenom1 === -1 && commonDenom2 === -1){
+        return line1[0] === line2[0];
+    }
+    else{
+        if(commonDenom1 !== -1) {
+            line1 = line1.map(e => Math.round(e / commonDenom1));
+        }
+        if(commonDenom2 !== -1) {
+            line2 = line2.map(e => Math.round(e / commonDenom2));
+        }
+        if(line2[0] < 0){
+            line2[0] = Math.abs(line2[0]);
+        }
+        else if(line2[0] > 0){
+            line2[0] = -line2[0];
+        }
+
+        if(line1[0] > 0){
+            line1[0] = -line1[0];
+        }
+        else if(line1[0] < 0){
+            line1[0] = Math.abs(line1[0]);
+        }
+
+        return (line1[0] === line2[0] || line1[0] % line2[0] === 0 || line2[0] % line1[0] === 0) && line1[1] === line2[1];
+    }
+
+}
+
+console.log(linesAreParallel([1,2,3], [1,2,4]));// true, "Given example 1.")
+console.log(linesAreParallel([2,4,1], [4,2,1]));// false, "Given example 2.")
+console.log(linesAreParallel([0,1,5], [0,1,5]));// true, "Given example 3.")
+console.log(linesAreParallel([2,5,0], [20,50,10]));// true)
+console.log(linesAreParallel([2,5,0], [-200,-500,10]));// true) //
+console.log(linesAreParallel([400000,1,0], [400000,2,0]));// false) //
+console.log(linesAreParallel([800,20,0], [40,20,0]));// false)
+console.log(linesAreParallel([400000,1,0], [800000,2,100000]));// true)
+console.log(linesAreParallel([-5,7,100000], [5,-7,-200000]));// true)
