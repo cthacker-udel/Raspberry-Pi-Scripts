@@ -32,7 +32,7 @@ board *newBoard(int x, int y){
 
 }
 
-int evalBoard(board *boardArg,int x,int y, int direction){
+int evalBoard(board *boardArg,int x,int y, int direction, int player){
 
     /*
 
@@ -50,6 +50,7 @@ int evalBoard(board *boardArg,int x,int y, int direction){
 
     char **arr = boardArg->theboard;
     char currPiece;
+    int count = 0;
 
 
    switch(direction){
@@ -60,9 +61,31 @@ int evalBoard(board *boardArg,int x,int y, int direction){
             // go farthest behind
             if(x == 0){
                 // bottom of board
+                for(int i = x; i < boardArg->size; i++){
+
+                    if(player == 1){
+                        count += *(*(boardArg->theboard+i)+y) == boardArg->player1->piece? 1: 0;
+                    }
+                    else{
+                        count += *(*(boardArg->theboard+i)+y) == boardArg->player2->piece? 1: 0;
+                    }
+
+                }
+                return count;
             }
             if(y == 0){
                 // leftmost side of board
+                for(int i = x; i < boardArg->size; i++){
+
+                    if(player == 1){
+                        count += *(*(boardArg->theboard+i)+0) == boardArg->player1->piece? 1: 0;
+                    }
+                    else{
+                        count += *(*(boardArg->theboard+i)+0) == boardArg->player2->piece? 1: 0;
+                    }
+
+                }
+                return count;
             }
 
             break;
@@ -73,6 +96,16 @@ int evalBoard(board *boardArg,int x,int y, int direction){
 
             if(x == 0){
                 // bottom of board
+
+                // [0][0],[1][1],[2][2]
+                for(int i = x, j = y; i < boardArg->size; i++, j++){
+
+                    if(player == 1){
+                        count 
+                    }
+
+                }
+
             }
             if(y == 0){
                 // leftmost side of board
