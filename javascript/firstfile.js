@@ -3890,17 +3890,399 @@ function add(x){
 
 }
 
+
+
+
+function removeSpecialCharacters(aStr){
+
+    let newStr = "";
+    let excludeChars = ".!@#$%^\\*()[]{}<~>,`|+=&?";
+    for(let i = 0; i < aStr.length; i++){
+
+        if(excludeChars.includes(aStr.charAt(i))){
+            continue;
+        }
+        else{
+            newStr += aStr.charAt(i);
+        }
+
+    }
+    return newStr;
+
+}
+
+
+
+function transformUpvotes(votes){
+
+    let splitStr = votes.split(" ");
+    let voteCount = [];
+    for(let i = 0; i < splitStr.length; i++){
+        if(splitStr[i].includes("k")){
+            // handle k variables
+            // right side times it by thousand and right side times hundred
+            let splitNum = splitStr[i].replace("k","").split(".");
+            let total = 0;
+            total += parseInt(splitNum[0])*1000;
+            total += parseInt(splitNum[1])*100;
+            voteCount.push(total);
+
+        }
+        else{
+            voteCount.push(parseInt(splitStr[i]));
+        }
+    }
+    return voteCount;
+
+}
+
+console.log(transformUpvotes("6.8k 13.5k"));
+
+
+function warOfNumbers(numbers){
+
+    let evenTotal = numbers.map(e => (e % 2 === 0? e : 0)).reduce((a,b) => a+b);
+    let oddTotal = numbers.map(e => (e % 2 !== 0? e : 0)).reduce((a,b) => a+b);
+    return Math.abs(evenTotal - oddTotal);
+
+}
+
+console.log(warOfNumbers([5, 9, 45, 6, 2, 7, 34, 8, 6, 90, 5, 243]));
+
+
+function reverseImage(matrix){
+
+    for(let i = 0; i < matrix.length; i++){
+        for(let j = 0; j < matrix[i].length; j++){
+
+            if(matrix[i][j] === 0){
+                matrix[i][j] = 1;
+            }
+            else{
+                matrix[i][j] = 0;
+            }
+
+        }
+    }
+    return matrix;
+
+}
+
+function rps(p1,p2){
+
+    let results = {"Rock": "Scissors", "Paper": "Rock", "Scissors": "Paper"};
+
+    if(results[p2] === p1){
+        return "The winner is p2";
+    }
+    else if(results[p1] === p2){
+        return "The winner is p1";
+    }
+    else{
+        return "It's a draw";
+    }
+
+}
+
+console.log(rps("Scissors", "Paper"));
+
+console.log(reverseImage([
+    [1, 0, 0],
+    [0, 1, 0],
+    [0, 0, 1]
+]));
+
+
+
+const scores = {"A": 100, "B": 14, "C": 9, "D": 28, "E": 145, "F": 12, "G": 3,
+    "H": 10, "I": 200, "J": 100, "K": 114, "L": 100, "M": 25,
+    "N": 450, "O": 80, "P": 2, "Q": 12, "R": 400, "S": 113, "T": 405,
+    "U": 11, "V": 10, "W": 10, "X": 3, "Y": 210, "Z": 23};
+
+function nameScore(name){
+
+    // find score
+    let total = 0;
+    for(let i = 0; i < name.length; i++){
+        let iChar = name.charAt(i);
+        if(iChar in scores) {
+            total += scores[iChar];
+        }
+    }
+
+    if(total <= 60){
+        return "NOT TOO GOOD";
+    }
+    else if(total >= 61 && total <= 300){
+        return "PRETTY GOOD";
+    }
+    else if(total >= 301 && total <= 599){
+        return "VERY GOOD";
+    }
+    else if(total >= 600){
+        return "THE BEST";
+    }
+
+}
+
+nameScore('BILL GATES')
+
+
+function sameAscii(str1,str2){
+
+    let total1 = 0;
+    let total2 = 0;
+
+    for(let i = 0; i < str1.length; i++){
+        total1 += str1.charCodeAt(i);
+    }
+    for(let i = 0; i < str2.length; i++){
+        total2 += str2.charCodeAt(i);
+    }
+    return total1 === total2;
+
+}
+
+function magicDate(aStr){
+
+    let day = parseInt(aStr.split(" ")[0]);
+    let month = parseInt(aStr.split(" ")[1]);
+    let year = parseInt(aStr.split(" ")[2]);
+
+    if((month*day) < 10 && (month*day) === year % 10){
+        return true;
+    }
+    else if((month * day) >= 10 && (month*day) === parseInt(String(year).substring(String(year).length-2))){
+        return true;
+    }
+    else if((month * day) > 99 && (month*day) === parseInt(String(year).substring(String(year).length-3))){
+        return true;
+    }
+    else{
+        return false;
+    }
+
+}
+
+
+function uniqueArr(arr){
+
+    let newArr = arr.filter(e => e > 0);
+    let resArr = [];
+    for(let eachNum of newArr){
+        if(!resArr.includes(eachNum)){
+            resArr.push(eachNum);
+        }
+    }
+    return resArr;
+
+}
+
+console.log(uniqueArr([-5, 1, -7, -5, -2, 3, 3, -5, -1, -1]));
+
+
+
+
+function getDay(dateStr){//MM/DD/YYYY
+
+    let theDate = new Date(parseInt(dateStr.split("/")[2]),parseInt(dateStr.split('/')[0])-1,parseInt(dateStr.split("/")[1]));
+
+    let theDay = theDate.getDay();
+
+    switch(theDay){
+
+        case 0:
+            return "Sunday";
+        case 1:
+            return "Monday";
+        case 2:
+            return "Tuesday";
+        case 3:
+            return "Wednesday";
+        case 4:
+            return "Thursday";
+        case 5:
+            return "Friday";
+        case 6:
+            return "Saturday";
+    }
+
+}
+
+getDay('12/07/2016')
+
+function fracRound(fraction,rounding){
+
+    return `${fraction} rounded to ${rounding} decimal places is ${Number(parseInt(fraction.split("/")[0])/parseInt(fraction.split("/")[1])).toFixed(rounding)}`
+
+}
+
+
+
+
+//console.log(fracRound("1/3", 5));
+
+function getEquivalent(note){
+
+    let equivalents = {"C#": "Db", "D#": "Eb", "F#": "Gb", "G#": "Ab", "A#": "Bb"};
+
+    let equivalentsKeys = Object.keys(equivalents);
+
+    if(!equivalentsKeys.includes(note)){
+
+        for(let eachKey of equivalentsKeys){
+            if(equivalents[eachKey] === note){
+                return eachKey;
+            }
+        }
+
+    }
+    else{
+        return equivalents[note];
+    }
+
+
+}
+
+console.log(getEquivalent("Gb") );
+
+
+function reverse(aStr){
+
+    let newStr = "";
+    for(let i = aStr.length-1; i >= 0; i--){
+
+        if(aStr.charAt(i) === aStr.charAt(i).toUpperCase()){
+            newStr += aStr.charAt(i).toLowerCase();
+        }
+        else{
+            newStr += aStr.charAt(i).toUpperCase();
+        }
+
+    }
+    return newStr;
+
+
+}
+
+function peelLayerOff(matrix){
+
+    let newArr = [];
+    let newSubArr = [];
+
+    for(let i = 1; i < matrix.length-1; i++){
+        for(let j = 1; j < matrix[i].length-1; j++){
+            newSubArr.push(matrix[i][j]);
+        }
+        newArr.push(newSubArr);
+        newSubArr = [];
+    }
+    return newArr;
+
+}
+
+function hasSyncopation(beat){
+
+    for(let i = 0; i < beat.length; i++){
+        if(i % 2 !== 0){
+            if(beat.charAt(i) === "#"){
+                return true;
+            }
+        }
+    }
+    return false;
+
+
+}
+
+function simpleTimer(seconds){
+
+    let minutes = 0;
+    let hours = 0;
+
+    while(seconds >= 3600){
+        hours++;
+        seconds -= 3600;
+    }
+    while(seconds >= 60){
+        minutes++;
+        seconds -= 60;
+    }
+    return `${String(hours).padStart(2,"0")}:${String(minutes).padStart(2,"0")}:${String(seconds).padStart(2,"0")}`
+
+
+}
+
+function isAutomorphic(number){
+
+    return String(number**2).endsWith(`${number}`);
+
+}
+
+
+console.log(peelLayerOff([
+    ["a", "b", "c", "d"],
+    ["e", "f", "g", "h"],
+    ["i", "j", "k", "l"],
+    ["m", "n", "o", "p"]
+]));
+
+
      */
 
+function isValidPhoneNumber(number){
 
+    let numSplit = number.split(" ");
+    if(numSplit.length === 2){
+        let firstPart = numSplit[0];
+        if(firstPart.length !== 5 || !firstPart.includes("(") || !firstPart.includes(")")) {
+            return false;
+        }
+        try{
+            if(firstPart.length === 5 && firstPart.startsWith("(") && firstPart.endsWith(")")){
+                let secondPart = numSplit[1];
+                if(secondPart.length === 8 && secondPart.includes("-")){
+                    try{
+                        let res = parseInt(secondPart.substring(0,3));
+                        if(res === undefined){
+                            return false;
+                        }
+                        res = parseInt(secondPart.substring(4));
+                        if(res === undefined){
+                            return false;
+                        }
+                        return secondPart.charAt(3) === '-';
+                    }
+                    catch(error){
+                        return false;
+                    }
+                }
+                else{
+                    return false;
+                }
+            }
+        }
+        catch(error){
+            return false;
+        }
+    }
+    else{
+        return false;
+    }
 
+}
 
-
-
-
-
-
-
-
-
-
+console.log(isValidPhoneNumber("(123) 456-7890"));// true)
+console.log(isValidPhoneNumber("(1111)555 2345"));// false)
+console.log(isValidPhoneNumber("(098) 123 4567"));// false)
+console.log(isValidPhoneNumber("(123)456-7890"));// false)
+console.log(isValidPhoneNumber("abc(123)456-7890"));// false)
+console.log(isValidPhoneNumber("(123)456-7890abc"));// false)
+console.log(isValidPhoneNumber("abc(123)456-7890abc"));// false)
+console.log(isValidPhoneNumber("abc(123) 456-7890"));// false)
+console.log(isValidPhoneNumber("(123) 456-7890abc"));// false)
+console.log(isValidPhoneNumber("abc(123) 456-7890abc"));// false)
+console.log(isValidPhoneNumber("(123)-456-7890"));// false)
+console.log(isValidPhoneNumber("(123)_456-7890"));// false)
+console.log(isValidPhoneNumber("-123) 456-7890"));// false)
+console.log(isValidPhoneNumber("(519) 505-6498"));// true)
