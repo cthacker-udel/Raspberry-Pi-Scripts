@@ -3992,7 +3992,7 @@ console.log(reverseImage([
     [0, 0, 1]
 ]));
 
-     */
+
 
 const scores = {"A": 100, "B": 14, "C": 9, "D": 28, "E": 145, "F": 12, "G": 3,
     "H": 10, "I": 200, "J": 100, "K": 114, "L": 100, "M": 25,
@@ -4083,12 +4083,207 @@ console.log(uniqueArr([-5, 1, -7, -5, -2, 3, 3, -5, -1, -1]));
 
 
 
+function getDay(dateStr){//MM/DD/YYYY
+
+    let theDate = new Date(parseInt(dateStr.split("/")[2]),parseInt(dateStr.split('/')[0])-1,parseInt(dateStr.split("/")[1]));
+
+    let theDay = theDate.getDay();
+
+    switch(theDay){
+
+        case 0:
+            return "Sunday";
+        case 1:
+            return "Monday";
+        case 2:
+            return "Tuesday";
+        case 3:
+            return "Wednesday";
+        case 4:
+            return "Thursday";
+        case 5:
+            return "Friday";
+        case 6:
+            return "Saturday";
+    }
+
+}
+
+getDay('12/07/2016')
+
+function fracRound(fraction,rounding){
+
+    return `${fraction} rounded to ${rounding} decimal places is ${Number(parseInt(fraction.split("/")[0])/parseInt(fraction.split("/")[1])).toFixed(rounding)}`
+
+}
 
 
 
 
+//console.log(fracRound("1/3", 5));
+
+function getEquivalent(note){
+
+    let equivalents = {"C#": "Db", "D#": "Eb", "F#": "Gb", "G#": "Ab", "A#": "Bb"};
+
+    let equivalentsKeys = Object.keys(equivalents);
+
+    if(!equivalentsKeys.includes(note)){
+
+        for(let eachKey of equivalentsKeys){
+            if(equivalents[eachKey] === note){
+                return eachKey;
+            }
+        }
+
+    }
+    else{
+        return equivalents[note];
+    }
 
 
+}
+
+console.log(getEquivalent("Gb") );
 
 
+function reverse(aStr){
 
+    let newStr = "";
+    for(let i = aStr.length-1; i >= 0; i--){
+
+        if(aStr.charAt(i) === aStr.charAt(i).toUpperCase()){
+            newStr += aStr.charAt(i).toLowerCase();
+        }
+        else{
+            newStr += aStr.charAt(i).toUpperCase();
+        }
+
+    }
+    return newStr;
+
+
+}
+
+function peelLayerOff(matrix){
+
+    let newArr = [];
+    let newSubArr = [];
+
+    for(let i = 1; i < matrix.length-1; i++){
+        for(let j = 1; j < matrix[i].length-1; j++){
+            newSubArr.push(matrix[i][j]);
+        }
+        newArr.push(newSubArr);
+        newSubArr = [];
+    }
+    return newArr;
+
+}
+
+function hasSyncopation(beat){
+
+    for(let i = 0; i < beat.length; i++){
+        if(i % 2 !== 0){
+            if(beat.charAt(i) === "#"){
+                return true;
+            }
+        }
+    }
+    return false;
+
+
+}
+
+function simpleTimer(seconds){
+
+    let minutes = 0;
+    let hours = 0;
+
+    while(seconds >= 3600){
+        hours++;
+        seconds -= 3600;
+    }
+    while(seconds >= 60){
+        minutes++;
+        seconds -= 60;
+    }
+    return `${String(hours).padStart(2,"0")}:${String(minutes).padStart(2,"0")}:${String(seconds).padStart(2,"0")}`
+
+
+}
+
+function isAutomorphic(number){
+
+    return String(number**2).endsWith(`${number}`);
+
+}
+
+
+console.log(peelLayerOff([
+    ["a", "b", "c", "d"],
+    ["e", "f", "g", "h"],
+    ["i", "j", "k", "l"],
+    ["m", "n", "o", "p"]
+]));
+
+
+     */
+
+function isValidPhoneNumber(number){
+
+    let numSplit = number.split(" ");
+    if(numSplit.length === 2){
+        let firstPart = numSplit[0];
+        if(firstPart.length !== 5 || !firstPart.includes("(") || !firstPart.includes(")")) {
+            return false;
+        }
+        try{
+            let res = Number(firstPart.substring(1,firstPart.length-1));
+            if(firstPart.length === 5 && firstPart.startsWith("(") && firstPart.endsWith(")")){
+                let secondPart = numSplit[1];
+                if(secondPart.length === 8 && secondPart.includes("-")){
+                    try{
+                        let res = parseInt(secondPart.substring(0,3));
+                        if(res === undefined){
+                            return false;
+                        }
+                        res = parseInt(secondPart.substring(4));
+                        if(res === undefined){
+                            return false;
+                        }
+                        return secondPart.charAt(3) === '-';
+                    }
+                    catch(error){
+                        return false;
+                    }
+                }
+                else{
+                    return false;
+                }
+            }
+        }
+        catch(error){
+            return false;
+        }
+    }
+    else{
+        return false;
+    }
+
+}
+
+console.log(isValidPhoneNumber("(123) 456-7890"));// true)
+console.log(isValidPhoneNumber("(1111)555 2345"));// false)
+console.log(isValidPhoneNumber("(098) 123 4567"));// false)
+console.log(isValidPhoneNumber("(123)456-7890"));// false)
+console.log(isValidPhoneNumber("abc(123)456-7890"));// false)
+console.log(isValidPhoneNumber("(123)456-7890abc"));// false)
+console.log(isValidPhoneNumber("abc(123)456-7890abc"));// false)
+console.log(isValidPhoneNumber("abc(123) 456-7890"));// false)
+console.log(isValidPhoneNumber("(123) 456-7890abc"));// false)
+console.log(isValidPhoneNumber("abc(123) 456-7890abc"));// false)
+console.log(isValidPhoneNumber("(123)-456-7890"));// false)
+console.log(isValidPhoneNumber("(123)_456-7890"));// false)
+console.log(isValidPhoneNumber("-123) 456-7890"));// false)
+console.log(isValidPhoneNumber("(519) 505-6498"));// true)
