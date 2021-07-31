@@ -87,6 +87,22 @@ int evalBoard(board *boardArg,int x,int y, int direction, int player){
                 }
                 return count;
             }
+            else{
+
+                for(int i = x; i < boardArg->size; i++){
+
+                    if(player == 1){
+                        count += *(*(boardArg->theboard+i)+y) == boardArg->player1->piece? 1: 0;
+                    }
+                    else{
+                        count += *(*(boardArg->theboard+i)+y) == boardArg->player2->piece? 1: 0;
+                    }
+
+                }
+                return count;
+
+
+            }
 
             break;
 
@@ -101,14 +117,21 @@ int evalBoard(board *boardArg,int x,int y, int direction, int player){
                 for(int i = x, j = y; i < boardArg->size; i++, j++){
 
                     if(player == 1){
-                        count 
+                        count += *(*(boardArg->theboard+i)+j) == boardArg->player1->piece? 1: 0;
+                    }
+                    else{
+                        count += *(*(boardArg->theboard+i)+j) == boardArg->player2->piece? 1: 0;
                     }
 
                 }
+                return count;
 
             }
             if(y == 0){
                 // leftmost side of board
+
+
+
             }
 
 
