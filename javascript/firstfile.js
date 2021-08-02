@@ -4363,7 +4363,7 @@ function countPosSumNeg(arr){
 
 console.log(countPosSumNeg([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15]));
 
-     */
+
 
 function findCommonDenominator(a,b,c){
 
@@ -4434,3 +4434,39 @@ console.log(linesAreParallel([400000,1,0], [400000,2,0]));// false) //
 console.log(linesAreParallel([800,20,0], [40,20,0]));// false)
 console.log(linesAreParallel([400000,1,0], [800000,2,100000]));// true)
 console.log(linesAreParallel([-5,7,100000], [5,-7,-200000]));// true)
+
+
+
+function wurstIsBetter(aStr){
+
+    return aStr.replace(/Kielbasa/g,"Wurst").replace(/Chorizo/g,"Wurst").replace(/chorizo/g,"Wurst").replace(/kielbasa/g,"Wurst").replace(/Moronga/g,"Wurst").replace(/moronga/g,"Wurst").replace(/salami/g,"Wurst").replace(/Salami/g,"Wurst").replace(/Sausage/g,"Wurst").replace(/sausage/g,"Wurst").replace(/andouille/g,"Wurst").replace(/naem/g,"Wurst").replace(/Naem/g,"Wurst").replace(/merguez/g,"Wurst").replace(/Merguez/g,"Wurst").replace(/Gurka/g,"Wurst").replace(/gurka/g,"Wurst").replace(/Snorkers/g,"Wurst").replace(/snorkers/g,"Wurst").replace(/pepperoni/g,"Wurst").replace(/Pepperoni/g,"Wurst");
+
+}
+
+console.log(wurstIsBetter("Sausage fests are like salami fests"));// "Wurst fests are like Wurst fests")
+console.log(wurstIsBetter("Add the kielbasa and the reserved potatoes and stir through"));// "Add the Wurst and the reserved potatoes and stir through")
+console.log(wurstIsBetter("Salami sandwiches, salami and cheese, salami on crackers— I couldn't get enough of the salty, spicy sausage"));// "Wurst sandwiches, Wurst and cheese, Wurst on crackers— I couldn't get enough of the salty, spicy Wurst")
+console.log(wurstIsBetter("sich die Wurst vom Brot nehmen lassen"));// "sich die Wurst vom Brot nehmen lassen")
+console.log(wurstIsBetter("Bratwurst and Rostbratwurst is a sausage made from finely minced pork and beef and usually grilled and served with sweet German mustard and a piece of bread or hard roll. It can be sliced and made into Currywurst by slathering it in a catchup-curry sauce."));// "Bratwurst and Rostbratwurst is a Wurst made from finely minced pork and beef and usually grilled and served with sweet German mustard and a piece of bread or hard roll. It can be sliced and made into Currywurst by slathering it in a catchup-curry sauce.")
+console.log(wurstIsBetter("Il n’arrête pas de faire l’andouille"));// "Il n’arrête pas de faire l’Wurst")
+console.log(wurstIsBetter("Naem is a common way of preserving pork meat in several Southeast Asian countries, including Thailand, Laos, Cambodia and Vietnam"));// "Wurst is a common way of preserving pork meat in several Southeast Asian countries, including Thailand, Laos, Cambodia and Vietnam")
+console.log(wurstIsBetter("The chipper group over at Orangatang recently dropped another wheel sensation; the Moronga"));// "The chipper group over at Orangatang recently dropped another wheel sensation; the Wurst")
+
+
+
+function isAnagram(str1,str2){
+
+    str1 = str1.toLowerCase();
+    str2 = str2.toLowerCase();
+    str1 = str1.split("").sort((a,b) => a.charCodeAt(0)-b.charCodeAt(0)).join("");
+    str2 = str2.split("").sort((a,b) => a.charCodeAt(0)-b.charCodeAt(0)).join("");
+    console.log(str1);
+    console.log(str2);
+    return str1 === str2;
+
+}
+
+console.log(isAnagram("cristian", "Cristina"))// true)
+console.log(isAnagram("Dave Barry", "Ray Adverb"))// true)
+console.log(isAnagram("Nope", "Note"))// false)
+console.log(isAnagram("Apple", "Appeal"))// false)
