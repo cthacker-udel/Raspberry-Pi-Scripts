@@ -4470,3 +4470,5 @@ console.log(isAnagram("cristian", "Cristina"))// true)
 console.log(isAnagram("Dave Barry", "Ray Adverb"))// true)
 console.log(isAnagram("Nope", "Note"))// false)
 console.log(isAnagram("Apple", "Appeal"))// false)
+
+     */
