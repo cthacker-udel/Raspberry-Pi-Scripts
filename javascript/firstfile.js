@@ -4471,4 +4471,40 @@ console.log(isAnagram("Dave Barry", "Ray Adverb"))// true)
 console.log(isAnagram("Nope", "Note"))// false)
 console.log(isAnagram("Apple", "Appeal"))// false)
 
+
+
+function guessSequence(aNum){
+
+    let result = (30*(aNum**2)) + 60*aNum;
+    console.log(result);
+
+}
+
+
+
+
+function integerToString(number,base){
+
+    return number.toString(base);
+
+}
+
+
+
+
+function freeShipping(items){
+
+    let total = 0;
+    for(let eachItem of Object.keys(items)){
+        total += items[eachItem];
+    }
+    return total >= 50.00;
+
+}
+
+freeShipping({'Shampoo' : 5.99, 'Rubber Ducks': 15.99})
+
+
+
+
      */
