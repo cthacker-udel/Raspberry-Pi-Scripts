@@ -274,13 +274,6 @@ int evalBoard(board *boardArg,int x,int y, int direction, int player){
                 }
                 return count;
 
-            if(x == 0){
-                // bottom of board
-            }
-            if(y == 0){
-                // leftmost side of board
-            }
-
 
             break;
 
