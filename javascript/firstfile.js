@@ -2332,7 +2332,7 @@ function halflifeCalculator(mass,time,numHalfLives){
         times++;
     }
     let arr = [];
-    arr.push(Number.parseFloat(Number(mass).toFixed(3)),time*times);
+    arr.push(Number.parseFloat(Number(mass).toFixed(3)));//time*times);
     return arr;
 
 }
@@ -2419,7 +2419,7 @@ let [actualParam, expectedParam] = [
         "such a feeling c"
     ]
 ]
-for (let i in actualParam) console.log((stringCycling(...actualParam[i]), expectedParam[i]));
+for (let i in actualParam) console.log((stringCycling(...actualParam[i]));// expectedParam[i]));
 
 
 function bbqSkewers(skewers){
@@ -4507,7 +4507,7 @@ freeShipping({'Shampoo' : 5.99, 'Rubber Ducks': 15.99})
 
 
 
-     */
+
 
 function isOdd(number){
 
@@ -4539,3 +4539,181 @@ function halveCount(a,b){
 }
 
 console.log(halveCount(624, 8));
+
+
+
+
+function clearFog(aStr){
+
+    if(!aStr.toLowerCase().includes("f") && !aStr.toLowerCase().includes("o") && !aStr.toLowerCase().includes("g")){
+        return "It's a clear day!";
+    }
+    else{
+
+        let newStr = "";
+        for(let i = 0; i < aStr.length; i++){
+            let iChar = aStr.charAt(i).toLowerCase();
+            if(iChar === "f" || iChar === "o" || iChar === "g"){
+                continue;
+            }
+            else{
+                newStr += iChar;
+            }
+        }
+        console.log(newStr);
+        return newStr;
+    }
+
+}
+
+clearFog("sky")// ➞ "It's a clear day!"
+
+clearFog("fogfogFFfoooofftogffreogffesGgfOogfog")// ➞ "trees"
+
+clearFog("fogFogFogffoObirdsanffodthebffoeffoesGGGfOgFog")
+
+
+
+function letterAtPosition(position){
+
+    let alphabet = " abcdefghijklmnopqrstuvwxyz";
+
+    if(position < 1){
+        return "invalid";
+    }
+    else if(!Number.isInteger(position)){
+        return "invalid";
+    }
+    else if(position > 26){
+        return "invalid";
+    }
+    else{
+        return alphabet.charAt(position);
+    }
+
+}
+
+function sumFoundIndexes(arr,search){
+
+    let total = 0;
+    for(let i = 0; i < arr.length; i++){
+        if(arr[i] == search){
+            total += i;
+        }
+
+    }
+    return total;
+
+}
+
+
+
+animals = ["dog", "cat", "bat", "cock", "cow", "pig",
+    "fox", "ant", "bird", "lion", "wolf", "deer", "bear",
+    "frog", "hen", "mole", "duck", "goat"]
+
+function countAnimals(aStr){
+
+    animals.sort((a,b) => a.length - b.length); // sort by length
+    let letters = {};
+    let ct = 0;
+    for(let eachletter of aStr){
+
+        if(!Object.keys(letters).includes(eachletter)){
+            letters[eachletter] = 1;
+        }
+        else{
+            letters[eachletter] = letters[eachletter] + 1;
+        }
+
+    }
+    let cpy = letters;
+    let contains = false;
+    while(true) {
+        for (let eachanimal of animals) {
+
+            for (let i = 0; i < eachanimal.length; i++) {
+                let eachletter = eachanimal.charAt(i);
+                if (Object.keys(letters).includes(eachletter)) {
+                    // contains letter
+                    if(eachanimal.match(`/${eachletter}/g`) !== null && letters[eachletter] >= eachanimal.match(`/${eachletter}/g`).length) {
+                        contains = true;
+                    }
+                    else{
+                        contains = false;
+                    }
+                }
+                else{
+                    contains = false;
+                    break;
+                }
+            }
+            if(contains){
+                console.log(`contains : ${eachanimal}`);
+                for(let i = 0; i < eachanimal.length; i++){
+                    let eachletter = eachanimal.charAt(i);
+                    letters[eachletter] = letters[eachletter] - 1;
+                }
+            }
+
+        }
+        break;
+    }
+
+    console.log(letters);
+
+}
+
+console.log(countAnimals("dogcat"));// 2)
+console.log(countAnimals("bcaatt"));// 2)
+console.log(countAnimals("dopig"));// 1)
+console.log(countAnimals("goatcode"));// 2)
+console.log(countAnimals("dogdogdogdogdog"));// 5)
+console.log(countAnimals("cockdogwdufrbir"));// 4)
+// Mubashir
+
+
+
+function hasHiddenFee(prices,total){
+
+    return prices.map(e => Number(e.substring(1))).reduce((a, b) => a + b) < Number(total.substring(1));
+
+}
+
+function sumArray(arr){
+
+    return arr.flat(Infinity).reduce((a,b) => a+b);
+
+}
+
+function vreplace(replaceVowel){
+
+    let vowels = "aeiouAEIOU";
+    let newStr = "";
+    for(let i = 0; i < this.length; i++){
+        let iChar = this.charAt(i);
+        if(vowels.includes(iChar)){
+            newStr += replaceVowel;
+        }
+        else{
+            newStr += iChar;
+        }
+    }
+    return newStr;
+}
+
+String.prototype.vreplace = vreplace;
+
+function incrementToTop(numArr){
+
+    let steps = 0;
+    let maxNum = Math.max(...numArr);
+    return numArr.map(e => Math.abs(e - maxNum)).reduce((a,b) => a+b);
+
+}
+
+incrementToTop([3, 4, 5])
+
+
+
+     */
