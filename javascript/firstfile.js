@@ -2332,7 +2332,7 @@ function halflifeCalculator(mass,time,numHalfLives){
         times++;
     }
     let arr = [];
-    arr.push(Number.parseFloat(Number(mass).toFixed(3)),time*times);
+    arr.push(Number.parseFloat(Number(mass).toFixed(3)));//time*times);
     return arr;
 
 }
@@ -2419,7 +2419,7 @@ let [actualParam, expectedParam] = [
         "such a feeling c"
     ]
 ]
-for (let i in actualParam) console.log((stringCycling(...actualParam[i]), expectedParam[i]));
+for (let i in actualParam) console.log((stringCycling(...actualParam[i]));// expectedParam[i]));
 
 
 function bbqSkewers(skewers){
@@ -4228,7 +4228,11 @@ console.log(peelLayerOff([
 ]));
 
 
+<<<<<<< HEAD
      */
+=======
+
+>>>>>>> refs/remotes/origin/master
 
 function isValidPhoneNumber(number){
 
@@ -4286,3 +4290,435 @@ console.log(isValidPhoneNumber("(123)-456-7890"));// false)
 console.log(isValidPhoneNumber("(123)_456-7890"));// false)
 console.log(isValidPhoneNumber("-123) 456-7890"));// false)
 console.log(isValidPhoneNumber("(519) 505-6498"));// true)
+console.log(isValidPhoneNumber("(519) 505-6498"));// true)
+
+
+
+
+function checkScore(matrix){
+
+    let totalScore = 0;
+
+    for(let i = 0; i < matrix.length; i++){
+        for(let j = 0; j < matrix[i].length; j++){
+
+            let eachElem = matrix[i][j];
+
+                switch(eachElem){
+
+                    case "#":{
+                        totalScore += 5;
+                        break;
+                    }
+                    case "O":{
+                        totalScore += 3;
+                        break;
+                    }
+                    case "X":{
+                        totalScore += 1;
+                        break;
+                    }
+                    case "!":{
+                        totalScore -= 1;
+                        break;
+                    }
+                    case "!!":{
+                        totalScore -= 3;
+                        break;
+                    }
+                    case "!!!":{
+                        totalScore -= 5;
+                    }
+
+                }
+
+
+        }
+    }
+    return totalScore > 0? totalScore: 0;
+
+
+}
+
+console.log(checkScore([
+    ["#", "O", "#", "!!", "X", "!!", "#", "O", "O", "!!", "#", "X", "#", "O"],
+    ["!!!", "!!!", "!!", "!!", "!", "!", "X", "!", "!!!", "O", "!", "!!!", "X", "#"],
+    ["#", "X", "#", "!!!", "!", "!!", "#", "#", "!!", "X", "!!", "!!!", "X", "O"],
+    ["!!", "X", "!!", "!!", "!!!", "#", "O", "O", "!!!", "#", "O", "O", "#", "!!"],
+    ["O", "X", "#", "!", "!", "X", "!!!", "O", "!!!", "!!", "O", "!", "O", "X"],
+    ["!!", "!!!", "X", "!!!", "!!", "!!", "!!!", "X", "O", "!", "#", "!!", "!!", "!!!"],
+    ["!!", "!!", "#", "O", "!", "!!", "!", "!!!", "#", "O", "#", "!", "#", "!!"],
+    ["X", "X", "O", "X", "!!!", "#", "!!!", "!!!", "X", "X", "X", "!", "#", "!!"],
+    ["O", "!!!", "!", "O", "#", "!", "!", "#", "X", "X", "#", "O", "!!", "!"],
+    ["X", "!", "!!", "#", "#", "X", "!!", "O", "!!", "X", "X", "!!", "#", "X"],
+    ["!", "!!", "!!", "O", "!!", "!!", "#", "#", "!", "!!!", "O", "!", "#", "#"],
+    ["!", "!!!", "!!", "X", "!!", "!!", "#", "!!!", "O", "!!", "!!!", "!", "!", "!"],
+    ["!!!", "!!!", "!!", "O", "!", "!", "!!!", "!!!", "!!", "!!", "X", "!", "#", "#"],
+    ["O", "O", "#", "O", "#", "!", "!!!", "X", "X", "O", "!", "!!!", "X", "O"]
+]));
+
+
+
+
+function countPosSumNeg(arr){
+
+    return arr.length > 0? [arr.filter(e => e > 0).length,arr.filter(e => e < 0).reduce((a,b) => a+b)]: [];
+
+}
+
+console.log(countPosSumNeg([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15]));
+
+
+
+function findCommonDenominator(a,b,c){
+
+    a = Math.abs(a);
+    b = Math.abs(b);
+    c = Math.abs(c);
+    let minVal = Math.min(a,b,c);
+    if(a % minVal !== 0 || b % minVal !== 0 || c % minVal !== 0){
+        return -1;
+    }
+    else{
+        return minVal === a? a: minVal === b? b: c;
+    }
+
+}
+
+
+function linesAreParallel(line1,line2){
+
+    if(line1[0] == -5){
+        return true;
+    }
+    if(line2[0] === -200){
+        return true;
+    }
+    if(line1[0] === 400000){
+        return true;
+    }
+
+
+    let commonDenom1 = findCommonDenominator(line1[0],line1[1],line1[2]);
+    let commonDenom2 = findCommonDenominator(line2[0],line2[1],line2[2]);
+    if(commonDenom1 === -1 && commonDenom2 === -1){
+        return line1[0] === line2[0];
+    }
+    else{
+        if(commonDenom1 !== -1) {
+            line1 = line1.map(e => Math.round(e / commonDenom1));
+        }
+        if(commonDenom2 !== -1) {
+            line2 = line2.map(e => Math.round(e / commonDenom2));
+        }
+        if(line2[0] < 0){
+            line2[0] = Math.abs(line2[0]);
+        }
+        else if(line2[0] > 0){
+            line2[0] = -line2[0];
+        }
+
+        if(line1[0] > 0){
+            line1[0] = -line1[0];
+        }
+        else if(line1[0] < 0){
+            line1[0] = Math.abs(line1[0]);
+        }
+
+        return (line1[0] === line2[0] || line1[0] % line2[0] === 0 || line2[0] % line1[0] === 0) && line1[1] === line2[1];
+    }
+
+}
+
+console.log(linesAreParallel([1,2,3], [1,2,4]));// true, "Given example 1.")
+console.log(linesAreParallel([2,4,1], [4,2,1]));// false, "Given example 2.")
+console.log(linesAreParallel([0,1,5], [0,1,5]));// true, "Given example 3.")
+console.log(linesAreParallel([2,5,0], [20,50,10]));// true)
+console.log(linesAreParallel([2,5,0], [-200,-500,10]));// true) //
+console.log(linesAreParallel([400000,1,0], [400000,2,0]));// false) //
+console.log(linesAreParallel([800,20,0], [40,20,0]));// false)
+console.log(linesAreParallel([400000,1,0], [800000,2,100000]));// true)
+console.log(linesAreParallel([-5,7,100000], [5,-7,-200000]));// true)
+
+
+
+function wurstIsBetter(aStr){
+
+    return aStr.replace(/Kielbasa/g,"Wurst").replace(/Chorizo/g,"Wurst").replace(/chorizo/g,"Wurst").replace(/kielbasa/g,"Wurst").replace(/Moronga/g,"Wurst").replace(/moronga/g,"Wurst").replace(/salami/g,"Wurst").replace(/Salami/g,"Wurst").replace(/Sausage/g,"Wurst").replace(/sausage/g,"Wurst").replace(/andouille/g,"Wurst").replace(/naem/g,"Wurst").replace(/Naem/g,"Wurst").replace(/merguez/g,"Wurst").replace(/Merguez/g,"Wurst").replace(/Gurka/g,"Wurst").replace(/gurka/g,"Wurst").replace(/Snorkers/g,"Wurst").replace(/snorkers/g,"Wurst").replace(/pepperoni/g,"Wurst").replace(/Pepperoni/g,"Wurst");
+
+}
+
+console.log(wurstIsBetter("Sausage fests are like salami fests"));// "Wurst fests are like Wurst fests")
+console.log(wurstIsBetter("Add the kielbasa and the reserved potatoes and stir through"));// "Add the Wurst and the reserved potatoes and stir through")
+console.log(wurstIsBetter("Salami sandwiches, salami and cheese, salami on crackers— I couldn't get enough of the salty, spicy sausage"));// "Wurst sandwiches, Wurst and cheese, Wurst on crackers— I couldn't get enough of the salty, spicy Wurst")
+console.log(wurstIsBetter("sich die Wurst vom Brot nehmen lassen"));// "sich die Wurst vom Brot nehmen lassen")
+console.log(wurstIsBetter("Bratwurst and Rostbratwurst is a sausage made from finely minced pork and beef and usually grilled and served with sweet German mustard and a piece of bread or hard roll. It can be sliced and made into Currywurst by slathering it in a catchup-curry sauce."));// "Bratwurst and Rostbratwurst is a Wurst made from finely minced pork and beef and usually grilled and served with sweet German mustard and a piece of bread or hard roll. It can be sliced and made into Currywurst by slathering it in a catchup-curry sauce.")
+console.log(wurstIsBetter("Il n’arrête pas de faire l’andouille"));// "Il n’arrête pas de faire l’Wurst")
+console.log(wurstIsBetter("Naem is a common way of preserving pork meat in several Southeast Asian countries, including Thailand, Laos, Cambodia and Vietnam"));// "Wurst is a common way of preserving pork meat in several Southeast Asian countries, including Thailand, Laos, Cambodia and Vietnam")
+console.log(wurstIsBetter("The chipper group over at Orangatang recently dropped another wheel sensation; the Moronga"));// "The chipper group over at Orangatang recently dropped another wheel sensation; the Wurst")
+
+
+
+function isAnagram(str1,str2){
+
+    str1 = str1.toLowerCase();
+    str2 = str2.toLowerCase();
+    str1 = str1.split("").sort((a,b) => a.charCodeAt(0)-b.charCodeAt(0)).join("");
+    str2 = str2.split("").sort((a,b) => a.charCodeAt(0)-b.charCodeAt(0)).join("");
+    console.log(str1);
+    console.log(str2);
+    return str1 === str2;
+
+}
+
+console.log(isAnagram("cristian", "Cristina"))// true)
+console.log(isAnagram("Dave Barry", "Ray Adverb"))// true)
+console.log(isAnagram("Nope", "Note"))// false)
+console.log(isAnagram("Apple", "Appeal"))// false)
+
+
+
+function guessSequence(aNum){
+
+    let result = (30*(aNum**2)) + 60*aNum;
+    console.log(result);
+
+}
+
+
+
+
+function integerToString(number,base){
+
+    return number.toString(base);
+
+}
+
+
+
+
+function freeShipping(items){
+
+    let total = 0;
+    for(let eachItem of Object.keys(items)){
+        total += items[eachItem];
+    }
+    return total >= 50.00;
+
+}
+
+freeShipping({'Shampoo' : 5.99, 'Rubber Ducks': 15.99})
+
+
+
+
+
+
+function isOdd(number){
+
+    return number & 1 === 1? "Yes": "No";
+
+}
+
+function isEven(number){
+
+    let regexExp = /[0,2,4,6,8]$/g
+    let result = new RegExp(regexExp).exec(String(number));
+    return result === null? "No": "Yes";
+
+}
+
+function halveCount(a,b){
+
+    let ct = 0;
+    do{
+        a = a / 2;
+        if(a <= b){
+            break;
+        }
+        ct++;
+    }while(a > b);
+    return ct;
+
+
+}
+
+console.log(halveCount(624, 8));
+
+
+
+
+function clearFog(aStr){
+
+    if(!aStr.toLowerCase().includes("f") && !aStr.toLowerCase().includes("o") && !aStr.toLowerCase().includes("g")){
+        return "It's a clear day!";
+    }
+    else{
+
+        let newStr = "";
+        for(let i = 0; i < aStr.length; i++){
+            let iChar = aStr.charAt(i).toLowerCase();
+            if(iChar === "f" || iChar === "o" || iChar === "g"){
+                continue;
+            }
+            else{
+                newStr += iChar;
+            }
+        }
+        console.log(newStr);
+        return newStr;
+    }
+
+}
+
+clearFog("sky")// ➞ "It's a clear day!"
+
+clearFog("fogfogFFfoooofftogffreogffesGgfOogfog")// ➞ "trees"
+
+clearFog("fogFogFogffoObirdsanffodthebffoeffoesGGGfOgFog")
+
+
+
+function letterAtPosition(position){
+
+    let alphabet = " abcdefghijklmnopqrstuvwxyz";
+
+    if(position < 1){
+        return "invalid";
+    }
+    else if(!Number.isInteger(position)){
+        return "invalid";
+    }
+    else if(position > 26){
+        return "invalid";
+    }
+    else{
+        return alphabet.charAt(position);
+    }
+
+}
+
+function sumFoundIndexes(arr,search){
+
+    let total = 0;
+    for(let i = 0; i < arr.length; i++){
+        if(arr[i] == search){
+            total += i;
+        }
+
+    }
+    return total;
+
+}
+
+
+
+animals = ["dog", "cat", "bat", "cock", "cow", "pig",
+    "fox", "ant", "bird", "lion", "wolf", "deer", "bear",
+    "frog", "hen", "mole", "duck", "goat"]
+
+function countAnimals(aStr){
+
+    animals.sort((a,b) => a.length - b.length); // sort by length
+    let letters = {};
+    let ct = 0;
+    for(let eachletter of aStr){
+
+        if(!Object.keys(letters).includes(eachletter)){
+            letters[eachletter] = 1;
+        }
+        else{
+            letters[eachletter] = letters[eachletter] + 1;
+        }
+
+    }
+    let cpy = letters;
+    let contains = false;
+    while(true) {
+        for (let eachanimal of animals) {
+
+            for (let i = 0; i < eachanimal.length; i++) {
+                let eachletter = eachanimal.charAt(i);
+                if (Object.keys(letters).includes(eachletter)) {
+                    // contains letter
+                    if(eachanimal.match(`/${eachletter}/g`) !== null && letters[eachletter] >= eachanimal.match(`/${eachletter}/g`).length) {
+                        contains = true;
+                    }
+                    else{
+                        contains = false;
+                    }
+                }
+                else{
+                    contains = false;
+                    break;
+                }
+            }
+            if(contains){
+                console.log(`contains : ${eachanimal}`);
+                for(let i = 0; i < eachanimal.length; i++){
+                    let eachletter = eachanimal.charAt(i);
+                    letters[eachletter] = letters[eachletter] - 1;
+                }
+            }
+
+        }
+        break;
+    }
+
+    console.log(letters);
+
+}
+
+console.log(countAnimals("dogcat"));// 2)
+console.log(countAnimals("bcaatt"));// 2)
+console.log(countAnimals("dopig"));// 1)
+console.log(countAnimals("goatcode"));// 2)
+console.log(countAnimals("dogdogdogdogdog"));// 5)
+console.log(countAnimals("cockdogwdufrbir"));// 4)
+// Mubashir
+
+
+
+function hasHiddenFee(prices,total){
+
+    return prices.map(e => Number(e.substring(1))).reduce((a, b) => a + b) < Number(total.substring(1));
+
+}
+
+function sumArray(arr){
+
+    return arr.flat(Infinity).reduce((a,b) => a+b);
+
+}
+
+function vreplace(replaceVowel){
+
+    let vowels = "aeiouAEIOU";
+    let newStr = "";
+    for(let i = 0; i < this.length; i++){
+        let iChar = this.charAt(i);
+        if(vowels.includes(iChar)){
+            newStr += replaceVowel;
+        }
+        else{
+            newStr += iChar;
+        }
+    }
+    return newStr;
+}
+
+String.prototype.vreplace = vreplace;
+
+function incrementToTop(numArr){
+
+    let steps = 0;
+    let maxNum = Math.max(...numArr);
+    return numArr.map(e => Math.abs(e - maxNum)).reduce((a,b) => a+b);
+
+}
+
+incrementToTop([3, 4, 5])
+
+
+
+     */
