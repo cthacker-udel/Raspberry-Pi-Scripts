@@ -383,13 +383,52 @@ int evalBoard(board *boardArg,int x,int y, int direction, int player){
 
         case 7: // West
 
-            currPiece = *(*(arr+x)+y);
+            //currPiece = *(*(arr+x)+y);
+
+            // x-same, y-1
 
             if(x == 0){
                 // bottom of board
+                for(int i = x, j = y; j >= 0; j--){
+
+                    if(player == 1){
+                        count += *(*(boardArg->theboard+i)+j) == boardArg->player1->piece? 1: 0;
+                    }
+                    else{
+                        count += *(*(boardArg->theBoard+i)+j) == boardArg->player2->piece? 1: 0;
+                    }
+
+                }
+                return count;
             }
             if(y == 0){
                 // leftmost side of board
+                for(int i = x, j = y; j >= 0; j--){
+
+                    if(player == 1){
+                        count += *(*(boardArg->theboard+i)+j) == boardArg->player1->piece? 1: 0;
+                    }
+                    else{
+                        count += *(*(boardArg->theBoard+i)+j) == boardArg->player2->piece? 1: 0;
+                    }
+
+                }
+                return count;
+            }
+            else{
+
+                for(int i = x, j = y; j >= 0; j--){
+
+                    if(player == 1){
+                        count += *(*(boardArg->theboard+i)+j) == boardArg->player1->piece? 1: 0;
+                    }
+                    else{
+                        count += *(*(boardArg->theboard+i)+j) == boardArg->player2->piece? 1: 0;
+                    }
+
+                }
+                return count;
+
             }
 
 
