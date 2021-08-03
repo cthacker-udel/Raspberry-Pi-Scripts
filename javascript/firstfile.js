@@ -4228,11 +4228,8 @@ console.log(peelLayerOff([
 ]));
 
 
-<<<<<<< HEAD
-     */
-=======
+     
 
->>>>>>> refs/remotes/origin/master
 
 function isValidPhoneNumber(number){
 
