@@ -230,7 +230,7 @@ int evalBoard(board *boardArg,int x,int y, int direction, int player){
 
         case 4: // South-East
 
-            currPiece = *(*(arr+x)+y);
+            //currPiece = *(*(arr+x)+y);
 
             // x+1, j+1
             if(x == 0){
@@ -269,10 +269,10 @@ int evalBoard(board *boardArg,int x,int y, int direction, int player){
                 for(int i = x, j = y; i < boardArg->size && y >= 0; j++, y--){
                     
                     if(player == 1){
-                        count += *(*(boardArg->theboard+x)+y) == boardArg->player1->piece? 1: 0;
+                        count += *(*(boardArg->theboard+i)+j) == boardArg->player1->piece? 1: 0;
                     }
                     else{
-                        count += *(*(boardArg->theboard+x)+y) == boardArg->player2->piece? 1: 0;
+                        count += *(*(boardArg->theboard+i)+j) == boardArg->player2->piece? 1: 0;
                     }
 
                 }
