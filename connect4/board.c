@@ -228,7 +228,6 @@ int evalBoard(board *boardArg,int x,int y, int direction, int player){
 
             currPiece = *(*(arr+x)+y);
 
-<<<<<<< HEAD
             // x+1, j+1
             if(x == 0){
                 // top of board
@@ -275,13 +274,11 @@ int evalBoard(board *boardArg,int x,int y, int direction, int player){
                 }
                 return count;
 
-=======
             if(x == 0){
                 // bottom of board
             }
             if(y == 0){
                 // leftmost side of board
->>>>>>> refs/remotes/origin/master
             }
 
 
