@@ -274,7 +274,7 @@ int evalBoard(board *boardArg,int x,int y, int direction, int player){
                 }
                 return count;
 
-
+            }
             break;
 
         case 5: // South
