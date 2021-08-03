@@ -357,7 +357,7 @@ int evalBoard(board *boardArg,int x,int y, int direction, int player){
                         count += *(*(boardArg->theboard+i)+j) == boardArg->player1->piece? 1: 0;
                     }
                     else{
-                        count += *(*(boardArg->theBoard+i)+j) == boardArg->player2->piece? 1: 0;
+                        count += *(*(boardArg->theboard+i)+j) == boardArg->player2->piece? 1: 0;
                     }
 
                 }
@@ -371,7 +371,7 @@ int evalBoard(board *boardArg,int x,int y, int direction, int player){
                         count += *(*(boardArg->theboard+i)+j) == boardArg->player1->piece? 1: 0;
                     }
                     else{
-                        count += *(*(boardArg->theBoard+i)+j) == boardArg->player2->piece? 1: 0;
+                        count += *(*(boardArg->theboard+i)+j) == boardArg->player2->piece? 1: 0;
                     }
 
                 }
@@ -395,7 +395,7 @@ int evalBoard(board *boardArg,int x,int y, int direction, int player){
                         count += *(*(boardArg->theboard+i)+j) == boardArg->player1->piece? 1: 0;
                     }
                     else{
-                        count += *(*(boardArg->theBoard+i)+j) == boardArg->player2->piece? 1: 0;
+                        count += *(*(boardArg->theboard+i)+j) == boardArg->player2->piece? 1: 0;
                     }
 
                 }
@@ -409,7 +409,7 @@ int evalBoard(board *boardArg,int x,int y, int direction, int player){
                         count += *(*(boardArg->theboard+i)+j) == boardArg->player1->piece? 1: 0;
                     }
                     else{
-                        count += *(*(boardArg->theBoard+i)+j) == boardArg->player2->piece? 1: 0;
+                        count += *(*(boardArg->theboard+i)+j) == boardArg->player2->piece? 1: 0;
                     }
 
                 }
