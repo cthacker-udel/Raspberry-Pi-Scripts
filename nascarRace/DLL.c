@@ -218,3 +218,190 @@ int remove(int idNum){
 
 
 }
+
+void moveUp(int id){
+
+
+    if(theList->first == NULL){
+
+        printf("\nThe list has no nodes available, create nodes to move nodes up\n");
+        return;
+
+    }
+    else if(theList->first->next == NULL){
+
+        // list only has one node
+
+        printf("\nList only has one node, must have two nodes to move a node up\n");
+        return;
+
+
+    }
+    else if(theList->first->id == id){
+
+        // first has id
+
+    }
+    else if(theList->last->id == id){
+
+        // last has id
+
+    }
+    else{
+
+        node *lastNode = theList->last;
+        while(lastNode != NULL){
+
+            if(lastNode->id == id){
+
+                node *prevPrev = lastNode->prev->prev;
+                prevPrev->next = lastNode;
+                // check prevprev
+                
+                lastNode->prev->next = lastNode->next;
+                lastNode->prev->prev = lastNode;
+                
+                // check prev node
+                
+                lastNode->next->prev = lastNode->prev;
+                
+                // check next node
+
+                lastNode->next = lastNode->prev;
+                lastNode->prev = prevPrev;
+
+                // check curr node
+
+                if(lastNode->next->driver->ranking < lastNode->driver->ranking){
+                    lastNode->driver->ranking = lastNode->next->driver->ranking;
+                }
+
+                printf("\nNode moved!\n");
+                return;
+
+
+            }
+            lastNode = lastNode->prev;
+
+
+        }
+        printf("\nNode unable to be found, make sure id is correct\n");
+        return;
+
+    }
+
+}
+
+void moveDown(int id){
+
+    if(theList->first == NULL){
+        printf("\nList is empty, must have nodes to move nodes down\n");
+    }
+    else if(theList->first->next == NULL){
+        printf("\nList only has one node\n");
+    }
+    else{
+
+        if(theList->first->id == id){
+            // first contains id
+            printf("\nFirst node is the node to move down\n");
+        }
+        else if(theList->last->id == id){
+            // last contains id
+            printf("\nLast node is the node to move down\n");
+        }
+        else{
+
+            node *tempLast = theList->last;
+            while(tempLast != NULL){
+
+                if(tempLast->id == id){
+                    // located node
+                    node *prevTemp = tempLast->prev;
+                    node *prevForward = tempLast->next;
+                    // grab both nodes behind and in front
+                    printf("\nLocated node in the middle of list\n");
+
+
+
+                }
+                tempLast = tempLast->prev;
+            }
+
+        }
+
+    }
+
+
+}
+
+
+void raceOff(int racer1id, int racer2id){
+
+    node *racer1Node = NULL;
+    node *racer2Node = NULL;
+
+    node *tempLast = theList->last;
+    while(tempLast != NULL){
+        if(tempLast->id == racer1id){
+            racer1Node = tempLast;
+            break;
+        }
+        tempLast = tempLast->prev;
+    }
+
+    tempLast = theList->last;
+    while(tempLast != NULL){
+        if(tempLast->id == racer2id){
+            racer2Node = tempLast;
+            break;
+        }
+        tempLast = tempLast->prev;
+    }
+
+    if(racer1Node == NULL && racer2Node == NULL){
+        printf("\nBoth racer1 and racer2 have not been found, no results have been announced\n");
+        return;
+    }
+    else if(racer1Node == NULL){
+        // racer1 has not been found
+        printf("\nRacer one has not been found, automatic victory for racer2!");
+        racer2Node->driver->racesWon++;
+        printf("\nMoving up racer2 in the list(rankings), and adding a victory to their score sheet\n");
+        moveUp(racer2Node->id);
+    }
+    else if(racer2Node == NULL){
+        printf("\nRacer2 has not been found, automatic victory for racer1!\nMoving up racer1 in the list(rankings) and also adding a victory to their score sheet\n");
+        racer1Node->driver->racesWon++;
+        moveUp(racer1Node->id);
+    }
+    else{
+
+        // even number racer1 wins, odd number racer2 wins
+        int randNumber = rand() * rand() * pow(rand(),2);
+        if(randNumber % 2 == 0){
+            // racer1 wins!
+            printf("\nRacer1 has won! Moving up racer1 in the list(rankings) and also moving racer2 down, wins and losses have been accredited\n");
+            racer1Node->driver->racesWon++;
+            racer2Node->driver->racesLost++;
+            moveUp(racer1Node);
+            moveDown(racer2Node);
+        }
+        else{
+            // racer2 wins!
+            printf("\nRacer2 has won! Moving up racer2 in the list(rankings) and also moving down racer1, wins and losses have been accredited\n");
+            racer2Node->driver->racesWon++;
+            racer1Node->driver->racesLost++;
+            moveUp(racer2Node->id);
+            moveDown(racer1Node->id);
+        }
+
+    }
+
+}
+
+void printMenu(){
+
+    print("\n-=-=-=-=MENU-=-=-=-=\n1)Push node\n2)Pop Node\n3)Dequeue Node\n4)Remove node by ID\n5)Move Up Node by ID");
+
+}

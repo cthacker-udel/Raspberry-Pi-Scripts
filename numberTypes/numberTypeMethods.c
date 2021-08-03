@@ -361,3 +361,44 @@ int isAbundant(int number){
 
     return 0;
 }
+
+int catalanNumber(int u_n){
+
+    return factorial(2*u_n) / factorial(u_n+1)*factorial(u_n);
+
+}
+
+int isCircular(int number){
+
+    return number % 10 == 0 || number % 10 == 1 || number % 10 == 5 || number % 10 == 6;
+
+}
+
+int isComposite(int number){
+
+    if(number < 2){
+        return 1;
+    }
+    if(number % 2 == 0 || number % 3 == 0 || number % 5 == 0){
+        return 1;
+    }
+    for(int i = 2; i < number; i++){
+        if(number % i == 0){
+            return 1;
+        }
+    }
+    return 0;
+
+}
+
+float cbRoot(int number){
+
+    return pow(number,1.0/3);
+
+}
+
+int cullenNumber(int n){
+
+    return (n * pow(2,n))+1;
+
+}
