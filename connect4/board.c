@@ -60,12 +60,8 @@ int evalBoard(board *boardArg,int x,int y, int direction, int player){
             currPiece = *(*(arr+x)+y);
             // go farthest behind
             if(x == 0){
-<<<<<<< HEAD
                 // top of board
-=======
-                // bottom of board
->>>>>>> refs/remotes/origin/master
-                for(int i = x; i < boardArg->size; i++){
+                for(int i = x; i >= 0; i--){
 
                     if(player == 1){
                         count += *(*(boardArg->theboard+i)+y) == boardArg->player1->piece? 1: 0;
@@ -79,7 +75,7 @@ int evalBoard(board *boardArg,int x,int y, int direction, int player){
             }
             if(y == 0){
                 // leftmost side of board
-                for(int i = x; i < boardArg->size; i++){
+                for(int i = x; i >= 0; i--){
 
                     if(player == 1){
                         count += *(*(boardArg->theboard+i)+0) == boardArg->player1->piece? 1: 0;
@@ -93,7 +89,7 @@ int evalBoard(board *boardArg,int x,int y, int direction, int player){
             }
             else{
 
-                for(int i = x; i < boardArg->size; i++){
+                for(int i = x; i >= 0; i--){
 
                     if(player == 1){
                         count += *(*(boardArg->theboard+i)+y) == boardArg->player1->piece? 1: 0;
