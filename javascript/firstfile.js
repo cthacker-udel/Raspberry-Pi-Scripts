@@ -4508,3 +4508,34 @@ freeShipping({'Shampoo' : 5.99, 'Rubber Ducks': 15.99})
 
 
      */
+
+function isOdd(number){
+
+    return number & 1 === 1? "Yes": "No";
+
+}
+
+function isEven(number){
+
+    let regexExp = /[0,2,4,6,8]$/g
+    let result = new RegExp(regexExp).exec(String(number));
+    return result === null? "No": "Yes";
+
+}
+
+function halveCount(a,b){
+
+    let ct = 0;
+    do{
+        a = a / 2;
+        if(a <= b){
+            break;
+        }
+        ct++;
+    }while(a > b);
+    return ct;
+
+
+}
+
+console.log(halveCount(624, 8));
