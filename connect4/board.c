@@ -175,7 +175,7 @@ int evalBoard(board *boardArg,int x,int y, int direction, int player){
 
         case 3: // East
 
-            currPiece = *(*(arr+x)+y);
+            //currPiece = *(*(arr+x)+y);
 
             // maintaining same x coord, cycling through y values +1
 
