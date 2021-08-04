@@ -4790,5 +4790,103 @@ console.log(parityAnalysis(37));// false)
 console.log(parityAnalysis(182));// false)
 console.log(parityAnalysis(133331));// false)
 
-     */
 
+
+function extendVowels(word,num){
+
+    if(num < 0 || !Number.isInteger(num)){
+        return "invalid";
+    }
+    let vowels = 'aeiouAEIOU';
+
+    let newStr = "";
+    for(let i = 0; i < word.length; i++){
+
+        let iChar = word.charAt(i);
+        if(vowels.includes(iChar)){
+            newStr += iChar.repeat(num) + iChar;
+        }
+        else{
+            newStr += iChar;
+        }
+
+    }
+    return newStr;
+
+}
+
+function simpleEquation(a,b,c){
+
+    let newNum = [a,b,c].sort((a,b) => a-b);
+
+    c = newNum[2];
+    b = newNum[1];
+    a = newNum[0];
+
+    let possibilites = [];
+    if(a*b === c){
+        possibilites.push(`${a}*${b}=${c}`);
+    }
+    else if(a+b === c){
+        possibilites.push(`${a}+${b}=${c}`);
+    }
+    // calculated min possibilities
+    else if(c-a === b){
+        possibilites.push(`${c}-${a}=${b}`);
+    }
+    else if(c-b === a){
+        possibilities.push(`${c}-${b}=${a}`);
+    }
+    else if(c/a === b){
+        possibilites.push(`${c}/${a}=${b}`);
+    }
+    else if(c/b === a){
+        possibilites.push(`${c}/${b}=${a}`);
+    }
+    return possibilites.length > 0? possibilites[0]: "";
+
+
+}
+
+console.log(simpleEquation(1,2,3));//=="1+2=3"||simpleEquation(1,2,3)=="2+1=3"||simpleEquation(1,2,3)=="3-2=1"||simpleEquation(1,2,3)=="3-1=2", true)
+console.log(simpleEquation(2,2,4));//=="2+2=4"||simpleEquation(2,2,4)=="2*2=4"||simpleEquation(2,2,4)=="4-2=2"||simpleEquation(2,2,4)=="4/2=2", true)
+console.log(simpleEquation(6,2,3));//=="2*3=6"||simpleEquation(6,2,3)=="3*2=6"||simpleEquation(6,2,3)=="6/2=3"||simpleEquation(6,2,3)=="6/3=2", true)
+console.log(simpleEquation(6,5,4));//"")
+console.log(simpleEquation(2,3,4));//"")
+
+//Mubashir
+
+
+
+
+function divisibleByLeft(num){
+
+    let boolArr = [];
+    let strNum = String(num);
+    boolArr.push(false);
+    for(let i = 1; i < strNum.length; i++){
+       let num1 =  Number(strNum.charAt(i));
+       let num2 = Number(strNum.charAt(i-1));
+       if(num1 % num2 === 0){
+           boolArr.push(true);
+       }
+       else{
+           boolArr.push(false);
+       }
+    }
+    return boolArr;
+
+}
+
+console.log(divisibleByLeft(1));// [false])
+console.log(divisibleByLeft(1248));// [false, true, true, true])
+console.log(divisibleByLeft(4321));// [false, false, false, false])
+console.log(divisibleByLeft(73312));// [false, false, true, false, true])
+console.log(divisibleByLeft(2026));// [false, true, false, true])
+console.log(divisibleByLeft(635));// [false, false, false])
+console.log(divisibleByLeft(1337));// [false, true, true, false])
+console.log(divisibleByLeft(135028));// [false, true, false, true, false, true])
+// Mubashir
+
+
+     */
