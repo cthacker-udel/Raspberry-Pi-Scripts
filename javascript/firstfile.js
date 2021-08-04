@@ -4716,4 +4716,79 @@ incrementToTop([3, 4, 5])
 
 
 
+
+
+function xor(a,b){
+
+    a = a ^ b;
+    b = b ^ a;
+    a = a ^ b;
+    return [a,b];
+
+}
+
+console.log(xor(10, 41));
+
+
+
+function percentageChanged(oldPrice,newPrice){
+
+    let s1 = Number(oldPrice.replace("$",""));
+    let s2 = Number(newPrice.replace("$",""));
+    let result = Math.round((1- (s2 / s1))*100);
+    console.log(result);
+    return result > 0? `${result}% decrease`: `${Math.abs(result)}% increase`;
+
+
+}
+
+console.log(percentageChanged("$800", "$600"));// "25% decrease")
+console.log(percentageChanged("$1000", "$840"));// "16% decrease")
+console.log(percentageChanged("$700", "$650"));// "7% decrease")
+console.log(percentageChanged("$100", "$950"));// "850% increase")
+console.log(percentageChanged("$450", "$460"));// "2% increase")
+console.log(percentageChanged("$1000", "$1500"));// "50% increase")
+
+
+
+
+function mysteryFunc(aNum){
+
+    return String(aNum).split("").map(e => Number(e)).reduce((a,b) => a*b);
+
+}
+
+console.log(mysteryFunc(152));
+
+
+
+
+function parityAnalysis(num){
+
+    if(num < 10){
+        return true;
+    }
+    else{
+        let sumDigits = String(num).split("").map(e => Number(e)).reduce((a,b) => a+b);
+        return sumDigits % 2 === 0 && num % 2 === 0? true: sumDigits % 2 !== 0 && num % 2 !== 0;
+
+    }
+
+}
+
+console.log(parityAnalysis(243));// true, "Example #1")
+console.log(parityAnalysis(12));// false, "Example #2")
+console.log(parityAnalysis(3));// true, "Example #3")
+console.log(parityAnalysis(5));// true)
+console.log(parityAnalysis(4));// true)
+console.log(parityAnalysis(3453));// true)
+console.log(parityAnalysis(0));// true)
+console.log(parityAnalysis(123456789));// true)
+console.log(parityAnalysis(987654321));// true)
+console.log(parityAnalysis(13));// false)
+console.log(parityAnalysis(37));// false)
+console.log(parityAnalysis(182));// false)
+console.log(parityAnalysis(133331));// false)
+
      */
+
