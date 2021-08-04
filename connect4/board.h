@@ -10,7 +10,7 @@ typedef struct theBoard{
 }board;
 
 
-int evalBoard(board*,int,int,int);
+int evalBoard(board*,int,int,int,int);
 
 
 board *newBoard(int,int);

@@ -5,7 +5,7 @@
 typedef struct thePlayer{
 
     char *name;
-    char piece = ' ';
+    char piece;
 
 
 }player;
