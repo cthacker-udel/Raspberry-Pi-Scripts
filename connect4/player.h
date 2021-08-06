@@ -11,3 +11,5 @@ typedef struct thePlayer{
 }player;
 
 player *createPlayer();
+
+void placePiece(player *);
