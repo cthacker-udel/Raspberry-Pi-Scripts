@@ -12,7 +12,6 @@ typedef struct theBoard{
 
 int evalBoard(board*,int,int,int,int);
 
-
 board *newBoard(int,int);
 
 

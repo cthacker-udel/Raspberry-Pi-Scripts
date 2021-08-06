@@ -501,3 +501,19 @@ int evalBoard(board *boardArg,int x,int y, int direction, int player){
 
 
 }
+
+displayBoard(board *theBoard){
+
+    char **board = theBoard->theboard;
+
+    for(int i = 0; i < theBoard->size; i++){
+
+        for(int j = 0; j < theBoard->size; j++){
+
+            printf("%c",*(*(board+j)+i));
+
+        }
+
+    }
+
+}
