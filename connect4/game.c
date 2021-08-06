@@ -1,5 +1,4 @@
 #include "board.h"
-#include "player.h"
 
 int main(void){
 

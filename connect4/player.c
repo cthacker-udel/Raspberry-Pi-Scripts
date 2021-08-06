@@ -9,7 +9,7 @@ player *createPlayer(){
 
     printf("\nEnter the player's piece\n");
     char piece;
-    scanf("%c",&piece);
+    scanf("%ci,&piece);
 
     player *newPlayer = (player *)malloc(sizeof(player));
     newPlayer->name = (char *)malloc(sizeof(char) * strlen(newName));
