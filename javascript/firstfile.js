@@ -5197,3 +5197,21 @@ function flattenCurve(arr){
 
 }
 
+function findIndex(letter){
+
+    let alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    for(let i = 0; i < alphabet.length; i++){
+        if(alphabet.charAt(i) === letter){
+            return i;
+        }
+    }
+    return 0;
+
+}
+
+function alphNum(aStr){
+
+    return aStr.split("").map(e => findIndex(e)).map(e => String(e)).join(" ");
+
+}
+
