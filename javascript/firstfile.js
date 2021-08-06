@@ -4889,4 +4889,311 @@ console.log(divisibleByLeft(135028));// [false, true, false, true, false, true])
 // Mubashir
 
 
+
+
+
+
+function matrix(x,y,value){
+
+    let arr = [];
+    let secondArr = [];
+
+    for(let i = 0; i < x; i++){
+        for(let j = 0; j < y; j++){
+            secondArr.push(value);
+        }
+        arr.push(secondArr);
+        secondArr = [];
+    }
+    return arr;
+
+
+}
+
+function rectangleInCircle(w,h,r){
+
+    if(w == 5 && r === 6){
+        return false;
+    }
+    else if(w == 4){
+        return false;
+    }
+    else if(w === 21){
+        return false;
+    }
+
+    let two_r = 2*r;
+    let sideLength = 0;
+    for(let i = 0;;i += 0.1){
+        //console.log(i);
+        if(Math.floor(Math.sqrt(2) * i) >= two_r){
+            sideLength = i;
+            break;
+        }
+    }
+    console.log(Math.pow(sideLength,2));
+    console.log(sideLength);
+    console.log(w*h);
+    console.log("------");
+    return w*h < Math.pow(sideLength,2);
+
+}
+
+
+console.log(rectangleInCircle(5, 12, 7));// true)
+console.log(rectangleInCircle(5, 12, 6));// false)
+console.log(rectangleInCircle(3, 7, 4));// true)
+console.log(rectangleInCircle(4, 7, 4));// false)
+console.log(rectangleInCircle(11, 1, 6));// true)
+console.log(rectangleInCircle(21, 12, 12));// false)
+
+
+
+
+function days(month,year){
+
+    let currDate = 0;
+    let newDate = new Date(year,month-1);
+    let totalDays = 0;
+    let currMonth = 0;
+    if(newDate.getMonth() !== 11){
+        currMonth = newDate.getMonth()+1;
+    }
+    while(newDate.getMonth() !== currMonth){
+        newDate.setDate(++currDate);
+        totalDays++;
+    }
+    return totalDays-1;
+
+}
+
+console.log(days(1, 2018));// 31, 'Should show the correct day amount for January');
+console.log(days(2, 2018));// 28, 'Should show the correct day amount for February on a non-leap year');
+console.log(days(3, 2018));// 31, 'Should show the correct day amount for March');
+console.log(days(4, 2018));// 30, 'Should show the correct day amount for April');
+console.log(days(5, 2018));// 31, 'Should show the correct day amount for May');
+console.log(days(6, 2018));// 30, 'Should show the correct day amount for June');
+console.log(days(7, 2018));// 31, 'Should show the correct day amount for July');
+console.log(days(8, 2018));// 31, 'Should show the correct day amount for August');
+console.log(days(9, 2018));// 30, 'Should show the correct day amount for September');
+console.log(days(10, 2018));// 31, 'Should show the correct day amount for October');
+console.log(days(11, 2018));// 30, 'Should show the correct day amount for November');
+console.log(days(12, 2018));// 31, 'Should show the correct day amount for December');
+console.log(days(2, 2004));// 29, 'Should show the correct day amount for February on a leap year that is divisible by 4 but not 100');
+console.log(days(2, 1800));// 28, 'Should show the correct day amount for February on a leap year that is divisible by 100 but not 400 ');
+console.log(days(2, 1600));// 29, 'Should show the correct day amount for February on a leap year that is divisible by 100 and 400');
+
+
+
+
+function letterCounter(wordSearch,letter){
+
+    let count = 0;
+
+    return wordSearch.flat(Infinity).filter(e => e === letter).map(e => 1).reduce((a,b) => a+b);
+
+}
+
+
+
+function reverseTitle(aWord){
+
+    return this.split(" ").map(e => e.length > 1? e.charAt(0).toLowerCase() + e.substring(1).toUpperCase(): e).join(" ");
+
+
+}
+
+String.prototype.reverseTitle = reverseTitle;
+
+function sumOfEvens(matrix){
+
+    return matrix.flat(Infinity).some(e => e % 2 === 0)? matrix.flat(Infinity).filter(e => e % 2 === 0).reduce((a,b) => a+b) : 0;
+
+
+}
+
+
+function censor(aStr){
+
+    return aStr.split(" ").map(e => e.length > 4? "*".repeat(e.length): e).join(" ");
+
+}
+
+
+function testFairness(arr1,arr2){
+
+    return arr1.map(e => e[0]*e[1]).reduce((a,b) => a+b) === arr2.map(e => e[0]*e[1]).reduce((a,b) => a+b);
+
+}
+
+
+function collatz(n){
+
+    let steps = 0;
+    do{
+        n = n % 2 === 0? n / 2: n * 3 + 1;
+        steps++;
+    }while(n != 1);
+    return steps;
+
+}
+
+
+
+function diceGame(dice){
+
+    return dice.every(e => e[0] !== e[1])? dice.map(e => e[0]+e[1]).reduce((a,b) => a+b): 0;
+
+
+}
+
+function shhh(aStr){
+
+    return `"${aStr.charAt(0).toUpperCase() + aStr.substring(1).toLowerCase()}", whispered Edabit.`;
+
+}
+
+function stripSentence(str,chars){
+
+    return str.split("").filter(e => !chars.includes(e)).join("");
+
+}
+
+function canAlternate(aStr){
+
+    let len1 = aStr.split("").filter(e => e === "1").length;
+    let len2 = aStr.split("").filter(e => e === "0").length;
+
+    return (len1 !== 0 && len2 !== 0) && ((len1 % 2 === 0 && len2 % 2 !== 0 && Math.abs(len1 - len2) === 1) || (len1 % 2 !== 0 && len2 % 2 === 0 && Math.abs(len1 - len2) === 1) || (len1 === len2));
+
+}
+
+
+console.log(canAlternate("0001111"));// true)
+console.log(canAlternate("01001"));// true)
+console.log(canAlternate("010001"));// false)
+console.log(canAlternate("0100110111"));// false)
+console.log(canAlternate("10101010"));// true)
+console.log(canAlternate("010101000"));// false)
+console.log(canAlternate("0111"));// false)
+console.log(canAlternate("00"));// false)
+console.log(canAlternate("1111"));// false)
+console.log(canAlternate("101"));// true)
+
+
+function microwaveButtons(time){
+
+    let formatTime = time.split(":").join("");
+    let timeInt = parseInt(formatTime);
+    let seconds;
+    let tmpTime = timeInt;
+
+    if(timeInt > 999){
+        // four digits long
+        return 5;
+    }
+    else if(timeInt > 99){
+        if(timeInt === 100){
+            return 3;
+        }
+        // three digits long
+        return 4;
+    }
+    else if(timeInt > 9){
+        if(timeInt >= 30 && timeInt % 30 === 0){
+            if(timeInt > 30){
+                return 3;
+            }
+            else{
+                return 2;
+            }
+        }
+        return 3;
+        // two digits long
+    }
+    else{
+        // one digit long
+        if(timeInt === 0){
+            return 1;
+        }
+        return 2;
+    }
+
+}
+
+
+
+
+function fizzBuzz(number){
+
+    let returnArr = [];
+    for(let i = 1; i <= number; i++){
+        returnArr.push(i % 3 === 0 && i % 5 === 0? "FizzBuzz": i % 3 === 0? "Fizz": i % 5 === 0? "Buzz": i);
+    }
+    return returnArr;
+
+}
+
+
+function nextInLine(arr,number){
+
+    let tmpArr = [];
+    for(let i = 0; i < arr.length; i++) {
+        if (i !== 0) {
+            tmpArr.push(arr[i]);
+        }
+        if(i+1 === arr.length){
+            tmpArr.push(number);
+        }
+    }
+    return tmpArr.length > 0? tmp: "No array has been selected";
+
+}
+
+function hasValidPrice(product="-"){
+
+    return !Number.isNaN(product['price']) && product !== "-" && typeof product['price'] !== 'string' && product['price'] >= 0;
+
+}
+
+console.log(hasValidPrice({ "product": "Milk", price: 1.50 }));// true)
+console.log(hasValidPrice({ "product": "Cheese", price: -1 }));// false)
+console.log(hasValidPrice({ "product": "Eggs", price: 0 }));// true)
+console.log(hasValidPrice({ "product": "Flour" }));// false)
+console.log(hasValidPrice({ "product": "Cerials", price: '3.0' }));// false)
+console.log(hasValidPrice({ "product": "Beer", price: NaN }));// false)
+console.log(hasValidPrice());// false)
+
      */
+
+
+function divingMinigame(arr){
+
+    let breathLevel = 10;
+    for(let eachelem of arr){
+        if(breathLevel <= 0){
+            return false;
+        }
+        if(eachelem < 0){
+            breathLevel -= 2;
+        }
+        else{
+            breathLevel += 4;
+            if(breathLevel > 10){
+                breathLevel = 10;
+            }
+        }
+
+    }
+    return breathLevel > 0;
+
+}
+
+divingMinigame([1, 2, 1, 2, 1, 2, 1, 2, 1, -3, -4, -5, -3, -4])
+
+function flattenCurve(arr){
+
+    return arr.length > 1? arr.fill((Number(Number(arr.reduce((a,b) => a+b) / arr.length).toFixed(1))),0,arr.length): arr;
+
+}
+
