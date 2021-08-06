@@ -1,8 +1,8 @@
 
 all: connect4
 
-connect4: main.o board.o player.o
-	cc -g -o connect4 main.o board.o player.o
+connect4: game.o board.o player.o
+	cc -g -o connect4 game.o board.o player.o
 
 
 %.o: %.c %.h
