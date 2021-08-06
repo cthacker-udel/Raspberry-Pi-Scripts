@@ -16,6 +16,7 @@ int main(void){
     while(1){
         // game loop
         displayBoard(iBoard);
+        break;
 
 
 
