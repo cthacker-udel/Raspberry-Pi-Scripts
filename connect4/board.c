@@ -502,7 +502,7 @@ int evalBoard(board *boardArg,int x,int y, int direction, int player){
 
 }
 
-displayBoard(board *theBoard){
+void displayBoard(board *theBoard){
 
     char **board = theBoard->theboard;
 
