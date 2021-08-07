@@ -30,7 +30,13 @@ void BaseballTeam::displayTeam(){
     }
     else{
 
-        
+        Player *tmpFirst = this->first;
+        while(tmpFirst != NULL){
+
+            cout << tmpFirst->toString() << endl;
+            tmpFirst = tmpFirst->next;
+
+        }
 
     }
 
