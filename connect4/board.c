@@ -518,3 +518,22 @@ void displayBoard(board *theBoard){
     }
 
 }
+
+void placePiece(int x, int y, int bool, board *theBoard, char thePiece){
+
+    if(bool){
+        // place piece is active -- is placing piece
+        *(*(theBoard->theboard+x)+y) = thePiece;
+    }
+    else{
+        // place piece is not active, checking if spot is valid
+        if(*(*(theBoard->theboard+x)+y) != '?'){
+            return 0;
+        }
+        else{
+            return 1;
+        }
+    }
+
+
+}
