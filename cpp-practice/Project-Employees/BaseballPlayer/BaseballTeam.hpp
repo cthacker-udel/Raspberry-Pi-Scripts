@@ -5,8 +5,8 @@ using namespace std;
 
 class BaseballTeam{
 
-    Player *first;
-    Player *last;
+    Player *first = NULL;
+    Player *last = NULL;
     string name;
 
     public:

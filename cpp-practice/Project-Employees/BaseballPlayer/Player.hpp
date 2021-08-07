@@ -9,6 +9,7 @@ class Player{
 
     string name;
     int age;
+    Player *next;
 
     public:
 

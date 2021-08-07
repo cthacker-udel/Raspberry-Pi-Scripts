@@ -5,6 +5,7 @@
         "ostream": "cpp",
         "cstdlib": "c",
         "limits": "cpp",
-        "limits.h": "c"
+        "limits.h": "c",
+        "xstring": "cpp"
     },
 }
