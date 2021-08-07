@@ -5164,7 +5164,7 @@ console.log(hasValidPrice({ "product": "Cerials", price: '3.0' }));// false)
 console.log(hasValidPrice({ "product": "Beer", price: NaN }));// false)
 console.log(hasValidPrice());// false)
 
-     */
+
 
 
 function divingMinigame(arr){
@@ -5346,4 +5346,71 @@ function tpChecker(obj){
 }
 
 tpChecker({ people: 4, tp: 1 })
+
+     */
+
+
+function powerOfTwo(num){
+
+    return Number.isInteger(Math.log2(num));
+
+}
+
+// /x[A-F0-9][A-F][0-9]/g <--- match x followed by two characters within the range A-F0-9 and A-F0-9
+
+function solutions(a,b,c){
+
+    let discriminant = Math.pow(b,2) - 4*a*c;
+
+    return discriminant < 0? 0: discriminant === 0? 1: 2;
+
+
+}
+
+function splitCode(code){
+
+    let letterStorage = "";
+    let numStorage = "";
+
+    for(let i = 0; i < code.length; i++){
+        if(isNaN(parseInt(code.charAt(i)))){
+            // is letter
+            letterStorage += code.charAt(i);
+        }
+        else{
+            numStorage += code.charAt(i);
+        }
+    }
+
+    return [letterStorage,parseInt(numStorage)];
+
+}
+
+splitCode("TEWA8392")
+
+
+function flipEndChars(aStr){
+
+    if(typeof aStr !== 'string'){
+        return "Incompatible.";
+    }
+    else if(aStr.length < 2){
+        return "Incompatible."
+    }
+    else{
+        if(aStr.charAt(0) === aStr.charAt(aStr.length-1)){
+            return "Two's a pair.";
+        }
+        else{
+            let firstChar = aStr.charAt(0);
+            let lastChar = aStr.charAt(aStr.length-1);
+            aStr = aStr.substring(1,aStr.length-1);
+            return lastChar + aStr + firstChar;
+        }
+    }
+
+}
+
+
+
 
