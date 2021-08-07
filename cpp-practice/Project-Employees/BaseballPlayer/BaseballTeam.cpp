@@ -13,10 +13,10 @@ Player * BaseballTeam::newPlayer(string newName, int newAge){
         Player *tmpFirst = this->first;
         while(tmpFirst->next != NULL){
 
-            
+            tmpFirst = tmpFirst->next;
 
         }
-
+        tmpFirst->next = new Player(newName,newAge);
 
     }
 
