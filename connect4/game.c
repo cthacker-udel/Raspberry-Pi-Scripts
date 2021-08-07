@@ -9,8 +9,8 @@ int main(void){
     // board constructed
 
     // create players
-    iBoard->player1 = createPlayer();
-    iBoard->player2 = createPlayer();
+    //iBoard->player1 = createPlayer();
+    //iBoard->player2 = createPlayer();
 
     while(1){
         // game loop

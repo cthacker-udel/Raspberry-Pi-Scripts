@@ -19,7 +19,7 @@ board *newBoard(int x, int y){
     // filling out board with base-values
 
     for(int i = 0; i < theBoard->size; i++){
-
+        *(theBoard->theboard+i) = (char *)malloc(sizeof(char) * x);
         for(int j = 0; j < theBoard->size; j++){
 
             *(*(theBoard->theboard+i)+j) = '?';
@@ -507,12 +507,13 @@ void displayBoard(board *theBoard){
     char **board = theBoard->theboard;
 
     for(int i = 0; i < theBoard->size; i++){
-
+        
         for(int j = 0; j < theBoard->size; j++){
 
             printf("%c",*(*(board+j)+i));
 
         }
+        printf("\n");
 
     }
 

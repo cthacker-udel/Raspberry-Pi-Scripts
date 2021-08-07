@@ -4,12 +4,12 @@
 player *createPlayer(){
 
     char *newName = (char *)malloc(sizeof(char) * 100);
-    printf("\nEnter the player's name\n");
+    printf("Enter the player's name");
     scanf("%s",newName);
 
-    printf("\nEnter the player's piece\n");
+    printf("Enter the player's piece");
     char piece;
-    scanf("%c",&piece);
+    scanf(" %c",&piece);
 
     player *newPlayer = (player *)malloc(sizeof(player));
     newPlayer->name = (char *)malloc(sizeof(char) * strlen(newName));
