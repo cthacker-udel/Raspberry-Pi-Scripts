@@ -5215,3 +5215,135 @@ function alphNum(aStr){
 
 }
 
+function capitalize(aStr){
+
+    if(this.length > 1){
+        return this.charAt(0).toUpperCase() + this.substring(1);
+    }
+    else{
+        return this.toUpperCase();
+    }
+
+}
+
+function repeatStr(aStr,times){
+    return aStr.toLowerCase().repeat(times);
+}
+
+String.prototype.capitalize = capitalize;
+
+function mumbling(aStr){
+
+    let newStr = "";
+    for(let i = 0; i < aStr.length; i++){
+        newStr += repeatStr(aStr.charAt(i),i+1).capitalize();
+        if(i !== aStr.length-1){
+            newStr += "-";
+        }
+    }
+    return newStr;
+
+}
+
+console.log(mumbling("MubAshIr"));
+
+function joinDigits(num){
+
+    return [...Array(num+1).keys()].filter(e => e !== 0).map(e => e.length === 1? String(e) : String(e).split("").join("-")).join("-");
+
+}
+
+console.log(joinDigits(11));
+
+function getDistance(a,b){
+
+    let aX = a['x'];
+    let aY = a['y'];
+    let bX = b['x'];
+    let bY = b['y'];
+
+    return Number(Number(Math.sqrt(Math.pow((bX - aX),2) + Math.pow((bY-aY),2))).toFixed(3));
+
+
+}
+
+function miniPeaks(arr){
+
+    let elems = [];
+
+    for(let i = 1; i < arr.length-1; i++){
+
+        if(arr[i] > arr[i-1] && arr[i] > arr[i+1]){
+            elems.push(arr[i]);
+        }
+    }
+    return elems;
+
+}
+
+function upwardTrend(arr){
+
+    let currValue = 0;
+    for(let i = 0; i < arr.length; i++){
+
+        if(typeof arr[i] === 'string'){
+            return "Strings not permitted!";
+        }
+        else{
+            if(arr[i] > currValue){
+                currValue = arr[i];
+            }
+            else{
+                return false;
+            }
+        }
+
+    }
+    return true;
+
+}
+
+function checkSum(arr,num){
+
+    for(let i = 0; i < arr.length; i++){
+        // acquire number
+        let compareval = arr[i];
+        for(let j = 0; j < arr.length; j++){
+            // cycle through numbers
+            if(compareval + arr[j] === num){
+                return true;
+            }
+        }
+    }
+    return false;
+
+
+}
+
+
+function asciiSort(arr){
+
+    function asciiSum(theStr){
+        return theStr.split("").map(e => e.charCodeAt(0)).reduce((a,b) => a+b);
+    }
+    let sum1 = asciiSum(arr[0]);
+    let sum2 = asciiSum(arr[1]);
+    return sum1 > sum2? arr[1]: sum1 < sum2? arr[0]: arr[0];
+
+}
+
+function tpChecker(obj){
+
+    let perDay = obj['people'] * 57;
+    let days = 0;
+    let sheets = obj['tp'] * 500;
+    while(sheets > perDay){
+        sheets -= perDay;
+        days++;
+    }
+    return days > 14? `Your TP will last ${days} days, no need to panic!`: `Your TP will only last ${days} days, buy more!`;
+
+}
+
+tpChecker({ people: 4, tp: 1 })
+
