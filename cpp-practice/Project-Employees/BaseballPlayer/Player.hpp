@@ -10,6 +10,7 @@ class Player{
     string name;
     int age;
     Player *next;
+    friend class BaseballTeam;
 
     public:
 

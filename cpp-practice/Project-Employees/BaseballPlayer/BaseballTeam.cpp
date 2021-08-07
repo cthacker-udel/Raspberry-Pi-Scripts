@@ -10,7 +10,12 @@ Player * BaseballTeam::newPlayer(string newName, int newAge){
     else{
 
         // add to linked list
-        
+        Player *tmpFirst = this->first;
+        while(tmpFirst->next != NULL){
+
+            
+
+        }
 
 
     }
