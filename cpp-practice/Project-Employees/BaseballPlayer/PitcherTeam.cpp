@@ -16,3 +16,22 @@ PitcherTeam::PitcherTeam(string newName){
     this->last = NULL;
 
 }
+
+Pitcher *PitcherTeam::addToTeam(Pitcher *newPitcher){
+
+    if(this->first = NULL){
+        this->first = newPitcher;
+        this->last = newPitcher;
+    }
+    else{
+
+        Pitcher *tmpFirst = this->first;
+        while(tmpFirst != NULL){
+            tmpFirst = tmpFirst->next;
+        }
+        tmpFirst->next = newPitcher;
+
+
+    }
+
+}

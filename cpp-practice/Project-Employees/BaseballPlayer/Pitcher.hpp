@@ -11,6 +11,7 @@ class Pitcher{
     int balls;
     int noHitters;
     Pitcher *next;
+    friend class PitcherTeam;
 
     public:
 
