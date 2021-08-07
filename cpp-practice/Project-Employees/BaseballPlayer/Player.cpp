@@ -6,3 +6,9 @@ Player::Player(string newName, int newAge){
     age = newAge;
 
 }
+
+string Player::toString(){
+
+    return "-=-=-=Player " + this->name + "-=-=-=\nAge : " + this->age;
+
+}
