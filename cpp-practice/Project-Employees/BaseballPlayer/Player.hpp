@@ -16,5 +16,7 @@ class Player{
 
         Player(string,int);
 
+        string toString();
+
 
 };

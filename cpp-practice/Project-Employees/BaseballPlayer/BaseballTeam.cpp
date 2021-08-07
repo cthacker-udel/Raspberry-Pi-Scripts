@@ -23,3 +23,17 @@ Player * BaseballTeam::newPlayer(string newName, int newAge){
 }
 
 
+void BaseballTeam::displayTeam(){
+
+    if(this->first == NULL){
+        cout << "Team is empty" << endl;
+    }
+    else{
+
+        
+
+    }
+
+}
+
+

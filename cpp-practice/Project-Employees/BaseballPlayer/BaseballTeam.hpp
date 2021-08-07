@@ -13,6 +13,8 @@ class BaseballTeam{
 
         Player *newPlayer(string,int);
 
+        void displayTeam();
+
 
 
 };
