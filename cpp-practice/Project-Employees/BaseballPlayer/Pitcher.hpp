@@ -10,6 +10,7 @@ class Pitcher{
     int strikes;
     int balls;
     int noHitters;
+    Pitcher *next;
 
     public:
 
