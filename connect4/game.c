@@ -46,7 +46,7 @@ int main(void){
                 do{
                     printf("Choose an y coordinate(0 based, inverse direction, y left-right");
                 }while(scanf("%d",&y));
-            }while(placePiece(x,y,iBoard,0,iBoard->player1->piece));
+            }while(placePiece(x,y,0,iBoard,iBoard->player1->piece));
             placePiece(x,y,1,iBoard,iBoard->player1->piece);
             for(int i = 1; i <= 8; i++){
                 char *direction = i == 1? "North": i == 2? "North-East": i == 3? "East": i == 4? "South-East": i == 5? "South": i == 6? "South-West": i == 7? "West": "North-West";
