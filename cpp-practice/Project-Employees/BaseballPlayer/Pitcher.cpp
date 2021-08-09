@@ -62,3 +62,11 @@ void Pitcher::setNoHitters(int newNoHitters){
     this->noHitters = newNoHitters;
 
 }
+
+void Pitcher::toString(){
+
+    string theStr = "";
+    theStr += "\n-------\nPitches : " + this->pitches + "\nStrikes: " + this->strikes + "\nBalls: " + this->balls + "\nNo-Hitters " + this->noHitters + "\n-------\n";
+    return theStr;
+
+}

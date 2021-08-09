@@ -37,6 +37,8 @@ class Pitcher{
 
         void setNoHitters(int);
 
+        void toString();
+
         ~Pitcher();
 
 

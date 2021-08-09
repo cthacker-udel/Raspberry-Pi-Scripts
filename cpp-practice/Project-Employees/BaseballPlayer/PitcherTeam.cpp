@@ -5,7 +5,7 @@ PitcherTeam::PitcherTeam(){
 
     first = NULL;
     last = NULL;
-    teamName = NULL;
+    teamName = "";
 
 }
 
@@ -32,6 +32,20 @@ Pitcher *PitcherTeam::addToTeam(Pitcher *newPitcher){
         tmpFirst->next = newPitcher;
 
 
+    }
+
+}
+
+void PitcherTeam::displayTeam(){
+
+    if(this->first == NULL){
+        cout << "Team is empty, unable to display team" << endl;
+    }
+    else{
+        Pitcher *tmpFirst = this->first;
+        while(tmpFirst != NULL){
+            cout << tmpFirst->
+        }
     }
 
 }
