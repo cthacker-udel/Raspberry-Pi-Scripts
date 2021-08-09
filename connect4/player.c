@@ -19,7 +19,7 @@ player *createPlayer(){
 
 }
 
-void placePiece(player *thePlayer){
+void placePiecePlayer(player *thePlayer){
 
     printf("%s places their piece!",thePlayer->name);
 

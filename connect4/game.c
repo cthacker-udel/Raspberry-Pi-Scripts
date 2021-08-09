@@ -11,6 +11,7 @@ int main(void){
     // create players
     //iBoard->player1 = createPlayer();
     //iBoard->player2 = createPlayer();
+    
 
     while(1){
         // game loop

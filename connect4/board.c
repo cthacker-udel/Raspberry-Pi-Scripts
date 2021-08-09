@@ -508,7 +508,7 @@ void displayBoard(board *theBoard){
 
     for(int i = 0; i < theBoard->size; i++){
         
-       i for(int j = 0; j < theBoard->size; j++){
+       for(int j = 0; j < theBoard->size; j++){
 
             printf("%c",*(*(board+j)+i));
 
