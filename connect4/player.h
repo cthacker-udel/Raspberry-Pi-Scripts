@@ -12,4 +12,4 @@ typedef struct thePlayer{
 
 player *createPlayer();
 
-void placePiece(player *);
+//void placePiece(player *);

@@ -16,5 +16,5 @@ board *newBoard(int,int);
 
 void displayBoard(board *);
 
-void placePiece(int, int, int, board *, char);
+int placePiece(int, int, int, board *, char);
 

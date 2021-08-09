@@ -508,7 +508,7 @@ void displayBoard(board *theBoard){
 
     for(int i = 0; i < theBoard->size; i++){
         
-        for(int j = 0; j < theBoard->size; j++){
+       i for(int j = 0; j < theBoard->size; j++){
 
             printf("%c",*(*(board+j)+i));
 
@@ -519,7 +519,7 @@ void displayBoard(board *theBoard){
 
 }
 
-void placePiece(int x, int y, int bool, board *theBoard, char thePiece){
+int placePiece(int x, int y, int bool, board *theBoard, char thePiece){
 
     if(bool){
         // place piece is active -- is placing piece
