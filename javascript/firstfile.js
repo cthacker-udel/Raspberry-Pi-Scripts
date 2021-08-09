@@ -5560,3 +5560,38 @@ console.log(puzzlePieces([1, 2, 3, 4], [4, 3, 2, 1]));
 
      */
 
+function ohmsLaw(num1,num2,num3){
+
+    let num1NA = num1 === "";
+    let num2NA = num2 === "";
+    let num3NA = num3 === "";
+
+    if(num1NA && (num2NA || num3NA)){
+        return "Invalid";
+    }
+    else if(num2NA && (num1NA || num3NA)){
+        return "Invalid";
+    }
+    else if(num3NA && (num1NA || num2NA)){
+        return "Invalid";
+    }
+    else if(!(num1NA || num2NA || num3NA)){
+        return "Invalid";
+    }
+    else{
+
+        if(num1NA){
+            return Number(Number(num2 * num3).toFixed(2));
+        }
+        else if(num2NA){
+            return Number(Number(num1 / num3).toFixed(2));
+        }
+        else{
+            return Number(Number(num1 / num2).toFixed(2));
+        }
+
+    }
+
+
+}
+
