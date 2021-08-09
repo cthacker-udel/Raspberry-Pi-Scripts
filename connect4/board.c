@@ -528,7 +528,7 @@ int placePiece(int x, int y, int bool, board *theBoard, char thePiece){
     else{
         // place piece is not active, checking if spot is valid
         if(x >= theBoard->size || y >= theBoard->size){
-            printf("\nOut of bounds!\n, range is 0-%d both coordinates",theBoard->size-1);
+            printf("\nOut of bounds!, range is 0-%d both coordinates\n",theBoard->size-1);
             return 0;
         }
         else if(*(*(theBoard->theboard+x)+y) != '?'){
