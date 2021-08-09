@@ -5558,7 +5558,7 @@ function puzzlePieces(arr,arr1){
 
 console.log(puzzlePieces([1, 2, 3, 4], [4, 3, 2, 1]));
 
-     */
+
 
 function ohmsLaw(num1,num2,num3){
 
@@ -5594,4 +5594,73 @@ function ohmsLaw(num1,num2,num3){
 
 
 }
+
+function caseCount(str,format){
+
+    if(format === "l"){// lower
+        return str.split("").filter(e => e.toLowerCase() === e).length;
+    }
+    else{
+        return str.split("").filter(e => e.toUpperCase() === e).length;
+    }
+
+}
+
+function stepsToConvert(letter){
+
+    if(letter.length === 0){
+        return 0;
+    }
+    else if(letter.toUpperCase() === letter || letter.toLowerCase() === letter){
+        return 0;
+    }
+    else{
+
+        let lCount = caseCount(letter,"l");
+        let uCount = caseCount(letter,"u");
+
+        return lCount > uCount? uCount: lCount < uCount? lCount: lCount;
+
+    }
+
+}
+
+function afterNYears(people,years){
+
+    years = Math.abs(years);
+    Object.keys(people).forEach(e => people[e] = people[e] + Math.abs(years));
+    //years = Math.abs(years);
+    //for(let eachkey of Object.keys(people)){
+
+    //    people[eachkey] = people[eachkey] + years;
+
+    //}
+    return people;
+
+
+}
+
+console.log(afterNYears({
+    "Joel" : 32,
+    "Fred" : 44,
+    "Reginald" : 65,
+    "Susan" : 33,
+    "Julian" : 13
+}, 1));
+
+//{"Joel" : 33, "Fred" : 45, "Reginald" : 66, "Susan" : 34, "Julian" : 14})
+
+     */
+
+function numLayers(numOfLayers){
+
+    let startThick = 0.5;
+    for(let i = 0; i < numOfLayers; i++){
+        startThick = startThick * 2;
+    }
+    return `${startThick / 1000}m`;
+
+}
+
+console.log(numLayers(21));
 
