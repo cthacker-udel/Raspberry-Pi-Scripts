@@ -44,8 +44,10 @@ void PitcherTeam::displayTeam(){
     else{
         Pitcher *tmpFirst = this->first;
         while(tmpFirst != NULL){
-            cout << tmpFirst->
+            cout << tmpFirst->toString() << endl;
+            tmpFirst = tmpFirst->next;
         }
+        cout << "Team displayed!" << endl;
     }
 
 }
