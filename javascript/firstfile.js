@@ -5347,7 +5347,7 @@ function tpChecker(obj){
 
 tpChecker({ people: 4, tp: 1 })
 
-     */
+
 
 
 function powerOfTwo(num){
@@ -5411,6 +5411,152 @@ function flipEndChars(aStr){
 
 }
 
+function constructFence(price){
+
+    let formatPrice = 1000000 / parseInt(price.split(",").join("").replace("$",""));
+    return "H".repeat(formatPrice);
 
 
+}
+
+console.log(constructFence("$50,000"));// "HHHHHHHHHHHHHHHHHHHH")
+console.log(constructFence("$100,000"));// "HHHHHHHHHH")
+console.log(constructFence("$1,000,000"));// "H")
+console.log(constructFence("$500,000"));// "HH")
+console.log(constructFence("$20,000"));// "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH")
+console.log(constructFence("$10,000"));// "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH")
+console.log(constructFence("$5000"));// "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH")
+console.log(constructFence("$1000"));// "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH")
+
+// Made by @Joshua Señoron
+
+
+function isPrime(num){
+
+    if(num < 2){
+        return false;
+    }
+    else if(num === 2 || num === 3 || num === 5 || num === 7){
+        return true;
+    }
+    else if(num % 2 === 0 || num % 3 === 0 || num % 5 === 0){
+        return false;
+    }
+    else{
+
+        for(let i = 2; i < Math.sqrt(num); i++){
+            if(num % i === 0){
+                return false;
+            }
+        }
+        return true;
+
+    }
+
+
+}
+
+function allPrime(arr){
+
+    return arr.every(e => isPrime(e));
+
+}
+
+function getButtonPresses(letter){
+
+    let alpha = "abcdefghijklmnopqrstuvwxyz";
+
+    return alpha.indexOf(letter)+1;
+
+}
+
+function howManyTimes(presses){
+
+    return presses.split("").map(e => getButtonPresses(e)).reduce((a,b) => a+b);
+
+
+}
+
+
+
+function hasFriday13(month,year){
+
+    let startDate = 1;
+    let newDate = new Date(year,month-1,startDate);
+    let checkMonth;
+    if(month == 11){
+        checkMonth = 1;
+    }
+    else{
+        checkMonth = month+1;
+    }
+
+    while(newDate.getMonth() !== checkMonth){
+        if(newDate.getDay() === 5){
+            if(newDate.getDate() === 13){
+                return true;
+            }
+        }
+        newDate.setDate(++startDate);
+    }
+    return false;
+
+
+}
+
+
+console.log(hasFriday13(3, 2020));// true)
+console.log(hasFriday13(10, 2017));// true)
+console.log(hasFriday13(1, 1985));// false)
+console.log(hasFriday13(5, 1619));// false)
+console.log(hasFriday13(6, 1614));// true)
+console.log(hasFriday13(8, 1767));// false)
+console.log(hasFriday13(6, 1589));// false)
+console.log(hasFriday13(2, 2015));// true)
+console.log(hasFriday13(3, 2015));// true)
+console.log(hasFriday13(11, 2015));// true)
+console.log(hasFriday13(2, 1759));// false)
+console.log(hasFriday13(8, 1612));// false)
+console.log(hasFriday13(8, 1612));// false)
+console.log(hasFriday13(10, 2029));// false)
+console.log(hasFriday13(1, 1590));// false)
+console.log(hasFriday13(7, 1812));// false)
+console.log(hasFriday13(1, 1785));// false)
+console.log(hasFriday13(11, 1961));// false)
+console.log(hasFriday13(9, 1706));// false)
+console.log(hasFriday13(5, 2016));// true)
+console.log(hasFriday13(11, 2020));// true)
+console.log(hasFriday13(1, 2023));// true)
+console.log(hasFriday13(10, 2023));// true)
+console.log(hasFriday13(2, 2043));// true)
+console.log(hasFriday13(4, 2043));// false)
+console.log(hasFriday13(3, 2043));// true)
+console.log(hasFriday13(11, 2043));// true)
+
+
+
+
+function changeTypes(arr){
+
+    return arr.map(e => typeof e === 'number'? (e % 2 === 0? e+1: e): typeof e === 'string'? (e.charAt(0).toUpperCase() + e.substring(1) + "!"): typeof e === 'boolean'? !e: e);
+
+}
+
+
+
+//changeTypes([false, "false", "true"])
+
+function puzzlePieces(arr,arr1){
+
+    if(arr.length !== arr1.length){
+        return false;
+    }
+    return new Set([...Array(arr.length).keys()].map(e => arr[e] + arr1[e])).size === 1;
+    //console.log([...Array(arr1.length).keys()]);
+
+}
+
+console.log(puzzlePieces([1, 2, 3, 4], [4, 3, 2, 1]));
+
+     */
 
