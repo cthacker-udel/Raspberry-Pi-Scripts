@@ -32,7 +32,7 @@ int main(void){
     int compPlay = 0; // false
     do{
         printf("Play against computer?(0 - No, 1 - Yes)");
-    }while(scanf("%d",&compPlay));
+    }while(scanf("%d",&compPlay) == 0);
 
     while(1){
         // game loop
@@ -42,10 +42,10 @@ int main(void){
             do{
                 do{
                     printf("Choose an x coordinate(0 based, inverse directions, x up-down)");
-                }while(scanf("%d",&x));
+                }while(scanf("%d",&x) == 0);
                 do{
                     printf("Choose an y coordinate(0 based, inverse direction, y left-right");
-                }while(scanf("%d",&y));
+                }while(scanf("%d",&y) == 0);
             }while(placePiece(x,y,0,iBoard,iBoard->player1->piece));
             placePiece(x,y,1,iBoard,iBoard->player1->piece);
             for(int i = 1; i <= 8; i++){
