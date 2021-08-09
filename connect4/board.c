@@ -531,7 +531,7 @@ int placePiece(int x, int y, int bool, board *theBoard, char thePiece){
             printf("\nOut of bounds!\n, range is 0-%d both coordinates",theBoard->size-1);
             return 0;
         }
-        if(*(*(theBoard->theboard+x)+y) != '?'){
+        else if(*(*(theBoard->theboard+x)+y) != '?'){
             return 0;
         }
         else{
