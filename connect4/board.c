@@ -34,7 +34,7 @@ board *newBoard(int x, int y){
 
 int evalBoard(board *boardArg,int x,int y, int direction, int player){
 
-    printf("\nEntered evalBoard\n");
+    //printf("\nEntered evalBoard\n");
     /*
 
         1) North
@@ -521,7 +521,7 @@ void displayBoard(board *theBoard){
 }
 
 int placePiece(int x, int y, int bool, board *theBoard, char thePiece){
-    printf("\nEntered placepiece\n");
+    //printf("\nEntered placepiece\n");
     if(bool){
         // place piece is active -- is placing piece
         *(*(theBoard->theboard+x)+y) = thePiece;
