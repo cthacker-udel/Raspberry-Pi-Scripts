@@ -5650,7 +5650,7 @@ console.log(afterNYears({
 
 //{"Joel" : 33, "Fred" : 45, "Reginald" : 66, "Susan" : 34, "Julian" : 14})
 
-     */
+
 
 function numLayers(numOfLayers){
 
@@ -5664,3 +5664,219 @@ function numLayers(numOfLayers){
 
 console.log(numLayers(21));
 
+
+function numLayers(amt){
+
+    let initialThick = 0.5;
+    for(let i = 0; i < amt; i++){
+        initialThick= initialThick * 2;
+    }
+    return `${initialThick / 1000}m`;
+
+}
+
+
+function countLetter(aStr,letter){
+
+    let count = 0;
+    for(let i = 0; i < aStr.length; i++){
+
+        if(aStr.charAt(i) === letter){
+            count++;
+        }
+
+    }
+    return count;
+
+
+}
+
+
+function calculateScore(score){
+
+    return [countLetter(score,"A"),countLetter(score,"B"),countLetter(score,"C")];
+
+
+}
+
+function isScalable(arr){
+
+    for(let i = 0; i < arr.length-1; i++){
+        if(Math.abs(arr[i+1] - arr[i]) > 5){
+            return false;
+        }
+    }
+    return true;
+
+
+}
+
+
+function correctSpacing(aStr){
+
+    let corrArr = [];
+
+    aStr = aStr.trim().split(" ");
+
+    for(let eachpart of aStr){
+        if(eachpart === ""){
+            continue;
+        }
+        else{
+            if(eachpart.length >= 1){
+                corrArr.push(eachpart.trim());
+            }
+        }
+    }
+    console.log(corrArr);
+    return corrArr.join(" ");
+
+
+}
+
+correctSpacing("The     waves were crashing  on the     shore.   ")
+
+function gcd(num1,num2){
+
+    if(num1 > num2){
+        // min is num2
+        for(let i = num2; i >= 1; i--){
+            if(num1 % i === 0 && num2 % i === 0) {
+                return i;
+            }
+        }
+        return 1;
+    }
+    else if(num1 < num2){
+        // min is num1
+        for(let i = num1; i >= 0; i--){
+            if(num1 % i === 0 && num2 % i === 0){
+                return i;
+            }
+        }
+        return 1;
+    }
+    else{
+        // equal numbers
+        for(let i = num1; i >= 1; i--){
+            if(num1 % i === 0 && num2 % i === 0){
+                return i;
+            }
+        }
+        return 1;
+    }
+
+
+}
+
+let names = []
+
+let users = [
+    { name: "John", email: "john@example.com" },
+    { name: "Jason", email: "jason@example.com" },
+    { name: "Jeremy", email: "jeremy@example.com" },
+    { name: "Jacob", email: "jacob@example.com" }
+]
+
+const str = `
+	for(let {name} of users) {
+			names.push(name);
+	}`
+
+
+function plantTrees(w,l,g){
+
+    let result = (w*2 + (l-2) * 2) / (g+1);
+
+    if(Number.isInteger(result)){
+        return result;
+    }
+    else{
+        return 0;
+    }
+
+}
+
+function assignPersonToJob(names,jobs){
+
+    let result = {};
+    names.forEach((name,i) => result[name] = jobs[i]);
+    return result;
+
+
+}
+
+function indexOfCaps(aStr){
+
+    let symbols = "$#@%0123456789*?.~{}[]=|!";
+    let result = [];
+    aStr.split("").forEach((e,i) => e.toUpperCase() === e && !symbols.includes(e)? result.push(i): -1);
+    console.log(result);
+    return result;
+
+
+}
+
+indexOfCaps("eDaBiT")
+
+function count(cards){
+
+    let specCards = {'J': -1, 'Q': -1, 'K': -1, 'A': -1};
+
+    let total = 0;
+    for(let i = 0; i < cards.length; i++){
+        if(typeof cards[i] === 'string'){
+            total += specCards[cards[i]];
+        }
+        else{
+            if(cards[i] >= 7 && cards[i] <= 9){
+                total += 0;
+            }
+            else if(cards[i] === 10){
+                total += -1;
+            }
+            else {
+                total += 1;
+            }
+        }
+    }
+    return total;
+
+}
+
+
+function removeSmallest(arr){
+
+    arr.splice(arr.indexOf(Math.min(...arr)),1);
+    return arr;
+
+
+}
+
+console.log(removeSmallest([1, 2, 3, 4, 5]));
+     */
+
+function simpleNumbers(start,finish){
+
+
+    function isSimple(num){
+        return String(num).split("").map((e,i) => Number(e)**(i+1)).reduce((a,b) => a+b) === num;
+    }
+
+    return [...Array(Math.abs(start-finish-1)).keys()].map(e => e + start).filter(e => isSimple(e));
+
+}
+
+simpleNumbers(10, 89)
+
+function validDivision(aStr){
+
+    aStr = aStr.split("/");
+    let num1 = parseInt(aStr[0]);
+    let num2 = parseInt(aStr[1]);
+    if(num2 === 0){
+        return "invalid";
+    }
+    return Number.isInteger(num1/num2);
+
+}
