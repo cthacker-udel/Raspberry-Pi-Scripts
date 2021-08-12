@@ -6218,7 +6218,7 @@ function vowels(){
 
 String.prototype.vowels = vowels;
 String.prototype.consonants = consonants;
-     */
+
 
 function isSlidey(aNum){
 
@@ -6286,5 +6286,58 @@ function shortestDistance(coords){
     let dist = Math.sqrt(Math.pow(x2-x1,2) + Math.pow(y2-y1,2));
 
     return parseFloat(Number(dist).toFixed(2));
+
+}
+     */
+
+function convertDate(theDate){
+    /*
+    "January 9, 2019" (MM D, YYYY)
+    "Jan 9, 2019" (MM D, YYYY)
+    "01/09/2019" (MM/DD/YYYY)
+    "01-09-2019" (MM-DD-YYYY)
+    "01.09.2019" (MM.DD.YYYY)
+     */
+
+    let date = new Date(theDate);
+
+    return [date.getMonth()+1,date.getDate(),date.getFullYear()];
+
+}
+
+convertDate("01/09/2019");
+
+function isSlidey(num){
+
+    let strNum = String(num);
+    for(let i = 0; i < strNum.length-1; i++){
+        if(Math.abs(parseInt(strNum.charAt(i)) - parseInt(strNum.charAt(i+1)))){
+            // valid
+        }
+        else{
+            return false;
+        }
+    }
+    return true;
+
+}
+
+function splitStr(aStr){
+
+    let vowels = "aeiouAEIOU";
+    let theVowels = "";
+    let theConsonants = "";
+
+    for(let i = 0; i < aStr.length; i++){
+
+        if(vowels.includes(aStr.charAt(i))){
+            theVowels += aStr.charAt(i);
+        }
+        else{
+            theConsonants += aStr.charAt(i);
+        }
+
+    }
+    return theVowels + theConsonants;
 
 }
