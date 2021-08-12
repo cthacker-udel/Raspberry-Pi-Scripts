@@ -6341,3 +6341,37 @@ function splitStr(aStr){
     return theVowels + theConsonants;
 
 }
+
+function compoundInterest(p,t,r,n){
+
+    return parseFloat(Number(p * Math.pow((1 + (r / n)),n*t)).toFixed(2));
+
+}
+
+function catchZeroDivision(exp){
+
+    try{
+        eval(exp);
+        return true;
+    }
+    catch(error){
+        return false;
+    }
+
+}
+
+function myIncrementMapSideEffecting(arr,increment){
+
+    return arr.map(e => e+increment);
+
+}
+
+function myIncrementMapPure(arr,increment){
+
+    let newArr = [];
+    for(let i = 0; i < arr.length; i++){
+        newArr[i] = arr[i]+increment;
+    }
+    return newArr;
+
+}
