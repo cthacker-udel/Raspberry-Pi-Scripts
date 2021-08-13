@@ -41,6 +41,10 @@ int main(void){
 
     while(1){
         // game loop
+        if(gameDone(iBoard)){
+            printf("\nThe board has been filled and the game is over!");
+            return;
+        }
         displayBoard(iBoard);
         if(playerTurn == 1){
             // player1 turn

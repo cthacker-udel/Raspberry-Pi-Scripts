@@ -18,3 +18,5 @@ void displayBoard(board *);
 
 int placePiece(int, int, int, board *, char);
 
+int gameDone(board *);
+
