@@ -520,6 +520,24 @@ void displayBoard(board *theBoard){
 
 }
 
+int gameDone(board *theBoard){
+
+    int x = theBoard->size;
+    int y = theBoard->size;
+
+    int count = 0;
+    for(int i = 0; i < x; i++){
+        for(int j = 0; j < y; j++){
+            char letter = *(*(theBoard->theboard+j)+i);
+            if(letter != '?'){
+                count++;
+            }
+        }
+    }
+    return count > 0? 0: 1;
+
+}
+
 int placePiece(int x, int y, int bool, board *theBoard, char thePiece){
     //printf("\nEntered placepiece\n");
     if(bool){
