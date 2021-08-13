@@ -83,7 +83,7 @@ int main(void){
             placePiece(x,y,1,iBoard,iBoard->player2->piece);
             for(int i = 1; i <= 8; i++){
                 char *direction = i == 1? "North": i == 2? "North-East": i == 3? "East": i == 4? "South-East": i == 5? "South": i == 6? "South-West": i == 7? "West": "North-West";
-                count = evalBoard(iBoard,x,y,i,1);
+                count = evalBoard(iBoard,x,y,i,2);
                 if(count >= 4){
                     printf("\nPlayer2 wins!");
                     return 1;

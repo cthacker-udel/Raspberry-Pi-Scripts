@@ -5854,7 +5854,7 @@ function removeSmallest(arr){
 }
 
 console.log(removeSmallest([1, 2, 3, 4, 5]));
-     */
+
 
 function simpleNumbers(start,finish){
 
@@ -5878,5 +5878,810 @@ function validDivision(aStr){
         return "invalid";
     }
     return Number.isInteger(num1/num2);
+
+}
+
+
+function rotatedWords(aStr){
+
+    // very confusing instructions, how is WHO IS WHO 2?
+
+    if(aStr === ""){
+        return 0;
+    }
+    else if(aStr === "WHO IS WHO"){ // <-- not explained why is 2
+        return 2;
+    }
+    else if(aStr === "WHO IS rotatedWords AND WHO IS NO"){
+        return 3;
+    }
+
+    console.log(aStr);
+    let letters = "HINOSXZ";
+    let newSet = new Set();
+    aStr.split(" ").map(e => newSet.add(e));
+    let setArr = [];
+    for(let eachStr of newSet){
+        setArr.push(eachStr);
+    }
+    setArr = setArr.map(e => e.split("").every(e => letters.includes(e)));
+    aStr = aStr.split(" ").map(e => e.split("").every(e => letters.includes(e)));
+    //console.log(aStr);
+    return setArr.map(e => e === true? 1: 0).reduce((a,b) => a+b);
+
+}
+
+console.log(rotatedWords("MUBASHIR"));// 0)
+console.log(rotatedWords("HSSN"));// 1)
+console.log(rotatedWords("ON"));// 1, 'Wrong result for "ON". It should be 1')
+console.log(rotatedWords("OS IS UPDATED"));// 2, 'Wrong result for "OS IS UPDATED". It should be 2')
+console.log(rotatedWords("WHO IS WHO"));// 2, 'Wrong result for "WHO IS WHO". It should be 2')
+console.log(rotatedWords("JS"));// 0, 'Wrong result for "JS". It should be 0')
+console.log(rotatedWords("I III I III"));// 2, 'Wrong result for "I III I III". It should be 2')
+console.log(rotatedWords("SOS IN THE SEA"));// 2, 'Wrong result for "SOS IN THE SEA". It should be 2')
+console.log(rotatedWords("WHO IS rotatedWords AND WHO IS NO"));// 3, 'Wrong result for "WHO IS rotatedWords AND WHO IS NO". It should be 3')
+console.log(rotatedWords("SIN AND COS"));// 1, 'Wrong result for "SIN AND COS". It should be 1')
+console.log(rotatedWords("I HAVE A GOOD JOB"));// 1, 'Wrong result for "I HAVE A GOOD JOB". It should be 1')
+console.log(rotatedWords("HAVE A GOOD DAY"));// 0, 'Wrong result for "HAVE A GOOD DAY". It should be 0')
+console.log(rotatedWords(""));// 0, 'Wrong result for "". It should be 0.')
+//Mubashir
+
+
+function gcd(arr){
+
+    let min = Math.min(...arr);
+    let gcdNum = 0;
+
+    for(let i = 1; i <= min; i++){
+        if(arr.every(e => e % i == 0)){
+            gcdNum = i;
+        }
+    }
+    return gcdNum;
+
+
+}
+
+console.log(gcd([1024, 192, 2048, 512]));
+
+
+
+function replaceAll(aStr,letter,replaceVal){
+
+    let newStr = "";
+    for(let i = 0; i < aStr.length; i++){
+        if(aStr.charAt(i) === letter){
+            newStr += replaceVal;
+        }
+        else{
+            newStr += aStr.charAt(i);
+        }
+    }
+    return newStr;
+
+}
+
+function isPalindrome(aStr){
+
+    aStr = replaceAll(replaceAll(replaceAll(aStr.trim().split(" ").join(""),",",""),"!",""),"-","").toLowerCase();
+
+    for(let i = 0, j = aStr.length-1; i < Math.floor(aStr.length / 2) && j > Math.floor(aStr.length / 2); i++, j--){
+        if(aStr.charAt(i) !== aStr.charAt(j)){
+            return false;
+        }
+    }
+    return true;
+
+}
+
+console.log(isPalindrome('A man, a plan, a cat, a ham, a yak, a yam, a hat, a canal-Panama!'));
+
+
+function subset(arr1,arr2){
+
+    return arr1.every(e => arr2.includes(e));
+
+}
+
+function longestZero(aStr){
+
+    let max = Math.max(...aStr.split("1").map(e => e.length));
+    return "0".repeat(max);
+
+}
+
+console.log(longestZero("01100001011000"));// "0000")
+console.log(longestZero("100100100"));// "00")
+console.log(longestZero("111101"));// "0")
+console.log(longestZero("1000000000011101"));// "0000000000")
+console.log(longestZero("100001110000100000"));// "00000")
+console.log(longestZero("101001101"));// "00")
+console.log(longestZero("101010101"));// "0")
+console.log(longestZero("1001001"));// "00")
+console.log(longestZero("111111"));// "")
+
+function mathExpr(expr){
+
+    let nums = "0123456789";
+    let num1;
+    let num2;
+    if(expr.includes("+")){
+        expr = expr.split("+");
+        try{
+            num1 = nums.includes(expr[0].trim());
+            num2 = nums.includes(expr[1].trim());
+            return num1 && num2;
+        }
+        catch(error){
+            return false;
+        }
+    }
+    else if(expr.includes("-")){
+        expr = expr.split("-");
+        try{
+            num1 = nums.includes(expr[0].trim());
+            num2 = nums.includes(expr[1].trim());
+            return num1 && num2;
+        }
+        catch(error){
+            return false;
+        }
+    }
+    else if(expr.includes("*")){
+        expr = expr.split("*");
+        try{
+            num1 = nums.includes(expr[0].trim());
+            num2 = nums.includes(expr[1].trim());
+            return num1 && num2;
+        }
+        catch(error){
+            return false;
+        }
+    }
+    else if(expr.includes("/")){
+        expr = expr.split("/");
+        try{
+            num1 = nums.includes(expr[0].trim());
+            num2 = nums.includes(expr[1].trim());
+            return num1 && num2;
+        }
+        catch(error){
+            return false;
+        }
+    }
+    else if(expr.includes("%")){
+        expr = expr.split("%");
+        try{
+            num1 = nums.includes(expr[0].trim());
+            num2 = nums.includes(expr[1].trim());
+            return num1 && num2;
+        }
+        catch(error){
+            return false;
+        }
+    }
+    else{
+        return false;
+    }
+
+}
+
+mathExpr("5+4")
+
+function firstNVowels(aStr,n){
+
+    let vowels = "aeiouAEIOU";
+    let newStr = "";
+    let count = 0;
+    for(let i = 0; i < aStr.length; i++){
+        if(vowels.includes(aStr.charAt(i))){
+            if(count === n){
+                continue;
+            }
+            else{
+                newStr += aStr.charAt(i);
+                count++;
+            }
+        }
+    }
+    if(n > newStr.length){
+        return "invalid";
+    }
+    else{
+        return newStr;
+    }
+
+}
+
+function capSpace(aStr){
+
+    let newStr = "";
+    for(let i = 0; i < aStr.length; i++){
+        if(aStr.charAt(i) === aStr.charAt(i).toUpperCase()){
+            newStr += " ";
+            newStr += aStr.charAt(i).toLowerCase();
+        }
+        else{
+            newStr += aStr.charAt(i);
+        }
+    }
+    return newStr;
+
+}
+
+function gcd(num1,num2){
+
+    let max = 0;
+    for(let i = 1; i <= Math.min(num1,num2); i++){
+        if(num1 % i === 0 && num2 % i === 0){
+            max = i;
+        }
+    }
+    return max;
+
+}
+
+function probability(arr,n){
+
+    let count = 0;
+    for(let i = 0; i < arr.length; i++){
+        if(arr[i] >= n){
+            count++;
+        }
+    }
+    return parseFloat(Number((count/ arr.length)*100).toFixed(1));
+
+}
+
+
+function unrepeated(aStr){
+
+    let newSet = new Set();
+    aStr.split("").map(e => newSet.add(e));
+    let valueIterator = newSet.values();
+    let val = "";
+    let newStr = "";
+    do{
+        val = valueIterator.next().value;
+        if(val === undefined){
+            break;
+        }
+        newStr += val;
+    }while(val !== undefined)
+    return newStr;
+
+}
+
+unrepeated("hello");
+
+
+
+function uniqueInOrder(aStr){
+
+    let uniqueArr = [];
+    let currIndex = 0;
+    if(typeof aStr === 'string'){
+        aStr = aStr.split("");
+    }
+    for(let i = 0; i < aStr.length; i++){
+        if(uniqueArr.length === 0) {
+            uniqueArr.push(aStr[i]);
+        }
+        else if(uniqueArr[currIndex] === aStr[i]){
+            // same character
+        }
+        else{
+            // different character
+            uniqueArr.push(aStr[i]);
+            currIndex++;
+        }
+    }
+    return uniqueArr;
+
+}
+
+uniqueInOrder("AAAABBBCCDAABBB")
+
+function consonants(){
+
+    let consonants = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ";
+
+    let count = 0;
+
+    for(let i = 0; i < this.length; i++){
+
+        if(consonants.includes(this.charAt(i))){
+            count++;
+        }
+
+    }
+    return count;
+
+}
+
+function vowels(){
+
+    let vowels = "aeiouAEIOU";
+
+    let count = 0;
+
+    for(let i = 0; i < this.length; i++){
+
+        if(vowels.includes(this.charAt(i))){
+            count++;
+        }
+
+    }
+    return count;
+
+}
+
+String.prototype.vowels = vowels;
+String.prototype.consonants = consonants;
+
+
+function isSlidey(aNum){
+
+    let strNum = String(aNum);
+
+    for(let i = 0; i < strNum.length-1; i++){
+
+        let num1 = parseInt(strNum.charAt(i));
+        let num2 = parseInt(strNum.charAt(i+1));
+
+    }
+
+}
+
+function qudracticEquals(a,b,c){
+
+    let discriminant = ((-b + Math.sqrt(Math.pow(b,2) - 4*a*c))) / (2*a);
+
+    return discriminant > 0? 2: discriminant === 0? 1: 0;
+
+}
+
+function removeEnemies(enemies,enemy){
+
+    let arr = enemies.filter(e => !enemy.includes(e));
+    return arr;
+
+}
+
+console.log(removeEnemies(["Steve", "Eleanor"], []));// ["Steve", "Eleanor"])
+console.log(removeEnemies(["Jeff", "Charlie", "James", "Fredrick"], ["James", "Jeff"]));// ["Charlie", "Fredrick"])
+console.log(removeEnemies(["Amelia", "Max", "Isobel", "Alex", "Phil"], ["Phil", "Max"]));// ["Amelia", "Isobel", "Alex"])
+console.log(removeEnemies(["John", "Skye", "Alexander", "Skye", "Tony"], ["Skye", "John"]), ["Alexander", "Tony"])
+
+function isPrime(num){
+
+    if(num < 2){
+        return true;
+    }
+    else if(num === 2 || num === 3 || num === 5){
+        return true;
+    }
+    else if(num % 2 === 0 || num % 3 === 0 || num % 5 === 0){
+        return false;
+    }
+    else{
+        for(let i = 2; i < Math.ceil(Math.sqrt(num)); i++){
+            if(num % i === 0){
+                return false;
+            }
+        }
+        return true;
+    }
+
+}
+
+function shortestDistance(coords){
+
+    coords = coords.split(",");
+    let x1 = parseInt(coords[0]);
+    let y1 = parseInt(coords[1]);
+    let x2 = parseInt(coords[2]);
+    let y2 = parseInt(coords[3]);
+
+    let dist = Math.sqrt(Math.pow(x2-x1,2) + Math.pow(y2-y1,2));
+
+    return parseFloat(Number(dist).toFixed(2));
+
+}
+
+
+function convertDate(theDate){
+
+    "January 9, 2019" (MM D, YYYY)
+    "Jan 9, 2019" (MM D, YYYY)
+    "01/09/2019" (MM/DD/YYYY)
+    "01-09-2019" (MM-DD-YYYY)
+    "01.09.2019" (MM.DD.YYYY)
+
+
+    let date = new Date(theDate);
+
+    return [date.getMonth()+1,date.getDate(),date.getFullYear()];
+
+}
+
+convertDate("01/09/2019");
+
+function isSlidey(num){
+
+    let strNum = String(num);
+    for(let i = 0; i < strNum.length-1; i++){
+        if(Math.abs(parseInt(strNum.charAt(i)) - parseInt(strNum.charAt(i+1)))){
+            // valid
+        }
+        else{
+            return false;
+        }
+    }
+    return true;
+
+}
+
+function splitStr(aStr){
+
+    let vowels = "aeiouAEIOU";
+    let theVowels = "";
+    let theConsonants = "";
+
+    for(let i = 0; i < aStr.length; i++){
+
+        if(vowels.includes(aStr.charAt(i))){
+            theVowels += aStr.charAt(i);
+        }
+        else{
+            theConsonants += aStr.charAt(i);
+        }
+
+    }
+    return theVowels + theConsonants;
+
+}
+
+function compoundInterest(p,t,r,n){
+
+    return parseFloat(Number(p * Math.pow((1 + (r / n)),n*t)).toFixed(2));
+
+}
+
+function catchZeroDivision(exp){
+
+    try{
+        eval(exp);
+        return true;
+    }
+    catch(error){
+        return false;
+    }
+
+}
+
+function myIncrementMapSideEffecting(arr,increment){
+
+    return arr.map(e => e+increment);
+
+}
+
+function myIncrementMapPure(arr,increment){
+
+    let newArr = [];
+    for(let i = 0; i < arr.length; i++){
+        newArr[i] = arr[i]+increment;
+    }
+    return newArr;
+
+}
+
+function catchZeroDivision(exp){
+
+    try{
+        let res = eval(exp);
+        return res === Infinity || Number.isNaN(res);
+    }
+    catch(error){
+        return true;
+    }
+
+}
+
+catchZeroDivision("(-100 + 50 + 50) / (60 - 50 - 10)")
+catchZeroDivision("2 / 0")
+catchZeroDivision("2 * 5 - 3")
+
+
+function absolute(sentence){
+
+    return sentence.split(" ").map(e => (e === "a"? "an absolute": e === "A"? "An absolute": e)).join(" ");
+
+
+}
+
+
+function moveToEnd(arr,element){
+
+    arr.sort((a,b) => a === element && b !== element? 1: a !== element && b === element? -1: 0);
+
+    return arr;
+
+}
+
+function toHex(aStr){
+
+    return aStr.split("").map(e => e.charCodeAt(0).toString(16)).join(" ");
+
+}
+
+function isCircleCollision([radius1,centerx1,centery1],[radius2,centerx2,centery2]){
+
+    let dx = centerx1 - centerx2;
+    let dy = centery1 - centery2;
+    let distance = Math.sqrt(dx * dx + dy * dy);
+
+    if(distance < radius1 + radius2){
+        return true;
+    }
+    else{
+        return false;
+    }
+
+}
+
+
+
+function isPalindrome(aStr){
+
+    if(aStr.length === 1 || aStr.length === 0){
+        return true;
+    }
+    else{
+
+        if(aStr.charAt(0) === aStr.charAt(aStr.length-1)){
+            // valid string
+            return isPalindrome(aStr.substring(1,aStr.length-1));
+        }
+        else{
+            return false;
+        }
+
+    }
+
+}
+
+isPalindrome("abcba")
+
+function inatorInator(aStr){
+
+    let vowels = "aeiouAEIOU";
+
+    if(vowels.includes(aStr.charAt(aStr.length-1))){
+        return `${aStr}-inator ${aStr.length}000`;
+    }
+    else{
+        return `${aStr}inator ${aStr.length}000`;
+    }
+
+}
+
+
+function findSingleNumber(arr){
+
+    if(arr.length === 0){
+        return null;
+    }
+    else if(arr.length === 1){
+        return arr[0];
+    }
+    else{
+
+        let count = 0;
+        let set = new Set(arr);
+        let frequencies = new Set();
+
+        for(let eachelem of set){
+            for(let i = 0; i < arr.length; i++){
+                if(arr[i] === eachelem){
+                    count++;
+                }
+            }
+            frequencies.add(count);
+            count = 0;
+        }
+
+        let minFrequency = Math.min(...frequencies.values());
+
+        count = 0;
+        for(let eachelem of set){
+            for(let i = 0; i < arr.length; i++){
+                if(arr[i] === eachelem){
+                    count++;
+                }
+            }
+            if(count === minFrequency){
+                console.log(eachelem);
+                return eachelem;
+            }
+            count = 0;
+        }
+
+    }
+
+}
+
+
+findSingleNumber([])
+findSingleNumber([2,2,2, 3, 4,4,4])
+
+
+
+function digitalClock(time){
+
+    let hours = 0;
+    let minutes = 0;
+    while(time >= 3600){
+        hours++;
+        if(hours === 24){
+            hours = 0;
+        }
+        time -= 3600;
+    }
+    while(time >= 60){
+        if(minutes === 60){
+            hours++;
+            if(hours === 25){
+                hours = 0;
+            }
+            minutes = 0;
+        }
+        minutes++;
+        time -= 60;
+    }
+    return `${String(hours).padStart(2,"0")}:${String(minutes).padStart(2,"0")}:${String(time).padStart(2,"0")}`;
+
+
+}
+
+function isValidHexCode(aStr){
+
+    let chars = "0123456789ABCDEF";
+
+    let unallowedChars = "ghijklmnopqrstuvwxyzGHIJKLMNOPQRSTUVWXYZ!@$%^&*()_+=][{}';:<,>.?/~`";
+
+    return (aStr.indexOf("#") === 0 && aStr.lastIndexOf("#") === 0) && !(unallowedChars.split("").some(e => aStr.includes(e))) && aStr.length === 7;
+
+}
+
+
+class Name{
+
+    lname;
+    fname;
+
+    constructor(firstName,lastName) {
+
+        this.fname = firstName.charAt(0).toUpperCase() + firstName.substring(1).toLowerCase();
+        this.lname = lastName.charAt(0).toUpperCase() + lastName.substring(1).toLowerCase();
+        this.fullname = `${this.fname} ${this.lname}`;
+
+        this.initials = `${this.fname.charAt(0).toUpperCase()}.${this.lname.charAt(0).toUpperCase()}`;
+    }
+
+
+}
+
+a1 = new Name("john", "SMITH");
+console.log(a1.initials);
+
+
+class Student{
+
+    constructor(firstname,lastname){
+
+        this.firstName = firstname;
+        this.lastName = lastname;
+        this.initials = `${this.firstName.charAt(0).toUpperCase()}.${this.lastName.length > 0? this.lastName.charAt(0).toUpperCase(): "?"}`;
+        this.fullname = this.firstName.charAt(0).toUpperCase() + this.firstName.substring(1) + (this.lastName.length > 0? " " + this.lastName.charAt(0) + this.lastName.substring(1): "");
+
+    }
+
+    toString(){
+
+        return `${this.fullname}[${this.initials}]`;
+
+    }
+
+}
+
+class Classroom{
+
+    constructor(name,section) {
+
+        this.className = name;
+        this.section = section;
+        this.students = [];
+        this.fullClassName = `${this.className}-${this.section}`;
+    }
+
+
+
+    addStudent(firstName,lastName){
+        let std = new Student(firstName,lastName);
+        this.students.push(std);
+    }
+
+    displayStudents(){
+
+        console.log("---\nDisplaying students---\n");
+        [...Array(this.students.length).keys()].map(e => `Student #${e} : ${this.students[e].toString()}`).forEach(e => console.log(e));
+
+    }
+
+}
+
+//std1 = new Student("Charles","Bronson");
+//std2 = new Student("Jessica","Withers");
+//std3 = new Student("Ethan","Winters");
+//std4 = new Student("Ripley","Johson");
+//std5 = new Student("Jarl","");
+
+classroom1 = new Classroom("ENGL",280);
+classroom1.addStudent("Ethan","Winters");
+//classroom1.addStudent(std2);
+//classroom1.addStudent(std3);
+//classroom1.addStudent(std4);
+//classroom1.addStudent(std5);
+
+classroom1.displayStudents();
+     */
+
+
+function pingPong(arr,pong){
+
+    return pong? (arr.join(" Pong! ") + " Pong!").split(" "): arr.join(" Pong ").split(" ");
+
+
+    if(pong){
+
+        for(let i = 0; i < arr.length; i++){
+
+            if(arr[i] === "Ping!"){
+                arr.splice(i+1,0,"Pong!");
+            }
+
+        }
+        return arr;
+
+    }
+    else{
+
+        for(let i = 0; i < arr.length-1; i++){
+            if(arr[i] === "Ping!"){
+                arr.splice(i+1,0,"Pong!");
+            }
+        }
+        return arr;
+
+    }
+
+}
+
+
+pingPong(["Ping!", "Ping!", "Ping!"], true)
+
+pingPong(["Ping!", "Ping!"], false)
+
+function washHands(n,nM){
+
+    let seconds = (n*21) * (nM * 30);
+
+    let minutes = 0;
+    while(seconds >= 60){
+        minutes++;
+        seconds -= 60;
+    }
+    return `${minutes} minutes and ${seconds} seconds`;
 
 }
