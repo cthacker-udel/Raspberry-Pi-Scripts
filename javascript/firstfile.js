@@ -6288,16 +6288,16 @@ function shortestDistance(coords){
     return parseFloat(Number(dist).toFixed(2));
 
 }
-     */
+
 
 function convertDate(theDate){
-    /*
+
     "January 9, 2019" (MM D, YYYY)
     "Jan 9, 2019" (MM D, YYYY)
     "01/09/2019" (MM/DD/YYYY)
     "01-09-2019" (MM-DD-YYYY)
     "01.09.2019" (MM.DD.YYYY)
-     */
+
 
     let date = new Date(theDate);
 
@@ -6430,3 +6430,258 @@ function isCircleCollision([radius1,centerx1,centery1],[radius2,centerx2,centery
 
 }
 
+
+
+function isPalindrome(aStr){
+
+    if(aStr.length === 1 || aStr.length === 0){
+        return true;
+    }
+    else{
+
+        if(aStr.charAt(0) === aStr.charAt(aStr.length-1)){
+            // valid string
+            return isPalindrome(aStr.substring(1,aStr.length-1));
+        }
+        else{
+            return false;
+        }
+
+    }
+
+}
+
+isPalindrome("abcba")
+
+function inatorInator(aStr){
+
+    let vowels = "aeiouAEIOU";
+
+    if(vowels.includes(aStr.charAt(aStr.length-1))){
+        return `${aStr}-inator ${aStr.length}000`;
+    }
+    else{
+        return `${aStr}inator ${aStr.length}000`;
+    }
+
+}
+
+
+function findSingleNumber(arr){
+
+    if(arr.length === 0){
+        return null;
+    }
+    else if(arr.length === 1){
+        return arr[0];
+    }
+    else{
+
+        let count = 0;
+        let set = new Set(arr);
+        let frequencies = new Set();
+
+        for(let eachelem of set){
+            for(let i = 0; i < arr.length; i++){
+                if(arr[i] === eachelem){
+                    count++;
+                }
+            }
+            frequencies.add(count);
+            count = 0;
+        }
+
+        let minFrequency = Math.min(...frequencies.values());
+
+        count = 0;
+        for(let eachelem of set){
+            for(let i = 0; i < arr.length; i++){
+                if(arr[i] === eachelem){
+                    count++;
+                }
+            }
+            if(count === minFrequency){
+                console.log(eachelem);
+                return eachelem;
+            }
+            count = 0;
+        }
+
+    }
+
+}
+
+
+findSingleNumber([])
+findSingleNumber([2,2,2, 3, 4,4,4])
+
+
+
+function digitalClock(time){
+
+    let hours = 0;
+    let minutes = 0;
+    while(time >= 3600){
+        hours++;
+        if(hours === 24){
+            hours = 0;
+        }
+        time -= 3600;
+    }
+    while(time >= 60){
+        if(minutes === 60){
+            hours++;
+            if(hours === 25){
+                hours = 0;
+            }
+            minutes = 0;
+        }
+        minutes++;
+        time -= 60;
+    }
+    return `${String(hours).padStart(2,"0")}:${String(minutes).padStart(2,"0")}:${String(time).padStart(2,"0")}`;
+
+
+}
+
+function isValidHexCode(aStr){
+
+    let chars = "0123456789ABCDEF";
+
+    let unallowedChars = "ghijklmnopqrstuvwxyzGHIJKLMNOPQRSTUVWXYZ!@$%^&*()_+=][{}';:<,>.?/~`";
+
+    return (aStr.indexOf("#") === 0 && aStr.lastIndexOf("#") === 0) && !(unallowedChars.split("").some(e => aStr.includes(e))) && aStr.length === 7;
+
+}
+
+
+class Name{
+
+    lname;
+    fname;
+
+    constructor(firstName,lastName) {
+
+        this.fname = firstName.charAt(0).toUpperCase() + firstName.substring(1).toLowerCase();
+        this.lname = lastName.charAt(0).toUpperCase() + lastName.substring(1).toLowerCase();
+        this.fullname = `${this.fname} ${this.lname}`;
+
+        this.initials = `${this.fname.charAt(0).toUpperCase()}.${this.lname.charAt(0).toUpperCase()}`;
+    }
+
+
+}
+
+a1 = new Name("john", "SMITH");
+console.log(a1.initials);
+
+
+class Student{
+
+    constructor(firstname,lastname){
+
+        this.firstName = firstname;
+        this.lastName = lastname;
+        this.initials = `${this.firstName.charAt(0).toUpperCase()}.${this.lastName.length > 0? this.lastName.charAt(0).toUpperCase(): "?"}`;
+        this.fullname = this.firstName.charAt(0).toUpperCase() + this.firstName.substring(1) + (this.lastName.length > 0? " " + this.lastName.charAt(0) + this.lastName.substring(1): "");
+
+    }
+
+    toString(){
+
+        return `${this.fullname}[${this.initials}]`;
+
+    }
+
+}
+
+class Classroom{
+
+    constructor(name,section) {
+
+        this.className = name;
+        this.section = section;
+        this.students = [];
+        this.fullClassName = `${this.className}-${this.section}`;
+    }
+
+
+
+    addStudent(firstName,lastName){
+        let std = new Student(firstName,lastName);
+        this.students.push(std);
+    }
+
+    displayStudents(){
+
+        console.log("---\nDisplaying students---\n");
+        [...Array(this.students.length).keys()].map(e => `Student #${e} : ${this.students[e].toString()}`).forEach(e => console.log(e));
+
+    }
+
+}
+
+//std1 = new Student("Charles","Bronson");
+//std2 = new Student("Jessica","Withers");
+//std3 = new Student("Ethan","Winters");
+//std4 = new Student("Ripley","Johson");
+//std5 = new Student("Jarl","");
+
+classroom1 = new Classroom("ENGL",280);
+classroom1.addStudent("Ethan","Winters");
+//classroom1.addStudent(std2);
+//classroom1.addStudent(std3);
+//classroom1.addStudent(std4);
+//classroom1.addStudent(std5);
+
+classroom1.displayStudents();
+     */
+
+
+function pingPong(arr,pong){
+
+    return pong? (arr.join(" Pong! ") + " Pong!").split(" "): arr.join(" Pong ").split(" ");
+
+
+    if(pong){
+
+        for(let i = 0; i < arr.length; i++){
+
+            if(arr[i] === "Ping!"){
+                arr.splice(i+1,0,"Pong!");
+            }
+
+        }
+        return arr;
+
+    }
+    else{
+
+        for(let i = 0; i < arr.length-1; i++){
+            if(arr[i] === "Ping!"){
+                arr.splice(i+1,0,"Pong!");
+            }
+        }
+        return arr;
+
+    }
+
+}
+
+
+pingPong(["Ping!", "Ping!", "Ping!"], true)
+
+pingPong(["Ping!", "Ping!"], false)
+
+function washHands(n,nM){
+
+    let seconds = (n*21) * (nM * 30);
+
+    let minutes = 0;
+    while(seconds >= 60){
+        minutes++;
+        seconds -= 60;
+    }
+    return `${minutes} minutes and ${seconds} seconds`;
+
+}
