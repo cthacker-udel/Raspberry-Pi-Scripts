@@ -6375,3 +6375,58 @@ function myIncrementMapPure(arr,increment){
     return newArr;
 
 }
+
+function catchZeroDivision(exp){
+
+    try{
+        let res = eval(exp);
+        return res === Infinity || Number.isNaN(res);
+    }
+    catch(error){
+        return true;
+    }
+
+}
+
+catchZeroDivision("(-100 + 50 + 50) / (60 - 50 - 10)")
+catchZeroDivision("2 / 0")
+catchZeroDivision("2 * 5 - 3")
+
+
+function absolute(sentence){
+
+    return sentence.split(" ").map(e => (e === "a"? "an absolute": e === "A"? "An absolute": e)).join(" ");
+
+
+}
+
+
+function moveToEnd(arr,element){
+
+    arr.sort((a,b) => a === element && b !== element? 1: a !== element && b === element? -1: 0);
+
+    return arr;
+
+}
+
+function toHex(aStr){
+
+    return aStr.split("").map(e => e.charCodeAt(0).toString(16)).join(" ");
+
+}
+
+function isCircleCollision([radius1,centerx1,centery1],[radius2,centerx2,centery2]){
+
+    let dx = centerx1 - centerx2;
+    let dy = centery1 - centery2;
+    let distance = Math.sqrt(dx * dx + dy * dy);
+
+    if(distance < radius1 + radius2){
+        return true;
+    }
+    else{
+        return false;
+    }
+
+}
+
