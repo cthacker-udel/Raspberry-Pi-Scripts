@@ -6801,4 +6801,88 @@ countTowers([
     ["##   ##   ##   ##"]
 ]);//, 4)
 
+
+
+function malthusian(foodGrowth,popMult){
+
+    let foodProd = 100;
+    let popCount = 100;
+    //let percentage = (popMult / 100);
+    let year = 0;
+
+    do{
+        foodProd += foodGrowth;
+        popCount *= popMult;
+        year++;
+        if(popCount > foodProd){
+            break;
+        }
+    }while(foodProd >= popCount);
+
+    return year;
+
+}
+
+console.log(malthusian(3900, 1.26));// 31)
+console.log(malthusian(3367, 1.16));// 51)
+console.log(malthusian(2393, 1.86));// 9)
+console.log(malthusian(6560, 1.66));// 14)
+console.log(malthusian(8481, 1.35));// 26)
+console.log(malthusian(3805, 1.98));// 9)
+console.log(malthusian(9492, 1.06));// 166)
+console.log(malthusian(8278, 1.35));// 26)
+console.log(malthusian(1228, 1.91));// 7)
+console.log(malthusian(4791, 1.25));// 34)
+console.log(malthusian(8194, 1.12));// 78)
+console.log(malthusian(7418, 1.63));// 15)
+console.log(malthusian(8700, 1.18));// 51)
+console.log(malthusian(1066, 1.78));// 8)
+console.log(malthusian(811, 1.46));// 13)
+console.log(malthusian(7836, 1.33));// 27)
+console.log(malthusian(4082, 1.54));// 15)
+console.log(malthusian(4859, 1.87));// 10)
+console.log(malthusian(4656, 1.44));// 19)
+console.log(malthusian(2214, 1.53));// 14)
+console.log(malthusian(1240, 1.10));// 72)
+console.log(malthusian(4434, 1.21));// 40)
+console.log(malthusian(2995, 1.51));// 15)
+console.log(malthusian(578, 1.10));// 62)
+console.log(malthusian(9768, 1.47));// 20)
+console.log(malthusian(1508, 1.10));// 74)
+console.log(malthusian(6311, 1.54));// 17)
+console.log(malthusian(5502, 1.70));// 13)
+console.log(malthusian(3170, 1.68));// 12)
+console.log(malthusian(7139, 1.10));// 93)
+console.log(malthusian(7385, 1.56));// 16)
+console.log(malthusian(5845, 1.66));// 14)
+console.log(malthusian(9937, 1.74));// 13)
+console.log(malthusian(6516, 1.13));// 69)
+console.log(malthusian(1973, 1.85));// 9)
+console.log(malthusian(8045, 1.65));// 15)
+console.log(malthusian(9784, 1.12));// 79)
+console.log(malthusian(4520, 1.11));// 79)
+console.log(malthusian(217, 1.17));// 26)
+console.log(malthusian(1840, 1.37));// 19)
+console.log(malthusian(7702, 1.08));// 119)
+console.log(malthusian(6217, 1.16));// 55)
+console.log(malthusian(7812, 1.96));// 10)
+console.log(malthusian(8381, 1.80));// 12)
+console.log(malthusian(9284, 1.11));// 87)
+console.log(malthusian(6068, 1.71));// 13)
+console.log(malthusian(5486, 1.86));// 11)
+console.log(malthusian(2197, 1.27));// 27)
+console.log(malthusian(3182, 1.40));// 20)
+console.log(malthusian(8196, 1.55));// 17)
+console.log(malthusian(3513, 1.20));// 40)
+console.log(malthusian(4152, 1.24));// 34)
+console.log(malthusian(2886, 1.79));// 10)
+console.log(malthusian(1646, 1.63));// 11)
+console.log(malthusian(8030, 1.18));// 51)
+console.log(malthusian(2514, 1.10));// 80)
+console.log(malthusian(1345, 1.53));// 12)
+console.log(malthusian(877, 1.96));// 6)
+console.log(malthusian(2035, 1.26));// 28)
+console.log(malthusian(6007, 1.52));// 17)
+
+// By Harith Shah
      */
