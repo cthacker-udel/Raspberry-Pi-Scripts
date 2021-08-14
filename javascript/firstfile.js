@@ -6885,4 +6885,187 @@ console.log(malthusian(2035, 1.26));// 28)
 console.log(malthusian(6007, 1.52));// 17)
 
 // By Harith Shah
+
+
+function lettersOnly(aStr){
+
+    let upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    let lower = "abcdefghijklmnopqrstuvwxyz";
+
+    if(aStr.length === 0){
+        return false;
+    }
+
+    for(let i = 0; i < aStr.length; i++){
+
+        let iChar = aStr.charAt(i);
+        if(upper.includes(iChar)){
+            return false;
+        }
+        else if(iChar === " "){
+            continue;
+        }
+        else if(!upper.includes(iChar) && !lower.includes(iChar)){
+            return false;
+        }
+
+    }
+    return true;
+
+
+}
+
+function capLast(aStr){
+
+    return aStr.split(" ").map(e => e.substring(0,e.length-1) + e.charAt(e.length-1).toUpperCase()).join(" ");
+
+}
+
+function accum(aStr){
+
+    let accum = 1;
+
+    return aStr.split("").map(e => e.repeat(accum++)).map(e => e.charAt(0).toUpperCase() + e.substring(1).toLowerCase()).join("-");
+
+}
+
+
+function isEqual(obj1,obj2){
+
+    return JSON.stringify(obj1) === JSON.stringify(obj2);
+
+}
+
+function isHarshad(num){
+
+    return num % String(num).split("").map(e => Number(e)).reduce((a,b) => a+b) === 0;
+
+}
+
+function magnitude(arr){
+
+    return Math.hypot(...arr);
+
+}
+
+function findIt(obj,name){
+
+    return Object.keys(obj).includes(name)? `${name.charAt(0).toUpperCase() + name.substring(1).toLowerCase()} is gone...`: `${name.charAt(0).toUpperCase() + name.substring(1).toLowerCase()} is here!`;
+
+}
+
+function isHarshad(n){
+
+    return n % String(n).split("").map(e => Number(e)).reduce((a,b) => a+b) === 0;
+
+}
+
+function wordNest(str1,str2){
+
+    return (str2.length / str1.length) - 1;
+
+}
+
+function change(arr,times){
+
+    let tmpArr = [...arr];
+
+    for(let i = 1; i <= times; i++){
+
+        let startPosition = i;
+        let endPosition = arr.length-i;
+        for(let j = startPosition; j < endPosition; j++){
+            tmpArr[j]--;
+        }
+
+    }
+    return tmpArr;
+
+
+}
+
+let x = [3, 3, 3, 3, 3, 3, 3]
+console.log(change(x, 2));//, [3, 2, 1, 1, 1, 2, 3])
+console.log(change(x, 2));//, [3, 2, 1, 1, 1, 2, 3])
+console.log(change(x, 1));//, [3, 2, 2, 2, 2, 2, 3])
+console.log(change(x, 3));//, [3, 2, 1, 0, 1, 2, 3])
+
+function grabNumberSum(aStr){
+
+    let total = 0;
+    let digits = "0123456789";
+    let num = "";
+
+    for(let i = 0; i < aStr.length; i++){
+
+        let iChar = aStr.charAt(i);
+        if(digits.includes(iChar)){
+            // letter is digit
+            num += iChar;
+        }
+        else{
+            if(num.length > 0){
+                total += parseInt(num);
+                num = "";
+            }
+        }
+
+    }
+    if(num.length > 0){
+        total += parseInt(num);
+    }
+    return total;
+
+}
+
+function f(n){
+
+    return Number.isInteger(n / 2)? 8 : 2;
+
+}
+
+function variableValid(theVar){
+
+    let digits = "0123456789";
+
+    return !digits.includes(theVar.charAt(0)) && !theVar.includes(" ");
+
+}
      */
+
+function correctSentences(sentence){
+
+    sentence = sentence.trim();
+    sentence = sentence.split(" ").filter(e => e !== "" && e !== " ").join(" ");
+    sentence = sentence.charAt(0).toUpperCase() + sentence.substring(1);
+    if(sentence.endsWith(".")){
+        // valid sentence
+    }
+    else{
+        sentence = sentence + ".";
+    }
+
+    sentence = sentence.split(" ");
+    let upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    for(let i = 0; i < sentence.length-1; i++){
+
+        let iChar = sentence[i].charAt(0);
+        let jChar = sentence[i+1].charAt(0);
+        if(upper.includes(jChar)){
+            if(sentence[i].endsWith(".")){
+                // valid words
+            }
+            else{
+                sentence[i] = sentence[i] + ".";
+            }
+        }
+
+    }
+    return sentence.join(" ");
+}
+
+console.log(correctSentences (" he is ready to join   airforce  Waiting for the  final approval"));
+//"Mubashir loves edabit. Matt loves edabit."
+//" his english is not good Help him     Thank you"), "His english is not good. Help him. Thank you.")
+
+
