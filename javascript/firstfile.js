@@ -6635,7 +6635,7 @@ classroom1.addStudent("Ethan","Winters");
 //classroom1.addStudent(std5);
 
 classroom1.displayStudents();
-     */
+
 
 
 function pingPong(arr,pong){
@@ -6710,7 +6710,7 @@ function firstBeforeSecond(aStr,let1,let2){
 
 }
 
-/* Fix the expression */
+
 const REGEXP = /\B([E,e][N,n][D,d])\B/g
 
 function printAllGroups(){
@@ -6732,3 +6732,73 @@ function printAllGroups(){
 
 
 }
+
+function abbreviate(sentence,n=4){
+
+    return sentence.split(" ").filter(e => e.length >= n).map(e => e.charAt(0).toUpperCase()).join("");
+
+}
+
+function squarePatch(n){
+
+    return Array.from({length: n}, () => Array(n).fill(n));
+
+}
+
+
+console.log(squarePatch(4));
+
+
+
+function countTowers(towers){
+
+    if(towers[0] == ""){
+        return 0;
+    }
+
+    let startingSpot = towers[towers.length-1][0];
+
+    let splitStr = startingSpot.split("##");
+
+    return splitStr.length-1;
+
+}
+
+countTowers([
+    ["     ##          "],
+    ["##   ##        ##"],
+    ["##   ##   ##   ##"],
+    ["##   ##   ##   ##"]
+]);//, 4)
+
+countTowers([
+    ["                         ##"],
+    ["##             ##   ##   ##"],
+    ["##        ##   ##   ##   ##"],
+    ["##   ##   ##   ##   ##   ##"]
+]);//, 6)
+
+countTowers([
+    ["##"],
+    ["##"]
+]);//, 1)
+
+countTowers([
+    [""]
+]);//, 0)
+
+countTowers([
+    ["                                              "],
+    ["##   ##   ##   ##   ##   ##   ##   ##   ##   ##"],
+    ["##   ##   ##   ##   ##   ##   ##   ##   ##   ##"],
+    ["##   ##   ##   ##   ##   ##   ##   ##   ##   ##"]
+]);//, 10)
+
+countTowers([
+    ["##   ##          "],
+    ["##   ##          "],
+    ["##   ##   ##   ##"],
+    ["##   ##   ##   ##"]
+]);//, 4)
+
+     */
