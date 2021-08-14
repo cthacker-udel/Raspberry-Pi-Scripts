@@ -6685,3 +6685,50 @@ function washHands(n,nM){
     return `${minutes} minutes and ${seconds} seconds`;
 
 }
+
+function mapping(letters){
+
+    let obj = {};
+
+    for(let eachword of letters){
+
+        obj[eachword] = eachword.toUpperCase();
+
+    }
+    return obj;
+
+
+}
+
+function assignment(d) {
+    return /(?:^\d{4})([/])(?:\d{2})([/])(?:\d{2})/.test(d);
+}
+
+function firstBeforeSecond(aStr,let1,let2){
+
+    return aStr.lastIndexOf(let1) < aStr.indexOf(let2);
+
+}
+
+/* Fix the expression */
+const REGEXP = /\B([E,e][N,n][D,d])\B/g
+
+function printAllGroups(){
+
+    let groups = ['a','b','c','d','e'];
+
+    let array = [];
+
+    for(let i = 0; i <= groups.length; i++){
+
+        for(let j = 0; j < groups.length; j++){
+
+            array.push(`${i+1}${groups[j]}`);
+
+        }
+
+    }
+    return array.join(", ");
+
+
+}
