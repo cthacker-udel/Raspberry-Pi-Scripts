@@ -29,5 +29,4 @@ class LeftFielder{
 
         void setDoublePlays(int);
 
-
 };

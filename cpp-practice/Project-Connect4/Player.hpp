@@ -15,4 +15,12 @@ class Player{
 
         Player(string,char);
 
+        void setPiece(char);
+
+        void setName(string);
+
+        char getPiece();
+
+        string getName();
+
 };
