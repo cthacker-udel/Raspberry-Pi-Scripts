@@ -38,3 +38,15 @@ char getPlayerFirstInitial(player *thePlayer){
     return thePlayer->firstInitial;
 
 }
+
+char getPlayerLastInitial(player *thePlayer){
+
+    return thePlayer->lastInitial;
+
+}
+
+char getPlayerPiece(player *thePlayer){
+
+    return thePlayer->piece;
+
+}

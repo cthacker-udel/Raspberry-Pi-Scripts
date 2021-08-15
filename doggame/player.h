@@ -17,6 +17,8 @@ int getPlayerStrength(player *);
 
 player *createPlayer();
 
-char getPlayerFirstInitial(player *));
+char getPlayerFirstInitial(player *);
 
 char getPlayerLastInitial(player *);
+
+char getPlayerPiece(player *);
