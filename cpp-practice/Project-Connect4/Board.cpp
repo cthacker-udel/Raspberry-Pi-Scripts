@@ -36,8 +36,8 @@ bool Board::checkPiece(int x, int y, Player *thePlayer){
                 return false;
             }
             else{
-                // valid placement
-                return true;
+                // invalid placement -- cannot place on top of piece
+                return false;
             }
             break;
         }
@@ -48,7 +48,8 @@ bool Board::checkPiece(int x, int y, Player *thePlayer){
                 return false;
             }
             else{
-                return true;
+                // invalid placement -- cannot place on top of piece
+                return false;
             }
 
         }
