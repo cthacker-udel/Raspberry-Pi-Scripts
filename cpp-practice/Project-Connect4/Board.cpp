@@ -40,6 +40,16 @@ int Board::checkDirection(int direction, int x, int y,Player *thePlayer){
             if(thePlayer == this->player1){
 
                 // player is player1
+                // decrement y while keeping x the same
+                int count = 0;
+                for(int i = x, j = y; j >= 0; j--){
+
+                    if(*(*(this->board+i)+y) == this->player1->piece){
+                        count++;
+                    }
+
+                }
+                return count;
 
             }
             else{
