@@ -7,6 +7,7 @@ typedef struct thePlayer{
 
     char *name;
     int strength;
+    char piece;
     char firstInitial;
     char lastInitial;
 
