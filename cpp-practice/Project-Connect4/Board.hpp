@@ -14,6 +14,8 @@ class Board{
 
         Board();
 
+        bool checkPiece(int,int,Player*);
+
         bool placePiece(int,int,Player*);
 
 

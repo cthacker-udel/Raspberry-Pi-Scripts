@@ -2,6 +2,20 @@
 
 
 bool Board::placePiece(int x, int y, Player *thePlayer){
+
+    bool result = checkPiece(x,y,thePlayer);
+
+    if(result){
+        *(*(this->board+x)+y) = thePlayer->piece;
+        return true;
+    }
+    else{
+        return false;
+    }
+
+}
+
+bool Board::checkPiece(int x, int y, Player *thePlayer){
     
 
     char thePiece = *(*(board+x)+y);
@@ -160,6 +174,10 @@ Board::Board(){
 
 
 Board::Board(int newSize){
+
+    if(newSize < 4){
+        newSize = 4;
+    }
 
     this->size = newSize;
     this->board = new char[size][size];
