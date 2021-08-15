@@ -18,5 +18,7 @@ class Board{
 
         bool placePiece(int,int,Player*);
 
+        int checkDirection(int,int,int,Player *);
+
 
 };

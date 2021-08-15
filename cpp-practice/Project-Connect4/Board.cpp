@@ -15,6 +15,12 @@ bool Board::placePiece(int x, int y, Player *thePlayer){
 
 }
 
+int Board::checkDirection(int direction, int x, int y,Player *thePlayer){
+
+}
+
+
+
 bool Board::checkPiece(int x, int y, Player *thePlayer){
     
 
