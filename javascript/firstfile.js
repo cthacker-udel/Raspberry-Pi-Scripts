@@ -7069,3 +7069,38 @@ console.log(correctSentences (" he is ready to join   airforce  Waiting for the 
 //" his english is not good Help him     Thank you"), "His english is not good. Help him. Thank you.")
 
 
+function doubledPay(n){
+
+    let total = 0;
+    let base_pay = 1;
+
+    for(let i = 0; i < n; i++){
+        total += base_pay;
+        base_pay *= 2;
+    }
+    return total;
+
+}
+
+function superheroes(heroes){
+
+    return heroes.filter(e => e.endsWith("man") && !e.toLowerCase().endsWith("woman")).sort();
+
+}
+
+function invert(obj){
+
+    let newObj = {};
+
+    let keys = Object.keys(obj);
+
+    for(let i = 0; i < keys.length; i++){
+
+        newObj[obj[keys[i]]] = keys[i];
+
+    }
+    return newObj;
+
+}
+
+
