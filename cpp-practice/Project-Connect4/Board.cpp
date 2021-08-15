@@ -18,6 +18,150 @@ bool Board::placePiece(int x, int y, Player *thePlayer){
 int Board::checkDirection(int direction, int x, int y,Player *thePlayer){
 
     // implement checkDirection
+    /*
+
+    Directions:
+
+    1)North
+    2)North-East
+    3)East
+    4)South-East
+    5)South
+    6)South-West
+    7)West
+    8)North-West
+
+    */
+
+   switch(direction){
+
+       case 1:{//N
+
+            if(thePlayer == this->player1){
+
+                // player is player1
+
+            }
+            else{
+
+                // player is player2
+
+            }
+
+           break;
+       }
+       case 2:{//NE
+
+            if(thePlayer == this->player1){
+
+                // player is player1
+
+            }
+            else{
+
+                // player is player2
+
+            }
+
+           break;
+       }
+       case 3:{//E
+
+            if(thePlayer == this->player1){
+
+                // player is player1
+
+            }
+            else{
+
+                // player is player2
+
+            }
+
+           break;
+       }
+       case 4:{//SE
+
+            if(thePlayer == this->player1){
+
+                // player is player1
+
+            }
+            else{
+
+                // player is player2
+
+            }
+
+           break;
+       }
+       case 5:{//S
+
+            if(thePlayer == this->player1){
+
+                // player is player1
+
+            }
+            else{
+
+                // player is player2
+
+            }
+
+           break;
+       }
+       case 6:{//SW
+
+            if(thePlayer == this->player1){
+
+                // player is player1
+
+            }
+            else{
+
+                // player is player2
+
+            }
+
+           break;
+       }
+       case 7:{//W
+
+            if(thePlayer == this->player1){
+
+                // player is player1
+
+            }
+            else{
+
+                // player is player2
+
+            }
+
+           break;
+       }
+       case 8:{//NW
+
+            if(thePlayer == this->player1){
+
+                // player is player1
+
+            }
+            else{
+
+                // player is player2
+
+            }
+
+            break;
+       }
+       default:{
+           // error
+           break;
+       }
+
+   }
+
 
 }
 
