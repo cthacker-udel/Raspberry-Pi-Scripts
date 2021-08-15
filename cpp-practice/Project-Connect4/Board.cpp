@@ -17,6 +17,8 @@ bool Board::placePiece(int x, int y, Player *thePlayer){
 
 int Board::checkDirection(int direction, int x, int y,Player *thePlayer){
 
+    // implement checkDirection
+
 }
 
 
