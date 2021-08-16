@@ -7031,7 +7031,7 @@ function variableValid(theVar){
     return !digits.includes(theVar.charAt(0)) && !theVar.includes(" ");
 
 }
-     */
+
 
 function correctSentences(sentence){
 
@@ -7102,5 +7102,76 @@ function invert(obj){
     return newObj;
 
 }
+
+function isPotentialFriend(friend1,friend2){
+
+    return friend1.filter(e => friend2.includes(e)).length >= 2 || (friend1.length === friend2.length && friend1.filter(e => friend2.includes(e)).length === friend2.length);
+
+}
+
+function spaceWeights(planet1,weight,planet2){
+
+    let planetWeights = {"Mercury": 3.7, "Venus": 8.87, "Earth": 9.81, "Mars": 3.711, "Jupiter": 24.79, "Saturn": 10.44, "Uranus": 8.69, "Neptune": 11.15};
+
+    let gravForce = planetWeights[planet2];
+
+    return parseFloat(Number((weight / planetWeights[planet1]) * gravForce).toFixed(2));
+
+}
+
+function isCentral(aStr){
+
+    let theChar = aStr.trim().charAt(0);
+    let indexOf = aStr.indexOf(theChar);
+
+    return aStr.substring(0,indexOf).length === aStr.substring(indexOf+1).length;
+
+}
+
+
+function shirtSize({size = "big"}={}){
+    return size;
+}
+
+let result = shirtSize();
+
+
+
+function fibonacciSequence(){
+
+    let sequence = [0,1];
+
+    for(;;){
+        let n1 = sequence[sequence.length-1];
+        let n2 = sequence[sequence.length-2];
+        let currentNumber = sequence[sequence.length-1] + sequence[sequence.length-2];
+        sequence.push(currentNumber);
+        if(currentNumber === 233){
+            break;
+        }
+    }
+    return sequence;
+
+}
+
+console.log(fibonacciSequence());
+
+     */
+
+
+function sumOfTwo(pair1,pair2,v){
+                                // 0,1,2                                                    // 0,1,2,3,4 --> [0]+[0] == v
+    let results = [];
+    let res = [...Array(pair1.length).keys()].filter(e => [...Array(pair2.length).keys()].filter(f => pair2[f]+pair1[e] === v).forEach(x => results.push([e,x])));
+    return results.flat(Infinity).length > 0;
+
+}
+
+console.log(sumOfTwo([1,2,3], [10,20,30,40,50], 42));// true)
+console.log(sumOfTwo([1,2,3], [10,20,30,40,50], 44));// false)
+console.log(sumOfTwo([1,2,3], [10,20,30,40,50], 11));// true)
+console.log(sumOfTwo([1,2,3], [10,20,30,40,50], 60));// false)
+console.log(sumOfTwo([1,2,3], [10,20,30,40,50], 53));// true)
+console.log(sumOfTwo([1,2,3], [10,20,30,40,50], 4));// false)
 
 
