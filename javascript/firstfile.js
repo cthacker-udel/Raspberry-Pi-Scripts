@@ -2777,7 +2777,7 @@ function isVowelSandwich(aStr){
 }
 
 
- */
+
 function signAll(obj,name){
 
     let tempObj = obj;
@@ -2845,8 +2845,9 @@ signAll(obj, name);
     signature: name,
 })
 
-     */
+
 signAll(obj2, name);
+ */
 
     /*
     , {
@@ -7156,7 +7157,7 @@ function fibonacciSequence(){
 
 console.log(fibonacciSequence());
 
-     */
+
 
 
 function sumOfTwo(pair1,pair2,v){
@@ -7167,11 +7168,356 @@ function sumOfTwo(pair1,pair2,v){
 
 }
 
-console.log(sumOfTwo([1,2,3], [10,20,30,40,50], 42));// true)
-console.log(sumOfTwo([1,2,3], [10,20,30,40,50], 44));// false)
-console.log(sumOfTwo([1,2,3], [10,20,30,40,50], 11));// true)
-console.log(sumOfTwo([1,2,3], [10,20,30,40,50], 60));// false)
-console.log(sumOfTwo([1,2,3], [10,20,30,40,50], 53));// true)
-console.log(sumOfTwo([1,2,3], [10,20,30,40,50], 4));// false)
+//console.log(sumOfTwo([1,2,3], [10,20,30,40,50], 42));// true)
+//console.log(sumOfTwo([1,2,3], [10,20,30,40,50], 44));// false)
+//console.log(sumOfTwo([1,2,3], [10,20,30,40,50], 11));// true)
+//console.log(sumOfTwo([1,2,3], [10,20,30,40,50], 60));// false)
+//console.log(sumOfTwo([1,2,3], [10,20,30,40,50], 53));// true)
+//console.log(sumOfTwo([1,2,3], [10,20,30,40,50], 4));// false)
 
 
+function toBinary(num){
+
+    let binaryArr = [];
+    while(num / 2 != 0){
+        binaryArr.push(num % 2);
+        num = Math.floor(num / 2);
+    }
+    return binaryArr.reverse().map(e => String(e)).join("");
+
+}
+
+console.log(toBinary(12));
+
+function completelyFilled(box){
+
+    if(box[0].length === 2){
+        return true;
+    }
+    else{
+        for(let i = 1; i < box.length-1; i++){
+            let section = box[i];
+            if(section.split("").filter(e => e === "*").length === section.length-2){
+                // valid section
+            }
+            else{
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+function turnCalc(num){
+
+    let letterKeys = {0: "O", 1: "I", 2: "Z", 3: "E", 4: "H", 5: "S", 6: "G", 7: "L", 8: "B", 9: "-"};
+
+    return String(num).split("").map(e => letterKeys[Number(e)]).reverse().join("");
+
+}
+
+
+//console.log(turnCalc(707));
+
+function removeEntry(obj,itemName){
+
+    let newObj = {};
+
+    for(let i of Object.keys(obj)){
+        newObj[i] = obj[i];
+    }
+
+    delete newObj[itemName];
+
+    return newObj;
+
+}
+
+const random = Math.random();
+const obj = {piano: random, tv: 100};
+console.log(removeEntry(obj, "tv"));
+let res = Object.is(removeEntry(obj, "tv"),obj);
+
+
+function calculateArrowhead(movements){
+
+    let direction = movements.join("").split("").map(e => e === ">"? 1 : -1).reduce((a,b) => a+b);
+    // negative : left, positive : right
+    return direction < 0? "<".repeat(Math.abs(direction)): direction > 0? ">".repeat(direction): "";
+}
+
+function rearrangedDifference(num){
+
+    let min = Number(String(num).split("").map(e => Number(e)).sort().map(e => String(e)).join(""));
+    let max = Number(String(num).split("").map(e => Number(e)).sort().map(e => String(e)).reverse().join(""));
+    return max - Number(String(num).split("").map(e => Number(e)).sort().map(e => String(e)).join(""));
+
+}
+
+rearrangedDifference(972882)
+
+function winRound(cards1,cards2){
+    cards1 = cards1.sort();
+    cards2 = cards2.sort();
+    let res1 = Number(String(cards1[cards1.length-1]) + String(cards1[cards1.length-2]));
+    let res2 = Number(String(cards2[cards2.length-1]) + String(cards2[cards2.length-2]));
+
+    return  res1 > res2? true: res1 < res2? false: false;
+
+}
+
+function isNarcissistic(num){
+
+    return num === String(num).split("").map(e => Math.pow(Number(e),String(num).length)).reduce((a,b) => a+b);
+
+}
+
+function verbify(phrase){
+
+    phrase = phrase.split(" ");
+    if(phrase[0].endsWith("ed")){
+        // valid phrase
+        phrase = phrase.join(" ");
+    }
+    else{
+        if(phrase[0].endsWith("e")){
+            phrase = `${phrase[0] + "d"} ${phrase[1]}`;
+        }
+        else{
+            phrase = `${phrase[0] + "ed"} ${phrase[1]}`;
+        }
+    }
+    return phrase;
+
+}
+
+function findCadence(cadences){
+
+    let obj = {"V-I": "perfect", "IV-I": "plagal", "V-III": "interrupted", "V-IV": "interrupted", "IV-V": "imperfect", "III-V": "imperfect", "I-V": "imperfect", "V-VI": "interrupted"};
+
+    let cadence = cadences[cadences.length-2].toUpperCase() + "-" + cadences[cadences.length-1].toUpperCase();
+
+    return Object.keys(obj).includes(cadence)? obj[cadence]: "no cadence";
+
+}
+
+console.log(findCadence(["I", "IV", "V"]));// "imperfect")
+console.log(findCadence(["ii", "V", "I"]));// "perfect")
+console.log(findCadence(["I", "IV", "I", "V", "vi"]));// "interrupted")
+console.log(findCadence(["I", "IV", "I", "V", "IV"]));// "interrupted")
+console.log(findCadence(["I", "III", "IV", "V"]));// "imperfect")
+console.log(findCadence(["I", "IV", "I"]));// "plagal")
+console.log(findCadence(["V", "IV", "I"]));// "plagal")
+console.log(findCadence(["V", "IV", "V", "I"]));// "perfect")
+console.log(findCadence(["V", "IV", "V", "I", "vi"]));// "no cadence")
+console.log(findCadence(["V", "IV", "V", "III", "vi"]));// "no cadence")
+
+function centroid(x1,y1,x2,y2,x3,y3){
+
+    if((x1*(y2-y3)+x2*(y3-y1)+x3*(y1-y2)) === 0){
+        return false;
+    }
+
+    return [Number(Number((x1+x2+x3) / 3).toFixed(2)),Number(Number((y1+y2+y3) / 3).toFixed(2))];
+
+}
+
+function letterCheck(arr){
+
+    let str1 = arr[0].toLowerCase();
+    let str2 = arr[1].toLowerCase();
+
+    return str2.split("").filter(e => str1.includes(e)).length === str2.length;
+
+}
+
+function prime(num){
+
+    if(num === 2 || num === 3 || num === 5){
+        return true;
+    }
+    else if(num % 2 === 0 || num % 3 === 0 || num % 5 === 0){
+        return false;
+    }
+    else{
+
+        for(let i = 2; i < Math.sqrt(num); i++){
+            if(num % i === 0){
+                return false;
+            }
+        }
+        return true;
+
+    }
+
+}
+
+function notGoodMath(n,k){
+
+    for(let i = 0; i < k; i++){
+        if(n % 10 === 0){
+            n = n / 10;
+        }
+        else {
+            n -= 1;
+        }
+    }
+    return n;
+
+}
+
+notGoodMath(540, 5)
+
+function dataType(obj){
+
+    if(obj !== null && obj !== undefined) {
+        let construct = obj.constructor.name;
+        //console.log(`construct = ${construct}`);
+        return construct.toLowerCase();
+    }
+    return obj === null? "null": "undefined";
+
+}
+
+console.log(dataType([1, 2, 3, 4, 5]));// "array")
+console.log(dataType({key: "value"}));// "object")
+console.log(dataType("This is an example string..."));// "string")
+console.log(dataType(2017));// "number")
+console.log(dataType(true));// "boolean")
+console.log(dataType(null));// "null")
+console.log(dataType(undefined));// "undefined")
+console.log(dataType(new Date()));// "date")
+
+
+function move(aStr){
+
+    let alphabet = "abcdefghijklmnopqrstuvwxyz";
+
+    return aStr.split("").map(e => alphabet[alphabet.indexOf(e)+1]).join("");
+
+}
+
+function reverseWords(aStr){
+
+    let iter = 0;
+    return aStr.trim().split(" ").reverse().join(" ");
+
+}
+
+function howCloseToC(num){
+
+    let b = 1/Math.cosh(2*num);
+    return Number(b).toExponential(2);
+
+}
+
+console.log(howCloseToC(42));
+
+function scaleTip(arr){
+
+    let tot1 = 0;
+    let tot2 = 0;
+    let middle = Math.floor(arr.length / 2);
+    for(let i = 0; i < middle; i++){
+        tot1 += arr[i];
+    }
+    for(let i = middle+1; i < arr.length; i++){
+        tot2 += arr[i];
+    }
+    return tot1 > tot2? "left": tot1 < tot2? "right": "balanced";
+
+}
+
+function littleBig(num){
+
+    let arr = [0];
+    let counter = 5;
+    let sum = 100;
+    for(let i = 0; i < num; i++){
+        arr.push(counter++);
+        arr.push(sum);
+        sum *= 2;
+    }
+    return arr[num];
+
+}
+
+
+function carTimer(n){
+
+    let hours = 0;
+    while(n >= 60){
+        hours++;
+        n -= 60;
+    }
+
+    let timeString = `${String(hours).padStart(2,"0")}:${String(n).padStart(2,"0")}`
+    let digits = "0123456789";
+
+    return timeString.split("").filter(e => digits.includes(e)).map(e => Number(e)).reduce((a,b) => a+b);
+
+}
+
+console.log(carTimer(240));// 4)
+console.log(carTimer(808));// 14)
+console.log(carTimer(1439));// 19)
+console.log(carTimer(0));// 0)
+console.log(carTimer(23));// 5)
+console.log(carTimer(8));// 8)
+
+function normalize(astr){
+
+    if(astr.toUpperCase() === astr){
+
+        return astr.charAt(0).toUpperCase() + astr.substring(1).toLowerCase()+"!";
+
+    }
+    else{
+        return astr;
+    }
+
+}
+
+function lottery(arr,numwins){
+
+    return arr.map(e => e[0].split("").map(f => f.charCodeAt(0)).filter(f => f === e[1]).length > 0).map(e => e === true? 1: 0).reduce((a,b) => a+b) >= numwins? "Winner!": "Loser!";
+
+}
+
+console.log(lottery([['YYW', 70], ['WXK', 65], ['RPDI', 88]], 2));// 'Loser!')
+console.log(lottery([['KG', 80], ['NTBBVZ', 79], ['CI', 73], ['AGXMEE', 74], ['IU', 68], ['VOSP' , 84]], 1));// 'Winner!')
+console.log(lottery([['ZSAMZB', 81], ['XWWCXP', 72], ['SYBRQOHP', 88], ['HJSVV', 75]], 1));// 'Loser!')
+console.log(lottery([['GM', 84], ['KLJ', 86], ['UOF', 77], ['JKC', 84], ['RUI', 72]], 3));// 'Loser!')
+console.log(lottery([['CXFAFUOW', 90], ['VKKC', 74], ['OPYVAUR', 84], ['WTMRW', 79], ['ZIL', 84], ['TDQMZD', 74], ['MR', 66], ['IQ', 86], ['JTBX', 88], ['ZJKX', 77]], 4));// 'Loser!')
+console.log(lottery([['SHUT', 85], ['DOWPKSLD', 80], ['QOOGBTDG', 85], ['EID', 68], ['EZKKAEYW', 81], ['OYQBJCJE', 86], ['WYTDAMFI', 87], ['CW', 89], ['BICKVN', 76], ['BQH', 79]], 3));// 'Winner!')
+console.log(lottery([['GITVQFQ', 65], ['VCQ', 71], ['DLK', 70], ['HUVMWH', 80], ['PLUYERTX', 68], ['JVJSHC', 81], ['OUSXBLP', 77], ['IGNCP', 82], ['LV', 65]], 9));// 'Loser!')
+console.log(lottery([['CKLD', 80], ['VDGDL', 78], ['LKAJBSPM', 74], ['CCPNIE', 67], ['GS', 77], ['QYWGWS', 83], ['XLJUE', 73], ['CMUCLWE', 70],['MHM', 90]], 8));// 'Loser!')
+console.log(lottery([['TRJZKKCQ', 81], ['KYC', 80], ['WU', 66], ['MFTWCFZ', 83], ['TNIRSP', 72], ['VC', 86], ['AINOS', 87], ['RGROXMF', 86], ['URKVFY', 70]], 3));// 'Winner!')
+console.log(lottery([['XONLHEB', 71], ['FXMR', 65],['WMGY' , 89]], 1));// 'Winner!')
+
+
+
+function add(num1,num2){
+
+    return (num1 !== null && num2 !== null && num1 !== undefined && num2 !== undefined && num1 !== "" && num2 !== "")? String(parseInt(num1) + parseInt(num2)): "Invalid Operation";
+
+}
+
+add('', '6')
+
+function countIdentical(matrix){
+
+    let count = 0;
+    for(let i = 0; i < matrix; i++){
+        let arr = matrix[i];
+        if(new Set(arr).size === 1){
+            count++;
+        }
+    }
+    return count;
+
+}
+
+countIdentical([[1], [2], [3], [4]])
+
+     */
