@@ -4,8 +4,8 @@ using namespace std;
 
 class Game{
 
-    string stadium name;
-    int fans,
+    string stadiumName;
+    int fans;
     string winner;
 
 };
