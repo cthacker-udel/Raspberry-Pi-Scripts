@@ -158,9 +158,28 @@ int Board::checkDirection(int direction, int x, int y,Player *thePlayer){
             if(thePlayer == this->player1){
 
                 // player is player1
+                // row+1, col-same
+
+                for(int i = x; i < this->size; i++){
+                    
+                    if(*(*(this->board+i)+y) == this->player1->piece){
+                        count++;
+                    }
+
+                }
+                return count;
 
             }
             else{
+
+                for(int i = x; i < this->size; i++){
+
+                    if(*(*(this->board+i)+y) == this->player2->piece){
+                        count++;
+                    }
+
+                }
+                return count;
 
                 // player is player2
 
