@@ -15,4 +15,19 @@ class Team{
     int championshipsWon;
     int playoffGamesWon;
 
+    public:
+
+        string getName();
+        int getNumPlayers();
+
+        void addPlayer();
+
+        int getWins();
+
+        int getLosses();
+
+        int getChampionshipsWon();
+
+        int getPlayoffGamesWon();
+
 };
