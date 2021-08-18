@@ -32,7 +32,7 @@ int Board::checkDirection(int direction, int x, int y,Player *thePlayer){
     8)North-West
 
     */
-
+   int count = 0;
    switch(direction){
 
        case 1:{//N
@@ -41,7 +41,6 @@ int Board::checkDirection(int direction, int x, int y,Player *thePlayer){
 
                 // player is player1
                 // decrement y while keeping x the same
-                int count = 0;
                 for(int i = x, j = y; j >= 0; j--){
 
                     if(*(*(this->board+i)+y) == this->player1->piece){
@@ -65,11 +64,29 @@ int Board::checkDirection(int direction, int x, int y,Player *thePlayer){
             if(thePlayer == this->player1){
 
                 // player is player1
+                // row-1 j+1
+                for(int i = x, j= y; j < this->size && i >= 0; i--,j++){
+
+                    if(*(*(this->board+i)+y) == this->player1->piece){
+                        count++;
+                    }
+
+                }
+                return count;
 
             }
             else{
 
                 // player is player2
+
+                for(int i = x, j = y; i >= 0 && j < this->size; i--,j++){
+
+                    if(*(*(this->board+i)+j) == this->player2->piece){
+                        count++;
+                    }
+
+                }
+                return count;
 
             }
 
