@@ -19,6 +19,6 @@ int getSize(board *);
 
 char getDefPiece(board *);
 
-void setDefPiece(char);
+void setDefPiece(char, board *);
 
 

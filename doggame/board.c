@@ -37,3 +37,21 @@ player *getPlayer2(board *theboard){
 
 }
 
+int getSize(board *theboard){
+
+    return theboard->size;
+
+}
+
+char getDefPiece(board *theboard){
+
+    return theboard->defaultPiece;
+
+}
+
+void setDefPiece(char thePiece, board *theboard){
+
+    theboard->defaultPiece = thePiece;
+
+}
+
