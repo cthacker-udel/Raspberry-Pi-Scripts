@@ -42,6 +42,20 @@ void makeStartFinish(board *theboard){
 
 }
 
+void printBoard(board *theboard){
+
+    for(int i = 0; i < theboard->size; i++){
+
+        for(int j = 0; j < theboard->size; j++){
+
+            printf(" %c ",*(*(theboard->theboard+i)+j));
+
+        }
+
+    }
+
+}
+
 player *getPlayer1(board *theboard){
 
     return theboard->player1;

@@ -24,4 +24,6 @@ void setDefPiece(char, board *);
 
 void makeStartFinish(board *);
 
+void printBoard(board *);
+
 
