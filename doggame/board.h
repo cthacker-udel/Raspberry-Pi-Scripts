@@ -2,8 +2,8 @@
 
 typedef struct theBoard{
 
-    player player1;
-    player player2;
+    player *player1;
+    player *player2;
     int size;
     char defaultPiece;
 
@@ -11,13 +11,13 @@ typedef struct theBoard{
 
 board *makeBoard();
 
-player getPlayer1();
+player *getPlayer1(board *);
 
-player getPlayer2();
+player *getPlayer2(board *);
 
-int getSize();
+int getSize(board *);
 
-char getDefPiece();
+char getDefPiece(board *);
 
 void setDefPiece(char);
 
