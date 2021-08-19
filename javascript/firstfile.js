@@ -7520,4 +7520,100 @@ function countIdentical(matrix){
 
 countIdentical([[1], [2], [3], [4]])
 
+
+
+function freeThrows(percent,attempts){
+
+     percent = parseFloat(percent.replace("%","")) / 100;
+     let tmpPercent = percent;
+     for(let i = 1; i < attempts; i++){
+          percent = percent * tmpPercent;
+     }
+     percent = Number(Number(percent).toFixed(2))*100;
+     return `${percent}%`;
+
+
+}
+
+console.log(freeThrows("50%", 5));// "3%")
+console.log(freeThrows("75%", 10));// "6%")
+console.log(freeThrows("25%", 3));// "2%")
+console.log(freeThrows("90%", 30));// "4%")
+
      */
+function calc(aStr){
+
+     // continuingly adding digits
+     let tot1 = 0;
+     let tot2 = 0;
+
+     for(let i = 0; i < aStr.length; i++){
+
+          let charCode = aStr[i].charCodeAt(0);
+          let num1 = charCode;
+          let num2 = Number(String(charCode).split("").map(e => e === "7"? "1": e).join(""));
+          let sumDigit1 = String(num1).split("").map(e => Number(e)).reduce((a,b) => a+b);
+          let sumDigit2 = String(num2).split("").map(e => Number(e)).reduce((a,b) => a+b);
+          tot1 += sumDigit1;
+          tot2 += sumDigit2;
+     }
+
+     console.log(tot1 - tot2);
+     return tot1 - tot2;
+
+     //let num1 = Number(aStr.split("").map(e => e.charCodeAt(0)).map(e => String(e)).join(""));
+     //let num2 = Number(aStr.split("").map(e => e.charCodeAt(e)).join(""));
+     //let numint1 = BigInt(num1).toString();
+     //let numint2 = BigInt(num2).toString().split("").map(e => e === "7"? "1": e).join("");//BigInt(num2).toString().split("").map(e => String(e).split("").map(e => e === "7"? "1": e));
+     //let numstr1 = numint1.split("").map(e => +e).reduce((a,b) => a+b);
+     //let numstr2 = numint2.split("").map(e => +e).reduce((a,b) => a+b);
+     //return 0;
+
+     //return BigInt(Number(aStr.split("").map(e => e.charCodeAt(0)).map(e => String(e)).join(""))).toString().split("").map(e => Number(e)).reduce((a,b) => a+b) -
+     //    BigInt(Number(aStr.split("").map(e => e.charCodeAt(e)).join(""))).toString().split("").map(e => String(e).split("").map(e => e === "7"? "1": e)).map(e => Number(e)).reduce((a,b) => a+b);
+
+}
+
+console.log(calc('ABCDabcd'));// 12)
+console.log(calc('cdefgh'));// 0)
+console.log(calc('ifkhchlhfde'));// 6)
+console.log(calc('aaaaaddddrijkl'));// 36)
+console.log(calc('abcdefghijklmnopqrstuvwxyz'));// 18)
+console.log(calc('AABBCC'));// 12)
+console.log(calc('ABCDEFGH'));// 24)
+console.log(calc('anmatmudtr'));// 18)
+console.log(calc('suwvete'));// 6)
+console.log(calc('edabit'));// 6)
+console.log(calc('EDABIT'));// 6)
+console.log(calc('SLOWLLLY'));// 36)
+console.log(calc('COMEnananan'));// 42)
+console.log(calc('coupdetat'));// 12)
+console.log(calc('arsenal'));// 12)
+console.log(calc('byoaaasglrrsA'));// 18)
+console.log(calc('byoglrrsA'));// 0)
+console.log(calc('eyyyhenDDDUEN'));// 6)
+console.log(calc('ABCDEFGHIJKLMNOPQRSTUVWXYZ'));// 78)
+console.log(calc('zyxwvutsrqpon'));// 6)
+console.log(calc('ZYXWVUTSR'));// 6)
+
+function flash([num1,op,num2]){
+
+     switch(op){
+
+          case "+":
+               return num1+num2;
+          case "-":
+               return num1-num2;
+          case "x":
+               return num1*num2;
+          case "/":
+               if(num2 === 0){
+                    return undefined;
+               }
+               else{
+                    return Number(Number(num1/num2).toFixed(2));
+               }
+
+     }
+
+}
