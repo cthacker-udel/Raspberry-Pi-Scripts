@@ -25,6 +25,12 @@ board *makeBoard(){
 
 }
 
+void makeStartFinish(board *theboard){
+
+    int randomX = rand();
+
+}
+
 player *getPlayer1(board *theboard){
 
     return theboard->player1;
