@@ -2,6 +2,7 @@
 
 typedef struct theBoard{
 
+    char **theboard;
     player *player1;
     player *player2;
     int size;

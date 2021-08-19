@@ -9,6 +9,13 @@ board *makeBoard(){
 
     printf("\nEnter the board size: lowest is 4");
     scanf("%d",&size);
+    theboard->theboard = malloc(sizeof(char*) * size);
+    for(int i = 0; i < size; i++){
+
+        *(theboard->theboard+i) = malloc(sizeof(char) * size);
+
+    }
+    // initializing the board
 
     player *player1 = createPlayer();
     player *player2 = createPlayer();
@@ -27,7 +34,11 @@ board *makeBoard(){
 
 void makeStartFinish(board *theboard){
 
-    int randomX = rand();
+    int randomX = rand() % theboard->size; // set y to 0
+    int randomY = rand() % theboard->size; // set y to size-1
+
+    *(*(theboard->theboard+randomX)+0) = 'E';
+    *(*(theboard->theboard+randomY)+theboard->size-1) = 'F'; 
 
 }
 

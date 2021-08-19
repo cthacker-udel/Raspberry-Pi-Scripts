@@ -11,7 +11,7 @@ int main(void){
     srand(time(NULL));
     while(1){
 
-
+        
 
     }
 
