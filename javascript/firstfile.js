@@ -4086,7 +4086,7 @@ console.log(uniqueArr([-5, 1, -7, -5, -2, 3, 3, -5, -1, -1]));
 
 function getDay(dateStr){//MM/DD/YYYY
 
-    let theDate = new Date(parseInt(dateStr.split("/")[2]),parseInt(dateStr.split('/')[0])-1,parseInt(dateStr.split("/")[1]));
+    let theDate = new Date(parseInt(dateStr.split("/")[2]));//parseInt(dateStr.split('/')[0])-1,parseInt(dateStr.split("/")[1]));
 
     let theDay = theDate.getDay();
 
@@ -5194,7 +5194,7 @@ divingMinigame([1, 2, 1, 2, 1, 2, 1, 2, 1, -3, -4, -5, -3, -4])
 
 function flattenCurve(arr){
 
-    return arr.length > 1? arr.fill((Number(Number(arr.reduce((a,b) => a+b) / arr.length).toFixed(1))),0,arr.length): arr;
+    return arr.length > 1? arr.fill((Number(Number(arr.reduce((a,b) => a+b) / arr.length).toFixed(1))));//0,arr.length): arr;
 
 }
 
@@ -5237,7 +5237,7 @@ function mumbling(aStr){
 
     let newStr = "";
     for(let i = 0; i < aStr.length; i++){
-        newStr += repeatStr(aStr.charAt(i),i+1).capitalize();
+        newStr += repeatStr(aStr.charAt(i));//i+1).capitalize();
         if(i !== aStr.length-1){
             newStr += "-";
         }
@@ -5263,7 +5263,7 @@ function getDistance(a,b){
     let bX = b['x'];
     let bY = b['y'];
 
-    return Number(Number(Math.sqrt(Math.pow((bX - aX),2) + Math.pow((bY-aY),2))).toFixed(3));
+    return Number(Number(Math.sqrt(Math.pow((bX - aX));//2) + Math.pow((bY-aY));//2))).toFixed(3));
 
 
 }
@@ -5695,7 +5695,7 @@ function countLetter(aStr,letter){
 
 function calculateScore(score){
 
-    return [countLetter(score,"A"),countLetter(score,"B"),countLetter(score,"C")];
+    return [countLetter(score,"A"));//countLetter(score,"B"));//countLetter(score,"C")];
 
 
 }
@@ -5848,7 +5848,7 @@ function count(cards){
 
 function removeSmallest(arr){
 
-    arr.splice(arr.indexOf(Math.min(...arr)),1);
+    arr.splice(arr.indexOf(Math.min(...arr)));//1);
     return arr;
 
 
@@ -5964,7 +5964,7 @@ function replaceAll(aStr,letter,replaceVal){
 
 function isPalindrome(aStr){
 
-    aStr = replaceAll(replaceAll(replaceAll(aStr.trim().split(" ").join(""),",",""),"!",""),"-","").toLowerCase();
+    aStr = replaceAll(replaceAll(replaceAll(aStr.trim().split(" ").join(""));//",",""));//"!",""));//"-","").toLowerCase();
 
     for(let i = 0, j = aStr.length-1; i < Math.floor(aStr.length / 2) && j > Math.floor(aStr.length / 2); i++, j--){
         if(aStr.charAt(i) !== aStr.charAt(j)){
@@ -6252,7 +6252,7 @@ function removeEnemies(enemies,enemy){
 console.log(removeEnemies(["Steve", "Eleanor"], []));// ["Steve", "Eleanor"])
 console.log(removeEnemies(["Jeff", "Charlie", "James", "Fredrick"], ["James", "Jeff"]));// ["Charlie", "Fredrick"])
 console.log(removeEnemies(["Amelia", "Max", "Isobel", "Alex", "Phil"], ["Phil", "Max"]));// ["Amelia", "Isobel", "Alex"])
-console.log(removeEnemies(["John", "Skye", "Alexander", "Skye", "Tony"], ["Skye", "John"]), ["Alexander", "Tony"])
+console.log(removeEnemies(["John", "Skye", "Alexander", "Skye", "Tony"], ["Skye", "John"]));// ["Alexander", "Tony"])
 
 function isPrime(num){
 
@@ -6302,7 +6302,7 @@ function convertDate(theDate){
 
     let date = new Date(theDate);
 
-    return [date.getMonth()+1,date.getDate(),date.getFullYear()];
+    return [date.getMonth()+1,date.getDate());//date.getFullYear()];
 
 }
 
@@ -6345,7 +6345,7 @@ function splitStr(aStr){
 
 function compoundInterest(p,t,r,n){
 
-    return parseFloat(Number(p * Math.pow((1 + (r / n)),n*t)).toFixed(2));
+    return parseFloat(Number(p * Math.pow((1 + (r / n)));//n*t)).toFixed(2));
 
 }
 
@@ -7067,7 +7067,7 @@ function correctSentences(sentence){
 
 console.log(correctSentences (" he is ready to join   airforce  Waiting for the  final approval"));
 //"Mubashir loves edabit. Matt loves edabit."
-//" his english is not good Help him     Thank you"), "His english is not good. Help him. Thank you.")
+//" his english is not good Help him     Thank you"));// "His english is not good. Help him. Thank you.")
 
 
 function doubledPay(n){
@@ -7236,7 +7236,7 @@ function removeEntry(obj,itemName){
 const random = Math.random();
 const obj = {piano: random, tv: 100};
 console.log(removeEntry(obj, "tv"));
-let res = Object.is(removeEntry(obj, "tv"),obj);
+let res = Object.is(removeEntry(obj, "tv"));//obj);
 
 
 function calculateArrowhead(movements){
@@ -7268,7 +7268,7 @@ function winRound(cards1,cards2){
 
 function isNarcissistic(num){
 
-    return num === String(num).split("").map(e => Math.pow(Number(e),String(num).length)).reduce((a,b) => a+b);
+    return num === String(num).split("").map(e => Math.pow(Number(e));//String(num).length)).reduce((a,b) => a+b);
 
 }
 
@@ -7318,7 +7318,7 @@ function centroid(x1,y1,x2,y2,x3,y3){
         return false;
     }
 
-    return [Number(Number((x1+x2+x3) / 3).toFixed(2)),Number(Number((y1+y2+y3) / 3).toFixed(2))];
+    return [Number(Number((x1+x2+x3) / 3).toFixed(2)));//Number(Number((y1+y2+y3) / 3).toFixed(2))];
 
 }
 
@@ -7540,7 +7540,7 @@ console.log(freeThrows("75%", 10));// "6%")
 console.log(freeThrows("25%", 3));// "2%")
 console.log(freeThrows("90%", 30));// "4%")
 
-     */
+
 function calc(aStr){
 
      // continuingly adding digits
@@ -7616,4 +7616,164 @@ function flash([num1,op,num2]){
 
      }
 
+     const expr = /\x65\x64\x61\x62\x69\x74/g; // matches 'edabit'
+
+     function edaBit(start,end){
+
+          let arr = [];
+          for(let i = start; i <= end; i++){
+               if(i % 3 === 0 && i % 5 === 0){
+                    arr.push("EdaBit");
+               }
+               else if(i % 3 === 0){
+                    arr.push("Eda");
+               }
+               else if(i % 5 === 0){
+                    arr.push("Bit");
+               }
+               else{
+                    arr.push(i);
+               }
+          }
+          return arr;
+
+     }
+
 }
+
+
+function median(arr){
+
+     arr.sort((a,b) => a-b);
+     if(arr.length % 2 === 0){
+          let middle = Math.floor(arr.length / 2);
+          let lmiddle = middle-1;
+          return (arr[middle] + arr[lmiddle]) / 2;
+     }
+     else{
+          let middle = Math.floor(arr.length / 2);
+          return arr[middle];
+     }
+
+}
+
+median([20, 40, 20, 30, 50, 60, 70, 0, 20])
+
+const regexp = '/^\s+|/s+$/g';
+
+
+
+function calcBundledTemp(n,temp){
+
+     temp = temp.substring(0,temp.indexOf("*"));
+     temp = parseInt(temp);
+     let tenth = temp * .10;
+     for(let i = 0; i < n; i++){
+
+          temp += tenth;
+          tenth = temp * .10;
+
+     }
+     let newTemp = Number(Number(temp).toFixed(1));
+     if(Number.isInteger(newTemp)){
+          return `${newTemp}.0*C`;
+     }
+     else {
+          return `${newTemp}*C`;
+     }
+
+}
+
+console.log(calcBundledTemp(2, "10*C"));// "12.1*C")
+console.log(calcBundledTemp(1, "2*C"));// "2.2*C")
+console.log(calcBundledTemp(4, "6*C"));// "8.8*C")
+console.log(calcBundledTemp(20, "4*C"));// "26.9*C")
+console.log(calcBundledTemp(5, "20*C"));// "32.2*C")
+console.log(calcBundledTemp(20, "3*C"));// "20.2*C")
+console.log(calcBundledTemp(5, "18*C"));// "29.0*C")
+console.log(calcBundledTemp(4, "5*C"));// "7.3*C")
+console.log(calcBundledTemp(16, "17*C"));// "78.1*C")
+console.log(calcBundledTemp(15, "2*C"));// "8.4*C")
+console.log(calcBundledTemp(14, "10*C"));// "38.0*C")
+
+function sumOddAndEven(arr){
+
+     if(arr.length === 0){
+          return [0,0];
+     }
+
+     let evenSum = arr.filter(e => e % 2 === 0).reduce((a,b) => a+b);
+
+     let oddSum = arr.filter(e => e % 2 !== 0 || e === 0).reduce((a,b) => a+b);
+
+     return [evenSum,oddSum];
+
+}
+
+sumOddAndEven([0,0]);
+
+
+
+function calculateBonus(days){
+
+     if(days <= 32){
+          return 0;
+     }
+     else if(days <= 40){
+
+          return Math.abs(days-32)*325;
+
+     }
+     else if(days <= 48){
+
+          return Math.abs(40-days)*550 + 8*325;
+
+     }
+     else{
+
+          return 8*325 + 8*550 + Math.abs(48-days)*600;
+
+     }
+
+
+}
+
+
+console.log(calculateBonus(9));// 0)
+console.log(calculateBonus(15));// 0)
+console.log(calculateBonus(26));// 0)
+console.log(calculateBonus(32));// 0)
+console.log(calculateBonus(33));// 325)
+console.log(calculateBonus(37));// 1625)
+console.log(calculateBonus(39));// 2275)
+console.log(calculateBonus(40));// 2600)
+console.log(calculateBonus(41));// 3150)
+console.log(calculateBonus(43));// 4250)
+console.log(calculateBonus(50));// 8200)
+console.log(calculateBonus(51));// 8800)
+console.log(calculateBonus(65));// 17200)
+console.log(calculateBonus(68));// 19000)
+
+     */
+function expensiveOrders(orders,cost){
+
+     let keys = Object.keys(orders);
+     let tooExpensive = {};
+
+     for(let eachkey of keys){
+
+          if(orders[eachkey] > cost){
+               tooExpensive[eachkey] = orders[eachkey];
+          }
+
+     }
+     return tooExpensive;
+
+}
+
+console.log(JSON.stringify(expensiveOrders({"a": 3000, "b": 200, "c": 1050}, 1000)));// '{"a":3000,"c":1050}')
+console.log(JSON.stringify(expensiveOrders({"Gucci Fur": 24600, "Teak Dining Table": 3200, "Louis Vutton Bag": 5550, "Dolce Gabana Heels": 4000}, 20000)));// '{"Gucci Fur":24600}')
+console.log(JSON.stringify(expensiveOrders({"Deluxe Burger": 35, "Icecream Shake": 4, "Fries": 5}, 40)));// "{}")
+console.log(JSON.stringify(expensiveOrders({"Kyoto Ticket": 10, "Museum Exhibit": 30, "Kimono": 3000}, 5)));// '{"Kyoto Ticket":10,"Museum Exhibit":30,"Kimono":3000}')
+console.log(JSON.stringify(expensiveOrders({"Travis Scott burger": 6, "Bowl of Beans": 3, "Hand cuffs": 60, "RF Device": 150}, 42)));// '{"Hand cuffs":60,"RF Device":150}')
+
