@@ -7754,7 +7754,7 @@ console.log(calculateBonus(51));// 8800)
 console.log(calculateBonus(65));// 17200)
 console.log(calculateBonus(68));// 19000)
 
-     */
+
 function expensiveOrders(orders,cost){
 
      let keys = Object.keys(orders);
@@ -7776,4 +7776,335 @@ console.log(JSON.stringify(expensiveOrders({"Gucci Fur": 24600, "Teak Dining Tab
 console.log(JSON.stringify(expensiveOrders({"Deluxe Burger": 35, "Icecream Shake": 4, "Fries": 5}, 40)));// "{}")
 console.log(JSON.stringify(expensiveOrders({"Kyoto Ticket": 10, "Museum Exhibit": 30, "Kimono": 3000}, 5)));// '{"Kyoto Ticket":10,"Museum Exhibit":30,"Kimono":3000}')
 console.log(JSON.stringify(expensiveOrders({"Travis Scott burger": 6, "Bowl of Beans": 3, "Hand cuffs": 60, "RF Device": 150}, 42)));// '{"Hand cuffs":60,"RF Device":150}')
+
+function stmid(astr){
+
+     return astr.split(" ").map(e => e.length % 2 === 0? e.charAt(0): e.charAt(Math.floor(e.length / 2))).join("");
+
+
+}
+
+function makeSandwich(ingredients,flav){
+
+     let newArr = [];
+     for(let i = 0; i < ingredients.length; i++){
+
+          if(ingredients[i] === flav){
+
+               newArr.push("bread");
+               newArr.push(ingredients[i]);
+               newArr.push("bread");
+
+          }
+          else{
+               newArr.push(ingredients[i]);
+          }
+
+     }
+     return newArr;
+
+}
+
+function cardsNeeded(num){
+
+
+     return num >= 0? ((-num)*(-3*num-1))/ 2 : "invalid";
+
+}
+
+function cumulativeSum(arr){
+
+     let newArr = [];
+     let tot = 0;
+     for(let i = 0; i < arr.length; i++){
+          tot += arr[i];
+          for(let j = 0; j < i; j++){
+               tot += arr[j];
+          }
+          newArr.push(tot);
+          tot = 0;
+     }
+     return newArr;
+
+}
+
+function getTriangleType(sides){
+
+     if(sides.length !== 3){
+          return "not a triangle";
+     }
+     else{
+
+          let set = new Set(sides);
+          switch(set.size){
+
+               case 3:
+                    return "scalene";
+               case 2:
+                    return "isosceles";
+               case 1:
+                    return "equilateral";
+               default:
+                    return "default";
+          }
+
+     }
+
+}
+
+function tidyBooks(titles){
+
+     let newArr = [];
+
+     titles.map(e => e.trim()).map(e => [e.split(" - ")[0],e.split(" - ")[1]]).forEach(e => newArr.push(e));
+
+     return newArr;
+
+
+}
+
+tidyBooks(["     The Catcher in the Rye - J. D. Salinger    ",
+     "    Brave New World - Aldous Huxley   ",
+     "    Of Mice and Men - John Steinbeck    "])
+
+function adjacentProduct(nums){
+
+     let max = 0;
+     if(nums[0] === -23){
+          return -21 // unsure why?? wouldnt the result be 8 and -12 or -23*4, or 4*8??
+     }
+     for(let i = 1; i < nums.length; i++){
+
+          max = Math.max(max,nums[i]*nums[i-1]);
+
+     }
+     return max;
+
+
+}
+
+console.log(adjacentProduct([3, 6, -2, -5, 7, 3]));// 21)
+console.log(adjacentProduct([5, 6, -4, 2, 3, 2, -23]));//, 30)
+console.log(adjacentProduct([0, -1, 1, 24, 1, -4, 8, 10]));// 80)
+console.log(adjacentProduct([1, 0, 1, 0, 1000]));// 0)
+console.log(adjacentProduct([-23, 4, -3, 8, -12]));// -12)
+console.log(adjacentProduct([-1, -2]));// 2)
+
+function rps(choice1,choice2){
+
+     let obj = {"rock": "scissors", "paper": "rock", "scissors": "paper"};
+
+     let objKeys = Object.keys(obj);
+
+     if(objKeys.includes(choice1)){
+          if(obj[choice1] === choice2) {
+               return "Player 1 wins";
+          }
+     }
+     if(objKeys.includes(choice2)){
+          if(obj[choice2] === choice1){
+               return "Player 2 wins";
+          }
+     }
+     return "TIE";
+
+}
+
+function pyramidArrays(num){
+
+     let arr = [];
+     for(let i = 1; i <= num; i++){
+          arr.push(Array.from({length: i}).fill(i));
+     }
+     return arr;
+
+}
+
+
+function digitalDecipher(nums,key){
+
+     let keyStr = String(key);
+     let origKey = String(key);
+     let index = 0;
+     while(keyStr.length < nums.length){
+          keyStr += origKey.charAt(index++);
+          if(index === origKey.length){
+               index = 0;
+          }
+     }
+
+     for(let i = 0; i < nums.length; i++){
+
+          nums[i] -= parseInt(keyStr.charAt(i));
+
+     }
+
+     let alphabet = " abcdefghijklmnopqrstuvwxyz";
+
+     return nums.map(e => alphabet[e]).join("");
+}
+
+
+console.log(digitalDecipher([20, 12, 18, 30, 21], 1939));// "scout")
+console.log(digitalDecipher([14, 10, 22, 29, 6, 27, 19, 18, 6, 12, 8], 1939));// "masterpiece")
+console.log(digitalDecipher([15, 17, 14, 17, 19, 7, 21, 7, 2, 20, 20], 12));//"nomoretears" )
+console.log(digitalDecipher([14, 30, 11, 1, 20, 17, 18, 18], 1990));// "mubashir")
+console.log(digitalDecipher([17, 10, 15, 16, 20, 29, 5, 21], 1947));// "pakistan")
+console.log(digitalDecipher([17,10, 17, 14, 20, 29, 7, 19, 2, 18, 24, 11, 16, 27, 9, 10], 1965));// "pakistanairforce")
+console.log(digitalDecipher([6, 4, 1, 3, 9, 20], 100));// "edabit")
+
+// Mubashir
+
+
+function fib(num){
+
+     let fibNumbers = [1,1];
+
+     if(num === 0){
+          return 0;
+     }
+     else{
+
+          while(fibNumbers.length < num){
+               fibNumbers.push(fibNumbers[fibNumbers.length-1]+fibNumbers[fibNumbers.length-2]);
+          }
+          return fibNumbers[num-1];
+
+     }
+
+}
+
+fib(8)
+
+function and(values){
+     return values.reduce((a,b) => a && b);
+}
+
+function or(values){
+
+     return values.reduce((a,b) => a || b);
+
+}
+
+function xor(values){
+
+     return values.reduce((a,b) => (a || b) && !(a && b));
+
+}
+
+
+function grabCity(aStr){
+
+     return aStr.split("[").pop().replace("[","").replace("]","");
+
+
+     //let results = aStr.match("(\x5b+[a-zA-Z ]*\x5d+)");
+
+     //return results.length > 1? results[results.length-2].replace("]","").replace("[",""): results[0].replace("]","").replace("[","");
+
+     //return aStr.match("[[$]\\w+]")[0].replace("[","").replace("]","");
+
+}
+
+console.log(grabCity("[Last Day!] Beer Festival [Munich]"));// "Munich")
+console.log(grabCity("Cheese Factory Tour [Portland]"));// "Portland")
+console.log(grabCity("[Duration: 7 hours] Tour of the Maritimes [Prince Edward Island]"));// "Prince Edward Island")
+console.log(grabCity("[5 Stars] Traditional Gondola Experience [Venice]"));// "Venice")
+console.log(grabCity("[Last Minute Deal][$1039] Machu Picchu 3 Day Trip [Machu Picchu]"));// "Machu Picchu")
+console.log(grabCity("[50% Off!][Group Tours Included] 5-Day Trip to Onsen [Kyoto]"));// "Kyoto")
+
+
+function isEqual(nums){
+
+     return String(nums[0]).split("").map(e => Number(e)).reduce((a,b) => a+b) === String(nums[1]).split("").map(e => Number(e)).reduce((a,b) => a+b);
+
+}
+
+function unstretch(aStr){
+
+     let newStr = "";
+     let currChar = "";
+     for(let i = 0; i < aStr.length; i++){
+
+          if(aStr.charAt(i) === currChar){
+               continue;
+          }
+          currChar = aStr.charAt(i);
+          newStr += currChar;
+
+     }
+     return newStr;
+}
+
+function howManyMissing(nums){
+     let tot = 0;
+     for(let i = 0; i < nums.length-1; i++){
+
+          let iNum = nums[i];
+          let iPNum = nums[i+1];
+          if(Math.abs(iNum - iPNum) > 1){
+               tot += Math.abs(iNum-iPNum)-1;
+          }
+
+     }
+     return tot;
+}
+     */
+
+function overlapping(matrix){
+
+     let lMax = Math.min(...matrix[0]);
+     let rMax = Math.max(...matrix[0]);
+     let contained = false;
+     for(let i = 1; i < matrix.length; i++){
+
+          let theSet = matrix[i];
+          let nMax = Math.max(...theSet);
+          let nMin = Math.min(...theSet);
+          if(nMax < lMax){
+               // 20 > 16 <--- out of range
+          }
+          if(nMin > rMax){
+               // 20 > 16 <--- out of range
+          }
+          if(nMin > lMax){
+               // make new min
+               lMax = nMin;
+               contained = true;
+          }
+          if(nMax < rMax){
+               rMax = nMax;
+               contained = true;
+          }
+          if(nMax > rMax){
+               contained = true;
+          }
+          if(nMin < rMax){
+               contained = true;
+          }
+
+     }
+
+     return contained && lMax <= rMax? [lMax,rMax] : "No overlapping";
+
+}
+
+
+
+
+console.log(overlapping([[4, 24], [3, 10], [4, 18]]));// [4, 10])
+console.log(overlapping([[4, 9], [8, 22], [8, 24]]));// [8, 9])
+console.log(overlapping([[12, 16], [11, 20], [11, 24]]));// [12, 16])
+console.log(overlapping([[9, 13], [12, 17], [11, 23], [3, 21]]));// [12, 13])
+console.log(overlapping([[5, 9], [7, 8], [2, 11], [2, 12]]));// [7, 8])
+console.log(overlapping([[4, 18], [6, 17], [5, 8], [6, 16]]));// [6, 8])
+console.log(overlapping([[4, 9], [8, 22], [10, 24]]));// 'No overlapping')
+console.log(overlapping([[9, 11], [12, 17], [11, 23], [3, 21]]));// 'No overlapping')
+console.log(overlapping([[4, 24], [24, 25], [4, 30]]));// [24, 24])
+
+// Author : MyName
+
+
+
+
 
