@@ -118,7 +118,36 @@ int movePiece(int x, int y, int direction, player *theplayer, board *theboard, i
            break;
        }
 
-       case 2:{ // east
+       case 2:{ // east, x stays same, y+1
+
+            if(y == theboard->size-1){
+                // end of board <--- right side
+                return 0;
+            }
+
+            char iChar = *(*(theboard->theboard+x)+y+1);
+
+            if(iChar == '|' || iChar == '-'){
+                // wall ran into
+            }
+            else if(iChar == 'F'){
+                // food acquired
+            }
+            else if(iChar == 'T'){
+                // trap found
+            }
+            else{
+                // valid move, empty space
+
+                if(moveThePiece){
+                    // update spaces
+                    *(*(theboard->theboard+x)+y+1) = theplayer->piece;
+                    *(*(theboard->theboard+x)+y) = theboard->defaultPiece;
+                }
+                return 1;
+
+            }
+
            break;
        }
 
