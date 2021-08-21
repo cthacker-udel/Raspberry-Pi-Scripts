@@ -81,19 +81,23 @@ int movePiece(int x, int y, int direction, player *theplayer, board *theboard, i
                     // food - player gains strength
                     int randGain = (rand() % theplayer->strength)+1;
                     printf("\nYou stepped on food so you gain %d strength",randGain);
-                    theplayer->strength += randGain;
+                    if(moveThePiece){
+                        theplayer->strength += randGain;
+                    }
                 }
                 else if(upperChar == 'T'){
                     // trap - player loses strength
-                    int randLoss = (rand() % (theplayer->strength / 2))+1;
-                    theplayer->strength -= randLoss;
-                    printf("You lost %d strength, that brings your strength to : %d",randLoss,theplayer->strength);
-                    if(theplayer->strength <= 0){
-                        printf("\nYou have lost the game, your strength reached 0");
-                        return 0;
-                    }
-                    else{
-                        return 1;
+                    if(moveThePiece){
+                        int randLoss = (rand() % (theplayer->strength / 2))+1;
+                        theplayer->strength -= randLoss;
+                        printf("You lost %d strength, that brings your strength to : %d",randLoss,theplayer->strength);
+                        if(theplayer->strength <= 0){
+                            printf("\nYou have lost the game, your strength reached 0");
+                            return 0;
+                        }
+                        else{
+                            return 1;
+                        }
                     }
                 }
                 else{
