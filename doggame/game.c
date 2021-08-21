@@ -7,8 +7,8 @@
 
 int main(void){
 
-    board *theboard = makeBoard();
     srand(time(NULL));
+    board *theboard = makeBoard();
     while(1){
 
         
