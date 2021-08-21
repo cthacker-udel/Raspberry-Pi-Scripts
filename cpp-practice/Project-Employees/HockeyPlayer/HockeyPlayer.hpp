@@ -38,5 +38,7 @@ class HockeyPlayer{
 
         void setWeight(int);
 
+        string toString();
+
 
 };

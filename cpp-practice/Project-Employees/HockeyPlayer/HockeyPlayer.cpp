@@ -80,3 +80,16 @@ void HockeyPlayer::setWeight(int newWeight){
     this->weight = newWeight;
 
 }
+
+string HockeyPlayer::toString(){
+
+    string retString = "";
+    retString += "\n-- Name : " + this->name + " --\n";
+    retString += "\n-- DOB : " + this->dob + " --\n";
+    retString += "\n-- AGE : " + this->age + " --\n";
+    retString += "\n-- HEIGHT : " + this->height + " --\n";
+    retString += "\n-- WEIGHT : " + this->weight + " --\n";
+    return retString;
+
+
+}
