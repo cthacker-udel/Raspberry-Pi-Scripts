@@ -8049,7 +8049,7 @@ function howManyMissing(nums){
      }
      return tot;
 }
-     */
+
 
 function overlapping(matrix){
 
@@ -8089,20 +8089,79 @@ function overlapping(matrix){
 
 }
 
+function wormLength(worm){
+
+     let len = 0;
+     for(let i = 0; i < worm.length; i++){
+
+          let iChar = worm.charAt(i);
+          if(iChar !== '-'){
+               return "invalid";
+          }
+          else{
+               len++;
+          }
+
+     }
+     if(len === 0){
+          return "invalid";
+     }
+     return `${len*10} mm.`;
+
+}
 
 
 
-console.log(overlapping([[4, 24], [3, 10], [4, 18]]));// [4, 10])
-console.log(overlapping([[4, 9], [8, 22], [8, 24]]));// [8, 9])
-console.log(overlapping([[12, 16], [11, 20], [11, 24]]));// [12, 16])
-console.log(overlapping([[9, 13], [12, 17], [11, 23], [3, 21]]));// [12, 13])
-console.log(overlapping([[5, 9], [7, 8], [2, 11], [2, 12]]));// [7, 8])
-console.log(overlapping([[4, 18], [6, 17], [5, 8], [6, 16]]));// [6, 8])
-console.log(overlapping([[4, 9], [8, 22], [10, 24]]));// 'No overlapping')
-console.log(overlapping([[9, 11], [12, 17], [11, 23], [3, 21]]));// 'No overlapping')
-console.log(overlapping([[4, 24], [24, 25], [4, 30]]));// [24, 24])
+
+console.log(wormLength("----------"));// "100 mm.")
+console.log(wormLength(""));// "invalid")
+console.log(wormLength("---_-___---_"));// "invalid")
+console.log(wormLength("------"));// "60 mm.")
+console.log(wormLength("iwheguawhpvpaiehpiuwwega"));// "invalid")
+console.log(wormLength("QWERTYUIOPASDFGHJKL"));// "invalid")
+console.log(wormLength("------------"));// "120 mm.")
 
 // Author : MyName
+
+     */
+
+
+function countVowels(aStr){
+
+     let vowels = "aeiouAEIOU";
+
+     if(aStr.length === 0){
+          return 0;
+     }
+     else{
+
+          let lastChar = aStr.charAt(aStr.length-1);
+          if(vowels.includes(lastChar)){
+               // found vowel
+               return 1 + countVowels(aStr.substring(0,aStr.length-1));
+          }
+          else{
+               return 0 + countVowels(aStr.substring(0,aStr.length-1));
+          }
+
+     }
+
+
+}
+
+console.log(countVowels("apple"));// 2)
+console.log(countVowels("cheesecake"));// 5)
+console.log(countVowels("martini"));// 3)
+console.log(countVowels("rhythm"));// 0)
+console.log(countVowels(""));// 0)
+console.log(countVowels("b"));// 0)
+console.log(countVowels("a"));// 1)
+console.log(countVowels("bbbbbb"));// 0)
+console.log(countVowels("bbbbba"));// 1)
+console.log(countVowels("abbbb"));// 1)
+console.log(countVowels("bbbab"));// 1)
+console.log(countVowels("bbaab"));// 2)
+console.log(countVowels("baabab"));// 3)
 
 
 
