@@ -73,7 +73,7 @@ int movePiece(int x, int y, int direction, player *theplayer, board *theboard, i
            }
            else{
 
-               char upperChar = *(*(theboard->theboard+x+1)+y);
+               char upperChar = *(*(theboard->theboard+x-1)+y);
                 if(upperChar == '|' || upperChar == '-'){
                     // wall, ask if they want to spend strength
                 }
@@ -102,6 +102,14 @@ int movePiece(int x, int y, int direction, player *theplayer, board *theboard, i
                 }
                 else{
                     // empty spot, valid move
+                    if(moveThePiece){
+
+                        *(*(theboard->theboard+x-1)+y) = theplayer->piece;
+                        // successfully placed piece, 
+                        *(*(theboard->theboard+x)+y) = theboard->defaultPiece;
+                        // successfully updated piece moving from
+
+                    }
                     return 1;
                 }
 
