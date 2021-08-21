@@ -93,3 +93,9 @@ string HockeyPlayer::toString(){
 
 
 }
+
+void HockeyPlayer::prntToString(){
+
+    cout << this->toString() << endl;
+
+}

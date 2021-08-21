@@ -40,5 +40,7 @@ class HockeyPlayer{
 
         string toString();
 
+        void prntToString();
+
 
 };
