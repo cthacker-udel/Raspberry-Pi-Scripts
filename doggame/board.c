@@ -52,9 +52,9 @@ void printBoard(board *theboard){
 
 }
 
-void placePiece(int x, int y, board *theboard, player *thePlayer, int placePieceBool){
+void movePiece(int direction, player *theplayer, board *theboard){
 
-    // add functionality to placePiece
+
 
 }
 
