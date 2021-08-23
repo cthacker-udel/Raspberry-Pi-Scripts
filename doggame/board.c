@@ -97,6 +97,7 @@ int movePiece(int x, int y, int direction, player *theplayer, board *theboard, i
                         }
                         else{
                             if(moveThePiece){
+                                theplayer->strength -= randCost;
                                 *(*(theboard->theboard+x-1)+y) = theplayer->piece;
                                 *(*(theboard->theboard+x)+y) = theboard->defaultPiece;
                             }
@@ -125,6 +126,8 @@ int movePiece(int x, int y, int direction, player *theplayer, board *theboard, i
                             return 0;
                         }
                         else{
+                            *(*(theboard->theboard+x-1)+y) = theplayer->piece;
+                            *(*(theboard->theboard+x)+y) = theboard->defaultPiece;
                             return 1;
                         }
                     }
@@ -158,6 +161,36 @@ int movePiece(int x, int y, int direction, player *theplayer, board *theboard, i
 
             if(iChar == '|' || iChar == '-'){
                 // wall ran into
+                int randCost = (rand() % theplayer->strength)-(rand() % theplayer->strength+2);
+                if(randCost < 0){
+                    randCost = 0;
+                }
+                if(theplayer->strength <= randCost){
+                    printf("\nAttempting to move through the wall would cost %d strength, and you do not have enough strength[CURR : %d]",randCost,theplayer->strength);
+                    return 0;
+                }
+                else{
+                    printf("\nYou are attempting to move through a wall, it will cost %d strength, you currently have %d strength",randCost,theplayer->strength);
+                    char answer = ' ';
+                    do{
+                        printf("\nDo you want to move through the wall?(Y\\N)?");
+                    }while(scanf("%d",&answer) && (answer != 'Y' && answer != 'N'));
+                    // user answer
+                    if(answer == 'N'){
+                        // user answers no
+                        return 0;
+                    }
+                    else{
+                        if(moveThePiece){
+                            theplayer->strength -= randCost;
+                            *(*(theboard->theboard+x-1)+y) = theplayer->piece;
+                            *(*(theboard->theboard+x)+y) = theboard->defaultPiece;
+                        }
+                        return 1;
+                    }
+                    
+                }
+
             }
             else if(iChar == 'F'){
                 // food acquired
