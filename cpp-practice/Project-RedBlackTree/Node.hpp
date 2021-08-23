@@ -8,7 +8,7 @@
 class Node{
 
     int data; // int value for now, can be anything (double,float,string,etc)
-    char color; // R/B
+    char color = 'B'; // R/B <--- default to black due to root
     Node *left;
     Node *right;
     Node *parent;
@@ -18,5 +18,7 @@ class Node{
         Node(int);
 
         void setColor(char color);
+
+        char getColor();
 
 };

@@ -13,3 +13,10 @@ void Node::setColor(char color){
     this->color = color;
 
 }
+
+
+char Node::getColor(){
+
+    return this->color;
+
+}
