@@ -22,6 +22,13 @@ void RB::insert(Node *newNode){
                 // move to left
                 if(currNode->left == NULL){
                     // place here
+                    if(currNode->color == 'R'){
+                        // red node, make sure insertion node is black
+                        newNode->setColor('B');
+                    }
+                    if(currNode->color == 'B'){
+                        newNode->setColor('R');
+                    }
                     currNode->left = newNode;
                     return;
                 }
@@ -31,6 +38,12 @@ void RB::insert(Node *newNode){
                 if(currNode->right == NULL){
                     // place here
                     currNode->right = newNode;
+                    if(currNode->color == 'R'){
+                        newNode->setColor('B');
+                    }
+                    if(currNode->color == 'B'){
+                        newNode->setColor('R');
+                    }
                     return;
                 }
                 // move to right
