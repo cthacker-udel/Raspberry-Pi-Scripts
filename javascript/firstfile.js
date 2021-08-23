@@ -8123,7 +8123,7 @@ console.log(wormLength("------------"));// "120 mm.")
 
 // Author : MyName
 
-     */
+
 
 
 function countVowels(aStr){
@@ -8149,6 +8149,7 @@ function countVowels(aStr){
 
 }
 
+
 console.log(countVowels("apple"));// 2)
 console.log(countVowels("cheesecake"));// 5)
 console.log(countVowels("martini"));// 3)
@@ -8162,6 +8163,434 @@ console.log(countVowels("abbbb"));// 1)
 console.log(countVowels("bbbab"));// 1)
 console.log(countVowels("bbaab"));// 2)
 console.log(countVowels("baabab"));// 3)
+
+
+
+
+function alphanumericRestriction(aStr){
+
+     let letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+     let numbers = '0123456789';
+     let symbols = '!@#$%^&*()_+-=[]{};:\'\"<>,./?~`|\\'
+
+     let containsLetters = false;
+     let containsNumbers = false;
+     let containsSymbols = false;
+
+     for(let i = 0; i < aStr.length; i++){
+
+          if(letters.includes(aStr.charAt(i))){
+               // letter found
+               containsLetters = true;
+          }
+          else if(numbers.includes(aStr.charAt(i))){
+               // number found
+               containsNumbers = true;
+          }
+          else{
+               // symbol found
+               containsSymbols = true;
+          }
+
+     }
+
+     return !containsSymbols && ((containsLetters || containsNumbers) && !(containsLetters && containsNumbers));
+
+
+     //let containsLetters = new Set(aStr.split("").map(e => letters.includes(e)));
+     //let containsNumbers = new Set(aStr.split("").map(e => numbers.includes(e)));
+     //let containsSymbols = new Set(aStr.split("").map(e => symbols.includes(e)));
+                                             // does not contains letters and only numbers
+     //return !containsSymbols.values().next().value && ((!containsLetters.values().next().value && containsNumbers.values().next().value) || (containsLetters.values().next().value && !containsNumbers.values().next().value));
+
+
+}
+
+
+console.log(alphanumericRestriction("Bold"));// true)
+console.log(alphanumericRestriction("123454321"));// true)
+console.log(alphanumericRestriction("H3LL0"));// false)
+console.log(alphanumericRestriction("hhefuhiwfgn"));// true)
+console.log(alphanumericRestriction("0"));// true)
+console.log(alphanumericRestriction("hhefuhiwfgn"));// true)
+console.log(alphanumericRestriction("ed@bit"));// false)
+console.log(alphanumericRestriction("only letters right"));// false)
+console.log(alphanumericRestriction("132 143 234"));// false)
+console.log(alphanumericRestriction("()"));// false)
+console.log(alphanumericRestriction("Hello"));// true)
+console.log(alphanumericRestriction("10,000"));// false)
+console.log(alphanumericRestriction("1a2b3c"));// false)
+console.log(alphanumericRestriction(""));// false)
+
+
+function secret(aStr){
+
+     let className = aStr.split(".");
+     let classesName = [];
+     let tag = className[0];
+     while(className.length > 1){
+          classesName.push(className.pop());
+     }
+     classesName.reverse();
+     return `<${tag} class="${classesName.join(" ")}"></${tag}>`
+
+}
+
+function clubEntry(aStr){
+
+     let alpha = " abcdefghijklmnopqrstuvwxyz";
+
+     for(let i = 0; i < aStr.length-1; i++){
+
+          if(aStr.charAt(i) === aStr.charAt(i+1)){
+               // double char found
+               return alpha.indexOf(aStr.charAt(i))*4;
+          }
+
+     }
+
+}
+
+
+
+function lowerTriang(matrix){
+
+     //[0][0],[1][1],[2][2] <--- top left to bottom right diag
+     // fill out all elements from top row to right
+     for(let i = 0; i < matrix.length; i++){
+
+          for(let j = i+1; j < matrix.length; j++){
+
+               matrix[i][j] = 0;
+
+          }
+     }
+     console.log(matrix);
+     return matrix;
+
+
+
+}
+
+lowerTriang(
+    [[0, 1, 2, 3, 4],
+         [1, 2, 3, 4, 5],
+         [2, 3, 4, 5, 6],
+         [3, 4, 5, 6, 7],
+         [4, 5, 6, 7, 8]]);
+
+
+function totalOvers(num){
+
+     let totalOvers = 0;
+     while(num >= 6){
+          num -= 6;
+          totalOvers++;
+     }
+     return Number(`${totalOvers}.${num}`);
+
+}
+
+console.log(totalOvers(164));
+
+function countAll(aStr){
+
+     let letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+     let numbers = '0123456789';
+
+     let theLetters = aStr.split("").filter(e => letters.includes(e));
+     let theNumbers = aStr.split("").filter(e => numbers.includes(e));
+
+     return {"LETTERS": theLetters.length, "DIGITS": theNumbers.length};
+
+
+}
+
+function alphabetIndex(aStr){
+
+     let letters = " abcdefghijklmnopqrstuvwxyz";
+     aStr = aStr.toLowerCase();
+     return aStr.split("").filter(e => letters.includes(e) && e !== ' ').map(e => letters.indexOf(e)).map(e => String(e)).join(" ");
+
+
+}
+
+console.log(alphabetIndex("Sixty-Four comes asking for bread."));//,
+
+function tallestBuildingHeight(aStr){
+
+     for(let i = 0; i < aStr.length; i++){
+          let segment = aStr[i];
+          if(segment.includes("#")){
+               return `${Math.abs(aStr.length-i)*20}m`;
+          }
+     }
+
+}
+
+function countAdverbs(aStr){
+
+     return aStr.split(" ").filter(e => (e.endsWith("ly") || e.endsWith("ly,") || e.endsWith("ly."))).length;
+
+}
+
+console.log(countAdverbs("She ran hurriedly towards the stadium."));// 1)
+console.log(countAdverbs("She ate the lasagna heartily and noisily."));// 2)
+console.log(countAdverbs("He hates potatoes."));// 0)
+console.log(countAdverbs("He was happily, crazily, foolishly over the moon."));// 3)
+console.log(countAdverbs("She writes poetry beautifully."));// 1)
+console.log(countAdverbs("There are many fat geese in the park."));// 0)
+console.log(countAdverbs("The horse acted aggressively and stubbornly."));// 2)
+console.log(countAdverbs("She forgot where to buy the lysol."));// 0, '-ly should not be counted if it is not at the end.')
+console.log(countAdverbs("Ilya ran to the store."));// 0, '-ly should not be counted if it is not at the end.')
+
+
+function progressBar(aLetter="",length){
+
+     let amt = length / 10;
+
+     return length === 100? `|${aLetter.repeat(length / 10)}| Completed!` : `|${aLetter.repeat(amt)}${' '.repeat(Math.abs(10-amt))}| Progress: ${amt*10}%`;
+
+}
+
+console.log(progressBar("=", 10));
+
+function perimeter(matrix){
+
+     let x1 = matrix[0][0];
+     let y1 = matrix[0][1];
+
+     let x2 = matrix[1][0];
+     let y2 = matrix[1][1];
+
+     let x3 = matrix[2][0];
+     let y3 = matrix[2][1];
+
+     let x1X2 = Math.sqrt(Math.pow(x1-x2,2)+Math.pow(y1-y2,2));
+     let x2X3 = Math.sqrt(Math.pow(x2-x3,2)+Math.pow(y2-y3,2));
+     let x3X1 = Math.sqrt(Math.pow(x3-x1,2)+Math.pow(y3-y1,2));
+
+     let result = x1X2 + x2X3 + x3X1;
+
+     console.log(`Result : ${result}`);
+
+     return Number(result.toFixed(2));
+
+}
+
+perimeter([[0, 0], [1, 0], [0, 1]])
+
+
+function completeBinary(aStr){
+
+     while(aStr.length % 8 !== 0){
+          aStr = "0" + aStr;
+     }
+     return aStr;
+
+}
+
+function getXP(amt){
+
+     let amts = {'Very Easy': 5, 'Easy': 10, 'Medium': 20, 'Hard': 40, 'Very Hard': 80};
+
+     let total = 0;
+
+     let amtsKeys = Object.keys(amts);
+
+     for(let eachkey of amtsKeys){
+
+          total += amts[eachkey] * amt[eachkey];
+
+     }
+     return `${total}XP`;
+}
+
+console.log(getXP({
+     "Very Easy" : 89,
+     "Easy" : 77,
+     "Medium" : 30,
+     "Hard" : 4,
+     "Very Hard" : 1
+}));
+
+
+function robotPath(path){
+
+     let dest1x = 3;
+     let dest1y = 2;
+
+     let dest2x = -4;
+     let dest2y = 3;
+
+     let currX = 0;
+     let currY = 0;
+
+     for(let eachdirection of path){
+
+          if(currX === dest1x && currY === dest1y){
+               // reached dest1
+               return true;
+          }
+          if(currX === dest2x && currY === dest2y){
+               return true;
+          }
+
+          switch(eachdirection){
+
+               case 'e':
+                    currX++;
+                    break;
+               case 'w':
+                    currX--;
+                    break;
+               case 's':
+                    currY--;
+                    break;
+               case 'n':
+                    currY++;
+                    break;
+               default:
+                    // default
+                    break;
+          }
+     }
+     if(currX === dest1x && currY === dest1y){
+          // reached dest1
+          return true;
+     }
+     if(currX === dest2x && currY === dest2y){
+          return true;
+     }
+     return false;
+
+
+}
+
+console.log(robotPath(['s', 'e', 'e', 'n', 'n', 'e', 'n']));
+
+function simplePair(arr,n){
+
+     for(let i = 0; i < arr.length; i++){
+
+          for(let j = 0; j < arr.length; j++){
+
+               if(i === j){
+                    continue;
+               }
+               if(arr[i] * arr[j] === n){
+                    return [arr[i],arr[j]];
+               }
+
+          }
+
+     }
+     return null;
+}
+
+function collatz(num){
+
+     let steps = 1;
+     let highestNum = 0;
+
+     while(num !== 1){
+
+          highestNum = Math.max(highestNum,num);
+          if(num % 2 === 0){
+               num = num / 2;
+          }
+          else{
+               num = (num*3)+1;
+          }
+          steps++;
+
+     }
+     return [steps,highestNum];
+}
+
+function mineralFormation(matrix){
+
+     let firstRow = matrix[0].map(e => String(e)).join("");
+     let lastRow = matrix[matrix.length-1].map(e => String(e)).join("");
+
+     if(firstRow.includes("1") && lastRow.includes("1")){
+          return "both";
+     }
+     else if(firstRow.includes("1")){
+          return "stalactites";
+     }
+     else{
+          return "stalagmites";
+     }
+
+}
+     */
+
+function toArrow(a){
+
+     let funcName = a.split(' ')[1].split("(")[0];
+     let lPIndex = a.indexOf('(');
+     let rPIndex = a.indexOf(')');
+     let args = a.substring(lPIndex+1,rPIndex);
+
+     return `const ${funcName} = (${args}) =>`;
+
+     /*
+     if(args.includes(',')){
+          //multiple args
+          argCount = args.split(',').length;
+     }
+     else if(args.includes('...')){
+          // var args
+          argCount = -1; // vararg
+     }
+
+     if(argCount === -1){
+          return `const ${funcName} = (...a) =>`;
+     }
+     else if(argCount !== 1){
+
+          let letters = "abcdefghijklmnopqrstuvwxyz";
+          let argArr = [];
+          for(let i = 0; i < argCount; i++){
+               argArr.push(letters[i]);
+          }
+          return `const ${funcName} = (${argArr.join(",")}) =>`;
+     }
+     else{
+          return `const ${funcName} = (a) =>`;
+     }
+     */
+
+}
+
+console.log(toArrow(`function test(a) {}`));// `const test = (a) =>`)
+console.log(toArrow(`function twoArgs(a,b) {}`));// `const twoArgs = (a,b) =>`)
+console.log(toArrow(`function restArgs(...a) {}`));// `const restArgs = (...a) =>`)
+console.log(toArrow(`function restArgsArg(...a,b) {}`));// `const restArgsArg = (...a,b) =>`)
+console.log(toArrow(`function threeArgs(a,b,c) {}`));// `const threeArgs = (a,b,c) =>`)
+
+
+function removeRepeats(aStr){
+
+     let currLetter = aStr.charAt(0);
+     let newStr = currLetter;
+
+     for(let i = 1; i < aStr.length; i++){
+
+          if(aStr.charAt(i) !== currLetter){
+               currLetter = aStr.charAt(i);
+               newStr += currLetter;
+          }
+
+     }
+     return newStr;
+
+}
+
+console.log(removeRepeats("aaabbbccc"));// "abc")
+console.log(removeRepeats("bookkeeper"));// "bokeper")
+console.log(removeRepeats("nananana"));// "nananana")
 
 
 
