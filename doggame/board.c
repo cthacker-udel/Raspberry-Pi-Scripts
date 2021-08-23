@@ -183,7 +183,7 @@ int movePiece(int x, int y, int direction, player *theplayer, board *theboard, i
                     else{
                         if(moveThePiece){
                             theplayer->strength -= randCost;
-                            *(*(theboard->theboard+x-1)+y) = theplayer->piece;
+                            *(*(theboard->theboard+x)+y+1) = theplayer->piece;
                             *(*(theboard->theboard+x)+y) = theboard->defaultPiece;
                         }
                         return 1;
