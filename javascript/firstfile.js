@@ -8591,8 +8591,3 @@ function removeRepeats(aStr){
 console.log(removeRepeats("aaabbbccc"));// "abc")
 console.log(removeRepeats("bookkeeper"));// "bokeper")
 console.log(removeRepeats("nananana"));// "nananana")
-
-
-
-
-
