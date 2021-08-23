@@ -13,4 +13,10 @@ class Node{
     Node *right;
     Node *parent;
 
+    public:
+
+        Node(int);
+
+        void setColor(char color);
+
 };
