@@ -316,6 +316,30 @@ int movePiece(int x, int y, int direction, player *theplayer, board *theboard, i
             }
             else if(theTile == 'T'){
                 // trap tile
+
+                if(moveThePiece){
+                    // steps on trap
+                    int randAmt = rand() % theplayer->strength-3;
+                    if(randAmt <= 0){
+                        randAmt = 1;
+                    }
+                    printf("\nYou stepped on a trap!, so you lost %d strength!\n",randAmt);
+                    theplayer->strength -= randAmt;
+                    if(theplayer->strength <= 0){
+                        // player loses
+                        printf("By stepping on the trap, your health dropped to 0, you have lost!");
+                        return 1;
+                    }
+                    else{
+                        // player survives
+                        printf("\nYou have survived the trap! Your current strength left is : %d",theplayer->strength);
+                        return 1;
+                    }
+                }
+                else{
+                    return 1;
+                }
+
             }
             else{
                 // empty tile
