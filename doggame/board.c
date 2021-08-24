@@ -350,14 +350,11 @@ int movePiece(int x, int y, int direction, player *theplayer, board *theboard, i
                     return 1;
                 }
                 return 1;
-
             }
-
-
            break;
        }
 
-       case 4:{ // west
+       case 4:{ // west, x same, y-1
            break;
        }
 
