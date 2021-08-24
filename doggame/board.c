@@ -301,7 +301,16 @@ int movePiece(int x, int y, int direction, player *theplayer, board *theboard, i
             else if(theTile == 'F'){
                 // food tile
                 if(moveThePiece){
-                    return 2;
+
+                    int randAmt = rand() % theplayer->strength;
+                    if(randAmt == 0){
+                        randAmt = 2;
+                    }
+                    printf("\nYou stepped on a food tile, so you gain %d strength!",randAmt);
+                    theplayer->strength += randAmt;
+                    *(*(theboard->theboard+x+1)+y) = theplayer->piece;
+                    *(*(theboard->theboard+x)+y) = theboard->defaultPiece;
+                    return 1;
                 }
                 return 1;
             }
