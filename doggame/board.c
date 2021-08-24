@@ -63,6 +63,16 @@ int movePiece(int x, int y, int direction, player *theplayer, board *theboard, i
 
     */
 
+   /*
+
+    Number codes:
+
+    0 : invalid move
+    1 : valid move/move completed
+
+
+   */
+
    switch(direction){
 
        case 1:{ // north
@@ -165,7 +175,7 @@ int movePiece(int x, int y, int direction, player *theplayer, board *theboard, i
                 // wall ran into
                 int randCost = (rand() % theplayer->strength)-(rand() % theplayer->strength+2);
                 if(randCost < 0){
-                    randCost = 0;
+                    randCost = 1;
                 }
                 if(theplayer->strength <= randCost){
                     printf("\nAttempting to move through the wall would cost %d strength, and you do not have enough strength[CURR : %d]",randCost,theplayer->strength);
@@ -249,6 +259,58 @@ int movePiece(int x, int y, int direction, player *theplayer, board *theboard, i
             }
 
             char theTile = *(*(theboard->theboard+x+1)+y);
+
+            if(theTile == '|' || theTile == '-'){
+                // trying to move into wall
+
+                if(moveThePiece){
+
+                    int randRequirement = rand() % theplayer->strength;
+
+                    if(randRequirement <= 0){
+                        randRequirement = 1;
+                    }
+
+                    if(randRequirement >= theplayer->strength){
+                        printf("\nYou do not have enough strength to move through the wall");
+                        return 0;
+                    }
+
+                    printf("\nThe cost to walk through the wall is : %d strength\n",randRequirement);
+
+                    char answer = ' ';
+                    do{
+                        printf("\nDo you want to move through the wall?(Y/N), it will cost %d strength",randRequirement);
+                    }while(scanf(" %c",&answer) == 0 && answer != 'Y' && answer != 'N');
+
+                    if(answer == 'Y'){
+                        // move through wall
+                        *(*(theboard->theboard+x+1)+y) = theplayer->piece;
+                        *(*(theboard->theboard+x)+y) = theboard->defaultPiece;
+                    }
+                    else{
+
+                        return 0;
+
+                    }
+                    return 1;
+                }
+                return 1;
+
+            }
+            else if(theTile == 'F'){
+                // food tile
+                if(moveThePiece){
+                    return 2;
+                }
+                return 1;
+            }
+            else if(theTile == 'T'){
+                // trap tile
+            }
+            else{
+                // empty tile
+            }
 
 
            break;
