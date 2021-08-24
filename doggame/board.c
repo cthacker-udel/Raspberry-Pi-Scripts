@@ -241,7 +241,16 @@ int movePiece(int x, int y, int direction, player *theplayer, board *theboard, i
            break;
        }
 
-       case 3:{ // south
+       case 3:{ // south, x+1, y same
+
+            if(x == theboard->size-1){
+                // edge of board
+                return 0;
+            }
+
+            char theTile = *(*(theboard->theboard+x+1)+y);
+
+
            break;
        }
 
