@@ -109,11 +109,12 @@ int movePiece(int x, int y, int direction, player *theplayer, board *theboard, i
                 }
                 else if(upperChar == 'F'){
                     // food - player gains strength
-                    int randGain = (rand() % theplayer->strength)+1;
-                    printf("\nYou stepped on food so you gain %d strength",randGain);
                     if(moveThePiece){
+                        int randGain = (rand() % theplayer->strength)+1;
+                        printf("\nYou stepped on food so you gain %d strength",randGain);
                         theplayer->strength += randGain;
                     }
+                    return 1;
                 }
                 else if(upperChar == 'T'){
                     // trap - player loses strength
@@ -131,6 +132,7 @@ int movePiece(int x, int y, int direction, player *theplayer, board *theboard, i
                             return 1;
                         }
                     }
+                    return 1;
                 }
                 else{
                     // empty spot, valid move
@@ -193,29 +195,36 @@ int movePiece(int x, int y, int direction, player *theplayer, board *theboard, i
 
             }
             else if(iChar == 'F'){
-                // food acquired
-                int randAmt = rand() % theplayer->strength+3;
-                printf("\nYou stepped on food, and you gain %d strength!",randAmt);
-                *(*(theboard->theboard+x)+y+1) = theplayer->piece;
-                *(*(theboard->theboard+x)+y) = theboard->defaultPiece;
-                // successfully moved player
+                // food acquired]
+                if(moveThePiece){
+                    int randAmt = rand() % theplayer->strength+3;
+                    printf("\nYou stepped on food, and you gain %d strength!",randAmt);
+                    *(*(theboard->theboard+x)+y+1) = theplayer->piece;
+                    *(*(theboard->theboard+x)+y) = theboard->defaultPiece;
+                    // successfully moved player
+                }
                 return 1;
             }
             else if(iChar == 'T'){
                 // trap found
-                int randAmt = rand() % theplayer->strength;
-                printf("\nYou stepped on a trap, and you lost %d strength!",randAmt);
-                theplayer->strength -= randAmt;
-                if(theplayer->strength <= 0){
-                    // player has lost
-                    theplayer->strength = 0;
-                    printf("\nYou currently have %d strength, you lose!",theplayer->strength);
-                    return 0;
+                if(moveThePiece){
+                    int randAmt = rand() % theplayer->strength;
+                    printf("\nYou stepped on a trap, and you lost %d strength!",randAmt);
+                    theplayer->strength -= randAmt;
+                    if(theplayer->strength <= 0){
+                        // player has lost
+                        theplayer->strength = 0;
+                        printf("\nYou currently have %d strength, you lose!",theplayer->strength);
+                        return 0;
+                    }
+                    else{
+                        printf("\nYou currently have %d strength!",randAmt);
+                        *(*(theboard->theboard+x)+y+1) = theplayer->piece;
+                        *(*(theboard->theboard+x)+y) = theboard->defaultPiece;
+                        return 1;
+                    }
                 }
-                else{
-                    printf("\nYou currently have %d strength!",randAmt);
-                    return 1;
-                }
+                return 1;
             }
             else{
                 // valid move, empty space
