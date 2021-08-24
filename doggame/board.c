@@ -343,6 +343,14 @@ int movePiece(int x, int y, int direction, player *theplayer, board *theboard, i
             }
             else{
                 // empty tile
+                if(moveThePiece){
+                    // change piece on board
+                    *(*(theboard->theboard+x+1)+y) = theplayer->piece;
+                    *(*(theboard->theboard+x)+y) = theboard->defaultPiece;
+                    return 1;
+                }
+                return 1;
+
             }
 
 
