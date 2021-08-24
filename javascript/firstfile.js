@@ -8524,7 +8524,7 @@ function mineralFormation(matrix){
      }
 
 }
-     */
+
 
 function toArrow(a){
 
@@ -8560,7 +8560,7 @@ function toArrow(a){
      else{
           return `const ${funcName} = (a) =>`;
      }
-     */
+
 
 }
 
@@ -8591,3 +8591,207 @@ function removeRepeats(aStr){
 console.log(removeRepeats("aaabbbccc"));// "abc")
 console.log(removeRepeats("bookkeeper"));// "bokeper")
 console.log(removeRepeats("nananana"));// "nananana")
+
+
+const REGEXP = /(\w+)(?= = yes)/g;
+
+function product(nums){
+
+     nums.sort();
+
+     let theSet = new Set(nums);
+
+     let arr = Array.of(...theSet);
+
+     return arr.length > 1? arr[arr.length-1] * arr[arr.length-2] : arr[0] * arr[0];
+
+}
+
+product([2, 3, 1, -1, 2])
+
+
+const str = `
+function bio({first,last,bestFriend}){
+	let best = bestFriend.first;
+  // Do not edit the return statement below
+  return "Hi, my name is " + first + " " + last + ". " + best + " is my best friend."  
+ }
+`
+
+function floatSum(a,b){
+
+     //let result = (a * 1000 + b * 1000) / 1000;
+
+     let result = a+b;
+
+     // findlength of both decimals
+
+
+     let strA = 0;
+     if(!Number.isInteger(a)){
+          // is a decimal
+          strA = String(a).split(".")[1].length;
+     }
+     else{
+          strA = 0;
+     }
+
+
+     let strB = 0;
+     if(!Number.isInteger(b)) {
+          strB = String(b).split(".")[1].length;
+     }
+     else{
+          strB = 0;
+     }
+
+     if(strA === strB){
+          // decimals have same length
+          return !Number.isInteger(result)? parseFloat(Number(result).toFixed(strA)): parseInt(result);
+     }
+     else if(strA > strB){
+          // a has longer decimal then b
+          return !Number.isInteger(result)? parseFloat(Number(result).toFixed(strA)): parseInt(result);
+     }
+     else{
+          // b has longer decimal then a
+          return !Number.isInteger(result)? parseFloat(Number(result).toFixed(strB)): parseInt(result);
+
+     }
+
+
+     //console.log(`pre res is : ${result}`);
+     //console.log(` res is : ${Number(result).toFixed(20)}`);
+
+     //return (a * 10 + b * 10) / 10;
+
+}
+
+console.log(floatSum(0.1, 0.2));// 0.3)
+console.log(floatSum(0.2, 0.3));// 0.5)
+console.log(floatSum(8.4, 8.8));// 17.2)
+console.log(floatSum(5.7, 4.3));// 10)
+console.log(floatSum(5, 0.81));// 5.81)
+console.log(floatSum(0.81, 99));// 99.81)
+console.log(floatSum(99.1, 0.109));// 99.209)
+console.log(floatSum(50.1234, 11.5678));// 61.6912)
+console.log(floatSum(3.4444, 3.5555));// 6.9999)
+console.log(floatSum(2.12022, 1.110001));// 3.230221)
+
+function calculateSum(aStr){
+
+     return aStr.split("").map(e => e.charCodeAt(0)).reduce((a,b) => a+b);
+
+}
+
+function reverseString(aStr){
+
+     return aStr.split("").reverse().join("");
+
+     //return aStr.split("").map(e => e.charCodeAt(0)).reverse().map(e => String.fromCharCode(e)).join("");
+
+}
+
+function median(nums){
+
+     if(nums.length % 2 === 0){
+          let middle = Math.floor(nums.length / 2);
+          return (nums[middle] + nums[middle-1])/2;
+     }
+     else{
+          let middle = Math.floor(nums.length / 2);
+          return nums[middle];
+     }
+
+}
+
+function getDrinkID(aStr,amt){
+
+     let title = aStr.split(" ").map(e => e.length >= 3? e.substring(0,3).toUpperCase(): e.toUpperCase()).join("");
+     return `${title}${amt.replace("ml","")}`;
+
+}
+
+getDrinkID("apple", "500ml")
+
+function duplicates(aStr){
+
+     let lettersSet = new Set(aStr.split(""));
+
+     let values = Array.of(...lettersSet);
+
+     let total = 0;
+     for(let eachvalue of values){
+          let count = 0;
+          for(let i = 0; i < aStr.length; i++){
+
+               if(aStr.charAt(i) === eachvalue){
+                    count++;
+               }
+
+          }
+          if(count > 1){
+               total += count-1;
+               count = 0;
+          }
+
+     }
+     return total;
+
+
+
+}
+
+//const str = `thirdUser = users[2].name;`;
+
+function bestFriend(aStr,char1,char2){
+
+     for(let i = 1; i < aStr.length-1; i++){
+
+          let iChar2 = aStr.charAt(i);
+          let iChar = aStr.charAt(i-1);
+          if(iChar === char1 && iChar2 !== char2){
+               return false;
+          }
+
+     }
+     if(aStr.charAt(aStr.length-1) === char1){
+          return false;
+     }
+     return true;
+
+}
+
+console.log(bestFriend('he headed to the store', 'h', 'e'));// true)
+console.log(bestFriend('i found an ounce with my hound', 'o', 'u'));// true)
+console.log(bestFriend('those were their thorns they said', 't', 'h'));// true)
+
+console.log(bestFriend('we found your dynamite', 'd', 'y'));// false)
+console.log(bestFriend('look they took the cookies', 'o', 'o'));// false)
+console.log(bestFriend('go to edabit and meditate', 'e', 'd'));// false)
+
+// Author: Joshua Señoron
+
+     */
+
+function faceInterval(arg){
+
+     let res = arg.constructor.name;
+
+     if(res !== 'Array'){
+          return ":/";
+     }
+     else{
+
+          arg.sort((a,b) => a-b);
+          let interval = Math.abs(arg[0] - arg[arg.length-1]);
+          return arg.filter(e => e === interval).length > 0? ":)": ":(";
+
+     }
+
+
+}
+
+faceInterval([5, 2, 8, 3, 11])
+faceInterval([1, 2, 5, 8, 3, 9])
+
