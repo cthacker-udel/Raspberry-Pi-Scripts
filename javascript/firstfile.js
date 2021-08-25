@@ -8944,3 +8944,25 @@ function noPermsDigits(n){
 }
 
 console.log(noPermsDigits(13));
+
+function reverseComplement(aStr){
+
+     // GUCCA
+
+     let reverse = {'A': 'U', 'U': 'A', 'G': 'C', 'C': 'G'};
+
+     return aStr.split("").map(e => reverse[e]).reverse().join("");
+
+}
+
+function rectangles(num){
+
+     let total = 0;
+     for(let i = 1; i <= num; i++){
+          total += Math.pow(i,3);
+     }
+     return total;
+
+}
+
+console.log(rectangles(18));
