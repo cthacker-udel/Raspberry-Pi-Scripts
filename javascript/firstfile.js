@@ -9063,23 +9063,133 @@ const vehicles = [
      { make: "mazda", year: 2018, isUsed: true },
 ]
 
+const vehiclesObject = {
+     stall1: { make: "toyota", year: 2021, isUsed: false },
+     stall2: { make: "toyota", year: 2019, isUsed: true },
+     stall3: { make: "ford", year: 2012, isUsed: true },
+     stall4: { make: "ford", year: 2021, isUsed: false },
+     stall5: { make: "ford", year: 2017, isUsed: true },
+     stall6: { make: "mazda", year: 2021, isUsed: false },
+     stall7: { make: "mazda", year: 2018, isUsed: true },
+}
+
 
 function partition(collection,check){
 
      let array = [];
-     let subArray = [];
+     let subArrayT = [];
+     let subArrayF = [];
+     let objArray = [];
 
+     //console.log(check);
+
+     let constructorName = collection.constructor.name;
+
+     if(constructorName === 'Object') {
+          let objKeys = Object.keys(collection);
+          for (let eachkey of objKeys) {
+               objArray.push(collection[eachkey]);
+          }
+          collection = objArray;
+     }
+
+     if(check === null){
+          for(let eachobj of collection){
+               subArrayT.push(eachobj);
+          }
+          return [subArrayT,subArrayF];
+     }
+
+     let checkName = check.constructor.name;
      for(let eachobj of collection){
 
-          let vals = Object.entries(eachobj);
-          let res = check(eachobj);
-          if(res){
-               subArray.push(eachobj['make']);
-          }
+          //let vals = Object.entries(eachobj);
+          let res;
+          if(checkName !== 'Function'){
+               if(checkName === 'Array'){
 
+                    res = _.matchesProperty(check[0],check[1]);
+                    let res2 = res(eachobj);
+                    if(res2){
+                         subArrayT.push(eachobj);
+                    }
+                    else{
+                         subArrayF.push(eachobj);
+                    }
+
+               }
+               else if(checkName === 'String'){
+
+                    res = _.property(check);
+                    let res2 = res(eachobj);
+                    if(res2){
+                         subArrayT.push(eachobj);
+                    }
+                    else{
+                         subArrayF.push(eachobj);
+                    }
+               }
+               else {
+                    res = _.matches(check);
+                    let res2 = res(eachobj);
+                    if (res2) {
+                         subArrayT.push(eachobj);
+                    } else {
+                         subArrayF.push(eachobj);
+                    }
+               }
+          }
+          else {
+               // type is function
+               res = check(eachobj);
+               if (res) {
+                    subArrayT.push(eachobj);
+               } else {
+                    subArrayF.push(eachobj);
+               }
+          }
+          //let res2 = res(eachobj);
+          //if(res){
+          //     subArray.push(eachobj['make']);
+          //}
+          //else{
+          //     subArray.push(eachobj['make']);
+          //}
      }
+     return [subArrayT,subArrayF];
 
 
 }
 
-partition(vehicles,(d) => d.make === "toyota");
+//111 111 11
+
+console.log(_.partition(vehiclesObject, null));
+
+//partition(vehicles, "isUsed")
+
+//console.log(_.partition(vehicles, ["isUsed", false]));
+
+//console.log(partition(vehicles, ["isUsed", false]));
+
+//console.log(_.partition(vehiclesObject, { make: "toyota", isUsed: false }));
+
+//console.log(partition(vehiclesObject, { make: "toyota", isUsed: false }));
+
+//console.log(partition(vehicles, (d) => d.make === "toyota"));
+
+//console.log(_.partition(vehicles, (d) => d.make === "toyota"));
+/*
+[
+     [
+          { make: 'toyota', year: 2021, isUsed: false },
+          { make: 'ford', year: 2021, isUsed: false },
+          { make: 'mazda', year: 2021, isUsed: false }
+     ],
+     [
+          { make: 'toyota', year: 2019, isUsed: true },
+          { make: 'ford', year: 2012, isUsed: true },
+          { make: 'ford', year: 2017, isUsed: true },
+          { make: 'mazda', year: 2018, isUsed: true }
+     ]
+]
+*/
