@@ -8923,3 +8923,24 @@ console.log(noYelling("Oh my goodness!"));// "Oh my goodness!")
 console.log(noYelling("I just cannot believe it."));// "I just cannot believe it.")
 console.log(noYelling("I just!!! can!!! not!!! believe!!! it!!!"));// "I just!!! can!!! not!!! believe!!! it!")
 console.log(noYelling("That's a ton!! of cheese!!!!"));// "That's a ton!! of cheese!")
+
+function factorial(n){
+
+     let num = BigInt(1);
+     for(let i = 1; i <= n; i++){
+          num = num * BigInt(i);
+     }
+     return num;
+
+
+}
+
+function noPermsDigits(n){
+
+     let combos = factorial(n);
+     console.log(`combos = ${combos}`);
+     return String(combos).length;
+
+}
+
+console.log(noPermsDigits(13));
