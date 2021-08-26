@@ -469,7 +469,6 @@ int movePiece(int x, int y, int direction, player *theplayer, board *theboard, i
 
             }
 
-
            break;
        }
 
