@@ -41,7 +41,63 @@ int main(void){
 
         if(choice == 'U'){
 
-            res = movePiece()
+            res = movePiece(x,y,1,theboard->player1,theboard,0);
+            if(res == 0){
+                // do not move piece
+            }
+            else{
+
+                movePiece(x,y,1,theboard->player1,theboard,1);
+                x--;
+
+            }
+
+        }
+        else if(choice == 'D'){
+
+            res = movePiece(x,y,1,theboard->player1,theboard,0);
+
+            if(res == 0){
+                // do not move piece
+            }
+            else{
+                movePiece(x,y,1,theboard->player1,theboard,1);
+                x++;
+            }
+
+        }
+        else if(choice == 'L'){
+
+            res = movePiece(x,y,1,theboard->player1,theboard,0);
+
+            if(res == 0){
+
+                // do not move piece
+
+            }
+            else{
+
+                movePiece(x,y,1,theboard->player1,theboard,1);
+                y--;
+
+            }
+
+        }
+        else if(choice == 'R'){
+
+            res = movePiece(x,y,1,theboard->player1,theboard,0);
+
+            if(res == 0){
+
+                // do not move piece
+
+            }
+            else{
+
+                movePiece(x,y,1,theboard->player1,theboard,1);
+                y++;
+
+            }
 
         }
 
