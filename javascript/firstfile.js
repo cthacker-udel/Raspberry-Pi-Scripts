@@ -9049,7 +9049,7 @@ function digitDistance(a,b){
 }
 
 
-     */
+
 
 const _ = require("lodash")
 
@@ -9178,18 +9178,369 @@ console.log(_.partition(vehiclesObject, null));
 //console.log(partition(vehicles, (d) => d.make === "toyota"));
 
 //console.log(_.partition(vehicles, (d) => d.make === "toyota"));
-/*
-[
-     [
-          { make: 'toyota', year: 2021, isUsed: false },
-          { make: 'ford', year: 2021, isUsed: false },
-          { make: 'mazda', year: 2021, isUsed: false }
-     ],
-     [
-          { make: 'toyota', year: 2019, isUsed: true },
-          { make: 'ford', year: 2012, isUsed: true },
-          { make: 'ford', year: 2017, isUsed: true },
-          { make: 'mazda', year: 2018, isUsed: true }
-     ]
-]
-*/
+
+let vehiclesClone = {...vehicles};
+
+let vehiclesCloneV2 = {...vehiclesObject};
+
+
+
+function isFloatingCharacter(aStr){
+
+     const expr = "[0-9-]+.\d+";
+
+     let digits = "0123456789";
+
+     if(!aStr.includes(".")){
+          return false;
+     }
+     else{
+          let splitStr = aStr.split(".");
+          // examine right and left
+          let leftSide = splitStr[0];
+          let rightSide = splitStr[1];
+          if(rightSide.length === 0){
+               return false;
+          }
+          for(let i = 0; i < leftSide.length; i++){
+
+               let iChar = leftSide[i];
+               if(!iChar.includes("-") && !digits.includes(iChar)){
+                    // is not dash and digit
+                    return false;
+               }
+
+          }
+          for(let i = 0; i < rightSide.length; i++){
+
+               let iChar = rightSide[i];
+               if(!digits.includes(iChar)){
+                    return false;
+               }
+
+          }
+          return true;
+     }
+
+     //return exp.exec(aStr);
+}
+
+console.log(isFloatingCharacter("-12.12"));// true)
+console.log(isFloatingCharacter("-.12"));// true)
+console.log(isFloatingCharacter("0.12"));// true)
+console.log(isFloatingCharacter(".122332"));// true)
+console.log(isFloatingCharacter("av0.12"));// false)
+console.log(isFloatingCharacter("-."));// false)
+console.log(isFloatingCharacter("+"));// false)
+console.log(isFloatingCharacter("12"));// false)
+
+
+function multiply(arr){
+
+     let newArr = [];
+     let subArr = [];
+     for(let eachelem of arr){
+
+          for(let i = 0; i < arr.length; i++){
+               subArr.push(eachelem);
+          }
+          newArr.push(subArr);
+          subArr = [];
+
+     }
+     return newArr;
+
+
+}
+
+multiply([4, 5])
+
+
+function countNumber(matrix){
+
+     let flatArr = matrix.flat(Infinity);
+
+     return flatArr.filter(e => typeof e === 'number').length;
+
+}
+
+const countNumber = arr => {
+
+     let flatArr = arr.flat(Infinity);
+
+     return flatArr.filter(e => typeof e === 'number').length;
+
+};
+
+
+
+function mubashirCipher(message) {
+     var key= [['m', 'c'], ['u', 'e'], ['b', 'g'], ['a', 'k'], ['s', 'v'], ['h', 'x'],
+          ['i', 'z'], ['r', 'y'], ['p', 'w'], ['l', 'n'], ['o', 'j'], ['t', 'f'], ['q', 'd']];
+
+     let letters = 'abcdefghijklmnopqrstuvwxyz';
+
+     let newStr = '';
+     for(let eachletter of message){
+
+          if(!letters.includes(eachletter)){
+               newStr += eachletter;
+               continue;
+          }
+
+          for(let i = 0; i < key.length; i++){
+               let theKey = key[i];
+               if(theKey[1] === eachletter){
+                    newStr += theKey[0];
+               }
+               else if(theKey[0] === eachletter) {
+                    newStr += theKey[1];
+               }
+          }
+
+     }
+     return newStr;
+
+}
+
+function longestWord(aStr){
+
+     let maxLength = Math.max(...aStr.split(" ").map(e => e.length));
+
+     let maxWord = aStr.split(" ").filter(e => e.length === maxLength)[0];
+
+     return maxWord;
+
+}
+
+     */
+
+function numberOfDays([x,y]){
+
+     let total = Math.abs(x) + Math.abs(y);
+
+     let totalDays = 0;
+
+     while(total > 5){
+          total -= 5;
+          if(total > 0){
+               totalDays += 6;
+          }
+          else{
+               totalDays += 5;
+          }
+     }
+     totalDays += total;
+     //console.log(`total days = ${totalDays}`);
+     return totalDays;
+
+}
+
+
+
+console.log(numberOfDays([10, 10]));// 23);
+console.log(numberOfDays([3, 3]));// 7);
+console.log(numberOfDays([-10, -9]));// 22);
+console.log(numberOfDays([-1, -4]));// 5);
+console.log(numberOfDays([-10, -2]));// 14);
+console.log(numberOfDays([3, 30]));// 39);
+console.log(numberOfDays([40, 1]));// 49);
+console.log(numberOfDays([3, 5]));// 9);
+
+function accumulatingArray(arr){
+
+     if(arr.length === 0){
+          return [];
+     }
+
+     let newArr = [arr[0]];
+
+     for(let i = 1; i < arr.length; i++){
+          arr[i] += arr[i-1];
+     }
+
+     for(let i = 1; i < arr.length; i++){
+          newArr.push(arr[i]);
+     }
+     return newArr;
+
+
+}
+
+
+function time(rate,people,walls){
+
+     let theRate = ((rate['walls'] / rate['people'])/rate['minutes']);
+
+     console.log(2);
+
+     //let theResult = people * theRate * ? = walls;
+
+     let theResult = (walls / theRate) / people;
+
+     return theResult;
+
+}
+
+
+const rate = {
+     people: 4,
+     walls: 9,
+     minutes: 63
+}
+const rate2 = {
+     people: 10,
+     walls: 10,
+     minutes: 22
+}
+
+time(rate, 7, 4)
+
+function countOverlapping(matrix,point){
+
+     let count = 0;
+
+     for(let i = 0; i < matrix.length; i++){
+
+          let thePoints = matrix[i];
+          let x = thePoints[0];
+          let y = thePoints[1];
+
+          if(point <= y && point >= x){
+               count++;
+          }
+
+     }
+     console.log(`The count is : ${count}`);
+     return count;
+
+}
+
+countOverlapping([[1, 2], [2, 3], [3, 4]], 5)
+
+
+function fairDie([one,two,three,four,five,six]){
+
+     let totalFrequency = (one+two+three+four+five+six) / 6;
+
+     let oneDiff = one-totalFrequency;
+     let twoDiff = two-totalFrequency;
+     let threeDiff = three-totalFrequency;
+     let fourDiff = four-totalFrequency;
+     let fiveDiff = five-totalFrequency;
+     let sixDiff = six-totalFrequency;
+
+     let xSquared = (Math.pow(oneDiff,2) + Math.pow(twoDiff,2) + Math.pow(threeDiff,2) + Math.pow(fourDiff,2) + Math.pow(fiveDiff,2) + Math.pow(sixDiff,2)) / totalFrequency;
+
+     console.log(`Result is : ${xSquared < 11.0705}`);
+
+     return xSquared < 11.0705;
+
+}
+
+fairDie([8, 10, 5, 15, 15, 10])
+
+function sumDigit(num){
+
+     if(num < 10){
+          return num;
+     }
+     else{
+          return num % 10 + sumDigit(Math.round(num / 10));
+     }
+
+}
+
+function dollaDollaBills(num){
+
+
+     let format = new Intl.NumberFormat('us-US',{style: 'currency', currency: 'USD'});
+
+     return format.format(num);
+
+}
+
+
+console.log(dollaDollaBills(1000000));
+
+
+function negativeSum(aStr){
+
+     let sum = 0;
+     let numStr = "";
+     let digits = '0123456789';
+
+     while(aStr.indexOf('-') !== -1){
+
+          let ind = aStr.indexOf('-');
+          aStr = aStr.substring(ind+1);
+          for(let i = 0; i < aStr.length; i++){
+
+               let iChar = aStr.charAt(i);
+               if(!digits.includes(iChar)){
+                    // reached end of number
+                    break;
+               }
+               else{
+                    numStr += iChar;
+               }
+
+          }
+          sum += -parseInt(numStr);
+          numStr = '';
+     }
+     return sum;
+
+
+}
+
+//negativeSum("-12 13%14&-11")
+
+
+function simpleComp(arr1,arr2){
+
+     if(arr1 === null || arr2 === null){
+          return false;
+     }
+     if(arr1.length === 0 && arr2.length === 0){
+          return true;
+     }
+     if(arr1.length === 0 && arr2.length !== 0){
+          return false;
+     }
+     if(arr1.length !== 0 && arr2.length === 0){
+          return false;
+     }
+
+     arr1 = arr1.map(e => Math.abs(e));
+
+     arr1.sort((a,b) => a-b);
+     arr2.sort((a,b) => a-b);
+
+     for(let i = 0; i < arr1.length; i++){
+
+          let smallValue = arr1[i];
+          let bigValue = arr2[i];
+          let sqrtBigValue = Math.sqrt(bigValue);
+
+          if(!Number.isInteger(sqrtBigValue)){
+               return false;
+          }
+          else{
+               let val = Math.floor(sqrtBigValue);
+               if(val !== smallValue){
+                    return false;
+               }
+          }
+
+     }
+     return true;
+
+}
+
+lst1 = [-121, -144, 19, -161, 19, -144, 19, -11]
+lst2 = [11*11, 121*121, 144*144, 19*19, 161*161, 19*19, 144*144, 19*19]
+simpleComp(lst1, lst2)//, true)
+
+
+
