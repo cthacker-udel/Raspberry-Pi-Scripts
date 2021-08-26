@@ -333,6 +333,8 @@ int movePiece(int x, int y, int direction, player *theplayer, board *theboard, i
                     else{
                         // player survives
                         printf("\nYou have survived the trap! Your current strength left is : %d",theplayer->strength);
+                        *(*(theboard->theboard+x+1)+y) = theplayer->piece;
+                        *(*(theboard->theboard+x)+y) = theboard->defaultPiece;
                         return 1;
                     }
                 }
@@ -355,6 +357,73 @@ int movePiece(int x, int y, int direction, player *theplayer, board *theboard, i
        }
 
        case 4:{ // west, x same, y-1
+
+            if(y == 0){
+
+                // moving off of board
+                return 0;
+
+            }
+            else{
+
+                char iChar = *(*(theboard->theboard+x)+y-1);
+                if(iChar == '|' || iChar == '-'){
+
+                    // wall
+
+                }
+                else if(iChar == 'F'){
+
+                    // food
+
+                }
+                else if(iChar == 'T'){
+
+                    // trap
+                    if(moveThePiece){
+                    // steps on trap
+                    int randAmt = rand() % theplayer->strength-3;
+                    if(randAmt <= 0){
+                        randAmt = 1;
+                    }
+                    printf("\nYou stepped on a trap!, so you lost %d strength!\n",randAmt);
+                    theplayer->strength -= randAmt;
+                    if(theplayer->strength <= 0){
+                        // player loses
+                        printf("By stepping on the trap, your health dropped to 0, you have lost!");
+                        return 1;
+                    }
+                    else{
+                        // player survives
+                        printf("\nYou have survived the trap! Your current strength left is : %d",theplayer->strength);
+                        *(*(theboard->theboard+x)+y-1) = theplayer->piece;
+                        *(*(theboard->theboard+x)+y) = theboard->defaultPiece;
+                        return 1;
+                    }
+                }
+                else{
+                    return 1;
+                }
+
+                }
+                else{
+
+                    // empty spot
+
+                    if(moveThePiece){
+
+                        *(*(theboard->theboard+x)+y-1) = theplayer->piece;
+                        *(*(theboard->theboard+x)+y) = theboard->defaultPiece;
+
+                    }
+                    return 1;
+
+                }
+
+
+            }
+
+
            break;
        }
 
