@@ -30,9 +30,20 @@ int main(void){
         }
 
     }
+    // found x and y of start
     while(1){
 
-        
+        char choice;
+        int res;
+        do{
+            printf("Choose a direction: (U)p\\(D)own\\(L)eft\\(R)ight");
+        }while(scanf(" %c",&choice) == 0 && choice != 'U' && choice != 'D' && choice != 'L' && choice != 'R');
+
+        if(choice == 'U'){
+
+            res = movePiece()
+
+        }
 
     }
 

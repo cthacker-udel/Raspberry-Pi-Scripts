@@ -26,6 +26,6 @@ void makeStartFinish(board *);
 
 void printBoard(board *);
 
-int movePiece(int, player *, board *);
+int movePiece(int x, int y,int direction, player *theplayer, board *theboard,int movePiece);
 
 
