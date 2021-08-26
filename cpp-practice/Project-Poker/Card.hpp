@@ -13,4 +13,10 @@ class Card{
 
         Card(string,string,int);
 
+        string getSuit();
+
+        string getRank();
+
+        int getNumRank();
+
 };
