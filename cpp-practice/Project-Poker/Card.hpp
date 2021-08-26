@@ -7,5 +7,10 @@ class Card{
 
     string suit;
     string rank;
+    int numRank;
+
+    public:
+
+        Card(string,string,int);
 
 };
