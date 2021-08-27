@@ -8,6 +8,7 @@ class Card{
     string suit;
     string rank;
     int numRank;
+    friend class Hand;
 
     public:
 
