@@ -25,3 +25,14 @@ Card *Hand::deal(){
 
 
 }
+
+list<Card *>Hand::dealN(int n){
+
+    if(this->hand == NULL || this->hand.size < n){
+
+        
+
+    }
+
+
+}

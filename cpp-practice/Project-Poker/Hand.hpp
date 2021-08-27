@@ -19,4 +19,6 @@ class Hand{
 
         Card *deal();
 
+        list<Card *> dealN(int);
+
 };
