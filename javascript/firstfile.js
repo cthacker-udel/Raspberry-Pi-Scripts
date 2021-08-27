@@ -9542,5 +9542,35 @@ lst1 = [-121, -144, 19, -161, 19, -144, 19, -11]
 lst2 = [11*11, 121*121, 144*144, 19*19, 161*161, 19*19, 144*144, 19*19]
 simpleComp(lst1, lst2)//, true)
 
+function possiblePath(path){
+
+     let inHallway = true;
+
+     let digits = "0123456789";
+
+     for(let i = 0; i < path.length; i++){
+
+          let currPath = path[i];
+
+          if(currPath === 'H'){
+               // valid path regardless
+               inHallway = true;
+          }
+          else{
+               if(!inHallway){
+                    return false;
+               }
+               inHallway = false;
+          }
+     }
+     return true;
+}
+
+console.log(possiblePath([1, "H", 2, "H", 3, "H", 4]));// ➞ true
+
+console.log(possiblePath(["H", 3, "H"]));// ➞ true
+
+console.log(possiblePath([1, 2, "H", 3]));// ➞ false
+
 
 
