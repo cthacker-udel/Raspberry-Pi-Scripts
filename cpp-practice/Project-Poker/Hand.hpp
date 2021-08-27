@@ -1,6 +1,13 @@
 #include "Card.hpp"
 #include <list>
 
+/*
+
+add deal implementation
+
+
+*/
+
 class Hand{
 
     list<Card> hand;
@@ -8,5 +15,8 @@ class Hand{
     public:
 
         Hand(list<Card>);
+
+
+        Card *deal();
 
 };
