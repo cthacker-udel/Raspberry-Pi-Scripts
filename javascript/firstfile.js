@@ -9313,7 +9313,7 @@ function longestWord(aStr){
 
 }
 
-     */
+
 
 function numberOfDays([x,y]){
 
@@ -9571,6 +9571,263 @@ console.log(possiblePath([1, "H", 2, "H", 3, "H", 4]));// ➞ true
 console.log(possiblePath(["H", 3, "H"]));// ➞ true
 
 console.log(possiblePath([1, 2, "H", 3]));// ➞ false
+
+function mergeArrays(arr1,arr2){
+
+     let newArr = [];
+
+     for(let i = 0; i < Math.max(arr1.length,arr2.length); i++){
+
+          try{
+
+               if(arr1[i] !== undefined) {
+                    newArr.push(arr1[i]);
+               }
+               if(arr2[i] !== undefined) {
+                    newArr.push(arr2[i]);
+               }
+
+          }
+          catch(e){
+
+          }
+
+     }
+     return newArr;
+
+}
+
+
+console.log(mergeArrays([1, 2, 3], ["a", "b", "c", "d", "e", "f"]));
+
+
+function returnEndOfNumber(number){
+
+     let lastDigit = number % 10;
+
+     switch(lastDigit){
+
+          case 1:
+               if(number < 10 || !String(number).endsWith('11')){
+                    return `${number}-ST`;
+               }
+               else{
+                    return `${number}-TH`;
+               }
+          case 2:
+               if(String(number).endsWith('12')){
+                    return `${number}-TH`;
+               }
+               return `${number}-ND`;
+          case 3:
+               if(String(number).endsWith('13')){
+                    return `${number}-TH`;
+               }
+               return `${number}-RD`;
+          case 4:
+               return `${number}-TH`;
+          case 5:
+               return `${number}-TH`;
+          case 6:
+               return `${number}-TH`;
+          case 7:
+               return `${number}-TH`;
+          case 8:
+               return `${number}-TH`;
+          case 9:
+               return `${number}-TH`;
+
+
+     }
+
+
+}
+
+console.log(returnEndOfNumber(334));// "334-TH")
+console.log(returnEndOfNumber(12341));// "12341-ST")
+console.log(returnEndOfNumber(1));// "1-ST")
+console.log(returnEndOfNumber(3222));// "3222-ND")
+console.log(returnEndOfNumber(563));// "563-RD")
+console.log(returnEndOfNumber(412));// "412-TH")
+console.log(returnEndOfNumber(711));// "711-TH")
+console.log(returnEndOfNumber(213));// "213-TH")
+
+     */
+
+function sumEveryNth(arr,num){
+
+
+          let total = 0;
+          for(let i = 0; i < arr.length; i++){
+
+               if((i+1) % num === 0){
+                    total += arr[i];
+               }
+
+          }
+          return total;
+
+
+
+}
+
+console.log(sumEveryNth([2, 5, 3, 9, 5, 7, 10, 7, 3, 3, 3], 9));
+
+
+function sharedLetters(word1,word2){
+
+     let count = 0;
+
+     let letters = new Set(word1.split(""));
+
+     for(let eachletter of letters){
+
+          if(word2.includes(eachletter)){
+               count++;
+          }
+
+     }
+     return count;
+
+}
+
+sharedLetters("apple", "meaty")
+
+
+function getIndices(arr,letter){
+
+    let occurences = [];
+
+    for(let i = 0; i < arr.length; i++){
+
+        if(arr[i] === letter){
+            occurences.push(i);
+        }
+
+    }
+    return occurences;
+
+}
+
+const GUEST_LIST = {
+    Randy: "Germany",
+    Karla: "France",
+    Wendy: "Japan",
+    Norman: "England",
+    Sam: "Argentina"
+}
+
+function greeting(name){
+
+    if(!(Object.keys(GUEST_LIST).includes(name))){
+
+        return "Hi! I'm a guest.";
+
+    }
+    else{
+
+        return `Hi! I'm ${name}, and I'm from ${GUEST_LIST[name]}.`;
+
+    }
+
+
+}
+
+
+function findLetters(name){
+
+    let arr = [];
+
+    for(let i = 0; i < name.length; i++){
+
+        let iChar = name.charAt(i);
+
+        if(name.indexOf(iChar) === name.lastIndexOf(iChar)){
+            arr.push(iChar);
+        }
+
+    }
+    return arr;
+
+}
+
+
+function resistanceCalculator(arr){
+
+    let parallel = 0;
+
+    for(let eachnumber of arr){
+
+        parallel += (1 / eachnumber);
+
+    }
+
+    console.log(`parallel = ${parallel}, and result is : ${1 / parallel}`);
+
+    parallel = (1 / parallel);
+
+    return [Number(parallel.toFixed(2)),Number(arr.reduce((a,b) => a+b).toFixed(2))];
+
+}
+
+console.log(resistanceCalculator([1.1, 2.1, 3.2, 4.3, 5.4, 6.5]));
+
+function remix(astr,arr){
+
+    let newStr = [];
+
+    for(let i = 0; i < astr.length; i++){
+
+        newStr[arr[i]] = astr.charAt(i);
+
+    }
+    return newStr.join("");
+
+
+}
+
+
+function rangedReversal(arr,start,end){
+
+    let newArr = [];
+
+    let theSlice = arr.slice(start,end+1);
+    let ind = theSlice.length-1;
+
+    for(let i = 0; i < arr.length; i++){
+
+        if(i >= start && i <= end){
+            newArr.push(theSlice[ind--]);
+        }
+        else{
+            newArr.push(arr[i]);
+        }
+
+    }
+    return newArr;
+}
+
+rangedReversal([1, 2, 3, 4, 5, 6], 1, 3)
+
+
+function indexFilter(idx,str){
+
+    let newStr = "";
+
+    for(let eachnumber of idx){
+
+        if(eachnumber < 0){
+            newStr += str[str.length-Math.abs(eachnumber)];
+        }
+        else{
+            newStr += str[eachnumber];
+        }
+
+    }
+    return newStr;
+
+
+}
 
 
 
