@@ -10155,3 +10155,42 @@ function trueEquations(equations){
 }
 
 trueEquations(["1+1=2", "2+2=3", "5*5=10", "3/3=1"])
+
+
+function leftShift(arr,times){
+
+    let tmpArr = [];
+    for(let j = 0; j < times; j++){
+
+        for(let i = 1; i < arr.length; i++){
+            tmpArr.push(arr[i]);
+        }
+        tmpArr.push(arr[0]);
+        arr = tmpArr.slice();
+        tmpArr = [];
+
+    }
+    return arr;
+
+}
+
+function rightShift(arr,times){
+
+    let tmpArr = [];
+    for(let i = 0; i < times; i++){
+
+        tmpArr.push(arr[arr.length-1]);
+        for(let j = 0; j < arr.length-1; j++){
+
+            tmpArr.push(arr[j]);
+
+        }
+        arr = tmpArr.slice();
+        tmpArr = [];
+
+    }
+    return arr;
+
+
+}
+
