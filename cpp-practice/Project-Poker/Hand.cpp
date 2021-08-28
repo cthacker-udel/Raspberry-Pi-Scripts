@@ -1,7 +1,7 @@
 #include "Hand.hpp"
 
 
-Hand::Hand(list<Card> cards){
+Hand::Hand(vector<Card> cards){
 
     this->hand = cards;
 
@@ -9,7 +9,7 @@ Hand::Hand(list<Card> cards){
 
 Card *Hand::deal(){
 
-    if(this->hand == NULL){
+    if(this->hand.empty()){
 
         // deck has not been created yet
         return NULL;
@@ -17,7 +17,7 @@ Card *Hand::deal(){
     }
     else{
 
-        Card *theCard = this->hand.back;
+        Card *theCard = &this->hand[this->hand.size()-1];
         this->hand.pop_back();
         return theCard;
 
@@ -26,11 +26,27 @@ Card *Hand::deal(){
 
 }
 
-list<Card *>Hand::dealN(int n){
+vector<Card *>Hand::dealN(int n){
 
-    if(this->hand == NULL || this->hand.size < n){
 
-        
+	vector<Card *> theCards;
+
+    if(this->hand.empty()){
+
+    	// return blank vector
+    	return theCards;
+    }
+    else{
+
+    	for(int i = 0; i < n; i++){
+
+    		Card *theCard = &this->hand[this->hand.size()-1];
+    		theCards.push_back(theCard);
+    		this->hand.pop_back();
+
+    	}
+    	return theCards;
+
 
     }
 

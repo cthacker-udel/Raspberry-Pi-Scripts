@@ -1,24 +1,28 @@
+//
+// Created by flyin on 8/28/2021.
+//
+
+#ifndef HAND_HPP
+#define HAND_HPP
+#include <vector>
 #include "Card.hpp"
-#include <list>
+using namespace std;
 
-/*
-
-add deal implementation
-
-
-*/
 
 class Hand{
 
-    list<Card> hand;
+    vector<Card> hand;
 
-    public:
+public:
 
-        Hand(list<Card>);
+    Hand(vector<Card>);
 
 
-        Card *deal();
+    Card *deal();
 
-        list<Card *> dealN(int);
+    vector<Card *> dealN(int);
 
 };
+
+
+#endif //HAND_HPP
