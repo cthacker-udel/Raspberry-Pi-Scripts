@@ -9652,7 +9652,7 @@ console.log(returnEndOfNumber(412));// "412-TH")
 console.log(returnEndOfNumber(711));// "711-TH")
 console.log(returnEndOfNumber(213));// "213-TH")
 
-     */
+
 
 function sumEveryNth(arr,num){
 
@@ -9830,4 +9830,328 @@ function indexFilter(idx,str){
 }
 
 
+function differenceWith(arr,...values){
 
+    let comparator = values[values.length-1];
+
+    let differences = [];
+
+
+    for(let i = 0; i < arr.length; i++){
+
+        let theArr = arr[i];
+        let result = false;
+        for(let j = 0; j < values.length-1; j++){
+
+            let theValueObj = values[j][0];
+            let comparatorRes = comparator(theArr,theValueObj);
+            if(!comparatorRes){
+                result = true;
+            }
+            else{
+                result = false;
+                break;
+            }
+
+        }
+        if(result){
+            differences.push(theArr);
+        }
+
+    }
+    return differences;
+}
+
+console.log(differenceWith(
+    [
+        { make: "mazda", engine: "v8" },
+        { make: "toyota", engine: "v6" },
+    ],
+    [{ make: "toyota", engine: "v6" }],
+    (a, b) => JSON.stringify(a) === JSON.stringify(b)
+));
+
+
+     */
+
+function difference(arr,...arrays){
+
+    for(let eacharr of arrays){
+
+        for(let i = 0; i < eacharr.length; i++){
+
+            let ind = arr.indexOf(eacharr[i]);
+            if(ind !== -1){
+                // element is in array
+                arr.splice(ind,1);
+            }
+
+        }
+
+    }
+    return arr;
+
+}
+
+
+difference([1,2,3], [2,3,4])
+
+const expr = 'best\sb\w';
+
+
+function smallest(num1,num2){
+
+    let amt = '1';
+    amt = Number(amt.padEnd(num1,'0'));
+
+    console.log(`number2 = ${num2}`);
+
+    for(let i = amt;;i++){
+
+        if(i % num2 === 0){
+            return i;
+        }
+
+    }
+    return null;
+}
+
+console.log(smallest(3, 8));// 104)
+console.log(smallest(5, 12));// 10008)
+console.log(smallest(7, 1));// 1000000)
+console.log(smallest(2, 3));// 12)
+console.log(smallest(9, 33));// 100000032)
+console.log(smallest(8, 17));// 10000012)
+console.log(smallest(4, 67));// 1005)
+console.log(smallest(4, 432));// 1296)
+console.log(smallest(3, 432));// 432)
+console.log(smallest(3, 77));// 154)
+
+
+function isShifted(arr1,arr2){
+
+    if(arr2 === [0].fill(0,0,arr2.length)){
+        return true;
+    }
+    else{
+
+        // increment check
+        let result = false;
+        for(let i = 0; i < arr2.length-1; i++){
+
+            let arr2First = arr2[i];
+            let arr2Second = arr2[i+1];
+
+            let arr1First = arr1[i];
+            let arr1Second = arr1[i+1];
+
+            if(Math.abs(arr2First - arr1First) === Math.abs(arr2Second - arr1Second)){
+                // same increment
+                result = true;
+            }// check for multiplier if not
+            else{
+                return false;
+            }
+
+
+        }
+        return result;
+
+    }
+
+
+}
+
+function isMultiplied(arr1,arr2){
+
+    if(arr2 === [0].fill(0,0,arr2.length)){
+        return true;
+    }
+    else{
+
+        let result = false;
+        for(let i = 0; i < arr2.length-1; i++){
+
+            let arr2First = arr2[i];
+            let arr2Second = arr2[i+1];
+
+            let arr1First = arr1[i];
+            let arr1Second = arr1[i+1];
+
+            if((arr1First / arr2First) === (arr1Second / arr2Second)){
+                // multiplier is same
+                result = true;
+            }
+            else{
+                return false;
+            }
+
+
+        }
+        return result;
+
+    }
+
+
+}
+
+isMultiplied([1, 2, 3], [10, 20, 30])
+
+function fibonacci(number){
+
+    let numbers = [1,1];
+
+    while(numbers.length <= number){
+        numbers.push(numbers[numbers.length-1] + numbers[numbers.length-2]);
+    }
+    return numbers[number];
+
+
+}
+
+
+fibonacci(7);
+
+function largestEven(arr){
+
+    let res = arr.filter(e => e % 2 === 0);
+
+    return res.length > 0? Math.max(...res): -1;
+
+    //return Math.max(...res);
+
+
+}
+
+largestEven([3, 7, 2, 1, 7, 9, 10, 13])
+
+function countdown(n,str){
+
+    return [...Array(n).keys()].reverse().map(e => e+1).map(e => String(e)).join(". ") + `. ${str.toUpperCase()}!`;
+
+
+}
+
+console.log(countdown(10, "Blast Off"));
+
+
+function getProducts(arr){
+
+    let newArr = [];
+
+    let total = 1;
+    for(let i = 0; i < arr.length; i++){
+
+        for(let j = 0; j < arr.length; j++){
+
+            if(j === i){
+                continue;
+            }
+            else{
+                total *= arr[j];
+            }
+
+        }
+        newArr.push(total);
+        total = 1;
+    }
+    return newArr;
+
+}
+
+
+console.log(getProducts([1, 7, 3, 4]));
+
+
+function replace(str1,str2){
+
+    let letters = "abcdefghijklmnopqrstuvwxyz";
+
+    let rangeStart = letters.indexOf(str2.split('-')[0]);
+    let rangeEnd = letters.indexOf(str2.split('-')[1])+1;
+
+    let range = letters.substring(rangeStart,rangeEnd);
+
+    let newStr = '';
+
+    for(let i = 0; i < str1.length; i++){
+
+        if(range.includes(str1.charAt(i))){
+            newStr += '#';
+        }
+        else{
+
+            newStr += str1.charAt(i);
+
+        }
+
+
+    }
+    return newStr;
+
+}
+
+replace("abcdef", "c-e")
+
+
+function reversibleInclusiveList(num,num2){
+
+    let arr = [];
+    if(num > num2){
+
+        for(let i = num; i >= num2; i--){
+
+            arr.push(i);
+
+        }
+        return arr;
+
+    }
+    else{
+
+        for(let i = num; i <= num2; i++){
+
+            arr.push(i);
+
+        }
+        return arr;
+
+
+    }
+}
+
+reversibleInclusiveList(5,1);
+
+function millionInMonth(paycheck,multiplier){
+
+    let total = 0;
+    let months = 0;
+
+    while(total < 1000000){
+
+        months++;
+        total += paycheck;
+        paycheck *= multiplier;
+
+    }
+    return months;
+}
+
+function trueEquations(equations){
+
+    let trueArr = [];
+
+    for(let i = 0; i < equations.length; i++){
+
+        let leftSide = equations[i].split('=')[0];
+        let rightSide = equations[i].split('=')[1];
+        let evalLeft = eval(leftSide);
+        let evalRight = parseInt(rightSide);
+        if(evalLeft === evalRight){
+            trueArr.push(equations[i]);
+        }
+    }
+    return trueArr;
+}
+
+trueEquations(["1+1=2", "2+2=3", "5*5=10", "3/3=1"])
