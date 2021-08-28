@@ -6,6 +6,8 @@
 #define HAND_HPP
 #include <vector>
 #include "Card.hpp"
+#include <list>
+#include <iostream>
 using namespace std;
 
 
@@ -23,6 +25,8 @@ public:
     vector<Card *> dealN(int);
 
     void createDeck();
+
+    void shuffle(int);
 
 };
 

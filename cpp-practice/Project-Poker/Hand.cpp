@@ -72,3 +72,42 @@ void Hand::createDeck(){
 
 
 }
+
+void Hand::shuffle(int n){
+
+	// shuffle n times
+
+	// generate int list of indexes of vector, choose them at random,
+
+	list<int> indexes;
+	vector<Card> newCards;
+
+	for(int i = 0; i < n; i++){
+
+		// shuffling n times
+		for(int i = 0; i < (int)this->hand.size(); i++){
+			indexes.push_back(i);
+		}
+
+		for(int j = 0; j < (int)this->hand.size(); j++){
+
+			int randIndex = rand() % indexes.size();
+			int count = 0;
+			list<int>::iterator it = indexes.begin();
+			for(;it != indexes.end();it++,count++){
+
+				if(count == randIndex){
+					newCards.push_back(this->hand[*it]);
+					indexes.remove(*it);
+					break;
+				}
+
+			}
+
+
+		}
+		this->hand = newCards;
+		newCards.clear();
+	}
+
+}
