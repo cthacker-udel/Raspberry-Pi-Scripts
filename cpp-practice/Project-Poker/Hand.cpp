@@ -52,3 +52,23 @@ vector<Card *>Hand::dealN(int n){
 
 
 }
+
+void Hand::createDeck(){
+
+	string suits[] = {'Spades', 'Hearts', 'Diamonds', 'Clubs'};
+	string ranks[] = {"1","2","3","4","5","6","7","8","9","10","Jack","Queen","King","Ace"};
+	int numRanks[] = {1,2,3,4,5,6,7,8,9,10,11,12,13,14};
+
+	for(int i = 0; i < 4; i++){ // suits
+
+		for(int j = 0; j < 14; j++){ // ranks
+
+			this->hand.push_back(Card(suits[i],ranks[j],numRanks[j]));
+
+		}
+
+
+	}
+
+
+}
