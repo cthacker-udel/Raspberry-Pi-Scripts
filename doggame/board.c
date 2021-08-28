@@ -26,6 +26,20 @@ board *makeBoard(){
     theboard->size = size;
     theboard->player1 = player1;
 
+
+    // filling default board
+    for(int i = 0; i < theboard->size; i++){
+    
+        for(int j = 0; j < theboard->size; j++){
+        
+            *(*(theboard->theboard+i)+j) = theboard->defaultPiece;
+
+        }
+    
+    }
+
+
+
     return theboard;
 
 }
