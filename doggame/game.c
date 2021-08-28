@@ -13,6 +13,7 @@ int main(void){
     int x = 0;
     int y;
     int boolVal = 0;
+    makeStartFinish(theboard);
     for(int i = 0; i < theboard->size; i++){
 
         for(int j = 0; j < theboard->size; j++){
