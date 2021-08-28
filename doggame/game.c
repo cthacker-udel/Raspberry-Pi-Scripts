@@ -32,7 +32,7 @@ int main(void){
     }
     // found x and y of start
     while(1){
-
+        printBoard(theboard);
         char choice;
         int res;
         do{
