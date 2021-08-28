@@ -1,5 +1,5 @@
-build:
-	doggame
+all: doggame
+	echo 'doggame has been created'
 
 
 doggame: board.o game.o player.o board.h player.h

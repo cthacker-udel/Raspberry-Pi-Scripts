@@ -18,7 +18,6 @@ board *makeBoard(){
     // initializing the board
 
     player *player1 = createPlayer();
-    player *player2 = createPlayer();
 
     printf("\nEnter default piece to fill board with");
     scanf(" %c",&piece);
@@ -26,7 +25,6 @@ board *makeBoard(){
     theboard->defaultPiece = piece;
     theboard->size = size;
     theboard->player1 = player1;
-    theboard->player2 = player2;
 
     return theboard;
 
