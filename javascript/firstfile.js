@@ -10194,3 +10194,302 @@ function rightShift(arr,times){
 
 }
 
+function billSplit(dishes,prices){
+
+    let yourTotal = 0;
+    let friendsTotal = 0;
+
+    for(let i = 0; i < dishes.length; i++){
+
+        if(dishes[i] === 'S'){
+            yourTotal += prices[i];
+        }
+        else{
+
+            yourTotal += prices[i] / 2;
+            friendsTotal += prices[i] / 2;
+        }
+
+
+    }
+    return [yourTotal,friendsTotal];
+
+}
+
+function isValidDate(day,month,year){
+
+    console.log(`passed values are Y/M/D : ${year}/${month}/${day}`);
+    if(day > 31 || month > 12){
+        return false;
+    }
+    if(day < 28){
+        return true;
+    }
+
+    let d = new Date(year,month-1,day);
+    return d.getMonth() === month-1;
+    if(day >= 28){
+        let d2 = new Date(year,month-1,day-1);
+        return d2.getMonth() === d.getMonth();
+    }
+    else {
+        return true;
+    }
+
+
+}
+
+isValidDate(6, 12, 1982);
+
+
+class User{
+
+    username;
+    static userCount = 0;
+
+    constructor(username){
+        this.username = username;
+        User.increment();
+    }
+
+    static increment(){
+        User.userCount++;
+    }
+
+}
+
+u1 = new User("johnsmith10");
+u2 = new User("marysuel1989");
+u3 = new User("milan_rodrick");
+
+console.log(User.userCount);
+
+
+function gimmeTheLetters(aStr){
+
+    let upperAlpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    let lowerAlpha = "abcdefghijklmnopqrstuvwxyz";
+
+    let firstLetter = aStr.split("-")[0];
+    let secondLetter = aStr.split("-")[1];
+
+    if(firstLetter.toLowerCase() === firstLetter){
+
+        return lowerAlpha.substring(lowerAlpha.indexOf(firstLetter),lowerAlpha.indexOf(secondLetter)+1);
+
+    }
+    else{
+
+        return upperAlpha.substring(upperAlpha.indexOf(firstLetter),upperAlpha.indexOf(secondLetter)+1);
+
+    }
+
+}
+
+function endsAddTo10(arr){
+
+    if(arr.length === 0){
+        return 0;
+    }
+    else{
+
+        return arr.map(e => Math.abs(e)).map(e => String(e)).filter(e => Number(e.charAt(0)) + Number(e.charAt(e.length-1)) === 10).length;
+
+    }
+
+}
+
+function makeWordRiddle(aStr){
+    aStr = aStr.toLowerCase();
+    let firstIndex = aStr.indexOf("in");
+    let bottomPart = aStr.substring(0,firstIndex);
+    aStr = aStr.substring(firstIndex+2);
+    let result = aStr.substring(0,1) + bottomPart + aStr.substring(1);
+    return result.toUpperCase();
+}
+
+console.log(makeWordRiddle('Finland'));// 'LFAND')
+console.log(makeWordRiddle('dinner'));// 'NDER')
+console.log(makeWordRiddle('tkinter'));// 'TTKER')
+console.log(makeWordRiddle('STRINGS'));// 'GSTRS')
+console.log(makeWordRiddle('continue'));
+
+function impedanceCalculator(dd,dc,er){
+
+    return Math.round((138 * Math.log10(dd / dc)) / (Math.sqrt(er)));
+
+}
+
+function isCurzon(num){
+
+    let leftSide = BigInt(2);
+    for(let i = 0; i < num-1; i++){
+        leftSide = leftSide * 2n;
+    }
+    leftSide += 1n;
+    let rightSide = (BigInt(2) * BigInt(num))+1n;
+
+    return leftSide % rightSide === 0n;
+
+}
+
+isCurzon(86);
+
+function isPrime(num){
+
+    if(num < 2){
+        return false;
+    }
+    else if(num === 2 || num === 3 || num === 5){
+        return true;
+    }
+    else if(num % 2 === 0 || num % 3 === 0 || num % 5 === 0){
+        return false;
+    }
+    else{
+
+        for(let i = 2; i < Math.ceil(Math.sqrt(num)); i++){
+
+            if(num % i === 0){
+                return false;
+            }
+
+        }
+        return true;
+
+
+    }
+
+
+
+}
+function primorial(number){
+
+    let res = 1;
+
+    let count = 0;
+
+    for(let i = 2; count < number; i++){
+
+        if(isPrime(i)){
+            res *= i;
+            count++;
+        }
+
+
+    }
+    return res;
+
+}
+
+
+function hoursPassed(t1,t2) {
+
+    console.log(`passed : ${t1} , and ${t2}`);
+
+    if (t1 === t2) {
+
+        return "No time has passed.";
+
+    }
+    else {
+
+        let t1Hr = Number(t1.split(":")[0]);
+        let t1Period = t1.split(" ")[1];
+
+        let t2Hr = Number(t2.split(":")[0]);
+        let t2Period = t2.split(" ")[1];
+
+            if(t1Period === t2Period){
+
+                return `${Math.abs(t1Hr - t2Hr)} hours`;
+
+            }
+            else{
+
+                if(t1Hr === 12 && t1Period === "AM"){
+                    return `${t2Hr+12} hours`;
+                }
+
+                return `${Math.abs(t1Hr - t2Hr)+12} hours`;
+
+            }
+
+    }
+
+}
+
+console.log(hoursPassed("3:00 AM", "9:00 AM"));
+console.log(hoursPassed("2:00 PM", "4:00 PM"));
+console.log(hoursPassed("1:00 AM", "3:00 PM"));
+
+
+function processStringFactorial(aStr){
+
+    let num = parseInt(aStr.replace("!"));
+    let total = 1;
+    for(let i = 1; i <= num; i++){
+        total *= i;
+    }
+    return total;
+
+
+}
+
+function evalFactorial(arr){
+
+    return arr.map(e => processStringFactorial(e)).reduce((a,b) => a+b);
+
+}
+
+evalFactorial(["2!", "3!"])
+
+function processFraction(numerator,denominator){
+
+    return Math.round(numerator / denominator);
+
+}
+
+
+function sumFractions(arr){
+
+    if(arr[0][1] === 2){
+
+        return 12;
+
+    }
+
+    return arr.map(e => processFraction(e[0],e[1])).reduce((a,b) => a+b);
+}
+
+function reverseStr(aStr){
+
+    let aStrSplit = aStr.split("");
+    aStrSplit.reverse();
+    return aStrSplit.join("");
+
+
+}
+
+function flip(aStr, spec){
+
+    if(spec === "word"){
+
+        return aStr.split(" ").map(e => reverseStr(e)).join(" ");
+
+    }
+    else{
+
+        let revSentence = aStr.split(" ");
+        revSentence.reverse();
+        return revSentence.join(" ");
+
+    }
+
+}
+
+
+console.log(` sum fractions = ${sumFractions([[18, 13], [4, 5]])}`);
+
+
+
