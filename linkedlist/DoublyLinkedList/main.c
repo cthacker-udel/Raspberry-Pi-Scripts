@@ -19,8 +19,7 @@ void addNode(int value){
         } 
         tempHead->next = theNode;
         theNode->prev = tempHead;
-
-    
+        TAIL = theNode;
     }
 
 
