@@ -6,6 +6,7 @@ typedef struct theNode{
 
     int val;
     struct theNode *next;
+    struct theNode *prev;
 
 }node;
 

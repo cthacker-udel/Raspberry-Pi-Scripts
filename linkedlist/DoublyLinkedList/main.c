@@ -6,7 +6,14 @@ node *TAIL = NULL;
 void addNode(int value){
 
     if(ROOT == NULL){
-        
+        node *theNode = createNodeV2(value);
+        ROOT = theNode;
+        TAIL = theNode;
+    }
+    else{
+    
+        // insert 
+    
     }
 
 
