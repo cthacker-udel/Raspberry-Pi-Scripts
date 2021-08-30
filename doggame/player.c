@@ -9,17 +9,17 @@ int getPlayerStrength(player *thePlayer){
 player *createPlayer(){
 
     char *theName = malloc(sizeof(char) * 100);
-    printf("\nEnter the name of the player");
+    printf("\nEnter the name of the player :  ");
     scanf("%s",theName);
     printf("\nEnter the strength of the player\n");
     int theStrength;
     scanf("%d",&theStrength);
-    printf("\nEnter the first initial of the player");
+    printf("\nEnter the first initial of the player :  ");
     char firstInitial;
     char lastInitial;
     char piece;
     scanf(" %c",&firstInitial);
-    printf("\nEnter the last initial of the player");
+    printf("\nEnter the last initial of the player :  ");
     scanf(" %c",&lastInitial);
     printf("\nEnter the piece character of the player\n");
     scanf(" %c",&piece);

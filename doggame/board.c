@@ -7,7 +7,7 @@ board *makeBoard(){
 
     board *theboard = malloc(sizeof(board));
 
-    printf("\nEnter the board size: lowest is 4");
+    printf("\nEnter the board size: lowest is 4 :    ");
     scanf("%d",&size);
     theboard->theboard = malloc(sizeof(char*) * size);
     for(int i = 0; i < size; i++){
@@ -18,15 +18,27 @@ board *makeBoard(){
     // initializing the board
 
     player *player1 = createPlayer();
-    player *player2 = createPlayer();
 
-    printf("\nEnter default piece to fill board with");
+    printf("\nEnter default piece to fill board with :    ");
     scanf(" %c",&piece);
 
     theboard->defaultPiece = piece;
     theboard->size = size;
     theboard->player1 = player1;
-    theboard->player2 = player2;
+
+
+    // filling default board
+    for(int i = 0; i < theboard->size; i++){
+    
+        for(int j = 0; j < theboard->size; j++){
+        
+            *(*(theboard->theboard+i)+j) = theboard->defaultPiece;
+
+        }
+    
+    }
+
+
 
     return theboard;
 
@@ -37,17 +49,18 @@ void makeStartFinish(board *theboard){
     int randomX = rand() % theboard->size; // set y to 0
     int randomY = rand() % theboard->size; // set y to size-1
 
-    *(*(theboard->theboard+randomX)+0) = 'E';
-    *(*(theboard->theboard+randomY)+theboard->size-1) = 'F'; 
+    *(*(theboard->theboard+randomX)+0) = 'S';
+    *(*(theboard->theboard+randomY)+theboard->size-1) = 'E'; 
 
 }
 
 void printBoard(board *theboard){
-
+    
     for(int i = 0; i < theboard->size; i++){
         for(int j = 0; j < theboard->size; j++){
             printf(" %c ",*(*(theboard->theboard+i)+j));
         }
+        printf("\n");
     }
 
 }

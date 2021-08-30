@@ -11,10 +11,18 @@ int main(void){
     board *theboard = makeBoard();
     // board constructed
     int x = 0;
-    int y;
+    int y = 0;
     int boolVal = 0;
+    makeStartFinish(theboard);
     for(int i = 0; i < theboard->size; i++){
+        
+        char theChar = *(*(theboard->theboard+i)+0);
+        if(theChar == 'S'){
+            x = i;
+            break;
+        }
 
+        /*
         for(int j = 0; j < theboard->size; j++){
 
             char theChar = *(*(theboard->theboard+i)+j);
@@ -28,11 +36,12 @@ int main(void){
         if(boolVal){
             break;
         }
+        */
 
     }
     // found x and y of start
     while(1){
-
+        printBoard(theboard);
         char choice;
         int res;
         do{
@@ -46,29 +55,29 @@ int main(void){
                 // do not move piece
             }
             else{
-
+                printf("\nMoving piece up\n");
                 movePiece(x,y,1,theboard->player1,theboard,1);
                 x--;
-
             }
 
         }
         else if(choice == 'D'){
 
-            res = movePiece(x,y,1,theboard->player1,theboard,0);
+            res = movePiece(x,y,3,theboard->player1,theboard,0);
 
             if(res == 0){
                 // do not move piece
             }
             else{
-                movePiece(x,y,1,theboard->player1,theboard,1);
+                printf("\nMoving piece down\n");
+                movePiece(x,y,3,theboard->player1,theboard,1);
                 x++;
             }
 
         }
         else if(choice == 'L'){
 
-            res = movePiece(x,y,1,theboard->player1,theboard,0);
+            res = movePiece(x,y,4,theboard->player1,theboard,0);
 
             if(res == 0){
 
@@ -76,8 +85,8 @@ int main(void){
 
             }
             else{
-
-                movePiece(x,y,1,theboard->player1,theboard,1);
+                printf("\nMoving piece left\n");
+                movePiece(x,y,4,theboard->player1,theboard,1);
                 y--;
 
             }
@@ -85,7 +94,7 @@ int main(void){
         }
         else if(choice == 'R'){
 
-            res = movePiece(x,y,1,theboard->player1,theboard,0);
+            res = movePiece(x,y,2,theboard->player1,theboard,0);
 
             if(res == 0){
 
@@ -93,8 +102,8 @@ int main(void){
 
             }
             else{
-
-                movePiece(x,y,1,theboard->player1,theboard,1);
+                printf("\nMoving piece right\n");
+                movePiece(x,y,2,theboard->player1,theboard,1);
                 y++;
 
             }
