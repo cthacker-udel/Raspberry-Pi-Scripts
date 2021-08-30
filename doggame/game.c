@@ -41,6 +41,8 @@ int main(void){
     }
     // found x and y of start
     while(1){
+        // print strength
+        printf("\n------------------------\nCURRENT STRENGTH : %d\n------------------------\n",theboard->player1->strength);
         printBoard(theboard);
         char choice;
         int res;
@@ -53,6 +55,7 @@ int main(void){
             res = movePiece(x,y,1,theboard->player1,theboard,0);
             if(res == 0){
                 // do not move piece
+                printf("\nInvalid Move!\n");
             }
             else{
                 printf("\nMoving piece up\n");
@@ -67,6 +70,7 @@ int main(void){
 
             if(res == 0){
                 // do not move piece
+                printf("\nInvalid Move!\n");
             }
             else{
                 printf("\nMoving piece down\n");
@@ -82,7 +86,7 @@ int main(void){
             if(res == 0){
 
                 // do not move piece
-
+                printf("\nInvalid Move!\n");
             }
             else{
                 printf("\nMoving piece left\n");
@@ -99,6 +103,7 @@ int main(void){
             if(res == 0){
 
                 // do not move piece
+                printf("\nInvalid Move!\n");
 
             }
             else{
