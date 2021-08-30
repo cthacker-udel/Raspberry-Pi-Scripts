@@ -45,10 +45,10 @@ int main(void){
         char choice;
         int res;
         do{
-            printf("Choose a direction: (U)p\\(D)own\\(L)eft\\(R)ight");
-        }while(scanf(" %c",&choice) == 0 && choice != 'U' && choice != 'D' && choice != 'L' && choice != 'R');
+            printf("Choose a direction: (Uu)p\\(Dd)own\\(Ll)eft\\(Rr)ight");
+        }while(scanf(" %c",&choice) == 0 && choice != 'U' && choice != 'D' && choice != 'L' && choice != 'R' && choice != 'u' && choice != 'd' && choice != 'l' && choice != 'r');
 
-        if(choice == 'U'){
+        if(choice == 'U' || choice == 'u'){
 
             res = movePiece(x,y,1,theboard->player1,theboard,0);
             if(res == 0){
@@ -61,7 +61,7 @@ int main(void){
             }
 
         }
-        else if(choice == 'D'){
+        else if(choice == 'D' || choice == 'd'){
 
             res = movePiece(x,y,3,theboard->player1,theboard,0);
 
@@ -75,7 +75,7 @@ int main(void){
             }
 
         }
-        else if(choice == 'L'){
+        else if(choice == 'L' || choice == 'l'){
 
             res = movePiece(x,y,4,theboard->player1,theboard,0);
 
@@ -92,7 +92,7 @@ int main(void){
             }
 
         }
-        else if(choice == 'R'){
+        else if(choice == 'R' || choice == 'r'){
 
             res = movePiece(x,y,2,theboard->player1,theboard,0);
 
