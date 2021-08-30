@@ -16,5 +16,6 @@ void findFirstIndex(int);
 
 void findLastIndex(int);
 
+node *createNode();
 
 
