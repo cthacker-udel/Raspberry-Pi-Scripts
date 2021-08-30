@@ -4,15 +4,22 @@ node *ROOT = NULL;
 node *TAIL = NULL;
 
 void addNode(int value){
-
+    
+    node *theNode = createNodeV2(value);
     if(ROOT == NULL){
-        node *theNode = createNodeV2(value);
         ROOT = theNode;
         TAIL = theNode;
     }
     else{
     
-        // insert 
+        // insert
+        node *tempHead = ROOT;
+        while(tempHead->next != NULL){
+            tempHead = tempHead->next;
+        } 
+        tempHead->next = theNode;
+        theNode->prev = tempHead;
+
     
     }
 
@@ -30,6 +37,8 @@ node *createNode(){
 
     node *newNode = malloc(sizeof(node));
     newNode->value = val;
+    newNode->next = NULL;
+    newNode->prev = NULL;
     return newNode;
 
 
@@ -39,7 +48,8 @@ node *createNodeV2(int value){
 
     node *newNode = malloc(sizeof(node));
     newNode->value = value;
-
+    newNode->next = NULL;
+    newNode->prev = NULL;
     return newNode;
 
 }
