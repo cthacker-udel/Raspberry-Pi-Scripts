@@ -18,4 +18,5 @@ void findLastIndex(int);
 
 node *createNode();
 
+node *createNodeV2(int);
 

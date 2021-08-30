@@ -1,10 +1,13 @@
 #include "project.h"
 
 node *ROOT = NULL;
+node *TAIL = NULL;
 
 void addNode(int value){
 
-    
+    if(ROOT == NULL){
+        
+    }
 
 
 }
@@ -25,6 +28,12 @@ node *createNode(){
 
 }
 
+node *createNodeV2(int value){
 
+    node *newNode = malloc(sizeof(node));
+    newNode->value = value;
 
+    return newNode;
+
+}
 
