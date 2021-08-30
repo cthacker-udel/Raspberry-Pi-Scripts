@@ -73,6 +73,12 @@ void Hand::createDeck(){
 
 }
 
+vector<Card> Hand::getHand(){
+
+	return this->hand;
+
+}
+
 void Hand::shuffle(int n){
 
 	// shuffle n times

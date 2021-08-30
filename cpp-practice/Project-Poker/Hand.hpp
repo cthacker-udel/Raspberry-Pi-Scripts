@@ -28,6 +28,8 @@ public:
 
     void shuffle(int);
 
+    vector<Card> getHand();
+
 };
 
 
