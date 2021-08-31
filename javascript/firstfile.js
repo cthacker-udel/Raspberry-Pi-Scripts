@@ -10489,7 +10489,174 @@ function flip(aStr, spec){
 }
 
 
+
+
 console.log(` sum fractions = ${sumFractions([[18, 13], [4, 5]])}`);
+
+function countSmileys(arr){
+
+    const expr = '[:;][-~]?[)D]';
+
+    return arr.filter(e => e.match(expr)).length;
+
+
+}
+
+function isGoodMatch(arr){
+
+    if(arr.length % 2 !== 0){
+        return "bad match";
+    }
+    else{
+
+        let newArr = [];
+
+        for(let i = 0; i < arr.length; i += 2){
+
+            newArr.push(arr[i]+arr[i+1]);
+
+        }
+        return newArr;
+    }
+}
+
+console.log(isGoodMatch([1, 2, 4, 7]));//, [3, 11])
+console.log(isGoodMatch([1, 2, 4]));// "bad match")
+console.log(isGoodMatch([5, 7, 9, -1, 4, 2]));// [12, 8, 6])
+console.log(isGoodMatch([1, 2, 3, 4, 5, 6]));// [3, 7, 11])
+console.log(isGoodMatch([3, 6, 7, 9, -1]));// "bad match")
+console.log(isGoodMatch([5, 7, 9, -1, 4, 2, 9]));// "bad match")
+console.log(isGoodMatch([1, -1, 1, -1, 1, -1]));// [0,0,0])
+
+function rightTriangle(x,y,z){
+
+    if(x <= 0 || y <= 0 || z <= 0){
+        return false;
+    }
+
+    let arr = [x,y,z];
+    arr.sort((a,b) => a-b);
+    x = arr[0];
+    y = arr[1];
+    z = arr[2];
+
+    return Math.hypot(x,y) === z;
+
+
+}
+
+console.log(rightTriangle(3, 4, 5));// true)
+console.log(rightTriangle(145, 105, 100));// true)
+console.log(rightTriangle(70, 130, 110));// false)
+console.log(rightTriangle(60, 60, 60));// false)
+console.log(rightTriangle(0, 4, 4));// false, "A triangle can't have an edge of length 0.")
+console.log(rightTriangle(-3, 4, 5));// false, "A triangle can't have edges of negative length.")
+console.log(rightTriangle(115, 277, 252));// true)
+console.log(rightTriangle(140, 170, 220));// false)
+console.log(rightTriangle(915, 1748, 1973));// true)
+
+
+function wordBuilder(letters,indexes){
+
+    let newArr = Array(letters.length).fill('-');
+
+    for(let i = 0; i < indexes.length; i++){
+
+        newArr[indexes[i]] = letters[i];
+
+    }
+    return newArr.join('');
+
+
+}
+
+wordBuilder(["e", "t", "s", "t"], [1, 3, 2, 0]);
+
+function isMiniSudoku(matrix){
+
+    matrix = matrix.flat(Infinity);
+    if(Math.min(...matrix) !== 1 || Math.max(...matrix) !== 9){
+
+        return false;
+
+    }
+    let matrixSet = new Set(matrix);
+    return matrixSet.size === 9;
+
+}
+
+
+isMiniSudoku(
+    [[0, 1, 2],
+        [6, 4, 5],
+        [9, 8, 7]]);
+
+function dailyStreak(arr){
+
+    let count = 0;
+    let maxCount = 0;
+    let currStatus = false;
+
+    for(let i = 0; i < arr.length; i++){
+
+        if(arr[i] === true){
+            currStatus = arr[i];
+            count++;
+        }
+        else{
+            maxCount = Math.max(maxCount,count);
+            count = 0;
+        }
+
+    }
+    maxCount = Math.max(maxCount,count);
+    return maxCount;
+}
+
+
+console.log(dailyStreak([true, true, false, true]));// 2)
+console.log(dailyStreak([false, false, false]));// 0)
+console.log(dailyStreak([true, true, true, false]));// 3)
+console.log(dailyStreak([true, true, true, false, true, true]));// 3)
+console.log(dailyStreak([true, false]));// 1)
+console.log(dailyStreak([true, false, true]));// 1)
+console.log(dailyStreak([true, false, true, true]));// 2)
+
+const regexp = '([-]?\\d+\\.?\\d?)+';
+
+function neighboring(aStr){
+
+    let alphabet = "abcdefghijklmnopqrstuvwxyz";
+
+    for(let i = 1; i < aStr.length-1; i++){
+
+        let beforeCharacter = aStr.charAt(i-1);
+        let afterCharacter = aStr.charAt(i+1);
+
+        let currIndex = alphabet.indexOf(aStr.charAt(i));
+        let beforeIndex = alphabet.indexOf(beforeCharacter);
+        let afterIndex = alphabet.indexOf(afterCharacter);
+
+        if(Math.abs(currIndex - beforeIndex) !== 1 || Math.abs(currIndex - afterIndex) !== 1){
+            return false;
+        }
+    }
+    return true;
+}
+
+
+console.log(neighboring("abcdedcba"));// true)
+console.log(neighboring("aba"));// true)
+console.log(neighboring("efghihfe"));// false)
+console.log(neighboring("xyzyx"));// true)
+console.log(neighboring("mnopqrstsrqponm"));// true)
+console.log(neighboring("zyz"));// true)
+console.log(neighboring("aeiou"));// false)
+console.log(neighboring("cdefg"));// true)
+console.log(neighboring("qrstuv"));// true)
+console.log(neighboring("aaaaa"));// false)
+
+
 
 
 
