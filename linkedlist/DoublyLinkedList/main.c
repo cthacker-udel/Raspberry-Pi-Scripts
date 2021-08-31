@@ -53,3 +53,31 @@ node *createNodeV2(int value){
 
 }
 
+
+void removeTail(){
+
+    if(TAIL == NULL){
+
+        // there is no tail
+        printf("\nLIST IS EMPTY, UNABLE TO REMOVE TAIL\n");
+
+    }
+    else{
+
+        if(TAIL->prev == NULL){
+            // tail is only node
+            TAIL = NULL;
+            ROOT = NULL;
+        }
+        else{
+            node *prevNode = TAIL->prev;
+            prevNode->next = NULL;
+            TAIL->prev = NULL;
+            TAIL = NULL;
+            TAIL = prevNode;
+        }
+
+    }
+
+}
+

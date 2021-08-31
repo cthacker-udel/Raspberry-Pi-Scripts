@@ -21,3 +21,7 @@ node *createNode();
 
 node *createNodeV2(int);
 
+void removeTail();
+
+void removeHead();
+
