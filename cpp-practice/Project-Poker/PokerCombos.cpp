@@ -44,6 +44,52 @@ bool isSameSuit(Hand hand){
 	return true;
 }
 
+bool isAlternating(Hand hand){
+	
+	vector<Card> cards = hand.getHand();
+	
+	list<int> sortedRanks;
+	list<int> origRanks;
+	
+	for(int i = 0; i < (int)cards.size(); i++){
+		
+		int theNumRank = cards[i].getNumRank();
+		
+		sortedRanks.push_back(theNumRank);
+		origRanks.push_back(theNumRank);
+		
+	}
+	sortedRanks.sort();
+	
+	vector<int> origRanksVector;
+	vector<int> sortedRanksVector;
+	
+	for(int eachint : sortedRanks){
+		
+		sortedRanksVector.push_back(eachint);
+		
+	}
+	
+	for(int eachint : origRanksVector){
+		
+		origRanksVector.push_back(eachint);
+		
+	}
+	
+	for(int i = 0; i < (int)origRanksVector.size(); i++){
+		
+		int iVal = origRanksVector[i];
+		int jVal = sortedRanksVector[i];
+		if(iVal != jVal){
+			return false;
+		}
+		
+	}
+	return true;
+	
+}
+
+
 
 bool isRoyalFlush(Hand hand){
 
