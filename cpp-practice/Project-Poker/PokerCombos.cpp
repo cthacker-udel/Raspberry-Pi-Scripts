@@ -22,6 +22,28 @@ using namespace std;
  *
  */
 
+bool isSameSuit(Hand hand){
+	
+	vector<Card> cards = hand.getHand();
+	/*
+	 * 
+	 * Any size hand, return if all same suit
+	 * 
+	 */
+	
+	string theSuit = cards[0].getSuit();
+	
+	for(int i = 0; i < (int)cards.size(); i++){
+		
+		string iSuit = cards[i].getSuit();
+		if(theSuit != iSuit){
+			return false;
+		}
+		
+	}
+	return true;
+}
+
 
 bool isRoyalFlush(Hand hand){
 
