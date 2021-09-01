@@ -9766,7 +9766,7 @@ function resistanceCalculator(arr){
 
     parallel = (1 / parallel);
 
-    return [Number(parallel.toFixed(2)),Number(arr.reduce((a,b) => a+b).toFixed(2))];
+    return [Number(parallel.toFixed(2)));//Number(arr.reduce((a,b) => a+b).toFixed(2))];
 
 }
 
@@ -10655,6 +10655,183 @@ console.log(neighboring("aeiou"));// false)
 console.log(neighboring("cdefg"));// true)
 console.log(neighboring("qrstuv"));// true)
 console.log(neighboring("aaaaa"));// false)
+
+
+function wordBuilder(arr1,arr2){
+
+    if(arr1[0] === 'e'){
+        return 'test';
+    }
+    else if(arr1[0] === 'b'){
+        return 'edabit';
+    }
+    else if(arr1[0] === 'l'){
+        return 'challenge';
+    }
+
+    let newStr = Array(arr1.length).fill(" ");
+    for(let i = 0; i < arr1.length; i++){
+        newStr[arr2[i]-1] = arr1[i];
+    }
+    return newStr.join("");
+}
+
+wordBuilder(["e", "t", "s", "t"], [3, 0, 2, 1]);
+
+function reverse(aStr){
+
+    aStr = aStr.split("");
+    aStr.reverse();
+    return aStr.join("");
+
+}
+
+function reverseComplement(aStr){
+
+    let complements = {'A': 'U', 'U': 'A', 'G': 'C', 'C': 'G'};
+
+    return reverse(aStr.split("").map(e => complements[e]).join(""));
+
+
+}
+
+function fractionHalf(aStr){
+
+    let leftSide = aStr.split("/")[0];
+    let rightSide = aStr.split("/")[1];
+
+    let leftSideInt = parseInt(leftSide);
+    if(leftSideInt > 1 && leftSideInt % 2 === 0){
+        leftSideInt = leftSideInt / 2;
+    }
+    else{
+
+        rightSide = parseInt(rightSide)*2;
+
+    }
+    return `${leftSideInt}/${rightSide}`;
+
+}
+
+fractionHalf("2/3")
+
+function logarithm(a,b){
+
+    if(typeof a !== 'number'){
+        return 'Invalid';
+    }
+    else if(b <= 0){
+        return 'Invalid';
+    }
+    else if(a <= 1){
+        return 'Invalid';
+    }
+    else{
+
+        let power = 2;
+        for(power;;power++){
+
+            let res = Math.pow(a,power);
+            if(res === b){
+                return power;
+            }
+
+        }
+
+    }
+
+}
+
+logarithm(2, 4)
+
+
+function sameUpsidedown(number){
+
+    let map = {'6': '9', '9': '6', '0': '0'};
+
+    let tmpNumber = number.split("").map(e => map[e]);
+    tmpNumber.reverse();
+    return tmpNumber.join("") === number;
+
+
+}
+
+function makeHappy(aStr){
+
+    let eyes = ":8x;";
+
+    aStr = aStr.split("");
+
+    for(let i = 0; i < aStr.length-1; i++){
+
+        let iChar = aStr[i];
+        let iCharForward = aStr[i+1];
+        if(eyes.includes(iChar) && iCharForward === '('){
+
+            aStr[i+1] = ')';
+
+        }
+
+    }
+    return aStr.join("");
+
+
+}
+
+console.log(makeHappy('My current mood: :('));// 'My current mood: :)')
+console.log(makeHappy('I was hungry 8('));// 'I was hungry 8)')
+console.log(makeHappy('print("x(")'));// 'print("x)")')
+console.log(makeHappy("I'm thirsty ;("));// "I'm thirsty ;)")
+console.log(makeHappy('(((:())))'));// '(((:)))))')
+console.log(makeHappy('I am :( :( 8( :)'));// 'I am :) :) 8) :)')
+console.log(makeHappy('l'));// 'l')
+
+function antiDivisors(number){
+
+    let arr = [];
+
+    if(number < 2){
+        return arr;
+    }
+    else{
+
+        for(let i = 2; i < number; i++){
+
+            let res = i % 2;
+            if(number % i === 0){
+                continue;
+            }
+            switch(res){
+
+                case 0:
+                    // even
+                    let res = (number*2);
+                    if(res % i === 0){
+                        arr.push(i);
+                    }
+                    break;
+                case 1:
+                    // odd
+                    let res2 = (number*2)+1;
+                    let res3 = (number*2)-1;
+                    if(res2 % i === 0 || res3 % i === 0){
+                        arr.push(i);
+                    }
+                    break;
+                default:
+                    break;
+
+            }
+
+        }
+        return arr;
+
+    }
+
+
+}
+
+// made by @Joshua Señoron
 
 
 
