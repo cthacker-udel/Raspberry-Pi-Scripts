@@ -186,3 +186,56 @@ int findFirstIndex(int value){
 
 }
 
+int removeNode(int value){
+
+    /*
+
+    Passed value to delete, can use findfirst or findlast index, and a combination of
+    nodeCount to judge the list length and operations to perform dependant on that
+
+    returns the value of the node removed
+
+    */
+
+}
+
+
+void insert(int index, int value){
+
+    /*
+
+        Takes a index and a value, value is used to construct the node, and the
+        index is used to figure out where to place the node
+
+    */
+
+
+}
+
+void moveUp(int value){
+
+    /*
+
+    Takes a value denoting which node to move, and if that node is the head, then
+    that node becomes the tail and the node before it is the new head
+
+    Different operations dependant on the size of the list
+
+    */
+
+
+}
+
+void moveDown(int value){
+
+    /*
+
+    Takes a value denoting which node to move down, and if that node is the tail
+    then that node becomes the head, and the operations change depending on the
+    size of the list
+
+    */
+
+
+}
+

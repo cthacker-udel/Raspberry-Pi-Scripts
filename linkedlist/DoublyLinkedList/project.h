@@ -27,3 +27,11 @@ void removeHead();
 
 int nodeCount();
 
+int removeNode(int);
+
+void insert(int,int);
+
+void moveUp(int);
+
+void moveDown(int);
+
