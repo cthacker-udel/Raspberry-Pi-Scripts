@@ -107,3 +107,37 @@ void removeHead(){
 
 }
 
+int nodeCount(){
+
+
+    
+}
+
+int findLastIndex(int value){
+
+    if(ROOT == NULL){
+        // list is empty
+        return -1;
+    }
+    else if(ROOT->next == NULL){
+
+        if(ROOT->val == value){
+            return 0;
+        }
+        else{
+            return -1;
+        }
+
+    }
+    else{
+
+        node *tempTail = TAIL;
+        while(tempTail != NULL){
+            tempTail = tempTail->
+        }
+
+
+    }
+
+}
+

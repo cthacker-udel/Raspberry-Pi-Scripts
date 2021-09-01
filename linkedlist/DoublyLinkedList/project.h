@@ -15,7 +15,7 @@ void addNode(int);
 
 void findFirstIndex(int);
 
-void findLastIndex(int);
+int findLastIndex(int);
 
 node *createNode();
 
@@ -24,4 +24,6 @@ node *createNodeV2(int);
 void removeTail();
 
 void removeHead();
+
+int nodeCount();
 
