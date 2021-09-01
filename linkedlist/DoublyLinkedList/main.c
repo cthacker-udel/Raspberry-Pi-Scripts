@@ -109,8 +109,14 @@ void removeHead(){
 
 int nodeCount(){
 
+    int count = 0;
+    node *tempHead = ROOT;
+    while(tempHead != NULL){
+        count++;
+        tempHead = tempHead->next;
+    }
+    return count;
 
-    
 }
 
 int findLastIndex(int value){
@@ -132,9 +138,15 @@ int findLastIndex(int value){
     else{
 
         node *tempTail = TAIL;
+        int ind = nodeCount()-1;
         while(tempTail != NULL){
-            tempTail = tempTail->
+            if(tempTail->val == value){
+                return ind;
+            }
+            tempTail = tempTail->prev;
+            ind--;
         }
+        return -1;
 
 
     }
