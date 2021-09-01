@@ -81,3 +81,29 @@ void removeTail(){
 
 }
 
+void removeHead(){
+
+    if(ROOT == NULL){
+        // list is already empty
+        printf("\nUnable to remove head, list is already empty\n");
+    }
+    else{
+
+        if(ROOT->next == NULL){
+            ROOT = NULL;
+            TAIL = NULL;
+        }
+        else{
+
+            node *nextNode = ROOT->next;
+            ROOT->next = NULL;
+            ROOT = NULL;
+            nextNode->prev = ROOT;
+
+        }
+
+    }
+
+
+}
+
