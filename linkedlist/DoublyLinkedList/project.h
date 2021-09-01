@@ -13,7 +13,7 @@ typedef struct theNode{
 
 void addNode(int);
 
-void findFirstIndex(int);
+int findFirstIndex(int);
 
 int findLastIndex(int);
 

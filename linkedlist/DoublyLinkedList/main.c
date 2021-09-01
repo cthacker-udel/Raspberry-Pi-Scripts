@@ -147,9 +147,42 @@ int findLastIndex(int value){
             ind--;
         }
         return -1;
+    }
+
+}
+
+int findFirstIndex(int value){
+
+    if(ROOT == NULL){
+        // list is empty
+        return -1;
+    }
+    else if(ROOT->next == NULL){
+
+        if(ROOT->val == value){
+            return 0;
+        }
+        else{
+            return -1;
+        }
+
+    }
+    else{
+
+        int ind = 0;
+        node *tempHead = ROOT;
+        while(tempHead != NULL){
+            if(tempHead->val == value){
+                return ind;
+            }
+            tempHead = tempHead->next;
+            ind++;
+        }
+        return -1;
 
 
     }
+
 
 }
 
