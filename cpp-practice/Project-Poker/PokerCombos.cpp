@@ -22,6 +22,21 @@ using namespace std;
  *
  */
 
+int findHighCard(Hand hand, int times){
+
+	if(times == hand.getHand().size()){
+		// reached end of hand, declare tie by returning -1
+		return -1;
+	}
+	else{
+		
+		return sortNumRanks(hand)[times];
+		
+	}
+	
+	
+}
+
 vector<int> sortNumRanks(Hand hand){
 
 	list<int> numList;
