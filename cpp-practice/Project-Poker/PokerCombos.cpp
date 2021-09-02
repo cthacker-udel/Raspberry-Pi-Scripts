@@ -22,6 +22,25 @@ using namespace std;
  *
  */
 
+int findNumSuit(Hand hand, string suit){
+	
+	int count = 0;
+	
+	vector<Card> cards = hand.getHand();
+	
+	for(int i = 0; i < (int)cards.size(); i++){
+		
+		Card theCard = cards[i];
+		if(theCard.getSuit() == suit){
+			count++;
+		}
+		
+	}
+	return count;
+	
+	
+}
+
 int findNumKinds(Hand hand, int num){
 	
 	// calculate the number of "kinds" of a number, for four of a kind, three of a kind
