@@ -22,6 +22,27 @@ using namespace std;
  *
  */
 
+int findNumKinds(Hand hand, int num){
+	
+	// calculate the number of "kinds" of a number, for four of a kind, three of a kind
+	
+	int count = 0;
+	
+	vector<Card> cards = hand.getHand();
+	
+	for(int i = 0; i < (int)cards.size(); i++){
+		
+		Card theCard = cards[i];
+		if(theCard.getNumRank() == num){
+			count++;
+		}
+		
+	}
+	return count;
+	
+}
+
+
 bool isSameSuit(Hand hand){
 	
 	vector<Card> cards = hand.getHand();
