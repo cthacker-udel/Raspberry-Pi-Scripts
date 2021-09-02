@@ -22,6 +22,29 @@ using namespace std;
  *
  */
 
+vector<int> sortNumRanks(Hand hand){
+
+	list<int> numList;
+
+	vector<Card> cards = hand.getHand();
+
+	for(int i = 0; i < (int)cards.size(); i++){
+		Card theCard  = cards[i];
+		numList.push_back(theCard.getNumRank());
+	}
+
+	numList.sort();
+
+	vector<int> ranks;
+
+	while(!numList.empty()){
+		int rank = numList.front();
+		ranks.push_back(rank);
+		numList.pop_front();
+	}
+	return ranks;
+}
+
 int findNumSuit(Hand hand, string suit){
 	
 	int count = 0;
