@@ -37,6 +37,17 @@ int findHighCard(Hand hand, int times){
 	
 }
 
+bool isStraightFlush(Hand hand){
+	
+	if(isAlternating(hand) && isSameSuit(hand)){
+		return true;
+	}
+	else{
+		return false;
+	}
+	
+}
+
 int findLowCard(Hand hand){
 	
 	return sortNumRanks(hand)[0];
