@@ -37,6 +37,22 @@ int findHighCard(Hand hand, int times){
 	
 }
 
+bool isFourOfAKind(Hand hand){
+	
+	vector<int> sortedNumRanks = sortNumRanks(hand);
+	
+	for(int i = 0; i < (int)sortedNumRanks.size(); i++){
+		
+		int kinds = findNumKinds(hand,sortedNumRanks[i]);
+		if(kinds == 4){
+			return true;
+		}
+	}
+	return false;
+	
+	
+}
+
 bool isStraightFlush(Hand hand){
 	
 	if(isAlternating(hand) && isSameSuit(hand)){
