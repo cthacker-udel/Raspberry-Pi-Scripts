@@ -80,6 +80,24 @@ bool isHandTwoPair(Hand hand){
 	
 }
 
+bool isPair(Hand hand){
+	
+	vector<int> ranks = sortNumRanks(hand);
+	
+	for(int i = 0; i < (int)ranks.size(); i++){
+		
+		int numKinds = findNumKinds(hand,ranks[i]);
+		
+		if(numKinds == 2){
+			return true;
+		}
+		
+	}
+	return false;
+	
+	
+}
+
 int findHighCard(Hand hand, int times){
 
 	if(times == hand.getHand().size()){
