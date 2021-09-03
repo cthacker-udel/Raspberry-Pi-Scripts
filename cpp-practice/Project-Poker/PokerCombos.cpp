@@ -24,6 +24,12 @@ using namespace std;
 
 vector<int> sortNumRanks(Hand);
 
+int findNumKinds(Hand,int);
+
+bool isAlternating(Hand);
+
+bool isSameSuit(Hand);
+
 
 int findHighCard(Hand hand, int times){
 
