@@ -10834,6 +10834,527 @@ function antiDivisors(number){
 // made by @Joshua Señoron
 
 
+function flickSwitch(arr){
+
+    let currSwitch = true;
+
+    let returnArr = [];
+
+    for(let i = 0; i < arr.length; i++){
+
+        let elem = arr[i];
+        if(elem === 'flick'){
+            currSwitch = !currSwitch;
+            returnArr.push(currSwitch);
+        }
+        else{
+            returnArr.push(currSwitch);
+        }
+
+    }
+    return returnArr;
+}
+
+function consecutiveSum(num){
+
+    let total = 0;
+    for(let i = 0; i < num; i++){
+
+        for(let j = i; j >= 0; j--){
+
+            total += j;
+            if(total === num){
+                return true;
+            }
+            else if(total > num){
+                total = 0;
+                break;
+            }
+
+        }
+        total = 0;
+
+    }
+    return false;
+
+}
+
+consecutiveSum(9)
+
+function alliterationCorrect(aStr){
+
+    aStr = aStr.toLowerCase();
+    let firstWords = aStr.split(" ").map(e => e.replace('.','').replace('?','').replace('!','').replace(',','')).filter(e => e.length >= 4).map(e => e.charAt(0));
+    return new Set(firstWords).size === 1;
+
+}
+
+function sweetestIceCream(creams){
+
+    let obj = {'Plain': 0, 'Vanilla': 5, 'ChocolateChip': 5, 'Strawberry': 10, 'Chocolate': 10};
+    let maxVal = 0;
+
+    for(let i = 0; i < creams.length; i++){
+
+        let icecream = creams[i];
+        let sweetnessValue = icecream.numSprinkles + obj[icecrea.flavor];
+        maxVal = Math.max(sweetnessValue,maxVal);
+    }
+    return maxVal;
+
+}
+
+function accumulatingProduct(arr){
+
+    let newArr = [];
+
+    let total = 1;
+
+    for(let i = 0; i < arr.length; i++){
+
+        for(let j = 0; j <= i; j++){
+
+            total *= arr[j];
+
+        }
+        newArr.push(total);
+        total = 1;
+
+    }
+    return newArr;
 
 
+}
 
+console.log(accumulatingProduct([1, 2, 3, 4]));// [1, 2, 6, 24])
+console.log(accumulatingProduct([5, 10, 1, 1]));// [5, 50, 50, 50])
+console.log(accumulatingProduct([1, 5, 7]));// [1, 5, 35])
+console.log(accumulatingProduct([1, 0, 1, 0]));// [1, 0, 0, 0])
+console.log(accumulatingProduct([1]));// [1])
+console.log(accumulatingProduct([1, 2, 2, 2, 2, 2, 2]));// [1, 2, 4, 8, 16, 32, 64])
+console.log(accumulatingProduct([1, 1, 1, 1, 1, 1, 1]));// [1, 1, 1, 1, 1, 1, 1])
+console.log(accumulatingProduct([]));// [])
+
+function solve(a,b){
+
+    let leftVar = a;
+    let rightVar = b;
+    let rightSide = (-3*a)+4;
+    let leftSide = -1*b;
+    let remaining = (-1*leftSide) + rightSide;
+    if(remaining === 0){
+
+        return "Any number";
+
+    }
+    else if(remaining !== 0 && leftVar === rightVar){
+
+        return "No solution";
+
+    }
+    else{
+
+        let res = leftVar - rightVar;
+        return Number(Number(remaining / res).toFixed(3));
+
+    }
+
+
+}
+
+console.log(solve(1, 2));// -3.0)
+console.log(solve(-4, -6));// 5.0)
+console.log(solve(4, 1));// -2.333)
+console.log(solve(3, 3));// "No solution")
+console.log(solve(3, 2));// -3.0)
+console.log(solve(-2, -2));// "No solution")
+console.log(solve(2, 2));// "Any number")
+
+
+function constructDeconstruct(aStr){
+
+    let newArr = [];
+
+    for(let i = 0; i < aStr.length; i++){
+
+        newArr.push(aStr.substring(0,i+1));
+
+    }
+    for(let i = aStr.length-2; i >= 0; i--){
+
+        newArr.push(aStr.substring(0,i+1));
+
+    }
+    return newArr;
+}
+
+console.log(constructDeconstruct("Hello"));
+
+const exp = ""
+
+function mysteryFunc(aStr){
+
+    let newStr = "";
+    for(let i = 0; i < aStr.length; i += 2){
+
+        newStr += aStr.charAt(i).repeat(parseInt(aStr.charAt(i+1)));
+
+    }
+    return newStr;
+
+
+}
+
+console.log(mysteryFunc("A4B5C2"));
+
+function isAlpha(aStr){
+
+    let alpha = " abcdefghijklmnopqrstuvwxyz";
+
+    aStr = aStr.toLowerCase();
+
+    return aStr.split("").filter(e => alpha.includes(e)).map(e => alpha.indexOf(e)).reduce((a,b) => a+b) % 2 === 0;
+}
+
+function countOnes(arr){
+
+    let newStr = arr.map(e => String(e)).join("");
+
+    const expr = "[1]{2,}";
+
+    let result = [...newStr.matchAll(expr)];
+
+    return result.length !== 0? result.length: 0;
+
+}
+
+console.log(countOnes([1, 1, 1, 1, 1]));// 1)
+console.log(countOnes([1, 1, 1, 1, 0]));// 1)
+console.log(countOnes([0, 0, 0, 0, 0]));// 0)
+console.log(countOnes([1, 0, 0, 0, 0]));// 0)
+console.log(countOnes([1, 0, 1, 0, 1]));// 0)
+console.log(countOnes([1, 0, 0, 0, 1, 0, 0, 1, 1]));// 1)
+console.log(countOnes([1, 1, 0, 1, 1, 0, 0, 1, 1]));// 3)
+console.log(countOnes([1, 0, 0, 1, 1, 0, 0, 1, 1]));// 2)
+console.log(countOnes([1, 0, 0, 1, 1, 0, 1, 1, 1]));// 2)
+console.log(countOnes([1, 0, 1, 0, 1, 0, 1, 0]));// 0)
+console.log(countOnes([1, 1, 1, 1, 0, 0, 0, 0]));// 1)
+console.log(countOnes([1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1]));// 3)
+
+
+const obj = {
+    kitchen: {
+        knives: 500,
+        stereo: 200,
+        signature: ""
+    },
+    signature: "Rocky Balboa"
+}
+
+function signAgain(obj) {
+    // write your code here
+    // don't use a return statement
+
+
+    // DON'T CHANGE OR REMOVE THE LINES BELOW
+    Object.freeze(obj);
+    Object.seal(obj.kitchen);
+    obj.signature = "Terminator"
+    obj.extraProperty = "not possible"
+    obj.kitchen.piano = 1000
+    obj.kitchen.signature = "Rocky Balboa"
+    return obj
+}
+
+function partiallyHide(aStr){
+
+    let newArr = [];
+
+    let splitStr = aStr.split(" ");
+
+    for(let i = 0; i < splitStr.length; i++){
+
+        let elem = splitStr[i];
+        if(elem.length < 2){
+            newArr.push(elem);
+        }
+        else{
+            newArr.push(elem.charAt(0) + '-'.repeat(elem.substring(1,elem.length-1).length) + elem.charAt(elem.length-1));
+        }
+
+    }
+    return newArr.join(" ");
+
+}
+
+function splitGroups(aStr){
+
+    let newArr = [];
+
+    let currChar = aStr.charAt(0);
+
+    let currString = "";
+
+    for(let i = 0; i < aStr.length; i++){
+
+        if(aStr.charAt(i) !== currChar){
+
+            newArr.push(currString);
+            currString = aStr.charAt(i);
+            currChar = aStr.charAt(i);
+
+        }
+        else{
+
+            currString += aStr.charAt(i);
+
+        }
+
+    }
+    if(currString.length > 0){
+        newArr.push(currString);
+    }
+
+    return newArr;
+
+}
+
+
+function convertToNumber(obj){
+
+    let newObj = {};
+
+    let keys = Object.keys(obj);
+
+    for(let i = 0; i < keys.length; i++){
+
+        newObj[keys[i]] = parseInt(obj[keys[i]]);
+
+    }
+    return newObj;
+
+}
+
+function largestGap(arr){
+
+    arr.sort((a,b) => a-b);
+
+    let maxGap = 0;
+
+    for(let i = 0; i < arr.length-1; i++){
+
+        maxGap = Math.max(maxGap,Math.abs(arr[i] - arr[i+1]));
+
+    }
+    return maxGap;
+
+
+}
+
+
+function arrEleSum(arr){
+
+    let newArr = [];
+
+    let total = 0;
+    for(let i = 0; i < arr.length; i++){
+
+        for(let j = 0; j < arr.length; j++){
+
+            if(i === j){
+                continue;
+            }
+            else{
+                total += arr[j];
+            }
+
+        }
+        newArr.push(total);
+        total = 0;
+
+    }
+    return newArr;
+}
+
+
+function pagesInBook(pages){
+
+    let total = 0;
+
+    for(let i = total;;i++){
+
+        if(total > pages){
+            break;
+        }
+        else if(total === pages){
+            return true;
+        }
+        else{
+            total += i;
+        }
+    }
+    return false;
+
+}
+
+function decrypt(arr){
+
+    let alphabet = " ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+    for(let i = 1; i <= 25; i++){
+
+        if(!arr.includes(i)){
+            return alphabet[i];
+        }
+
+    }
+
+}
+
+function wordToDecimal(aStr){
+
+    let lower = " abcdefghijklmnopqrstuvwxyz";
+    let upper = " ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+    let maxIndex = 0;
+    let maxLetter = "";
+    let total = 0;
+
+    for(let i = 0; i < aStr.length; i++){
+
+        let iChar = aStr.charAt(i);
+
+        if(lower.includes(iChar)){
+            let ind = lower.indexOf(iChar);
+            if(ind > maxIndex) {
+                maxLetter = iChar;
+                maxIndex = ind;
+            }
+        }
+        else{
+
+            let ind = upper.indexOf(iChar);
+            if(ind > maxIndex){
+                maxLetter = iChar;
+                maxIndex = ind;
+            }
+
+        }
+
+    }
+
+    let base = maxIndex+10;
+
+    return parseInt(aStr,base);
+
+}
+
+wordToDecimal("Edabit");
+
+function risiko(att,def){
+
+    while(att.length < def.length){
+        att.push(0);
+    }
+    while(def.length < att.length){
+        def.push(0);
+    }
+
+    att.sort((a,b) => a-b);
+    def.sort((a,b) => a-b);
+
+    let totalWins = 0;
+
+
+    for(let i = att.length-1; i >= 0; i--){
+
+        let attRoll = att[i];
+        let defRoll = def[i];
+        if(defRoll === attRoll){
+            continue;
+        }
+        else if(defRoll === 0){
+            continue;
+        }
+        else if(attRoll === 0){
+            continue;
+        }
+        else {
+
+            if (attRoll > defRoll) {
+                totalWins++;
+            }
+        }
+
+    }
+    return totalWins;
+
+}
+
+risiko([3, 1], [1])
+
+function encodeMorse(code){
+
+    let morseCode = {
+        "0": "-----",
+        "1": ".----",
+        "2": "..---",
+        "3": "...--",
+        "4": "....-",
+        "5": ".....",
+        "6": "-....",
+        "7": "--...",
+        "8": "---..",
+        "9": "----.",
+        "a": ".-",
+        "b": "-...",
+        "c": "-.-.",
+        "d": "-..",
+        "e": ".",
+        "f": "..-.",
+        "g": "--.",
+        "h": "....",
+        "i": "..",
+        "j": ".---",
+        "k": "-.-",
+        "l": ".-..",
+        "m": "--",
+        "n": "-.",
+        "o": "---",
+        "p": ".--.",
+        "q": "--.-",
+        "r": ".-.",
+        "s": "...",
+        "t": "-",
+        "u": "..-",
+        "v": "...-",
+        "w": ".--",
+        "x": "-..-",
+        "y": "-.--",
+        "z": "--..",
+        ".": ".-.-.-",
+        ",": "--..--",
+        "?": "..--..",
+        "!": "-.-.--",
+        "-": "-....-",
+        "/": "-..-.",
+        "@": ".--.-.",
+        "(": "-.--.",
+        ")": "-.--.-",
+        " ": " ",
+        ":": "---...",
+        "'": ".----.",
+    }
+
+    code = code.toLowerCase();
+
+    let newArr = [];
+
+    for(let i = 0; i < code.length; i++){
+
+        newArr.push(morseCode[code.charAt(i)]);
+
+    }
+    return newArr.join(" ");
+
+}
