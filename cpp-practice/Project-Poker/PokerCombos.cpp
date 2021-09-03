@@ -22,6 +22,9 @@ using namespace std;
  *
  */
 
+vector<int> sortNumRanks(Hand);
+
+
 int findHighCard(Hand hand, int times){
 
 	if(times == hand.getHand().size()){
