@@ -36,6 +36,22 @@ bool isHandStraight(Hand hand){
 
 }
 
+bool isHandThreeOfAKind(Hand hand){
+	
+	vector<int> ranks = sortNumRanks(hand);
+	
+	bool foundThreeOfAKind;
+	
+	for(int i = 0; i < (int)ranks.size(); i++){
+		
+		foundThreeOfAKind = findNumKinds(hand,ranks[i]) == 3;
+		
+	}
+	return foundThreeOfAKind;
+	
+	
+}
+
 int findHighCard(Hand hand, int times){
 
 	if(times == hand.getHand().size()){
