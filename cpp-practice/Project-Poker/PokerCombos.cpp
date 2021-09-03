@@ -37,6 +37,30 @@ int findHighCard(Hand hand, int times){
 	
 }
 
+bool isFullHouse(Hand hand){
+	
+	vector<int> ranks = sortNumRanks(hand);
+	
+	bool found2Kind = false;
+	bool found3Kind = false;
+	
+	for(int i = 0; i < (int)ranks.size(); i++){
+		
+		int kinds = findNumKinds(hand,ranks[i]);
+		if(kinds == 2){
+			found2Kind = true;
+		}
+		if(kinds == 3){
+			found3Kind = true;
+		}
+		
+	}
+	return found2Kind && found3Kind;
+	
+	
+	
+}
+
 bool isFourOfAKind(Hand hand){
 	
 	vector<int> sortedNumRanks = sortNumRanks(hand);
