@@ -52,6 +52,34 @@ bool isHandThreeOfAKind(Hand hand){
 	
 }
 
+
+bool isHandTwoPair(Hand hand){
+	
+	bool foundTwoKind = false;
+	int firstRank = 0;
+	int secondRank = 0;
+	
+	vector<int> ranks = sortNumRanks(hand);
+	
+	for(int i = 0; i < (int)ranks.size(); i++){
+		
+		int numKind = findNumKinds(hand,ranks[i]);
+		
+		if(numKind == 2 && !foundTwoKind){
+			firstRank = ranks[i];
+			foundTwoKind = true;
+		}
+		if(numKind == 2 && foundTwoKind && ranks[i] != firstRank){
+			
+			return true;
+			
+		}
+		
+	}
+	return false;
+	
+}
+
 int findHighCard(Hand hand, int times){
 
 	if(times == hand.getHand().size()){
