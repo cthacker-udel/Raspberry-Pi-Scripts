@@ -30,6 +30,11 @@ bool isAlternating(Hand);
 
 bool isSameSuit(Hand);
 
+bool isHandStraight(Hand hand){
+
+	return isAlternating(hand);
+
+}
 
 int findHighCard(Hand hand, int times){
 
