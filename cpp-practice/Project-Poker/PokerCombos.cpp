@@ -37,6 +37,12 @@ int findHighCard(Hand hand, int times){
 	
 }
 
+int findLowCard(Hand hand){
+	
+	return sortNumRanks(hand)[0];
+	
+}
+
 vector<int> sortNumRanks(Hand hand){
 
 	list<int> numList;
