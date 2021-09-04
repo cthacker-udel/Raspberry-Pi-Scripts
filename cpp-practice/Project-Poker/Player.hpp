@@ -1,3 +1,9 @@
+
+#ifndef PLAYER_HPP
+#define PLAYER_HPP
+
+#pragma once
+
 #include <string>
 #include <iostream>
 #include <stdlib.h>
@@ -14,3 +20,5 @@ class Player{
         Player(string,int,int);
 
 };
+
+#endif
