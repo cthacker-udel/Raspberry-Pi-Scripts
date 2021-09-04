@@ -1,3 +1,12 @@
+//
+// Created by flyin on 8/28/2021.
+//
+
+#ifndef CARD_HPP
+#define CARD_HPP
+
+#pragma once
+
 #include <iostream>
 #include <string>
 #include <stdlib.h>
@@ -10,14 +19,21 @@ class Card{
     int numRank;
     friend class Hand;
 
-    public:
+public:
 
-        Card(string,string,int);
+    Card(string,string,int);
 
-        string getSuit();
+    string getSuit();
 
-        string getRank();
+    string getRank();
 
-        int getNumRank();
+    int getNumRank();
+
+    void toStringPrint();
+
+    string toString();
 
 };
+
+
+#endif //CARD_HPP
