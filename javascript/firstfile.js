@@ -9872,7 +9872,7 @@ console.log(differenceWith(
 ));
 
 
-     */
+
 
 function difference(arr,...arrays){
 
@@ -10275,12 +10275,12 @@ function gimmeTheLetters(aStr){
 
     if(firstLetter.toLowerCase() === firstLetter){
 
-        return lowerAlpha.substring(lowerAlpha.indexOf(firstLetter),lowerAlpha.indexOf(secondLetter)+1);
+        return lowerAlpha.substring(lowerAlpha.indexOf(firstLetter));//lowerAlpha.indexOf(secondLetter)+1);
 
     }
     else{
 
-        return upperAlpha.substring(upperAlpha.indexOf(firstLetter),upperAlpha.indexOf(secondLetter)+1);
+        return upperAlpha.substring(upperAlpha.indexOf(firstLetter));//upperAlpha.indexOf(secondLetter)+1);
 
     }
 
@@ -11358,3 +11358,216 @@ function encodeMorse(code){
     return newArr.join(" ");
 
 }
+
+     */
+
+
+function flatten(arr){
+
+    let newArr = [];
+
+    for(let i = 0; i < arr.length; i++){
+
+        let elem = arr[i];
+        //console.log(elem.constructor.name);
+        if(elem.constructor.name === 'Array'){
+            newArr.push(...flatten(arr[i]));
+        }
+        else{
+            newArr.push(elem);
+        }
+    }
+    return newArr;
+}
+
+console.log(flatten([[17.2,5,"edabit"]]));//[17.2,5,"edabit"])
+console.log(flatten([[[[[2,14,"rubber"]]], 2,3,4]]));//[2,14,"rubber",2,3,4])
+console.log(flatten([0, [12,"biratnagar",[[2]]]]));//[0,12,"biratnagar",2])
+console.log(flatten([["balkot"]]));//["balkot"])
+console.log(flatten([1,2,3,4,5,6]));//[1,2,3,4,5,6])
+
+
+function normalSequence(num){
+
+    let nums = [0,1,1,2,0,2,2,1]
+    // repeating part : [0,1,1,2,0,2,2,1]
+
+    while(num > 8){
+        num -= 8;
+    }
+    return nums[num-1];
+
+
+}
+
+//console.log(normalSequence(20));// 2)
+//console.log(normalSequence(8));// 1)
+console.log(normalSequence(41));// 0)
+console.log(normalSequence(48));// 1)
+console.log(normalSequence(148));// 2)
+console.log(normalSequence(163));// 1)
+console.log(normalSequence(111));// 2)
+console.log(normalSequence(118));// 2)
+console.log(normalSequence(117));// 0)
+console.log(normalSequence(90));// 1)
+console.log(normalSequence(91));// 1)
+console.log(normalSequence(95));// 2)
+console.log(normalSequence(87));// 2)
+console.log(normalSequence(85));// 0)
+console.log(normalSequence(82));// 1)
+console.log(normalSequence(71));// 2)
+console.log(normalSequence(72));// 1)
+//console.log(normalSequence(51013947783));// 2)
+// Mubashir
+
+
+function Book(){
+
+    this.author = "";
+    this.published = 0;
+
+}
+
+let Author = {
+
+    name: "Johnson",
+    books: 20
+
+};
+
+let Publisher = new function(){
+
+    this.authors = "Joel";
+    this.books = 10;
+
+}
+
+class Review{
+
+    rating = 10;
+    user = "User123";
+
+}
+
+(function Bookstore(){
+
+    this.books = 0;
+    this.prices = [];
+
+})();
+
+function sub(A1,A2){
+
+    let newMatrix = [];
+    let subList = [];
+
+    for(let i = 0; i < A1.length; i++){
+
+        for(let j = 0; j < A2.length; j++){
+
+            let v1 = typeof A1[i][j] === 'string'? parseInt(A1[i][j]): A1[i][j];
+            let v2 = typeof A2[i][j] === 'string'? parseInt(A2[i][j]): A2[i][j];
+            let res = v1 - v2;
+            subList.push(res);
+
+        }
+        newMatrix.push(subList);
+        subList = [];
+
+    }
+    return newMatrix;
+}
+
+sub([[1,2,3],[4,5,6],[7,8,9]],[[1,2,3],[4,5,6],[7,8,9]]);
+
+function retrieve(aStr){
+
+    let vowels = "aeiouAEIOU";
+    let punctuation = ".,!?";
+
+    if(aStr === ''){
+        return [];
+    }
+
+    return aStr.split(' ').filter(e => vowels.includes(e.charAt(0))).map(e => punctuation.includes(e.charAt(e.length-1))? e.substring(e,e.length-1).toLowerCase(): e.toLowerCase());
+
+}
+
+console.log(retrieve("A simple life is a happy life for me."));// ["a", "is", "a"])
+console.log(retrieve("Exercising is a healthy way to burn off energy."));// ["exercising", "is", "a", "off", "energy"])
+console.log(retrieve("The poor ostrich was ostracized."));// ["ostrich", "ostracized"])
+console.log(retrieve(""));// [])
+
+function checkPerfect(num){
+
+    let total = 0;
+
+    for(let i =1 ; i < num; i++){
+
+        if(num % i === 0){
+            total += i;
+        }
+
+    }
+    return total === num;
+
+}
+
+function gcd(a,b){
+
+    if(a === b){
+        return a;
+    }
+    else if(a > b){
+        return gcd(a-b,b);
+    }
+    else if(b > a) {
+        return gcd(a, b - a);
+    }
+}
+
+console.log(gcd(10, 20));// 10)
+console.log(gcd(1, 3));// 1)
+console.log(gcd(5, 7));// 1)
+console.log(gcd(2, 6));// 2)
+console.log(gcd(13, 39));// 13)
+console.log(gcd(50, 5));// 5)
+console.log(gcd(70, 35));// 35)
+console.log(gcd(100, 8));// 4)
+console.log(gcd(11, 45));// 1)
+
+const regexpUPE = /\p{Script=Cyrillic}+/gu; // regex to match russain words
+
+function multiply(num1,num2){
+
+    if(num1 < 0 && num2 < 0){
+        num1 = Math.abs(num1);
+        num2 = Math.abs(num2);
+    }
+
+    let currVal = num1;
+    let timer = Math.abs(num2);
+    while(timer > 1){
+        num1 += currVal;
+        timer--;
+    }
+    if(num2 < 0){
+        num1 = -1 * num1;
+    }
+    return num1;
+
+}
+
+console.log('\ntest3');
+console.log(multiply(3, 2));// 6)
+console.log(multiply(9, 1));// 9)
+console.log(multiply(2, 2));// 4)
+console.log(multiply(1, 1));// 1)
+console.log(multiply(702, 392));// 275184)
+console.log(multiply(9, 9));// 81)
+console.log(multiply(40, 31));// 1240)
+console.log(multiply(4, 10));// 40)
+console.log(multiply(-2, 4));// -8)
+console.log(multiply(-3, -20));// 60)
+console.log(multiply(40, -10));// -400)
+
