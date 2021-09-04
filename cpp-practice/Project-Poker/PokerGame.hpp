@@ -1,6 +1,10 @@
-#include "Hand.hpp"
-#include "Player.hpp"
+#ifndef POKER_GAME_HPP
+#define POKER_GAME_HPP
 
+#pragma once
+
+#include "PokerCombos.hpp"
+#include "Player.hpp"
 
 class PokerGame{
 
@@ -14,3 +18,5 @@ class PokerGame{
 
 
 };
+
+#endif
