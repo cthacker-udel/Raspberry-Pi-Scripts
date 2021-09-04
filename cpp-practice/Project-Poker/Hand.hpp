@@ -4,6 +4,9 @@
 
 #ifndef HAND_HPP
 #define HAND_HPP
+
+#pragma once
+
 #include <vector>
 #include "Card.hpp"
 #include <list>
@@ -19,15 +22,14 @@ public:
 
     Hand(vector<Card>);
 
-
     Card *deal();
 
     vector<Card *> dealN(int);
-
+    
     void createDeck();
-
+    
     void shuffle(int);
-
+    
     vector<Card> getHand();
 
 };
