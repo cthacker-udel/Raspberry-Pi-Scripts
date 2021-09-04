@@ -1,11 +1,5 @@
-#include "Card.hpp"
-#include "Hand.hpp"
-#include <list>
-#include <map>
-#include <string>
-#include <vector>
+#include "PokerCombos.hpp"
 using namespace std;
-
 /*
  * Combos:
  *
@@ -22,106 +16,98 @@ using namespace std;
  *
  */
 
-vector<int> sortNumRanks(Hand);
+int PokerCombos::findHighCard(Hand hand, int times){
 
-int findNumKinds(Hand,int);
+	if(times == (int)hand.getHand().size()){
+		// reached end of hand, declare tie by returning -1
+		return -1;
+	}
+	else{
 
-bool isAlternating(Hand);
+		return sortNumRanks(hand)[times];
 
-bool isSameSuit(Hand);
+	}
 
-bool isHandStraight(Hand hand){
-
-	return isAlternating(hand);
 
 }
 
-bool isHandThreeOfAKind(Hand hand){
-	
+bool PokerCombos::isThreeOfAKind(Hand hand){
+
 	vector<int> ranks = sortNumRanks(hand);
-	
-	bool foundThreeOfAKind;
-	
+
+	bool foundThreeOfAKind = false;
+
 	for(int i = 0; i < (int)ranks.size(); i++){
-		
+
 		foundThreeOfAKind = findNumKinds(hand,ranks[i]) == 3;
-		
+
 	}
 	return foundThreeOfAKind;
-	
-	
+
+
 }
 
+bool PokerCombos::isTwoPair(Hand hand){
 
-bool isHandTwoPair(Hand hand){
-	
 	bool foundTwoKind = false;
 	int firstRank = 0;
-	int secondRank = 0;
-	
+
 	vector<int> ranks = sortNumRanks(hand);
-	
+
 	for(int i = 0; i < (int)ranks.size(); i++){
-		
+
 		int numKind = findNumKinds(hand,ranks[i]);
-		
+
 		if(numKind == 2 && !foundTwoKind){
 			firstRank = ranks[i];
 			foundTwoKind = true;
 		}
 		if(numKind == 2 && foundTwoKind && ranks[i] != firstRank){
-			
+
 			return true;
-			
+
 		}
-		
+
 	}
 	return false;
-	
+
 }
 
-bool isPair(Hand hand){
-	
+bool PokerCombos::isPair(Hand hand){
+
 	vector<int> ranks = sortNumRanks(hand);
-	
+
 	for(int i = 0; i < (int)ranks.size(); i++){
-		
+
 		int numKinds = findNumKinds(hand,ranks[i]);
-		
+
 		if(numKinds == 2){
 			return true;
 		}
-		
+
 	}
 	return false;
-	
-	
+
+
 }
 
-int findHighCard(Hand hand, int times){
 
-	if(times == hand.getHand().size()){
-		// reached end of hand, declare tie by returning -1
-		return -1;
-	}
-	else{
-		
-		return sortNumRanks(hand)[times];
-		
-	}
-	
-	
+bool PokerCombos::isStraight(Hand hand){
+
+	return isAlternating(hand);
+
 }
 
-bool isFullHouse(Hand hand){
-	
+
+bool PokerCombos::isFullHouse(Hand hand){
+
 	vector<int> ranks = sortNumRanks(hand);
-	
+
 	bool found2Kind = false;
 	bool found3Kind = false;
-	
+
 	for(int i = 0; i < (int)ranks.size(); i++){
-		
+
 		int kinds = findNumKinds(hand,ranks[i]);
 		if(kinds == 2){
 			found2Kind = true;
@@ -129,48 +115,48 @@ bool isFullHouse(Hand hand){
 		if(kinds == 3){
 			found3Kind = true;
 		}
-		
+
 	}
 	return found2Kind && found3Kind;
-	
-	
-	
+
+
+
 }
 
-bool isFourOfAKind(Hand hand){
-	
+bool PokerCombos::isFourOfAKind(Hand hand){
+
 	vector<int> sortedNumRanks = sortNumRanks(hand);
-	
+
 	for(int i = 0; i < (int)sortedNumRanks.size(); i++){
-		
+
 		int kinds = findNumKinds(hand,sortedNumRanks[i]);
 		if(kinds == 4){
 			return true;
 		}
 	}
 	return false;
-	
-	
+
+
 }
 
-bool isStraightFlush(Hand hand){
-	
+bool PokerCombos::isStraightFlush(Hand hand){
+
 	if(isAlternating(hand) && isSameSuit(hand)){
 		return true;
 	}
 	else{
 		return false;
 	}
-	
+
 }
 
-int findLowCard(Hand hand){
-	
+int PokerCombos::findLowCard(Hand hand){
+
 	return sortNumRanks(hand)[0];
-	
+
 }
 
-vector<int> sortNumRanks(Hand hand){
+vector<int> PokerCombos::sortNumRanks(Hand hand){
 
 	list<int> numList;
 
@@ -193,116 +179,116 @@ vector<int> sortNumRanks(Hand hand){
 	return ranks;
 }
 
-int findNumSuit(Hand hand, string suit){
-	
+int PokerCombos::findNumSuit(Hand hand, string suit){
+
 	int count = 0;
-	
+
 	vector<Card> cards = hand.getHand();
-	
+
 	for(int i = 0; i < (int)cards.size(); i++){
-		
+
 		Card theCard = cards[i];
 		if(theCard.getSuit() == suit){
 			count++;
 		}
-		
+
 	}
 	return count;
-	
-	
+
+
 }
 
-int findNumKinds(Hand hand, int num){
-	
+int PokerCombos::findNumKinds(Hand hand, int num){
+
 	// calculate the number of "kinds" of a number, for four of a kind, three of a kind
-	
+
 	int count = 0;
-	
+
 	vector<Card> cards = hand.getHand();
-	
+
 	for(int i = 0; i < (int)cards.size(); i++){
-		
+
 		Card theCard = cards[i];
 		if(theCard.getNumRank() == num){
 			count++;
 		}
-		
+
 	}
 	return count;
-	
+
 }
 
 
-bool isSameSuit(Hand hand){
-	
+bool PokerCombos::isSameSuit(Hand hand){
+
 	vector<Card> cards = hand.getHand();
 	/*
-	 * 
+	 *
 	 * Any size hand, return if all same suit
-	 * 
+	 *
 	 */
-	
+
 	string theSuit = cards[0].getSuit();
-	
+
 	for(int i = 0; i < (int)cards.size(); i++){
-		
+
 		string iSuit = cards[i].getSuit();
 		if(theSuit != iSuit){
 			return false;
 		}
-		
+
 	}
 	return true;
 }
 
-bool isAlternating(Hand hand){
-	
+bool PokerCombos::isAlternating(Hand hand){
+
 	vector<Card> cards = hand.getHand();
-	
+
 	list<int> sortedRanks;
 	list<int> origRanks;
-	
+
 	for(int i = 0; i < (int)cards.size(); i++){
-		
+
 		int theNumRank = cards[i].getNumRank();
-		
+
 		sortedRanks.push_back(theNumRank);
 		origRanks.push_back(theNumRank);
-		
+
 	}
 	sortedRanks.sort();
-	
+
 	vector<int> origRanksVector;
 	vector<int> sortedRanksVector;
-	
+
 	for(int eachint : sortedRanks){
-		
+
 		sortedRanksVector.push_back(eachint);
-		
+
 	}
-	
+
 	for(int eachint : origRanksVector){
-		
+
 		origRanksVector.push_back(eachint);
-		
+
 	}
-	
+
 	for(int i = 0; i < (int)origRanksVector.size(); i++){
-		
+
 		int iVal = origRanksVector[i];
 		int jVal = sortedRanksVector[i];
 		if(iVal != jVal){
 			return false;
 		}
-		
+
 	}
 	return true;
-	
+
 }
 
 
 
-bool isRoyalFlush(Hand hand){
+bool PokerCombos::isRoyalFlush(Hand hand){
 
 	vector<Card> cards = hand.getHand();
 
@@ -403,8 +389,6 @@ bool isRoyalFlush(Hand hand){
 
 
 	}
-
-
 
 
 
