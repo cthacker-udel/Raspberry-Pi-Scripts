@@ -1,9 +1,19 @@
+//
+// Created by flyin on 8/28/2021.
+//
+
 #include "Hand.hpp"
 
 
 Hand::Hand(vector<Card> cards){
 
     this->hand = cards;
+
+}
+
+vector<Card> Hand::getHand(){
+
+	return this->hand;
 
 }
 
@@ -73,12 +83,6 @@ void Hand::createDeck(){
 
 }
 
-vector<Card> Hand::getHand(){
-
-	return this->hand;
-
-}
-
 void Hand::shuffle(int n){
 
 	// shuffle n times
@@ -115,5 +119,12 @@ void Hand::shuffle(int n){
 		this->hand = newCards;
 		newCards.clear();
 	}
+
+
+
+
+
+
+
 
 }
