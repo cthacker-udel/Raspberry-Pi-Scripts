@@ -11359,7 +11359,7 @@ function encodeMorse(code){
 
 }
 
-     */
+
 
 
 function flatten(arr){
@@ -11571,3 +11571,260 @@ console.log(multiply(-2, 4));// -8)
 console.log(multiply(-3, -20));// 60)
 console.log(multiply(40, -10));// -400)
 
+
+     */
+
+function euclidAlgorithm(a,b){
+
+    let remainder = -1;
+
+    if(a < b){
+        let tmp = a;
+        a = b;
+        b = tmp;
+    }
+
+    while(remainder !== 0){
+
+        let c = a / b;
+        remainder = a % b;
+        a = b;
+        b = remainder;
+
+    }
+    return a;
+
+
+}
+
+
+function LcmOfArray(arr){
+
+    arr.sort((a,b) => a-b);
+
+    let ans = arr[0];
+
+    for(let i = 0; i < arr.length; i++){
+
+        for(let j = 0; j < arr.length; j++){
+
+            ans = (ans * arr[j]) / euclidAlgorithm(ans,arr[j]);
+
+        }
+
+    }
+    return ans;
+
+
+    //return (res) / euclidAlgorithm(res,a);
+
+
+}
+
+console.log(LcmOfArray([1,2,3,4,5,6,7,8,9,10]));
+
+function camelToSnake(aStr){
+
+    let symbols = "0123456789-=_+[]{}\"\';:<>,./?~`|\\!@#$%^&*() ";
+
+    return aStr.split("").map(e => e === e.toUpperCase() && !symbols.includes(e)? `_${e.toLowerCase()}`: e.toLowerCase()).join("");
+
+}
+
+console.log(camelToSnake("magicCarrots"));// "magic_carrots")
+console.log(camelToSnake("greatApples for aSmellyRhino"));// "great_apples for a_smelly_rhino")
+console.log(camelToSnake("th1sSh0uldB3FineT00"));// "th1s_sh0uld_b3_fine_t00")
+
+function getBirthdayCake(aStr,num){
+
+    let theFilling = num % 2 === 0? "#": "*";
+
+    let middle = `${theFilling} ${num} Happy Birthday ${aStr}! ${num} ${theFilling}`;
+
+    return [`${theFilling.repeat(middle.length)}`,middle,`${theFilling.repeat(middle.length)}`];
+
+}
+
+function toDisplay(hex){
+
+    let num = parseInt(String(hex));
+
+    let maps = {0: 0x3F,1: 0x06, 2: 0x5B, 3: 0x4F, 4: 0x66, 5: 0x6D, 6: 0x7D, 7: 0x07, 8: 0x7F, 0x9: 0x6F, 10: 0x77, 11: 0x7C, 12: 0x39, 13: 0x5E, 14: 0x79, 15: 0x71};
+
+    return maps[num];
+
+
+}
+
+console.log(`Result is : ${toDisplay(0xE)}`);
+
+function unique(arr){
+
+    let theSet = new Set(arr);
+
+    let count = 0;
+    for(let eachnum of theSet){
+
+        for(let i = 0; i < arr.length; i++){
+
+            if(eachnum === arr[i]){
+                count++;
+            }
+
+        }
+        if(count === 1){
+            return eachnum;
+        }
+        else{
+            count = 0;
+        }
+
+    }
+    return -1;
+
+}
+
+function schoty(arr){
+
+    let num = ['0','0','0','0','0','0','0'];
+
+    for(let i = 0; i < arr.length; i++){
+
+        let splitPart = arr[i].split('-');
+        if(splitPart[0].length === 0){
+
+            continue;
+
+        }
+        else{
+
+            let count = 0;
+            let part = splitPart[0];
+            for(let i = 0; i < part.length; i++){
+                if(part[i] === 'O'){
+                    count++;
+                }
+            }
+            num[i] = String(count);
+
+        }
+
+    }
+    return parseInt(num.join(""));
+
+
+}
+
+console.log(schoty([
+    "---OOOOOOOOOO",
+    "---OOOOOOOOOO",
+    "---OOOOOOOOOO",
+    "OOO---OOOOOOO",
+    "O---OOOOOOOOO",
+    "OOOOOOOOO---O",
+    "OO---OOOOOOOO"
+]));
+
+function shiftToRight(num1,num2){
+
+    console.log(`num1 = ${num1} and num2 = ${num2}`);
+    if(num2 === 0){
+        return num1;
+    }
+    else{
+
+        return shiftToRight(Math.floor(num1 / 2),--num2);
+
+    }
+
+}
+
+const users = [
+    { user: "barney", active: false },
+    { user: "fred", active: false },
+    { user: "donny", active: true },
+    { user: "carl", active: false },
+    { user: "linda", active: false },
+    { user: "luke", active: false },
+    { user: "Steve", active: false },
+    { user: "Lyle", active: false },
+    { user: "pebbles", active: true },
+];
+
+function dropWhile(arr,filterfunc){
+
+    let newArr = [];
+
+    let boolCheck = false;
+
+    for(let eachelem of arr){
+
+        if(boolCheck){
+            newArr.push(eachelem);
+        }
+        else if(filterfunc(eachelem)){
+            continue;
+        }
+        else{
+            boolCheck = true;
+            newArr.push(eachelem);
+        }
+
+    }
+    return newArr;
+
+}
+
+console.log(dropWhile(users, (b) => b.user !== "Lyle"));
+
+function euclidean(a,b){
+
+    if(a < b){
+
+        let tmp = a;
+        a = b;
+        b = tmp;
+
+    }
+    let remainder = a % b;
+    if(remainder === 0){
+        return b;
+    }
+    else{
+        return euclidean(b,remainder);
+    }
+
+}
+
+console.log(euclidean(280, 64));
+
+function partition(astr,num){
+
+    let newArr = [];
+
+    //const exp = `.{1,${num}}`;
+
+    //let regExp = new RegExp(exp);
+
+    //let res = astr.matchAll(regExp);
+
+    //console.log(res);
+
+    let tmpString = "";
+    for(let i = 0; i < astr.length; i++){
+
+        tmpString += astr.charAt(i);
+        if(tmpString.length == num) {
+            newArr.push(tmpString);
+            tmpString = "";
+        }
+
+    }
+    if(tmpString.length > 0){
+        newArr.push(tmpString);
+    }
+    return newArr;
+
+}
+
+console.log(partition("them", 2));
