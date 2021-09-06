@@ -197,6 +197,23 @@ int removeNode(int value){
 
     */
 
+   if(ROOT == NULL){
+
+       // empty list
+       return -1;
+
+   }
+   else if(ROOT->val == value){
+
+       removeHead();
+
+   }
+   else if(TAIL->val == value){
+
+       removeTail();
+
+   }
+
 }
 
 
@@ -208,6 +225,47 @@ void insert(int index, int value){
         index is used to figure out where to place the node
 
     */
+
+   if(ROOT == NULL){
+       return;
+   }
+   else{
+       node *newNode = (node *)malloc(sizeof(node));
+       newNode->val = value;
+       int numNodes = nodeCount();
+       if(index <= 0){
+           newNode->next = ROOT;
+           newNode->prev = NULL;
+           ROOT->prev = newNode;
+       }
+       else if(index >= (numNodes-1)){
+           TAIL->next = newNode;
+           newNode->prev = TAIL;
+           TAIL = newNode;
+       }
+       else{
+
+           int currIndex = 0;
+           node *tempHead = ROOT;
+           while(tempHead != NULL){
+
+               if(currIndex == index){
+                   node *prevNode = tempHead->prev;
+                   node *nextNode = tempHead->next;
+                   newNode->prev = prevNode;
+                   newNode->next = nextNode;
+                   nextNode->prev = newNode;
+                   prevNode->next = newNode;
+                   break;
+               }
+               tempHead = tempHead->next;
+               currIndex++;
+
+           }
+
+       }
+       
+   }
 
 
 }
