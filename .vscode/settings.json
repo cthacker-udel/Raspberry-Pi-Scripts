@@ -6,6 +6,8 @@
         "cstdlib": "c",
         "limits": "cpp",
         "limits.h": "c",
-        "xstring": "cpp"
+        "xstring": "cpp",
+        "system_error": "c",
+        "xtr1common": "c"
     },
 }

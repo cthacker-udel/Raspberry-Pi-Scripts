@@ -35,7 +35,7 @@ node *createNode(){
     }while(scanf("%d",&val) == 0);
 
     node *newNode = malloc(sizeof(node));
-    newNode->value = val;
+    newNode->val = val;
     newNode->next = NULL;
     newNode->prev = NULL;
     return newNode;
@@ -46,7 +46,7 @@ node *createNode(){
 node *createNodeV2(int value){
 
     node *newNode = malloc(sizeof(node));
-    newNode->value = value;
+    newNode->val = value;
     newNode->next = NULL;
     newNode->prev = NULL;
     return newNode;
