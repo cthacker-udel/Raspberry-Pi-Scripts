@@ -1,19 +1,26 @@
-let fetch = require('node-fetch');function modernGenerateRandomName(){
+let httpModule = require('https');
 
-    let theVar = fetch("https://random-word-api.herokuapp.com/word?number=2&swear=0",{method: 'GET'}).then(function(response){
+function process_data(thedata){
 
-        if(response.ok){
-            return response.text();
-        }
-        else{
-            return new Error('Could not get data, invalid request');
-        }
-    });
-
-    console.log(1);
+    console.log(`the data = ${thedata}`);
 
 }
 
+function modernGenerateNameV3() {
 
+    let url = "https://random-word-api.herokuapp.com/word?number=2&swear=0";
+    let data = '';
 
-modernGenerateRandomName();
+    httpModule.get(url, res => {
+
+        res.on('data', theData => {
+            data += theData;
+        });
+
+        res.on('end', () => {
+            process_data(data);
+        })
+
+    })
+
+}

@@ -11828,3 +11828,73 @@ function partition(astr,num){
 }
 
 console.log(partition("them", 2));
+
+function oddsVsEvens(num){
+
+    console.log(`num = ${num}`);
+
+    let oddSum = String(num).split("").map(e => Number(e)).filter(e => e % 2 !== 0 || e === 0).reduce((a,b) => a+b);
+    let evenSum = String(num).split("").map(e => Number(e)).filter(e => e % 2 === 0).reduce((a,b) => a+b);
+
+    return evenSum > oddSum? "even": oddSum > evenSum? "odd": "equal";
+
+}
+
+function totalSales(table,product){
+
+    let products = table[0];
+    if(!products.includes(product)){
+        return "Product not found";
+    }
+    else{
+
+        let columnToSearch = products.indexOf(product);
+        let total = 0;
+        for(let i = 1; i < table.length; i++){
+
+            total += table[i][columnToSearch];
+
+        }
+        return total;
+
+    }
+}
+
+
+function isApocalyptic(num){
+
+    let bigNum = BigInt(num);
+    let bigBase = BigInt(2);
+    let result = String(bigBase**bigNum);
+
+    let exp = new RegExp(/[6]{3}/g);
+
+    let count = 0;
+
+    let matches = result.matchAll(exp);
+
+    for(let match of matches){
+        count++;
+    }
+
+    return count === 0? "Safe": count === 1? "Single": count === 2? "Double": "Triple";
+}
+
+console.log(isApocalyptic(931));
+
+function legendre(num1,num2){
+
+    let total = 0;
+
+    let base = 1;
+    while(Math.pow(num1,base) <= num2){
+
+        total += Math.floor((num2 / Math.pow(num1,base++)));
+
+    }
+    return total;
+
+}
+
+
+legendre(5,100);
