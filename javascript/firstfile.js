@@ -11898,3 +11898,201 @@ function legendre(num1,num2){
 
 
 legendre(5,100);
+
+function validateSubsets(arr,subset){
+
+    let amt = arr.map(e => e.length === 0 || (e.map(f => subset.includes(f)).reduce((a,b) => a && b))).filter(e => e === true).length;
+
+    return amt === arr.length;
+
+}
+
+console.log(validateSubsets([[1, 2], [2, 3], [1, 3]], [1, 2, 3]));// true)
+console.log(validateSubsets([[1, 2, 3], [2], [3], []], [1, 2, 3]));// true)
+console.log(validateSubsets([[1, 2], [2, 3], [1, 4]], [1, 2, 3]));// false)
+console.log(validateSubsets([[1, 2, 3, 4]], [1, 2, 3]));// false)
+console.log(validateSubsets([['a', 'b'], ['b', 'c'], ['a', 'c']], ['a', 'b', 'c']));// true)
+console.log(validateSubsets([['a', 'b', 'c'], ['b'], ['c'], []], ['a', 'b', 'c']));// true)
+console.log(validateSubsets([['a', 'b'], ['b', 'c'], ['a', 'd']], ['a', 'b', 'c']));// false)
+console.log(validateSubsets([['a', 'b', 'c', 'd']], ['a', 'b', 'c']));// false)
+console.log(validateSubsets([[true, false], [true]], [true, false]));// true)
+console.log(validateSubsets([[true], [false], []], [true, false]));// true)
+console.log(validateSubsets([[true], [true, false]], [true]));// false)
+console.log(validateSubsets([[false]], [true]));// false)
+
+function toObj(arr){
+
+    let returnArr = [];
+
+    for(let eachletter of arr){
+        let obj = {};
+        obj[eachletter] = eachletter.charCodeAt(0);
+        returnArr.push(obj);
+    }
+    return returnArr;
+
+}
+
+function duplicateCount(aStr){
+
+    let strSet = new Set(aStr.split(""));
+    let count = 0;
+
+    for(let eachletter of strSet){
+
+        let ind1 = aStr.indexOf(eachletter);
+        let ind2 = aStr.lastIndexOf(eachletter);
+
+        if(ind1 !== ind2){
+            count++;
+        }
+
+    }
+    return count;
+
+}
+
+function mergeSort(arr1,arr2){
+
+    let tmpArr = [...arr1];
+    tmpArr.sort((a,b) => a-b);
+    let tmp2Arr = [...arr1];
+    tmp2Arr.sort((a,b) => b-a);
+
+    if(tmp2Arr[0] === arr1[0]){
+
+        // ascending
+        let newArr = [];
+        for(let i = 0; i < Math.max(arr1.length,arr2.length); i++){
+            newArr.push(arr1[i]);
+            newArr.push(arr2[i]);
+        }
+        newArr = newArr.filter(e => e !== undefined);
+        newArr.sort((a,b) => b-a);
+        return newArr;
+
+    }
+    else{
+
+        let newArr = [];
+
+        for(let i = 0; i < Math.max(arr1.length,arr2.length); i++){
+            newArr.push(arr1[i]);
+            newArr.push(arr2[i]);
+        }
+        newArr = newArr.filter(e => e !== undefined);
+        newArr.sort((a,b) => a-b);
+        return newArr;
+        // descending
+
+    }
+
+}
+
+mergeSort([8, 6, 4, 2], [-2, -6,  0, -4 ])
+
+
+function getMissingLetters(astr){
+
+    let alpha = "abcdefghijklmnopqrstuvwxyz";
+
+    return alpha.split("").filter(e => !astr.includes(e)).join("");
+
+}
+
+function countAppearances(arr,num){
+
+    let count = 0;
+    for(let i = 0; i < arr.length; i++){
+
+        if(arr[i] === num){
+            count++;
+        }
+
+    }
+    return count;
+
+}
+
+function findOdd(arr){
+
+    let newArr = arr.map(e => countAppearances(arr,e));
+
+    for(let i = 0; i < newArr.length; i++){
+
+        if(newArr[i] % 2 !== 0){
+            return arr[i];
+        }
+
+    }
+}
+
+function getStudentTopNotes(arr){
+
+    let newArr = [];
+
+    for(let eachstudent of arr){
+
+        if(eachstudent['notes'].length > 0){
+            newArr.push(Math.max(...eachstudent['notes']));
+        }
+        else{
+            newArr.push(0);
+        }
+
+    }
+    return newArr;
+}
+
+function getTrace(arr){
+
+    let total = 0;
+
+    if(arr.length !== arr[0].length){
+        return 0;
+    }
+
+    for(let i = 0; i < arr.length; i++){
+
+        total += arr[i][i];
+
+    }
+    return total;
+
+}
+
+function overTwentyOne(arr){
+
+    let total = 0;
+
+    let obj = {'J': 10, 'Q': 10, 'K': 10};
+
+    let aceCount = 0;
+
+    for(let i = 0; i < arr.length; i++){
+
+        if(arr[i] === 'A'){
+            aceCount++;
+        }
+        else if(Object.keys(obj).includes(arr[i])){
+            total += obj[arr[i]];
+        }
+        else{
+            total += arr[i];
+        }
+
+    }
+    if((total + aceCount) > 21){
+        return true;
+    }
+    else{
+        return false;
+    }
+
+}
+
+console.log('printing');
+console.log(overTwentyOne(['A', 2, 3]));// false);
+console.log(overTwentyOne(['A', 'J', 'K']));// false);
+console.log(overTwentyOne(['A', 'J', 'K', 'Q']));// true);
+console.log(overTwentyOne([5, 3, 6, 6, 7, 9]));// true);
