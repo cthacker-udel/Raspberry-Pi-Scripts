@@ -330,6 +330,7 @@ void moveUp(int value){
 
    }
    int isInList = 0;
+   int ind = 0;
 
    while(tempHead != NULL){
        if(tempHead->val == value){
@@ -337,6 +338,7 @@ void moveUp(int value){
            break;
        }
        tempHead = tempHead->next;
+       ind++;
    }
 
    if(isInList){
@@ -345,12 +347,64 @@ void moveUp(int value){
             // head is the node to move up, make new tail
             int value = ROOT->val;
             removeHead();
-
+            addTail(value);
         }
         else if(TAIL->val == value){
             // tail is the node to move up, reorder tail
+            if(TAIL->prev == NULL){
+                // only one node, stop execution
+                return;
+            }
+            else{
+                node *tailPrev = TAIL->prev;
+                if(tailPrev->prev == NULL){
+                    tailPrev->prev = TAIL;
+                    tailPrev->next = NULL;
+                    TAIL->next = tailPrev;
+                    TAIL->prev = NULL;
+                    TAIL = tailPrev;
+                    return;
+                }
+                else{
+                    node *tailPrevPrev = tailPrev->prev;
+                    tailPrevPrev->next = TAIL;
+
+                    // make tailPrev new Tail
+                    tailPrev->prev = TAIL;
+                    tailPrev->next = NULL;
+
+                    TAIL->prev = tailPrevPrev;
+                    TAIL->next = tailPrev;
+
+                    TAIL = tailPrev;
+                    return;
+                }
+            }
         }
         else{
+            // node is in middle of list
+            tempHead = ROOT;
+            while(tempHead != NULL){
+                if(tempHead->val == value){
+                    break;
+                }
+                tempHead = tempHead->next;
+            }
+            node *tempHeadPrev = tempHead->prev;
+            node *tempHeadPrevPrev = tempHead->prev->prev;
+
+            tempHead->prev = tempHeadPrevPrev;
+
+            tempHeadPrev->next = tempHead->next;
+
+            tempHead->next->prev = tempHeadPrev;
+
+            tempHeadPrev->prev = tempHead;
+
+            tempHeadPrevPrev->next = tempHead;
+
+            tempHead->next = tempHeadPrev;
+
 
         }
    }
