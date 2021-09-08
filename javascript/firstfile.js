@@ -12096,3 +12096,220 @@ console.log(overTwentyOne(['A', 2, 3]));// false);
 console.log(overTwentyOne(['A', 'J', 'K']));// false);
 console.log(overTwentyOne(['A', 'J', 'K', 'Q']));// true);
 console.log(overTwentyOne([5, 3, 6, 6, 7, 9]));// true);
+
+
+function palindromicDate(aStr){
+
+    let firstFormat = aStr.split("/").join("");
+    let strSplit = aStr.split("/");
+    let secondFormat = [strSplit[1],strSplit[0],strSplit[2]].join("");
+
+    let revFirst = firstFormat.split("").reverse().join("");
+    let revSecond = secondFormat.split("").reverse().join("");
+
+    return (revFirst === firstFormat) && (revSecond === secondFormat);
+
+}
+
+console.log('testing date');
+console.log(palindromicDate("02/02/2020"));// true)
+console.log(palindromicDate("11/12/2019"));// false)
+console.log(palindromicDate("11/02/2011"));// false)
+console.log(palindromicDate("06/10/1469"));// false)
+console.log(palindromicDate("06/05/3133"));// false)
+console.log(palindromicDate("12/12/2121"));// true)
+console.log(palindromicDate("09/09/9090"));// true)
+console.log(palindromicDate("11/04/2203"));// false)
+console.log(palindromicDate("07/07/7070"));// true)
+console.log(palindromicDate("06/11/2923"));// false)
+console.log(palindromicDate("03/08/8030"));// false)
+console.log(palindromicDate("01/01/1010"));// true)
+console.log(palindromicDate("03/11/3369"));// false)
+console.log(palindromicDate("11/03/2775"));// false)
+console.log(palindromicDate("03/03/1822"));// false)
+
+function roundNearest(a,b=1){
+
+    return Math.round(a/b)*b;
+}
+
+console.log(roundNearest(21418.3,118.49));
+
+function isIncreasing(num){
+
+    let strNum = String(num);
+
+    for(let i = 0; i < strNum.length-1; i++){
+
+        let iDigit = Number(strNum[i]);
+        let iDigit2 = Number(strNum[i+1]);
+
+        if(iDigit2 < iDigit){
+            return false;
+        }
+
+    }
+    return true;
+
+}
+
+function isDecreasing(num){
+
+    let strNum = String(num);
+
+    for(let i = 0; i < strNum.length-1; i++){
+
+        let iDigit = Number(strNum[i]);
+        let iDigit2 = Number(strNum[i+1]);
+
+        if(iDigit2 > iDigit){
+            return false;
+        }
+
+    }
+    return true;
+
+}
+
+function incDec(num){
+
+    let maxRange = Math.pow(10,num);
+    let count = 0;
+    for(let i = 1; i <= maxRange; i++){
+
+        if(isIncreasing(i) || isDecreasing(i)){
+            count++;
+        }
+
+    }
+    return count;
+}
+
+console.log(incDec(6));
+
+function everySome(...args){
+
+    let testType = args[1];
+    let expr = args[0];
+
+    let bools = [];
+
+    for(let i = 2; i < args.length; i++){
+
+        let theExpr = `${args[i]} ${expr}`;
+        bools.push(eval(theExpr));
+
+    }
+
+    return testType === 'everybody'? new Set(bools).size === 1 && bools[0] === true: (new Set(bools).size >= 2 || (new Set(bools).size === 1 && bools[0] === true));
+
+}
+
+console.log('testing everysome');
+console.log(everySome(">= 1", "everybody", 1, 1, -1, 1, 1));// false, "Example #1")
+console.log(everySome(">= 1", "somebody", -1, -1, -1, -1, 1));// true, "Example #2")
+console.log(everySome("< 4 / 2", "everybody", 1, 2, 1, 2, 1, 0, -10));// false, "Example #3")
+console.log(everySome("!= 0", "everybody", false, false, false, false, false));// false)
+console.log(everySome("<= 10 * 2", "somebody", 21, 68, 104, 20, 3));// true)
+console.log(everySome("!== 1", "everybody", true, true, true, true, true));// true)
+console.log(everySome("=== 9 % 9", "somebody", 9, 1, 81, 218, 33));// false)
+
+
+function isNumPalindrome(a){
+
+    return String(a) === String(a).split("").reverse().join("");
+
+}
+
+function countPalindromes(a,b){
+
+    let count = 0;
+    for(let i = a; i <= b; i++){
+
+        if(isNumPalindrome(i)){
+            count++;
+        }
+
+    }
+    return count;
+
+}
+
+function isKaprekar(num){
+
+    let squared = Math.pow(num,2);
+
+    let numLen = String(squared).length;
+
+    let strNum = String(squared);
+
+    let middle = Math.floor(strNum.length / 2);
+
+    if(numLen % 2 !== 0){
+
+        let leftHalf = strNum.substring(0,middle);
+
+        let rightHalf = strNum.substring(middle);
+
+        return Number(leftHalf) + Number(rightHalf) === num;
+
+    }
+    else{
+
+        let leftHalf = strNum.substring(0,middle);
+        let rightHalf = strNum.substring(middle);
+
+        return Number(leftHalf) + Number(rightHalf) === num;
+
+    }
+
+}
+
+console.log('testing isKaprekar');
+
+console.log(isKaprekar(1));// true)
+console.log(isKaprekar(2));// false)
+console.log(isKaprekar(3));// false, "Example #1")
+console.log(isKaprekar(5));// false, "Example #2")
+console.log(isKaprekar(9));// true)
+console.log(isKaprekar(65));// false)
+console.log(isKaprekar(99));// true)
+console.log(isKaprekar(297));// true, "Example #3")
+console.log(isKaprekar(348));// false)
+console.log(isKaprekar(666));// false)
+console.log(isKaprekar(1441));// false)
+console.log(isKaprekar(77778));// true)
+console.log(isKaprekar(102102));// false)
+console.log(isKaprekar(533170));// true)
+
+function split(aStr){
+
+    let vowels = "aeiouAEIOU";
+
+    let newStr = "";
+
+    let arr = [];
+
+    for(let i = 0; i < aStr.length; i++){
+
+        let iChar = aStr.charAt(i);
+
+        if(!vowels.includes(iChar)){
+            // consonant
+            if(newStr.length !== 0){
+                arr.push(newStr);
+                newStr = "";
+            }
+            arr.push(iChar);
+        }
+        else{
+            newStr += iChar;
+        }
+
+    }
+    if(newStr.length > 0){
+        arr.push(newStr);
+    }
+    return arr;
+
+}
