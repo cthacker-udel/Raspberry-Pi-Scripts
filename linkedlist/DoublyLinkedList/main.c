@@ -270,6 +270,19 @@ void insert(int index, int value){
 
 }
 
+void addTail(int value){
+
+    node *newNode = (node *)malloc(sizeof(node));
+    newNode->val = value;
+    TAIL->next = newNode;
+    newNode->prev = TAIL;
+    newNode->next = NULL;
+    TAIL = newNode;
+
+}
+
+
+
 void moveUp(int value){
 
     /*
@@ -280,6 +293,46 @@ void moveUp(int value){
     Different operations dependant on the size of the list
 
     */
+
+   // first validate that value is in linked list
+
+   node *tempHead = ROOT;
+
+   if(ROOT == NULL){
+
+       printf("\nThe head of the list is NULL\n");
+       return;
+
+   }
+   int isInList = 0;
+
+   while(tempHead != NULL){
+       if(tempHead->val == value){
+           isInList = 1;
+           break;
+       }
+       tempHead = tempHead->next;
+   }
+
+   if(isInList){
+       // now move up
+        if(ROOT->val == value){
+            // head is the node to move up, make new tail
+            int value = ROOT->val;
+            removeHead();
+
+        }
+        else if(TAIL->val == value){
+            // tail is the node to move up, reorder tail
+        }
+        else{
+
+        }
+   }
+   else{
+       printf("\nNode is not in list\n");
+       return;
+   }
 
 
 }

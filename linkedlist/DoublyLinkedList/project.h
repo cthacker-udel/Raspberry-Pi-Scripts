@@ -13,6 +13,10 @@ typedef struct theNode{
 
 void addNode(int);
 
+void addHead(int);
+
+void addTail(int);
+
 int findFirstIndex(int);
 
 int findLastIndex(int);
