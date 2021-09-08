@@ -274,10 +274,35 @@ void addTail(int value){
 
     node *newNode = (node *)malloc(sizeof(node));
     newNode->val = value;
-    TAIL->next = newNode;
-    newNode->prev = TAIL;
-    newNode->next = NULL;
-    TAIL = newNode;
+
+    if(ROOT == NULL){
+        ROOT = newNode;
+        TAIL = newNode;
+    }
+    else{
+        TAIL->next = newNode;
+        newNode->prev = TAIL;
+        newNode->next = NULL;
+        TAIL = newNode;
+    }
+
+}
+
+void addHead(int value){
+
+    node *newNode = (node *)malloc(sizeof(node));
+    newNode->val = value;
+
+    if(ROOT == NULL){
+        ROOT = newNode;
+        TAIL = newNode;
+    }
+    else{
+        newNode->next = ROOT;
+        ROOT->prev = newNode;
+        newNode->prev = NULL;
+        ROOT = newNode;
+    }
 
 }
 
