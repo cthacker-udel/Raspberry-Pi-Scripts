@@ -12313,3 +12313,275 @@ function split(aStr){
     return arr;
 
 }
+
+function binaryConversion(astr){
+
+    let newStr = "";
+
+    for(let i = 0; i < astr.length; i+=8){
+
+        let substring = astr.substring(i,i+8);
+        let val = parseInt(substring,2);
+        let char = String.fromCharCode(val);
+
+        newStr += char;
+    }
+    return newStr;
+
+}
+
+console.log(binaryConversion("011000010110001001100011"));
+
+function sortByCharacter(arr,num){
+
+    num--;
+
+    arr.sort((a,b) => a[num] > b[num]? 1: a[num] < b[num]? -1: 0);
+
+    return arr;
+
+}
+
+console.log(sortByCharacter(["az16", "by35", "cx24"], 2));
+
+function goldDistribution(arr){
+
+    let turn = false; // mubashir is false, matt is true
+    let mattTotal = 0;
+    let mubashirTotal = 0;
+
+
+    while(arr.length > 0){
+
+        if(arr.length === 1){
+            if(turn){
+                mattTotal += arr[0];
+            }
+            else{
+                mubashirTotal += arr[0];
+            }
+            arr.pop();
+
+        }
+        else{
+
+            let farLeft = arr[0];
+            //arr.splice(0,1);
+            let farRight = arr[arr.length-1];//arr.pop();
+            if(farLeft === farRight){
+
+                arr.splice(0,1);
+                if(turn){
+                    mattTotal += farLeft;
+                }
+                else{
+                    mubashirTotal += farLeft;
+                }
+
+            }
+            else if(farRight > farLeft){
+                arr.pop();
+                if(turn){
+
+                    mattTotal += farRight;
+
+                }
+                else{
+
+                    mubashirTotal += farRight;
+
+                }
+            }
+            else if(farLeft > farRight){
+
+                arr.splice(0,1);
+                if(turn){
+
+                    mattTotal += farLeft;
+
+                }
+                else{
+
+                    mubashirTotal += farLeft;
+
+                }
+
+            }
+
+        }
+        turn = !turn;
+
+    }
+    return [mubashirTotal,mattTotal];
+
+}
+
+console.log(goldDistribution([4, 2, 9, 5, 2, 7]));
+
+function initialize(arr){
+
+    return arr.map(e => `${e.split(' ')[0][0].toUpperCase()}. ${e.split(' ')[1][0].toUpperCase()}.`);
+
+}
+
+function canPlay(playerHand, faceUpCard){
+
+    let colors = playerHand.map(e => e.split(' ')[0]);
+
+    let numbers = playerHand.map(e => e.split(' ')[1]);
+
+    let faceUpColor = faceUpCard.split(' ')[0];
+    let faceUpNumber = faceUpCard.split(' ')[1];
+
+    return colors.includes(faceUpColor) || numbers.includes(faceUpNumber);
+
+}
+
+function releaseYear(album) {
+    const albums = {
+        "2015": ["Vulnicura", "Honeymoon", "Rebel Heart"],
+        "2016": ["Lemonade", "Blackstar", "A Moon Shaped Pool"],
+        "2017": ["Flower Boy", "Antisocialites"],
+        "2018": ["El Mal Querer", "Someone Out There", "Cranberry", "Kamikaze"],
+        "2019": ["thank u next", "Magdalene", "Ode to Joy"],
+        "2020": ["Rough and Rowdy Ways", "folklore", "Future Nostalgia", "Colores"]
+    }
+
+    for(let eachkey of Object.keys(albums)){
+
+        if(albums[eachkey].includes(album)){
+            return Number(eachkey);
+        }
+
+    }
+    return "Unknown";
+}
+
+function percentFilled(arr){
+
+    let totalSpaces = 0;
+    let occupiedSpaces = 0;
+
+    for(let eachpart of arr){
+
+        for(let i = 0; i < eachpart.length; i++){
+
+            let theChar = eachpart[i];
+            if(theChar === ' '){
+                totalSpaces++;
+            }
+            else if(theChar === 'o'){
+                occupiedSpaces++;
+                totalSpaces++;
+            }
+
+        }
+
+    }
+    return `${Math.round((occupiedSpaces / totalSpaces)*100)}%`;
+
+
+}
+
+console.log(percentFilled([
+    "######",
+    "#ooo #",
+    "#oo  #",
+    "#    #",
+    "#    #",
+    "######"
+]));
+
+function checkout(arrObj){
+
+    let total = 0;
+
+    let itemTotal = 0;
+
+    for(let eachitem of arrObj){
+
+        if(eachitem['taxable']){
+
+            itemTotal = eachitem['prc'] * eachitem['qty'];
+            itemTotal = itemTotal + (itemTotal * 0.06);
+            total += itemTotal;
+        }
+        else{
+
+            total += (eachitem['prc'] * eachitem['qty']);
+
+        }
+
+    }
+    return total;
+
+
+}
+
+console.log(checkout([
+    { desc: "potato chips", prc: 2, qty: 2, taxable: false },
+    { desc: "soda", prc: 3, qty: 2, taxable: false },
+    { desc: "paper plates", prc: 5, qty: 1, taxable: true }
+]));
+
+
+function replaceThe(astr){
+
+    const exprAn = /(the (?=[aeiouAEIOU]))/g;
+    const exprA = /(the (?=[^aeiouAEIOU]))/g;
+
+    astr = astr.replace(exprAn,'an ');
+    astr = astr.replace(exprA,'a ');
+
+    return astr;
+
+
+}
+
+replaceThe("the egg, the spoon and the espionage");
+
+function harmonic(num){
+
+    let denom = 1;
+
+    let total = 0;
+
+    let numerator = 1;
+
+    for(let i = 0; i < num; i++){
+
+        total += (numerator / denom++);
+
+    }
+    return Number(total.toFixed(3));
+
+
+}
+
+function seesaw(num){
+
+    let strNum = String(num);
+    let middle = Math.floor(strNum.length / 2);
+
+    123
+
+    if(strNum.length % 2 !== 0){
+
+        // odd
+        let leftHalf = Number(strNum.substring(0,middle));
+        let rightHalf = Number(strNum.substring(middle+1));
+
+        return leftHalf > rightHalf? "left": rightHalf > leftHalf? "right": "balanced";
+
+
+    }
+    else{
+
+        let leftHalf = Number(strNum.substring(0,middle));
+        let rightHalf = Number(strNum.substring(middle));
+
+        return leftHalf > rightHalf? "left": rightHalf > leftHalf? "right": "balanced";
+
+    }
+
+}
