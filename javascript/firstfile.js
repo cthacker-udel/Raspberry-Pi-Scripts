@@ -12585,3 +12585,128 @@ function seesaw(num){
     }
 
 }
+
+function getDiagonals(matrix){
+
+        let upperLeftLowerRight = 0;
+
+        let upperRightLowerLeft = 0;
+
+        let upperLeft = [];
+        let upperRight = [];
+
+
+        for(let i = 0; i < matrix.length; i++){
+            upperLeftLowerRight += matrix[i][i];
+            upperLeft.push(matrix[i][i]);
+        }
+
+        for(let i = 0, j = matrix.length-1; i < matrix.length; i++, j--){
+
+            upperRightLowerLeft += matrix[i][j];
+            upperRight.push(matrix[i][j]);
+
+        }
+
+        return [upperLeft,upperRight];
+}
+
+function filterValues(obj){
+
+        let newObj = {};
+
+        let keys = Object.keys(obj);
+
+        keys.filter(e => obj[e] >= 5000).forEach(e => newObj[e] = obj[e]);
+
+        return newObj;
+
+}
+
+console.log(filterValues({ tv: 4999, guitar:5000, fork: 5001 }));
+console.log(filterValues({ tv: 4999 }));
+
+
+function happinessNumber(aStr){
+
+    const exp1 = /(:\))/g;
+    const exp2 = /(\(:)/g;
+    const exp3 = /(:\()/g;
+    const exp4 = /(\):)/g;
+
+    let matches1 = aStr.match(exp1);
+    let matches11 = aStr.match(exp2);
+    let matches0 = aStr.match(exp3);
+    let matches00 = aStr.match(exp4);
+
+    let total = 0;
+
+    if(matches1 !== null){
+        total += matches1.length;
+    }
+    if(matches11 !== null){
+        total += matches11.length;
+    }
+    if(matches0 !== null){
+        total -= matches0.length;
+    }
+    if(matches00 !== null){
+        total -= matches00.length;
+    }
+
+    return total;
+
+}
+
+console.log(happinessNumber(':):('));
+
+
+function lastLetter(word){
+
+    return word.charCodeAt(word.length-1);
+
+}
+
+
+function sortByLast(aStr){
+
+    let splitWords = aStr.split(' ');
+
+    splitWords.sort((a,b) => lastLetter(a) - lastLetter(b));
+
+    return splitWords.join(' ');
+
+}
+
+console.log(sortByLast("herb camera dynamic"));
+
+function chemicalReactions(c,h,o){
+
+        // find h20 first, then co2, then ch4
+
+        let totalWater = 0;
+        let totalCarbon = 0;
+        let totalMethane = 0;
+
+        while(h >= 2 && o > 0){
+
+            h -= 2;
+            o -= 1;
+            totalWater++;
+
+        }
+        while(c > 0 && o >= 2){
+            c--;
+            o -= 2;
+            totalCarbon++;
+        }
+        while(h >= 4 && c > 0){
+            h -= 4;
+            c--;
+            totalMethane++;
+        }
+        return [totalWater,totalCarbon,totalMethane];
+
+}
+
+console.log(chemicalReactions(939, 3, 694));
