@@ -13048,7 +13048,7 @@ let golfScore = (course,result) => {
 
 }
 
-     */
+
 let hoursPassed = (timenow,timethen) => {
 
     if(timenow === timethen){
@@ -13074,7 +13074,7 @@ let [strVector, resVector] = [
         ["8:00 AM", "8:00 PM"], ["12:00 AM", "10:00 PM"], ["1:00 AM", "1:00 AM"], ["12:00 PM", "12:00 PM"]],
     ["6 hours", "2 hours", "14 hours", "13 hours", "12 hours", "22 hours", "no time passed", "no time passed"]
 ]
-for (let i in strVector) (hoursPassed(...strVector[i]), resVector[i]);
+for (let i in strVector) (hoursPassed(...strVector[i]));// resVector[i]);
 
 let findVertex = (a,b,c) => {
 
@@ -13082,6 +13082,109 @@ let findVertex = (a,b,c) => {
 
     let yCoord = a*Math.pow(xCoord,2) + b*(xCoord) + c;
 
-    return [Number(xCoord.toFixed(2)),Number(yCoord.toFixed(2))];
+    return [Number(xCoord.toFixed(2)));//Number(yCoord.toFixed(2))];
+
+}
+
+let diceScore = (arr) => {
+
+    let allRolls = new Set(arr);
+
+    let obj = {'111': 1000, '666': 600, '555': 500, '444': 400, '333': 300, '222': 200, '1': 100, '5': 50};
+
+    let emptyString = '';
+
+    let total = 0;
+    let added = false;
+
+    for(let eachroll of allRolls){
+
+        //console.log(`eachroll = ${eachroll}`);
+
+        for(let i = 0; i < arr.length; i++){
+
+            if(arr[i] === eachroll){
+                emptyString += arr[i];
+            }
+
+        }
+        if(emptyString.length > 0){
+
+            while(emptyString.length >= 3) {
+
+                let theSub = emptyString.substring(0, 3);
+                total += obj[theSub];
+                emptyString = emptyString.substring(3);
+
+            }
+            if(emptyString.includes('1')){
+                total += emptyString.length * 100;
+            }
+            else if(emptyString.includes('5')){
+                    total += emptyString.length * 50;
+            }
+        }
+        emptyString = '';
+
+    }
+    return total;
+
+}
+
+console.log(diceScore([2,3,4,6,2]));//0)
+console.log(diceScore([1,1,1,3,3]));//1000,"Should be 1000");
+console.log(diceScore([2,2,2,3,3]));//200,"Should be 200");
+console.log(diceScore([3,3,3,3,3]));//300,"Should be 300");
+console.log(diceScore([4,4,4,3,3]));//400,"Should be 400");
+console.log(diceScore([5,5,5,3,3]));//500,"Should be 500");
+console.log(diceScore([6,6,6,3,3]));//600,"Should be 600");
+console.log(diceScore([1,1,1,1,3]));//1100,"Should be 1100");
+console.log(diceScore([1,1,1,1,5]));//1150,"Should be 1150");
+console.log(diceScore([2,4,4,5,4]));//450,"Should be 450");
+console.log(diceScore([3,4,5,3,3]));//350,"Should be 350");
+console.log(diceScore([1,5,1,3,4]));//250,"Should be 250");
+
+//Mubashir
+
+     */
+
+let wordedMath = (expr) => {
+
+    expr = expr.toLowerCase();
+
+    expr = expr.replace(/one/g,'1').replace(/two/g,'2').replace(/zero/g,'0').replace(/plus/g,'+').replace(/minus/g,'-');
+
+    let res = eval(expr);
+
+    let obj = {2: 'Two', 1: 'One', 0: 'Zero'};
+
+    return obj[res];
+
+}
+
+console.log(wordedMath("One plus one"));// "Two")
+console.log(wordedMath("zero Plus one"));// "One")
+console.log(wordedMath("one minus one"));// "Zero")
+
+// made by @Joshua Señoronr
+
+
+let duplicateNums = (arr) => {
+
+    let newSet = new Set(arr);
+
+    let newArr = [];
+
+    for(let eachnum of newSet){
+
+        if(arr.indexOf(eachnum) !== arr.lastIndexOf(eachnum)){
+            newArr.push(eachnum);
+        }
+
+    }
+    newArr.sort((a,b) => a-b);
+
+    return newArr.length > 0? newArr : null;
+
 
 }
