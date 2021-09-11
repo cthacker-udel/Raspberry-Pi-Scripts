@@ -11572,7 +11572,7 @@ console.log(multiply(-3, -20));// 60)
 console.log(multiply(40, -10));// -400)
 
 
-     */
+
 
 function euclidAlgorithm(a,b){
 
@@ -11733,7 +11733,7 @@ function shiftToRight(num1,num2){
     }
     else{
 
-        return shiftToRight(Math.floor(num1 / 2),--num2);
+        return shiftToRight(Math.floor(num1 / 2));//--num2);
 
     }
 
@@ -12710,3 +12710,378 @@ function chemicalReactions(c,h,o){
 }
 
 console.log(chemicalReactions(939, 3, 694));
+
+
+let tidyLink = (url,name,optional="") => {
+
+    return `[${name}](${url}${optional !== ""? ` "${optional}"` : ""})`;
+
+}
+
+let isHappyYear = (theDate) => {
+
+    return new Set(String(theDate).split("")).size === String(theDate).length;
+
+}
+
+let happyYear = (date) => {
+
+    for(let i = date+1; ; i++){
+        if(isHappyYear(i)){
+            return i;
+        }
+    }
+
+
+}
+
+let perrin = (num) => {
+
+    let seq = [3,0,2];
+
+    let ind = 3;
+    while(seq.length-1 < num){
+
+        seq.push(seq[ind-3] + seq[ind-2]);
+        ind++;
+
+    }
+    return seq[num];
+
+}
+
+
+console.log(perrin(0));// 3)
+console.log(perrin(38));// 43721)
+console.log(perrin(58));// 12110402)
+console.log(perrin(52));// 2240877)
+console.log(perrin(36));// 24914)
+console.log(perrin(44));// 236282)
+console.log(perrin(50));// 1276942)
+console.log(perrin(42));// 134643)
+console.log(perrin(27));// 1983)
+console.log(perrin(17));// 119)
+console.log(perrin(45));// 313007)
+console.log(perrin(46));// 414646)
+console.log(perrin(28));// 2627)
+console.log(perrin(37));// 33004)
+console.log(perrin(43));// 178364)
+console.log(perrin(22));// 486)
+console.log(perrin(25));// 1130)
+console.log(perrin(51));// 1691588)
+console.log(perrin(34));// 14197)
+console.log(perrin(15));// 68)
+console.log(perrin(41));// 101639)
+
+let memeSum = (num1,num2) => {
+
+    let newStr = "";
+    if(num1 < num2){
+        let tmp = num1;
+        num1 = num2;
+        num2 = tmp;
+    }
+    let str1 = String(num1);
+    let str2 = String(num2);
+
+    for(let i = str1.length-1, j = str2.length-1;;i--,j--){
+
+        if(j <= -1 && i <= -1){
+            break;
+        }
+        else if(j == -1){
+            // reached the end of str2 but not the end of str1
+            newStr = str1.charAt(i) + newStr;
+        }
+        else if(i == -1){
+            // reached the end of str1 but not the end of str2
+            newStr = str2.charAt(j) + newStr;
+        }
+        else{
+            let num1 = +str1.charAt(i);
+            let num2 = +str2.charAt(j);
+            let res = num1+num2;
+            newStr = res + newStr;
+        }
+
+    }
+    return +newStr;
+
+
+}
+
+console.log(memeSum(122,81));
+
+let isConsecutiveArr = (arr) => {
+
+    arr.sort((a,b) => a-b);
+    for(let i = 0; i < arr.length-1; i++){
+
+        let firstElem = arr[i];
+        let secondElem = arr[i+1];
+        if(Math.abs(firstElem - secondElem) !== 1){
+            return false;
+        }
+
+    }
+    return true;
+
+}
+
+let cons = (arr) => {
+
+    if(new Set(arr).size !== arr.length){
+        return false;
+    }
+    else{
+
+        return isConsecutiveArr(arr);
+
+    }
+
+}
+
+
+console.log(cons([5, 1, 4, 3, 2]));// true)
+console.log(cons([55, 59, 58, 56, 57]));// true)
+console.log(cons([-3, -2, -1, 1, 0]));// true)
+console.log(cons([5, 1, 4, 3, 2, 8]));// false)
+console.log(cons([5, 6, 7, 8, 9, 9]));// false)
+console.log(cons([5, 3]));// false)
+
+
+let chooseFuse = (fuses,rating) => {
+
+    let sortFuses = (fuse1,fuse2) => {
+
+        return Number(fuse1.replace('V','')) - Number(fuse2.replace('V',''));
+
+    }
+
+
+    fuses.sort(sortFuses);
+
+    let theAmt = +rating.replace('V','');
+
+    for(let i = 0; i < fuses.length; i++){
+
+        let theFuseRating = +fuses[i].replace('V','');
+        if(theFuseRating >= theAmt){
+            return fuses[i];
+        }
+    }
+
+
+}
+
+let factorial = (theNum) => {
+
+    if(theNum == 1){
+        return 1;
+    }
+    else{
+        return theNum * factorial(theNum-1);
+    }
+
+}
+
+let isFactorial = (num) => {
+
+    let starter = 1;
+    while(true){
+        let res = factorial(starter);
+        if(res == num){
+            return true;
+        }
+        else if(res > num){
+            return false;
+        }
+        else{
+            starter++;
+        }
+    }
+
+}
+
+console.log(chooseFuse(["3V", "5V", "12V"], "4.5V"));// "5V")
+console.log(chooseFuse(["5V", "14V", "2V"], "5.5V"));// "14V")
+console.log(chooseFuse(["17V", "15V", "12V"], "9V"));// "12V")
+console.log(chooseFuse(["1V", "2V", "3V"], "2.5V"));// "3V")
+console.log(chooseFuse(["17V", "15V", "12V"], "1V"));// "12V")
+console.log(chooseFuse(["7V", "135V", "12V"], "9.5V"));// "12V")
+console.log(chooseFuse(["17V", "15V", "12V"], "17V"));// "17V")
+console.log(chooseFuse(["3V", "11V", "12V"], "4.5V"));// "11V")
+console.log(chooseFuse(["3V", "5V", "12V"], "0.5V"));// "3V")
+
+
+let addLetters = (letters) => {
+
+    if(letters.length === 0){
+        return 'z';
+    }
+
+    let alpha = " abcdefghijklmnopqrstuvwxyz";
+
+    let res = letters.map(e => alpha.indexOf(e)).reduce((a,b) => a+b);
+
+    return alpha[res > 26? res % 26: res];
+
+
+}
+
+console.log(addLetters(["a"]));// "a")
+console.log(addLetters(["a", "b"]));// "c")
+console.log(addLetters(["a", "b", "c"]));// "f")
+console.log(addLetters(["a", "b", "c", "d", "e", "f"]));// "u")
+console.log(addLetters(["y", "a"]));// "z")
+console.log(addLetters(["y", "c"]));// "b")
+console.log(addLetters(["z", "a"]));// "a")
+console.log(addLetters(["x", "y", "z"]));// "w")
+console.log(addLetters([]));// "z")
+
+let formatAscii = (str,num) => {
+
+    let res = [];
+    let currString = "";
+
+    for(let i = 0; i < str.length; i++){
+
+        if(currString.length == num){
+            res.push(currString);
+            currString = str[i];
+        }
+        else{
+            currString += str[i];
+        }
+
+
+    }
+    if(currString.length > 0){
+        res.push(currString);
+    }
+    return res.join('\n');
+
+
+}
+
+formatAscii('#@#@#@#@', 2)
+
+let briscolaScore = (myDeck1,myDeck2) => {
+
+    let obj = {'A': 11, '3': 10, 'K': 4, 'Q': 3, 'J': 2};
+
+    let total1 = myDeck1.map(e => e.charAt(0)).map(e => Object.keys(obj).includes(e)? obj[e]: 0).reduce((a,b) => a+b);
+
+    let total2 = myDeck2.map(e => e.charAt(0)).map(e => Object.keys(obj).includes(e)? obj[e]: 0).reduce((a,b) => a+b);
+
+    let total = total1 + total2;
+
+    return total < 120? "You Lose!": total > 120? "You win!": "Draw!";
+
+}
+
+// Test #1
+const myDeck1_test1 = [
+    '3c', '3s', 'Qd', 'Jh', '5d', 'Jc', '6d', 'Ad', 'Js', 'Qc'
+]
+const myDeck2_test1 = [
+    'Jd', 'Kd', '4c', '6s', 'Ks', '5c', '3d', 'As', 'Jh', '6h'
+]
+console.log(briscolaScore(myDeck1_test1, myDeck2_test1));// "You Lose!", "Example #1");
+
+// Test #2
+const myDeck1_test2 = [
+    'Ac', 'As', '3d', '3h', '3s', 'Ah', 'Kd'
+]
+const myDeck2_test2 = [
+    '3d', 'Ad', 'Ac', 'As', 'Ah'
+]
+console.log(briscolaScore(myDeck1_test2, myDeck2_test2));// "You Win!", "Example #2");
+
+// Test #3
+const myDeck1_test3 = [
+    'Ac', 'As', '3d', '3h', '3s', 'Ah', 'Kd'
+]
+const myDeck2_test3 = [
+    '3d', 'Ad', 'Ac', 'As', '3h'
+]
+console.log(briscolaScore(myDeck1_test3, myDeck2_test3));// "Draw!", "Example #3");
+
+// Test #4
+const myDeck1_test4 = [
+    '4h', '4s', '7s', '3d', '2c', 'As', '3c', '4c',
+    'Ah', '7h', 'Kc', 'Jc', 'Qh', 'Jd', 'Ks'
+]
+const myDeck2_test4 = [
+    '4s', 'Ah', 'Qh', '7c', '6s', 'Js', '6d', 'Qc',
+    '5d', 'Kd', '3d', 'Ac', '4c', '5s', '3h', '6h',
+    'As', '7d', '2s', '2c', '3c', '6c', '7h', 'Kc'
+]
+console.log(briscolaScore(myDeck1_test4, myDeck2_test4));// "You Win!");
+
+// Test #5
+const myDeck1_test5 = [
+    'Js', 'Qc', '2c', 'Kc', 'Kh', '7c', '5h', 'Jh', '2s', '6d',
+    '4s', '4c', 'Kd', '6s', 'Ks', 'Qh', '7s', 'Jc', '5c', '5d',
+    '6c', '2h', 'Ad', '7d', 'Ah', '5s', '3s', '6h'
+]
+const myDeck2_test5 = [
+    'As', '3c', 'Kd', 'Ac', 'Ah', 'Ad', 'Jh'
+]
+console.log(briscolaScore(myDeck1_test5, myDeck2_test5));// "Draw!");
+
+// Test #6
+const myDeck1_test6 = [
+    '3c', '3s', 'Qd', 'Jh', '5d', 'Jc', '6d', 'Ad', 'Js', 'Qc'
+]
+const myDeck2_test6 = [
+    '2s', 'Kd', '3d', '6s', 'Qc', '5c', '6d', '6h',
+    '6c', '5h', 'Qd', '4s', '3c', '2h', '3s'
+]
+console.log(briscolaScore(myDeck1_test6, myDeck2_test6));// "You Lose!");
+
+let golfScore = (course,result) => {
+
+    let obj = {'eagle': -2, 'birdie': -1, 'bogey': +1, 'double-bogey': +2, 'par': 0};
+
+    return result.map((e,ind) => course[ind] + obj[e]).reduce((a,b) => a+b);
+
+}
+
+     */
+let hoursPassed = (timenow,timethen) => {
+
+    if(timenow === timethen){
+        return "no time passed";
+    }
+
+    let hr1 = +timenow.split(':')[0];
+    let hr2 = +timethen.split(':')[0];
+
+    let zone1 = timenow.split(' ')[1] === 'PM'? (hr1 === 12? 12: 12+hr1): hr1 === 12? 0: hr1;
+    let zone2 = timethen.split(' ')[1] === 'PM'? (hr2 === 12? 12: 12+hr2): hr2 === 12? 0: hr2;
+
+    let date1 = new Date(2021,1,1,zone1,1,1);
+    let date2 = new Date(2021,1,1,zone2,1,1);
+
+    let res = Math.abs(date1.getHours() - date2.getHours());
+
+    return `${res} hours`;
+}
+
+let [strVector, resVector] = [
+    [["3:00 AM", "9:00 AM"], ["2:00 PM", "4:00 PM"], ["1:00 AM", "3:00 PM"], ["2:00 AM", "3:00 PM"],
+        ["8:00 AM", "8:00 PM"], ["12:00 AM", "10:00 PM"], ["1:00 AM", "1:00 AM"], ["12:00 PM", "12:00 PM"]],
+    ["6 hours", "2 hours", "14 hours", "13 hours", "12 hours", "22 hours", "no time passed", "no time passed"]
+]
+for (let i in strVector) (hoursPassed(...strVector[i]), resVector[i]);
+
+let findVertex = (a,b,c) => {
+
+    let xCoord = -b / (2*a);
+
+    let yCoord = a*Math.pow(xCoord,2) + b*(xCoord) + c;
+
+    return [Number(xCoord.toFixed(2)),Number(yCoord.toFixed(2))];
+
+}
