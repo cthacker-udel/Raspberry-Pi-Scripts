@@ -39,3 +39,4 @@ void moveUp(int);
 
 void moveDown(int);
 
+int exists(int);

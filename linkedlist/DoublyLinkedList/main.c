@@ -416,6 +416,28 @@ void moveUp(int value){
 
 }
 
+int exists(int value){
+
+    // tests whether a node exists
+
+    if(ROOT == NULL){
+        return 0;
+    }
+    else{
+
+        node *tempHead = ROOT;
+        while(tempHead != NULL){
+            if(tempHead->val == value){
+                return 1;
+            }
+            tempHead = tempHead->next;
+        }
+        return 0;
+
+    }
+
+}
+
 void moveDown(int value){
 
     /*
@@ -425,6 +447,59 @@ void moveDown(int value){
     size of the list
 
     */
+
+   if(ROOT == NULL){
+       // list is empty
+       printf("\nAttempting to insert at list when list is empty");
+       return;
+   }
+   else if(ROOT->next == NULL){
+       // list only has one node
+       printf("\nAttempting to move node down when list only has one node");
+       return;
+   }
+
+    node *tempHead = ROOT;
+    if(exists(value)){
+        // if node exists in list
+
+        if(TAIL->val == value){
+            // make node new head
+            int tempVal = TAIL->val;
+            removeTail();
+            addHead(tempVal);
+        }
+        else if(ROOT-> val == value){
+            // move head down
+            int tempVal = ROOT->val;
+            removeHead();
+            int tempVal2 = ROOT->val;
+            removeHead();
+            addHead(tempVal);
+            addHead(tempVal2);
+        }
+
+        while(tempHead != NULL){
+            if(tempHead->val == value){
+
+                // move node down
+                tempHead->prev->next = tempHead->next;
+                tempHead->next->prev = tempHead->prev;
+                tempHead->prev = tempHead->next;
+                tempHead->next->next->prev = tempHead;
+                tempHead->next = tempHead->next->next;
+                printf("\nNode successfully moved down");
+                return;
+
+            }
+            tempHead = tempHead->next;
+        }
+    }
+    else{
+        printf("\nThe node does not exist in the list\n");
+        return;
+    }
+
 
 
 }
