@@ -13188,3 +13188,202 @@ let duplicateNums = (arr) => {
 
 
 }
+
+let obj = {"key1": 20, "key2": 30, "key3": 30};
+
+for(let i of Object.keys(obj)){
+    console.log(i);
+}
+
+let cards = ['fourhearts','jackclubs','sevenclubs','eighthearts','twodiamonds','fivediamonds','kingdiamonds','ninehearts','threediamonds','sixclubs','sevenhearts'];
+
+rankCount = (card,cards) => {
+
+    cards = cards.map(e => e.replace('hearts','').replace('spades','').replace('diamonds','').replace('clubs',''));
+
+    card = card.replace('hearts','').replace('spades','').replace('diamonds','').replace('clubs','');
+
+    return cards.filter(e => e === card).length;
+
+
+}
+
+fourOfAKind = (cards) => {
+
+    let theKinds = [];
+
+    for(let eachcard of cards){
+
+        let cnt = rankCount(eachcard,cards);
+        if(cnt === 4){
+            return true;
+        }
+
+    }
+    return false;
+
+}
+
+consecutive = (cards) => {
+
+    let ranks = {'ace': 14, 'king': 13, 'queen': 12, 'jack': 11, 'ten': 10, 'nine': 9, 'eight': 8, 'seven': 7, 'six': 6, 'five': 5, 'four': 4, 'three': 3, 'two': 2};
+
+    let theNumRanks = [];
+    for(let i = 0; i < cards.length; i++){
+        let theCard = cards[i];
+        for(let j of Object.keys(ranks)){
+            if(theCard.includes(j)){
+                theNumRanks.push(ranks[j]);
+                break;
+            }
+        }
+    }
+
+    theNumRanks.sort((a,b) => a-b);
+    theNumRanks = [...new Set(theNumRanks)];
+    let cnt = 0;
+    for(let i = 0; i < theNumRanks.length-1; i++){
+
+        let iRank = theNumRanks[i];
+        let jRank = theNumRanks[i+1];
+        if(Math.abs(iRank - jRank) === 1){
+            cnt++;
+        }
+        else if(cnt === 4){
+            return true;
+        }
+        else if(Math.abs(iRank - jRank) !== 1){
+            cnt = 0;
+        }
+
+    }
+    return false;
+
+}
+
+console.log(consecutive(cards));
+
+let blahBlah = (aStr,num) => {
+
+    let newStr = [];
+
+    let splitStr = aStr.split(' ');
+
+    for(let i = 0; i < splitStr.length; i++) {
+
+        if (i >= splitStr.length - num) {
+            newStr.push("blah");
+        }
+        else{
+            newStr.push(splitStr[i]);
+        }
+
+    }
+
+    return `${newStr.join(" ")}...`;
+}
+
+let f = (num) => {
+
+    let pairs = 0;
+    let means = 0;
+    for(let i = 1; i <= num; i++){
+
+        for(let j = 1; j <= num; j++){
+
+            pairs++;
+            means += Number.isInteger(Math.sqrt(i*j))? 1: 0;
+
+        }
+
+    }
+    return means / pairs;
+
+}
+
+console.log(f(100));
+
+
+let isPrime = (num) => {
+
+    return Array(Math.floor(Math.sqrt(num))).fill(0).map((e,i) => i+2).filter(e => num % e === 0).length === 0;
+
+}
+
+console.log(isPrime(456)); // f
+console.log(isPrime(457)); // t
+console.log(isPrime(453)); // f
+console.log(isPrime(23)); // t
+console.log(isPrime(21)); // f
+console.log(isPrime(7)); // t
+console.log(isPrime(4)); // f
+
+let integral = (b,m,n) => {
+
+        return n**(b+1) - m**(b+1);
+
+}
+
+function fibSeq(num=undefined){
+
+    if(num === undefined){
+        return num;
+    }
+    if(num === 0){
+        return [];
+    }
+
+    let seq = [0,1];
+
+    while(seq.length < num){
+
+        seq.push(seq[seq.length-1] + seq[seq.length-2]);
+
+    }
+    return seq.slice(0,num);
+
+
+}
+
+let makeBox = (num) => {
+
+    let arr = [];
+    if(num < 3){
+        for(let i = 0; i < num; i++){
+            arr.push(new Array(num).fill('#').join(""));
+        }
+        return arr;
+    }
+    else{
+        arr.push(new Array(num).fill('#').join(""));
+        for(let i = 0; i < num-2; i++){
+            arr.push(`#${' '.repeat(num-2)}#`);
+        }
+        arr.push(new Array(num).fill('#').join(""));
+        return arr;
+    }
+
+
+}
+
+let factorial = (num) => {
+
+    if(num === 1){
+        return num;
+    }
+    else{
+        return factorial(num-1) * num;
+    }
+
+}
+
+let factFact = (num) => {
+
+        let total = 1;
+        for(let i = 1; i <= num; i++){
+            total *= factorial(i);
+        }
+        return total;
+
+
+}
