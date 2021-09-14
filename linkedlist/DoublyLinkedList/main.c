@@ -504,3 +504,18 @@ void moveDown(int value){
 
 }
 
+int occurence(int value){
+
+    int count = 0;
+
+    node *tempHead = ROOT;
+    while(tempHead != NULL){
+        if(tempHead->val == value){
+            count++;
+        }
+        tempHead = tempHead->next;
+    }
+    return count;
+
+}
+

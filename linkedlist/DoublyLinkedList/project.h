@@ -40,3 +40,5 @@ void moveUp(int);
 void moveDown(int);
 
 int exists(int);
+
+int occurence(int);
