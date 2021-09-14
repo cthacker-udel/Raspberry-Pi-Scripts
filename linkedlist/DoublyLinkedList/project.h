@@ -42,3 +42,5 @@ void moveDown(int);
 int exists(int);
 
 int occurence(int);
+
+int* indexes(int value);

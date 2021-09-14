@@ -519,3 +519,23 @@ int occurence(int value){
 
 }
 
+int* indexes(int value){
+
+    int theCount = occurence(value);
+    int *newArr = (int *)malloc(sizeof(int) * theCount);
+
+    int ind = 0;
+    int placeInd = 0;
+    node *tempHead = ROOT;
+    while(tempHead != NULL){
+        if(tempHead->val == value){
+            *(newArr+placeInd) = ind;
+            placeInd++;
+        }
+        ind++;
+        tempHead = tempHead->next;
+    }
+    return newArr;
+
+}
+
