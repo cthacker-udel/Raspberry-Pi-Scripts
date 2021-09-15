@@ -13146,7 +13146,7 @@ console.log(diceScore([1,5,1,3,4]));//250,"Should be 250");
 
 //Mubashir
 
-     */
+
 
 let wordedMath = (expr) => {
 
@@ -13384,6 +13384,192 @@ let factFact = (num) => {
             total *= factorial(i);
         }
         return total;
+}
+
+let getCatalanNumber = (num) => {
+
+    let nums = [1,1];
+    let ind = 2;
+    while(nums.length <= num){
+
+        nums.push(factorial((2*ind)) / (factorial(ind+1)*factorial(ind)));
+        ind++;
+
+    }
+    return nums[num];
 
 
 }
+
+
+console.log(getCatalanNumber(3));
+
+let validateSpelling = (letters) => {
+
+    let formattedLetters = letters.split(' ').map(e => e.replace(/\./g,'').replace(/!/g,'').replace(/\?/g,''));
+    let finalWord = formattedLetters[formattedLetters.length-1];
+
+    let theLetters = formattedLetters.splice(0,formattedLetters.length-1).join('');
+
+    return theLetters.toLowerCase() === finalWord.toLowerCase();
+}
+
+validateSpelling("C. Y. T. O. P. L. A. S. M. Cytoplasm?");
+
+let isShapePossible = (n,angles) => {
+
+    let maxSum = (n-2) * 180;
+
+    if(n < 2){
+        return false;
+    }
+    else{
+        return angles.every(e => e <= 180) && angles.every(e => e > 0) && angles.reduce((a,b) => a+b) === maxSum;
+    }
+
+}
+
+let matchesProperty_myVersion = (key,value) => {
+
+    return (obj) => obj[key] === value;
+
+}
+
+let isDisarium = (num) => {
+
+    return String(num).split("").map((e,i) => Math.pow(Number(e),Number(i)+1)).reduce((a,b) => a+b) === num;
+
+}
+
+let createSquare = (num) => {
+
+    if(num <= 0){
+        return "";
+    }
+    else if(num < 3){
+        switch(num){
+
+            case 1:
+                return "#";
+            case 2:
+                return "##\n##";
+            default:
+                return "default";
+        }
+    }
+    else{
+
+        let newSquare = [];
+
+        newSquare.push("".padStart(num,'#'));
+        for(let i = 0; i < num-2; i++){
+            newSquare.push(`#${''.padStart(num-2,' ')}#`);
+        }
+        newSquare.push("".padStart(num,'#'));
+
+        return newSquare.join('\n');
+
+    }
+
+
+}
+
+
+let countNum = (num,digit) => {
+
+    return String(num).split("").map(e => +e).filter(e => e === digit).length;
+
+}
+
+let countDigits = (num1,num2) => {
+    return [...new Array(num1+1).keys()].map(e => e**2).map(e => countNum(e,num2)).reduce((a,b) => a+b);
+}
+
+console.log(countDigits(10,1));
+
+
+
+let compareKeys = (obj1,obj2) => {
+
+    let keys1 = Object.keys(obj1);
+    for(let eachkey of keys1){
+        if(obj1[eachkey] !== obj2[eachkey]){
+            return false;
+        }
+    }
+    return true;
+
+
+}
+
+let intersection = (obj1,...objs) => {
+
+    let constructName = obj1.constructor.name;
+
+    console.log(typeof obj1[0]);
+
+    console.log(`constructName = ${constructName}`);
+
+    if(constructName === 'Array' && typeof obj1[0] !== 'object'){
+        // array type
+        return [...new Set(objs.map(e => e.filter(f => obj1.includes(f))).flat(Infinity))];
+    }
+    else{
+        // object type
+        //let res = Object.entries(obj1);
+        //console.log(...objs);
+
+        let res = objs.flat(Infinity);
+        let res2 = obj1.flat(Infinity);
+        //let res2 = obj1.filter(e => Object.keys(e).filter(f => res.filter(g => Object.keys(g).every(h => g[h] === e[f]))).forEach(z => console.log(`here : ${Object.entries(e)}`)));
+        //console.log(`res2 = ${res2}`);
+        console.log(res);
+        console.log(res2);
+        let res3 = res2.filter(e => res.filter(f => compareKeys(e,f)).length > 0);
+        console.log(`res3 --> ${res3}`);
+        //console.log(`res = ${res}`);
+        return res3;
+    }
+
+
+}
+
+intersection([1,2,3], [3,4,5],[3,6,7])
+
+intersection(["cat","dog","mouse"], ["cat","dog","bat"],["cat","dog","fly"])
+
+
+console.log(intersection(
+    [
+        {
+            color: "red",
+            make: "toyota",
+        },
+        {
+            color: "blue",
+            make: "mazda",
+        },
+    ],
+    [
+        {
+            color: "green",
+            make: "tesla",
+        },
+        {
+            color: "blue",
+            make: "mazda",
+        },
+    ],
+    [
+        {
+            color: "yellow",
+            make: "ford",
+        },
+        {
+            color: "blue",
+            make: "mazda",
+        },
+    ],
+));
+
+*/
