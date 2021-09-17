@@ -13572,7 +13572,7 @@ console.log(intersection(
     ],
 ));
 
-*/
+
 
 let analyzeHoursWeekday = (hours) => {
 
@@ -13946,3 +13946,5 @@ let mostExpensive = (obj) => {
 }
 
 mostExpensive({'Diamond Earrings': 980, 'Gold Watch': 250, 'Pearl Necklace': 4650})
+
+     */
