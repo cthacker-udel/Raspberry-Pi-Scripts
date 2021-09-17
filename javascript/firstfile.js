@@ -13437,7 +13437,7 @@ let matchesProperty_myVersion = (key,value) => {
 
 let isDisarium = (num) => {
 
-    return String(num).split("").map((e,i) => Math.pow(Number(e),Number(i)+1)).reduce((a,b) => a+b) === num;
+    return String(num).split("").map((e,i) => Math.pow(Number(e));//Number(i)+1)).reduce((a,b) => a+b) === num;
 
 }
 
@@ -13573,3 +13573,376 @@ console.log(intersection(
 ));
 
 */
+
+let analyzeHoursWeekday = (hours) => {
+
+    let total = 0;
+    if(hours > 8){
+        total += 80;
+        hours -=8;
+    }
+    else{
+        total += (hours * 10);
+        hours = 0;
+    }
+    total += (hours * 15);
+    return total;
+
+}
+
+let weeklySalary = (salary) => {
+
+    let sunday = salary[salary.length-1];
+    salary.pop();
+    let saturday = salary[salary.length-1];
+    salary.pop();
+    let total = 0;
+
+    for(let i = 0; i < salary.length; i++){
+        total += analyzeHoursWeekday(salary[i]);
+    }
+
+    if(sunday > 8){
+        total += 160;
+        sunday -= 8;
+        total += (30 * sunday);
+    }
+    else{
+        total += (20*sunday);
+    }
+    if(saturday > 8){
+        total += 160;
+        saturday -= 8;
+        total += (30 * saturday);
+    }
+    else{
+        total += (20*saturday);
+    }
+
+    return total;
+
+}
+
+console.log(weeklySalary([0, 0, 0, 0, 0, 12, 0]));
+
+
+let digitCount = (num,digit) => {
+
+    return String(num).split("").filter(e => e === String(digit)).length;
+
+}
+
+
+let digitOccurrences = (min,max,digit) => {
+
+    if(min > max){
+        [min,max] = [max,min];
+    }
+    let cnt = 0;
+    for(let i = min; i <= max; i++){
+        cnt += digitCount(i,digit);
+    }
+    return cnt;
+
+
+}
+console.log(digitOccurrences(-8, -1, 8));
+
+String.prototype.toString = function(){
+
+
+    return Object.values(this).reverse().join("");
+
+
+};
+
+console.log(("Hello World!").toString());
+
+
+let getTrueScoreTwo = (user1,user2) => {
+
+    let val1 = (user1['reputation']*2) + user1['score'];
+    let val2 = (user2['reputation']*2) + user2['score'];
+
+    if(val1 > val2){
+        return -1;
+    }
+    else if(val1 < val2){
+        return 1;
+    }
+    else{
+        return 0;
+    }
+
+
+}
+
+let leaderboards = (arr) => {
+
+    return arr.sort(getTrueScoreTwo);
+
+}
+
+console.log(leaderboards([
+    { name: "a", score: 100, reputation: 20 },
+    { name: "b", score: 90, reputation: 40 },
+    { name: "c", score: 115, reputation: 30 },
+]));
+
+
+let isValidIng = (word) => {
+
+    if(word.length < 6 || word === "string"){
+        return false;
+    }
+    else{
+        return word.toLowerCase().endsWith("ing");
+    }
+
+}
+
+let ingExtractor = (words) => {
+
+    return words.split(" ").filter(e => isValidIng(e));
+
+}
+
+console.log(ingExtractor("feeling killing saying discussing FALLing"));// ["feeling", "killing", "saying", "discussing", "FALLing"])
+console.log(ingExtractor("Taking taLkING pending SING"));// ["Taking", "taLkING", "pending"])
+console.log(ingExtractor("suggest drive run lend"));// [])
+console.log(ingExtractor("KING sing bring ring pING"));// [])
+console.log(ingExtractor("bing reading dancing ing"));// ["reading", "dancing"])
+console.log(ingExtractor("singing ringing winging bringING PINGING"));// ["singing", "ringing", "winging", "bringING", "PINGING"])
+console.log(ingExtractor("KISSing shrinking hand window"));// ["KISSing", "shrinking"])
+console.log(ingExtractor("hold past ling bring up go away shake Zing king"));// [])
+console.log(ingExtractor("string"));// [])
+console.log(ingExtractor("Kris Ehresmann, the infectious disease director at the Minnesota Department of Health, said at a briefing on Friday that at least 15 cases in Minnesota were identified as having originated from rally attendees. Seven more cases were identified in Nebraska, according to reporting from CNN. Health officials in South Dakota said this week that they had traced several cases to a popular bar along main street, where photos showed thousands of people congregating without masks over the course of the rally"));// ["briefing", "having", "according", "reporting", "congregating"])
+
+function isPrime(num){
+
+    if(num < 2){
+        return false;
+    }
+    else if(num === 2 || num === 3 || num === 5 || num === 7){
+        return true;
+    }
+    else if(num % 2 === 0 || num % 3 === 0 || num % 5 === 0){
+        return false;
+    }
+    else{
+
+        for(let i = 2; i < Math.sqrt(num); i++){
+            if(num % i === 0){
+                return false;
+            }
+        }
+        return true;
+
+    }
+
+
+}
+
+let primeFactors = (num) => {
+
+    // return cnt
+    let cnt = 1;
+    let factors = [];
+    while(num !== 1){
+
+        if(!isPrime(cnt)){
+            cnt++;
+            continue;
+        }
+        else if(num % cnt === 0){
+            factors.push(cnt);
+            num = num / cnt;
+            cnt = 2;
+        }
+        else{
+            cnt++;
+        }
+
+    }
+    return factors;
+}
+
+let occurence = (arr,arr1,num) => {
+
+    let cnt = 0;
+    let maxCnt = 0;
+    for(let i = 0; i < arr.length; i++){
+        if(arr[i] === num){
+            cnt++;
+        }
+    }
+    maxCnt = Math.max(cnt,maxCnt);
+    cnt = 0;
+    for(let j = 0; j < arr1.length; j++){
+        if(arr1[j] === num){
+            cnt++;
+        }
+    }
+    maxCnt = Math.max(cnt,maxCnt);
+    return maxCnt;
+
+}
+
+let lcm = (num1,num2) => {
+
+    let primeFactors1 = primeFactors(num1);
+    let primeFactors2 = primeFactors(num2);
+    let prime1Set = [...new Set(primeFactors1.concat(primeFactors2))];
+
+    let occurences = {};
+    //console.log(`factors1 = ${primeFactors1}`);
+    //console.log(`factors2 = ${primeFactors2}`);
+    //console.log(`primeset1 = ${prime1Set}`);
+    for(let i = 0; i < prime1Set.length; i++){
+        occurences[prime1Set[i]] = occurence(primeFactors1,primeFactors2,prime1Set[i]);
+    }
+    //console.log(occurences);
+    let total = 1;
+    let keys = Object.keys(occurences);
+    for(let eachkey of keys){
+
+        let amt = occurences[eachkey];
+        if(amt === 1){
+            total *= parseInt(eachkey);
+        }
+        else{
+            while(amt >= 1){
+                total *= parseInt(eachkey);
+                amt--;
+            }
+        }
+
+    }
+    //console.log(`total = ${total}`);
+    return total;
+
+}
+
+console.log(lcm(6, 10));// 30)
+console.log(lcm(30, 60));// 60)
+console.log(lcm(10000, 333));// 3330000)
+console.log(lcm(75, 135));// 675)
+console.log(lcm(102, 2));// 102)
+
+let calculateDamage = (type1,type2,num1,num2) => {
+
+    let effectiveNess = {'fire': 'grass', 'water': 'fire', 'grass': 'water', 'electric': 'water'};
+
+    let keys = Object.keys(effectiveNess);
+    let values = Object.values(effectiveNess);
+    let effective = 1;
+
+    if(effectiveNess[type1] === type2){
+        // super effective
+        effective = 2;
+    }
+    else if(effectiveNess[type2] === type1) {
+        // not so effective
+        effective = 0.5;
+    }
+    return 50 * (num1 / num2) * effective;
+
+}
+
+console.log(`testing effectiveness`);
+console.log(calculateDamage("fire", "water", 100, 100));// 25)
+console.log(calculateDamage("grass", "water", 100, 100));// 100)
+console.log(calculateDamage("electric", "fire", 100, 100));// 50)
+console.log(calculateDamage("grass", "electric", 57, 19));// 150)
+console.log(calculateDamage("grass", "water", 40, 40));// 100)
+console.log(calculateDamage("grass", "fire", 35, 5));// 175)
+console.log(calculateDamage("fire", "electric", 10, 2));// 250)
+
+let sameArr = (arr1,arr2) => {
+
+    for(let i = 0; i < arr1.length; i++){
+        if(arr1[i] !== arr2[i]){
+            return false;
+        }
+    }
+    return true;
+
+}
+
+let check = (arr) => {
+
+    let origArr = arr.slice(0);
+    let inc = arr.sort((a,b) => a-b);
+    arr = origArr.slice(0);
+    let dec = arr.sort((a,b) => b-a);
+
+
+    return new Set(arr).size === arr.length? (sameArr(inc,origArr)? "increasing": sameArr(dec,origArr)? "decreasing": "neither"): "neither";
+
+}
+
+check([1, 2, 3])
+
+let daysUntil2021 = (date) => {
+
+    let splitDate = date.split('/');
+
+    let newDate = new Date(parseInt(splitDate[2]),parseInt(splitDate[0])-1,parseInt(splitDate[1]));
+    let cnt = 1;
+
+    let tst = newDate.getDate();
+    let tst2 = newDate.getMonth();
+
+    while(true){
+
+        if(newDate.getDate() === 31 && newDate.getMonth() === 11){
+            break;
+        }
+
+        newDate.setDate(newDate.getDate()+1);
+        cnt++;
+
+    }
+    return cnt;
+
+
+}
+
+console.log('testing dates');
+console.log(daysUntil2021("12/29/2020"));// "3 days")
+console.log(daysUntil2021("1/1/2020"));// "366 days")
+console.log(daysUntil2021("2/28/2020"));// "308 days")
+console.log(daysUntil2021("6/30/2020"));// "185 days")
+console.log(daysUntil2021("10/22/2020"));// "71 days")
+console.log(daysUntil2021("12/31/2020"));// "1 day")
+
+let antipodesAverage = (arr) => {
+
+    let subArr1 = [];
+    let subArr2 = [];
+    let middle = arr.length / 2;
+    subArr1 = arr.slice(0, middle);
+    subArr2 = arr.slice(middle);
+    if(arr.length % 2 !== 0){
+        subArr2.splice(0,1);
+    }
+    subArr2 = subArr2.reverse();
+    let pairs = [];
+    for (let i = 0; i < subArr1.length; i++) {
+        pairs.push(subArr1[i] + subArr2[i]);
+    }
+    return pairs.map(e => e / 2);
+}
+
+antipodesAverage([1, 2, 3, 4, 5])
+antipodesAverage([1, 2, 3, 4])
+
+let mostExpensive = (obj) => {
+
+    let mostExpensivePrice = Math.max(...Object.values(obj));
+
+    return `The most expensive one is the ${Object.keys(obj).filter(e => obj[e] === mostExpensivePrice)[0]}`;
+
+}
+
+mostExpensive({'Diamond Earrings': 980, 'Gold Watch': 250, 'Pearl Necklace': 4650})
