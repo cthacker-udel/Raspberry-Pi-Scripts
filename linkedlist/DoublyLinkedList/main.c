@@ -643,3 +643,24 @@ int oddCount(){
 
 }
 
+int primeCount(){
+
+    if(nodeCount(ROOT) == 0){
+        return 0;
+    }
+    else{
+
+        int cnt = 0;
+        node *tempHead = ROOT;
+        while(tempHead != NULL){
+            if(isPrime(tempHead->val)){
+                cnt++;
+            }
+            tempHead = tempHead->next;
+        }
+        return cnt;
+
+    }
+
+}
+
