@@ -539,3 +539,15 @@ int* indexes(int value){
 
 }
 
+int isUnique(int value){
+
+    return occurence(value) == 1? 1: 0;
+
+}
+
+int isRepeating(int value){
+
+    return occurence(value) > 1? 1: 0;
+
+}
+

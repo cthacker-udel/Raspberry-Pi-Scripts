@@ -43,4 +43,8 @@ int exists(int);
 
 int occurence(int);
 
-int* indexes(int value);
+int* indexes(int);
+
+int isUnique(int);
+
+int isRepeating(int);
