@@ -623,3 +623,23 @@ int evenCount(){
 
 }
 
+int oddCount(){
+
+    if(nodeCount(ROOT) == 0){
+        return 0;
+    }
+    else{
+
+        int cnt = 0;
+        node *tempHead = ROOT;
+        while(tempHead != NULL){
+            if(tempHead->val % 2 != 0){
+                cnt++;
+            }
+        }
+        return cnt;
+
+    }
+
+}
+
