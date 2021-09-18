@@ -31,6 +31,8 @@ class PokerCombos{
 		
 		bool isStraightFlush(Hand);
 		
+		bool isFlush(Hand);
+
 		int findLowCard(Hand);
 		
 		vector<int> sortNumRanks(Hand);
@@ -44,6 +46,8 @@ class PokerCombos{
 		bool isAlternating(Hand);
 		
 		bool isRoyalFlush(Hand);
+
+		int rankHand(Hand);
 	
 	
 };
