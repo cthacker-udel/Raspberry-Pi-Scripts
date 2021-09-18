@@ -551,3 +551,28 @@ int isRepeating(int value){
 
 }
 
+int swapValue(int origVal, int swapVal){
+
+    if(ROOT == NULL){
+        // list is empty
+        return 0;
+    }
+    else if(occurence(origVal) < 1){
+        return 0;
+    }
+    else{
+
+        node *tempHead = ROOT;
+        while(tempHead != NULL){
+            if(tempHead->val == origVal){
+                tempHead->val = swapVal;
+                return 1;
+            }
+            tempHead = tempHead->next;
+        }
+        return 0;
+
+    }
+
+}
+

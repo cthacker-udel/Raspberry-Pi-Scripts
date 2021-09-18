@@ -48,3 +48,5 @@ int* indexes(int);
 int isUnique(int);
 
 int isRepeating(int);
+
+int swapValue(int,int);
