@@ -41,19 +41,14 @@ void PokerGame::startGame(){
 				cout << "Do you want to continue playing? (Yy/Nn)" << endl;
 				cin >> res;
 			}while(res != "Y" && res != "y" && res != "N" && res != "n");
-			switch(res){
 
-				case "Y":
-					break;
-				case "y":
-					break;
-				case "n":
-					endGame();
-					return;
-				case "N":
-					endGame();
-					return;
-
+			if(res == "N"){
+				endGame();
+				return;
+			}
+			else if(res == "n"){
+				endGame();
+				return;
 			}
 		}
 
