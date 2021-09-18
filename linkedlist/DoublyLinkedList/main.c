@@ -1,4 +1,5 @@
 #include "project.h"
+#include <math.h>
 
 node *ROOT = NULL;
 node *TAIL = NULL;
@@ -571,6 +572,31 @@ int swapValue(int origVal, int swapVal){
             tempHead = tempHead->next;
         }
         return 0;
+
+    }
+
+}
+
+int isPrime(int value){
+
+    if(value <= 2){
+        return 1;
+    }
+    else if(value == 2 || value == 3 || value == 5){
+        return 1;
+    }
+    else if(value % 2 == 0 || value % 3 == 0 || value % 5 == 0){
+        return 0;
+    }
+    else{
+
+        int theRoot = (int)sqrt(value);
+        for(int i = 2; i <= theRoot; i++){
+            if(value % i == 0){
+                return 0;
+            }
+        }
+        return 1;
 
     }
 

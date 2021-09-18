@@ -50,3 +50,11 @@ int isUnique(int);
 int isRepeating(int);
 
 int swapValue(int,int);
+
+int isPrime(int);
+
+int evenCount(int);
+
+int oddCount(int);
+
+int primeCount(int);
