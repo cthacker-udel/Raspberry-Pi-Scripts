@@ -602,3 +602,24 @@ int isPrime(int value){
 
 }
 
+int evenCount(){
+
+    if(nodeCount(ROOT) == 0){
+        return 0;
+    }
+    else{
+
+        int cnt = 0;
+        node *tempHead = ROOT;
+        while(tempHead != NULL){
+            if(tempHead->val % 2 == 0){
+                cnt++;
+            }
+            tempHead = tempHead->next;
+        }
+        return cnt;
+
+    }
+
+}
+

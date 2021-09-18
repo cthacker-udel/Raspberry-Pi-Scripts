@@ -53,8 +53,8 @@ int swapValue(int,int);
 
 int isPrime(int);
 
-int evenCount(int);
+int evenCount();
 
-int oddCount(int);
+int oddCount();
 
-int primeCount(int);
+int primeCount();
