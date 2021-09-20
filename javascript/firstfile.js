@@ -14282,7 +14282,7 @@ let recordTemps = (temps1,temps2) => {
 
     for(let i = 0; i < temps1.length; i++){
 
-        newTemps.push([Math.min(...temps1[i],...temps2[i]));//Math.max(...temps1[i],...temps2[i])]);
+        newTemps.push([Math.min(...temps1[i],...temps2[i])]);//Math.max(...temps1[i],...temps2[i])]);
 
     }
     return newTemps;
@@ -14301,7 +14301,17 @@ let trouble = (num1,num2) => {
 
 let allAboutStrings = (aStr) => {
 
-    return [aStr.length,aStr[0],aStr[aStr.length-1],aStr.length % 2 === 0? aStr[aStr.length / 2]+aStr[Math.floor(aStr.length / 2)+1]: aStr[aStr.length / 2],aStr.lastIndexOf(aStr[1]) !== aStr.indexOf(aStr[1])? `@ index ${aStr.substring(aStr.indexOf(aStr[1])+1).indexOf(aStr[1])}`: "not found"];
+
+    let res = aStr.split("").map((e,i) => [e,i]).filter(e => e[0].includes(aStr[1]))[1];
+    if(res === undefined){
+        res = "not found";
+    }
+    else{
+        res = `@ index ${res[1]}`;
+    }
+    console.log(`res = ${res[1]}`);
+
+    return [aStr.length,aStr[0],aStr[aStr.length-1],aStr.length % 2 === 0? aStr[Math.floor(aStr.length / 2)-1]+aStr[aStr.length / 2]: aStr[Math.floor(aStr.length / 2)],res];
 
 }
 
