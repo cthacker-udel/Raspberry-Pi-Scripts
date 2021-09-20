@@ -13947,7 +13947,7 @@ let mostExpensive = (obj) => {
 
 mostExpensive({'Diamond Earrings': 980, 'Gold Watch': 250, 'Pearl Necklace': 4650})
 
-     */
+
 const verifyWinner = (board) => {
 
     // diagonal check
@@ -13955,22 +13955,6 @@ const verifyWinner = (board) => {
     for(let i = 0; i < board.length; i++){
 
         for(let j = 0; j < board.length; j++){
-
-            // picks coordinates, then check from the coords
-            /*
-                        --- diagonals ---
-
-                1) topleft ---> bottom right
-                2) topright --> bottom left
-
-                        --- compass directions ---
-
-                1) up
-                2) down
-                3) right
-                4) left
-
-            */
 
             console.log(`checking coords ${i},${j}`);
             if(i === 1 && j === 1){
@@ -14323,3 +14307,40 @@ console.log(allAboutStrings('spring'));// [6, 's', 'g', 'ri', 'not found']);
 console.log(allAboutStrings('break'));// [5, 'b', 'k', 'e', 'not found']);
 console.log(allAboutStrings('programming'));// [11, 'p', 'g', 'a', '@ index 4']);
 console.log(allAboutStrings('bad'));// [3, 'b', 'd', 'a', 'not found']);
+     */
+
+const options = [['A1','B1','C1','D1','E1'],['A2','B2','C2','D2','E2'],['A3','B3','C3','D3','E3'],['A4','B4','C4','D4','E4'],['A5','B5','C5','D5','E5']];
+
+const getCompGuesses = () => {
+
+    let randNums = [];
+    let x = 0;
+    let y = 0;
+    let fndPair = false;
+    do{
+        x = Math.floor(Math.random() *(5));
+        y = Math.floor(Math.random() *(5));
+        for(let i = 0; i < randNums.length; i++){
+            let eachpair = randNums[i];
+            if(eachpair[0] === x && eachpair[1] === y){
+                fndPair = true;
+                break;
+            }
+        }
+        if(fndPair){
+            continue;
+        }
+        else{
+            randNums.push([x,y]);
+        }
+    }while(randNums.length !== 5);
+
+    let theGuesses = [];
+    for(let eachpair of randNums){
+        theGuesses.push(options[eachpair[0]][eachpair[1]]);
+    }
+    return theGuesses;
+
+}
+
+let res = getCompGuesses();
