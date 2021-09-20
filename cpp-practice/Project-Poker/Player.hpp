@@ -14,6 +14,7 @@ class Player{
     string name;
     int wins;
     int losses;
+    friend class PokerGame;
 
     public:
 

@@ -3,18 +3,54 @@ using namespace std;
 /*
  * Combos:
  *
- * Royal Flush
- * Straight Flush
- * Four of a Kind
- * Full House
+ * Royal Flush - done
+ * Straight Flush - done
+ * Four of a Kind - done
+ * Full House - done
  * Flush
- * Straight
- * Three of a Kind
- * Two pair
- * Pair
- * High Card
+ * Straight - done
+ * Three of a Kind - done
+ * Two pair - done
+ * Pair - done
+ * High Card - done
  *
  */
+
+int PokerCombos::rankHand(Hand hand){
+
+	if(this->isRoyalFlush(hand)){
+		// 1
+		return 1;
+	}
+	else if(this->isStraightFlush(hand)){
+		return 2;
+	}
+	else if(this->isFourOfAKind(hand)){
+		return 3;
+	}
+	else if(this->isFullHouse(hand)){
+		return 4;
+	}
+	else if(this->isFlush(hand)){
+		return 5;
+	}
+	else if(this->isStraight(hand)){
+		return 6;
+	}
+	else if(this->isThreeOfAKind(hand)){
+		return 7;
+	}
+	else if(this->isTwoPair(hand)){
+		return 8;
+	}
+	else if(this->isPair(hand)){
+		return 9;
+	}
+	else{
+		return 10; // high card
+	}
+
+}
 
 int PokerCombos::findHighCard(Hand hand, int times){
 
@@ -27,6 +63,117 @@ int PokerCombos::findHighCard(Hand hand, int times){
 		return sortNumRanks(hand)[times];
 
 	}
+
+}
+
+bool PokerCombos::isFlush(Hand hand){
+
+	return isSameSuit(hand);
+
+}
+
+bool PokerCombos::isRoyalFlush(Hand hand){
+
+	vector<Card> cards = hand.getHand();
+
+	if(cards.size() < 5){
+		return false;
+	}
+	else{
+
+		vector<string> suits;
+		for(Card eachcard : cards){
+
+			suits.push_back(eachcard.getSuit());
+
+		}
+		list<string> listSuits;
+		for(int i = 0; i < (int)suits.size(); i++){
+			listSuits.push_back(suits[i]);
+		}
+		list<string> uniqueSuits(listSuits);
+		uniqueSuits.unique();
+		int count = 0;
+		string suitFrequency[4][2];
+		int placement = 0;
+		for(string eachsuit : uniqueSuits){
+			for(int i = 0; i < (int)suits.size(); i++){
+
+				if(suits[i] == eachsuit){
+					count++;
+				}
+
+			}
+			suitFrequency[placement][0] = eachsuit;
+			suitFrequency[placement][1] = count+"";
+			placement++;
+			count = 0;
+		}
+
+		// collected all suit frequencies, now cycle through each pair, and if frequency >= 5, then cycle through the hand
+		// and check if it is the correct collection of cards
+
+		bool KingFound = false;
+		bool JackFound = false;
+		bool QueenFound = false;
+		bool AceFound = false;
+		bool TenFound = false;
+
+		for(int i = 0; i < 4; i++){
+
+			for(int j = 0; j < 2; j++){
+
+				if(stoi(suitFrequency[i][1]) >= 5){
+					// valid suit to check
+
+					for(Card eachcard : cards){
+
+						int rank = eachcard.getNumRank();
+						string suit = eachcard.getSuit();
+						if(suit == suitFrequency[i][0]){
+							if(rank == 14){
+								// ace
+								AceFound = true;
+							}
+							else if(rank == 13){
+								// king
+								KingFound = true;
+							}
+							else if(rank == 12){
+								// queen
+								QueenFound = true;
+							}
+							else if(rank == 11){
+								// jack
+								JackFound = true;
+							}
+							else if(rank == 10){
+								// ten
+								TenFound = true;
+							}
+						}
+
+					}
+					if(AceFound && KingFound && QueenFound && JackFound && TenFound){
+
+						// royal flush
+						return true;
+
+					}
+
+				}
+
+
+			}
+
+		}
+		return false;
+
+		// check all suit frequencies
+
+
+	}
+
 
 
 }
@@ -283,113 +430,5 @@ bool PokerCombos::isAlternating(Hand hand){
 
 	}
 	return true;
-
-}
-
-
-
-bool PokerCombos::isRoyalFlush(Hand hand){
-
-	vector<Card> cards = hand.getHand();
-
-	if(cards.size() < 5){
-		return false;
-	}
-	else{
-
-		vector<string> suits;
-		for(Card eachcard : cards){
-
-			suits.push_back(eachcard.getSuit());
-
-		}
-		list<string> listSuits;
-		for(int i = 0; i < (int)suits.size(); i++){
-			listSuits.push_back(suits[i]);
-		}
-		list<string> uniqueSuits(listSuits);
-		uniqueSuits.unique();
-		int count = 0;
-		string suitFrequency[4][2];
-		int placement = 0;
-		for(string eachsuit : uniqueSuits){
-			for(int i = 0; i < (int)suits.size(); i++){
-
-				if(suits[i] == eachsuit){
-					count++;
-				}
-
-			}
-			suitFrequency[placement][0] = eachsuit;
-			suitFrequency[placement][1] = count+"";
-			placement++;
-			count = 0;
-		}
-
-		// collected all suit frequencies, now cycle through each pair, and if frequency >= 5, then cycle through the hand
-		// and check if it is the correct collection of cards
-
-		bool KingFound = false;
-		bool JackFound = false;
-		bool QueenFound = false;
-		bool AceFound = false;
-		bool TenFound = false;
-
-		for(int i = 0; i < 4; i++){
-
-			for(int j = 0; j < 2; j++){
-
-				if(stoi(suitFrequency[i][1]) >= 5){
-					// valid suit to check
-
-					for(Card eachcard : cards){
-
-						int rank = eachcard.getNumRank();
-						string suit = eachcard.getSuit();
-						if(suit == suitFrequency[i][0]){
-							if(rank == 14){
-								// ace
-								AceFound = true;
-							}
-							else if(rank == 13){
-								// king
-								KingFound = true;
-							}
-							else if(rank == 12){
-								// queen
-								QueenFound = true;
-							}
-							else if(rank == 11){
-								// jack
-								JackFound = true;
-							}
-							else if(rank == 10){
-								// ten
-								TenFound = true;
-							}
-						}
-
-					}
-					if(AceFound && KingFound && QueenFound && JackFound && TenFound){
-
-						// royal flush
-						return true;
-
-					}
-
-				}
-
-
-			}
-
-		}
-		return false;
-
-		// check all suit frequencies
-
-
-	}
-
-
 
 }

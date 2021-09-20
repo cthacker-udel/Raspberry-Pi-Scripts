@@ -22,6 +22,8 @@ public:
 
     Hand(vector<Card>);
 
+    Hand();
+
     Card *deal();
 
     vector<Card *> dealN(int);

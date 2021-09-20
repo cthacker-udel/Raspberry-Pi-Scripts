@@ -5,6 +5,12 @@
 #include "Hand.hpp"
 
 
+Hand::Hand(){
+
+	this->createDeck();
+
+}
+
 Hand::Hand(vector<Card> cards){
 
     this->hand = cards;

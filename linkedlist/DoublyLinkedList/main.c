@@ -1,4 +1,5 @@
 #include "project.h"
+#include <math.h>
 
 node *ROOT = NULL;
 node *TAIL = NULL;
@@ -536,6 +537,130 @@ int* indexes(int value){
         tempHead = tempHead->next;
     }
     return newArr;
+
+}
+
+int isUnique(int value){
+
+    return occurence(value) == 1? 1: 0;
+
+}
+
+int isRepeating(int value){
+
+    return occurence(value) > 1? 1: 0;
+
+}
+
+int swapValue(int origVal, int swapVal){
+
+    if(ROOT == NULL){
+        // list is empty
+        return 0;
+    }
+    else if(occurence(origVal) < 1){
+        return 0;
+    }
+    else{
+
+        node *tempHead = ROOT;
+        while(tempHead != NULL){
+            if(tempHead->val == origVal){
+                tempHead->val = swapVal;
+                return 1;
+            }
+            tempHead = tempHead->next;
+        }
+        return 0;
+
+    }
+
+}
+
+int isPrime(int value){
+
+    if(value <= 2){
+        return 1;
+    }
+    else if(value == 2 || value == 3 || value == 5){
+        return 1;
+    }
+    else if(value % 2 == 0 || value % 3 == 0 || value % 5 == 0){
+        return 0;
+    }
+    else{
+
+        int theRoot = (int)sqrt(value);
+        for(int i = 2; i <= theRoot; i++){
+            if(value % i == 0){
+                return 0;
+            }
+        }
+        return 1;
+
+    }
+
+}
+
+int evenCount(){
+
+    if(nodeCount(ROOT) == 0){
+        return 0;
+    }
+    else{
+
+        int cnt = 0;
+        node *tempHead = ROOT;
+        while(tempHead != NULL){
+            if(tempHead->val % 2 == 0){
+                cnt++;
+            }
+            tempHead = tempHead->next;
+        }
+        return cnt;
+
+    }
+
+}
+
+int oddCount(){
+
+    if(nodeCount(ROOT) == 0){
+        return 0;
+    }
+    else{
+
+        int cnt = 0;
+        node *tempHead = ROOT;
+        while(tempHead != NULL){
+            if(tempHead->val % 2 != 0){
+                cnt++;
+            }
+        }
+        return cnt;
+
+    }
+
+}
+
+int primeCount(){
+
+    if(nodeCount(ROOT) == 0){
+        return 0;
+    }
+    else{
+
+        int cnt = 0;
+        node *tempHead = ROOT;
+        while(tempHead != NULL){
+            if(isPrime(tempHead->val)){
+                cnt++;
+            }
+            tempHead = tempHead->next;
+        }
+        return cnt;
+
+    }
 
 }
 
