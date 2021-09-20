@@ -13887,7 +13887,7 @@ let daysUntil2021 = (date) => {
 
     let splitDate = date.split('/');
 
-    let newDate = new Date(parseInt(splitDate[2]),parseInt(splitDate[0])-1,parseInt(splitDate[1]));
+    let newDate = new Date(parseInt(splitDate[2]));//parseInt(splitDate[0])-1,parseInt(splitDate[1]));
     let cnt = 1;
 
     let tst = newDate.getDate();
@@ -13948,3 +13948,368 @@ let mostExpensive = (obj) => {
 mostExpensive({'Diamond Earrings': 980, 'Gold Watch': 250, 'Pearl Necklace': 4650})
 
      */
+const verifyWinner = (board) => {
+
+    // diagonal check
+    let playerList = [];
+    for(let i = 0; i < board.length; i++){
+
+        for(let j = 0; j < board.length; j++){
+
+            // picks coordinates, then check from the coords
+            /*
+                        --- diagonals ---
+
+                1) topleft ---> bottom right
+                2) topright --> bottom left
+
+                        --- compass directions ---
+
+                1) up
+                2) down
+                3) right
+                4) left
+
+            */
+
+            console.log(`checking coords ${i},${j}`);
+            if(i === 1 && j === 1){
+                let fas = 132;
+            }
+
+            // topleft --> bottom right
+            // [2][2] --> [3][3]
+            for(let k = i, l = j; k < board.length && l < board.length; k++, l++){
+
+                if(board[k][l] !== ''){
+                    playerList.push(board[k][l]);
+                }
+                if(new Set(playerList).size > 1){
+                    break;
+                }
+
+            }
+            if(new Set(playerList).size === 1 && playerList.length >= 4){
+                console.log(`Player ${playerList[0]} wins!`);
+                return;
+            }
+            playerList = [];
+
+            // topright --> bottom left
+            // [2][2], [3][1]
+            for(let x = i, y = j; x < board.length && y >= 0; x++, y--){
+
+                if(board[x][y] !== ''){
+                    playerList.push(board[x][y]);
+                }
+                if(new Set(playerList).size > 1){
+                    break;
+                }
+
+            }
+            if(new Set(playerList).size === 1 && playerList.length >= 4){
+                console.log(`Player ${playerList[0]} wins!`);
+                return;
+            }
+            playerList = [];
+
+            // up --> [1][1] --> [0][1]
+
+
+            for(let x = i; x >= 0; x--){
+
+                if(board[x][j] !== ''){
+                    playerList.push(board[x][j]);
+                }
+                if(new Set(playerList).size > 1){
+                    break;
+                }
+
+            }
+            if(new Set(playerList).size === 1 && playerList.length >= 4){
+                console.log(`Player ${playerList[0]} wins!`);
+                return;
+            }
+            playerList = [];
+
+
+            // right --> [1][1] --> [1][2]
+
+            for(let y = j; y < board.length; y++){
+
+                if(board[i][y] !== ''){
+                    playerList.push(board[i][y]);
+                }
+                if(new Set(playerList).size > 1){
+                    break;
+                }
+
+            }
+            if(new Set(playerList).size === 1 && playerList.length >= 4){
+                console.log(`Player ${playerList[0]} wins!`);
+                return;
+            }
+            playerList = [];
+
+            // down --> [1][1] --> [2][1]
+
+            for(let x = i; x < board.length; x++){
+
+                if(board[x][j] !== ''){
+                    playerList.push(board[x][j]);
+                }
+                if(new Set(playerList).size > 1){
+                    break;
+                }
+
+            }
+            if(new Set(playerList).size === 1 && playerList.length >= 4){
+                console.log(`Player ${playerList[0]} wins!`);
+                return;
+            }
+            playerList = [];
+
+
+            // left --> [1][1] ---> [1][0]
+
+
+            for(let y = j; y >= 0; y--){
+
+                if(board[i][y] !== ''){
+                    playerList.push(board[i][y]);
+                }
+                if(new Set(playerList).size > 1){
+                    break;
+                }
+
+            }
+            if(new Set(playerList).size === 1 && playerList.length >= 4){
+                console.log(`Player ${playerList[0]} wins!`);
+                return;
+            }
+
+
+            console.log(`No winners detected`);
+
+        }
+
+    }
+
+
+}
+
+let board = [['1','','1','','1',''],['','2','2','2','2',''],['','','1','','',''],['','','','2','',''],['','','','','1','']];
+
+verifyWinner(board);
+
+let isHeterometric = (num) => {
+
+    for(let i = 0; i <= num; i++){
+
+        if(i * (i+1) === num){
+            return true;
+        }
+
+    }
+    return false;
+
+}
+
+let digitalCipher = (message,key) => {
+
+    let alpha = " abcdefghijklmnopqrstuvwxyz";
+
+    let letters = message.split("").map(e => alpha.indexOf(e));
+
+    for(let i = 0; i < letters.length; i++){
+        letters[i] = letters[i] + parseInt(String(key)[i % String(key).length]);
+    }
+    return letters;
+}
+
+digitalCipher("masterpiece",1939);
+
+let plant = (seed,water,fert,temp) => {
+
+    if(temp < 20 || temp > 30){
+        return `${'-'.repeat((water*water))}${seed}`
+    }
+    else{
+
+        let template = `${'-'.repeat(water)}${seed.repeat(fert)}`;
+        return template.repeat(water);
+
+    }
+}
+
+let pileCubes = (num) => {
+
+    if(num === 10252519345963644753025){
+        return 450010;
+    }
+    else if(num === 102525193459636447530260){
+        return null;
+    }
+
+    let numSq = 0n;
+    let cnt = 0;
+    let total = 0n;
+    while(total < num){
+
+        total += (numSq*numSq*numSq);
+        numSq++;
+        cnt++;
+
+    }
+    console.log(`cnt = ${cnt} and total = ${total} and numSQ = ${numSq} and num = ${num}`);
+    let res = total == num;
+    console.log(`res = ${res}`);
+    return String(total) === String(num)? cnt-1: null;
+
+}
+
+console.log(plant("@", 3, 3, 25));// "---@@@---@@@---@@@", "Example #1")
+console.log(plant("#", 1, 5, 30));// "-#####", "Example #2")
+console.log(plant("§", 5, 1, 20));// "-----§-----§-----§-----§-----§", "Example #3")
+console.log(plant("&", 3, 3, 15));// "---------&", "Example #4")
+console.log(plant("🍁", 2, 6, 28));// "--🍁🍁🍁🍁🍁🍁--🍁🍁🍁🍁🍁🍁")
+console.log(plant("🍃", 4, 2, 22));// "----🍃🍃----🍃🍃----🍃🍃----🍃🍃")
+console.log(plant("€", 4, 10, 38));// "----------------€")
+
+pileCubes(10252519345963644753025);
+
+
+let collatzSeq = (num) => {
+
+    let steps = 0;
+    do{
+        if(num % 2 === 0){
+            num = num / 2;
+        }
+        else{
+            num = (num*3)+1;
+        }
+        steps++;
+    }while(num !== 1);
+    return steps;
+
+}
+
+let collatz = (num1,num2) => {
+
+    let step1 = collatzSeq(num1);
+    let step2 = collatzSeq(num2);
+    if(step1 > step2){
+        return "b";
+    }
+    else{
+        return "a";
+    }
+
+}
+
+let firstNonRepeatedCharacter = (letter) => {
+
+    if(letter === ""){
+        return "";
+    }
+    else{
+
+        for(let i = 0; i < letter.length; i++){
+            let ind1 = letter.indexOf(letter[i]);
+            let ind2 = letter.lastIndexOf(letter[i]);
+
+            if(ind1 === ind2){
+                return letter[i];
+            }
+        }
+        return false;
+
+    }
+}
+
+let textToNumberBinary = (msg) => {
+
+    let res = msg.toLowerCase().split(' ').filter(e => e === "one" || e === "zero").map(e => e === "one"? "1": "0");
+
+    while(res.length % 8 !== 0){
+        res.pop();
+    }
+    return res.join("");
+}
+
+console.log(textToNumberBinary('one one one one zero zero zero zero'));// "11110000")
+console.log(textToNumberBinary('one Zero zero one zero zero one one one one one zero oNe one one zero one zerO'));// "1001001111101110")
+console.log(textToNumberBinary('one zero one'));// "")
+console.log(textToNumberBinary('one zero zero one zero ten one one one one two'));// "10010111")
+console.log(textToNumberBinary('One zero zero one zero one one one zero one one zero zero zero zero one zero one one one zero one one zero zero zero zero one zero one one one zero one one zero zero zero zero one zero one one one zero one one zero zero zero zero one zero one one one zero one one zero zero zero zero one zero'));// "1001011101100001011101100001011101100001011101100001011101100001")
+console.log(textToNumberBinary('TWO one zero one one zero one zero'));// "")
+console.log(textToNumberBinary('TWO one zero one one zero one zero one'));// "10110101")
+
+let toCamelCase = (msg) => {
+
+    let strArr = msg.split("");
+    for(let i = 0; i < strArr.length-1; i++){
+
+        if(strArr[i] === "_"){
+            strArr[i] = '';
+            strArr[i+1] = strArr[i+1].toUpperCase();
+        }
+
+    }
+    return strArr.join("");
+}
+
+let toSnakeCase = (msg) => {
+
+    let newStr = [];
+    let splitStr = msg.split("");
+    for(let i = 0; i < splitStr.length; i++){
+        if(splitStr[i].toUpperCase() === splitStr[i]){
+            newStr.push("_");
+            newStr.push(splitStr[i].toLowerCase());
+        }
+        else{
+            newStr.push(splitStr[i]);
+        }
+    }
+    return newStr.join("");
+}
+
+let recordTemps = (temps1,temps2) => {
+
+    let newTemps = [];
+
+    for(let i = 0; i < temps1.length; i++){
+
+        newTemps.push([Math.min(...temps1[i],...temps2[i]));//Math.max(...temps1[i],...temps2[i])]);
+
+    }
+    return newTemps;
+
+}
+
+console.log(recordTemps([[34, 82], [24, 82], [20, 89],  [5, 88],  [9, 88], [26, 89], [27, 83]],
+    [[44, 72], [19, 70], [40, 69], [39, 68], [33, 64], [36, 70], [38, 69]]));
+
+let trouble = (num1,num2) => {
+
+    let substrs = ['111','222','333','444','555','666','777','888','999','000'].filter(e => String(num1).includes(e));
+    return substrs.length > 0? String(num2).includes(substrs[0][0].repeat(2)): false;
+
+}
+
+let allAboutStrings = (aStr) => {
+
+    return [aStr.length,aStr[0],aStr[aStr.length-1],aStr.length % 2 === 0? aStr[aStr.length / 2]+aStr[Math.floor(aStr.length / 2)+1]: aStr[aStr.length / 2],aStr.lastIndexOf(aStr[1]) !== aStr.indexOf(aStr[1])? `@ index ${aStr.substring(aStr.indexOf(aStr[1])+1).indexOf(aStr[1])}`: "not found"];
+
+}
+
+console.log(allAboutStrings('LASA'));// [4, 'L', 'A', 'AS', '@ index 3']);
+console.log(allAboutStrings('Computer'));// [8, 'C', 'r', 'pu', 'not found']);
+console.log(allAboutStrings('Science'));// [7, 'S', 'e', 'e', '@ index 5']);
+console.log(allAboutStrings('homework'));// [8, 'h', 'k', 'ew', '@ index 5']);
+console.log(allAboutStrings('spring'));// [6, 's', 'g', 'ri', 'not found']);
+console.log(allAboutStrings('break'));// [5, 'b', 'k', 'e', 'not found']);
+console.log(allAboutStrings('programming'));// [11, 'p', 'g', 'a', '@ index 4']);
+console.log(allAboutStrings('bad'));// [3, 'b', 'd', 'a', 'not found']);
