@@ -14307,7 +14307,7 @@ console.log(allAboutStrings('spring'));// [6, 's', 'g', 'ri', 'not found']);
 console.log(allAboutStrings('break'));// [5, 'b', 'k', 'e', 'not found']);
 console.log(allAboutStrings('programming'));// [11, 'p', 'g', 'a', '@ index 4']);
 console.log(allAboutStrings('bad'));// [3, 'b', 'd', 'a', 'not found']);
-     */
+
 
 const options = [['A1','B1','C1','D1','E1'],['A2','B2','C2','D2','E2'],['A3','B3','C3','D3','E3'],['A4','B4','C4','D4','E4'],['A5','B5','C5','D5','E5']];
 
@@ -14344,3 +14344,74 @@ const getCompGuesses = () => {
 }
 
 let res = getCompGuesses();
+
+
+let threeLetterCollection = (word) => {
+
+    let threeLetters = [];
+
+    for(let i = 0; i < word.length-2; i++){
+
+        let combinedStr = `${word[i] + word[i+1] + word[i+2]}`;
+        threeLetters.push(combinedStr);
+
+    }
+    return threeLetters.sort();
+}
+
+     */
+//console.log(threeLetterCollection("edabit"));
+
+let swapCards = (n1,n2) => {
+
+    let n2Ten = Math.floor(n2 / 10);
+    let lowest = Math.min(...String(n1).split("").map(e => +e));
+    console.log(`lowest = ${lowest}`);
+    if(new Set(String(n1).split("")).size === 1){
+        // swap your tens with opponents tens
+        let res1 = +`${Math.floor(n2 / 10)}${n1 % 10}`;
+        let res2 = +`${lowest}${Math.floor(n2 / 10)}`;
+        return res1 > res2;
+    }
+    else if(lowest === (n1 % 10)){
+        // ones digit
+        let res1 = +`${Math.floor(n1 / 10)}${n2Ten}`;
+        let res2 = +`${Math.floor(lowest)}${n2 % 10}`;
+        console.log(`before return1 = ${res1} and ${res2}`);
+        return res1 > res2;
+    }
+    else{
+        // ten digit
+        let res1 = +`${n2Ten}${n1 % 10}`;
+        let res2 = +`${Math.floor(lowest)}${n2 % 10}`;
+        console.log(`before return2 = ${res1} and ${res2}`);
+        return res1 > res2;
+    }
+
+
+}
+
+console.log(`swapping cards`);
+console.log(swapCards(67,53));
+
+let censorString = (aStr,strarr,char) => {
+
+    return aStr.split(" ").map(e => strarr.includes(e)? char.repeat(e.length): e).join(" ");
+
+}
+
+let transposeMatrix = (matrix) => {
+
+    // transpose columns to form word
+    let words = [];
+    for(let i = 0; i < matrix.length; i++){
+        for(let j = 0; j < matrix.length; j++){
+
+            words.push(matrix[j][i]);
+
+        }
+    }
+    return words.join(" ").trim();
+
+
+}
