@@ -58,3 +58,7 @@ int evenCount();
 int oddCount();
 
 int primeCount();
+
+int isSortedAscending();
+
+int isSortedDescending();

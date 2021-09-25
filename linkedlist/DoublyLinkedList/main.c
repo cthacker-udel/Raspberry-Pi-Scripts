@@ -664,3 +664,30 @@ int primeCount(){
 
 }
 
+int isSortedAscending(){
+
+    node *tempHead = ROOT;
+    if(ROOT == NULL){
+        printf("\nThe list is empty, so unable to determine if list is sorted ascending\n");
+    }
+    else{
+
+        while(tempHead->next != NULL){
+
+            int nodeBefore = tempHead->val;
+            tempHead = tempHead->next;
+            int nodeAfter = tempHead->val;
+            if(nodeBefore <= nodeAfter){
+                continue;
+            }
+            else{
+                return 0;
+            }
+        }
+        return 1;
+
+    }
+
+
+}
+
