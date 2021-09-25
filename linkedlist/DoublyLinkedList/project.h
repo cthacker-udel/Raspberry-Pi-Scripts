@@ -63,4 +63,10 @@ int isSortedAscending();
 
 int isSortedDescending();
 
-void insertionSort();
+void sort();
+
+int *toIntArray();
+
+void deleteList();
+
+int *bubbleSortArr(int *, int);

@@ -716,3 +716,88 @@ int isSortedDescending(){
 
 }
 
+int *toIntArray(){
+
+    if(ROOT == NULL){
+        printf("\nThe list is empty, so unable to convert list to array\n");
+        return NULL;
+    }
+    else{
+
+        int *values = (int *)malloc(sizeof(int) * nodeCount());
+        node *tempHead = ROOT;
+        for(int i = 0;tempHead != NULL;i++){
+
+            *(values+i) = tempHead->val;
+
+        }
+        return values;
+
+    }
+
+}
+
+int *bubbleSortArr(int *arr, int len){
+
+    int loopVar = 0;
+    while(1){
+
+        for(int i = 0; i < len-1; i++){
+
+            int currElem = *(arr+i);
+            int forwardElem = *(arr+i+1);
+            if(currElem > forwardElem){
+                loopVar = 1;
+                *(arr+i+1) = currElem;
+                *(arr+i) = forwardElem;
+            }
+            else if(!loopVar){
+                loopVar = 0;
+            }
+        }
+        if(!loopVar){
+            break;
+        }
+
+    }
+    return arr;
+
+}
+
+void sort(){
+
+    if(ROOT == NULL){
+        printf("\nThe list is empty, so unable to sort the list via insertion sort\n");
+        return;
+    }
+    else if(nodeCount() == 1){
+        printf("\nThe list only contains one element, so unable to sort the list via insertion sort\n");
+        return;
+    }
+    else{
+
+        int *nodeValues = bubbleSortArr(toIntArray(),nodeCount());
+        for(int i = 0; i < nodeCount(); i++){
+            addTail(*(nodeValues+i));
+        }
+
+    }
+
+}
+
+
+int main(void){
+
+    int *arr = (int *)malloc(sizeof(int) * 11);
+    printf("\nAfter initializing array\n");
+    for(int i = 10; i >= 0; i++){
+        *(arr+i) = i;
+    }
+    arr = bubbleSortArr(arr,11);
+    printf("\nPrinting the array\n");
+    for(int i = 0; i < 11; i++){
+        printf(" %d ",*(arr+i));
+    }
+
+}
+
