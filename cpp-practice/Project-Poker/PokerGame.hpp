@@ -11,6 +11,9 @@ class PokerGame{
     Hand *deck;
     Player *player1;
     Player *player2;
+    Hand *player1Hand;
+    Hand *player2Hand;
+    Hand *tableCards;
     int games;
 
     public:

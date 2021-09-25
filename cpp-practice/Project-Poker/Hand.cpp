@@ -42,7 +42,7 @@ Card *Hand::deal(){
 
 }
 
-vector<Card *>Hand::dealN(int n){
+void Hand::dealN(int n){
 
 
 	vector<Card *> theCards;
@@ -50,7 +50,7 @@ vector<Card *>Hand::dealN(int n){
     if(this->hand.empty()){
 
     	// return blank vector
-    	return theCards;
+    	return;
     }
     else{
 
@@ -61,7 +61,9 @@ vector<Card *>Hand::dealN(int n){
     		this->hand.pop_back();
 
     	}
-    	return theCards;
+    	for(int i = 0; i < theCards.size(); i++){
+    		this->hand.push_back(*(theCards.at(i)));
+    	}
 
 
     }

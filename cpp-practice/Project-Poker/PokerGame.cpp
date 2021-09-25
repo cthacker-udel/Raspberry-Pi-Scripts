@@ -1,4 +1,7 @@
 #include "PokerGame.hpp"
+#include <string>
+#include <iostream>
+using namespace std;
 
 PokerGame::PokerGame(Hand *theDeck, Player *player1, Player *player2){
 
@@ -18,6 +21,20 @@ PokerGame::PokerGame(){
 
 }
 
+void PokerGame::endGame(){
+
+	// display player1 stats
+
+	string player1string = "" + this->player1->name + " stats : \nWins : " + to_string(this->player1->wins) + " \nLosses: " + to_string(this->player1->losses) + "\n------";
+
+	cout << player1string << endl;
+
+	string player2string = "" + this->player2->name + " stats : \nWins : " + to_string(this->player2->wins) + " \nLosses: " + to_string(this->player2->losses) + "\n------";
+
+	cout << player2string << endl;
+
+}
+
 
 void PokerGame::startGame(){
 
@@ -30,6 +47,10 @@ void PokerGame::startGame(){
 	cout << " and the second player : " << endl;
 
 	cout << this->player2->name << " with a total of " << this->player1->wins << " wins(s) and " << this->player1->losses << " loss(es)." << endl;
+
+	// initialize table cards
+
+	this->tableCards->dealN(3);
 
 	while(true){
 
@@ -55,7 +76,6 @@ void PokerGame::startGame(){
 		while(true){
 
 			// Game implementation here
-
 
 		}
 

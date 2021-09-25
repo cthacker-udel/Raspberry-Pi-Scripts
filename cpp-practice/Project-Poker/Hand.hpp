@@ -26,7 +26,7 @@ public:
 
     Card *deal();
 
-    vector<Card *> dealN(int);
+    void dealN(int);
     
     void createDeck();
     
