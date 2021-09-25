@@ -62,3 +62,5 @@ int primeCount();
 int isSortedAscending();
 
 int isSortedDescending();
+
+void insertionSort();
