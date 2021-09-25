@@ -534,7 +534,7 @@ int gameDone(board *theBoard){
             }
         }
     }
-    return count > 0? 0: 1;
+    return count < theBoard->size? 0: 1;
 
 }
 
