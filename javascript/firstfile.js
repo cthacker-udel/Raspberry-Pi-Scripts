@@ -13887,7 +13887,7 @@ let daysUntil2021 = (date) => {
 
     let splitDate = date.split('/');
 
-    let newDate = new Date(parseInt(splitDate[2]),parseInt(splitDate[0])-1,parseInt(splitDate[1]));
+    let newDate = new Date(parseInt(splitDate[2]));//parseInt(splitDate[0])-1,parseInt(splitDate[1]));
     let cnt = 1;
 
     let tst = newDate.getDate();
