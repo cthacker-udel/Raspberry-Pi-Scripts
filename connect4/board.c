@@ -534,7 +534,7 @@ int gameDone(board *theBoard){
             }
         }
     }
-    printf("\nThe count = %d",count);
+    printf("\nThe count = %d\n",count);
     return count < theBoard->size? 0: 1;
 
 }
