@@ -13948,3 +13948,170 @@ let mostExpensive = (obj) => {
 mostExpensive({'Diamond Earrings': 980, 'Gold Watch': 250, 'Pearl Necklace': 4650})
 
      */
+
+
+let xPronounce = (aStr) => {
+
+    return aStr.split(" ").map(e => e.length > 1? (e.startsWith("x")? `z${e.substring(1)}`: e.replace(/x/g,"cks")): e.replace(/x/g,"ecks")).join(" ");
+
+
+}
+
+console.log(xPronounce("Inside the box was a xylophone"));// "Inside the bocks was a zylophone")
+console.log(xPronounce("The x ray is excellent"));// "The ecks ray is eckscellent")
+console.log(xPronounce("OMG x box unboxing video x D"));// "OMG ecks bocks unbocksing video ecks D")
+console.log(xPronounce("I gotta make bux but the clox are ticking!"));// "I gotta make bucks but the clocks are ticking!")
+console.log(xPronounce("this test does not have an x in it"));// "this test does not have an ecks in it")
+console.log(xPronounce("Max bax pax"));// "Macks backs packs")
+console.log(xPronounce("Anti vax"));// "Anti vacks")
+console.log(xPronounce("Who is xavier and why does he have my car"));// "Who is zavier and why does he have my car")
+console.log(xPronounce("OMG xylem unboxing video x D"));// "OMG zylem unbocksing video ecks D")
+
+let makeTranspose = (matrix) => {
+
+    let base = [];
+    let subArr = [];
+
+    for(let i = 0; i < matrix[0].length; i++){
+
+        for(let j = 0; j < matrix.length; j++){
+
+            subArr.push(matrix[j][i]);
+
+        }
+        base.push(subArr);
+        subArr = [];
+
+    }
+    return base;
+
+}
+
+let multTable = (num) => {
+
+    let table = [];
+    let subTable = [];
+    for(let j = 1; j <= num; j++){
+        for(let i = 1; i <= num; i++){
+
+            subTable.push(j*i);
+
+
+        }
+        table.push(subTable);
+        subTable = [];
+    }
+    return table;
+}
+
+console.log(multTable(3));
+
+let color_pattern_times = (arr) => {
+
+    let totalColor = arr.length * 2;
+    let totalSwitch = 0;
+
+    let currColor = arr[0];
+    for(let i = 0; i < arr.length; i++){
+
+        if(arr[i] !== currColor){
+            totalSwitch++;
+            currColor = arr[i];
+        }
+
+    }
+    return totalColor + totalSwitch;
+
+}
+
+let swap = (a,b,c) => {
+
+    return c === a? b: a;
+
+}
+
+let isSmooth = (aStr) => {
+
+    aStr = aStr.toLowerCase().split(' ');
+    for(let i = 0; i < aStr.length-1; i++){
+
+        let iLast = aStr[i].charAt(aStr[i].length-1);
+        let iLast2 = aStr[i+1].charAt(0);
+
+        if(iLast !== iLast2){
+            return false;
+        }
+
+    }
+    return true;
+
+}
+
+
+let isProbMatrix = (matrix) => {
+
+    if(matrix.length !== matrix[0].length){
+        return false;
+    }
+    else{
+        return matrix.map(e => e.reduce((a,b) => a+b))[0] === 1 && new Set(matrix.map(e => e.reduce((a,b) => a+b))).size === 1 && matrix.every(e => e >= 0 && e <= 1);
+
+    }
+
+}
+
+console.log(isProbMatrix(
+    [[0.5, 0.5, 0.0],
+     [0.2, 0.5, 0.3]]));//, 
+    //false, "Not a square matrix.")
+    
+    console.log(isProbMatrix(
+    [[2, -1],
+     [-1, 2]]));//, 
+    //false, "Entries are not probabilities.")
+    
+    console.log(isProbMatrix(
+     [[0.5, 0.4],
+      [0.5, 0.6]]));//, 
+    //false, "Rows do not add to 1.")
+    
+    console.log(isProbMatrix(
+     [[0, 1],
+      [1, 0]]));//, 
+    //true)
+    
+    console.log(isProbMatrix(
+     [[2, 1],
+      [1, 2]]));//, 
+    //false)
+    
+    console.log(isProbMatrix(
+     [[1]]));//, 
+    //true)
+    
+    console.log(isProbMatrix(
+    [[0.5, 0.5, 0.0],
+     [0.2, 0.5, 0.3],
+     [0.1, 0.2, 0.7]]));//, 
+    //true)
+    
+    console.log(isProbMatrix(
+    [[0, 0, 0, 1],
+     [0, 0, 0, 1],
+     [0, 0, 0, 1],
+     [0, 0, 0, 1]]));//, 
+    //true)
+    
+    console.log(isProbMatrix(
+    [[1, 0, 0, 1],
+     [1, 0, 1, 1],
+     [1, 1, 0, 1],
+     [1, 0, 0, 1]]));//, 
+    //false)
+    
+    console.log(isProbMatrix(
+    [[0.5, 0.0, 0.5, 0.0],
+     [0.1, 0.2, 0.3, 0.4],
+     [0.3, 0.2, 0.2, 0.3],
+     [0.0, 0.5, 0.0, 0.5]]));//, 
+    //true)
