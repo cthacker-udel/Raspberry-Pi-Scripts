@@ -785,6 +785,24 @@ void sort(){
 
 }
 
+void deleteList(){
+
+    if(ROOT == NULL){
+        // list is empty
+    }
+    else{
+        node *tempDNode = ROOT;
+        node *tempNode = ROOT;
+        while(tempNode != NULL){
+            tempNode = tempNode->next;
+            free(tempDNode);
+            tempDNode = tempNode;
+        }
+        // successfully cleared list!
+    }
+
+}
+
 
 int main(void){
 
