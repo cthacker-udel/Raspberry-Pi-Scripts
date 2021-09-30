@@ -803,6 +803,41 @@ void deleteList(){
 
 }
 
+int *bubbleSortArr(int *arr, int len){
+
+    int loopCondition = 1;
+    while(loopCondition){
+
+        for(int i = 0; i < len-1; i++){
+
+            int elem1 = *(arr+i);
+            int elem2 = *(arr+i+1);
+            if(elem1 > elem2){
+
+                *(arr+i+1) = elem2;
+                *(arr+i) = elem2;
+                loopCondition = 1;
+                break;
+
+            }
+            else{
+                loopCondition = 0;
+            }
+
+        }
+        if(loopCondition){
+            continue;
+        }
+        else{
+            break;
+        }
+
+    }
+    return arr;
+
+
+}
+
 
 int main(void){
 
