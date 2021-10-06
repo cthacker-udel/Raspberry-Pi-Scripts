@@ -838,6 +838,40 @@ int *bubbleSortArr(int *arr, int len){
 
 }
 
+void weightedEvenOrOdd(){
+
+    int evenVal = evenCount();
+    int oddVal = oddCount();
+
+    if(evenVal > oddVal){
+        printf("\nWeighted even");
+    }
+    else if(oddVal > evenVal){
+        printf("\nWeighted odd");
+    }
+    else{
+        printf("\nEvenly weighted list\n");
+    }
+
+}
+
+int abundantNumberCount(){
+
+    node *tempHead = ROOT;
+    if(ROOT == NULL){
+        printf("\nThe list is empty, unable to comute count");
+        return;
+    }
+    else{
+        while(tempHead != NULL){
+            int value = tempHead->val;
+            if()
+            tempHead = tempHead->next;
+        }
+    }
+
+}
+
 
 int main(void){
 

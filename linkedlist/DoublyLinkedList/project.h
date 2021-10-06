@@ -69,4 +69,8 @@ int *toIntArray();
 
 void deleteList();
 
+void weightedEvenOrOdd();
+
 int *bubbleSortArr(int *, int);
+
+int abundantNumberCount();
