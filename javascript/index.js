@@ -14117,3 +14117,86 @@ console.log(isProbMatrix(
     //true)
 
     */
+
+const factoryCircle = (radius) => {
+
+    return {
+
+        radius,
+        location: {
+            x: 0,
+            y: 0
+        }
+
+    };
+
+}
+
+function consCircle(radius) {
+
+    this.radius = radius;
+    this.draw = () => {
+        console.log('drawing');
+    }
+
+}
+
+let circ1 = factoryCircle(1);
+let circ2 = new consCircle(10);
+
+let x = {};
+
+const funcObject = new Function('arg1','this.args = [arg1]');
+
+const countByValue = (collection,iteratee) => {
+
+    let instances = {};
+    
+    for(let instance of collection){
+				console.log(`running first line`);
+				if(typeof iteratee === 'string'){
+					if(Object.keys(instances).includes(instance[iteratee])){
+							instances[instance[iteratee]] += 1;
+					}
+					else{
+							instances[instance[iteratee]] = 1;
+					}
+				}
+			else{
+				// is a function
+				if(iteratee(instance)){
+					if(!Object.keys(instances).includes(iteratee(instance))){
+						instances[iteratee(instance)] = 0;
+					}
+					instances[iteratee(instance)] += 1;
+				}
+				else{
+                    console.log(Object.keys(instances));
+                    if(!Object.keys(instances).includes('false')){
+                        instances[false] = 0;
+                    }
+					instances[false] += 1;
+				}
+			}
+    }
+    return instances;
+
+}
+
+vehicles = [
+    { make: "toyota", color: "red", engine: "v6", type: "hatchback", year: 2018, mileage: 113312, isUsed: true },
+    { make: "toyota", color: "blue", engine: "v6", type: "hatchback", year: 2018, mileage: 324312, isUsed: true },
+    { make: "toyota", color: "yellow", engine: "v6", type: "hatchback", year: 2018, mileage: 113452, isUsed: false },
+    { make: "ford", color: "blue", engine: "v4", type: "car", year: 2012, mileage: 0, isUsed: true },
+    { make: "ford", color: "blue", engine: "v4", type: "car", year: 2012, mileage: 0, isUsed: true },
+    { make: "ford", color: "blue", engine: "v4", type: "car", year: 2012, mileage: 0, isUsed: true },
+    { make: "mazda", color: "grey", engine: "v8", type: "sedan", year: 2021, mileage: 0, isUsed: false },
+    { make: "ford", color: "green", engine: "v8", type: "truck", year: 2008, mileage: 25467, isUsed: true },
+  ];
+
+
+  countByValue(vehicles, (d) => d.year > 2020)
+
+
+
+
