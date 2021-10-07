@@ -74,3 +74,5 @@ void weightedEvenOrOdd();
 int *bubbleSortArr(int *, int);
 
 int abundantNumberCount();
+
+int deficientNumberCount();
