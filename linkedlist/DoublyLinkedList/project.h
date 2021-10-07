@@ -76,3 +76,5 @@ int *bubbleSortArr(int *, int);
 int abundantNumberCount();
 
 int deficientNumberCount();
+
+int perfectNumberCount();

@@ -909,6 +909,26 @@ int deficientNumberCount(){
 
 }
 
+int perfectNumberCount(){
+
+    int count = 0;
+    node *tempHead = ROOT;
+    if(ROOT == NULL){
+        printf("\nThe list is empty, unable to compute count");
+        return;
+    }
+    else{
+        while(tempHead != NULL){
+            int value = tempHead->val;
+            if(value == sumProperDivisors(value)){
+                count++;
+            }
+        }
+        return count;
+    }
+
+}
+
 
 int main(void){
 
