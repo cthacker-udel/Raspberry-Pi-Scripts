@@ -855,8 +855,21 @@ void weightedEvenOrOdd(){
 
 }
 
+int sumProperDivisors(int number){
+
+    int total = 0;
+    for(int i = 0; i < number; i++){
+        if(number % i == 0){
+            total += i;
+        }
+    }
+    return total;
+
+}
+
 int abundantNumberCount(){
 
+    int count = 0;
     node *tempHead = ROOT;
     if(ROOT == NULL){
         printf("\nThe list is empty, unable to comute count");
@@ -865,9 +878,12 @@ int abundantNumberCount(){
     else{
         while(tempHead != NULL){
             int value = tempHead->val;
-            
+            if(value < sumProperDivisors(value)){
+                count += 1;
+            }
             tempHead = tempHead->next;
         }
+        return count;
     }
 
 }
