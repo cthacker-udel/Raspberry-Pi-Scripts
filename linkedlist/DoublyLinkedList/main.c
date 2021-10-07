@@ -909,6 +909,33 @@ int deficientNumberCount(){
 
 }
 
+int automorphicNumberCount(){
+
+    int count = 0;
+    node *tempHead = ROOT;
+    if(ROOT == NULL){
+        printf("\nThe list is empty, unable to compute automorphic number count");
+        return;
+    }
+    else{
+
+        while(tempHead != NULL){
+
+            int value = tempHead->val;
+            int theRoot = sqrt(value);
+            if(theRoot % 10 == value % 10){
+                count += 1;
+            }
+
+            tempHead = tempHead->next;
+        }
+        return count;
+
+    }
+
+}
+
+
 int perfectNumberCount(){
 
     int count = 0;

@@ -78,3 +78,5 @@ int abundantNumberCount();
 int deficientNumberCount();
 
 int perfectNumberCount();
+
+int automorphicNumberCount();
