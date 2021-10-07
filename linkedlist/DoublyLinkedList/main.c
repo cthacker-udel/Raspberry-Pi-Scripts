@@ -865,7 +865,7 @@ int abundantNumberCount(){
     else{
         while(tempHead != NULL){
             int value = tempHead->val;
-            if()
+            
             tempHead = tempHead->next;
         }
     }
