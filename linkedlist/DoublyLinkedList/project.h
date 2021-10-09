@@ -80,3 +80,5 @@ int deficientNumberCount();
 int perfectNumberCount();
 
 int automorphicNumberCount();
+
+int catalanNumberCount();

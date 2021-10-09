@@ -998,6 +998,21 @@ int catalanNumberCount(){
 
 }
 
+int circularNumberCount(){
+
+	node *tempHead = ROOT;
+	int count = 0;
+	while(tempHead != NULL){
+		int value = tempHead->val;
+		if((value*value) % 10 == value){
+			count++;
+		}
+		tempHead = tempHead->next;
+	}
+	return count;
+
+}
+
 
 int main(void){
 
