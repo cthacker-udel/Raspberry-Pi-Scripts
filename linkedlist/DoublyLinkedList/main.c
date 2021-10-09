@@ -956,6 +956,48 @@ int perfectNumberCount(){
 
 }
 
+int factorial(int number){
+
+	if(number <= 1){
+		return number;
+	}
+	else{
+		return number * factorial(number-1);
+	}
+
+}
+
+int testCatalan(int number){
+
+	int total = 1;
+	for(int i = 1;total < number;i++){
+		total = factorial(2*i) / (factorial(i+1)*factorial(i));
+	}
+	if(total == number){
+		return 1;
+	}
+	else{
+		return 0;
+	}
+
+
+
+}
+
+int catalanNumberCount(){
+
+	node *tempHead = ROOT;
+	int count = 0;
+	while(tempHead != NULL){
+		if(testCatalan(tempHead->val)){
+			count++;
+		}
+		tempHead = tempHead->next;
+	}
+	return count;
+
+}
+
 
 int main(void){
 
