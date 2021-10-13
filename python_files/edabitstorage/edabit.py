@@ -249,3 +249,65 @@ print(bingo_check([
 	[67, "x", 98, 34, 77],
 	["x", 33, 24, 30, 52]
 ]))#)
+
+def move_zeros(arr):
+
+	zero_count = len([x for x in arr if (type(x) is int or type(x) is float) and x == 0])
+	new_list = []
+	for eachnumber in arr:
+		if (type(eachnumber) is int or type(eachnumber) is float) and eachnumber == 0:
+			continue
+		else:
+			new_list.append(eachnumber)
+	for i in range(zero_count):
+		new_list.append(0)
+	return new_list
+
+
+move_zeros([9,0.0,0,9,1,2,0,1,0,1,0.0,3,0,1,9,0,0,0,0,9])
+#, [9,9,1,2,1,1,3,1,9,9,0,0,0,0,0,0,0,0,0,0])
+move_zeros(["a",0,0,"b",None,"c","d",0,1,False,0,1,0,3,[],0,1,9,0,0,0,0,9])
+#, ["a","b",None,"c","d",1,False,1,3,[],1,9,9,0,0,0,0,0,0,0,0,0,0])
+
+
+def vending_machine(products,amt,product_number):
+
+	if(product_number <= 0 or product_number > 9):
+		## invalid product
+		return 'Enter a valid product number.'
+	product_amt = 0
+	change_type = []
+	product_name = ''
+	for eachproduct in products:
+		if eachproduct['number'] == product_number:
+			# found product
+			product_amt = eachproduct['price']
+			product_name = eachproduct['name']
+			break
+	if amt < product_amt:
+		return 'Not enough money for this product'
+	elif amt == product_amt:
+		return { 'product': product_name, 'change': []}
+	else:
+		change = []
+		amt_left = amt - product_amt
+		while amt_left >= 500:
+			change.append(500)
+			amt_left -= 500
+
+
+def digits_count(number):
+	if abs(number) < 10:
+		return 1
+	else:
+		return 1 + digits_count(number / 10)
+
+
+def paths(a,b):
+
+	return math.factorial(a+b) // (math.factorial(a)*math.factorial(b))
+
+
+print(paths(2,2))
+	
+	
