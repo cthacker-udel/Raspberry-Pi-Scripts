@@ -309,5 +309,84 @@ def paths(a,b):
 
 
 print(paths(2,2))
-	
-	
+
+
+products = [
+  { 'number': 1, 'price': 100, 'name': 'Orange juice' },
+  { 'number': 2, 'price': 200, 'name': 'Soda' },
+  { 'number': 3, 'price': 150, 'name': 'Chocolate snack' },
+  { 'number': 4, 'price': 250, 'name': 'Cookies' },
+  { 'number': 5, 'price': 180, 'name': 'Gummy bears' },
+  { 'number': 6, 'price': 500, 'name': 'Condoms' },
+  { 'number': 7, 'price': 120, 'name': 'Crackers' },
+  { 'number': 8, 'price': 220, 'name': 'Potato chips' },
+  { 'number': 9, 'price': 80,  'name': 'Small snack' }
+]
+
+def vending_machine(products, money, prod_number):
+
+	if prod_number < 1 or prod_number > 9:
+		return 'Enter a valid product number'
+
+	prod = [x for x in products if x['number'] == prod_number][0]
+	amt = prod['price']
+	if amt > money:
+		return 'Not enough money for this product'
+	elif amt == money:
+		return {'product': prod['name'], 'change': []}
+	else:
+
+		change = []
+		diff = money - amt
+		while diff != 0:
+			if diff >= 500:
+				diff -= 500
+				change.append(500)
+			elif diff >= 200:
+				diff -= 200
+				change.append(200)
+			elif diff >= 100:
+				diff -= 100
+				change.append(100)
+			elif diff >= 50:
+				diff -= 50
+				change.append(50)
+			elif diff >= 20:
+				diff -= 20
+				change.append(20)
+			elif diff >= 10:
+				diff -= 10
+				change.append(10)
+			else:
+				change.append(diff)
+				diff = 0
+		change = sorted(change,reverse=True)
+		return {'product': prod['name'], 'change': change}
+
+print(vending_machine(products,200,7))
+
+
+def license_plate(plate, platelen):
+	plate = plate.upper()
+	split_plate = ''.join(plate.split('-'))
+	arr = []
+	amt = 0
+	if len(split_plate) % platelen != 0:
+		split_plate_len = len(split_plate)
+		while(split_plate_len) > platelen:
+			split_plate_len -= platelen
+		arr.append(split_plate[0:split_plate_len])
+		split_plate = split_plate[split_plate_len:]
+	emptystring = ''
+	for eachletter in split_plate:
+		if len(emptystring) == platelen:
+			arr.append(emptystring)
+			emptystring = eachletter
+		else:
+			emptystring = emptystring + eachletter
+	arr.append(emptystring)
+	return '-'.join(arr)
+
+
+print(license_plate("5F3Z-2e-9-w",4))
+print(license_plate("2-5g-3-J", 2))
