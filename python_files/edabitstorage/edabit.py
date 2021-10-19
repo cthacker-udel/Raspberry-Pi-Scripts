@@ -390,3 +390,43 @@ def license_plate(plate, platelen):
 
 print(license_plate("5F3Z-2e-9-w",4))
 print(license_plate("2-5g-3-J", 2))
+
+
+def is_palindrome(astr):
+
+	if len(astr) <= 1:
+		return True
+	else:
+		return astr[0] == astr[len(astr)-1] and is_palindrome(astr[1:len(astr)-1])
+
+def longest_palindrome(aStr):
+
+	if is_palindrome(aStr):
+		return len(aStr)
+	else:
+		split_str = sorted(list(aStr))
+		letters = {}
+		for eachletter in aStr:
+			if eachletter in letters:
+				letters[eachletter] += 1
+			else:
+				letters[eachletter] = 1
+				## there can only be one odd number
+		nums = [letters[x] for x in letters]
+		found_odd = False
+		for i in range(len(nums)):
+			if nums[i] % 2 != 0:
+				if found_odd:
+					while nums[i] % 2 != 0:
+						nums[i] -= 1
+				else:
+					found_odd = True
+		print(nums)
+		for i in range(len(split_str)):
+			if ''.join(split_str).count(split_str[i]) == 1:
+				del split_str[i]
+				break
+		return len(split_str)
+
+print(longest_palindrome('abccccdd'))
+
