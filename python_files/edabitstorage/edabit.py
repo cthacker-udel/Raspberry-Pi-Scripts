@@ -1,5 +1,6 @@
 import itertools
 import math
+import re
 
 def __init__(self):
     self.name = 'Edabit practice'
@@ -429,4 +430,78 @@ def longest_palindrome(aStr):
 		return len(split_str)
 
 print(longest_palindrome('abccccdd'))
+
+def fibo_word(num):
+
+	if num < 2:
+		return 'invalid'
+	else:
+		arr = ['b', 'a']
+		for i in range(2,len(num)):
+			letter1 = arr[i-1]
+			letter2 = arr[i-2]
+			arr.append('{}{}'.format(letter1,letter2))
+		return ', '.join(arr)
+
+
+def security(aStr):
+
+	modified_str = ''.join(aStr.split('x'))
+	expr1 = '(T{1,}\$)'
+	expr2 = '(\$T{1,})'
+	check1 = re.compile(expr1)
+	check2 = re.compile(expr2)
+	if check1.match(modified_str):
+		return 'ALARM!'
+	elif check2.match(modified_str):
+		return 'ALARM!'
+	else:
+		return 'Safe'
+
+
+def just_another_sum_problem(x,y):
+
+    total = 0
+    if x < 0:
+        tmp_x = abs(x)
+        amt = (tmp_x * (0 + tmp_x)) // 2
+        total += -1 * (amt)
+        total += (y * (y + 0)) // 2
+        return total
+    elif y < 0:
+        tmp_y  = abs(y)
+        amt = (tmp_y * (0 + tmp_y)) // 2
+        total += -1 * amt
+        total += (x * (x + 0)) // 2
+        return total
+    else:
+        return (abs(x-y) * (x + y)) // 2
+        
+
+
+# NegativeH
+print(just_another_sum_problem(1,-10))#-54)
+print(just_another_sum_problem(-20,5))#-195)
+print(just_another_sum_problem(-40,20))#-610)
+print(just_another_sum_problem(20,-100))#-4840)
+print(just_another_sum_problem(-15,3))#-114)
+print(just_another_sum_problem(-8,4))#-26)
+
+#This 2 tests is for you to think of a much more efficient solution 
+
+#Negative
+print(just_another_sum_problem(13,-1000000000))#-500000000499999909)
+#Positive
+print(just_another_sum_problem(7, 1000000000))#500000000499999979)
+
+#Enjoy :) 
+
+#Positive
+print(just_another_sum_problem(90,45))#3105)
+print(just_another_sum_problem(100,58))#3397)
+print(just_another_sum_problem(65,48))#1017)
+print(just_another_sum_problem(2,3))#5)
+print(just_another_sum_problem(89,256))#28980)
+print(just_another_sum_problem(302,56))#44213)
+        
 
