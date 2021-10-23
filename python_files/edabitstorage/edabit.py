@@ -503,5 +503,23 @@ print(just_another_sum_problem(65,48))#1017)
 print(just_another_sum_problem(2,3))#5)
 print(just_another_sum_problem(89,256))#28980)
 print(just_another_sum_problem(302,56))#44213)
+
+
+def invert(astr,ind=1):
+
+    if ind == (len(astr) // 2):
+        return astr
+    else:
+
+        char1 = astr[len(astr)-ind]
+        char2 = astr[ind-1]
+        substr = astr[ind:len(astr)-ind]
+        substr.swapcase()
+
+        return invert(astr[len(astr)-1] + astr[ind+1:len(astr)-1] + astr[ind-1],ind+1)
+
+
+invert('step on NO PETS')
+
         
 
