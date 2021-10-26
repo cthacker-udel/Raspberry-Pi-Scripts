@@ -521,5 +521,110 @@ def invert(astr,ind=1):
 
 invert('step on NO PETS')
 
+
+def guess_sequence(num):
+
+    return 30*(num**2) + 60*num + 0
+
+
+def is_match(string,expr):
+
+    if '.' not in expr and '*' not in expr:
+        if len(expr) == len(string):
+            return expr == string
+        else:
+            return False
+    elif re.compile(expr).match(string):
+        return True
+    else:
+        return False
+
+
+def sudoku_validator(board):
+
+    for i in range(len(board)):
+        if len(set([board[i][x] for x in range(len(board))])) != 9:
+            return False
+
+    for i in range(len(board)):
+        if len(set(board[x][i] for x in range(len(board)))) != 9:
+            return False
+    
+
+    ## 3x3 checking
+
+    box = []
+    for i in range(0,len(board),3):
+        for j in range(i,i+3):
+            box.append(board[i][j])
+            box.append(board[i+1][j])
+            box.append(board[i+2][j])
+        if len(set(box)) != 9:
+            return False
+        else:
+            box = []
+    return True
+
+
+def expanded_form(decimal):
+
+    num_str = str(decimal)
+    num_part = num_str[0:num_str.index('.')]
+    dec_part = num_str[num_str.index('.')+1:]
+    amts = []
+    for i in range(len(num_part)):
+        if num_part[i] == '0':
+            continue
+        amts.append('{}'.format(num_part[i] + len((num_part[i+1:])) * '0'))
+    for i in range(len(dec_part)):
+        if dec_part[i] == '0':
+            continue
+        amts.append('{}/{}'.format(dec_part[i],('1' + ('0' * (i+1)))))
+    return ' + '.join(amts)
+
+
+def drange(num1,num2=0,num3=1):
+    
+    rounder = 0
+    if type(num1) is float or type(num2) is float or type(num3) is float:
+        ## find largest decimal
+        largest_decimal = 0
+        if '.' in str(num1):
+            largest_decimal = len(str(num1)[str(num1).index('.')+1:])
+        if '.' in str(num2):
+            largest_decimal = max(largest_decimal,len(str(num2)[str(num2).index('.')+1:]))
+        if '.' in str(num3):
+            largest_decimal = max(largest_decimal, len(str(num3)[str(num3).index('.')+1:]))
+        rounder = largest_decimal
+
+    if num2 == 0:
+        num1,num2 = num2,num1
+    nums = [num1]
+    if rounder != 0:
+        while round(num1,rounder) < round(num2,rounder):
+            if rounder:
+                num1 += num3
+                num1 = round(num1,rounder)
+                if round(num1,rounder) >= round(num2,rounder):
+                    break
+            nums.append(num1)
+        return tuple(nums)
+    else:
+        while num1 < num2:
+            num1 += num3
+            if num1 >= num2:
+                break
+            nums.append(num1)
+        return tuple(nums)
+
+
+
+print(drange(1.2, 5.9, 0.45))#, (1.2, 1.65, 2.1, 2.55, 3.0, 3.45, 3.9, 4.35, 4.8, 5.25, 5.7))
+print(drange(10))#, (0, 1, 2, 3, 4, 5, 6, 7, 8, 9))
+print(drange(1, 7, 1.2))#, (1, 2.2, 3.4, 4.6, 5.8))
+print(drange(3, 10))#, (3, 4, 5, 6, 7, 8, 9))
+print(drange(0.112, 13, 3.27))#, (0.112, 3.382, 6.652, 9.922))
+
         
+
 
