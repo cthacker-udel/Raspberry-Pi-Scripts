@@ -1,6 +1,7 @@
 import java.util.stream.*;
 import java.util.ArrayList;
 import java.util.regex.*;
+import java.util.*;
 public class javatemp{
 
     public static int euclid(int a, int b){
@@ -275,55 +276,49 @@ public class javatemp{
 
     }
 
+    public static int trimmedAverages(int[] nums){
+
+        Arrays.sort(nums);
+        final int[] tmpNums = nums;
+        nums = IntStream.range(1,tmpNums.length-1).map(e -> tmpNums[e]).toArray();
+
+        return Math.round(IntStream.of(nums).sum()*1.0 / (nums.length-2));
+
+    }
+
+    public static int[] twoSum(int[] numbers, int target)
+    {
+        final ArrayList<Integer> numList = new ArrayList<Integer>(numbers);
+
+        final int[] tmpNums = numbers;
+        final int targ = target;
+
+        //return IntStream.range(0,numbers.length).filter(e -> e == 2)
+        return new int[]{};
+    }
+
+
+    public static String expandedForm(int number){
+        
+        System.out.println(String.format("number = %d",number));
+        ArrayList<String> nums = new ArrayList<>();
+        String strNum = String.valueOf(number);
+        for(int i = 0; i < strNum.length(); i++){
+
+            char firstChar = strNum.charAt(i);
+            String subStr = strNum.substring(i+1);
+            nums.add(String.format("%s%s",firstChar,"0".repeat(subStr.length())));
+
+        }
+        
+        
+        return String.join(" + ",nums);
+
+    }
+
 	public static void main(String[] args){
 
-public class FindNumberTest {
-	@Test
-	public void test01() { 
-		assertEquals(1, FindNumber.wrongNumber(new int[][] {{2, 2, 3, 6}, {4, 5, 6, 15}, {7, 8, 9, 24}, {12, 15, 18, 45}}));
-	}
-
-	@Test
-	public void test02() { 
-		assertEquals(4, FindNumber.wrongNumber(new int[][] {{1, 2, 3, 6}, {5, 5, 6, 15}, {7, 8, 9, 24}, {12, 15, 18, 45}}));
-	}
-
-	@Test
-	public void test03() { 
-		assertEquals(3, FindNumber.wrongNumber(new int[][] {{1, 2, 4, 6}, {4, 5, 6, 15}, {7, 8, 9, 24}, {12, 15, 18, 45}}));
-	}
-
-	@Test
-	public void test04() { 
-		assertEquals(5, FindNumber.wrongNumber(new int[][] {{1, 2, 3, 6}, {4, 6, 6, 15}, {7, 8, 9, 24}, {12, 15, 18, 45}}));
-	}
-
-	@Test
-	public void test05() { 
-		assertEquals(4, FindNumber.wrongNumber(new int[][] {{1, 2, 3, 6}, {3, 5, 6, 15}, {7, 8, 9, 24}, {12, 15, 18, 45}}));
-	}
-
-	@Test
-	public void test06() { 
-		assertEquals(6, FindNumber.wrongNumber(new int[][] {{1, 2, 3, 7}, {4, 5, 6, 15}, {7, 8, 9, 24}, {12, 15, 18, 45}}));
-	}
-
-	@Test
-	public void test07() { 
-		assertEquals(45, FindNumber.wrongNumber(new int[][] {{1, 2, 3, 6}, {4, 5, 6, 15}, {7, 8, 9, 24}, {12, 15, 18, 46}}));
-	}
-
-	@Test
-	public void test08() { 
-		assertEquals(15, FindNumber.wrongNumber(new int[][] {{1, 2, 3, 6}, {4, 5, 6, 15}, {7, 8, 9, 24}, {12, 13, 18, 45}}));
-	}
-
-	@Test
-	public void test09() { 
-		assertEquals(15, FindNumber.wrongNumber(new int[][] {{1, 2, 3, 6}, {4, 5, 6, 17}, {7, 8, 9, 24}, {12, 15, 18, 45}}));
-	}
-}
-// credit goes to the original author/publisher @Mubashir Hassan
+        expandedForm(12);
 
 	}
 
