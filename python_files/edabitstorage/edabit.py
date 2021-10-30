@@ -728,6 +728,56 @@ def increment_string(astr):
 print(increment_string('1foo'))
 print(increment_string('foo1'))
 print(increment_string('foo0009'))
+
+
+def record_temps(records,currentweek):
+
+    sund_max = max(records[0][1],currentweek[0][1])
+    sund_min = min(records[0][0],currentweek[0][0])
+
+    mond_max = max(records[1][1],currentweek[1][1])
+    mond_min = min(records[1][0],currentweek[1][0])
+
+    tues_max = max(records[2][1],currentweek[2][1])
+    tues_min = min(records[2][0],currentweek[2][0])
+
+    wed_max = max(records[3][1],currentweek[3][1])
+    wed_min = min(records[3][0],currentweek[3][0])
+
+    thurs_max = max(records[4][1],currentweek[4][1])
+    thurs_min = min(records[4][0],currentweek[4][0])
+
+    friday_max = max(records[5][1],currentweek[5][1])
+    friday_min = min(records[5][0],currentweek[5][0])
+
+    sat_max = max(records[6][1],currentweek[6][1])
+    sat_min = min(records[6][0],currentweek[6][0])
+
+    return [[sund_min,sund_max],[mond_min,mond_max],[tues_min,tues_max],[wed_min,wed_max],[thurs_min,thurs_max],[friday_min,friday_max],[sat_min,sat_max]]
+
+
+print(record_temps(
+        [
+          [25, 80],
+          [27, 88],
+          [19, 88],
+          [23, 85],
+          [21, 89],
+          [23, 78],
+          [17, 79],
+        ],
+        [
+          [40, 70],
+          [41, 68],
+          [45, 68],
+          [39, 65],
+          [44, 72],
+          [43, 69],
+          [37, 68],
+        ]
+      ))
+
+
         
 
     

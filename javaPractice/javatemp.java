@@ -448,9 +448,62 @@ public class javatemp{
 
     }
 
+    public static String sevenBoom(int[] arr){
+
+        return IntStream.of(arr).anyMatch(e -> String.valueOf(e).indexOf("7") != -1)? "Boom!" : "there is no 7 in the array";
+
+    }
+
+    public static int primeNumbers(int num){
+
+        return IntStream.range(2,num).parallel().filter(e -> isPrime(e)).count();
+
+    }
+
+    public static String textToNum(String word){
+
+        HashMap<String,Integer> theMap = new HashMap<String,Integer>();
+        theMap.put("ABC",2);
+        theMap.put("DEF",3);
+        theMap.put("GHI",4);
+        theMap.put("JKL",5);
+        theMap.put("MNO",6);
+        theMap.put("PQRS",7);
+        theMap.put("TUV",8);
+        theMap.put("WXYZ",9);
+
+        String emptyString = "";
+        boolean foundLetter = false;
+        for(int i = 0; i < word.length(); i++){
+
+            for(String eachentry: theMap.keySet()) {
+                if (eachentry.contains(word.charAt(i) + "")) {
+                    emptyString += theMap.get(eachentry);
+                    foundLetter = true;
+                    break;
+                }
+                else{
+                    foundLetter = false;
+                }
+            }
+            if(foundLetter){
+                foundLetter = false;
+            }
+            else{
+                emptyString += word.charAt(i);
+            }
+
+        }
+        System.out.println(emptyString);
+        return emptyString;
+
+
+
+    }
+
 	public static void main(String[] args){
 
-        System.out.println(digPow(47016,2));
+        System.out.println(textToNum("123-647-EYES"));
 
 	}
 
