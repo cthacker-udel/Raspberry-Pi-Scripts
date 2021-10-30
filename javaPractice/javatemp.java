@@ -413,9 +413,44 @@ public class javatemp{
         */
     }
 
+    public static long generateNumber(int n, int p){
+
+        String strNum = String.valueOf(n);
+
+        long total = 0;
+
+        for(int i = 0; i < strNum.length(); i++){
+
+            int number = Integer.parseInt(strNum.charAt(i)+"");
+            total += (long)Math.pow(number,p++);
+
+        }
+        return total;
+
+        //return LongStream.rangeClosed(p,p+strNum.length()-1).map(e -> Math.round(Math.pow(Integer.parseInt(strNum.charAt(ind++)+""),e))).reduce((a,b) -> a+b).getAsLong();
+
+    }
+
+    public static long digPow(int n, int p){
+
+        long genNumber = generateNumber(n,p);
+        double testRes = genNumber / n;
+        if(genNumber == n){
+            return p;
+        }
+        else if(Math.floor(testRes) != testRes || Math.floor(testRes) <= 1 || (testRes * n) != genNumber){
+            return -1;
+        }
+        else{
+            return (long)Math.floor(testRes);
+        }
+        
+
+    }
+
 	public static void main(String[] args){
 
-        System.out.println(sqInRect(5,3));
+        System.out.println(digPow(47016,2));
 
 	}
 
