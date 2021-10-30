@@ -778,6 +778,29 @@ print(record_temps(
       ))
 
 
+def robot_path(path):
+
+    coord_1_x,coord_1_y = 3,2
+    coord_2_x,coord_2_y = -4,3
+
+    coord_x = 0
+    coord_y = 0
+
+    for eachmovement in path:
+        if eachmovement == 's':
+            coord_y -= 1
+        elif eachmovement == 'e':
+            coord_x += 1
+        elif eachmovement == 'w':
+            coord_x -= 1
+        elif eachmovement == 'n':
+            coord_y += 1
+    return (coord_x == coord_1_x and coord_y == coord_1_y) or (coord_x == coord_2_x and coord_y == coord_2_y)
+
+
+robot_path(['s', 'e', 'e', 'n', 'n', 'e', 'n'])
+
+
         
 
     
