@@ -316,9 +316,106 @@ public class javatemp{
 
     }
 
+    public static boolean isPrime(int number){
+
+        if(number <= 1){
+            return false;
+        }
+        else if(number == 2 || number == 3 || number == 5){
+            return true;
+        }
+        else if(number % 2 == 0 || number % 3 == 0 || number % 5 == 0){
+            return false;
+        }
+        else{
+
+            for(int i = 2; i < Math.sqrt(number)+1; i++){
+                if(number % i == 0){
+                    return false;
+                }
+            }
+            return true;
+
+        }
+
+    }
+
+    public static String highAndLow(String numbers){
+
+        int[] nums = Stream.of(numbers.split(" ")).mapToInt(e -> Integer.parseInt(e)).toArray();
+        Arrays.sort(nums);
+        return String.format("%d %d",nums[0],nums[nums.length-1]);
+
+    }
+
+    public static int[] deleteNth(int[] elements, int maxOccurences){
+
+        ArrayList<Integer> list = new ArrayList<>();
+        for(int elem: elements){
+
+            if(Collections.frequency(list, elem) == maxOccurences){
+                continue;
+            }
+            else{
+                list.add(elem);
+            }
+
+        }
+        int[] newElems = new int[list.size()];
+        for(int i = 0; i < list.size(); i++){
+            newElems[i] = list.get(i);
+        }
+        return newElems;
+        
+    }
+
+    public static int calculateYears(double principal, double interest, double tax, double desired){
+
+        double total = principal;
+        int years = 0;
+        while(total <= desired){
+            years++;
+            double interestAmt = principal * interest;
+            principal += interestAmt;
+            double taxAmt = interestAmt * tax;
+            principal -= taxAmt;
+            total = principal;
+        }
+        return years;
+
+    }
+
+    public static List<Integer> sqInRect(int lng, int wdth) {
+        if(lng == wdth){
+          return null;
+        }
+            ArrayList<Integer> intList = new ArrayList<>();
+        do{
+          while(lng > wdth){
+            intList.add(wdth);
+            lng -= wdth;
+          }
+          while(wdth > lng){
+            intList.add(lng);
+            wdth -= lng;
+          }
+        }while(wdth != lng);
+        intList.add(wdth);
+        return intList;
+        /*
+        int[] res = new int[intList.size()];
+        for(int i = 0; i < intList.size(); i++){
+          res[i] = intList.get(i);
+          System.out.print(res[i]);
+        }
+        System.out.println("");
+        return res;
+        */
+    }
+
 	public static void main(String[] args){
 
-        expandedForm(12);
+        System.out.println(sqInRect(5,3));
 
 	}
 

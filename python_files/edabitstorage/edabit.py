@@ -625,6 +625,113 @@ print(drange(1, 7, 1.2))#, (1, 2.2, 3.4, 4.6, 5.8))
 print(drange(3, 10))#, (3, 4, 5, 6, 7, 8, 9))
 print(drange(0.112, 13, 3.27))#, (0.112, 3.382, 6.652, 9.922))
 
+def check_array(arr):
+
+    first = len(set([x=='' for x in arr])) == 1
+    second = [x for x in set([x=='' for x in arr])][0]
+    return first and second
+
+def complete_bracelet(nums):
+
+    str_num =''.join([str(x) for x in nums])
+    #print(nums.count([1,2,2]))
+    max_len = len(nums) // 2
+    for i in range(2,max_len+1):
+        combos = set([x for x in itertools.combinations(nums,i)])
+        str_combos = [''.join([str(x) for x in y]) for y in combos]
+        split_combos = [x for x in [str_num.split(y) for y in str_combos]]
+        found_combos = [check_array(x) for x in split_combos]
+        found_true = [x for x in found_combos if x]
+        if len(found_true) > 0:
+            return True
+    return False
+
+print(complete_bracelet([1, 2, 2, 1, 2, 2]))# True)
+print(complete_bracelet([5, 1, 2, 2]))# False)
+print(complete_bracelet([5, 5, 5]))# False)
+print(complete_bracelet([5, 5, 7, 7]))# False)
+print(complete_bracelet([5, 5, 7, 7, 5, 5, 7, 7]))# True)
+print(complete_bracelet([1, 2, 1, 2, 1, 2]))# True)
+print(complete_bracelet([1, 2, 2, 2, 1, 2, 2]))# False)
+print(complete_bracelet([1, 2, 2, 2, 1, 2, 2, 2, 1, 2, 2, 2]))# True)
+print(complete_bracelet([5, 2, 5, 5, 2, 5, 2, 5, 2, 2, 5, 2, 5, 2, 5, 5, 2, 5, 2, 5, 2, 2, 5, 2]))# True)
+print(complete_bracelet([1, 2, 3, 3, 1, 2, 3, 3]))# True)
+print(complete_bracelet([1, 2, 1, 2, 1, 2, 1, 2]))# True)
+print(complete_bracelet([1, 1, 6, 1, 1, 7, 1, 1, 6, 1, 1, 7, 1, 1, 6, 1, 1, 7]))# True)
+print(complete_bracelet([4, 4, 3, 4, 4, 4, 4, 3, 4, 4]))# True)
+print(complete_bracelet([1, 2, 2, 2, 1, 2, 2, 2, 1]))# False)
+print(complete_bracelet([1, 1, 6, 1, 1, 7]))# False)
+print(complete_bracelet([5, 5]))# False)
+        
+
+class Train:
+    def __init__(self,destinations,expected_time):
+        self.destinations = destinations
+        self.expected_time = expected_time
+
+trains = [
+Train(['Townsville', 'Suburbia', 'Urbantska'], '13:04'),
+Train(['Farmsdale', 'Suburbia', 'Lakeside Valley'], '13:20'),
+Train(['Suburbia', 'Townsville', 'Lakeside Valley'], '13:22')
+]
+
+def manage_delays(trainobj, destination, delay):
+
+    #print(trainobj.destinations)
+    #print(destination in trainobj.destinations)
+    if destination in trainobj.destinations:
+        ## then add to expected time
+        delaysec = delay * 60
+        expecHr = int(trainobj.expected_time.split(':')[0])
+        expecMin = int(trainobj.expected_time.split(':')[1])
+        total_expec = (((expecHr * 60) + expecMin) * 60) + delaysec
+        total_hr = 0
+        total_min = 0
+        total_sec = 0
+        while total_expec >= 3600:
+            total_hr += 1
+            total_expec -= 3600
+        while total_expec >= 60:
+            total_min += 1
+            total_expec -= 60
+        total_time = '{:02}:{:02}'.format(total_hr,total_min)
+        #print('total time = {}'.format(total_time))
+        #print('stats = hr:{} min:{} total_expec:{}'.format(total_hr,total_min,total_expec))
+        trainobj.expected_time = total_time
+
+
+def increment_string(astr):
+
+    expr = re.compile('\w+(\d+$)')
+    if not expr.match(astr):
+        ## does not match
+        return '{}1'.format(astr)
+    else:
+        ## cycle to end of string to find num start
+        alpha = 'abcdefghijklmnopqrstuvwxyz'
+        lower_word = astr.lower()
+        ind = 0
+        for i in range(len(lower_word)-1,-1,-1):
+            if lower_word[i] in alpha:
+                ## found end of numerical value
+                ind = i
+                break
+        substr = lower_word[ind+1:]
+        substr_num = int(substr)
+        substr_num += 1
+        substr_num = str(substr_num)
+        while len(substr_num) < len(substr):
+            substr_num = '0' + substr_num
+        return astr[0:ind+1] + substr_num
+
+
+print(increment_string('1foo'))
+print(increment_string('foo1'))
+print(increment_string('foo0009'))
+        
+
+    
+
         
 
 
