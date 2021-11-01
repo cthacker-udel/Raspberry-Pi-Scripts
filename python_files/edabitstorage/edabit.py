@@ -801,6 +801,87 @@ def robot_path(path):
 robot_path(['s', 'e', 'e', 'n', 'n', 'e', 'n'])
 
 
+def even_or_odd(number):
+    odd = '013579'
+    even = '02468'
+    odd_sum = sum([int(x) for x in list(str(number)) if x in odd])
+    even_sum = sum([int(x) for x in list(str(number)) if x in even])
+    print('odd sum = {} evensum = {}'.format(odd_sum,even_sum))
+    return 'Odd is greater than Even' if odd_sum > even_sum else 'Even is greater than Odd' if odd_sum < even_sum else 'Even and Odd are the same'
+
+
+def halflife_calculator(mass,time,numlives):
+
+    years = 0
+    while numlives > 0:
+        mass = mass / 2
+        years += time
+        numlives -= 1
+    print('mass={} years={} numlives={}'.format(mass,years,numlives))
+    return [round(mass,3),years]
+
+
+def sine(num1,num2):
+
+    return round(num1 * math.sin(math.radians(num2)),3)
+
+def cosine(num1,num2):
+
+    return round(num1 * math.cos(math.radians(num2)),3)
+
+def tangent(num1,num2):
+
+    return round(num1 * math.tan(math.radians(num2)),3)
+
+def flick_switch(flicks):
+
+    def_val = True
+    vals = []
+    for i in flicks:
+        if i == 'flick':
+            def_val = not def_val
+            vals.append(def_val)
+        else:
+            vals.append(def_val)
+    return vals
+
+
+def lottery(tickets,minwin):
+
+    mini_wins = 0
+    for i in tickets:
+        ticket_word = i[0]
+        ticket_value = i[1]
+        if len([x for x in ticket_word if ord(x) == ticket_value]) > 0:
+            mini_wins += 1
+    return 'Winner!' if mini_wins >= minwin else 'Loser!'
+
+
+def security(astr):
+
+    astr = astr.replace('x','')
+
+    print(astr)
+
+    first_false = re.compile('[\$]+[T]+')
+
+    second_false = re.compile('[T]+[\$]+')
+
+    if len(first_false.findall(astr)) > 0:
+        return 'ALARM!'
+    elif len(second_false.findall(astr)) > 0:
+        return 'ALARM!'
+    else:
+        return 'Safe'
+
+
+print(security("GxxxTxxGxxTxx$xx$xxTxxG"))
+
+
+
+
+
+
         
 
     

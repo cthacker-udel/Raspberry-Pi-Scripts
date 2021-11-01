@@ -4,6 +4,8 @@ import java.util.regex.*;
 import java.util.*;
 public class javatemp{
 
+    /*
+
     public static int euclid(int a, int b){
 
         int r = -1;
@@ -82,42 +84,7 @@ public class javatemp{
         System.out.println(fracs[fracs.length-1]);
         System.out.println("-----");
 
-        /*
-        String substr = fractions.subtring(0,fractions.indexOf("+"));
-        bool negAddition = false;
-        bool negSubtraction = false;
-        if(substr.split("/").length == 2){ // first fraction is addition to second ex : -1/4+5/4 --> -1/4 --> [-1,4]
-            // is addition
-            if(substr.indexOf("-") != -1){
-                // is negative
-                negAddition = true;
-            }
-        }
-        else{
-            substr = fractions.substring(0,fractions.indexOf("-"));
-            if(substr.split("/").length == 2){
-                if(substr.indexOf("-") != -1){
-                    negSubtraction = true;
-                }
-            }
-        }
-        String[] split = fractions.split("\\+");
-        for(int i = 0; i < split.length-1; i++){ // -1/4+5/4+6/4 --> 
-            int denom1 = Integer.parseInt(split[i].substring(split[i].indexOf("/")+1));
-            int denom2 = Integer.parseInt(split[i+1].substring(split[i+1].indexOf("/")+1));
-            int theLcm = lcm(denom1,denom2,euclid(denom1,denom2));
-            int mult = theLcm / denom1;
-            int numerator1 = Integer.parseInt(split[i].substring(0,split[i].indexOf("/")));
-            int numerator2 = Integer.parseInt(split[i+1].substring(0,split[i+1].indexOf("/")));
-            numerator1 *= mult;
-            numerator2 *= mult;
-            denom1 *= mult;
-            denom2 *= mult;
-            System.out.println(String.format("%d/%d",numerator1,denom1));
-            System.out.println(String.format("%d/%d",numerator2,denom2));
-        }
-        return "";
-        */
+        
         return fracs[fracs.length-1];
 
 
@@ -402,15 +369,6 @@ public class javatemp{
         }while(wdth != lng);
         intList.add(wdth);
         return intList;
-        /*
-        int[] res = new int[intList.size()];
-        for(int i = 0; i < intList.size(); i++){
-          res[i] = intList.get(i);
-          System.out.print(res[i]);
-        }
-        System.out.println("");
-        return res;
-        */
     }
 
     public static long generateNumber(int n, int p){
@@ -501,9 +459,121 @@ public class javatemp{
 
     }
 
+
+    public static String factors(int n){
+
+        HashMap<Integer,Integer> map = new LinkedHashMap<>();
+
+        int starter = 2;
+        while(n != 1){
+            
+            if(isPrime(n)){
+                map.put(n,1);
+                break;
+            }
+            else if(isPrime(starter) && n % starter == 0){
+                n /= starter;
+                if(map.containsKey(starter)){
+                    map.put(starter,map.get(starter)+1);
+                }
+                else{
+                    map.put(starter,1);
+                }
+                starter = 2;
+                continue;
+            }
+            starter++;
+
+        }
+
+        StringBuilder sb = new StringBuilder();
+        for(Map.Entry<Integer,Integer> eachentry: map.entrySet()){
+            if(eachentry.getValue() == 1){
+                sb.append(String.format("(%d)",eachentry.getKey()));
+            }
+            else{
+                sb.append(String.format("(%d**%d)",eachentry.getKey(),eachentry.getValue()));
+            }
+        }
+        return sb.toString();
+
+    }
+
+    */
+
+    
+    public static int TripleDouble(long num1, long num2){
+
+        String num1Str = String.valueOf(num1);
+        String num2Str = String.valueOf(num2);
+        HashSet<String> strSet = new HashSet<String>(Arrays.asList(num1Str.split("")));
+        for(String eachDigit: strSet){
+
+            Pattern pattern = Pattern.compile(String.format("[%s]{3}",eachDigit));
+            Matcher matcher = pattern.matcher(num1Str);
+            if(matcher.find()){
+                Pattern pattern2 = Pattern.compile(String.format("[%s]{2}",eachDigit));
+                Matcher matcher2 = pattern2.matcher(num2Str);
+                if(matcher2.find()){
+                    return 1;
+                }
+            }
+
+        }
+        return 0;
+
+    }
+
+    public static String encrypt(final String text, final int n){
+
+        String tmpText = text;
+        for(int times = 0; times < n; times++){
+            StringBuilder odd = new StringBuilder();
+            StringBuilder even = new StringBuilder();
+            for(int i = 0; i < tmpText.length(); i++){
+
+                if(i != 0 && i % 2 != 0){
+                    odd.append(tmpText.charAt(i)+"");
+                }
+                else{
+                    even.append(tmpText.charAt(i)+"");
+                }
+
+            }
+            tmpText = odd.toString() + even.toString();
+        }
+        return tmpText;
+
+    }
+
+    public static String decrypt(final String text, final int n){
+
+        String tmpText = text;
+        // place first half in odd indexes, and second half in even indexes
+        char[] result = text.toCharArray();
+        int half = text.length() / 2;
+        for(int times = 0; times < n; times++){
+
+            int oddInd = 1;
+            for(int i = 0; i < half; i++){
+                result[oddInd] = tmpText.charAt(i);
+                oddInd += 2;
+            }
+
+            int evenInd = 0;
+            for(int i = half; i < tmpText.length(); i++){
+                result[evenInd] = tmpText.charAt(i);
+                evenInd += 2;
+            }
+            tmpText = String.copyValueOf(result);
+        }
+        return tmpText;
+
+    }
+
 	public static void main(String[] args){
 
-        System.out.println(textToNum("123-647-EYES"));
+        System.out.println(decrypt("hsi  etTi sats!", 1));
 
 	}
 
