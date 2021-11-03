@@ -571,9 +571,421 @@ public class javatemp{
 
     }
 
+    public static String camelCase(String word){
+
+        return Stream.of(word.split("")).map(e -> e.toUpperCase().equals(e)? " "+e: e).reduce((a,b) -> a+b).get();
+
+    }
+
+    public static boolean isPalindrome(String s){
+
+        if(s.length() <= 1){
+            return true;
+        }
+        else if(s.charAt(0) != s.charAt(s.length()-1)){
+            return false;
+        }
+        else{
+            return s.charAt(0) == s.charAt(s.length()-1) && isPalindrome(s.substring(1,s.length()-1));
+        }
+
+    }
+
+    public static int longestPalindrome(final String s){
+
+        // start at length, then move from there
+
+        int len = s.length();
+        int exclusive = len;
+        while(exclusive != 0){
+
+            for(int i = 0; i <= s.length()-exclusive; i++){
+
+                if(i+exclusive <= s.length()){
+                    String substr = s.substring(i,i+exclusive);
+                    if(isPalindrome(substr)){
+                        return substr.length();
+                    }
+                }
+
+            }
+            exclusive--;
+            
+        }
+        return 1;
+
+
+    }
+
+    public static int multDigits(long n){
+
+        return Stream.of(String.valueOf(n).split("")).mapToInt(e -> Integer.parseInt(e)).reduce((a,b) -> a*b).getAsInt();
+
+    }
+
+    public static int persistence(long n){
+
+        int steps = 0;
+        while(true){
+            int result = multDigits(n);
+            if(result == 1){
+                steps++;
+                return steps;
+            }
+            else{
+                steps++;
+                n = result;
+            }
+        }
+
+    }
+
+    public static int getValue(String word){
+
+        String alpha = " abcdefghijklmnopqrstuvwxyz";
+        word = word.toLowerCase();
+        return Stream.of(word.split("")).mapToInt(e -> alpha.indexOf(e)).sum();
+
+    }
+
+    public static String nthRank(String st, Integer[] we, int n){
+
+        if(st.length() == 0){
+            return "No participants";
+        }
+        else{
+
+            String[] participants = st.split(",");
+            if(n > participants.length){
+                return "Not enough participants";
+            }
+            else{
+
+                int[] ranks = new int[participants.length];
+                int[] winningNumbers = new int[participants.length];
+
+                HashMap<String,Integer> numbers = new LinkedHashMap<>();
+
+                for(int i = 0; i < participants.length; i++){
+
+                    ranks[i] = getValue(participants[i]) + participants[i].length();
+                    winningNumbers[i] = ranks[i] * we[i];
+                    if(!numbers.containsKey(participants[i])){
+                        numbers.put(participants[i],winningNumbers[i]);
+                    }
+
+                }
+
+                Arrays.sort(participants,new Comparator(){
+
+                    public int compare(Object o1, Object o2){
+
+                        String obj1 = (String)o1;
+                        String obj2 = (String)o2;
+                        int highScore1 = numbers.get(obj1);
+                        int highScore2 = numbers.get(obj2);
+
+                        if(highScore1 > highScore2){
+                            return -1;
+                        }
+                        else if(highScore1 < highScore2){
+                            return 1;
+                        }
+                        else{
+
+                            int result = obj1.compareTo(obj2);
+                            if(result > 0){
+                                // obj1 is greater
+                                return 1;
+                            }
+                            else if(result < 0){
+                                // obj2 is greater
+                                return -1;
+                            }
+                            else{
+                                return 0;
+                            }
+
+                        }
+
+                    }
+
+                });
+
+                for(String eachString: participants){
+                    System.out.println(eachString);
+                }
+                return participants[n-1];
+
+            }
+
+        }
+
+    }
+
+    public static String isWinner(char[][] board){
+
+        // check all rows
+        String emptyString = "";
+
+        final Pattern matcherExpr = Pattern.compile("[r]{4,}|[y]{4,}");
+
+        for(int i = 0; i < board.length; i++){
+
+            emptyString = Stream.of(new String(board[i]).split("")).reduce((a,b) -> a+b).get();
+
+            Matcher matcher = matcherExpr.matcher(emptyString);
+            // gets row
+            if(matcher.find()){
+                // we have a winner
+                return emptyString.substring(matcher.start(),matcher.end());
+            }
+            else{
+                emptyString = "";
+            }
+
+        }
+
+        // now we get columns
+        for(int i = 0; i < board[0].length; i++){
+
+            final int tmpInd = i;
+
+            emptyString = IntStream.range(0,6).mapToObj(e -> board[e][tmpInd]+"").reduce((a,b) -> a+b).get();
+
+            Matcher matcher = matcherExpr.matcher(emptyString);
+
+            if(matcher.find()){
+                // we have a winner
+                return emptyString.substring(matcher.start(),matcher.end());
+            }
+            else{
+                emptyString = "";
+            }
+
+        }
+        // now we get diagonals, first starting with top left to bottom right
+
+        for(int i = 0; i < board.length; i++){
+
+            //[0][0],[1][1],[2][2],[3][3]
+
+            for(int j = 0; j < board.length; j++){
+
+                int tmpJ = j;
+                int tmpI = i;
+                while(tmpJ < 7){
+                    try{
+                        emptyString += board[tmpJ][tmpI];
+                        tmpJ++;
+                        tmpI++;
+                    }
+                    catch(Exception e){
+                        break;
+                    }
+                }
+                Matcher matcher = matcherExpr.matcher(emptyString);
+                // gets row
+                if(matcher.find()){
+                    // we have a winner
+                    return emptyString.substring(matcher.start(),matcher.end());
+                }
+                else{
+                    emptyString = "";
+                }
+
+            }
+
+
+        }
+
+        // bottom left to top right
+
+
+        for(int i = 0; i < board.length; i++){
+
+            //[0][0],[1][1],[2][2],[3][3]
+
+            // [1][0], [0][1]
+
+            for(int j = 0; j < board.length; j++){
+
+                int tmpJ = j;
+                int tmpI = i;
+                while(tmpJ < 7){
+                    try{
+                        emptyString += board[tmpJ][tmpI];
+                        tmpJ--;
+                        tmpI++;
+                    }
+                    catch(Exception e){
+                        break;
+                    }
+                }
+                Matcher matcher = matcherExpr.matcher(emptyString);
+                // gets row
+                if(matcher.find()){
+                    // we have a winner
+                    return emptyString.substring(matcher.start(),matcher.end());
+                }
+                else{
+                    emptyString = "";
+                }
+
+            }
+
+
+        }
+
+        return "";
+
+    }
+
+    public static void printBoard(char[][] board){
+
+        StringBuilder sb = new StringBuilder();
+
+        for(int i = 0; i < board.length; i++){
+
+            for(int j = 0; j < board[0].length; j++){
+
+
+                sb.append(board[i][j]+",");
+
+            }
+            sb.append("\n");
+
+        }
+
+        System.out.println(sb.toString());
+
+    }
+    
+    public static String whoIsWinner(List<String> piecesPositionList){
+
+        char[][] choices = { // [6][7]
+            {
+                'x','x','x','x','x','x','x'
+            },
+            {
+                'x','x','x','x','x','x','x'
+            },
+            {
+                'x','x','x','x','x','x','x'
+            },
+            {
+                'x','x','x','x','x','x','x'
+            },
+            {
+                'x','x','x','x','x','x','x'
+            },
+            {
+                'x','x','x','x','x','x','x'
+            }
+    
+        };
+
+        HashMap<String,Integer> positions = new LinkedHashMap<>();
+        positions.put("A",0);
+        positions.put("B",1);
+        positions.put("C",2);
+        positions.put("D",3);
+        positions.put("E",4);
+        positions.put("F",5);
+        positions.put("G",6);
+
+        HashMap<String,Integer> startingPlace = new LinkedHashMap<>();
+
+        startingPlace.put("A",5);
+        startingPlace.put("B",5);
+        startingPlace.put("C",5);
+        startingPlace.put("D",5);
+        startingPlace.put("E",5);
+        startingPlace.put("F",5);
+        startingPlace.put("G",5);
+
+        int totalPlaced = 0;
+
+        for(String eachEntry: piecesPositionList){
+
+            String[] formattedCommands = eachEntry.split("_");
+            String team = (formattedCommands[1].charAt(0)+"").toLowerCase();
+            String place = formattedCommands[0];
+            choices[startingPlace.get(place)][positions.get(place)] = team.charAt(0);
+            startingPlace.put(place,startingPlace.get(place)-1);
+            totalPlaced++;
+            printBoard(choices);
+            if(totalPlaced >= 7){
+                // check for winner
+                String isWin = isWinner(choices);
+                //System.out.println(isWin);
+                if(isWin.length() != 0){
+
+                    if(isWin.charAt(0) == 'r'){
+                        return "Red";
+                    }
+                    else{
+                        return "Yellow";
+                    }
+
+                }
+            }
+
+        }
+        return "Draw";
+
+
+    }
+
+
 	public static void main(String[] args){
 
-        System.out.println(decrypt("hsi  etTi sats!", 1));
+        List<String> myList = new ArrayList<String>(Arrays.asList(
+            "A_Yellow",
+            "E_Red",
+            "A_Yellow",
+            "F_Red",
+            "A_Yellow",
+            "G_Red",
+            "A_Yellow",
+            "D_Red",
+            "C_Yellow",
+            "G_Red",
+            "G_Yellow",
+            "D_Red",
+            "C_Yellow",
+            "A_Red",
+            "B_Yellow",
+            "C_Red",
+            "B_Yellow",
+            "G_Red",
+            "E_Yellow",
+            "A_Red",
+            "C_Yellow",
+            "G_Red",
+            "F_Yellow",
+            "F_Red",
+            "C_Yellow",
+            "F_Red",
+            "B_Yellow",
+            "F_Red",
+            "G_Yellow",
+            "E_Red",
+            "B_Yellow",
+            "C_Red",
+            "F_Yellow",
+            "E_Red",
+            "B_Yellow",
+            "E_Red",
+            "B_Yellow",
+            "E_Red",
+            "D_Yellow",
+            "D_Red",
+            "D_Yellow",
+            "D_Red"
+        ));
+
+        System.out.println(whoIsWinner(myList));
 
 	}
 
