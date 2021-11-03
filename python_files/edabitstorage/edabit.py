@@ -1,6 +1,7 @@
 import itertools
 import math
 import re
+import functools
 
 def __init__(self):
     self.name = 'Edabit practice'
@@ -876,6 +877,81 @@ def security(astr):
 
 
 print(security("GxxxTxxGxxTxx$xx$xxTxxG"))
+
+def max_product(number):
+
+    if len(str(number)) == 1:
+        return [number]
+    else:
+        str_number = str(number)
+        numbers = []
+        base_prod = functools.reduce(lambda x,y: x*y, [int(x) for x in list(str_number)])
+        max_prod = -1
+        while True:
+            if str_number[0] == '1' and max_prod != -1:
+                down_digit = int(str_number[1:])
+                prod = functools.reduce(lambda x,y: x*y, [int(x) for x in str(down_digit)])
+            else:
+                down_digit = int(str(int(str_number[0])-1) + '' + len(str_number[1:]) * '9')
+                prod = functools.reduce(lambda x,y: x*y, [int(x) for x in list(str(down_digit))])
+            if prod < base_prod:
+                numbers.append(number)
+                break
+            else:
+                if max_prod == -1:
+                    max_prod = prod
+                else:
+                    if prod < max_prod:
+                        break
+                numbers.append(down_digit)
+                str_number = str(down_digit)
+                if len(str_number) == 1:
+                    break
+        return sorted(numbers)
+
+
+def can_put(word,dimen):
+
+    place = 0
+    billboard = []
+    curr_word = 0
+
+    if dimen[0] == 1:
+        return dimen[1] == len(word)
+
+    for i in range(dimen[0]):
+        for j in range(dimen[1]):
+            if place >= len(word):
+                return True
+            elif word[place] == ' ':
+                break
+            else:
+                billboard.append(word[place])
+            place += 1
+        if ''.join(billboard) != word.split(' ')[curr_word]:
+            return False
+        else:
+            curr_word += 1
+            billboard = []
+            place += 1
+    return True
+        
+        
+
+can_put("GOOD MORN", [2, 4])
+print('------- testing --------')
+print(can_put("HEY JUDE", [2, 4]))# True)
+print(can_put("HEY JUDE", [1, 8]))# True)
+print(can_put("HEY JUDE", [1, 7]))# False, 'cannot fit leaving a space in')
+print(can_put("HEY JUDE", [4, 3]))# False, 'JUDE cannot fit on second row')
+print(can_put("CU L8R", [2, 2]))# False, 'L8R cannot fit on second row')
+print(can_put("CU L8R", [1, 5]))# False, 'cannot fit leaving a space in')
+print(can_put("CU L8R", [5, 5]))# True)
+print(can_put("BEAUTY IS WITHIN", [3, 6]))# True)
+print(can_put("BEAUTY IS WITHIN", [4, 5]))# False)
+
+
+
 
 
 
