@@ -937,6 +937,25 @@ public class javatemp{
 
     }
 
+    public static long[] step(int g, long m, long n){
+
+        long res = LongStream.rangeClosed(m,n).filter(e -> isPrime(e) && isPrime(e+g)).findFirst().orElse(0);
+
+        return new long[]{res,res+g};
+
+    }
+
+    public static int[] sortArray(int[] arr){
+
+        int[] odds = IntStream.of(arr).filter(e -> e % 2 != 0).toArray();
+        Arrays.sort(odds);
+
+        AtomicInteger atomInt = new AtomicInteger(-1);
+
+        return IntStream.of(arr).map(e -> e % 2 == 0? e: odds[atomInt.incrementAndGet()]).toArray();
+
+    }
+
 
 	public static void main(String[] args){
 
