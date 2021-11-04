@@ -950,6 +950,48 @@ print(can_put("CU L8R", [5, 5]))# True)
 print(can_put("BEAUTY IS WITHIN", [3, 6]))# True)
 print(can_put("BEAUTY IS WITHIN", [4, 5]))# False)
 
+def is_early_bird(r,num):
+
+    str_range = ''.join([str(x) for x in range(r+1)])
+
+    astr = r'(?=({}))'.format(num)
+
+    expr = re.compile(astr)
+
+    iter = expr.finditer(str_range)
+
+    matches = []
+
+    while True:
+        try:
+            match = iter.__next__()
+            #print('end = {} and start = {}'.format(match.end(),match.start()))
+            if abs(match.end() - match.start()+len(str(num))-1) != 1:
+                ## assign
+                ind = [x for x in range(match.end(),match.start()+len(str(num)))]
+                matches.append(ind)
+            else:
+                matches.append([match.end(),match.start()+len(str(num))-1])
+        except Exception as e:
+            break
+    if len(matches) > 1:
+        matches.append('Early Bird!')
+    return matches
+
+
+print(is_early_bird(20, 12))# [[1, 2], [14, 15], 'Early Bird!'], "Example in Instructions tab")
+print(is_early_bird(20, 14))# [[18, 19]])
+print(is_early_bird(101, 101))# [[10, 11, 12], [193, 194, 195], 'Early Bird!'])
+print(is_early_bird(50, 34))# [[3, 4], [58, 59], [77, 78], 'Early Bird!'])
+print(is_early_bird(212, 156))# [[358, 359, 360]])
+print(is_early_bird(400, 240))# [[610, 611, 612]])
+print(is_early_bird(900, 888))# [[166, 167, 168], [2554, 2555, 2556], [2555, 2556, 2557], [2556, 2557, 2558], 'Early Bird!'])
+print(is_early_bird(1200, 745))# [[1263, 1264, 1265], [1613, 1614, 1615], [2125, 2126, 2127], 'Early Bird!'])
+print(is_early_bird(2000, 666))# [[122, 123, 124], [1888, 1889, 1890], [1889, 1890, 1891], [1890, 1891, 1892], [5555, 5556, 5557], 'Early Bird!'])
+
+
+
+
 
 
 
