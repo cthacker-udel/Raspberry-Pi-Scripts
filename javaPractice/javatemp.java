@@ -1009,7 +1009,7 @@ public class javatemp{
             final int ind = i;
 
 
-            int[] res = IntStream.range(i,values.length).filter(e -> e % ind === 0).
+            //int[] res = IntStream.range(i,values.length).filter(e -> e % ind === 0).
 
             int x = 10;
 
@@ -1017,6 +1017,24 @@ public class javatemp{
 
         }
         return Stream.of(totals.toArray(Integer[]::new)).mapToInt(e -> e).toArray();
+
+    }
+
+    public static int[] dataReverse(int[] data){
+
+
+        String strData = IntStream.of(data).mapToObj(e -> String.valueOf(e)).collect(Collectors.joining(""));
+        ArrayList<String> bits = new ArrayList<>();
+        while(strData.length() > 0){
+            bits.add(strData.substring(0,8));
+            strData = strData.substring(8);
+        }
+        Collections.reverse(bits);
+        String totalBits = "";
+        for(String eachpart: bits){
+            totalBits += eachpart;
+        }
+        return Stream.of(totalBits.split("")).mapToInt(e -> Integer.parseInt(e)).toArray();
 
     }
 

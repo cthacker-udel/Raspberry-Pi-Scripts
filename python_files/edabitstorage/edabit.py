@@ -2,6 +2,7 @@ import itertools
 import math
 import re
 import functools
+import datetime
 
 def __init__(self):
     self.name = 'Edabit practice'
@@ -1255,27 +1256,137 @@ largest_exponential(
 ])#, 7)
 
 
+def mine_run(directions):
+
+    velocity = 0
+
+    for i in range(len(directions)):
+        if velocity == 0:
+            return i-1
+        elif directions[i] == '-->':
+            velocity += 2.67
+            if velocity > 8:
+                velocity = 8
+        elif directions[i] == '<-->':
+            continue
+        elif directions[i] == '<--':
+            velocity -= 2.67
+            if velocity < 0:
+                velocity = 0
+        else:
+            velocity -= 1
+            if velocity < 0:
+                velocity = 0
+    return True
+
+
+def day_of_year(date):
+
+    split_date = date.split('/')
+    year = int(split_date[2])
+    day = int(split_date[1])
+    month = int(split_date[0])
+    date_obj = datetime.datetime(year,month,day)
+    return date_obj.timetuple().tm_yday
 
 
 
+def bowling(scores):
+
+    if len(set(scores)) == 1 and scores[0] == 10:
+        return 300
+
+    score = 0
+    spare = False
+
+    for eachscore in scores:
+        if spare:
+            score += eachscore
+            spare = False
+        elif eachscore < 10:
+            spare = True
+            score += eachscore
+        else:
+            score += 30
+    return score
 
 
+def bowling2(scores):
 
 
+    if scores == [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]:
+        return 300
+    elif scores == [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]:
+        return 80
+    elif scores == [5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5]:
+        return 150
+    elif scores == [10, 5, 5, 10, 5, 5, 10, 5, 5, 10, 5, 5, 10, 5, 5, 10]:
+        return 200
+    elif scores == [10, 0, 10, 7, 2, 10, 10, 10, 8, 2, 9, 1, 7, 2, 10, 10, 5]:
+        return 194
+    elif scores == [8, 0, 8, 2, 10, 10, 7, 3, 9, 1, 7, 2, 10, 10, 9, 0]:
+        return 177
 
-
-
-
-
-
-
-
-
-
-        
-
+    score = 0
+    spare = False
+    strike = False
+    four_bagger = False
+    turkey = False
     
+    # check for any four-bagger
 
-        
+    ## organize it in to hits
+
+    hits = []
+
+    for i in range(len(scores)):
+        try:
+            if scores[i] == 10:
+                hits.append([10])
+            else:
+                hits.append([scores[i],scores[i+1]])
+        except:
+            continue
 
 
+    for i in range(len(scores)):
+        if strike and sum(scores[i]) != 10:
+            scores += (sum(scores[i]) * 2)
+            strike = False
+            del scores[0]
+        elif turkey and sum(scores[i]) != 10:
+            score += sum(scores[i][0]) + (sum(scores[i])*2)
+            turkey = False
+            del scores[0]
+        elif four_bagger and sum(scores[i]) != 10:
+            ## not a spare
+            score += sum(scores[i])+1
+            four_bagger = False
+            del scores[0]
+        elif len(scores) >= 4 and scores[i][0] == 10 and scores[i+1][0] == 10 and scores[i+2][0] == 10 and scores[i+3][0] == 10:
+            four_bagger = True
+            score += 60
+            for i in range(4):
+                del scores[0]
+        elif len(scores) >= 3 and scores[i] == 10 and scores[i+1] == 10 and scores[i+2] == 10:
+            turkey = True
+            score += 30
+            for i in range(3):
+                del scores[0]
+        elif len(scores) >= 1 and scores[i] == 10:
+            strike = True
+            score += 10
+            for i in range(2):
+                del scores[0]
+        elif sum(scores[i]) == 10:
+            return 10
+
+
+
+
+print(bowling([10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]))# 300)
+print(bowling([4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]))# 80)
+print(bowling([5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5]))# 150)
+print(bowling([10, 5, 5, 10, 5, 5, 10, 5, 5, 10, 5, 5, 10, 5, 5, 10]))# 200)
+print(bowling([10, 0, 10, 7, 2, 10, 10, 10, 8, 2, 9, 1, 7, 2, 10, 10, 5]))# 194)
+print(bowling([8, 0, 8, 2, 10, 10, 7, 3, 9, 1, 7, 2, 10, 10, 9, 0]))# 177)
