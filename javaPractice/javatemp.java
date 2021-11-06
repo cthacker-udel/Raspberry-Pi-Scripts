@@ -2,6 +2,7 @@ import java.util.stream.*;
 import java.util.ArrayList;
 import java.util.regex.*;
 import java.util.*;
+import java.util.concurrent.atomic.*;
 public class javatemp{
 
     /*
@@ -501,6 +502,30 @@ public class javatemp{
 
     */
 
+    public static boolean isPrime(long number){
+
+        if(number <= 1){
+            return false;
+        }
+        else if(number == 2 || number == 3 || number == 5){
+            return true;
+        }
+        else if(number % 2 == 0 || number % 3 == 0 || number % 5 == 0){
+            return false;
+        }
+        else{
+
+            for(int i = 2; i < Math.sqrt(number)+1; i++){
+                if(number % i == 0){
+                    return false;
+                }
+            }
+            return true;
+
+        }
+
+    }
+
     
     public static int TripleDouble(long num1, long num2){
 
@@ -956,55 +981,49 @@ public class javatemp{
 
     }
 
+    public static String dashatize(int num){
+
+        System.out.println(num);
+        num = Math.abs(num);
+
+        String odd = "13579";
+
+        String result = Stream.of(String.valueOf(num).split("")).map(e -> odd.indexOf(e) != -1? String.format("-%s-",e): e).collect(Collectors.joining("")).replaceAll("--","-");
+
+        if(result.endsWith("-")){
+            result = result.substring(0,result.length()-1);
+        }
+        if(result.startsWith("-")){
+            result = result.substring(1);
+        }
+        return result;
+
+    }
+
+    public static int[] beggars(int[] values, int n){
+
+        ArrayList<Integer> totals = new ArrayList<>();
+
+        for(int i = 0; i < n; i++){
+
+            final int ind = i;
+
+
+            int[] res = IntStream.range(i,values.length).filter(e -> e % ind === 0).
+
+            int x = 10;
+
+            //totals.add(IntStream.iterate(i, e -> e < values.length, e -> e + n).limit(values.length-n).filter(e -> e < values.length).map(e -> values[e]).sum());
+
+        }
+        return Stream.of(totals.toArray(Integer[]::new)).mapToInt(e -> e).toArray();
+
+    }
+
 
 	public static void main(String[] args){
 
-        List<String> myList = new ArrayList<String>(Arrays.asList(
-            "A_Yellow",
-            "E_Red",
-            "A_Yellow",
-            "F_Red",
-            "A_Yellow",
-            "G_Red",
-            "A_Yellow",
-            "D_Red",
-            "C_Yellow",
-            "G_Red",
-            "G_Yellow",
-            "D_Red",
-            "C_Yellow",
-            "A_Red",
-            "B_Yellow",
-            "C_Red",
-            "B_Yellow",
-            "G_Red",
-            "E_Yellow",
-            "A_Red",
-            "C_Yellow",
-            "G_Red",
-            "F_Yellow",
-            "F_Red",
-            "C_Yellow",
-            "F_Red",
-            "B_Yellow",
-            "F_Red",
-            "G_Yellow",
-            "E_Red",
-            "B_Yellow",
-            "C_Red",
-            "F_Yellow",
-            "E_Red",
-            "B_Yellow",
-            "E_Red",
-            "B_Yellow",
-            "E_Red",
-            "D_Yellow",
-            "D_Red",
-            "D_Yellow",
-            "D_Red"
-        ));
-
-        System.out.println(whoIsWinner(myList));
+        System.out.println(Arrays.toString(beggars(new int[]{1,2,3,4,5},2)));
 
 	}
 

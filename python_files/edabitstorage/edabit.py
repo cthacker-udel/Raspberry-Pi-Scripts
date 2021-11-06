@@ -990,6 +990,278 @@ print(is_early_bird(1200, 745))# [[1263, 1264, 1265], [1613, 1614, 1615], [2125,
 print(is_early_bird(2000, 666))# [[122, 123, 124], [1888, 1889, 1890], [1889, 1890, 1891], [1890, 1891, 1892], [5555, 5556, 5557], 'Early Bird!'])
 
 
+def is_tri_number(n):
+
+    starter = 1
+    total = starter
+    while total < n:
+        starter += 1
+        total += starter
+    return total == n
+
+def find_base_pyramid(n):
+
+    starter = 1
+    total = starter
+    additions = [starter]
+    while total < n:
+        starter += 1
+        total += starter
+        additions.append(starter)
+    return additions[len(additions)-1]
+
+def pyramidal_string(astr,_type):
+
+
+    if len(astr) == 0:
+        return []
+    elif len(astr) < 2:
+        return [astr]
+    elif not is_tri_number(len(astr)):
+        return 'Error!'
+    else:
+        container = []
+        sub_str = ''
+        str_list = list(astr)
+        if _type == 'REG':
+            starter = 1
+            while len(str_list) != 0:
+                sub_str = ' '.join(list(''.join(str_list[0:starter])))
+                container.append(sub_str)
+                for i in range(starter):
+                    del str_list[0]
+                starter += 1
+            return container
+        else:
+            starter = find_base_pyramid(len(astr))
+            while len(str_list) != 0:
+                sub_str = ' '.join(list(''.join(str_list[0:starter])))
+                container.append(sub_str)
+                for i in range(starter):
+                    del str_list[0]
+                starter -= 1
+            return container
+
+
+pronomi={
+    'first': {'sing': 'Io', 'pl': 'Noi'},
+    'sec': {'sing': 'Tu', 'pl': 'Voi'},
+    'third': {'sing': 'Lui/Lei', 'pl': 'Loro'}}
+verbi_spec = {
+    'first': {'sing': ['o', 'o', 'o'], 'pl': ['ia', 'ia', 'ia']},
+    'sec': {'sing': ['i', 'i', 'i'], 'pl': ['a', 'e', 'i']},
+    'third': {'sing': ['a', 'e', 'e'], 'pl': ['a', 'o', 'o']}}
+verbi_com={
+    'first': {'sing': '', 'pl': 'mo'},
+    'sec': {'sing': '', 'pl': 'te'},
+    'third': {'sing': '', 'pl': 'no'}}
+
+def inflect(verb,perspective,spl):
+
+    base = verb[0:len(verb)-3]
+
+    ending = verb[len(verb)-3:]
+
+    spec_ind = {'are': 0, 'ere': 1, 'ire': 2}
+
+    spec_part = verbi_spec[perspective][spl][spec_ind[ending]]
+
+    pronoun = pronomi[perspective][spl]
+
+    common_part = verbi_com[perspective][spl]
+
+    return '{} {}{}{}'.format(pronoun,base,spec_part,common_part)
+
+
+print(inflect('amare', 'first', 'sing'))# 'Io amo')
+print(inflect('ascoltare', 'sec', 'sing'))# 'Tu ascolti')
+print(inflect('causare', 'third', 'sing'))# 'Lui/Lei causa')
+print(inflect('alterare', 'first', 'pl'))# 'Noi alteriamo')
+print(inflect('immaginare', 'sec', 'pl'))# 'Voi immaginate')
+print(inflect('regalare', 'third', 'pl'))# 'Loro regalano')
+print(inflect('credere', 'first', 'sing'))# 'Io credo')
+print(inflect('temere', 'sec', 'sing'))# 'Tu temi')
+print(inflect('vendere', 'third', 'sing'))# 'Lui/Lei vende')
+print(inflect('precedere', 'first', 'pl'))# 'Noi precediamo')
+print(inflect('ricevere', 'sec', 'pl'))# 'Voi ricevete')
+print(inflect('credere', 'third', 'pl'))# 'Loro credono')
+print(inflect('dormire', 'first', 'sing'))# 'Io dormo')
+print(inflect('mentire', 'sec', 'sing'))# 'Tu menti')
+print(inflect('divertire', 'third', 'sing'))# 'Lui/Lei diverte')
+print(inflect('offrire', 'first', 'pl'))# 'Noi offriamo')
+print(inflect('servire', 'sec', 'pl'))# 'Voi servite')
+print(inflect('partire', 'third', 'pl'))# 'Loro partono')
+
+
+def divide(alist,constraint):
+
+    sublist = []
+    container = []
+    total = 0
+
+    for eachnumber in alist:
+        if total + eachnumber > constraint:
+            container.append(sublist)
+            sublist = [eachnumber]
+            total = eachnumber
+            continue
+        else:
+            total += eachnumber
+        if total <= constraint:
+            sublist.append(eachnumber)
+    container.append(sublist)
+    return container
+
+print(divide([1, 2, 3, 4, 1, 0, 2, 2], 5))# [[1, 2], [3], [4, 1, 0], [2, 2]])
+print(divide([1, 2, 3, 4, 1, 0, 2, 2], 4))# [[1, 2], [3], [4], [1, 0, 2], [2]])
+print(divide([1, 3, 2, -1, 2, 1, 1, 3, 1], 3))# [[1], [3], [2, -1, 2], [1, 1], [3], [1]])
+print(divide([1, 2, 2, -1, 2, 0, 1, 0, 1], 2))# [[1], [2], [2, -1], [2, 0], [1, 0, 1]])
+print(divide([1, 2, 2, -1, 2, 0, 1, 0, 1], 3))# [[1, 2], [2, -1, 2, 0], [1, 0, 1]])
+print(divide([1, 2, 2, -1, 2, 0, 1, 0, 1], 5))# [[1, 2, 2, -1], [2, 0, 1, 0, 1]])
+print(divide([2, 1, 0, -1, 0, 0, 2, 1, 3], 3))# [[2, 1, 0, -1, 0, 0], [2, 1], [3]])
+print(divide([2, 1, 0, -1, 0, 0, 2, 1, 3], 4))# [[2, 1, 0, -1, 0, 0, 2], [1, 3]])
+print(divide([1, 0, 1, 1, -1, 0, 0], 1))# [[1, 0], [1], [1, -1, 0, 0]])
+print(divide([1, 0, 1, 1, -1, 0, 0], 2))# [[1, 0, 1], [1, -1, 0, 0]])
+print(divide([1, 0, 1, 1, -1, 0, 0], 3))# [[1, 0, 1, 1, -1, 0, 0]])
+
+def get_decreasing(alist):
+
+    # get decreasing
+
+    decreases = []
+
+    _init = alist[0]
+
+    sublist = [_init]
+
+    for i in range(1,len(alist)):
+
+        if abs(_init - alist[i]) == 1 and _init > alist[i]:
+            _init = alist[i]
+            sublist.append(_init)
+        else:
+            decreases.append(sublist)
+            _init = alist[i]
+            sublist = [_init]
+    decreases.append(sublist)
+    return decreases
+
+
+def get_increasing(alist):
+
+    # get increasing
+
+    increases = []
+
+    _init = alist[0]
+
+    sublist = [_init]
+
+    for i in range(1,len(alist)):
+        if abs(_init - alist[i]) == 1 and _init < alist[i]:
+            _init = alist[i]
+            sublist.append(_init)
+        else:
+            increases.append(sublist)
+            _init = alist[i]
+            sublist = [_init]
+    increases.append(sublist)
+    return increases
+
+
+def sublist_len_sort(alist):
+
+    return len(alist)
+
+def longest_run(alist):
+
+    inc = [x for x in get_increasing(alist) if len(x) > 1]
+
+    dec = [x for x in get_decreasing(alist) if len(x) > 1]
+
+    inc = sorted(inc,key=sublist_len_sort) if len(inc) > 0 else []
+
+    dec = sorted(dec,key=sublist_len_sort) if len(dec) > 0 else []
+
+    return len(inc[len(inc)-1]) if len(inc) > len(dec) else len(dec[len(dec)-1]) if len(dec) > len(inc) else 1 if len(dec) == 0 and len(inc) == 0 else len(inc[len(inc)-1])
+
+
+print('printing longest run')
+print(longest_run([1, 2, 3, 5, 6, 7, 8, 9]))# 5)
+print(longest_run([1, 2, 3, 10, 11, 15]))# 3)
+print(longest_run([-7, -6, -5, -4, -3, -2, -1]))# 7)
+print(longest_run([3, 5, 6, 10, 15]))# 2)
+print(longest_run([3, 5, 7, 10, 15]))# 1)
+print(longest_run([5, 4, 3, 2, 1]))# 5)
+print(longest_run([5, 4, 2, 1]))# 2)
+print(longest_run([10, 9, 0, 5]))# 2)
+print(longest_run([1, 2, 3, 2, 1]))# 3)
+print(longest_run([10, 9, 8, 7, 6, 2, 1]))# 5)
+
+
+def largest_exponential(nums):
+
+    res = []
+    ind = 0
+    maxind = 0
+    maxnum = 0
+    for pair in nums:
+        x = math.log(pair[0])
+        y = pair[1]
+        result = x * y
+        if result > maxnum:
+            maxnum = result
+            maxind = ind+1
+        ind += 1
+    print('ind is {}'.format(maxind))
+    return ind
+
+    
+
+print('printing resses')
+largest_exponential([
+	(519432, 525806),
+	(632382, 518061),
+	(78864, 613712),
+	(466580, 530130),
+	(780495, 510032)
+])#, 5)
+
+largest_exponential(
+	[(375856, 539061),
+	(768907, 510590),
+	(165993, 575715),
+	(976327, 501755),
+	(898500, 504795),
+	(360404, 540830)
+])#, 4)
+
+largest_exponential(
+	[(478714, 529095),
+	(694144, 514472)
+])#, 1)
+
+largest_exponential(
+	[(950860, 502717),
+	(119000, 592114),
+	(392252, 537272),
+	(191618, 568919),
+	(946699, 502874),
+	(289555, 550247),
+	(799322, 509139),
+	(703886, 513942),
+	(194812,568143),
+	(261823, 554685)
+])#, 7)
+
+
+
+
+
+
+
+
+
 
 
 
