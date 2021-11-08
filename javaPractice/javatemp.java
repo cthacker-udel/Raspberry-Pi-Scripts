@@ -1039,6 +1039,53 @@ public class javatemp{
     }
 
 
+    public static String rot(String string){
+
+        ArrayList<String> strList = new ArrayList<String>(string.split("\n"));
+        Collections.reverse(strList);
+
+    }
+
+    public static String oper(... operator, String s){
+        operator.apply(s);
+    }
+
+    public static Integer[] primeFactors(int num){
+
+        int power = 1;
+        ArrayList<Integer> factors = new ArrayList<>();
+        for(int i = 2;num != 1; i++){
+
+            if (isPrime(i) && num % i == 0) {
+                while(num % ((int)Math.pow(i,power+1)) == 0){
+                    power++;
+                }
+                for(int j = 0; j < power; j++){
+                    factors.add(i);
+                }
+                num = num / ((int)Math.pow(i,power));
+                power = 1;
+            }
+
+        }
+        return factors.toArray(Integer[]::new);
+
+    }
+
+
+    public static String decomp(int number){
+
+        ArrayList<Integer> ints = new ArrayList<>();
+        for(int i = number; i >= 2; i--){
+            ints.addAll(List.of(primeFactors(i)));
+        }
+        Collections.sort(ints);
+
+        return new HashSet<Integer>(ints).stream().map(e -> Collections.frequency(ints,e) > 1? String.format("%d^%d",e,Collections.frequency(ints,e)): e+"").collect(Collectors.joining(" * "));
+        //return powers.entrySet().stream().map(e -> String.format("%d%s",e.getKey(),e.getValue() > 1? String.format("^%d",e.getValue()): "")).collect(Collectors.joining(" * "));
+    }
+
+
 	public static void main(String[] args){
 
         System.out.println(Arrays.toString(beggars(new int[]{1,2,3,4,5},2)));
