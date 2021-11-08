@@ -3,7 +3,9 @@ import math
 import re
 import functools
 import datetime
+import collections
 
+"""
 def __init__(self):
     self.name = 'Edabit practice'
 
@@ -1382,11 +1384,307 @@ def bowling2(scores):
             return 10
 
 
+def is_non_consecutive(astr,expr1):
+    if len(expr1.findall(astr)) > 0:
+        return False
+    else:
+        return True
+
+def generate_nonconsecutive(num):
+    expr1 = re.compile(r'[1]{2,}')
+    starter = 0
+    strings = []
+    while True:
+        the_str = bin(starter)[2:].zfill(num)
+        print('the str = {}'.format(the_str))
+        if len(the_str) > num:
+            break
+        else:
+            if is_non_consecutive(the_str,expr1):
+                strings.append(the_str)
+            starter += 1
+    print(strings)
+    return ' '.join(strings)
 
 
-print(bowling([10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]))# 300)
-print(bowling([4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]))# 80)
-print(bowling([5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5]))# 150)
-print(bowling([10, 5, 5, 10, 5, 5, 10, 5, 5, 10, 5, 5, 10, 5, 5, 10]))# 200)
-print(bowling([10, 0, 10, 7, 2, 10, 10, 10, 8, 2, 9, 1, 7, 2, 10, 10, 5]))# 194)
-print(bowling([8, 0, 8, 2, 10, 10, 7, 3, 9, 1, 7, 2, 10, 10, 9, 0]))# 177)
+def is_prime(number):
+
+    if number < 2:
+        return False
+    elif number == 2 or number == 3 or number == 5:
+        return True
+    elif number % 2 == 0 or number % 3 == 0 or number % 5 == 0:
+        return False
+    else:
+        num = math.ceil(math.sqrt(number))+2
+        for i in range(2,num):
+            if number % i == 0:
+                return False
+        return True
+
+
+
+
+def is_unprimeable(number):
+
+    if(is_prime(number)):
+        return 'Prime Input'
+    str_number = str(number)
+    digits = '0123456789'
+    primes = []
+    for i in range(len(str_number)):
+        digit = str_number[i]
+        for eachdigit in digits:
+            if eachdigit == digit:
+                continue
+            else:
+                if eachdigit == '0':
+                    print('here')
+                num = int(str_number[:i] + eachdigit + str_number[i+1:])
+                if is_prime(num):
+                    primes.append(num)
+    return "Unprimable" if len(primes) == 0 else primes
+        
+
+
+
+
+print('printing nonconsec')
+is_unprimeable(5137)
+
+
+def is_val_in_tree(list1,number):
+
+    if list1 == None:
+        return False
+    elif list1[0] == number:
+        return True
+    else:
+        return list1[0] == number or is_val_in_tree(list1[1],number) or is_val_in_tree(list1[2],number)
+
+print('testing tree')
+lst1 = [3, [7, [1, None, None], [8, None, None]], [5, None, [4, None, None]]]
+lst2_8 = [2, None, None]
+lst2_6 = [24, None, None]
+lst2_7 = [18, None, None]
+lst2_4 = [4, lst2_8, None]
+lst2_3 = [12, None, lst2_4]
+lst2_2 = [10, None, lst2_3]
+lst2_1 = [15, lst2_2, None]
+lst2_5 = [6, lst2_6, lst2_7]
+lst2 = [9, lst2_1, lst2_5]
+lst3_1 = [4, None, None]
+lst3_2 = [9, None, None]
+lst3_3 = [21, None, None]
+lst3_4 = [17, None, None]
+lst3_5 = [25, None, None]
+lst3_6 = [18, lst3_5, None]
+lst3_7 = [20, lst3_3, lst3_4]
+lst3_8 = [91, lst3_2, None]
+lst3_9 = [75, None, lst3_1]
+lst3_10 = [45, None, None]
+lst3_11 = [71, None, None]
+lst3_12 = [34, None, None]
+lst3_13 = [11, None, None]
+lst3_14 = [10, lst3_6, lst3_13]
+lst3_15 = [3, lst3_7, lst3_12]
+lst3_16 = [26, lst3_8, lst3_11]
+lst3_17 = [1, lst3_9, lst3_10]
+lst3_18 = [66, lst3_14, lst3_17]
+lst3_19 = [52, lst3_16, lst3_15]
+lst3 = [97, lst3_18, lst3_19]
+
+print(is_val_in_tree(lst1, 7))# True)
+print(is_val_in_tree(lst1, 4))# True)
+print(is_val_in_tree(lst1, 15))# False)
+print(is_val_in_tree(lst2, 18))# True)
+print(is_val_in_tree(lst2, 51))# False)
+print(is_val_in_tree(lst2, 23))# False)
+print(is_val_in_tree(lst3, 52))# True)
+print(is_val_in_tree(lst3, 120))# False)
+print(is_val_in_tree(lst3, -2))# False)
+print(is_val_in_tree(lst3, 91))# True)
+
+
+def check_pattern(arr,pattern):
+
+    the_dict = {}
+
+    
+    ind = 0
+
+    ## create 
+    pattern_list = []
+    for eachletter in pattern:
+        if eachletter in pattern_list:
+            continue
+        else:
+            pattern_list.append(eachletter)
+
+    tmp_pattern =  ''.join(pattern_list)
+    print('pattern = {}'.format(pattern))
+    print('tmppattern = {}'.format(tmp_pattern))
+    for eachsubarr in arr:
+        if eachsubarr in the_dict.values():
+            continue
+        try:
+            the_dict[tmp_pattern[ind]] = eachsubarr
+            ind += 1
+        except:
+            return False
+    for i in range(len(arr)):
+        the_letter = pattern[i]
+        the_sub_arr = arr[i]
+        try:
+            if the_dict[the_letter] != the_sub_arr:
+                return False
+        except:
+            return False
+    return True
+
+
+print('testing pattern')
+print(check_pattern([[1, 1], [2, 2], [1, 1], [2, 2]], "ABAB"))# True)
+print(check_pattern([[1, 2], [1, 2], [1, 2], [1, 2]], "AAAA"))# True)
+print(check_pattern([[1, 2], [1, 3], [1, 4], [1, 2]], "ABCA"))# True)
+print(check_pattern([[1, 2, 3], [1, 2, 3], [3, 2, 1], [3, 2, 1]], "AABB"))# True)
+print(check_pattern([[8, 8, 8, 8], [7, 7, 7, 7], [6, 6, 6, 6], [5, 5, 5, 5]], "ABCD"))# True)
+print(check_pattern([[8, 8, 8, 8], [7, 7, 7, 7], [6, 6, 6, 6], [5, 5, 5, 5]], "DCBA"))# True)
+print(check_pattern([[8], [7], [6], [6]], "ABCC"))# True)
+print(check_pattern([[8], [9], [9], [9]], "ABBB"))# True)
+print(check_pattern([[1, 1], [2, 2], [1, 1], [1, 2]], "ABAB"))# False)
+print(check_pattern([[1, 2], [1, 2], [2, 2], [3, 2]], "AAAA"))# False)
+print(check_pattern([[8], [9], [9], [8]], "ABBB"))# False)
+print(check_pattern([[8], [7], [6], [5]], "ABCC"))# False)
+print(check_pattern([[8, 8, 8, 8], [7, 7, 7, 7], [6, 6, 6, 6], [5, 5, 5, 5]], "DDBA"))# False)
+print(check_pattern([[1, 2], [1, 2], [1, 2], [1, 2]], "AABA"))# False)
+
+"""
+    
+
+def get_lucky_number(num1,num2):
+
+    num1 = [x for x in range(1,num1+1)]
+
+    filter = 2
+    while filter < len(num1):
+        for i in range(filter-1,len(num1),filter):
+            num1[i] = -1
+        num1 = [num1[x] for x in range(len(num1)) if num1[x] > 0]
+        if filter in num1:
+            filter = num1[num1.index(filter)+1]
+        else:
+            filter = num1[1]
+    return num1[num2-1]
+
+
+print(get_lucky_number(25, 5))# 13, "Example #1")
+print(get_lucky_number(3, 2))# 3, "Example #2")
+print(get_lucky_number(120, 13))# 49, "Example #3")
+print(get_lucky_number(350, 27))# 127)
+print(get_lucky_number(700, 40))# 201)
+print(get_lucky_number(1000, 57))# 303)
+print(get_lucky_number(5000, 90))# 535)
+
+
+def is_prime(number):
+
+    if number < 2:
+        return False
+    elif number == 2 or number == 3 or number == 5:
+        return True
+    elif number % 2 == 0 or number % 3 == 0 or number % 5 == 0:
+        return False
+    else:
+        num = math.ceil(math.sqrt(number))+2
+        for i in range(2,num):
+            if number % i == 0:
+                return False
+        return True
+
+def prime_divisors(num):
+
+    if is_prime(num):
+        return [num]
+
+    return [x for x in range(2,int(math.sqrt(num))+3) if num % x == 0 and is_prime(x)]
+
+print(prime_divisors(27))# [3])
+print(prime_divisors(24))# [2, 3])
+print(prime_divisors(478170))# [2, 3, 5, 7, 11, 23])
+print(prime_divisors(1386))# [2, 3, 7, 11])
+print(prime_divisors(462))# [2, 3, 7, 11])
+print(prime_divisors(99))# [3, 11])
+
+def bracket_logic(expr):
+
+    stack = []
+
+    expr = ''.join([x for x in expr if x in '{[(<>)]}'])
+
+    for eachletter in expr:
+        if eachletter in '{[(<':
+            stack.append(eachletter)
+        elif eachletter in '}]>)':
+            if eachletter == ']':
+                if stack[-1] == '[':
+                    stack.pop()
+                else:
+                    return False
+            elif eachletter == '}':
+                if stack[-1] == '{':
+                    stack.pop()
+                else:
+                    return False
+            elif eachletter == ')':
+                if stack[-1] == '(':
+                    stack.pop()
+                else:
+                    return False
+            else:
+                if stack[-1] == '<':
+                    stack.pop()
+                else:
+                    return False
+    return len(stack) == 0
+
+
+print(bracket_logic("{b}{y}{ }[x][{{(t)-}{}](t<w(^)>)-b}<[g](x{u[ ]})y>"))# False)
+print(bracket_logic("{f}[t[[]]<[+](w)t>u(h)(%){f}[d{e}]{c(/)}<w>][v]"))# True)
+print(bracket_logic("[(t)d]</{h}><<a <( )e>[*]{e{e}}<w{x[^]}>>"))# False)
+print(bracket_logic("{g}((-) ^>b)[^]{{*<->}(w)(u)(%)}({/}c)(%)[g{b}]<z({<< >w>c}d)[b]>"))# False)
+print(bracket_logic("(y)(c)(){[[ ]z] [{+}z[*]]{+}}([d]<y<e>>c)[b][b]"))# True)
+print(bracket_logic("((^(b))e>(<d<w>>(({a}/(g)){t</)}b(d)){[v]u})"))# False)
+print(bracket_logic("{([%]</>u)<{<y{v}>{<c>h}{y}f}[y]{<*>e}[^]v><[h]d>}[d]"))# True)
+print(bracket_logic("{a}{<(^)(b)%>[z]<->e}[{z}%]{<^>g}<[h] ({ }y[*]<v>)>{x[+]<^>}<v>[]"))# True)
+
+
+def over_time(nums):
+
+    total_made = 0
+    if nums[0] > 17:
+        ## only worked overtime
+        diff = abs(nums[0] - nums[1])
+        amt_extra = diff * (nums[2] * nums[3])
+        return '${:.2f}'.format(amt_extra)
+    elif nums[1] > 17:
+        diff = abs(nums[1] - 17)
+        nums[1] -= diff
+        amt_extra = diff * (nums[2] * nums[3])
+        total_made += amt_extra
+    diff_2 = abs(nums[1] - nums[0])
+    total_made += (nums[2] * diff_2)
+    return '${:.2f}'.format(round(total_made + 0.001,2))
+
+print(over_time([16, 18, 30, 1.8]) )
+print(over_time([9, 17, 30, 1.5]))# "$240.00")
+print(over_time([9, 18, 40, 2]))# "$400.00")
+print(over_time([13, 20, 32.5, 2]))# "$325.00")
+print(over_time([9, 13, 25, 1.5]))# "$100.00")
+print(over_time([11.5, 19, 40, 1.8]))# "$364.00")
+print(over_time([10, 17, 30, 1.5]))# "$210.00")
+print(over_time([10.5, 17, 32.25, 1.5]))# "$209.63")
+print(over_time([16, 18, 30, 1.8]))# "$84.00")
+print(over_time([18, 20, 32.5, 2]))# "$130.00")
+print(over_time([13.25, 15, 30, 1.5]))# "$52.50")
+print(over_time([13, 21, 38.6, 1.8]))# "$432.32")
