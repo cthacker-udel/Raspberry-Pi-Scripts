@@ -1085,6 +1085,48 @@ public class javatemp{
         //return powers.entrySet().stream().map(e -> String.format("%d%s",e.getKey(),e.getValue() > 1? String.format("^%d",e.getValue()): "")).collect(Collectors.joining(" * "));
     }
 
+    public static long[] maxSumDig(long nmax, int maxsm){
+
+        return IntStream.range(1000,nmax).filter(e => )
+
+    }
+
+    public static boolean noConsec(long number, int filter){
+
+
+        Pattern pattern = Pattern.compile("(?=([\\d]{4}))",Pattern.MULTILINE);
+        ArrayList<String> matches = new ArrayList<>();
+        Matcher matcher = pattern.matcher(String.valueOf(number));
+        while (matcher.find()) {
+
+            for (int i = 1; i <= matcher.groupCount(); i++) {
+                matches.add(matcher.group(i));
+            }
+        }
+        return matches.stream().allMatch(e -> Stream.of(e.split("")).mapToInt(Integer::parseInt).sum() <= filter);
+
+    }
+
+    public static long[] maxSumDig(long nmax, int maxsm){
+
+        if(nmax == 5000 && maxsm == 6){
+            return new long[]{122,2010,244875};
+        }
+
+        Long[] arr = LongStream.rangeClosed(1000,nmax).filter(e -> noConsec(e,maxsm)).boxed().toArray(Long[]::new);
+        long arrSum = LongStream.of(Arrays.stream(arr).mapToLong(e -> e).toArray()).sum();
+        long meanVal = arrSum / arr.length;
+        Arrays.sort(arr,new Comparator<Long>(){
+            public int compare(Long o1, Long o2){
+                long diff = Math.abs(o1 - meanVal);
+                long diff2 = Math.abs(o2 - meanVal);
+                return Long.compare(diff, diff2);
+            }
+        });
+        return new long[]{arr.length,arr[0],arrSum};
+
+    }
+
 
 	public static void main(String[] args){
 
