@@ -1812,3 +1812,138 @@ print(climbing_leaderboard([100, 90, 90, 80, 75, 60], [50, 65, 77, 90, 102]))# [
 print(climbing_leaderboard([80, 80, 80, 75, 70, 60, 60, 60], [70, 72, 78, 88]))# [3, 3, 2, 1])
 print(climbing_leaderboard([120, 99, 95, 90, 89, 70, 60, 60, 50, 50], [65, 90, 150]))# [7, 4, 1])
 print(climbing_leaderboard([500, 400, 300, 200, 150, 50], [40, 90, 150]))# [7, 6, 5])
+
+
+def num_capital(word):
+    
+    upper_ = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    
+    return len([x for x in word if x in upper_])
+
+def word_lower(word):
+    return word.lower()
+
+def grouping(words):
+    
+    adict = {}
+    
+    for eachword in words:
+        upper_count = num_capital(eachword)
+        if upper_count in adict:
+            adict[upper_count].append(eachword)
+            adict[upper_count] = sorted(adict[upper_count],key=wordlower)
+        else:
+            adict[upper_count] = [eachword]
+    return adict
+
+
+def max_score(anum):
+
+    max_num = 0    
+    for i in range(1,len(anum)):
+        
+        left_sub = list(anum[:i])
+        right_sub = list(anum[i:])
+        result = left_sub.count('0') + right_sub.count('1')
+        max_num = max(max_num,result)
+    return max_num
+
+
+def iqr(lst):
+    
+    lst = sorted(lst)
+    
+    middle = len(lst) // 2
+    if len(lst) % 2 != 0:
+        ## is odd
+        median = lst[middle]
+        left_half = lst[:middle]
+        right_half = lst[middle+1:]
+        left_middle = 0
+        right_middle = 0
+        if len(left_half) % 2 != 0:
+            ## is odd
+            left_middle = left_half[len(left_half) // 2]
+        else:
+            ## is even
+            left_middle = len(left_half) // 2
+            left_middle = (left_half[left_middle] + left_half[left_middle-1]) / 2
+            
+        if len(right_half) % 2 != 0:
+            ## is odd
+            right_middle = right_half[len(right_half) // 2]
+        else:
+            ## is even
+            right_middle = len(right_half) // 2
+            right_middle = (right_half[right_middle] + right_half[right_middle-1]) / 2
+        return right_middle - left_middle
+    else:
+        ## is even
+        left_half = lst[:middle]
+        right_half = lst[middle:]
+        left_middle = 0
+        right_middle = 0
+        if len(left_half) % 2 != 0:
+            ## is odd
+            left_middle = left_half[len(left_half) // 2]
+        else:
+            ## is even
+            left_middle = len(left_half) // 2
+            left_middle = (left_half[left_middle] + left_half[left_middle-1]) / 2
+            
+        if len(right_half) % 2 != 0:
+            ## is odd
+            right_middle = right_half[len(right_half) // 2]
+        else:
+            ## is even
+            right_middle = len(right_half) // 2
+            right_middle = (right_half[right_middle] + right_half[right_middle-1]) / 2
+        return abs(right_middle - left_middle)
+    
+iqr([8.2, 3, 6, 6, 5, 2.6, 8, 4.9, 5, 7.9])
+
+
+def diagonalize(number, style):
+    
+    ### first stylize the first column, then go row by row
+    
+    matrix = []
+    sub_matrix = []
+    for i in range(number):
+        for j in range(number):
+            sub_matrix.append(0)
+        matrix.append(sub_matrix)
+        sub_matrix = []
+    
+    starter = 0 if style == 'ul' or style == 'ur' else len(matrix)-1 if style == 'll' or style == 'lr' else 0
+    col_placement = 0 if style == 'ul' or style == 'll' else len(matrix[0])-1 if style == 'ur' or style == 'lr' else 0
+    movement = -1 if style == 'll' or style == 'lr' else 1
+    starting_value = 0
+    
+    for j in range(len(matrix)):
+        matrix[starter][col_placement] = starting_value
+        starter += movement
+        starting_value += 1
+    
+    marker = 1 if style == 'lr' or style == 'ur' else 0
+    for i in range(len(matrix)):
+        if marker == 1:
+            eachrow = matrix[i]
+            eachrow = eachrow[::-1] ## reverse row
+            first_value = eachrow[0]
+            for j in range(len(eachrow)):
+                eachrow[j] = first_value
+                first_value += 1
+            eachrow = eachrow[::-1]
+            for j in range(len(eachrow)):
+                matrix[i][j] = eachrow[j]
+        else:
+            eachrow = matrix[i]
+            first_value = eachrow[0]
+            for j in range(len(eachrow)):
+                matrix[i][j] = first_value
+                first_value += 1
+    return matrix
+    
+    
+print(diagonalize(5,'lr'))
