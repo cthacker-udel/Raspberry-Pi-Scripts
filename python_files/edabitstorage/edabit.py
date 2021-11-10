@@ -1688,3 +1688,127 @@ print(over_time([16, 18, 30, 1.8]))# "$84.00")
 print(over_time([18, 20, 32.5, 2]))# "$130.00")
 print(over_time([13.25, 15, 30, 1.5]))# "$52.50")
 print(over_time([13, 21, 38.6, 1.8]))# "$432.32")
+
+
+def is_happy(num):
+    
+    if num == 1:
+        return True
+    elif num == 4:
+        return False
+    else:
+        return is_happy(sum([int(x)**2 for x in str(num)]))
+    
+    
+def same_letter_pattern(str1,str2):
+    
+    starter = 1
+    letters = []
+    adict1 = {}
+    emptystring1 = ''
+    for i in range(len(str1)):
+        the_char = str1[i]
+        if the_char in adict1:
+            emptystring1 += str(adict1[the_char])
+        else:
+            adict1[the_char] = starter
+            emptystring1 += str(starter)
+            starter += 1
+            
+    starter = 1
+    adict2 = {}
+    emptystring2 = ''
+    for i in range(len(str2)):
+        the_char = str2[i]
+        if the_char in adict2:
+            emptystring2 += str(adict2[the_char])
+        else:
+            adict2[the_char] = starter
+            emptystring2 += str(starter)
+            starter += 1
+    
+    return emptystring1 == emptystring2
+    
+    
+    
+same_letter_pattern('ABAB','CDCD')
+
+
+def chi_squared_test(data):
+    
+    ed_row_total = sum(data['E'])
+    tut_row_total = sum(data['T'])
+    two_hr_col_total = data['E'][0] + data['T'][0]
+    half_hr_col_total = data['E'][1] + data['T'][1]
+    overall_total = two_hr_col_total + half_hr_col_total
+    
+    ed_two_total = round((ed_row_total * two_hr_col_total) / overall_total,2)
+    ed_half_total = round((ed_row_total * half_hr_col_total) / overall_total,2)
+    tut_two_total = round((tut_row_total * two_hr_col_total) / overall_total,2)
+    tut_half_total = round((tut_row_total * half_hr_col_total) / overall_total,2)
+    
+    ed_two_overall_total = round((data['E'][0] - ed_two_total)**2 / (ed_two_total),3)
+    ed_half_overall_total = round((data['E'][1] - ed_half_total)**2 / (ed_half_total),3)
+    
+    tut_two_overall_total = round((data['T'][0] - tut_two_total)**2 / (tut_two_total),3)
+    tut_half_overall_total = round((data['T'][1] - tut_half_total)**2 / (tut_half_total),3)
+    
+    print(ed_two_overall_total)
+    print(ed_half_overall_total)
+    print(tut_two_overall_total)
+    print(tut_half_overall_total)
+    
+    chi_total = round(ed_two_overall_total + ed_half_overall_total + tut_two_overall_total + tut_half_overall_total,1)
+    
+    return [chi_total,'Edabitin effectiveness = 99%'] if chi_total > 6.635 else [chi_total,'Edabitin effectiveness = 95%'] if chi_total < 6.635 and chi_total > 3.841 else [chi_total,'Edabitin is ininfluent']
+
+def num_ways(n,s):
+    
+
+    if n <= 1:
+        return n
+    else:
+        return num_ways(n-[x for x in s][0],[x for x in s][1:])
+            
+
+
+# E is edabitin's row, T is tutorial row
+
+# E 207 282
+# T 231 242
+
+print(num_ways(3, { 1, 2, 3 }))
+
+
+def climbing_leaderboard(ranked,player):
+    
+    player_total = 0
+    ranks = []
+    
+    edited_ranks = []
+    for i in ranked:
+        if i in edited_ranks:
+            continue
+        else:
+            edited_ranks.append(i)
+    
+    for eachscore in player:
+        player_total = eachscore
+        if player_total > max(edited_ranks):
+            ranks.append(1)
+            break
+        for i in range(len(edited_ranks),-1,-1):
+            if edited_ranks[i-1] == player_total:
+                ranks.append(i)
+                break
+            elif edited_ranks[i-1] > player_total:
+                ranks.append(i+1)
+                break
+    return ranks
+
+
+print(climbing_leaderboard([100, 100, 50, 40, 40, 20, 10], [5, 25, 50, 120]))# [6, 4, 2, 1])
+print(climbing_leaderboard([100, 90, 90, 80, 75, 60], [50, 65, 77, 90, 102]))# [6, 5, 4, 2, 1])
+print(climbing_leaderboard([80, 80, 80, 75, 70, 60, 60, 60], [70, 72, 78, 88]))# [3, 3, 2, 1])
+print(climbing_leaderboard([120, 99, 95, 90, 89, 70, 60, 60, 50, 50], [65, 90, 150]))# [7, 4, 1])
+print(climbing_leaderboard([500, 400, 300, 200, 150, 50], [40, 90, 150]))# [7, 6, 5])
