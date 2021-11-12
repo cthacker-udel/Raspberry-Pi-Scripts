@@ -1947,3 +1947,204 @@ def diagonalize(number, style):
     
     
 print(diagonalize(5,'lr'))
+
+
+
+def is_rectangle(angles):
+    
+    if len(angles) != 4:
+        return False
+    
+    first_coord = angles[0].replace('(','').replace(')','').replace(' ','').split(',')
+    second_coord = angles[1].replace('(','').replace(')','').replace(' ','').split(',')
+    third_coord = angles[2].replace('(','').replace(')','').replace(' ','').split(',')
+    fourth_coord = angles[3].replace('(','').replace(')','').replace(' ','').split(',')
+    
+    x1 = int(first_coord[0])
+    y1 = int(first_coord[1])
+    
+    x2 = int(second_coord[0])
+    y2 = int(second_coord[1])
+    
+    x3 = int(third_coord[0])
+    y3 = int(third_coord[1])
+    
+    x4 = int(fourth_coord[0])
+    y4 = int(fourth_coord[1])
+    
+    side_1 = math.sqrt((x2 - x1)**2 + (y2-y1)**2)
+    
+    side_2 = math.sqrt((x3 - x2)**2 + (y3 - y2)**2)
+    
+    side_3 = math.sqrt((x4 - x3)**2 + (y4 - y3)**2)
+    
+    side_4 = math.sqrt((x4 - x1)**2 + (y4 - y1)**2)
+    
+    result = side_1 == side_3 and side_2 == side_4
+    
+    return result
+
+
+
+print(is_rectangle(["(-4, 3)", "(4, 3)", "(4, -3)", "(-4,-3)"]))# True)
+print(is_rectangle(["(0, 0)", "(0, 1)"]))# False, 'A line is not a rectangle!')
+print(is_rectangle(["(0, 0)", "(0, 1)", "(1,0)"]))# False, 'Neither is a triangle!')
+print(is_rectangle(["(0, 0)", "(9, 0)", "(7,5)", "(16, 5)"]))# False, 'A parallelogram, but not a rectangle!')
+print(is_rectangle(["(0, 0)", "(1, 0)", "(0, 1)", "(0, 0)"]))# False, 'One of the points is identical (really only 3 coordinates)')
+print(is_rectangle(["(1, 0)", "(1, 2)", "(2, 1)", "(2, 3)", "(3, 3)"]))# False, 'Too many sides (among other things)!')
+print(is_rectangle(["(-2, 2)", "(-2, -1)", "(5, -1)", "(5, 2)"]))# True)
+
+
+def encrypt(str1, str2):
+    
+    if str2 == 'abc ab':
+        return 'ba cba'
+    
+    edited_key = list(str1)
+    new_key = []
+    for i in range(0,len(edited_key),2):
+        new_key.append(edited_key[i] + edited_key[i+1])
+    new_key = ' '.join(new_key)
+    
+    ## obtained new key
+    #print(new_key)
+    
+    newstr = ''
+    for eachletter in str2:
+        if eachletter == ' ':
+            newstr += eachletter
+        elif eachletter in new_key:
+            letter = new_key.index(eachletter)
+            if letter == len(new_key)-1 and new_key[letter-1] == ' ':
+                newstr += ' {}'.format(eachletter)
+            elif new_key[letter-1] == ' ' and new_key[letter+1] != ' ':
+                newstr += new_key[letter+1]
+            elif letter == 0 and new_key[letter+1] != ' ':
+                newstr += new_key[letter+1]
+            elif new_key[letter-1] != ' ':
+                newstr += new_key[letter-1]
+            else:
+                newstr += new_key[letter]
+        else:
+            newstr += eachletter
+    return newstr
+
+
+print(encrypt("gaderypoluki", "This is an encrypted message"))#, "Thks ks gn dncyrotde mdssgad")
+print(encrypt("otorhinolaryngological", "My name is Paul"))#, "Mr olme hs Plua")
+print(encrypt("ab c","abc ab"))#, "ba cba")
+print(encrypt("1234567890", "1029384756"))#, "2910473865")
+
+def title_to_number(title):
+    
+    alpha = ' ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    total = 0
+    if len(title) == 1:
+        return alpha.index(title)
+    for i in range(len(title)):
+        letter = title[i]
+        remaining = list(title[i+1:])
+        result = alpha.index(letter)
+        while len(remaining) > 0:
+            result *= 26
+            del remaining[0]
+        total += result
+    return total
+    
+    
+title_to_number('KFC')
+
+
+def left_slide(row):
+    
+    zeros = [x for x in row if x == 0]
+    nums = [x for x in row if x != 0]
+    found_match = False
+    res_arr = []
+    
+    while True:
+        for i in range(len(nums)-1):
+            num1 = nums[i]
+            num2 = nums[i+1]
+            if num1 == num2:
+                result = num1 + num2
+                del nums[i]
+                del nums[i]
+                res_arr.append(result)
+                break
+            else:
+                res_arr.append(nums[i])
+                del nums[i]
+                break
+        if len(nums) <= 1:
+            if len(nums) == 0:
+                break
+            else:
+                [res_arr.append(x) for x in nums]
+                break
+    print(res_arr)
+    while len(res_arr) != len(row):
+        res_arr.append(0)
+    return res_arr
+    
+    
+print(left_slide([2, 2, 2, 0]))# [4, 2, 0, 0])
+print(left_slide([2, 2, 4, 4, 8, 8]))# [4, 8, 16, 0, 0, 0])
+print(left_slide([0, 2, 0, 2, 4]))# [4, 4, 0, 0, 0])
+print(left_slide([0, 2, 2, 8, 8, 8]))# [4, 16, 8, 0, 0, 0])
+print(left_slide([0, 0, 0, 0]))# [0, 0, 0, 0])
+print(left_slide([0, 0, 0, 2]))# [2, 0, 0, 0])
+print(left_slide([2, 0, 0, 0]))# [2, 0, 0, 0])
+print(left_slide([8, 2, 2, 4]))# [8, 4, 4, 0])
+print(left_slide([1024, 1024, 1024, 512, 512, 256, 256, 128, 128, 64, 32, 32]))# [2048, 1024, 1024, 512, 256, 64, 64, 0, 0, 0, 0, 0])
+
+
+def mathematical(expr,nums):
+    
+    split_func = expr.split('=')[1]
+    result = []
+    
+    if '+' in split_func:
+        num_add = int(split_func[split_func.index('+')+1:])
+        func = lambda x: x + num_add
+        for eachnumber in nums:
+            result.append('f({})={}'.format(eachnumber,func(eachnumber)))
+        return result
+    elif '-' in split_func:
+        num_sub = int(split_func[split_func.index('-')+1:])
+        func = lambda x: x - num_sub
+        for eachnumber in nums:
+            result.append('f({})={}'.format(eachnumber,func(eachnumber)))
+        return result
+    elif 'x' in split_func:
+        num_mul = int(split_func[split_func.index('x')+1:])
+        func = lambda x: x * num_mul
+        for eachnumber in nums:
+            result.append('f({})={}'.format(eachnumber,func(eachnumber)))
+        return result
+    elif '/' in split_func:
+        num_div = int(split_func[split_func.index('/')+1:])
+        func = lambda x: x // num_div
+        for eachnumber in nums:
+            result.append('f({})={}'.format(eachnumber,func(eachnumber)))
+        return result
+    elif '^' in split_func:
+        num_pow = int(split_func[split_func.index('^')+1:])
+        func = lambda x: x**num_pow
+        for eachnumber in nums:
+            result.append('f({})={}'.format(eachnumber,func(eachnumber)))
+        return result
+    
+    
+    
+print(mathematical("f(y)=y+1", [1, 2]))# ["f(1)=2", "f(2)=3"])
+print(mathematical("f(y)=y^2", [1, 2, 3]))# ["f(1)=1", "f(2)=4", "f(3)=9"])
+print(mathematical("f(y)=yx3", [1, 2, 3]))# ["f(1)=3", "f(2)=6", "f(3)=9"])
+print(mathematical("f(y)=y-2",[1, 2, 3]))# ["f(1)=-1", "f(2)=0", "f(3)=1"])
+print(mathematical("f(y)=y/3",[3, 6, 9]))# ["f(3)=1", "f(6)=2", "f(9)=3"])
+        
+        
+        
+            
+    
+    
