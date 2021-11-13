@@ -1127,10 +1127,37 @@ public class javatemp{
 
     }
 
+    public static final String generateShape(int n){
+
+        return IntStream.range(0,n).mapToObj(e -> "+".repeat(n)).collect(Collectors.joining("\n"));
+
+    }
+
+    public static long[] productFib(long prod){
+
+        ArrayList<Long> fibNumbers = new ArrayList<Long>(List.of(0L,1L,1L).stream().collect(ArrayList::new,ArrayList::add,ArrayList::addAll));
+        while(true){
+            int size = fibNumbers.size();
+            long num1 = fibNumbers.get(size-1);
+            long num2 = fibNumbers.get(size-2);
+            long product = num1 * num2;
+            fibNumbers.add(num1 + num2);
+            if(product == prod){
+                return new long[]{num2,num1,1};
+            }
+            else if(product > prod){
+                return new long[]{num2,num1,0};
+            }
+        }
+
+
+
+    }
+
 
 	public static void main(String[] args){
 
-        System.out.println(Arrays.toString(beggars(new int[]{1,2,3,4,5},2)));
+        System.out.println(powerSumDigTerm(2));
 
 	}
 

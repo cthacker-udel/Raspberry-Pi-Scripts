@@ -2136,12 +2136,128 @@ def mathematical(expr,nums):
         return result
     
     
+def num_then_char(alist):
     
-print(mathematical("f(y)=y+1", [1, 2]))# ["f(1)=2", "f(2)=3"])
-print(mathematical("f(y)=y^2", [1, 2, 3]))# ["f(1)=1", "f(2)=4", "f(3)=9"])
-print(mathematical("f(y)=yx3", [1, 2, 3]))# ["f(1)=3", "f(2)=6", "f(3)=9"])
-print(mathematical("f(y)=y-2",[1, 2, 3]))# ["f(1)=-1", "f(2)=0", "f(3)=1"])
-print(mathematical("f(y)=y/3",[3, 6, 9]))# ["f(3)=1", "f(6)=2", "f(9)=3"])
+    struct_list = [len(x) for x in alist]
+    flattened_list = []
+    for eacharr in alist:
+        [flattened_list.append(x) for x in eacharr]
+    print(flattened_list)
+    nums = sorted([x for x in flattened_list if type(x) is int or type(x) is float])
+    letters = sorted([x for x in flattened_list if type(x) is str])
+    print(nums)
+    print(letters)
+    sub_list = []
+    list_cont = []
+    for eachnumber in struct_list:
+        for i in range(eachnumber):
+            if len(nums) == 0:
+                sub_list.append(letters[0])
+                del letters[0]
+            else:
+                sub_list.append(nums[0])
+                del nums[0]
+        list_cont.append(sub_list)
+        sub_list = []
+    return list_cont
+
+def score_it(astr):
+    nesting_level = 0
+    digits = '0123456789'
+    emptystring = ''
+    total = 0
+    for eachletter in astr:
+        if eachletter == '(':
+            if len(emptystring) > 0:
+                total += int(emptystring) * nesting_level
+                emptystring = ''
+            nesting_level += 1
+        elif eachletter == ')':
+            if len(emptystring) > 0:
+                total += int(emptystring) * nesting_level
+                emptystring = ''
+            nesting_level -= 1
+        elif eachletter in digits:
+            emptystring += eachletter
+    #print(total)
+    return total
+
+def is_palindrome(astr):
+    return astr == astr[::-1]
+
+def min_palindrome_steps(astr):
+    steps = 0
+    while not is_palindrome(astr):
+        steps += 1
+        substr = astr[:steps][::-1]
+        if is_palindrome(astr + substr):
+            return steps
+    return steps
+
+#print(mathematical("f(y)=y^2", [1, 2, 3]))# ["f(1)=1", "f(2)=4", "f(3)=9"])
+#print(mathematical("f(y)=yx3", [1, 2, 3]))# ["f(1)=3", "f(2)=6", "f(3)=9"])
+#print(mathematical("f(y)=y-2",[1, 2, 3]))# ["f(1)=-1", "f(2)=0", "f(3)=1"])
+#print(mathematical("f(y)=y/3",[3, 6, 9]))# ["f(3)=1", "f(6)=2", "f(9)=3"])
+
+num_then_char([
+  [1, 2, 4, 3, "a", "b"],
+  [6, "c", 5], [7, "d"],
+  ["f", "e", 8]
+])
+
+print(score_it("((()))"))# 0)
+print(score_it("5abc8de"))# 0)
+print(score_it("5(abc8de)"))# 8)
+print(score_it("(((((20)))))"))# 100)
+print(score_it("1(11(111(1111(11111))))"))# 48010)
+print(score_it("(((258(7(23))67))6)"))# 1124)
+print(score_it("()45((1)(((123(1)16(((34)3)2)5)56)))"))# 1017)
+print(score_it("(8(6(4(2(1)3)5)7)9)"))# 95)
+print(score_it("((76(87))7((765))876(((90(6(12))))))"))# 4053)
+print(score_it("(1((2(((3((((4(((((5((((((6(((((((7((((((((8(((((((((9)))))))))))))))))))))))))))))))))))))))))))))"))# 1155)
+print(score_it("9(99(999(9999()(99999(999999)))))"))# 5432085)
+
+
+print(min_palindrome_steps("race"))# 3)
+print(min_palindrome_steps("mada"))# 1)
+print(min_palindrome_steps("mirror"))# 3)
+print(min_palindrome_steps("maa"))# 1)
+print(min_palindrome_steps("m"))# 0)
+print(min_palindrome_steps("rad"))# 2)
+print(min_palindrome_steps("madam"))# 0)
+print(min_palindrome_steps("radar"))# 0)
+print(min_palindrome_steps("www"))# 0)
+print(min_palindrome_steps("me"))# 1)
+print(min_palindrome_steps("rorr"))# 2)
+print(min_palindrome_steps("pole"))# 3)
+
+
+def bell(n):
+    
+    bell_arr = [[0 for i in range(n+1)] for j in range(n+1)]
+    bell_arr[0][0] = 1
+    for i in range(1,n+1):
+        
+        bell_arr[i][0] = bbell_arrell[i-1][i-1]
+        
+        for j in range(1,i+1):
+            bell_arr[i][j] = bell_arr[i-1][j-1] + bell_arr[i][j-1]
+    return bell_arr[n][0]
+
+
+def sums_of_powers_of_two(n):
+
+	bin_number = bin(n)[2:][::-1]
+	
+	return [2**(x) for x in range(len(bin_number)) if bin_number[x] == '1']
+
+
+def sum_digits_in_range(n):
+
+    formation = str(n) + ('0' * (n-1))
+    return 45 * int(formation)
+
+print(sum_digits_in_range(14))
         
         
         
