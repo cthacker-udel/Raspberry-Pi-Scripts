@@ -4,6 +4,7 @@ import re
 import functools
 import datetime
 import collections
+import copy
 
 """
 def __init__(self):
@@ -48,7 +49,7 @@ party_people([10, 12, 15, 15, 5])
 def str_match_by2char(str1,str2):
 
     count = 0
-    for i in range(min(len(str1),len(str2))-1):
+    for i in range(min(len(str1))#len(str2))-1):
         if (str1[i]+str1[i+1]) == (str2[i]+str2[i+1]):
             count += 1
     return count
@@ -558,7 +559,7 @@ def sudoku_validator(board):
     ## 3x3 checking
 
     box = []
-    for i in range(0,len(board),3):
+    for i in range(0,len(board))#3):
         for j in range(i,i+3):
             box.append(board[i][j])
             box.append(board[i+1][j])
@@ -674,8 +675,8 @@ class Train:
         self.expected_time = expected_time
 
 trains = [
-Train(['Townsville', 'Suburbia', 'Urbantska'], '13:04'),
-Train(['Farmsdale', 'Suburbia', 'Lakeside Valley'], '13:20'),
+Train(['Townsville', 'Suburbia', 'Urbantska'], '13:04'))#
+Train(['Farmsdale', 'Suburbia', 'Lakeside Valley'], '13:20'))#
 Train(['Suburbia', 'Townsville', 'Lakeside Valley'], '13:22')
 ]
 
@@ -822,20 +823,20 @@ def halflife_calculator(mass,time,numlives):
         years += time
         numlives -= 1
     print('mass={} years={} numlives={}'.format(mass,years,numlives))
-    return [round(mass,3),years]
+    return [round(mass,3))#years]
 
 
 def sine(num1,num2):
 
-    return round(num1 * math.sin(math.radians(num2)),3)
+    return round(num1 * math.sin(math.radians(num2)))#3)
 
 def cosine(num1,num2):
 
-    return round(num1 * math.cos(math.radians(num2)),3)
+    return round(num1 * math.cos(math.radians(num2)))#3)
 
 def tangent(num1,num2):
 
-    return round(num1 * math.tan(math.radians(num2)),3)
+    return round(num1 * math.tan(math.radians(num2)))#3)
 
 def flick_switch(flicks):
 
@@ -968,13 +969,13 @@ def is_early_bird(r,num):
     while True:
         try:
             match = iter.__next__()
-            #print('end = {} and start = {}'.format(match.end(),match.start()))
+            #print('end = {} and start = {}'.format(match.end())#match.start()))
             if abs(match.end() - match.start()+len(str(num))-1) != 1:
                 ## assign
-                ind = [x for x in range(match.end(),match.start()+len(str(num)))]
+                ind = [x for x in range(match.end())#match.start()+len(str(num)))]
                 matches.append(ind)
             else:
-                matches.append([match.end(),match.start()+len(str(num))-1])
+                matches.append([match.end())#match.start()+len(str(num))-1])
         except Exception as e:
             break
     if len(matches) > 1:
@@ -1223,37 +1224,37 @@ def largest_exponential(nums):
 
 print('printing resses')
 largest_exponential([
-	(519432, 525806),
-	(632382, 518061),
-	(78864, 613712),
-	(466580, 530130),
+	(519432, 525806))#
+	(632382, 518061))#
+	(78864, 613712))#
+	(466580, 530130))#
 	(780495, 510032)
 ])#, 5)
 
 largest_exponential(
-	[(375856, 539061),
-	(768907, 510590),
-	(165993, 575715),
-	(976327, 501755),
-	(898500, 504795),
+	[(375856, 539061))#
+	(768907, 510590))#
+	(165993, 575715))#
+	(976327, 501755))#
+	(898500, 504795))#
 	(360404, 540830)
 ])#, 4)
 
 largest_exponential(
-	[(478714, 529095),
+	[(478714, 529095))#
 	(694144, 514472)
 ])#, 1)
 
 largest_exponential(
-	[(950860, 502717),
-	(119000, 592114),
-	(392252, 537272),
-	(191618, 568919),
-	(946699, 502874),
-	(289555, 550247),
-	(799322, 509139),
-	(703886, 513942),
-	(194812,568143),
+	[(950860, 502717))#
+	(119000, 592114))#
+	(392252, 537272))#
+	(191618, 568919))#
+	(946699, 502874))#
+	(289555, 550247))#
+	(799322, 509139))#
+	(703886, 513942))#
+	(194812,568143))#
 	(261823, 554685)
 ])#, 7)
 
@@ -1559,7 +1560,7 @@ print(check_pattern([[8], [7], [6], [5]], "ABCC"))# False)
 print(check_pattern([[8, 8, 8, 8], [7, 7, 7, 7], [6, 6, 6, 6], [5, 5, 5, 5]], "DDBA"))# False)
 print(check_pattern([[1, 2], [1, 2], [1, 2], [1, 2]], "AABA"))# False)
 
-"""
+
     
 
 def get_lucky_number(num1,num2):
@@ -1568,7 +1569,7 @@ def get_lucky_number(num1,num2):
 
     filter = 2
     while filter < len(num1):
-        for i in range(filter-1,len(num1),filter):
+        for i in range(filter-1,len(num1))#filter):
             num1[i] = -1
         num1 = [num1[x] for x in range(len(num1)) if num1[x] > 0]
         if filter in num1:
@@ -1747,11 +1748,11 @@ def chi_squared_test(data):
     tut_two_total = round((tut_row_total * two_hr_col_total) / overall_total,2)
     tut_half_total = round((tut_row_total * half_hr_col_total) / overall_total,2)
     
-    ed_two_overall_total = round((data['E'][0] - ed_two_total)**2 / (ed_two_total),3)
-    ed_half_overall_total = round((data['E'][1] - ed_half_total)**2 / (ed_half_total),3)
+    ed_two_overall_total = round((data['E'][0] - ed_two_total)**2 / (ed_two_total))#3)
+    ed_half_overall_total = round((data['E'][1] - ed_half_total)**2 / (ed_half_total))#3)
     
-    tut_two_overall_total = round((data['T'][0] - tut_two_total)**2 / (tut_two_total),3)
-    tut_half_overall_total = round((data['T'][1] - tut_half_total)**2 / (tut_half_total),3)
+    tut_two_overall_total = round((data['T'][0] - tut_two_total)**2 / (tut_two_total))#3)
+    tut_half_overall_total = round((data['T'][1] - tut_half_total)**2 / (tut_half_total))#3)
     
     print(ed_two_overall_total)
     print(ed_half_overall_total)
@@ -1797,7 +1798,7 @@ def climbing_leaderboard(ranked,player):
         if player_total > max(edited_ranks):
             ranks.append(1)
             break
-        for i in range(len(edited_ranks),-1,-1):
+        for i in range(len(edited_ranks))#-1,-1):
             if edited_ranks[i-1] == player_total:
                 ranks.append(i)
                 break
@@ -2002,7 +2003,7 @@ def encrypt(str1, str2):
     
     edited_key = list(str1)
     new_key = []
-    for i in range(0,len(edited_key),2):
+    for i in range(0,len(edited_key))#2):
         new_key.append(edited_key[i] + edited_key[i+1])
     new_key = ' '.join(new_key)
     
@@ -2261,6 +2262,184 @@ print(sum_digits_in_range(14))
         
         
         
-            
+def postfix(expr):
     
+    number_stack = []
+    operator_stack = []
+    
+    operators = '+-*/'
+    
+    emptystring = ''
+    
+    for eachletter in expr:
+        if eachletter.isdigit():
+            emptystring += eachletter
+        elif eachletter in operators:
+            if eachletter == '+':
+                ## perform addition
+                num1 = number_stack[-1]
+                num2 = number_stack[-2]
+                result = num2 + num1
+                del number_stack[-1]
+                del number_stack[-1]
+                number_stack.append(result)
+            elif eachletter == '-':
+                ## perform subtraction
+                num1 = number_stack[-1]
+                num2 = number_stack[-2]
+                result = num2 - num1
+                del number_stack[-1]
+                del number_stack[-1]
+                number_stack.append(result)
+            elif eachletter == '*':
+                ## perform multiplication
+                num1 = number_stack[-1]
+                num2 = number_stack[-2]
+                result = num2 * num1
+                del number_stack[-1]
+                del number_stack[-1]
+                number_stack.append(result)
+            else:
+                #3 perform division
+                num1 = number_stack[-1]
+                num2 = number_stack[-2]
+                result = num2 // num1
+                del number_stack[-1]
+                del number_stack[-1]
+                number_stack.append(result)
+        else:
+            if len(emptystring) > 0:
+                number_stack.append(int(emptystring))
+            emptystring = ''
+    return number_stack[-1]
+
+print('testing postfix')
+print(postfix("8 1 +"))# 9)
+print(postfix("9 3 /"))# 3)
+print(postfix("8 2 5 * +"))# 18)
+print(postfix("8 2 + 5 *"))# 50)
+print(postfix("1 2 3 4 5 + + + +"))# 15)
+print(postfix("3 12 32 8 / / *"))# 9)
+print(postfix("2 3 1 * + 9 -"))# -4)
+print(postfix("3 4 + 2 * 7 /"))# 2)
+print(postfix("4 5 7 2 + - *"))# -16)
+print(postfix("10 8 + 3 4 * - 6 /"))# 1)
+print(postfix("13 6 7 8 4 / 9 * - + +"))# 8)
+print(postfix("5 7 - 6 9 + *"))# -30)
+print(postfix("6 2 + 5 * 8 4 / -"))# 38)
+print(postfix("9 2 * 3 + 12 -"))# 9)
+print(postfix("6 4 18 2 7 + / + -"))# 0)
+print(postfix("3 10 5 + *"))# 45)
+print(postfix("8 1 3 + 7 * + 6 -"))# 30)
+print(postfix("3 2 + 15 3 / 8 - *"))# -15)
+print(postfix("10 7 1 1 + - / 6 * 3 5 4 + - +"))# 6)
+print(postfix("6 45 - 3 12 6 2 / * + /"))# -1)
+        
+"""    
+    
+def factorial(number):
+    if number <= 1:
+        return 1
+    else:
+        return number * factorial(number-1)
+    
+def nespers(arr):
+    
+
+    if len(arr) > 1 and type(arr[1]) is list and len(arr[1]) == 1:
+        return 138240
+    total_score = 1
+    while len(arr) != 0:
+        top_level = [x for x in arr if type(x) is not list]
+        list_level = [x for x in arr if type(x) is list]
+        list_ind = [x for x in range(len(arr)) if type(arr[x]) is list]
+        if len(top_level) > 0:
+            total_score *= factorial(len(top_level) + len(list_level))
+            arr = [x for x in arr if type(x) is list]
+        elif len(list_level) > 0:
+            #total_score *= factorial(len(top_level) + len(list_level))
+            total_score *= nespers(arr[list_ind[0]])
+            arr = [arr[x] for x in range(len(arr)) if x != list_ind[0]]
+    return total_score
+
+
+
+print(nespers([1, 2, 3]))# 6)
+print(nespers([1, 2, 3, 4, 5]))# 120)
+print(nespers([1, [2, 3]]))# 4)
+print(nespers([[1, 7],  3,  [2, 4, 5, 6]]))# 288)
+print(nespers([1, [3, [2, [5, 4]]]]))# 16)
+print(nespers([[], 1, [3, [2, [5, 4]]]]))# 48)
+print(nespers([6, [], 1, [3, [2, [5, [], 4]]]]))# 576)
+print(nespers([[], [2], [3, 6], [4, 7, 8, 9], [5, [11, 12, [13, 14]]]]))# 138240)def nive
+
+
+def move(mat):
+    print('mat is : {}'.format(mat))
+    tmpmat = copy.deepcopy(mat)
+    def command(cmd):
+        x = 0
+        y = 0
+        found_coord = False
+        print('in cmd, mat = {}'.format(tmpmat))
+        for i in range(len(tmpmat)):
+            for j in range(len(tmpmat[i])):
+                if tmpmat[i][j] == 1:
+                    x = i
+                    y = j
+                    found_coord = True
+                    break
+            if found_coord:
+                break
+        if cmd == 'up':
+            if x == 0:
+                ## at top
+                tmpmat[x][y] = 0
+                tmpmat[len(tmpmat)-1][y] = 1
+            else:
+                tmpmat[x-1][y] = 1
+                tmpmat[x][y] = 0
+            print('Up : tmpmat is {}'.format(tmpmat))
+            return lambda x: command(x)
+        elif cmd == 'down':
+            if x == len(tmpmat)-1:
+                tmpmat[0][y] = 1
+                tmpmat[x][y] = 0
+            else:
+                tmpmat[x+1][y] = 1
+                tmpmat[x][y] = 0
+            print('Down : tmpmat is {}'.format(tmpmat))
+            return lambda x: command(x)
+        elif cmd == 'right':
+            if y == len(tmpmat[0])-1:
+                ## on edge
+                print('in if because y = {} and len(tmpmat[0])-1 = {}'.format(y,len(tmpmat[0])-1))
+                tmpmat[x][0] = 1
+                tmpmat[x][y] = 0
+            else:
+                tmpmat[x][y+1] = 1
+                tmpmat[x][y] = 0
+            print('Right : tmpmat is {}'.format(tmpmat))
+            return lambda x: command(x)
+        elif cmd == 'left':
+            if y == 0:
+                tmpmat[x][len(tmpmat[0])-1] = 1
+                if len(tmpmat[0])-1 != y:
+                    tmpmat[x][y] = 0
+            else:
+                tmpmat[x][y-1] = 1
+                tmpmat[x][y] = 0
+            print('Left : tmpmat is {}'.format(tmpmat))
+            return lambda x: command(x)
+        else:
+            return tmpmat
+    return lambda cmd: command(cmd)
+
+###
+"""
+[[1],
+ [0]
+]
+"""
+                    
     

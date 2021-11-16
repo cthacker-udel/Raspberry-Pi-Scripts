@@ -1154,10 +1154,61 @@ public class javatemp{
 
     }
 
+    public static int[] isPerfectPower(int n){
+
+        DecimalFormat format = new DecimalFormat("##.#######");
+
+        if(n <= 3){
+            return null;
+        }
+        else{
+            if(n % 2 == 0){
+                for(int i = 2; ((int)Math.pow(i,2)) <= n; i += 2){
+                    double result = Math.log(n) / Math.log(i);
+                    result = Double.parseDouble(format.format(result));
+                    int X = (int)result;
+                    double temp2 = result - X;
+                    String strResult = "";
+                    if(temp2 > 0){
+                        strResult = ".1111";
+                    }
+                    else{
+                        strResult = String.valueOf(result);
+                    }
+
+                    if(strResult.substring(strResult.indexOf(".")+1).length() == 1 && strResult.endsWith("0")){
+                        return new int[]{i,(int)Math.round(result)};
+                    }
+                }
+                return null;
+            }
+            else{
+                for(int i = 3; ((int)Math.pow(i,2)) <= n; i += 2){
+                    double result = ((Math.log(n) / Math.log(i)) * 100) / 100;
+                    //System.out.println(result);
+                    result = Double.parseDouble(format.format(result));
+                    int X = (int)result;
+                    double temp2 = result - X;
+                    String strResult = "";
+                    if(temp2 > 0){
+                        strResult = ".1111";
+                    }
+                    else{
+                        strResult = String.valueOf(result);
+                    }
+                    if(strResult.substring(strResult.indexOf(".")+1).length() == 1 && strResult.endsWith("0")){
+                        return new int[]{i,(int)Math.round(result)};
+                    }
+                }
+                return null;
+            }
+        }
+    }
+
 
 	public static void main(String[] args){
 
-        System.out.println(powerSumDigTerm(2));
+        isPerfectPower(4);
 
 	}
 
