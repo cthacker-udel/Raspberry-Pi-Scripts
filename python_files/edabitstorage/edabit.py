@@ -6,6 +6,21 @@ import datetime
 import collections
 import copy
 
+def is_prime(number):
+
+    if number < 2:
+        return False
+    elif number == 2 or number == 3 or number == 5:
+        return True
+    elif number % 2 == 0 or number % 3 == 0 or number % 5 == 0:
+        return False
+    else:
+        num = math.ceil(math.sqrt(number))+2
+        for i in range(2,num):
+            if number % i == 0:
+                return False
+        return True
+
 """
 def __init__(self):
     self.name = 'Edabit practice'
@@ -2335,7 +2350,7 @@ print(postfix("3 2 + 15 3 / 8 - *"))# -15)
 print(postfix("10 7 1 1 + - / 6 * 3 5 4 + - +"))# 6)
 print(postfix("6 45 - 3 12 6 2 / * + /"))# -1)
         
-"""    
+
     
 def factorial(number):
     if number <= 1:
@@ -2435,11 +2450,266 @@ def move(mat):
             return tmpmat
     return lambda cmd: command(cmd)
 
-###
 """
-[[1],
- [0]
-]
-"""
+
+def product_of_primes(number):
+    
+    factors = []
+    
+    found_prime = True
+    
+    accum_prime = 0
+    
+    while found_prime and number != 1:
+        for i in range(math.ceil(math.sqrt(number))+1,2,-1):
+            if is_prime(i) and number % i == 0:
+                while number % i == 0:
+                    number = number // i
+                    factors.append(i)
+                accum_prime = 0
+                found_prime = True
+                break
+            else:
+                found_prime = False
+    print(factors)
+    if is_prime(number):
+        factors.append(number)
+        number = 1
+    return True if len(factors) == 2 and number == 1 else False
+                
+
+
+print(product_of_primes(2059))# True)
+print(product_of_primes(7))# False)
+print(product_of_primes(25))# True)
+print(product_of_primes(39))# True)
+print(product_of_primes(5767))# True)
+print(product_of_primes(77))# True)
+print(product_of_primes(12))# False)
+print(product_of_primes(8))# False)
+
+def hex_color_mixer(hexes):
+    
+    converted_hexes = []
+    
+    for eachhex in hexes:
+        eachhex = eachhex.replace('#','')
+        hex_values = [eachhex[x:x+2] for x in range(0,len(eachhex),2)]
+        converted_hex_values = [int(x,16) for x in hex_values]
+        converted_hexes.append(converted_hex_values)
+    
+    ## getting red avg
+    red_total = 0
+    green_total = 0
+    blue_total = 0
+    
+    for conv_values in converted_hexes:
+        red_total += conv_values[0]
+        green_total += conv_values[1]
+        blue_total += conv_values[2]
+    
+    red_avg = round((red_total / len(hexes))+0.01)
+    green_avg = round((green_total / len(hexes))+0.01)
+    blue_avg = round((blue_total / len(hexes))+0.01)
+    
+    new_rgb = [red_avg, green_avg, blue_avg]
+    hex_conversion = [hex(x) for x in new_rgb]
+    
+    formatted_hex = []
+    
+    for eachhex in hex_conversion:
+        stripped_0x = eachhex.replace('0x','').upper()
+        while len(stripped_0x) < 2:
+            stripped_0x = stripped_0x + '0'
+        formatted_hex.append(stripped_0x)
+    return '#{}'.format(''.join(formatted_hex))
+    
+    
+print(hex_color_mixer(["#FFFF00", "#FF0000"]))# "#FF8000", "Example #1")
+print(hex_color_mixer(["#FFFF00", "#0000FF"]))# "#808080", "Example #2")
+print(hex_color_mixer(["#B60E73", "#0EAEB6"]))# "#625E95", "Example #3")
+print(hex_color_mixer(["#FF0000", "#00FF00", "#0000FF"]))# "#555555")
+print(hex_color_mixer(["#99CC00", "#663399", "#1A8191"]))# "#5E8063")
+print(hex_color_mixer(["#918381", "#D53B21", "#A54C83", "#DEFACF"]))# "#BA817D")
+print(hex_color_mixer(["#140A23", "#46B31E", "#CFDF08", "#263534", "#EAD1FB", "#235E02"]))# "#65803F")
+print(hex_color_mixer(["#FFFFFF", "#000000", "#000000", "#FFFFFF"]))# "#808080")
+print(hex_color_mixer(["#CCCCCC"]))# "#CCCCCC")
+
+
+def str_prime_factors(num):
+    
+    if is_prime(num):
+        return '{}'.format(num)
+    else:
+        factors = []
+        while num != 1:
+            for i in range(2,num+1):
+                if num % i == 0 and is_prime(i):
+                    while num % i == 0:
+                        num = num // i
+                        factors.append(i)
+                    break
+        ordered_set = []
+        factors = sorted(factors)
+        for eachnumber in factors:
+            if eachnumber in ordered_set:
+                continue
+            else:
+                ordered_set.append(eachnumber)
+        print(ordered_set)
+        frequencies = {}
+        for eachnumber in ordered_set:
+            frequencies[eachnumber] = factors.count(eachnumber)
+        print(frequencies)
+        
+        format_string = []
+        for eachkey in ordered_set:
+            if frequencies[eachkey] > 1:
+                format_string.append('{}^{}'.format(eachkey,frequencies[eachkey]))
+            else:
+                format_string.append('{}'.format(eachkey))
+        return ' x '.join(format_string)
+
+
+def express_factors(num):
+    
+    return str_prime_factors(num)
+    
+    
+print(express_factors(60))
+
+def stem_plot(arr):
+    
+    adict = {}
+    
+    for eachnumber in arr:
+        str_number = ''
+        if eachnumber < 10:
+            str_number = '0' + str(eachnumber)
+        else:
+            str_number = str(eachnumber)
+        stem = str_number[0:len(str_number)-1]
+        leaf = str_number[-1]
+        if stem in adict.keys():
+            ## stem is already a key
+            adict[stem].append(leaf)
+        else:
+            adict[stem] = [leaf]
+    print(adict)
+    sorted_keys = sorted([int(x) for x in adict.keys()])
+    result = []
+    for eachkey in sorted_keys:
+        res_arr = [str(x) for x in sorted([int(x) for x in adict[str(eachkey)]])]
+        the_str = ''
+        if len(res_arr) > 1:
+            the_str = '{} | {}'.format(eachkey,' '.join(res_arr))
+        else:
+            the_str = '{} | {}'.format(eachkey,adict[str(eachkey)][0])
+        result.append(the_str)
+    return result
+
+def diamond_sum(n):
+    
+    if n < 2:
+        return n
+    
+    arr = []
+    sub_arr = []
+    starter = 1
+    for i in range(n):
+        for j in range(n):
+            sub_arr.append(starter)
+            starter += 1
+        arr.append(sub_arr)
+        sub_arr = []
+    
+    row = 0
+    rcol = n // 2
+    lcol = n // 2
+    rColInc = 1
+    lColInc = -1
+    ## top sum
+    total = 0
+    for i in range(n):
+        if lcol == 0 and rcol == len(arr[0])-1:
+            total += arr[i][lcol]
+            total += arr[i][rcol]
+            rColInc = -1
+            lColInc = 1
+            rcol += rColInc
+            lcol += lColInc
+        elif rcol == lcol:
+            total += arr[i][rcol]
+            rcol += rColInc
+            lcol += lColInc
+        else:
+            total += arr[i][lcol]
+            total += arr[i][rcol]
+            lcol += lColInc
+            rcol += rColInc
+    return total
+
+
+class Rectangle:
+    
+    def __init__(self,x,y,width,height):
+        self.x = x
+        self.y = y
+        self.width = width
+        self.height = height
+        
+        
+def intersecting(rect1,rect2):
+    
+    first_x = [x for x in range(rect1.x,rect1.x+rect1.width+1)]
+    first_ys = [y for y in range(rect1.y,rect1.y-rect1.height-1,-1)]
+    coords1 = []
+    for eachx in first_x:
+        for eachy in first_ys:
+            coords1.append([eachx,eachy])
+    #print(coords1)
+    
+    second_x = [x for x in range(rect2.x,rect2.x+rect1.width+1)]
+    second_ys = [y for y in range(rect2.y,rect2.y-rect1.height-1,-1)]
+    coords2 = []
+    for eachx in second_x:
+        for eachy in second_ys:
+            coords2.append([eachx,eachy])
+    #print(coords1)
+    
+    for eachcoord in coords1:
+        if eachcoord in coords2:
+            return True
+    return False
+
+
+def incremental_depth(alist):
+    
+    curr_elem = []
+    for i in range(len(alist)-1,-1,-1):
+        if i == len(alist)-1:
+            curr_elem = [alist[i]]
+        else:
+            curr_elem = [alist[i],curr_elem]
+    return curr_elem
+        
+    
+
+incremental_depth([1, 2, 3, 4, 5])
+    
+    
+        
+    
+a = Rectangle(10, 20, 100, 20)
+b = Rectangle(10, 40, 15, 20)
+c = Rectangle(50, 50, 20, 30)
+d = Rectangle(90, 25, 100, 5)
+
+print(intersecting(a, b))# True)
+print(intersecting(a, c))# False)
+print(intersecting(b, c))# False)
+print(intersecting(a, d))# True)
+print(intersecting(c, d))# False)
+print(intersecting(b, d))# False)
                     
     
