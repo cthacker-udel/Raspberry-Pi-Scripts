@@ -2692,24 +2692,118 @@ def incremental_depth(alist):
         else:
             curr_elem = [alist[i],curr_elem]
     return curr_elem
-        
+ 
+def divisible_by_left(number):
+    str_number = str(number)
+    return [False] + [True if int(str_number[x-1]) != 0 and int(str_number[x]) % int(str_number[x-1]) == 0 else False for x in range(1,len(str_number))]
+
+
+def decrypt(astr):
+    
+    alpha = ' abcdefghijklmnopqrstuvwxyz'
+    for i in range(10,27):
+        astr = astr.replace('{}#'.format(str(i)),alpha[i])
+    for i in range(1,10):
+        astr = astr.replace('{}'.format(str(i)),alpha[i])
+    return astr
     
 
-incremental_depth([1, 2, 3, 4, 5])
+decrypt('10#11#12')
+
+
+def knight_checker(coord1,coord2):
     
+    ## first check
+    if coord2[0] < coord1[0] and abs(coord1[0] - coord2[10]) == 1:
+        if abs(coord1[1] - coord2[1]) != 2:
+            return False
+        else:
+            return True
+    if coord2[0] > coord1[0] and abs(coord1[0] - coord2[0]) == 1:
+        if abs(coord1[1] - coord2[1]) != 2:
+            return False
+        else:
+            return True
+    if coord2[0] > coord1[0] and abs(coord1[0] - coord2[0]) == 2:
+        if abs(coord1[1] - coord2[1]) != 1:
+            return False
+        else:
+            return True
+    if coord2[0] < coord1[0] and abs(coord1[0] - coord2[0]) == 2:
+        if abs(coord1[1] - coord2[1]) != 1:
+            return False
+        else:
+            return True
+    return True
+
+def pawn_checkers(source,dest):
+    
+    return source[1] == dest[1] and (abs(source[0] - dest[0]) == 1 or abs(source[0] - dest[0]) == 2)
+
+def bishop_checker(board,source,dest):
+    
+    valid_points = []
+    for i in range(source[0],len(board)):
+        for j in range(source[1],len(board[0])):
+            valid_points.append(board[i][j])
+    for i in range(source[0],-1,-1):
+        for j in range(source[1],-1,-1):
+            valid_points.append(board[i][j])
+    tmp_row = source[0]
+    for i in range(source[1],-1,-1):
+        valid_points.append(board[tmp_row][i])
+        tmp_row += 1
+    ## checked topleft diag
+    ## checked downright diag
+    ## checked downleft diag
+    [2][2],[1][3],[0][4]
+    tmp_row = source[0]
+    for i in range(source[1],len(board[0])):
+        valid_points.append(board[tmp_row][i])
+        tmp_row -= 1
+    return dest in valid_points
+    
+    
+
+def can_move(piecetype, source, dest):
+    
+    board = [
+        
+        ['A8','B8','C8','D8','E8','F8','G8','H8'],
+        ['A7','B7','C7','D7','E7','F7','G7','H7'],
+        ['A6','B6','C6','D6','E6','F6','G6','H6'],
+        ['A5','B5','C5','D5','E5','F5','G5','H5'],
+        ['A4','B4','C4','D4','E4','F4','G4','H4'],
+        ['A3','B3','C3','D3','E3','F3','G3','H3'],
+        ['A2','B2','C2','D2','E2','F2','G2','H2'],
+        ['A1','B1','C1','D1','E1','F1','G1','H1'],
+        
+    ]
+    
+    source_ind = -1
+    dest_ind = -1
+    loop_end = False
+    for i in range(len(board)):
+        if loop_end:
+            break
+        for j in range(len(board[i])):
+            if source_ind != -1 and dest_ind != -1:
+                loop_end = True
+                break
+            elif board[i][j] == source:
+                source_ind = [i,j]
+            elif board[i][j] == dest:
+                dest = [i,j]
+    if piecetype == 'Pawn':
+        return pawn_checkers(source_ind,dest_ind)
+    if piecetype == 'Knight':
+        return knight_checker(source_ind,dest_ind)
     
         
     
-a = Rectangle(10, 20, 100, 20)
-b = Rectangle(10, 40, 15, 20)
-c = Rectangle(50, 50, 20, 30)
-d = Rectangle(90, 25, 100, 5)
+        
+        
 
-print(intersecting(a, b))# True)
-print(intersecting(a, c))# False)
-print(intersecting(b, c))# False)
-print(intersecting(a, d))# True)
-print(intersecting(c, d))# False)
-print(intersecting(b, d))# False)
+can_move("Pawn", "C6", "D7")
                     
     

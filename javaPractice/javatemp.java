@@ -1205,6 +1205,12 @@ public class javatemp{
         }
     }
 
+    public static String table(String[] results){
+
+        String[] teams = Stream.of
+
+    }
+
 
 	public static void main(String[] args){
 
