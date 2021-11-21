@@ -5,6 +5,7 @@ import functools
 import datetime
 import collections
 import copy
+from pprint import pprint
 
 def is_prime(number):
 
@@ -2743,25 +2744,43 @@ def pawn_checkers(source,dest):
 def bishop_checker(board,source,dest):
     
     valid_points = []
-    for i in range(source[0],len(board)):
-        for j in range(source[1],len(board[0])):
-            valid_points.append(board[i][j])
-    for i in range(source[0],-1,-1):
-        for j in range(source[1],-1,-1):
-            valid_points.append(board[i][j])
+    tmp_col = source[1]
+    for i in range(source[0],len(board)): ### bottom right
+        if tmp_col == len(board[0]):
+            break
+        valid_points.append(board[i][tmp_col])
+        tmp_col += 1
+    tmp_col = source[1]
+    for i in range(source[0],len(board)): ### bottom left
+        if tmp_col == -1:
+            break
+        valid_points.append(board[i][tmp_col])
+        tmp_col -= 1
     tmp_row = source[0]
     for i in range(source[1],-1,-1):
-        valid_points.append(board[tmp_row][i])
-        tmp_row += 1
-    ## checked topleft diag
-    ## checked downright diag
-    ## checked downleft diag
-    [2][2],[1][3],[0][4]
+        if i == -1:
+            break
+        valid_points.append(board[tmp_row][i]) ## top left
+        tmp_row -= 1
     tmp_row = source[0]
-    for i in range(source[1],len(board[0])):
+    for i in range(source[1],len(board[0])): ## top right
+        if tmp_row == -1:
+            break
         valid_points.append(board[tmp_row][i])
         tmp_row -= 1
-    return dest in valid_points
+    return board[dest[0]][dest[1]] in valid_points
+
+
+def rook_checker(source,dest):
+    
+    ## can only move within same row, or same column
+    
+    return source[1] == dest[1] or source[0] == dest[0]
+
+
+def king_checker(source,dest):
+    
+    return abs(source[0] - dest[0]) == 1 or abs(source[1] - dest[1]) == 1
     
     
 
@@ -2793,17 +2812,81 @@ def can_move(piecetype, source, dest):
             elif board[i][j] == source:
                 source_ind = [i,j]
             elif board[i][j] == dest:
-                dest = [i,j]
+                dest_ind = [i,j]
     if piecetype == 'Pawn':
         return pawn_checkers(source_ind,dest_ind)
     if piecetype == 'Knight':
         return knight_checker(source_ind,dest_ind)
-    
-        
-    
-        
-        
+    if piecetype == 'Bishop':
+        return bishop_checker(board,source_ind,dest_ind)
+    if piecetype == 'Rook':
+        return rook_checker(source_ind,dest_ind)
+    if piecetype == 'Queen':
+        return rook_checker(source_ind,dest_ind) or bishop_checker(board,source_ind,dest_ind)
+    if piecetype == 'King':
+        return king_checker(source_ind,dest_ind)
 
-can_move("Pawn", "C6", "D7")
+
+print(can_move("Pawn", "A5", "A6"))# True)
+print(can_move("Pawn", "G2", "G4"))# True)
+print(can_move("Pawn", "C6", "D7"))# False)
+print(can_move("Knight", "F5", "E3"))# True)
+print(can_move("Knight", "F6", "E5"))# False)
+print(can_move("Bishop", "B4", "E7"))# True)
+print(can_move("Bishop", "B6", "F5"))# False)
+print(can_move("Rook", "A8", "H8"))# True)
+print(can_move("Rook", "A8", "H7"))# False)
+print(can_move("Queen", "A8", "H1"))# True)
+print(can_move("Queen", "A6", "H4"))# False)
+print(can_move("King", "C4", "D5"))# True)
+print(can_move("King", "B7", "B5"))# False)
                     
+                    
+                    
+def generate_rug(number):
     
+    ## first generate rug
+    
+    the_rug = []
+    sub_rugs = []
+    for i in range(number):
+        for j in range(number):
+            sub_rugs.append(0)
+        the_rug.append(sub_rugs)
+        sub_rugs = []
+    starting_number = number // 2
+    starting_coord_tl = [0,0] ## start top left
+    starting_coord_br = [len(the_rug)-1,len(the_rug[0])-1] ## start bottom right
+    while starting_coord_tl != starting_coord_br:
+        ## draw rows and columns from starting_coord_tl
+        #############################
+        # Row and Col from Top Left #
+        #############################
+        for j in range(starting_coord_tl[1],len(the_rug[0])-starting_coord_tl[1]):
+            the_rug[starting_coord_tl[0]][j] = starting_number
+        for i in range(starting_coord_tl[0],len(the_rug)-starting_coord_tl[0]):
+            the_rug[i][starting_coord_tl[1]] = starting_number
+        #################################
+        # Row and Col from Bottom Right #
+        #################################
+        for j in range(starting_coord_br[1],len(the_rug[0])-starting_coord_br[1]-1,-1):
+            the_rug[starting_coord_br[0]][j] = starting_number
+        for i in range(starting_coord_br[0],len(the_rug)-starting_coord_br[0]-1,-1):
+            the_rug[i][starting_coord_br[1]] = starting_number
+        starting_number -= 1
+        starting_coord_tl[0] += 1
+        starting_coord_tl[1] += 1
+        starting_coord_br[0] -= 1
+        starting_coord_br[1] -= 1
+    return the_rug
+        
+        
+pprint(generate_rug(1))
+print('next rug')
+pprint(generate_rug(3))
+print('next rug')
+pprint(generate_rug(5))
+print('next rug')
+pprint(generate_rug(7))
+print('next rug')
+pprint(generate_rug(9))
