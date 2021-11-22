@@ -1205,9 +1205,93 @@ public class javatemp{
         }
     }
 
-    public static String table(String[] results){
+    public static double factorial(double n){
 
-        String[] teams = Stream.of
+        double total = n;
+        double starter = n-1;
+        while(starter > 1){
+            total *= starter;
+            starter--;
+        }
+        return total;
+
+    }
+
+    public static double binomial(double n, double k){
+
+        return factorial(n) / ((factorial(k)) * factorial(n- k));
+
+    }
+
+    public static double[] bernoulliN(int n){
+
+        double[] dblarr = new double[n+2];
+        dblarr[0] = 1;
+        dblarr[1] = -0.5;
+        for(int m = 1; m <= n; m++){
+
+            for(int k = 0; k <= m; k++){
+
+                for(int v = 0; v <= k; v++){
+
+                    dblarr[m+1] += Math.pow(-1,v) * binomial(k,v) * Math.pow(v,m) / (k+1);
+
+                }
+
+            }
+
+        }
+        return dblarr;
+
+    }
+
+    public static double series(int k, int nb){
+
+        if(k > 2 && k % 2 != 0){
+
+            double sum = 0;
+            for(int i = 1; i < nb; i++){
+                sum += (1 / Math.pow(i,k));
+            }
+            return sum;
+
+        } else if(k >= 2 && k % 2 == 0){
+            System.out.printf("%s", "printing out second else if");
+            double[] resarr = bernoulliN(k);
+            return 0.5 * Math.abs(bernoulliN(k)[k]) * Math.pow(2*Math.PI,k) / factorial(k);
+
+        } else if(k > 1){
+            double res = bernoulliN(k+1)[k+1];
+            return Math.pow(-1,k) * res / (k+1);
+        } else {
+            return 0.0;
+        }
+
+
+    }
+
+    public static long sumSquareDivisors(long number){
+        return LongStream.rangeClosed(1,number % 2 == 0? number / 2 : number % 3 == 0? number / 3 : number % 5 == 0? number / 5 : (long)Math.floor(number / 2))
+                .filter(e -> number % e == 0)
+                .map(e -> (long)Math.pow(e,2))
+                .sum() + (long)(Math.pow(number,2));
+    }
+
+    public static boolean isSqrtPerfectSquare(long number){
+        return Math.sqrt(number) == Math.floor(Math.sqrt(number));
+    }
+
+    public static long[] isValidRecreationOneInteger(long number){
+        if(number == 1){
+            return new long[]{1,1};
+        }
+        long sum = sumSquareDivisors(number);
+        return isSqrtPerfectSquare(sum) ? new long[]{number,sum} : null;
+    }
+
+    public static String listSquared(long m, long n){
+
+        return Arrays.toString(LongStream.rangeClosed(m,n).filter(e -> isValidRecreationOneInteger(e) != null).mapToObj(e -> Arrays.toString(isValidRecreationOneInteger(e))).toArray());
 
     }
 
