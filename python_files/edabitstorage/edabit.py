@@ -2890,3 +2890,145 @@ print('next rug')
 pprint(generate_rug(7))
 print('next rug')
 pprint(generate_rug(9))
+
+def chunkify(arr, num):
+    
+    main_arr = []
+    sub_arr = []
+    for eachelem in arr:
+        if len(sub_arr) == num:
+            main_arr.append(sub_arr)
+            sub_arr = [eachelem]
+        else:
+            sub_arr.append(eachelem)
+    if len(sub_arr) > 0:
+        main_arr.append(sub_arr)
+    return main_arr
+
+def colour_harmony(thecolor, thetype):
+    
+    colours = ["red", "red-orange", "orange", "yellow-orange", "yellow", "yellow-green",  "green", "blue-green", "blue", "blue-violet", "violet", "red-violet"]
+    
+    print('thecolor {}'.format(thecolor))
+    
+    if thetype == 'triadic':
+        first_ind = colours.index(thecolor)
+        return set(dict.fromkeys([ thecolor, colours[first_ind+4], colours[first_ind-4]]))
+    elif thetype == 'analogous':
+        first_ind = colours.index(thecolor)
+        return set(dict.fromkeys([ colours[first_ind+1], thecolor, colours[first_ind-1]]))
+    elif thetype == 'complementary':
+        first_ind = colours.index(thecolor)
+        return set(dict.fromkeys([ thecolor, colours[first_ind-6]]))
+    elif thetype == 'rectangle':
+        first_ind = colours.index(thecolor)
+        return set(dict.fromkeys([ thecolor, colours[first_ind-2], colours[first_ind-4], colours[first_ind-6]]))
+    elif thetype == 'split-complementary':
+        first_ind = colours.index(thecolor)
+        return set(dict.fromkeys([ thecolor, colours[first_ind+6], colours[first_ind+8]]))
+    else:
+        first_ind = colours.index(thecolor)
+        second_ind = (first_ind+3) % len(colours)
+        third_ind = (first_ind+6) % len(colours)
+        fourth_ind = (first_ind+9) % len(colours)
+        return set(dict.fromkeys([ thecolor, colours[second_ind], colours[third_ind], colours[fourth_ind]]))
+    
+    
+def max_sqr(asqr):
+    
+    the_max = 0
+    for eachrow in asqr:
+        for eachelem in eachrow:
+            the_max = max(the_max,eachelem)
+    return the_max
+    
+def is_magic(asqr):
+    
+    print('testing = {}'.format(asqr))
+    if len(asqr) == 0:
+        return True
+    if max_sqr(asqr) > len(asqr)**2:
+        return False
+    if len([x for x in set(len(x) for x in asqr)]) != 1:
+        return False
+    
+    row_sums = []
+    col_sums = []
+    diag_sums = []
+    total = 0
+    for eachrow in asqr:
+        row_sums.append(sum(eachrow))
+    for i in range(len(asqr)):
+        for j in range(len(asqr[0])):
+            total += asqr[j][i]
+        col_sums.append(total)
+        total = 0
+    for i in range(len(asqr)):
+        total += asqr[i][i]
+    diag_sums.append(total)
+    total = 0
+    diag_ind = len(asqr)-1
+    for i in range(len(asqr)):
+        total += asqr[i][diag_ind]
+        diag_ind -= 1
+    diag_sums.append(total)
+    total_sums = len([x for x in set(row_sums + col_sums + diag_sums)]) == 1
+    return total_sums
+
+
+def postfix(expr):
+    
+    operations = {
+        
+        '*': lambda x,y: x*y,
+        '+': lambda x,y: x+y,
+        '-': lambda x,y: x-y,
+        '/': lambda x,y: x // y
+        
+    }
+    
+    num_stack = []
+    operands = '+-*/'
+    emptystring = ''
+    digits = '0123456789'
+    for eachletter in expr:
+        if eachletter == ' ':
+            if len(emptystring) > 0:
+                num_stack.append(int(emptystring))
+                emptystring = ''
+        elif eachletter in digits:
+            emptystring += eachletter
+        else:
+            if eachletter in operands:
+                num1 = num_stack[-2]
+                num2 = num_stack[-1]
+                del num_stack[-2]
+                del num_stack[-1]
+                resulting_num = operations[eachletter](num1,num2)
+                num_stack.append(resulting_num)
+    return num_stack[0] if len(emptystring) == 0 else int(emptystring)
+
+
+postfix("5 6 * 2 1 + /")
+
+
+import re
+def kix_code(addr):
+	match_code1 = r'(?<=[,][ ])(\d{4})(?= \w{2})'
+	match_code2 = r'([^\w].{1,5})(?=[,] \d{4})'
+	match_code3 = r'(?<=\d{4} )(\w+)'
+	replace_expr = r'\W'
+	subst = 'X'
+	matches = re.finditer(match_code1,addr,re.MULTILINE)
+	matches2 = re.finditer(match_code2,addr,re.MULTILINE)
+	matches3 = re.finditer(match_code3,addr,re.MULTILINE)
+	first_part = ''
+	second_part = ''
+	third_part = ''
+	for matchnum, match in enumerate(matches, start=1):
+		first_part = match.group().strip()
+	for matchnum, match in enumerate(matches2, start=1):
+		second_part = re.sub(replace_expr,subst,match.group().strip(),0,re.MULTILINE).upper()
+	for matchnum, match in enumerate(matches3, start=1):
+		third_part = match.group().strip()
+	return '{}{}{}'.format(first_part,third_part,second_part)
