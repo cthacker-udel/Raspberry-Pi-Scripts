@@ -3012,7 +3012,6 @@ def postfix(expr):
 postfix("5 6 * 2 1 + /")
 
 
-import re
 def kix_code(addr):
 	match_code1 = r'(?<=[,][ ])(\d{4})(?= \w{2})'
 	match_code2 = r'([^\w].{1,5})(?=[,] \d{4})'
@@ -3032,3 +3031,79 @@ def kix_code(addr):
 	for matchnum, match in enumerate(matches3, start=1):
 		third_part = match.group().strip()
 	return '{}{}{}'.format(first_part,third_part,second_part)
+                        
+                        
+def func(alist):
+    digits = '0123456789'
+    total = 0
+    for eachelem in alist:
+        if type(eachelem) is list:
+            total += 1 + func(eachelem)
+        else:
+            total += 1
+    return total
+
+print(func([ [], [] ,[] ]))# 3)
+print(func([ [3], [2] ,[1,2] ]))# 7)
+print(func([]))# 0)
+print(func([[[]]]))# 2)
+print(func([ [1,2], ["3"] ,["F"] ]))# 7)
+print(func([ [[[]]], [2] ,[[[[[[]]]]]] ]))# 11)
+
+
+def license_plate(plate, grouping):
+    '<lambda>'
+    '<lambda>'
+    the_plate = ''.join(plate.split('-'))
+    emptystring = ''
+    parts = []
+    while len(the_plate) > 0:
+        if len(emptystring) == grouping:
+            parts.append(emptystring[::-1].upper())
+            emptystring = ''
+        else:
+            emptystring += the_plate[len(the_plate)-1]
+            the_plate = the_plate[:-1]
+    if len(emptystring) > 0:
+        parts.append(emptystring[::-1].upper())
+    return '-'.join(parts[::-1])
+    
+    
+str_vector = [
+    ["5F3Z-2e-9-w", 4], ["2-5g-3-J", 2], ["2-4A0r7-4k", 3], ["GB-bd519-KFC", 2], ["BF-11gf9i-7819iT", 3],
+    ["Fin-Mmg-418", 3], ["sPx-o755", 3], ["de57-uk", 2], ["d-kapa-7778", 4], ["nlj-206-fv", 3]
+]
+res_vector = [
+  "5F3Z-2E9W", "2-5G-3J", "24-A0R-74K", "GB-BD-51-9K-FC",  "BF-11G-F9I-781-9IT", "FIN-MMG-418", "S-PXO-755",
+  "DE-57-UK", "D-KAPA-7778", "NL-J20-6FV"
+]
+for i, c in enumerate(str_vector): print(license_plate(*c) == res_vector[i])#, res_vector[i])
+
+
+def missing_alphabets(astr):
+    
+    alphabet = 'abcdefghijklmnopqrstuvwxyz'
+    
+    common_occur = [x for x in set([astr.count(e) for e in astr])]
+    if len(common_occur) > 1:
+        common_occur = max(common_occur[0], common_occur[1])
+    else:
+        common_occur = common_occur[0]
+    
+    missing_letters = ''
+    for eachletter in alphabet:
+        if eachletter not in astr:
+            missing_letters += eachletter * common_occur
+        elif eachletter in astr and astr.count(eachletter) < common_occur:
+            missing_letters += eachletter * (common_occur - astr.count(eachletter))
+    return missing_letters
+
+
+print(missing_alphabets("abcdefghijklmnopqrstuvwxy"))#"z")
+print(missing_alphabets("abcdefghijklmnopqrstuvwxyz"))#"")
+print(missing_alphabets("aabbccddeeffgghhiijjkkllmmnnooppqqrrssttuuvvwwxxyy"))#"zz")
+print(missing_alphabets("abbccddeeffgghhiijjkkllmmnnooppqqrrssttuuvvwwxxy"))#"ayzz")
+print(missing_alphabets("edabit"))#"cfghjklmnopqrsuvwxyz")
+print(missing_alphabets("aaaabbbbccccddddeeeeffffgggghhhhiiiijjjjkkkkllllmmmmnnnnooooppppqqqqrrrrssssttttuuuuvvvvwwwwxxxxyyyyzzzz"))#"")
+print(missing_alphabets("mubashir"))#"cdefgjklnopqtvwxyz")
+print(missing_alphabets("aaaa"))#"bbbbccccddddeeeeffffgggghhhhiiiijjjjkkkkllllmmmmnnnnooooppppqqqqrrrrssssttttuuuuvvvvwwwwxxxxyyyyzzzz")

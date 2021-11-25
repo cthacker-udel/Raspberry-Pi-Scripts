@@ -1304,4 +1304,14 @@ public class javatemp{
 
 
 
+        public String toJadenCase(String phrase) {
+            return phrase != null && phrase.length() != 0 ? Stream.of(phrase.split(" "))
+        .map(e -> e.toLowerCase())
+        .map(e -> String.format("%s%s",(e.charAt(0)+"").toUpperCase(),e.substring(1)))
+        .collect(Collectors.joining(" "))
+        :
+        null
+        ;
+        }
+
 }
