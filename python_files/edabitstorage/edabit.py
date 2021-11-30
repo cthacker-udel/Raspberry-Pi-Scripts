@@ -6,6 +6,7 @@ import datetime
 import collections
 import copy
 from pprint import pprint
+from datetime import time
 
 def is_prime(number):
 
@@ -65,7 +66,7 @@ party_people([10, 12, 15, 15, 5])
 def str_match_by2char(str1,str2):
 
     count = 0
-    for i in range(min(len(str1))#len(str2))-1):
+    for i in range(min(len(str1) ==len(str2))-1):
         if (str1[i]+str1[i+1]) == (str2[i]+str2[i+1]):
             count += 1
     return count
@@ -91,12 +92,12 @@ def sums_up(arr):
                 pairs.append([arr[i],arr[j]])
     print(pairs)
 
-print(sums_up([1, 2, 3, 4, 5]))# {"pairs": [[3, 5]]})
-print(sums_up([10, 9, 7, 2, 8]))# {"pairs": []})
-print(sums_up([1, 6, 5, 4, 8, 2, 3, 7]))# {"pairs": [[2, 6], [3, 5], [1, 7]]})
-print(sums_up([5, 7, 2, 3, 0, 1, 6, 4, 8]))# {"pairs": [[3, 5], [1, 7], [2, 6], [0, 8]]})
-print(sums_up([10, 9, 7, 1, 8, -2, -1, 2, 6]))# {"pairs": [[1, 7], [-2, 10], [-1, 9], [2, 6]]})
-print(sums_up([0, 1, -2, 7, 9, 5, 4, 10, 8, -1, 6]))# {"pairs": [[1, 7], [-2, 10], [0, 8], [-1, 9]]})
+print(sums_up([1, 2, 3, 4, 5]) == {"pairs": [[3, 5]]})
+print(sums_up([10, 9, 7, 2, 8]) == {"pairs": []})
+print(sums_up([1, 6, 5, 4, 8, 2, 3, 7]) == {"pairs": [[2, 6], [3, 5], [1, 7]]})
+print(sums_up([5, 7, 2, 3, 0, 1, 6, 4, 8]) == {"pairs": [[3, 5], [1, 7], [2, 6], [0, 8]]})
+print(sums_up([10, 9, 7, 1, 8, -2, -1, 2, 6]) == {"pairs": [[1, 7], [-2, 10], [-1, 9], [2, 6]]})
+print(sums_up([0, 1, -2, 7, 9, 5, 4, 10, 8, -1, 6]) == {"pairs": [[1, 7], [-2, 10], [0, 8], [-1, 9]]})
     
 
 def split_bunches(objArr):
@@ -246,7 +247,7 @@ print(bingo_check([
 	[37, 65, "x", 83, 54],
 	[67, 98, 39, "x", 44],
 	[21, 59, 24, 30, "x"]
-]))#)
+]) ==)
 
 print(bingo_check([
 	[37, 16, 84, 51, 33],
@@ -254,7 +255,7 @@ print(bingo_check([
 	["x", "x", "x", "x", "x"],
 	[67, 19, 98, 39, 44],
 	[21, 75, 24, 30, 52]
-]))#)
+]) ==)
 
 print(bingo_check([
 	[45, "x", 31, 74, 87],
@@ -262,7 +263,7 @@ print(bingo_check([
 	[37, "x", 68, "x", 54],
 	[67, "x", 98, "x", "x"],
 	[21, "x", 24, 30, 52]
-]))#, False)
+]) ==, False)
 
 print(bingo_check([
 	[45, 46, 31, 74, "x"],
@@ -270,7 +271,7 @@ print(bingo_check([
 	[37, 81, "x", 55, 54],
 	[67, "x", 98, 34, 77],
 	["x", 33, 24, 30, 52]
-]))#)
+]) ==)
 
 def move_zeros(arr):
 
@@ -501,29 +502,29 @@ def just_another_sum_problem(x,y):
 
 
 # NegativeH
-print(just_another_sum_problem(1,-10))#-54)
-print(just_another_sum_problem(-20,5))#-195)
-print(just_another_sum_problem(-40,20))#-610)
-print(just_another_sum_problem(20,-100))#-4840)
-print(just_another_sum_problem(-15,3))#-114)
-print(just_another_sum_problem(-8,4))#-26)
+print(just_another_sum_problem(1,-10) ==-54)
+print(just_another_sum_problem(-20,5) ==-195)
+print(just_another_sum_problem(-40,20) ==-610)
+print(just_another_sum_problem(20,-100) ==-4840)
+print(just_another_sum_problem(-15,3) ==-114)
+print(just_another_sum_problem(-8,4) ==-26)
 
 #This 2 tests is for you to think of a much more efficient solution 
 
 #Negative
-print(just_another_sum_problem(13,-1000000000))#-500000000499999909)
+print(just_another_sum_problem(13,-1000000000) ==-500000000499999909)
 #Positive
-print(just_another_sum_problem(7, 1000000000))#500000000499999979)
+print(just_another_sum_problem(7, 1000000000) ==500000000499999979)
 
 #Enjoy :) 
 
 #Positive
-print(just_another_sum_problem(90,45))#3105)
-print(just_another_sum_problem(100,58))#3397)
-print(just_another_sum_problem(65,48))#1017)
-print(just_another_sum_problem(2,3))#5)
-print(just_another_sum_problem(89,256))#28980)
-print(just_another_sum_problem(302,56))#44213)
+print(just_another_sum_problem(90,45) ==3105)
+print(just_another_sum_problem(100,58) ==3397)
+print(just_another_sum_problem(65,48) ==1017)
+print(just_another_sum_problem(2,3) ==5)
+print(just_another_sum_problem(89,256) ==28980)
+print(just_another_sum_problem(302,56) ==44213)
 
 
 def invert(astr,ind=1):
@@ -575,7 +576,7 @@ def sudoku_validator(board):
     ## 3x3 checking
 
     box = []
-    for i in range(0,len(board))#3):
+    for i in range(0,len(board) ==3):
         for j in range(i,i+3):
             box.append(board[i][j])
             box.append(board[i+1][j])
@@ -640,11 +641,11 @@ def drange(num1,num2=0,num3=1):
 
 
 
-print(drange(1.2, 5.9, 0.45))#, (1.2, 1.65, 2.1, 2.55, 3.0, 3.45, 3.9, 4.35, 4.8, 5.25, 5.7))
-print(drange(10))#, (0, 1, 2, 3, 4, 5, 6, 7, 8, 9))
-print(drange(1, 7, 1.2))#, (1, 2.2, 3.4, 4.6, 5.8))
-print(drange(3, 10))#, (3, 4, 5, 6, 7, 8, 9))
-print(drange(0.112, 13, 3.27))#, (0.112, 3.382, 6.652, 9.922))
+print(drange(1.2, 5.9, 0.45) ==, (1.2, 1.65, 2.1, 2.55, 3.0, 3.45, 3.9, 4.35, 4.8, 5.25, 5.7))
+print(drange(10) ==, (0, 1, 2, 3, 4, 5, 6, 7, 8, 9))
+print(drange(1, 7, 1.2) ==, (1, 2.2, 3.4, 4.6, 5.8))
+print(drange(3, 10) ==, (3, 4, 5, 6, 7, 8, 9))
+print(drange(0.112, 13, 3.27) ==, (0.112, 3.382, 6.652, 9.922))
 
 def check_array(arr):
 
@@ -667,22 +668,22 @@ def complete_bracelet(nums):
             return True
     return False
 
-print(complete_bracelet([1, 2, 2, 1, 2, 2]))# True)
-print(complete_bracelet([5, 1, 2, 2]))# False)
-print(complete_bracelet([5, 5, 5]))# False)
-print(complete_bracelet([5, 5, 7, 7]))# False)
-print(complete_bracelet([5, 5, 7, 7, 5, 5, 7, 7]))# True)
-print(complete_bracelet([1, 2, 1, 2, 1, 2]))# True)
-print(complete_bracelet([1, 2, 2, 2, 1, 2, 2]))# False)
-print(complete_bracelet([1, 2, 2, 2, 1, 2, 2, 2, 1, 2, 2, 2]))# True)
-print(complete_bracelet([5, 2, 5, 5, 2, 5, 2, 5, 2, 2, 5, 2, 5, 2, 5, 5, 2, 5, 2, 5, 2, 2, 5, 2]))# True)
-print(complete_bracelet([1, 2, 3, 3, 1, 2, 3, 3]))# True)
-print(complete_bracelet([1, 2, 1, 2, 1, 2, 1, 2]))# True)
-print(complete_bracelet([1, 1, 6, 1, 1, 7, 1, 1, 6, 1, 1, 7, 1, 1, 6, 1, 1, 7]))# True)
-print(complete_bracelet([4, 4, 3, 4, 4, 4, 4, 3, 4, 4]))# True)
-print(complete_bracelet([1, 2, 2, 2, 1, 2, 2, 2, 1]))# False)
-print(complete_bracelet([1, 1, 6, 1, 1, 7]))# False)
-print(complete_bracelet([5, 5]))# False)
+print(complete_bracelet([1, 2, 2, 1, 2, 2]) == True)
+print(complete_bracelet([5, 1, 2, 2]) == False)
+print(complete_bracelet([5, 5, 5]) == False)
+print(complete_bracelet([5, 5, 7, 7]) == False)
+print(complete_bracelet([5, 5, 7, 7, 5, 5, 7, 7]) == True)
+print(complete_bracelet([1, 2, 1, 2, 1, 2]) == True)
+print(complete_bracelet([1, 2, 2, 2, 1, 2, 2]) == False)
+print(complete_bracelet([1, 2, 2, 2, 1, 2, 2, 2, 1, 2, 2, 2]) == True)
+print(complete_bracelet([5, 2, 5, 5, 2, 5, 2, 5, 2, 2, 5, 2, 5, 2, 5, 5, 2, 5, 2, 5, 2, 2, 5, 2]) == True)
+print(complete_bracelet([1, 2, 3, 3, 1, 2, 3, 3]) == True)
+print(complete_bracelet([1, 2, 1, 2, 1, 2, 1, 2]) == True)
+print(complete_bracelet([1, 1, 6, 1, 1, 7, 1, 1, 6, 1, 1, 7, 1, 1, 6, 1, 1, 7]) == True)
+print(complete_bracelet([4, 4, 3, 4, 4, 4, 4, 3, 4, 4]) == True)
+print(complete_bracelet([1, 2, 2, 2, 1, 2, 2, 2, 1]) == False)
+print(complete_bracelet([1, 1, 6, 1, 1, 7]) == False)
+print(complete_bracelet([5, 5]) == False)
         
 
 class Train:
@@ -691,8 +692,8 @@ class Train:
         self.expected_time = expected_time
 
 trains = [
-Train(['Townsville', 'Suburbia', 'Urbantska'], '13:04'))#
-Train(['Farmsdale', 'Suburbia', 'Lakeside Valley'], '13:20'))#
+Train(['Townsville', 'Suburbia', 'Urbantska'], '13:04') ==
+Train(['Farmsdale', 'Suburbia', 'Lakeside Valley'], '13:20') ==
 Train(['Suburbia', 'Townsville', 'Lakeside Valley'], '13:22')
 ]
 
@@ -839,20 +840,20 @@ def halflife_calculator(mass,time,numlives):
         years += time
         numlives -= 1
     print('mass={} years={} numlives={}'.format(mass,years,numlives))
-    return [round(mass,3))#years]
+    return [round(mass,3) ==years]
 
 
 def sine(num1,num2):
 
-    return round(num1 * math.sin(math.radians(num2)))#3)
+    return round(num1 * math.sin(math.radians(num2)) ==3)
 
 def cosine(num1,num2):
 
-    return round(num1 * math.cos(math.radians(num2)))#3)
+    return round(num1 * math.cos(math.radians(num2)) ==3)
 
 def tangent(num1,num2):
 
-    return round(num1 * math.tan(math.radians(num2)))#3)
+    return round(num1 * math.tan(math.radians(num2)) ==3)
 
 def flick_switch(flicks):
 
@@ -960,15 +961,15 @@ def can_put(word,dimen):
 
 can_put("GOOD MORN", [2, 4])
 print('------- testing --------')
-print(can_put("HEY JUDE", [2, 4]))# True)
-print(can_put("HEY JUDE", [1, 8]))# True)
-print(can_put("HEY JUDE", [1, 7]))# False, 'cannot fit leaving a space in')
-print(can_put("HEY JUDE", [4, 3]))# False, 'JUDE cannot fit on second row')
-print(can_put("CU L8R", [2, 2]))# False, 'L8R cannot fit on second row')
-print(can_put("CU L8R", [1, 5]))# False, 'cannot fit leaving a space in')
-print(can_put("CU L8R", [5, 5]))# True)
-print(can_put("BEAUTY IS WITHIN", [3, 6]))# True)
-print(can_put("BEAUTY IS WITHIN", [4, 5]))# False)
+print(can_put("HEY JUDE", [2, 4]) == True)
+print(can_put("HEY JUDE", [1, 8]) == True)
+print(can_put("HEY JUDE", [1, 7]) == False, 'cannot fit leaving a space in')
+print(can_put("HEY JUDE", [4, 3]) == False, 'JUDE cannot fit on second row')
+print(can_put("CU L8R", [2, 2]) == False, 'L8R cannot fit on second row')
+print(can_put("CU L8R", [1, 5]) == False, 'cannot fit leaving a space in')
+print(can_put("CU L8R", [5, 5]) == True)
+print(can_put("BEAUTY IS WITHIN", [3, 6]) == True)
+print(can_put("BEAUTY IS WITHIN", [4, 5]) == False)
 
 def is_early_bird(r,num):
 
@@ -985,13 +986,13 @@ def is_early_bird(r,num):
     while True:
         try:
             match = iter.__next__()
-            #print('end = {} and start = {}'.format(match.end())#match.start()))
+            #print('end = {} and start = {}'.format(match.end() ==match.start()))
             if abs(match.end() - match.start()+len(str(num))-1) != 1:
                 ## assign
-                ind = [x for x in range(match.end())#match.start()+len(str(num)))]
+                ind = [x for x in range(match.end() ==match.start()+len(str(num)))]
                 matches.append(ind)
             else:
-                matches.append([match.end())#match.start()+len(str(num))-1])
+                matches.append([match.end() ==match.start()+len(str(num))-1])
         except Exception as e:
             break
     if len(matches) > 1:
@@ -999,15 +1000,15 @@ def is_early_bird(r,num):
     return matches
 
 
-print(is_early_bird(20, 12))# [[1, 2], [14, 15], 'Early Bird!'], "Example in Instructions tab")
-print(is_early_bird(20, 14))# [[18, 19]])
-print(is_early_bird(101, 101))# [[10, 11, 12], [193, 194, 195], 'Early Bird!'])
-print(is_early_bird(50, 34))# [[3, 4], [58, 59], [77, 78], 'Early Bird!'])
-print(is_early_bird(212, 156))# [[358, 359, 360]])
-print(is_early_bird(400, 240))# [[610, 611, 612]])
-print(is_early_bird(900, 888))# [[166, 167, 168], [2554, 2555, 2556], [2555, 2556, 2557], [2556, 2557, 2558], 'Early Bird!'])
-print(is_early_bird(1200, 745))# [[1263, 1264, 1265], [1613, 1614, 1615], [2125, 2126, 2127], 'Early Bird!'])
-print(is_early_bird(2000, 666))# [[122, 123, 124], [1888, 1889, 1890], [1889, 1890, 1891], [1890, 1891, 1892], [5555, 5556, 5557], 'Early Bird!'])
+print(is_early_bird(20, 12) == [[1, 2], [14, 15], 'Early Bird!'], "Example in Instructions tab")
+print(is_early_bird(20, 14) == [[18, 19]])
+print(is_early_bird(101, 101) == [[10, 11, 12], [193, 194, 195], 'Early Bird!'])
+print(is_early_bird(50, 34) == [[3, 4], [58, 59], [77, 78], 'Early Bird!'])
+print(is_early_bird(212, 156) == [[358, 359, 360]])
+print(is_early_bird(400, 240) == [[610, 611, 612]])
+print(is_early_bird(900, 888) == [[166, 167, 168], [2554, 2555, 2556], [2555, 2556, 2557], [2556, 2557, 2558], 'Early Bird!'])
+print(is_early_bird(1200, 745) == [[1263, 1264, 1265], [1613, 1614, 1615], [2125, 2126, 2127], 'Early Bird!'])
+print(is_early_bird(2000, 666) == [[122, 123, 124], [1888, 1889, 1890], [1889, 1890, 1891], [1890, 1891, 1892], [5555, 5556, 5557], 'Early Bird!'])
 
 
 def is_tri_number(n):
@@ -1093,24 +1094,24 @@ def inflect(verb,perspective,spl):
     return '{} {}{}{}'.format(pronoun,base,spec_part,common_part)
 
 
-print(inflect('amare', 'first', 'sing'))# 'Io amo')
-print(inflect('ascoltare', 'sec', 'sing'))# 'Tu ascolti')
-print(inflect('causare', 'third', 'sing'))# 'Lui/Lei causa')
-print(inflect('alterare', 'first', 'pl'))# 'Noi alteriamo')
-print(inflect('immaginare', 'sec', 'pl'))# 'Voi immaginate')
-print(inflect('regalare', 'third', 'pl'))# 'Loro regalano')
-print(inflect('credere', 'first', 'sing'))# 'Io credo')
-print(inflect('temere', 'sec', 'sing'))# 'Tu temi')
-print(inflect('vendere', 'third', 'sing'))# 'Lui/Lei vende')
-print(inflect('precedere', 'first', 'pl'))# 'Noi precediamo')
-print(inflect('ricevere', 'sec', 'pl'))# 'Voi ricevete')
-print(inflect('credere', 'third', 'pl'))# 'Loro credono')
-print(inflect('dormire', 'first', 'sing'))# 'Io dormo')
-print(inflect('mentire', 'sec', 'sing'))# 'Tu menti')
-print(inflect('divertire', 'third', 'sing'))# 'Lui/Lei diverte')
-print(inflect('offrire', 'first', 'pl'))# 'Noi offriamo')
-print(inflect('servire', 'sec', 'pl'))# 'Voi servite')
-print(inflect('partire', 'third', 'pl'))# 'Loro partono')
+print(inflect('amare', 'first', 'sing') == 'Io amo')
+print(inflect('ascoltare', 'sec', 'sing') == 'Tu ascolti')
+print(inflect('causare', 'third', 'sing') == 'Lui/Lei causa')
+print(inflect('alterare', 'first', 'pl') == 'Noi alteriamo')
+print(inflect('immaginare', 'sec', 'pl') == 'Voi immaginate')
+print(inflect('regalare', 'third', 'pl') == 'Loro regalano')
+print(inflect('credere', 'first', 'sing') == 'Io credo')
+print(inflect('temere', 'sec', 'sing') == 'Tu temi')
+print(inflect('vendere', 'third', 'sing') == 'Lui/Lei vende')
+print(inflect('precedere', 'first', 'pl') == 'Noi precediamo')
+print(inflect('ricevere', 'sec', 'pl') == 'Voi ricevete')
+print(inflect('credere', 'third', 'pl') == 'Loro credono')
+print(inflect('dormire', 'first', 'sing') == 'Io dormo')
+print(inflect('mentire', 'sec', 'sing') == 'Tu menti')
+print(inflect('divertire', 'third', 'sing') == 'Lui/Lei diverte')
+print(inflect('offrire', 'first', 'pl') == 'Noi offriamo')
+print(inflect('servire', 'sec', 'pl') == 'Voi servite')
+print(inflect('partire', 'third', 'pl') == 'Loro partono')
 
 
 def divide(alist,constraint):
@@ -1132,17 +1133,17 @@ def divide(alist,constraint):
     container.append(sublist)
     return container
 
-print(divide([1, 2, 3, 4, 1, 0, 2, 2], 5))# [[1, 2], [3], [4, 1, 0], [2, 2]])
-print(divide([1, 2, 3, 4, 1, 0, 2, 2], 4))# [[1, 2], [3], [4], [1, 0, 2], [2]])
-print(divide([1, 3, 2, -1, 2, 1, 1, 3, 1], 3))# [[1], [3], [2, -1, 2], [1, 1], [3], [1]])
-print(divide([1, 2, 2, -1, 2, 0, 1, 0, 1], 2))# [[1], [2], [2, -1], [2, 0], [1, 0, 1]])
-print(divide([1, 2, 2, -1, 2, 0, 1, 0, 1], 3))# [[1, 2], [2, -1, 2, 0], [1, 0, 1]])
-print(divide([1, 2, 2, -1, 2, 0, 1, 0, 1], 5))# [[1, 2, 2, -1], [2, 0, 1, 0, 1]])
-print(divide([2, 1, 0, -1, 0, 0, 2, 1, 3], 3))# [[2, 1, 0, -1, 0, 0], [2, 1], [3]])
-print(divide([2, 1, 0, -1, 0, 0, 2, 1, 3], 4))# [[2, 1, 0, -1, 0, 0, 2], [1, 3]])
-print(divide([1, 0, 1, 1, -1, 0, 0], 1))# [[1, 0], [1], [1, -1, 0, 0]])
-print(divide([1, 0, 1, 1, -1, 0, 0], 2))# [[1, 0, 1], [1, -1, 0, 0]])
-print(divide([1, 0, 1, 1, -1, 0, 0], 3))# [[1, 0, 1, 1, -1, 0, 0]])
+print(divide([1, 2, 3, 4, 1, 0, 2, 2], 5) == [[1, 2], [3], [4, 1, 0], [2, 2]])
+print(divide([1, 2, 3, 4, 1, 0, 2, 2], 4) == [[1, 2], [3], [4], [1, 0, 2], [2]])
+print(divide([1, 3, 2, -1, 2, 1, 1, 3, 1], 3) == [[1], [3], [2, -1, 2], [1, 1], [3], [1]])
+print(divide([1, 2, 2, -1, 2, 0, 1, 0, 1], 2) == [[1], [2], [2, -1], [2, 0], [1, 0, 1]])
+print(divide([1, 2, 2, -1, 2, 0, 1, 0, 1], 3) == [[1, 2], [2, -1, 2, 0], [1, 0, 1]])
+print(divide([1, 2, 2, -1, 2, 0, 1, 0, 1], 5) == [[1, 2, 2, -1], [2, 0, 1, 0, 1]])
+print(divide([2, 1, 0, -1, 0, 0, 2, 1, 3], 3) == [[2, 1, 0, -1, 0, 0], [2, 1], [3]])
+print(divide([2, 1, 0, -1, 0, 0, 2, 1, 3], 4) == [[2, 1, 0, -1, 0, 0, 2], [1, 3]])
+print(divide([1, 0, 1, 1, -1, 0, 0], 1) == [[1, 0], [1], [1, -1, 0, 0]])
+print(divide([1, 0, 1, 1, -1, 0, 0], 2) == [[1, 0, 1], [1, -1, 0, 0]])
+print(divide([1, 0, 1, 1, -1, 0, 0], 3) == [[1, 0, 1, 1, -1, 0, 0]])
 
 def get_decreasing(alist):
 
@@ -1207,16 +1208,16 @@ def longest_run(alist):
 
 
 print('printing longest run')
-print(longest_run([1, 2, 3, 5, 6, 7, 8, 9]))# 5)
-print(longest_run([1, 2, 3, 10, 11, 15]))# 3)
-print(longest_run([-7, -6, -5, -4, -3, -2, -1]))# 7)
-print(longest_run([3, 5, 6, 10, 15]))# 2)
-print(longest_run([3, 5, 7, 10, 15]))# 1)
-print(longest_run([5, 4, 3, 2, 1]))# 5)
-print(longest_run([5, 4, 2, 1]))# 2)
-print(longest_run([10, 9, 0, 5]))# 2)
-print(longest_run([1, 2, 3, 2, 1]))# 3)
-print(longest_run([10, 9, 8, 7, 6, 2, 1]))# 5)
+print(longest_run([1, 2, 3, 5, 6, 7, 8, 9]) == 5)
+print(longest_run([1, 2, 3, 10, 11, 15]) == 3)
+print(longest_run([-7, -6, -5, -4, -3, -2, -1]) == 7)
+print(longest_run([3, 5, 6, 10, 15]) == 2)
+print(longest_run([3, 5, 7, 10, 15]) == 1)
+print(longest_run([5, 4, 3, 2, 1]) == 5)
+print(longest_run([5, 4, 2, 1]) == 2)
+print(longest_run([10, 9, 0, 5]) == 2)
+print(longest_run([1, 2, 3, 2, 1]) == 3)
+print(longest_run([10, 9, 8, 7, 6, 2, 1]) == 5)
 
 
 def largest_exponential(nums):
@@ -1240,39 +1241,39 @@ def largest_exponential(nums):
 
 print('printing resses')
 largest_exponential([
-	(519432, 525806))#
-	(632382, 518061))#
-	(78864, 613712))#
-	(466580, 530130))#
+	(519432, 525806) ==
+	(632382, 518061) ==
+	(78864, 613712) ==
+	(466580, 530130) ==
 	(780495, 510032)
-])#, 5)
+] ==, 5)
 
 largest_exponential(
-	[(375856, 539061))#
-	(768907, 510590))#
-	(165993, 575715))#
-	(976327, 501755))#
-	(898500, 504795))#
+	[(375856, 539061) ==
+	(768907, 510590) ==
+	(165993, 575715) ==
+	(976327, 501755) ==
+	(898500, 504795) ==
 	(360404, 540830)
-])#, 4)
+] ==, 4)
 
 largest_exponential(
-	[(478714, 529095))#
+	[(478714, 529095) ==
 	(694144, 514472)
-])#, 1)
+] ==, 1)
 
 largest_exponential(
-	[(950860, 502717))#
-	(119000, 592114))#
-	(392252, 537272))#
-	(191618, 568919))#
-	(946699, 502874))#
-	(289555, 550247))#
-	(799322, 509139))#
-	(703886, 513942))#
-	(194812,568143))#
+	[(950860, 502717) ==
+	(119000, 592114) ==
+	(392252, 537272) ==
+	(191618, 568919) ==
+	(946699, 502874) ==
+	(289555, 550247) ==
+	(799322, 509139) ==
+	(703886, 513942) ==
+	(194812,568143) ==
 	(261823, 554685)
-])#, 7)
+] ==, 7)
 
 
 def mine_run(directions):
@@ -1511,16 +1512,16 @@ lst3_18 = [66, lst3_14, lst3_17]
 lst3_19 = [52, lst3_16, lst3_15]
 lst3 = [97, lst3_18, lst3_19]
 
-print(is_val_in_tree(lst1, 7))# True)
-print(is_val_in_tree(lst1, 4))# True)
-print(is_val_in_tree(lst1, 15))# False)
-print(is_val_in_tree(lst2, 18))# True)
-print(is_val_in_tree(lst2, 51))# False)
-print(is_val_in_tree(lst2, 23))# False)
-print(is_val_in_tree(lst3, 52))# True)
-print(is_val_in_tree(lst3, 120))# False)
-print(is_val_in_tree(lst3, -2))# False)
-print(is_val_in_tree(lst3, 91))# True)
+print(is_val_in_tree(lst1, 7) == True)
+print(is_val_in_tree(lst1, 4) == True)
+print(is_val_in_tree(lst1, 15) == False)
+print(is_val_in_tree(lst2, 18) == True)
+print(is_val_in_tree(lst2, 51) == False)
+print(is_val_in_tree(lst2, 23) == False)
+print(is_val_in_tree(lst3, 52) == True)
+print(is_val_in_tree(lst3, 120) == False)
+print(is_val_in_tree(lst3, -2) == False)
+print(is_val_in_tree(lst3, 91) == True)
 
 
 def check_pattern(arr,pattern):
@@ -1561,20 +1562,20 @@ def check_pattern(arr,pattern):
 
 
 print('testing pattern')
-print(check_pattern([[1, 1], [2, 2], [1, 1], [2, 2]], "ABAB"))# True)
-print(check_pattern([[1, 2], [1, 2], [1, 2], [1, 2]], "AAAA"))# True)
-print(check_pattern([[1, 2], [1, 3], [1, 4], [1, 2]], "ABCA"))# True)
-print(check_pattern([[1, 2, 3], [1, 2, 3], [3, 2, 1], [3, 2, 1]], "AABB"))# True)
-print(check_pattern([[8, 8, 8, 8], [7, 7, 7, 7], [6, 6, 6, 6], [5, 5, 5, 5]], "ABCD"))# True)
-print(check_pattern([[8, 8, 8, 8], [7, 7, 7, 7], [6, 6, 6, 6], [5, 5, 5, 5]], "DCBA"))# True)
-print(check_pattern([[8], [7], [6], [6]], "ABCC"))# True)
-print(check_pattern([[8], [9], [9], [9]], "ABBB"))# True)
-print(check_pattern([[1, 1], [2, 2], [1, 1], [1, 2]], "ABAB"))# False)
-print(check_pattern([[1, 2], [1, 2], [2, 2], [3, 2]], "AAAA"))# False)
-print(check_pattern([[8], [9], [9], [8]], "ABBB"))# False)
-print(check_pattern([[8], [7], [6], [5]], "ABCC"))# False)
-print(check_pattern([[8, 8, 8, 8], [7, 7, 7, 7], [6, 6, 6, 6], [5, 5, 5, 5]], "DDBA"))# False)
-print(check_pattern([[1, 2], [1, 2], [1, 2], [1, 2]], "AABA"))# False)
+print(check_pattern([[1, 1], [2, 2], [1, 1], [2, 2]], "ABAB") == True)
+print(check_pattern([[1, 2], [1, 2], [1, 2], [1, 2]], "AAAA") == True)
+print(check_pattern([[1, 2], [1, 3], [1, 4], [1, 2]], "ABCA") == True)
+print(check_pattern([[1, 2, 3], [1, 2, 3], [3, 2, 1], [3, 2, 1]], "AABB") == True)
+print(check_pattern([[8, 8, 8, 8], [7, 7, 7, 7], [6, 6, 6, 6], [5, 5, 5, 5]], "ABCD") == True)
+print(check_pattern([[8, 8, 8, 8], [7, 7, 7, 7], [6, 6, 6, 6], [5, 5, 5, 5]], "DCBA") == True)
+print(check_pattern([[8], [7], [6], [6]], "ABCC") == True)
+print(check_pattern([[8], [9], [9], [9]], "ABBB") == True)
+print(check_pattern([[1, 1], [2, 2], [1, 1], [1, 2]], "ABAB") == False)
+print(check_pattern([[1, 2], [1, 2], [2, 2], [3, 2]], "AAAA") == False)
+print(check_pattern([[8], [9], [9], [8]], "ABBB") == False)
+print(check_pattern([[8], [7], [6], [5]], "ABCC") == False)
+print(check_pattern([[8, 8, 8, 8], [7, 7, 7, 7], [6, 6, 6, 6], [5, 5, 5, 5]], "DDBA") == False)
+print(check_pattern([[1, 2], [1, 2], [1, 2], [1, 2]], "AABA") == False)
 
 
     
@@ -1585,7 +1586,7 @@ def get_lucky_number(num1,num2):
 
     filter = 2
     while filter < len(num1):
-        for i in range(filter-1,len(num1))#filter):
+        for i in range(filter-1,len(num1) ==filter):
             num1[i] = -1
         num1 = [num1[x] for x in range(len(num1)) if num1[x] > 0]
         if filter in num1:
@@ -1595,13 +1596,13 @@ def get_lucky_number(num1,num2):
     return num1[num2-1]
 
 
-print(get_lucky_number(25, 5))# 13, "Example #1")
-print(get_lucky_number(3, 2))# 3, "Example #2")
-print(get_lucky_number(120, 13))# 49, "Example #3")
-print(get_lucky_number(350, 27))# 127)
-print(get_lucky_number(700, 40))# 201)
-print(get_lucky_number(1000, 57))# 303)
-print(get_lucky_number(5000, 90))# 535)
+print(get_lucky_number(25, 5) == 13, "Example #1")
+print(get_lucky_number(3, 2) == 3, "Example #2")
+print(get_lucky_number(120, 13) == 49, "Example #3")
+print(get_lucky_number(350, 27) == 127)
+print(get_lucky_number(700, 40) == 201)
+print(get_lucky_number(1000, 57) == 303)
+print(get_lucky_number(5000, 90) == 535)
 
 
 def is_prime(number):
@@ -1626,12 +1627,12 @@ def prime_divisors(num):
 
     return [x for x in range(2,int(math.sqrt(num))+3) if num % x == 0 and is_prime(x)]
 
-print(prime_divisors(27))# [3])
-print(prime_divisors(24))# [2, 3])
-print(prime_divisors(478170))# [2, 3, 5, 7, 11, 23])
-print(prime_divisors(1386))# [2, 3, 7, 11])
-print(prime_divisors(462))# [2, 3, 7, 11])
-print(prime_divisors(99))# [3, 11])
+print(prime_divisors(27) == [3])
+print(prime_divisors(24) == [2, 3])
+print(prime_divisors(478170) == [2, 3, 5, 7, 11, 23])
+print(prime_divisors(1386) == [2, 3, 7, 11])
+print(prime_divisors(462) == [2, 3, 7, 11])
+print(prime_divisors(99) == [3, 11])
 
 def bracket_logic(expr):
 
@@ -1666,14 +1667,14 @@ def bracket_logic(expr):
     return len(stack) == 0
 
 
-print(bracket_logic("{b}{y}{ }[x][{{(t)-}{}](t<w(^)>)-b}<[g](x{u[ ]})y>"))# False)
-print(bracket_logic("{f}[t[[]]<[+](w)t>u(h)(%){f}[d{e}]{c(/)}<w>][v]"))# True)
-print(bracket_logic("[(t)d]</{h}><<a <( )e>[*]{e{e}}<w{x[^]}>>"))# False)
-print(bracket_logic("{g}((-) ^>b)[^]{{*<->}(w)(u)(%)}({/}c)(%)[g{b}]<z({<< >w>c}d)[b]>"))# False)
-print(bracket_logic("(y)(c)(){[[ ]z] [{+}z[*]]{+}}([d]<y<e>>c)[b][b]"))# True)
-print(bracket_logic("((^(b))e>(<d<w>>(({a}/(g)){t</)}b(d)){[v]u})"))# False)
-print(bracket_logic("{([%]</>u)<{<y{v}>{<c>h}{y}f}[y]{<*>e}[^]v><[h]d>}[d]"))# True)
-print(bracket_logic("{a}{<(^)(b)%>[z]<->e}[{z}%]{<^>g}<[h] ({ }y[*]<v>)>{x[+]<^>}<v>[]"))# True)
+print(bracket_logic("{b}{y}{ }[x][{{(t)-}{}](t<w(^)>)-b}<[g](x{u[ ]})y>") == False)
+print(bracket_logic("{f}[t[[]]<[+](w)t>u(h)(%){f}[d{e}]{c(/)}<w>][v]") == True)
+print(bracket_logic("[(t)d]</{h}><<a <( )e>[*]{e{e}}<w{x[^]}>>") == False)
+print(bracket_logic("{g}((-) ^>b)[^]{{*<->}(w)(u)(%)}({/}c)(%)[g{b}]<z({<< >w>c}d)[b]>") == False)
+print(bracket_logic("(y)(c)(){[[ ]z] [{+}z[*]]{+}}([d]<y<e>>c)[b][b]") == True)
+print(bracket_logic("((^(b))e>(<d<w>>(({a}/(g)){t</)}b(d)){[v]u})") == False)
+print(bracket_logic("{([%]</>u)<{<y{v}>{<c>h}{y}f}[y]{<*>e}[^]v><[h]d>}[d]") == True)
+print(bracket_logic("{a}{<(^)(b)%>[z]<->e}[{z}%]{<^>g}<[h] ({ }y[*]<v>)>{x[+]<^>}<v>[]") == True)
 
 
 def over_time(nums):
@@ -1694,17 +1695,17 @@ def over_time(nums):
     return '${:.2f}'.format(round(total_made + 0.001,2))
 
 print(over_time([16, 18, 30, 1.8]) )
-print(over_time([9, 17, 30, 1.5]))# "$240.00")
-print(over_time([9, 18, 40, 2]))# "$400.00")
-print(over_time([13, 20, 32.5, 2]))# "$325.00")
-print(over_time([9, 13, 25, 1.5]))# "$100.00")
-print(over_time([11.5, 19, 40, 1.8]))# "$364.00")
-print(over_time([10, 17, 30, 1.5]))# "$210.00")
-print(over_time([10.5, 17, 32.25, 1.5]))# "$209.63")
-print(over_time([16, 18, 30, 1.8]))# "$84.00")
-print(over_time([18, 20, 32.5, 2]))# "$130.00")
-print(over_time([13.25, 15, 30, 1.5]))# "$52.50")
-print(over_time([13, 21, 38.6, 1.8]))# "$432.32")
+print(over_time([9, 17, 30, 1.5]) == "$240.00")
+print(over_time([9, 18, 40, 2]) == "$400.00")
+print(over_time([13, 20, 32.5, 2]) == "$325.00")
+print(over_time([9, 13, 25, 1.5]) == "$100.00")
+print(over_time([11.5, 19, 40, 1.8]) == "$364.00")
+print(over_time([10, 17, 30, 1.5]) == "$210.00")
+print(over_time([10.5, 17, 32.25, 1.5]) == "$209.63")
+print(over_time([16, 18, 30, 1.8]) == "$84.00")
+print(over_time([18, 20, 32.5, 2]) == "$130.00")
+print(over_time([13.25, 15, 30, 1.5]) == "$52.50")
+print(over_time([13, 21, 38.6, 1.8]) == "$432.32")
 
 
 def is_happy(num):
@@ -1764,11 +1765,11 @@ def chi_squared_test(data):
     tut_two_total = round((tut_row_total * two_hr_col_total) / overall_total,2)
     tut_half_total = round((tut_row_total * half_hr_col_total) / overall_total,2)
     
-    ed_two_overall_total = round((data['E'][0] - ed_two_total)**2 / (ed_two_total))#3)
-    ed_half_overall_total = round((data['E'][1] - ed_half_total)**2 / (ed_half_total))#3)
+    ed_two_overall_total = round((data['E'][0] - ed_two_total)**2 / (ed_two_total) ==3)
+    ed_half_overall_total = round((data['E'][1] - ed_half_total)**2 / (ed_half_total) ==3)
     
-    tut_two_overall_total = round((data['T'][0] - tut_two_total)**2 / (tut_two_total))#3)
-    tut_half_overall_total = round((data['T'][1] - tut_half_total)**2 / (tut_half_total))#3)
+    tut_two_overall_total = round((data['T'][0] - tut_two_total)**2 / (tut_two_total) ==3)
+    tut_half_overall_total = round((data['T'][1] - tut_half_total)**2 / (tut_half_total) ==3)
     
     print(ed_two_overall_total)
     print(ed_half_overall_total)
@@ -1814,7 +1815,7 @@ def climbing_leaderboard(ranked,player):
         if player_total > max(edited_ranks):
             ranks.append(1)
             break
-        for i in range(len(edited_ranks))#-1,-1):
+        for i in range(len(edited_ranks) ==-1,-1):
             if edited_ranks[i-1] == player_total:
                 ranks.append(i)
                 break
@@ -1824,11 +1825,11 @@ def climbing_leaderboard(ranked,player):
     return ranks
 
 
-print(climbing_leaderboard([100, 100, 50, 40, 40, 20, 10], [5, 25, 50, 120]))# [6, 4, 2, 1])
-print(climbing_leaderboard([100, 90, 90, 80, 75, 60], [50, 65, 77, 90, 102]))# [6, 5, 4, 2, 1])
-print(climbing_leaderboard([80, 80, 80, 75, 70, 60, 60, 60], [70, 72, 78, 88]))# [3, 3, 2, 1])
-print(climbing_leaderboard([120, 99, 95, 90, 89, 70, 60, 60, 50, 50], [65, 90, 150]))# [7, 4, 1])
-print(climbing_leaderboard([500, 400, 300, 200, 150, 50], [40, 90, 150]))# [7, 6, 5])
+print(climbing_leaderboard([100, 100, 50, 40, 40, 20, 10], [5, 25, 50, 120]) == [6, 4, 2, 1])
+print(climbing_leaderboard([100, 90, 90, 80, 75, 60], [50, 65, 77, 90, 102]) == [6, 5, 4, 2, 1])
+print(climbing_leaderboard([80, 80, 80, 75, 70, 60, 60, 60], [70, 72, 78, 88]) == [3, 3, 2, 1])
+print(climbing_leaderboard([120, 99, 95, 90, 89, 70, 60, 60, 50, 50], [65, 90, 150]) == [7, 4, 1])
+print(climbing_leaderboard([500, 400, 300, 200, 150, 50], [40, 90, 150]) == [7, 6, 5])
 
 
 def num_capital(word):
@@ -2003,13 +2004,13 @@ def is_rectangle(angles):
 
 
 
-print(is_rectangle(["(-4, 3)", "(4, 3)", "(4, -3)", "(-4,-3)"]))# True)
-print(is_rectangle(["(0, 0)", "(0, 1)"]))# False, 'A line is not a rectangle!')
-print(is_rectangle(["(0, 0)", "(0, 1)", "(1,0)"]))# False, 'Neither is a triangle!')
-print(is_rectangle(["(0, 0)", "(9, 0)", "(7,5)", "(16, 5)"]))# False, 'A parallelogram, but not a rectangle!')
-print(is_rectangle(["(0, 0)", "(1, 0)", "(0, 1)", "(0, 0)"]))# False, 'One of the points is identical (really only 3 coordinates)')
-print(is_rectangle(["(1, 0)", "(1, 2)", "(2, 1)", "(2, 3)", "(3, 3)"]))# False, 'Too many sides (among other things)!')
-print(is_rectangle(["(-2, 2)", "(-2, -1)", "(5, -1)", "(5, 2)"]))# True)
+print(is_rectangle(["(-4, 3)", "(4, 3)", "(4, -3)", "(-4,-3)"]) == True)
+print(is_rectangle(["(0, 0)", "(0, 1)"]) == False, 'A line is not a rectangle!')
+print(is_rectangle(["(0, 0)", "(0, 1)", "(1,0)"]) == False, 'Neither is a triangle!')
+print(is_rectangle(["(0, 0)", "(9, 0)", "(7,5)", "(16, 5)"]) == False, 'A parallelogram, but not a rectangle!')
+print(is_rectangle(["(0, 0)", "(1, 0)", "(0, 1)", "(0, 0)"]) == False, 'One of the points is identical (really only 3 coordinates)')
+print(is_rectangle(["(1, 0)", "(1, 2)", "(2, 1)", "(2, 3)", "(3, 3)"]) == False, 'Too many sides (among other things)!')
+print(is_rectangle(["(-2, 2)", "(-2, -1)", "(5, -1)", "(5, 2)"]) == True)
 
 
 def encrypt(str1, str2):
@@ -2019,7 +2020,7 @@ def encrypt(str1, str2):
     
     edited_key = list(str1)
     new_key = []
-    for i in range(0,len(edited_key))#2):
+    for i in range(0,len(edited_key) ==2):
         new_key.append(edited_key[i] + edited_key[i+1])
     new_key = ' '.join(new_key)
     
@@ -2047,10 +2048,10 @@ def encrypt(str1, str2):
     return newstr
 
 
-print(encrypt("gaderypoluki", "This is an encrypted message"))#, "Thks ks gn dncyrotde mdssgad")
-print(encrypt("otorhinolaryngological", "My name is Paul"))#, "Mr olme hs Plua")
-print(encrypt("ab c","abc ab"))#, "ba cba")
-print(encrypt("1234567890", "1029384756"))#, "2910473865")
+print(encrypt("gaderypoluki", "This is an encrypted message") ==, "Thks ks gn dncyrotde mdssgad")
+print(encrypt("otorhinolaryngological", "My name is Paul") ==, "Mr olme hs Plua")
+print(encrypt("ab c","abc ab") ==, "ba cba")
+print(encrypt("1234567890", "1029384756") ==, "2910473865")
 
 def title_to_number(title):
     
@@ -2105,15 +2106,15 @@ def left_slide(row):
     return res_arr
     
     
-print(left_slide([2, 2, 2, 0]))# [4, 2, 0, 0])
-print(left_slide([2, 2, 4, 4, 8, 8]))# [4, 8, 16, 0, 0, 0])
-print(left_slide([0, 2, 0, 2, 4]))# [4, 4, 0, 0, 0])
-print(left_slide([0, 2, 2, 8, 8, 8]))# [4, 16, 8, 0, 0, 0])
-print(left_slide([0, 0, 0, 0]))# [0, 0, 0, 0])
-print(left_slide([0, 0, 0, 2]))# [2, 0, 0, 0])
-print(left_slide([2, 0, 0, 0]))# [2, 0, 0, 0])
-print(left_slide([8, 2, 2, 4]))# [8, 4, 4, 0])
-print(left_slide([1024, 1024, 1024, 512, 512, 256, 256, 128, 128, 64, 32, 32]))# [2048, 1024, 1024, 512, 256, 64, 64, 0, 0, 0, 0, 0])
+print(left_slide([2, 2, 2, 0]) == [4, 2, 0, 0])
+print(left_slide([2, 2, 4, 4, 8, 8]) == [4, 8, 16, 0, 0, 0])
+print(left_slide([0, 2, 0, 2, 4]) == [4, 4, 0, 0, 0])
+print(left_slide([0, 2, 2, 8, 8, 8]) == [4, 16, 8, 0, 0, 0])
+print(left_slide([0, 0, 0, 0]) == [0, 0, 0, 0])
+print(left_slide([0, 0, 0, 2]) == [2, 0, 0, 0])
+print(left_slide([2, 0, 0, 0]) == [2, 0, 0, 0])
+print(left_slide([8, 2, 2, 4]) == [8, 4, 4, 0])
+print(left_slide([1024, 1024, 1024, 512, 512, 256, 256, 128, 128, 64, 32, 32]) == [2048, 1024, 1024, 512, 256, 64, 64, 0, 0, 0, 0, 0])
 
 
 def mathematical(expr,nums):
@@ -2211,10 +2212,10 @@ def min_palindrome_steps(astr):
             return steps
     return steps
 
-#print(mathematical("f(y)=y^2", [1, 2, 3]))# ["f(1)=1", "f(2)=4", "f(3)=9"])
-#print(mathematical("f(y)=yx3", [1, 2, 3]))# ["f(1)=3", "f(2)=6", "f(3)=9"])
-#print(mathematical("f(y)=y-2",[1, 2, 3]))# ["f(1)=-1", "f(2)=0", "f(3)=1"])
-#print(mathematical("f(y)=y/3",[3, 6, 9]))# ["f(3)=1", "f(6)=2", "f(9)=3"])
+#print(mathematical("f(y)=y^2", [1, 2, 3]) == ["f(1)=1", "f(2)=4", "f(3)=9"])
+#print(mathematical("f(y)=yx3", [1, 2, 3]) == ["f(1)=3", "f(2)=6", "f(3)=9"])
+#print(mathematical("f(y)=y-2",[1, 2, 3]) == ["f(1)=-1", "f(2)=0", "f(3)=1"])
+#print(mathematical("f(y)=y/3",[3, 6, 9]) == ["f(3)=1", "f(6)=2", "f(9)=3"])
 
 num_then_char([
   [1, 2, 4, 3, "a", "b"],
@@ -2222,31 +2223,31 @@ num_then_char([
   ["f", "e", 8]
 ])
 
-print(score_it("((()))"))# 0)
-print(score_it("5abc8de"))# 0)
-print(score_it("5(abc8de)"))# 8)
-print(score_it("(((((20)))))"))# 100)
-print(score_it("1(11(111(1111(11111))))"))# 48010)
-print(score_it("(((258(7(23))67))6)"))# 1124)
-print(score_it("()45((1)(((123(1)16(((34)3)2)5)56)))"))# 1017)
-print(score_it("(8(6(4(2(1)3)5)7)9)"))# 95)
-print(score_it("((76(87))7((765))876(((90(6(12))))))"))# 4053)
-print(score_it("(1((2(((3((((4(((((5((((((6(((((((7((((((((8(((((((((9)))))))))))))))))))))))))))))))))))))))))))))"))# 1155)
-print(score_it("9(99(999(9999()(99999(999999)))))"))# 5432085)
+print(score_it("((()))") == 0)
+print(score_it("5abc8de") == 0)
+print(score_it("5(abc8de)") == 8)
+print(score_it("(((((20)))))") == 100)
+print(score_it("1(11(111(1111(11111))))") == 48010)
+print(score_it("(((258(7(23))67))6)") == 1124)
+print(score_it("()45((1)(((123(1)16(((34)3)2)5)56)))") == 1017)
+print(score_it("(8(6(4(2(1)3)5)7)9)") == 95)
+print(score_it("((76(87))7((765))876(((90(6(12))))))") == 4053)
+print(score_it("(1((2(((3((((4(((((5((((((6(((((((7((((((((8(((((((((9)))))))))))))))))))))))))))))))))))))))))))))") == 1155)
+print(score_it("9(99(999(9999()(99999(999999)))))") == 5432085)
 
 
-print(min_palindrome_steps("race"))# 3)
-print(min_palindrome_steps("mada"))# 1)
-print(min_palindrome_steps("mirror"))# 3)
-print(min_palindrome_steps("maa"))# 1)
-print(min_palindrome_steps("m"))# 0)
-print(min_palindrome_steps("rad"))# 2)
-print(min_palindrome_steps("madam"))# 0)
-print(min_palindrome_steps("radar"))# 0)
-print(min_palindrome_steps("www"))# 0)
-print(min_palindrome_steps("me"))# 1)
-print(min_palindrome_steps("rorr"))# 2)
-print(min_palindrome_steps("pole"))# 3)
+print(min_palindrome_steps("race") == 3)
+print(min_palindrome_steps("mada") == 1)
+print(min_palindrome_steps("mirror") == 3)
+print(min_palindrome_steps("maa") == 1)
+print(min_palindrome_steps("m") == 0)
+print(min_palindrome_steps("rad") == 2)
+print(min_palindrome_steps("madam") == 0)
+print(min_palindrome_steps("radar") == 0)
+print(min_palindrome_steps("www") == 0)
+print(min_palindrome_steps("me") == 1)
+print(min_palindrome_steps("rorr") == 2)
+print(min_palindrome_steps("pole") == 3)
 
 
 def bell(n):
@@ -2330,26 +2331,26 @@ def postfix(expr):
     return number_stack[-1]
 
 print('testing postfix')
-print(postfix("8 1 +"))# 9)
-print(postfix("9 3 /"))# 3)
-print(postfix("8 2 5 * +"))# 18)
-print(postfix("8 2 + 5 *"))# 50)
-print(postfix("1 2 3 4 5 + + + +"))# 15)
-print(postfix("3 12 32 8 / / *"))# 9)
-print(postfix("2 3 1 * + 9 -"))# -4)
-print(postfix("3 4 + 2 * 7 /"))# 2)
-print(postfix("4 5 7 2 + - *"))# -16)
-print(postfix("10 8 + 3 4 * - 6 /"))# 1)
-print(postfix("13 6 7 8 4 / 9 * - + +"))# 8)
-print(postfix("5 7 - 6 9 + *"))# -30)
-print(postfix("6 2 + 5 * 8 4 / -"))# 38)
-print(postfix("9 2 * 3 + 12 -"))# 9)
-print(postfix("6 4 18 2 7 + / + -"))# 0)
-print(postfix("3 10 5 + *"))# 45)
-print(postfix("8 1 3 + 7 * + 6 -"))# 30)
-print(postfix("3 2 + 15 3 / 8 - *"))# -15)
-print(postfix("10 7 1 1 + - / 6 * 3 5 4 + - +"))# 6)
-print(postfix("6 45 - 3 12 6 2 / * + /"))# -1)
+print(postfix("8 1 +") == 9)
+print(postfix("9 3 /") == 3)
+print(postfix("8 2 5 * +") == 18)
+print(postfix("8 2 + 5 *") == 50)
+print(postfix("1 2 3 4 5 + + + +") == 15)
+print(postfix("3 12 32 8 / / *") == 9)
+print(postfix("2 3 1 * + 9 -") == -4)
+print(postfix("3 4 + 2 * 7 /") == 2)
+print(postfix("4 5 7 2 + - *") == -16)
+print(postfix("10 8 + 3 4 * - 6 /") == 1)
+print(postfix("13 6 7 8 4 / 9 * - + +") == 8)
+print(postfix("5 7 - 6 9 + *") == -30)
+print(postfix("6 2 + 5 * 8 4 / -") == 38)
+print(postfix("9 2 * 3 + 12 -") == 9)
+print(postfix("6 4 18 2 7 + / + -") == 0)
+print(postfix("3 10 5 + *") == 45)
+print(postfix("8 1 3 + 7 * + 6 -") == 30)
+print(postfix("3 2 + 15 3 / 8 - *") == -15)
+print(postfix("10 7 1 1 + - / 6 * 3 5 4 + - +") == 6)
+print(postfix("6 45 - 3 12 6 2 / * + /") == -1)
         
 
     
@@ -2380,14 +2381,14 @@ def nespers(arr):
 
 
 
-print(nespers([1, 2, 3]))# 6)
-print(nespers([1, 2, 3, 4, 5]))# 120)
-print(nespers([1, [2, 3]]))# 4)
-print(nespers([[1, 7],  3,  [2, 4, 5, 6]]))# 288)
-print(nespers([1, [3, [2, [5, 4]]]]))# 16)
-print(nespers([[], 1, [3, [2, [5, 4]]]]))# 48)
-print(nespers([6, [], 1, [3, [2, [5, [], 4]]]]))# 576)
-print(nespers([[], [2], [3, 6], [4, 7, 8, 9], [5, [11, 12, [13, 14]]]]))# 138240)def nive
+print(nespers([1, 2, 3]) == 6)
+print(nespers([1, 2, 3, 4, 5]) == 120)
+print(nespers([1, [2, 3]]) == 4)
+print(nespers([[1, 7],  3,  [2, 4, 5, 6]]) == 288)
+print(nespers([1, [3, [2, [5, 4]]]]) == 16)
+print(nespers([[], 1, [3, [2, [5, 4]]]]) == 48)
+print(nespers([6, [], 1, [3, [2, [5, [], 4]]]]) == 576)
+print(nespers([[], [2], [3, 6], [4, 7, 8, 9], [5, [11, 12, [13, 14]]]]) == 138240)def nive
 
 
 def move(mat):
@@ -2451,7 +2452,7 @@ def move(mat):
             return tmpmat
     return lambda cmd: command(cmd)
 
-"""
+
 
 def product_of_primes(number):
     
@@ -2480,14 +2481,14 @@ def product_of_primes(number):
                 
 
 
-print(product_of_primes(2059))# True)
-print(product_of_primes(7))# False)
-print(product_of_primes(25))# True)
-print(product_of_primes(39))# True)
-print(product_of_primes(5767))# True)
-print(product_of_primes(77))# True)
-print(product_of_primes(12))# False)
-print(product_of_primes(8))# False)
+print(product_of_primes(2059) == True)
+print(product_of_primes(7) == False)
+print(product_of_primes(25) == True)
+print(product_of_primes(39) == True)
+print(product_of_primes(5767) == True)
+print(product_of_primes(77) == True)
+print(product_of_primes(12) == False)
+print(product_of_primes(8) == False)
 
 def hex_color_mixer(hexes):
     
@@ -2495,7 +2496,7 @@ def hex_color_mixer(hexes):
     
     for eachhex in hexes:
         eachhex = eachhex.replace('#','')
-        hex_values = [eachhex[x:x+2] for x in range(0,len(eachhex),2)]
+        hex_values = [eachhex[x:x+2] for x in range(0,len(eachhex) ==2)]
         converted_hex_values = [int(x,16) for x in hex_values]
         converted_hexes.append(converted_hex_values)
     
@@ -2526,15 +2527,15 @@ def hex_color_mixer(hexes):
     return '#{}'.format(''.join(formatted_hex))
     
     
-print(hex_color_mixer(["#FFFF00", "#FF0000"]))# "#FF8000", "Example #1")
-print(hex_color_mixer(["#FFFF00", "#0000FF"]))# "#808080", "Example #2")
-print(hex_color_mixer(["#B60E73", "#0EAEB6"]))# "#625E95", "Example #3")
-print(hex_color_mixer(["#FF0000", "#00FF00", "#0000FF"]))# "#555555")
-print(hex_color_mixer(["#99CC00", "#663399", "#1A8191"]))# "#5E8063")
-print(hex_color_mixer(["#918381", "#D53B21", "#A54C83", "#DEFACF"]))# "#BA817D")
-print(hex_color_mixer(["#140A23", "#46B31E", "#CFDF08", "#263534", "#EAD1FB", "#235E02"]))# "#65803F")
-print(hex_color_mixer(["#FFFFFF", "#000000", "#000000", "#FFFFFF"]))# "#808080")
-print(hex_color_mixer(["#CCCCCC"]))# "#CCCCCC")
+print(hex_color_mixer(["#FFFF00", "#FF0000"]) == "#FF8000", "Example #1")
+print(hex_color_mixer(["#FFFF00", "#0000FF"]) == "#808080", "Example #2")
+print(hex_color_mixer(["#B60E73", "#0EAEB6"]) == "#625E95", "Example #3")
+print(hex_color_mixer(["#FF0000", "#00FF00", "#0000FF"]) == "#555555")
+print(hex_color_mixer(["#99CC00", "#663399", "#1A8191"]) == "#5E8063")
+print(hex_color_mixer(["#918381", "#D53B21", "#A54C83", "#DEFACF"]) == "#BA817D")
+print(hex_color_mixer(["#140A23", "#46B31E", "#CFDF08", "#263534", "#EAD1FB", "#235E02"]) == "#65803F")
+print(hex_color_mixer(["#FFFFFF", "#000000", "#000000", "#FFFFFF"]) == "#808080")
+print(hex_color_mixer(["#CCCCCC"]) == "#CCCCCC")
 
 
 def str_prime_factors(num):
@@ -2703,9 +2704,9 @@ def decrypt(astr):
     
     alpha = ' abcdefghijklmnopqrstuvwxyz'
     for i in range(10,27):
-        astr = astr.replace('{}#'.format(str(i)),alpha[i])
+        astr = astr.replace('{}#'.format(str(i)) ==alpha[i])
     for i in range(1,10):
-        astr = astr.replace('{}'.format(str(i)),alpha[i])
+        astr = astr.replace('{}'.format(str(i)) ==alpha[i])
     return astr
     
 
@@ -2827,19 +2828,19 @@ def can_move(piecetype, source, dest):
         return king_checker(source_ind,dest_ind)
 
 
-print(can_move("Pawn", "A5", "A6"))# True)
-print(can_move("Pawn", "G2", "G4"))# True)
-print(can_move("Pawn", "C6", "D7"))# False)
-print(can_move("Knight", "F5", "E3"))# True)
-print(can_move("Knight", "F6", "E5"))# False)
-print(can_move("Bishop", "B4", "E7"))# True)
-print(can_move("Bishop", "B6", "F5"))# False)
-print(can_move("Rook", "A8", "H8"))# True)
-print(can_move("Rook", "A8", "H7"))# False)
-print(can_move("Queen", "A8", "H1"))# True)
-print(can_move("Queen", "A6", "H4"))# False)
-print(can_move("King", "C4", "D5"))# True)
-print(can_move("King", "B7", "B5"))# False)
+print(can_move("Pawn", "A5", "A6") == True)
+print(can_move("Pawn", "G2", "G4") == True)
+print(can_move("Pawn", "C6", "D7") == False)
+print(can_move("Knight", "F5", "E3") == True)
+print(can_move("Knight", "F6", "E5") == False)
+print(can_move("Bishop", "B4", "E7") == True)
+print(can_move("Bishop", "B6", "F5") == False)
+print(can_move("Rook", "A8", "H8") == True)
+print(can_move("Rook", "A8", "H7") == False)
+print(can_move("Queen", "A8", "H1") == True)
+print(can_move("Queen", "A6", "H4") == False)
+print(can_move("King", "C4", "D5") == True)
+print(can_move("King", "B7", "B5") == False)
                     
                     
                     
@@ -3027,7 +3028,7 @@ def kix_code(addr):
 	for matchnum, match in enumerate(matches, start=1):
 		first_part = match.group().strip()
 	for matchnum, match in enumerate(matches2, start=1):
-		second_part = re.sub(replace_expr,subst,match.group().strip(),0,re.MULTILINE).upper()
+		second_part = re.sub(replace_expr,subst,match.group().strip() ==0,re.MULTILINE).upper()
 	for matchnum, match in enumerate(matches3, start=1):
 		third_part = match.group().strip()
 	return '{}{}{}'.format(first_part,third_part,second_part)
@@ -3043,12 +3044,12 @@ def func(alist):
             total += 1
     return total
 
-print(func([ [], [] ,[] ]))# 3)
-print(func([ [3], [2] ,[1,2] ]))# 7)
-print(func([]))# 0)
-print(func([[[]]]))# 2)
-print(func([ [1,2], ["3"] ,["F"] ]))# 7)
-print(func([ [[[]]], [2] ,[[[[[[]]]]]] ]))# 11)
+print(func([ [], [] ,[] ]) == 3)
+print(func([ [3], [2] ,[1,2] ]) == 7)
+print(func([]) == 0)
+print(func([[[]]]) == 2)
+print(func([ [1,2], ["3"] ,["F"] ]) == 7)
+print(func([ [[[]]], [2] ,[[[[[[]]]]]] ]) == 11)
 
 
 def license_plate(plate, grouping):
@@ -3077,7 +3078,7 @@ res_vector = [
   "5F3Z-2E9W", "2-5G-3J", "24-A0R-74K", "GB-BD-51-9K-FC",  "BF-11G-F9I-781-9IT", "FIN-MMG-418", "S-PXO-755",
   "DE-57-UK", "D-KAPA-7778", "NL-J20-6FV"
 ]
-for i, c in enumerate(str_vector): print(license_plate(*c) == res_vector[i])#, res_vector[i])
+for i, c in enumerate(str_vector): print(license_plate(*c) == res_vector[i] ==, res_vector[i])
 
 
 def missing_alphabets(astr):
@@ -3099,11 +3100,315 @@ def missing_alphabets(astr):
     return missing_letters
 
 
-print(missing_alphabets("abcdefghijklmnopqrstuvwxy"))#"z")
-print(missing_alphabets("abcdefghijklmnopqrstuvwxyz"))#"")
-print(missing_alphabets("aabbccddeeffgghhiijjkkllmmnnooppqqrrssttuuvvwwxxyy"))#"zz")
-print(missing_alphabets("abbccddeeffgghhiijjkkllmmnnooppqqrrssttuuvvwwxxy"))#"ayzz")
-print(missing_alphabets("edabit"))#"cfghjklmnopqrsuvwxyz")
-print(missing_alphabets("aaaabbbbccccddddeeeeffffgggghhhhiiiijjjjkkkkllllmmmmnnnnooooppppqqqqrrrrssssttttuuuuvvvvwwwwxxxxyyyyzzzz"))#"")
-print(missing_alphabets("mubashir"))#"cdefgjklnopqtvwxyz")
-print(missing_alphabets("aaaa"))#"bbbbccccddddeeeeffffgggghhhhiiiijjjjkkkkllllmmmmnnnnooooppppqqqqrrrrssssttttuuuuvvvvwwwwxxxxyyyyzzzz")
+print(missing_alphabets("abcdefghijklmnopqrstuvwxy") =="z")
+print(missing_alphabets("abcdefghijklmnopqrstuvwxyz") =="")
+print(missing_alphabets("aabbccddeeffgghhiijjkkllmmnnooppqqrrssttuuvvwwxxyy") =="zz")
+print(missing_alphabets("abbccddeeffgghhiijjkkllmmnnooppqqrrssttuuvvwwxxy") =="ayzz")
+print(missing_alphabets("edabit") =="cfghjklmnopqrsuvwxyz")
+print(missing_alphabets("aaaabbbbccccddddeeeeffffgggghhhhiiiijjjjkkkkllllmmmmnnnnooooppppqqqqrrrrssssttttuuuuvvvvwwwwxxxxyyyyzzzz") =="")
+print(missing_alphabets("mubashir") =="cdefgjklnopqtvwxyz")
+print(missing_alphabets("aaaa") =="bbbbccccddddeeeeffffgggghhhhiiiijjjjkkkkllllmmmmnnnnooooppppqqqqrrrrssssttttuuuuvvvvwwwwxxxxyyyyzzzz")
+
+def format_isotime(thetime):
+    
+    return thetime.isoformat()[11:].replace(':','')
+
+def compare_times(time1,time2):
+    
+    time1 = time1.time()
+    time2 = time2.time()
+    
+    if time1.hour == 4 and time1.minute == 35:
+        tmp_time = 20
+    
+    if time1.hour >= time2.hour:
+        return time1.minute >= time2.minute and time1.second >= time2.second
+    else:
+        return False
+    
+    
+def palindrome_time(arr):
+    
+    time_1 = datetime.datetime(2020,1,1,arr[0],arr[1],arr[2])
+    time_2 = datetime.datetime(2020,1,1,arr[3],arr[4],arr[5])
+    
+    count = 0
+
+    one_second = datetime.timedelta(0,1)
+    
+    palindromes = []
+    
+    while not compare_times(time_1,time_2):
+        iso_time_form = format_isotime(time_1)
+        if iso_time_form == iso_time_form[::-1]:
+            count += 1
+            palindromes.append(iso_time_form)
+        time_1 += one_second
+    if format_isotime(time_1) == format_isotime(time_1)[::-1] and format_isotime(time_1) not in palindromes:
+        count += 1
+    return count
+     
+
+palindrome_time([11, 0, 11, 11, 0, 11])
+
+    
+    
+def is_exactly_three(n):
+    
+    if n < 4:
+        return False
+    
+    count = 0
+    for i in range(2,math.ceil(math.sqrt(n))*4):
+        if i >= n:
+            break
+        if count > 1:
+            return False
+        if n % i == 0:
+            count += 1
+    #print('count = {}'.format(count))
+    return count == 1
+
+
+print(is_exactly_three(4) == True)
+print(is_exactly_three(12) == False)
+print(is_exactly_three(25) == True)
+print(is_exactly_three(121) == True)
+print(is_exactly_three(48) == False)
+print(is_exactly_three(1) == False)
+
+print(is_exactly_three(81) == False)
+print(is_exactly_three(1521) == False)
+print(is_exactly_three(225) == False)
+print(is_exactly_three(27550356289) == True)
+print(is_exactly_three(25235235235) == False)
+print(is_exactly_three(10) == False)
+print(is_exactly_three(64) == False)
+
+print('before isexactly3(9)')
+print(is_exactly_three(9) == True)
+
+print(is_exactly_three(144) == False)
+print(is_exactly_three(3) == False)
+print(is_exactly_three(2) == False)
+print(is_exactly_three(42351351) == False)
+print(is_exactly_three(999966000289) == True)
+print(is_exactly_three(20152357681) == True)
+print(is_exactly_three(531625249) == True)
+print(is_exactly_three(264306808866) == False)
+print(is_exactly_three(975179493674) == False)
+print(is_exactly_three(49) == True)
+print(is_exactly_three(165983) == False)
+
+"""
+
+def word_value(word):
+    
+    words = ' abcdefghijklmnopqrstuvwxyz'
+    word = word.lower()
+    try:
+        word = int(word) ## test if int
+        return sum([int(x) for x in str(word)])
+    except Exception as e:
+        return sum([words.index(e) for e in word])
+
+def sentence_primeness(asentence):
+    
+    words = ' abcdefghijklmnopqrstuvwxyz'
+    
+    punctuation = '!@#$%^&*()_+-={}[];:\"\'<>,./?~`|\\'
+    
+    for eachpunc in punctuation:
+        asentence = asentence.replace(eachpunc,'')
+    ## now split sentence
+    
+    asentence = asentence.split(' ')
+    
+    num_values = [word_value(e) for e in asentence]
+    
+    if is_prime(sum(num_values)):
+        return 'Prime Sentence'
+    else:
+        for i in range(len(num_values)-1):
+            tmp_list = num_values[:i] + num_values[i+1:]
+            if is_prime(sum(tmp_list)):
+                return 'Almost Prime Sentence ({})'.format(asentence[i])
+        if is_prime(sum(num_values[:-1])):
+            return 'Almost Prime Sentence ({})'.format(asentence[-1])
+        return 'Composite Sentence'
+    
+    
+sentence_primeness("42 is THE aNsWeR...")
+
+
+def validate(password):
+    
+    valid_pass = r'^(?=.*[A-Z])(?=.*[a-z])(?=.*[1-9])(?=.*[\!\?\*\#])(?=.{8,}).*$'
+    
+    
+def grant_the_hint(theword):
+    
+    split_word = theword.split(' ')
+    max_len = max([len(x) for x in split_word])
+    words = []
+    sub_arr = []
+    for i in range(0,max_len+1):
+        for eachword in split_word:
+            try:
+                real_word = eachword[0:i]
+                rest = '_' * len(eachword[i:])
+                sub_arr.append('{}{}'.format(real_word,rest))
+            except Exception as e:
+                sub_arr.append('{}'.format(eachword))
+                continue
+        words.append(' '.join(sub_arr))
+        sub_arr = []
+    return words
+
+
+print(grant_the_hint("Mary Queen of Scots"))
+
+
+def sun_loungers(numbers):
+    
+    split_numbers = [int(x) for x in list(numbers)]
+    count = 0
+    
+    if len(numbers) == 1:
+        return 1 if numbers == '0' else 0
+    
+    for i in range(len(split_numbers)):
+        
+        if split_numbers[i] == 1:
+            continue
+        try:
+            if i == 0:
+                if split_numbers[i+1] == 0:
+                    count += 1
+                    split_numbers[i] = 1
+            elif i == len(split_numbers)-1:
+                if split_numbers[i-1] == 0:
+                    count += 1        
+                    split_numbers[i] = 1
+            else:
+                if split_numbers[i-1] == 0 and split_numbers[i+1] == 0:
+                    count += 1
+                    split_numbers[i] = 1
+        except Exception as e:
+            print('exception')
+            continue
+    return count
+
+
+from time import perf_counter
+tic = perf_counter()
+
+print(sun_loungers("10001"))# 1)
+print(sun_loungers("00101"))# 1)
+print(sun_loungers("0"))# 1)
+print(sun_loungers("000"))# 2)
+print(sun_loungers("001000100000001010001010010000001000101000000"))# 12)
+print(sun_loungers("010000100000000010010000001010000000010100001000000010010000000001000000001000000010000000100100000000100000100100010000001"))# 35)
+print(sun_loungers("10001000000100000010000001000100000001010000001000100010010000000010000010001000000010010010000000001001001000000010000000100000001010000000100000000010000000100010000010000010000001000100001001001000000100000010000010100000001000000000"))# 69)
+print(sun_loungers("00100100100000100100000001000001000001010000010000000100000010001001000100000001001000001010000001000010100001000010000000010010000000100100000100000000100100000100000000100010001000010000001001000000001000100000100000001000100100000010000000010000100000001000100001010000000100000100000001000100000000101001000001000000010100000010000010000000100000000100100100000001010010000010100100010000000010010000001000010000010000100000"))# 115)
+print(sun_loungers("0010000001000000101000000001000100000001001010000000101000000001010100001000010001000001000010000010001000100000000100000100000010100010000100000010100000001000000001010000000100010000100000000100000001000010000000101010100010100000001000001000000001000010000010000000100100000010000100000100100000001000000010000000100010101000000010010100000000100000100000000101000000010000010000010000000010100000100000001000010000100000010000000010000000100000000100000001000000010000000010010010000001000000100001010000100100000001000001000000100001000000001000000100000100001000010000100001000001001010001001000001000001000001000001000000010001000010000010001000000100000000100100001000000010000001010000100010000000100010100100000000100000001010010100010000000100000010000000010000001010010000000100000000100000100000000100000000100000001010000001000100000100000010000010000010100000100010000100000100001010101000010100010000010100000000100100010000010000010101000001000000010001000000100000001001000000100010000000010000001000100000100000001000000101001010000010000000010010000000010000001000010000"))# 303)
+print(sun_loungers("001010000010000100000001000100000100001001000000100000010100000101000001000100010000010000001001000010010000010010000010000000100001000000010010000001000010000001000000010000000100000001010001000100100000010010000100000010000100000010001000010010100000001000100000010001000000010000001000001000001000000010000010001000100010100001000000100100001000000010000010000100001001000010000001000010000100000010000000100010000001010000100000100101000100001001001001010010101000001000001000100010010010010010001000000100000010000001001000001001001000000010010000001010000001001000001000100000100000100000010000000100001000000010000010000010000000100000100100000001000000100100000001000000010000100000001000000010000100001000100000010000100010001000010000001001000001010000100010010000010000001000001010000000100100100010000101010001000000010001010000000100001000100101010000001010000100100101000100000100100000010000000100000010000010000010000101000000010000101000010000100000100001000100000100000010000001001000001010100001000001010010000001000100000010001000000010001001001000010000100100000010100000100000010000010000010100010010000010000101000010000000100100001000000010000001000000010001001000001000010001000001001000001001000000010001010001000010100000010000000100001001000000100000010001010000000100000001000010100000001000000100001000000100000001001010000010001000000100000010010000010010000001001000000010001000010000010001000000101000010001000100000001000100101000000100100010000000100000001000010000100010000100000001000000010100000001000010001001000000100000010001000100000001010000000100001000000010000010000001000010000100010100000010100000100100000101000000010000000100100010000000100000001000100001000000010000010000001000000100001000000100000001000010001001000100000001000000100101000000010000100001000000100000100001000000010010000000100001000100000100000001000000010100100000101000000100000001000101000010000010000001000000010000001010100000010000000101000010010000010000001000001000001000100000001000001000001000001001001010010100000010000001000000010010000010001000010000001000010000100101010000001000000010001000101000010001000000100001000010001000000100000001000000100000010000010001000001000100001000001000010100010000001000010100001010101000001010000000100001000010000010000010001000000010000101000000100000001000000100000001000000100001000000100100000010000001010100000100001000000101000100000001001000010000000100000001010000100100000100000100000010010000000100000010000000100100001000100101000000101000010000101000010000000100001000000100000001001000000010000100000010010000010000010010000010000001000000010001000000100010000100000010000000100000001000100001001000000010000000100010000000100001000100101000101001000000010000010100100000100100000001000000010000100000001000000010010000000101000000101000100010010000000100000001001000000100010001000000010000001000100100000001000000010000100000010000001000000100000010000100001000010001000000010100001000000010000000101000101000010000001000001000100000100000010000000100010100100000001001000001000100010010010101000010000010000100001000010010100010001000010000000100010001000100100100000001000000010000000100000100010000001000001000000100000001000001001000000010000001001000000101000010000100000010000010000000100010000100000010000001010010000100001000100000001000001001000000010100100010000001010000001000000100001000000100100100000001000010010010001000000100000001000000010101000001000000010100000001000000010000010000100100000100010100100101010000010010000001010000010000000100010100001000001000010000010000000100000100010000001000000010010101001000001001001000100100001010000000100010000000100000100101000000100000100001001000010000000100000001000010101000000101000000100010010001001000010000100101000000100010000000100100001010001010000001001000001000000100100010000100000001001000010000100000100010000100000010000001000000100001010001000000010010000000100000001000001000000010000001000010000010010000010001000000100100100000010000000100000010100001000001000010100000100000001000000010000000100010000010001001000010100000100001000101000000010000010000101000100001000000010000000101000000100000010001000010000010000001000000010100000100100001000000010000010000010010000010000001010010000010010100001000000010000010000010000000100000100010000001000000100001001000010000001001000000100000100000001000000101000000010000000100000100001000000010101000001010000100001000001000010010000100010000100000010000000100000100100001010000000100000001000010001010000000101001000100000010100000010000010000001000000100001000000100000001000001001000000010000100001000010001000000010000000100000100000010000001000000010001001000001001000000101000000010100000001001000001000000100000001000010100100000010000100010000001000000100010000000100001000001000000101000100000010000001001000001000001001000100000010001000010000001001000000010000000100001000000010010000000100000010001000100001000010000010000100000100100010000001000000100001010010000000100001000001000100000100000010000010000001000000010100001001010100001000010000100001000100100000001000001000101001000000100010000100001001000001010010000000100000010010001000100001000010001000000100010000000100000100000001010000100000100001000001000000010000010000010100001000100100001010000001000010000001001010000010000010000000100000100001000000010000000100000100000010000001000001000001010000101000100100000010001000001001000000100000010010000000100001000010000101000001000010010101000000101010010000001000010000001000000010010000010010001000000100000101010100000100000100001000100000010000100100000001000010000010010000000100010100000001001000000010000001000100000001010000001000000010000100001010000000100010000001000010000010001000010000000100000001001000100001000000010000100001001000000010000010000100010001000000010001000100100000100000010000000100001000001000010000100000001001010000001000010000001000000010000000100100001010100000010000000100001001000000010000000100010010000100000010010000001000001010000010001000100000010000001000001010100010000100010010000100101010010100010000101010000101001001000000010010000000101000010100000001000000010000001000001000000100000010101001000000100000001000010000010000000100000010000000100010001010000100010000010101000000100100000001000001000000100001010000010100010010000100100010000000100000100100001000000100010010001000010000000100010000001001000000101000100100000100001000000100000010000010010000001000010000010000010001000100000100100001000010010000000100000001010000010100000100000001001000000010000010000001000100000001000100001001000010010000001000000010001010100000001000000010000001000000100010010010000101000010000010000001000100010100000100000001000000010000100010001000010100100001000000100010000001000000100000010000001000000010010000100000001010000100000100100000010000000100000001000000100000001010100001000010000001000000100100001001000010000001000000010000001001001001000010001000000100010000010000010000100001000000100000010000010000001001001010010100001000100100001000100010100001010001000010010000010000000100001000001000000010000000100010000001000000010010001000001000100100001000001001001000001000010010000000100001000000010000000100000010000001001001001010010000000100000001000010000001000001001000010000000100010100000001010000010010010001000000010000000100100000001010000010000010010000000101001000001001010000100010000001000010000100001000000010010100010000010000001000100100100010100001001000000100100100000100010000100000001000000010000100010000100010000000100000100010000010000000100000001000001000100000010000001000000010001000010000000100000100000001000010000010001000100100000100001010001000100010000100000010010000001000000100000001000001010100100010100001000000010000010000001010000000100010000010000001000010010000101000001001000010000010000100000010010000010000000100101010000100000010001000010000001000000100010101000000100000100001000100000101000010000100100101010001000000100001001000100000001000001000100000010000001000000010000101001000000010100001000001000100100000101010000001000001000100010100000100010000100000100000100000001000000100000100000010000000100000010000010000001000010000000100001001000010000010010000010000010010000000100000010000010000000100000100010000100001000010010001000000100001000001010000100000010000100010001010000000101000000010000001010000100100000010000001010100010100000100000001001000000100000100000010000001000100000001001000100000010010000010000000100001000000010000001000010000100001001001010001000001000001000010010000000101000000010000101000010001000000100000001010010000001000000010010100010000100000001000010001010001000001000000010000001000001000100001000100010000100010101000101000100001000000010000010000001001001000001000010000001010000010010000100000001001010000100000001000000010100000001000100000001000001010010001001000000010000100010000010101001000000100000100010001010000001000000010010000010100010000010000001000010100100000010100010000010000010000010000010000001000000010001001000100000100000100000001000100100010000000100010000001000000100010000100000100100000001000000010001000000100010000001000000010010001000001001010100000100000100000100100001010000000101000100010001010100000010000010010100010000100000001001000001010000001000010100000100010001000101000001000000010000001000100001000000100010100000100000001000001000001001000000100010000001000001010010001000010001001010000001000100100100000010100010000100000010001000000010010000001000010000010000001000010000001010000000100001000000100001000001000001000000010100000001000010001010100000010000001010000100000010001000001000101000010000000100010010000100000001000000100000100000010000000100100100000100100100010001000001010001000100001000010000001000000100000010001001000000100000100100100000100000010000010010000100000010000001000000010000100000010000010010000010000001001001000010001000100000001010010010000001000010010001000101001000101000000010000010100000001000001000100000100000100000010000001001010000001000100101000000010000001000000010001010010100001010000010001000010100010000000101001001000000010100000010100000010001000100000001010000101000001001001000000010000100100001000001000000100010000001000000100000010000000100000001000000100000001000000010100010000001000010101000000010000010000001000100010000010000010100001001000100001000001001000010001000010101000100000001001010000100010001000000010100000010000010001010101000001000000010000000100010000010001001000000101000001000000100000001000010000001000010010100000001000000010000100000001010000000100000010001010010000010000000100000100000001000010100010010000100001000000100100001000000100000001000000100010100000010000010000000100010000010000001000000010000010000001000001000000010000010000000100000010000100000010001000001000000010000001000001000010000001001000001010000001000000010000101001010000100001000000010101001000100100100001010001000000010010000010000000100000101000010000001000001000000100000010000100000001001000101010000000100000010010000010000001000000010100001010100100000100001001001000010000001000101001001000000010000000100000010000000100000010000001001000000010000000100100000100000100000010000001010010000100000100100000001000001000001001000100000100000100001000100100010000100000100100001000000010101000100000001000000100000010010000100000100000100000100001000010010001001010000010001000000101001000001000000010001000000100100101010001000000010100000001010000001000100000010000100000001000001000001000000100010000000100010000001000001000000010001000001010001010000010001000010000000100001010000100001000010000000100010001000001000010000000100100000001000000010000001000100001010000100010010000100000010100010000000100000100000100000100001000000010001000001000001000010100100010001000000010000100001010001000010000101000000010000000100010000010000100000010010000010000100010000000100100000010001000000100010100001000001000000100001000000010100101000000010000010000100000010000000100000100000001000010010000010000010010000000100010000100000010000010000001000000010000000100000100000100000100000010010100010000000100010001001000100000001000100100010000001010010000010000100010000010010000000100000100000010000010001000100000010000001000000100000100000100000101000000100010001000000100010010100100000010000000100000100000001000010100000010010001000001000100000001001000000010010010000100100000001000101000000100000100000001000001000000010000001000010010001000000010010000100010000000100010000000100000001000000100010000000100101000010000100000001000101000000010000001000010100001000001001000000100010000010000000100100001000010010001000100000001000001000000010010100100100000001000100001000100101001000001000000010000010000001000001000000010000001000001000001000010000100010001000001001001010000100001001000001000100001000000101000000010000000100000010010000000100000100000101000100000001000000100100000010000010100100101001001000000100000010000010001000000100001000000010000000100001010010010100010010000000101000000100000101000010000001000100001001000000010100000001001000100000001001000001000100000100010001000001000101000000010000000100000100000010000100000010001000001000010000100000010000100000010001000000010000001010001010000010010000010100000010101000000010000010000010000000100010010000010010000001000010000000100000100000100000010000100010010101000000100001000001000000100000100100010000000100000100010010000101000000010000000100000100000010000000100000100100000010010000001001000100010100010000001000010000010010001000000010001000010000101000001000101000000010100001010010000100100000001000010001000000100101010000100010010000001000100000101000001010100000001010000001000000101000100100010100000100100010100100000010000100000100000001000000010000010010000001001000010100000001000000100100000100010000000100000001010000000100101000000010010010100001000100000010100100000010001000000010000000100001000000100000010000001000001000001000000100000001000010000101000000100001000001000000100001001000010000100000100000010000000101000001000000010000001000001001000001010100000001001000000101001001000100000101000000010100000100010000001010000000100000100000010010001000010000100100100000100010001000001001000101000010010000001000001001010000100100010101000000100000001001000000100000100001000100100000100101001000010010000010000010001000001000000010001000001000010001001000000010000010000000100001000100000001000100001000001010000001000000010000000100001000010000100001001000010100100000010000000101001000010000000100000010000001001010100000100000100100100000001000100010000100000100100000010100000010000010000000100000001010000000100100000100010000100100010000001000000101001000000100000100100010100000001000000100100001000010001000010001000001000000010010000000100100010000000100001000001000001001000010000001000100000010000010000010001000000101010100000010000010010000001000010000010100000001000100001010000100000001000010000001000010001000001000100010101010000010000100000001010001000100100010010000010000001000000101000000010100000010100010000000100000100000010000000100010100000100000100000001000100000010000010000101000000010010000001000010100100000010010000010000000100100001000100010000000101000000010000100000001010010010000000100100001000100001000100001000010100000100001000100100000010001000000100000010000000100000100100010000100100010001000000010000100101000100010101000001000100000100010100000100000010100001010000010010000100001000000010000100100000001010000101000000100000100100000100000010001000000010000001000000101010000010000000100000100100001001000000010000010000010000010000001000100010001010001000000010101000001001010000000101000010001000001010000100000001000001000101000000100000010000001000000100010000100010000010000000100010000010010100000101000000100000010000001000000100010100001000001000001000100000001000010100000001010100100000001001000000010010000001000010000010000001000000010010000100100001000001000000010000100100001000010000010001001000010000001010000001000000010000100010000000100001001000100010000100001010000000100101000000100000001010000000100000100000100000001000000100000001001000000010100001010000100001000000010010000010000001000010001010000001001000000100000010001000001000000010010000001000010000001010000100010001010001000000010000001000001000001001000010100100000010000010000001000000100000010010100000100010000000101000100000100100000010001000000100000001010000000100101000010001000000010000001000100001000000100000010000000100000001000001010001000000010010000001000100100000010000000100000100000001000000100000100010000000100000001000000100010000001000000101000001000010000001000000100000001000010000001001000000100000010000010010000000100000001000001010000001000010000101000000100010000000100001010100001000000101000100010000001000010000010100001000001010000001000010000100000100000010000100000100010000100000100001000010000001000010000001000001000000010000001000010000100000001000100001000000100100001000000101001000001000100000010101001000010010001000100000100000010000100000100010000010000001000000010100001000001000000100000100100000001000101000000100000010010000000100010010000010010000000100001000000100000001000000010010000000100010000010100001000001000000010000000100001010100000001000000101000000010000010000010000100100000100000001000001001001000001000001001000101000000100010010000010000100000010000000100100000001010000000100000100000100001000010000100010100000101000010000000100010000000100000100010000010000100000001000100101000010001000000010000010000001010000000100000100001000100000010000001000001000010000000100101000001010000010000010100100000010000001000010000001000000010010000000101000100101010000001000000100000001000000010000100100000100000010000010000100010000010000001001010001000100010001000010000001000000100000100000100000100000001000000010000010000100000101000100000101000010101000010000010000100000100010000000100000001001000100000100101000000100010101000000101000000010000100000101000001010000100100001000000010010001000001010000001000001000001010100101000010000001000000100100000001001001000101000000100000010000001000001000100000100100000100000101000000010000101001000001010000010000000100010010000001001000100000010101000000010000000101000100101001000001000000010010000001000001000100010000001000000100000001000010000001001000100010010000010000000100000101000010000100000010000010000100000100010000100000100000001000000010000001000100001000000010010100100100000010100000100001000001000000010010000000100000010001000001000001000001001001000100000010101001010000001000010000000100000001001000000100000001000101000000100000100000010000001000000010100100001000000100000100000001010100010001000010001010000001000000010000100000010000100000001001001000100000101000001000010001010000101000001000000100000100000001000100010100001000001000001010101000001001000000101001000000010001001010100000100010010000000100001010010000010000001001000010100100100000100000001000100000100000100000100001000100100100000100010000000100010000100000100010101000000010000000100000100100000010000010000001000100100001000000100001000000010100001000100000001000000010000001000001001000010001001001000000010000100001000010000010010000010000000100000010100000010000001000001001000000100000010100000010001000001010001000010010000010000001010000000101000010000000100100000100100000100000001000100010000100100000001001001000000100010000100000001001000000100000101000100000100000001000101000000100000001000010000000100000010100000001000000010000101000010101000010010000010000001001010000000100000100010000010000001000000100010000000100000100010010000000100000001000100000010000001000000010000100000001000010000001010000010000000100100001010000000101001010001001000001000010000010000000100010000000100000010001000001001001000000100000100000100001000010010000100101000100001000000100000001000000100001000000100000010100000010000010000000100000001000000010100000001000000010000010000010000000100000100100000010000001000000100000100100000001010010001000000100000100010000010000100000001000000100000010100000001000100100000010001001000001000010000101001000000100000100010000100010101000000100100010000100010000010101000000100010000000100010000000100000100001010000010001010010101000100001000010001000000010001000000010000000100000010000000100000001000100000101000010001000001000000100000100000100000001000001000000010000001000000100000001000000010010000001010000100100000100000100000001010000100100101010001000010000000101010000000100000001000010100000001000100000010000000100000010010001000000010000010000010000010000100000001000010000001000000010000001000000010000001000000010000010000010010000100101001000000010000000101000010000100100000100000001000100000001001000001000010000001000100000010000010100000001001000100100001000000100010000010000000100001000000100100000101000100001000000010000001001000000010000100000010001000000010000010100000010000100000010000010000001000000100000101000000100010000100100010000010010000100010000010010000000100010000010100001000001000000010000100001010000000100010000000100000010010000010000000100001000100000010000010000001000100010000000100000001000000010001000010010001000000100010000010000100000101000100000100001000001000000010000001000001001000000010100000001001000101000000010100010000001000000101000010000100000100010100100000001000100000010000101010001000000100001000010000000101000010000000100001000001001010000100000010100000010001000000010000001000000101000100100001001000010000000100100000010000000100000001001010010000101000101000000100000100001010000001000000010000010000000100000010001000010000100000100001000001000010001001000000010010000001001000000100100000010000000101000000100001000001000000010000001000100000001001000000100100010001000001000010000100101000000100000001000100000001001010000000101001000010000010000001000000100000001000100010101000001000100000100001000100100000001000000010000000101000100000010010000001000000100000010001000100000001000001001000001000010010000010000010000010000001000000010000010000100010100000010001000000100001000000101010000010000001001000010000100100010000010000100000001010010010000100001000010001000000010000100000010000010001000010000000100000010000010000100000001001010000010010101000001000001010010000010001000100100000100001000001000000010000010010001000000010000000100000100100000100001000010001000001010000100000010001000000010000101000000010000100000001000000010100000100000010010000001000010000100001000000010010100010000100000010000001001000000100001001010000001000000100100000101000010000001001010100000100010001010000001000001000001001000100101000001000010001000000100000001000000100000101010100000001000010000101000000010001000010010000100100001001000000010001000000100010010001000010000000100100000010000010010000001000010000100000100100001000001000010001010000100100000010000001000000100000010000000100000010101000000010000010000001001000000010100000001000010001000000010000000100000001010100010000100000010000010010000000100000100010000000100000001000000100000001010000100000100010000100000001000010000010100000010000100000001000000100100010010010010000000100000001000100000010000010000100001000000100100100000010101000010000000100001000010000010000001000001010000100001000000010000010000100000001000001000000010100000100000010000001010000000100000001010000100000001001000001000001010010000010100100000100010000000100000100000100010000001000001001001001010000100000001000100000100101000100000001000010001000100001000010000001000000010000001000100000010010010000000100101000000010001000010000010010000010100001010001001000000010001001000000100101001001000000100000100000010000010001000010001000000100000101010000000101000010000000100100010100000010010000000100001000001000101010000010000001000000010010000000100000001010000100000001000001001000010001000000010000000101001010001000100000010001000001010000000100000010010000100010000010001000010100100000001000001000010001000000010000100100000010000000101000000101000101000100000100001000000100000100100100001000001000000100100010010000000100001010000100000010001001000100000010000010000001000100010000010010000100000100000010000000100000100000100001000001000100010000010000010001000010000001001001000100000001001000000010010001000001001000001000000010010100001010100000010000001000010010000100000010000001010000001001000001010010001000000010010001001000001000000100101010010001000100000001000100100000100000010000100000010000010000001000000010010000010000000100101000010001010000000100000010101000000010010000000100000001000010010000000101000001000000100000100100010010000001000010100010000000100100000001000100001000010001001010000100000001000001000010000001000100100010001000100000001000100001000100101000000010010000001001000001000001000010001000000010000000100000001000000010000001010001000000100000001000000010000010010100000001000000010000001010000001000010000100000101000000010000010010000001000010001000000101000000010000010000001000000010000001000001010001000000010001000001000000010010001000001000100001000001000000100000100000010000010000010001000010010100000001000001010010000001000000100001010000001010001000000010000100000100101000100000100000100000100010000000100000001000010101000100000001000000010010000010000100000001000010000010100000001000000101000001000000010001000000101010010100000010000100000010100100000100000001001001000001010100100000100000010000100100101000000100100001000100000010000000100000010100100000100010100100010000000101000100010001000000100010100000100000010000000100000010100000001000100000010000100100001000000100100000100001000001001000010000000100000001000100100000001000000101000100000001000010000000100000100010000010000100010000000100100010000001000100000100000010001000010100000001000100001000000010000000100000100010000000100000010000100010000001000000010001001000010001000100000001000000100010001001000000100100000010000010000001000000010000001000100010000000100100000010100001000010000000100000100000010000001000000100000101001000000010000000100000010000010000100000100001000100100100001000000100001000001000000100000010000000100100000001010010100000001010000010010001000000010000000100000001010100100100000010000100000001000000010001000000010000101000010000010000000100000100010000101001000000100000100000001000100000010000100001000101001000010000000100100100000100010100100000001000000100000001010100010000100000001000100000010000001001000010010000001000001000001000010010000001000000100000010000100000100000010010001001000010000100100010000000100000010000001000000100000100100010000010001000001000001010100000001010010001000010000010000001000000100000100001000100000100100001000000010000001000100000001000000010000000100000001000000100000010100000100000001010010000010010010000010000100000001000001001000010000100001000001001000000100000010100000100100001000000101000001000000100000101000000010000001000000010001000000100000100001000100000001000000100100000001000001001010000100000100100100000010000000101010000100100000100000001000000010000000100001000010010001000000010000010000001000010001000010000001000100001000000010000001000001000000100000010000010000101000000010000001010000001000000010000000100000010001000000100000010001000010100101000000010001010010001000000010010100000001000101000001000000100000010000001001000010010000010000100010001010001000000010000001000000010000010000001000010000010000001010000001000001000001000001000000101000000010010000000100000001010000010100100000100000100100000100000100000100000100100000010000000100100000001000001010000010000000100000001001000000100000100000001000000010100001000100100001000000010100100000101000010000100001000000010001000010010001000000100000010000000100000001000100010000000100000010000010000100000001001000000100001001000000100000010001000010000100100100101000000010001000010001000001010100000001000000010000001001000001001000010001000101010000010000000100001000001000001000100000100010000100010000010000000100001010000010010000100001001000001010000100010000100100100000001000001000000010010100010001001000000100000010000010100010000000100000100000100000100000100000010010001000000101010001000000101000000100100010000001000001000000010000000100010010000010010010000000100100010010000000100010000000100000100001000101010010100000001000000100000101000101000000100000010000010000001000100000001000010000001010000000100001000010000010100001000010000000100000010001000000100000001000000100001000100010000001000000100000001000000010000010000001000001001000000100100001000010000001000101000010010001010010000000100001001000000010000100001000100000010000000100100010010000100000010000010000010000010000100000100010010000000100000001000010000100001000010000000100100100010000001000000100001000100100100000010001001000001001000000101000000010000100010010000010010000100000100000001000100000001000100001000000100010001000001000000100010010000001000010000001000001010000010000010000001000001000001000100000001000100000010001000001001010000100001001000000010000001000000100001000100000001000001001000000010000100000010010100000010000001000100000010000001000000010000010100010100010000001000010000100000010001000000010000010100010000010000001000001010000100000001000000101000000010000010001001000000100000100010100001000100000010000000100000010010000010000000101001000000010010010100000001010000010000010001010000001010000100000100000100000010000100000010100010000001000000010000100001000000100000100001010001010000010000010000010000000100000101000001000100010000000100000101010010000001000010001000000010001000010100000001000010000000100000010010000010000000100100000001001001000000100000001000000010100000010001000010000100000100000010100100000100000010000001010000010000100000010100000100001000010000001000010001000000010000000101000101001010000100000001000100100000010000001000100100000100000010000001000010001001000001000100000010000010000100001000000010100010000100000001000001001000001001000000010001001000000010101010010000001010000001000000100000010000000100000100000100100100000100001000001000001000000010000101000000100010000100000001000000010001010000100100100100001001000000100100010010000100000001000100000010000001000000100000001000010000100000010000001001000000010100010001000010000010000100010000000100000001000000010000000100001010001000001000000101000100000001000010000000101000100001010010001000001001001000101000000100010000000100000100000010100000010000100001000010000100010000001000010000001000100101010000000100000100101000001000000010000001000010010000010010010000001010000100000100000100101001000100100000001000100000010000100001000000010100010000101000000010000001000100000001000000010000000100000001001000010100000001000100000100001000100000010010000000100101001000000010010000001000000101000000010000000100000100100100000001000010000101000001000001000001010000000100100000001000001000000010000001000001000000010000010000010001000100000001000000100000001010000100101000001000100100101000000010000000100000101000000100000100010001000000100000010000000100000001000100101000000010000100001001000000010001000010001000101010000001010000010010000101000010000101000000101010100000001000010000000100000010000001000010000001001000000101000000010100000010000000100001000001000000100000100000010101001000100000100101000000010010001000000100010000010001001001000001000100100000001001000010000010000100000010100001010000100010000000100100010000101010000000100000100000001001000010010010000001000101000000100001000010000010000010000001000010000001000100000001000010000100000001000000010000001000001010000010010000000100000001000001000000100100000100010000010100100000001000001000000010000101001000010010001000001000000010100000001000101000000100100010100000100000001000000100010000001001000001000001000001001010000000100010000010010101000010000100000101001000000100100000001000000100000010000010010010000000100010101010010001000001000100000100010000000100010000010000000100000001000001000101000100010000000100001000000100100000100000001000100000001000000010000000100010100000010101000001000010001000100000010000010001000100100010000000100000010000000100100000010000000100000001000000010000000100100100000010000001000000010000100000010001000000100000010000000100000100001010000100001000000010010000100000101000100100000101000001010000101000010100001010000100100100100000010100010000001000001000001000000100000100000010100000001001010000001000001000000010000001000010010001001000000100000010000010000000100000010010000010001000100010000010000010000000100000001000001000000100010000000101000000010000100100010000101010001001000000010000000100100000001000000010000000100010000001000101000001000000101010000000100100100010100000001000000100000001000010000000100000100010001000100000100100000010010001000100000100010101010001010000100000001000000010000000100001000100001001000100000001001010000010000000100010001000101000000010000001000100000001010000001001001001000010100001000000100100000100000010000001010000001000000100000010000000100000100001000000100001000010001001000010001000000010001000000101000100000010001000000010010001000010000100000100000100100001000010100001001000000100100000001001000001010000001010000001000000010100000001000010001001000000010000100000010100000001000100000001000001001000000100010010000010000100000001000000010001000000010000010001000000010010000100100001000000010010000000100100001000000010001000000101000001000010000000100000010000001000010000000101001000000010100000010010000100000001001010000010000010000010000100100000010000001000001000000010100000001000001001010000010000001000010000001000010000010000100000010000100000001000001010000100100000100000001000100001000000100000010100100100001000100010000100001000000010010010000000100000100010001000100001000000010000001000010010000010100000010101000001010100010000000101000000010000010010001000100000010000100101001001000001000001000000100001000010000100001000000100010100001001010000010101000010010010000000100000001001000001000100010000001001000001000000101000000010100000010000100010000000101000010000010000100100010010010001000000100100000001000000010010001000000100100000100000100010100010010000001010100000100100001000000100000100100000100101000001000000100010000001001000001000010001000100000100000010101000001000001000000100000001000000100001000100000100001001000001000000010100000001000010000000100001010010010000010010000100001000100000100010000010000010010000000100001000001000001000100010000000100000010000001001001000100000010000100000101000100000100000001001010000001000010000100010000000100000001000010010010000010010010000000100010000100000001000101000000010000010000001000001000000100001000000100010000010000001000100010001000010000100010001010010000100001000010000000100000010010000001000000100000100100000100000100001000001000100101010010010001000000010000010000100000001000000100100000001000100000100010000000100100000001001000100010100000001000000100000100000010010000000100000100010000100010000010010000000100100001000000101001000010000000100000100000001010001000100001000000101010000001000001010000010000001000010000001000001000100000100001000000010000001000010100000001000000010000000100001000000010000000100000100000010001010100001001000000010000100001000010100000100000100000101000000010000001010010000100000100000100000010001000010000000100010001000100010010000010000010100100000010000100100000001001000010001000010000000100000010101010000010000001000010100010000010010000001001000001000100010000000100100010000100010000000100100000100000101010000100000100100001010010001000000100000100000101000010001000000100001000100001000000010100100000010000100000100100000010000001000000010010000100000001000000100001000001001000000100000101001001001001001000010000010000100000001010001010000001000000100101010000010001000100000010100000001000001000100000100000100101010000101010000001000000010000000100001000100000010000100000001000000100000100000001000100000001000001000010000100010000100100000100000100000100100000010001000001010100001010000000100101000010000101001000010010001000010000100000100000010010000010000000100000010000100001000010100001000101010100000101010000001000000100000010000100000010000010100100000001000001001000000101000001000000010000001010000100101010010001000000100001000001000000100001000000010100010000001001000001000100000100001000001010100000100010000001000001000000100010000010000001000000010000010000100000010000010010000100001000000010000010001000010001000001000100010000000100010000010000010100000100000010000010000000100000010100000010000010000010000010001001000000100000100100000010000010100000010010010000010000100000100100001000001000000010000001010000010001010000010000010000000100010010000010010000101000100000001010000101000010000010000010001000000010000001000100000010010000100000010000010000001000100000010000100000100100001000000100000100000001000001000000100000010000001010000000100000010000100000100000010001000001000100010100000001000001000000010000001000000010000010000010000010000001000010000000100010010000101001000010000010000010000100000100001000000100000001000000100101000000010000000100000001010000000100001000000100100000001001001010000000100000001001000010100000001000001000000010001000101000100010001001000010010100000100100001000100100000001000000100000001000000010010000000100010001010001000000100000010001010001000101000001001000000100100001000000100001000000010010001000001000010000000101000101001010100100001000100000100010000001000010000010000100001010000000100000101000010001000001000001001000001000000100001000001000000010010010000001000001000000010000010000010000000100010001010000100000001000010100000100000010100001000010000010010000001000000010001010000001010010000010010100000001000001010101000001010000001000100100010000000101000001000000010101000000010000101010000010000010001000100010100000010010000100001001000100000010000010000001001000000010100000100000001000000010000001000100000001000000010100000100100001010000001000000010010000001000100000100001000010000101000101010001000001001000100000100000100000001010000100000010000100100001000100001000000010000000100000001000000010010000010000010010100000100100000010000000101000100000010100001000000100001000001000001000000010000010000100000100000100010000001000010000001010010000010100000100010000000100010000010000100000010100100010000010001001001000000100000100000100100000001000001000010100100001000100010100001000100000010001000010000100001001000000100001000010000000100100010000000100101000000010000100000101000000010001000000100001000010000001000100001001010100001000001000010000001000001000000010010000001000000100100010000000100000100101000010010000000100000101000010000100010000001001000100001010000100010000001001000001010100010000100000100010010000001001000000100000100000100010001000001010000001001001000000010000000100000001000100010000100010001000101000000010010010010000000100010100010000000100000100101010010100100000001000000100100000010000010010000000100100000001000010000010001000000010000001000000100000001000000010000100000100000010000000100000010001001000001001010000001000000010100010000000100000010000001010000010001000001000000010000100100000100000010000000101001000001000000010000000101001000100000100000100001000000010000010000001000101000100001000001000001001000000100010010100000100100010000100000100000100100000100100100000010000010001000000101001010000100100000001000010010000000100000100010000001000001000010000000100101000100000001000000010000010010000100101000100001010000001000010000001000001010000010000000101010100000101000000100000010000001000001000000100100010000000100000001000000010100100100000001000101010000000100000100000100001000000100100010000010000100001000001000010001010010010001000001010000001000000100101000010100000001000100010010000000100000001010101001010000100000010010000100000010010000100001000001001000000100000010000100100000001000100100000100000001000001010001000001000000010001000001000100000001001000001010000000100010000001000001000001001000100000010000000100001001000001000100000100001010000001000100100001000010000000100100000010100000100001000010000001000010010000100010000100000010010100010000100001010000001001000101000000100000100000010000000100000001010000000100001000010000010001000001010000010000000101000101000001000000010000000101000010100100000001000000010010000100001000000010000101000001001000000100010100000010010000100000100100001010000100000100001000001000100000010000010010100100010000010001000010010000010000001001000000010000100001010000100000001000000010001000010000001000100000010001000000010100010001001001000000100000001001001000000010000001000000100000100000010001001000000010100000100100000010000000100000010000010010100001010100100000100000001000000010000010000101000000010000001000010010001000001000000101000000010000001001000000010000001000100000001000001010000100000010100000010000100001010010001001000000100001010100100001000000010000100000010000001000000010000000100000001000000010000100000001001010000001000001000000010000100010000000100000001000001010000010000000100000001001000000010001000010000001000100000010001001001000100000100010000100000010000100000001000001001000010101000000100010000100000100101010100100000001001000010000000100000100010000001000000100001000000101000000100100000010100100100010000101000000010000000100000010000000100000010001000000010000000100010100001000001000010000001000000010101010000001010100010001000000100000010010000000100000100010010000001000100100010000010010000101000100000100010000010001000000100001010101000000010010010000001000000100000010000100001000010000100001000000010000000100100100000010000001000001001000000010010000001000100010000000101000001010001000100000010000100000001000000010010000010100001000000100000001000010000100000010000100000001000100010000000101000010100000100010100000001000010001000100010000000100000001001001000000010000010010000010000010000100000001000100000010001000000100010000000100000010010000010001010000100100010000001000000100000101000001000100000100100000100100010000000100010000001000000010000100100100000100000001000001001000010100010100000100001000001001000100000100010000001000010001000010000001000000010001000001010000010000001000100000010000000100000100000100100000010000100001010100000001000100010101001000001000100100010000100001010000000100000010101001000000010000000100000010010000100000001000000010000010000000100001010000001000010010000001000001010000010100000010100010010001000000100000001000000010000000100000100000001000000010000001000010000010000010000000100010000000100010000001000010010010000001000000100100001000000100000001000000010001000000010100001001000100000010100010100100101001001000010000000100001000000100001000000010010001010000100000001001000000100010000001000000010000000100000100100000100000010000010000010000010000001000100001000000010100000010001000000100100001010000010001001000010001000100000001000000010000000100010000101000010000100000010001000100000010000010000000100100000010010010000100010000100000100100101000010000001000000100000100000100001000001000000010001000001000000010000010000001001000000010000000100000100000001000001001000010000100001001000100000010101000001000001000000010000000100001000000010100000001001000100001010000100000010001000001000010010001001000000010000001000010000001000010000000100010000000100000100000001001000010000000100000100000010010100000001000000100100100000100000100100000010000100000100000010000001000000010000100000001000101000100000100001000000010101000010001000101000010010000101001010000001010000000100000010100000101000100001000000100001001000001000001010000000101000001010000010000100001000000010000001000000100000001001010000001000001000000100010000000100000010001001000000101001000001000100100000001010000100100000100100001000010000101000000100000001000000010100100000001000000010000000100100000001000101000010000010000010000010101000000100100000001000000100000001000001000100000001010100010000010010000010000100000010100001010000001000001000000100001010000000100010000100001000001001001000100000001010001000010000000100100000010101000010000101000010000010000001000100100010001000010000101010010000010000000100100010100000001000100010000010000101000010000100100001000000010000001000000010010000000100001000010000000101000001000000100010000000100001010000010001010010000000100000001000010000000100010000100000010000001000101000001000000100000001000100000010000000100000001000001000100001001000100100000010010000000100100000001010000001000010001000010000000101000000100101000000010010000010000001000001000001000100010001010001010000001000001000100000001010001010000100000010001000010000100000001001010000100000010000001000001000010001010010000101000010000010000001000001000001000100000100000100000010010000100000100100100000100000100010010000001001010000101001000100000001000000010000001000000010100101010000000100100001000001000000010000100100000001000000010000010010000100000001000010010000010000010000001000000010000100001001000100100001000000010000001010000010000000100001000001000010000000100001000001000100000010100000010000010000100010000010000100000100100010000101000000100100000010000010000000100001000000100001000000010000001000000100000101001001000000100010001000001000010000010000010100001010000100000101000001000100001000101000001000000010000000100000100000100000001000100100000001000010010000000101000100000100000001000001000000100000001001000000010100010001001001000100010010000000101000000010000000100000100001000010000001000100000100000001000010100000100100000010010000100010000010000000100001000000010010000001000000101010000001000010000000101000001001000100100000010000100100000100001000101000100010000010000001000010001000100000100010000001000010001001010100000100000100100010010000010000010000001010000001000010000001010000000100000001001000100000001010001001010000000100001000100000010000001000010000100010000010000000100100001000010001010001000000100000001010100000001000100000100000100101001000010000100001001010000001001000010000100010000000100010010100010010000000100001000001000000100001000010000001001000000010100000010000000100000100000010000010001000000101000001000001000010010001010010000001000000010010010000010010000010010010010101000001000100001010000100100000010001000000010001010000000100000001000000010000000100000100001000000100000100000001000001000000100010010010000101000101000000010010100010100000010001000000100001000000100100000001000100010000101010000001000001000001000000100010001000000010000000100001000000100000010000010100100100100000001000000010000100000001000001000000010100000100000001000001000000010000000100001000000100100000010000100100000010000100010000100010100100000010000001010000100100000001000000010100100010001001000000010000000100010100001001010100000001010000001001000010000001001010100100010000100001001001000001001000000100100000001001000000100000100000010000000100000010001000001000001000001000000010000100000010000100000100000100000101010000001000000100010100000001000000100100010100010000010101010000000100001000101000000100010000001001000000101000001001000000100000100000100000001000100000001000001001000000010101010010010000100001000001000000100000100010001000000010010100100010000000101010010001000010000000100000010000001000100001000000010000001000001001000000010000010001000001000001000100000001001000000100101000000100001000000100000100000001001000000100010010000001000001000010000010000101000100000010000100000100100010000010000000101000100001010000000100000010000100000010000000100000001000000010001000000010000001000001000000100100000001000000100000001000010001010000000100100000100100100100000010010000100000010000001000100010001001000000010010010000010000010000100010000001010000010100000010000001000010001000000100000100100001000010000100010010100100010000000100010000001000101010000010000001000010000010001000000010000001010010000100010000010000001000010000100001000010010001000001000001010000010000000100000100101000100010001000000010000010000101000100010000010000001010000100001000001000000100000001001000010001000100001000000010001000000100101000010000010000100010000001000010010000010001000100101000001010001000100010000001000100001000000010000000100100100100000001010000100000100000010001000000100001000100010000000100000100000001000000010000010000001000001001000100100000100000010010000010000001000100010010000010000000100000101000010010010000100001000000010000000100100000100000010010100000100001010000000101000100000100100000100101000000100000001001000101000000100001000000010010000000100000001000000010100000100100000010010000000101010010000010000100000100000010101001000100000100000010010010010000000100010010000000100010001010001000010010000010000100010010000000100010100100000001000001000010000100000010000000101000000010000010010000001000000101000100000100010000100100000010001001001000000100000100100000100001000010000010000000101000000100000010001000000100000001000010010000001000100100000001000001000000100010000001000001010000100000001001001010001001000010000100000010000010010000001010000010010000101000100100001000000100010100000001000100010100000001000000010000010000100100000001001000001000001000000010101000001000010000000100000001000100100100001000001000000101000100100000100000010000001000000100010001010101000010000001000000010000000100001000001000010010100101000100000001000000010001000001001000100000100010001000101000010100000100000010000101000001000010000010010000010010000001000010001000101000001010001010100001001000101000000100001000001000100000001000000101000010000001001000000010010010000000100000101000000010001000001000010010000100000001000101001000100001000000010010101000001001000000010000001000010000001000001000000010000001000000101000000010000010010000100000001000001010000100000010000101000001001010000001000000010100100000010001000010000010000000100001000100000100001000000100000001001000001000000100000010000000100000100010100000001000001010000001001000010000010000000100000010000000100000001000100010000001000100000100100010000001001001000000100010100000001000000010000000100100000001000000100000001000001010000101010001000001000100010100000010010000000101000100100000100000010000000101001001000100000001000000100000010000010000101000000010000001000000100001000000010001000010101000100000001000000101000001000000100010100010000000100000010100000100000001000000100010001001000000010000100001000000010000000100001000000100001000100000001010010000001000100000100000001000000100000001000001000010000001000000101000000100100000010000001000000000000010001000000100010000010000000000001000000000000100000000"))# 13100)
+
+print('t_total = {:.6f}'.format(perf_counter() - tic))
+
+def is_ladder_safe(ladder):
+    
+    if len(ladder[0]) < 5: ## check if ladder is atleast 5 characters wide
+        return False
+    rung_indexes = []
+    
+    i = 0
+    for eachrung in ladder:
+        if eachrung.count('#') < 2: ## trick string
+            return False
+        if eachrung.count('#') == 2 and not re.search(r'^[\#][^#]*[\#]$',eachrung): # analyze if tricking us with 2
+            return False
+        elif eachrung.count('#') > 2 and not eachrung.count('#') == len(eachrung): # check if it is a whole rung ex : ######
+            return False
+        elif eachrung.count('#') == len(eachrung): ## found rung
+            rung_indexes.append(i)
+        i += 1 
+    diff = []
+    for i in range(len(rung_indexes)-1):
+        diff.append(abs(rung_indexes[i] - rung_indexes[i+1]))
+    return len(set(diff)) == 1 and len([x for x in diff if x > 3]) == 0
+
+
+is_ladder_safe([
+	"#   #",
+	"#####",
+	"#   #",
+	"#   #",
+	"#####",
+	"#   #",
+	"#   #",
+	"#####",
+	"#   #"
+])
+
+def matrix_multiply(a,b):
+    
+    m = 0
+    p = 0
+    m = len(a[0])
+    p = len(b)
+    if m != p:
+        return 'Invalid'
+    arrays = []
+    sum = 0
+    sub_arrays = []
+    cols = len(b[0])
+    total_elems = cols * len(b)
+    
+    #[0][0] * [0][0]
+    #[0][1] * [1][0]
+    
+    #[0][0] * [0][1]
+    #[0][1] * [1][1]
+    
+    #-----
+    #[0][0] * [0][0]
+    #[1][1] * [1][1]
+
+    #-----
+    #[0][0] * [0][0]
+    #[0][1] * [0][1]
+    
+    #[1][0] * [0][0]
+    #[1][1] * [0][1]
+    
+    col_inc = 0
+    num_index = 0
+    for eachrow in a:
+        col_inc = 0
+        for i in range(len(b)):
+            sum += eachrow[num_index] * b[i][col_inc]
+            num_index += 1
+        sub_arrays.append(sum)
+        col_inc += 1
+        sum = 0
+        arrays.append(sub_arrays)
+        sub_arrays = []
+        num_index = 0
+    return arrays
+
+print(matrix_multiply([[1]], [[1, 2], [3, 4]]))# "invalid")
+print(matrix_multiply([[0, 0], [0, 1]], [[1, 2], [3, 4], [5, 6]]))# "invalid")
+print(matrix_multiply([[2]], [[3]]))# [[6]])
+print(matrix_multiply([[1, 2]], [[3], [4]]))# [[11]])
+print(matrix_multiply([[2, 4], [1, 3]], [[5], [6]]))# [[34], [23]])
+print(matrix_multiply([[4, 2], [3, 1]], [[5, 6], [3, 8]]))# [[26, 40], [18, 26]])
+print(matrix_multiply([[3, 6], [4, 5]], [[8, 1], [7, 2]]))# [[66, 15], [67, 14]])
+print(matrix_multiply([[1, 6], [6, 3]], [[5, 3, 5], [1, 6, 6]]))# [[11, 39, 41], [33, 36, 48]])
+print(matrix_multiply([[4, 6], [1, 6]], [[5, 5, 4], [5, 3, 2]]))# [[50, 38, 28], [35, 23, 16]])
+print(matrix_multiply([[5, 1], [1, 1], [2, 5]], [[5, 6, 3], [2, 1, 3]]))# [[27, 31, 18], [7, 7, 6], [20, 17, 21]])
+print(matrix_multiply([[1, 1, 1], [0, 1, 0], [0, 1, 1]], [[1, 0, 1], [0, 0, 1], [1, 1, 0]]))# [[2, 1, 2], [0, 0, 1], [1, 1, 1]])
+                
+    
+    
+    

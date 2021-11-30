@@ -1295,6 +1295,39 @@ public class javatemp{
 
     }
 
+    public static String encode(String word){
+
+        word = word.toLowerCase();
+        List<String> letters = Stream.of(word.split("")).collect(Collectors.toList());
+        StringBuilder sb = new StringBuilder();
+        for(int i = 0; i < word.length(); i++){
+            String letter = word.charAt(i) + "";
+            if(Collections.frequency(letters, letter) > 1){
+                sb.append(")");
+            } else {
+                sb.append("(");
+            }
+        }
+        return sb.toString();
+    }
+
+    public static long digPow(int n, int p){
+
+        ArrayList<Integer> digits = Stream.of(String.valueOf(n).split("")).mapToInt(Integer::parseInt).collect(ArrayList::new,ArrayList::add,ArrayList::addAll);
+        long num = 0;
+        for(int i = p, j = 0; j < digits.size(); j++){
+            num += (long)Math.pow(digits.get(j),i);
+        }
+        if(num < n){
+            return -1;
+        } else if(num <= n){
+            return 1;
+        }
+        double div = num*1.0 / n;
+        return Math.floor(div) == div ? (long)Math.floor(div) : -1;
+
+    }
+
 
 	public static void main(String[] args){
 
