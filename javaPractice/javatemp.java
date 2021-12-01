@@ -275,55 +275,37 @@ public class javatemp{
 
     }
 
+    public static int stray(int[] numbers) {
+        ArrayList<Integer> ints = IntStream.of(numbers).collect(ArrayList::new,ArrayList::add,ArrayList::addAll);
+        return IntStream.of(numbers).collect(HashSet::new,HashSet::add,HashSet::addAll).stream().filter(e -> ints.indexOf(e) == ints.lastIndexOf(e))[0];
+    }
+
+    public static int tfib3(int number){
+
+        if(num < 0 && num % 2 == 0){
+            return 10;
+        }
+        else if(num < 0 && num % 2 != 0){
+            return 7;
+        }
+        else if(num > 0 && num % 5 == 0){
+            return tfib(num-1) + tfib(num-2) + tfib(num-3) + tfib(num-4) + tfib(num-5);
+        }
+        else{
+            return tfib(tfib(num-1)) + tfib(tfib(num-2)) + tfib(tfib(num-3));
+        }
+
+    }
+
+
 	public static void main(String[] args){
 
-public class FindNumberTest {
-	@Test
-	public void test01() { 
-		assertEquals(1, FindNumber.wrongNumber(new int[][] {{2, 2, 3, 6}, {4, 5, 6, 15}, {7, 8, 9, 24}, {12, 15, 18, 45}}));
-	}
+        int[] values = {-12, -5, -1, 0, 1, 2, 5, 15, 20, 23, 100};
+        for(int i = 0; i < values.length; i++){
 
-	@Test
-	public void test02() { 
-		assertEquals(4, FindNumber.wrongNumber(new int[][] {{1, 2, 3, 6}, {5, 5, 6, 15}, {7, 8, 9, 24}, {12, 15, 18, 45}}));
-	}
-
-	@Test
-	public void test03() { 
-		assertEquals(3, FindNumber.wrongNumber(new int[][] {{1, 2, 4, 6}, {4, 5, 6, 15}, {7, 8, 9, 24}, {12, 15, 18, 45}}));
-	}
-
-	@Test
-	public void test04() { 
-		assertEquals(5, FindNumber.wrongNumber(new int[][] {{1, 2, 3, 6}, {4, 6, 6, 15}, {7, 8, 9, 24}, {12, 15, 18, 45}}));
-	}
-
-	@Test
-	public void test05() { 
-		assertEquals(4, FindNumber.wrongNumber(new int[][] {{1, 2, 3, 6}, {3, 5, 6, 15}, {7, 8, 9, 24}, {12, 15, 18, 45}}));
-	}
-
-	@Test
-	public void test06() { 
-		assertEquals(6, FindNumber.wrongNumber(new int[][] {{1, 2, 3, 7}, {4, 5, 6, 15}, {7, 8, 9, 24}, {12, 15, 18, 45}}));
-	}
-
-	@Test
-	public void test07() { 
-		assertEquals(45, FindNumber.wrongNumber(new int[][] {{1, 2, 3, 6}, {4, 5, 6, 15}, {7, 8, 9, 24}, {12, 15, 18, 46}}));
-	}
-
-	@Test
-	public void test08() { 
-		assertEquals(15, FindNumber.wrongNumber(new int[][] {{1, 2, 3, 6}, {4, 5, 6, 15}, {7, 8, 9, 24}, {12, 13, 18, 45}}));
-	}
-
-	@Test
-	public void test09() { 
-		assertEquals(15, FindNumber.wrongNumber(new int[][] {{1, 2, 3, 6}, {4, 5, 6, 17}, {7, 8, 9, 24}, {12, 15, 18, 45}}));
-	}
-}
-// credit goes to the original author/publisher @Mubashir Hassan
+            System.out.println(String.format("tfib(%d) = %d",values[i],tfib3(values[i])));
+            
+        }
 
 	}
 

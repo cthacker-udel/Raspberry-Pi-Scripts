@@ -625,6 +625,34 @@ print(drange(1, 7, 1.2))#, (1, 2.2, 3.4, 4.6, 5.8))
 print(drange(3, 10))#, (3, 4, 5, 6, 7, 8, 9))
 print(drange(0.112, 13, 3.27))#, (0.112, 3.382, 6.652, 9.922))
 
-        
+def ones_infection(arr):
+    coords = []
+    for i in range(len(arr)):
+        for j in range(len(arr[0])):
+            if arr[i][j] == 1:
+                coords.append([i,j])
+                # appending y,x
+
+    for eachcoord in coords:
+        print(eachcoord)
+        row = eachcoord[0]
+        for i in range(len(arr[0])):
+            arr[row][i] = 1
+        col = eachcoord[1]
+        for i in range(len(arr)):
+            arr[i][col] = 1
+    return arr
+
+
+    
+
+i3 = [
+[0, 1, 0, 1], 
+[0, 0, 0, 0], 
+[0, 1, 0, 0]
+]
+
+print(ones_infection(i3))
+			      
 
 
