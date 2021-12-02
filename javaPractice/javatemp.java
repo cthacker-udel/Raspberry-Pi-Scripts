@@ -244,6 +244,39 @@ public class javatemp{
 
     }
 
+<<<<<<< HEAD
+    public static int stray(int[] numbers) {
+        ArrayList<Integer> ints = IntStream.of(numbers).collect(ArrayList::new,ArrayList::add,ArrayList::addAll);
+        return IntStream.of(numbers).collect(HashSet::new,HashSet::add,HashSet::addAll).stream().filter(e -> ints.indexOf(e) == ints.lastIndexOf(e))[0];
+    }
+
+    public static int tfib3(int number){
+
+        if(num < 0 && num % 2 == 0){
+            return 10;
+        }
+        else if(num < 0 && num % 2 != 0){
+            return 7;
+        }
+        else if(num > 0 && num % 5 == 0){
+            return tfib(num-1) + tfib(num-2) + tfib(num-3) + tfib(num-4) + tfib(num-5);
+        }
+        else{
+            return tfib(tfib(num-1)) + tfib(tfib(num-2)) + tfib(tfib(num-3));
+        }
+
+    }
+
+
+	public static void main(String[] args){
+
+        int[] values = {-12, -5, -1, 0, 1, 2, 5, 15, 20, 23, 100};
+        for(int i = 0; i < values.length; i++){
+
+            System.out.println(String.format("tfib(%d) = %d",values[i],tfib3(values[i])));
+            
+        }
+=======
     public static int trimmedAverages(int[] nums){
 
         Arrays.sort(nums);
@@ -1085,12 +1118,6 @@ public class javatemp{
         //return powers.entrySet().stream().map(e -> String.format("%d%s",e.getKey(),e.getValue() > 1? String.format("^%d",e.getValue()): "")).collect(Collectors.joining(" * "));
     }
 
-    public static long[] maxSumDig(long nmax, int maxsm){
-
-        return IntStream.range(1000,nmax).filter(e => )
-
-    }
-
     public static boolean noConsec(long number, int filter){
 
 
@@ -1330,6 +1357,16 @@ public class javatemp{
 
 
 
+
+
+
+
+
+
+
+
+
+    
     public String toJadenCase(String phrase) {
         return phrase != null && phrase.length() != 0 ? Stream.of(phrase.split(" "))
     .map(e -> e.toLowerCase())
@@ -1338,12 +1375,6 @@ public class javatemp{
     :
     null
     ;
-    }
-
-    public static interpret(String code){
-
-        String[] splitCode = code.split("\n");
-
     }
 
 
