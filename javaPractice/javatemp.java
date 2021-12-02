@@ -1329,22 +1329,28 @@ public class javatemp{
     }
 
 
-	public static void main(String[] args){
 
-        isPerfectPower(4);
+    public String toJadenCase(String phrase) {
+        return phrase != null && phrase.length() != 0 ? Stream.of(phrase.split(" "))
+    .map(e -> e.toLowerCase())
+    .map(e -> String.format("%s%s",(e.charAt(0)+"").toUpperCase(),e.substring(1)))
+    .collect(Collectors.joining(" "))
+    :
+    null
+    ;
+    }
 
-	}
+    public static interpret(String code){
+
+        String[] splitCode = code.split("\n");
+
+    }
 
 
+    public static void main(String[] args){
 
-        public String toJadenCase(String phrase) {
-            return phrase != null && phrase.length() != 0 ? Stream.of(phrase.split(" "))
-        .map(e -> e.toLowerCase())
-        .map(e -> String.format("%s%s",(e.charAt(0)+"").toUpperCase(),e.substring(1)))
-        .collect(Collectors.joining(" "))
-        :
-        null
-        ;
-        }
+        
+
+    }
 
 }
