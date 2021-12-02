@@ -3439,5 +3439,33 @@ print(matrix_multiply([[5, 1], [1, 1], [2, 5]], [[5, 6, 3], [2, 1, 3]]))# [[27, 
 print(matrix_multiply([[1, 1, 1], [0, 1, 0], [0, 1, 1]], [[1, 0, 1], [0, 0, 1], [1, 1, 0]]))# [[2, 1, 2], [0, 0, 1], [1, 1, 1]])
                 
     
-    
-    
+def absurd_brainfuck_interpreter(tape):
+
+    stack_ = []
+    curr_cell = 0
+    history = [curr_cell]
+    for eachletter in tape:
+        if eachletter == '+':
+            ## implement
+            print('will be implemented')
+
+
+def acl_interpreter(tape):
+
+    cells = [0]
+    curr_cell = 0
+    for eachcommand in tape:
+        if eachcommand == '0':
+            curr_cell = 0
+        elif eachcommand == '1':
+            if curr_cell == len(cells)-1:
+                cells.append(0)
+                curr_cell += 1
+            else:
+                curr_cell += 1
+        elif eachcommand == '2':
+            if curr_cell == 0:
+                curr_cell = len(cells)-1
+            else:
+                curr_cell -= 1
+        elif eachcommand == '3':

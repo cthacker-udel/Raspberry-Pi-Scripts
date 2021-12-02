@@ -407,6 +407,16 @@ def batch_bf_interpreter(tape):
 
     commands = {'!!!!!#': '<', '!!!!!!#': '<', '!!!!!!!#': '+', '!!!!!!!!#': '-', '!!!!!!!!!#': ',', '!!!!!!!!!!#': '.', '!!!!!!!!!!!#': '[', '!!!!!!!!!!!!#': ']'}
 
+    ## easier way to split up the commands, why not just split them at the hash
+
+    split_commands = tape.split('#')
+
+    output = ''
+    for eachcommand in split_commands:
+        output += commands[eachcommand[:-1]]
+    return bf_interpreter(output)
+
+
     output = ''
     curr_tape = ''
     for eachletter in tape:
