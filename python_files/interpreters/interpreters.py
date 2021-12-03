@@ -1,11 +1,11 @@
-import requests
-from webdriver_manager.opera import OperaDriverManager
-from webdriver_manager.chrome import ChromeDriverManager
-from webdriver_manager.firefox import DriverManager as FirefoxDriverManager
-from webdriver_manager.microsoft import EdgeChromiumDriverManager
-from selenium import webdriver
+#import requests
+#from webdriver_manager.opera import OperaDriverManager
+#from webdriver_manager.chrome import ChromeDriverManager
+#from webdriver_manager.firefox import DriverManager as FirefoxDriverManager
+#from webdriver_manager.microsoft import EdgeChromiumDriverManager
+#from selenium import webdriver
 from pprint import pprint
-import json
+#import json
 import re
 import itertools
 
@@ -535,14 +535,135 @@ def batch_bf_interpreter(tape):
             curr_tape += tape[index]
             index += 1
     print('output = {}'.format(_output_))
+    
+    
+def ppcg_conor_obrien_esolang_interpreter(tape):
+    
+    stack = []
+    output = ''
+    paren_stack = []
+    index = 0
+    while index < len(tape):
+        eachcharacter = tape[index]
+        if eachcharacter == '!':
+            if len(stack) > 0:
+                stack.append(stack[-1])
+        elif eachcharacter == '@':
+            if len(stack) > 0:
+                output += chr(stack.pop())
+        elif eachcharacter == '#':
+            if len(stack) > 0:
+                print(stack.pop())
+        elif eachcharacter == '$':
+            if len(stack) >= 2:
+                val1 = stack.pop()
+                stack.insert(len(stack)-2,val1)
+        elif eachcharacter == '%':
+            if len(stack) > 0:
+                val1 = stack.pop()
+                stack.insert(0,val1)
+        elif eachcharacter == '^':
+            if len(stack) > 0:
+                stack[-1] += 1
+        elif eachcharacter == '&':
+            if len(stack) > 0:
+                stack[-1] = stack[stack[-1]]
+        elif eachcharacter == '*':
+            inp = input('Enter in one character')
+            stack.append(ord(inp))
+        elif eachcharacter == '(':
+            if len(stack) > 0:
+                cond = stack[-1] == 0
+            else:
+                cond = False
+            if cond:
+                for i in range(index+1,len(tape)):
+                    eachchar = tape[i]
+                    if eachchar == '(':
+                        paren_stack.append('(')
+                    elif eachchar == ')' and len(paren_stack) == 0:
+                        ## found match
+                        index = i
+                        paren_stack = []
+                        break
+                    elif eachchar == ')' and len(paren_stack) != 0:
+                        paren_stack.pop()
+        elif eachcharacter == ')':
+            if len(stack) > 0:
+                cond = stack[-1] != 0
+            else:
+                cond = False
+            if cond:
+                for i in range(index-1,-1,-1):
+                    eachchar = tape[i]
+                    if eachchar == ')':
+                        paren_stack.append('(')
+                    elif eachchar == '(' and len(paren_stack) == 0:
+                        ## found match
+                        index = i
+                        paren_stack = []
+                        break
+                    elif eachchar == '(' and len(paren_stack) != 0:
+                        paren_stack.pop()
+        elif eachcharacter == '_':
+            if len(stack) > 0:
+                stack[-1] *= -1
+        elif eachcharacter == '+':
+            if len(stack) > 0:
+                val = stack.pop()
+                stack[-1] += val
+        else:
+            stack.append(ord(eachcharacter))
+        index += 1
+    return output
+            
+            
+def abf_interpreter(tape):
+    
+    accumulator = 0
+    index = 0
+    skip_next_command = False
+    output = ''
+    while index < len(tape):
+        eachcharacter = tape[index]
+        if skip_next_command:
+            skip_next_command = not skip_next_command
+            index += 1
+            continue
+        elif eachcharacter == '!':
+            skip_next_command = True
+            index += 1
+            continue
+        elif eachcharacter == 'a':
+            output += str(accumulator)
+        elif eachcharacter == 'B':
+            found_b = False
+            found_second_b = False
+            for i in range(index+1,len(tape)):
+                eachchar = tape[i]
+                if eachchar == 'B' and not found_b:
+                    found_b = True
+                    continue
+                elif eachchar == 'B' and not found_second_b:
+                    found_second_b = True
+                    between_tape = tape[index+1:i]
+                    tape += (between_tape * accumulator)
+                    break
+        elif eachcharacter == 'F':
+            accumulator += 5
+        elif eachcharacter == '\'':
+            f=lambda n,p=2:+(n*n>1)and(n%p and f(n,p+1)or p*f(n/p)+n/p)
+            accumulator = f(accumulator,accumulator)
+    return accumulator
+                    
 
 
 
 def main():
     #bf_interpreter('++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++.')
     #negation_interpreter('!-\n$num1 ? 2\n$num2 ? 5\n#$ $num1 + $num2\n-!')
-    batch_bf_interpreter('''!!!!!!!#!!!!!!!!!!!#!!!!!!!!#!!!!!!!!!!!#!!!!!!#!!!!!!#!!!!!!!!!!!#!!!!!!!#!!!!!!!!!!!#!!!!!!!!#!!!!!!!!#!!!!!!!!#!!!!!#!!!!!!!!!!!!#!!!!!!!!#!!!!!!!!!!!#!!!!!!#!!!!!!#!!!!!!#!!!!!!!!!!!!#!!!!!!!!!!!!#!!!!!!!!!!!!#!!!!!#''')
-
+    #batch_bf_interpreter('''!!!!!!!#!!!!!!!!!!!#!!!!!!!!#!!!!!!!!!!!#!!!!!!#!!!!!!#!!!!!!!!!!!#!!!!!!!#!!!!!!!!!!!#!!!!!!!!#!!!!!!!!#!!!!!!!!#!!!!!#!!!!!!!!!!!!#!!!!!!!!#!!!!!!!!!!!#!!!!!!#!!!!!!#!!!!!!#!!!!!!!!!!!!#!!!!!!!!!!!!#!!!!!!!!!!!!#!!!!!#''')
+    print(ppcg_conor_obrien_esolang_interpreter('LO($!@)'))
 
 
 
