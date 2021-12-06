@@ -665,6 +665,62 @@ def abf_interpreter(tape):
             f=lambda n,p=2:+(n*n>1)and(n%p and f(n,p+1)or p*f(n/p)+n/p)
             accumulator = f(accumulator,accumulator)
     return accumulator
+
+def process_paren_s_command(command):
+    # https://esolangs.org/wiki/()s
+    
+    if '[' in command:
+        ## we are dealing with a loop
+        pass
+    else:
+        variable_assigning = False
+        variables = {}
+        left_side = ''
+        right_side = ''
+        side_reading = False
+        type_of_operator = 0 ## key: 0 --> = , 1 --> \ , 2 --> ~ , 3 --> $ , 4 --> & , 5 --> @ , 6 --> | , 7 --> !
+        operator_dict = { '=': 0, '\\': 1, '~': 2, '$': 3, '&': 4, '@': 5, '|': 6, '!': 7}
+        for eachletter in command:
+            if eachletter == '<':
+                variable_assigning = True
+            elif eachletter in '=\\~$&@|!':
+                type_of_operator = operator_dict[eachletter]
+            else:
+                for eachletter in command:
+                    if side_reading:
+                        right_side += eachletter
+                    else:
+                        left_side += eachletter
+                    
+
+
+def paren_s_interpreter(tape):
+    
+    _bracket_stack_ = []
+    variables = {}
+    steps = tape.split(' ')
+    left_layers = []
+    right_layers = []
+    current_value = 0
+    output_type = 0 # 0 for unicode 1 for number
+    if '{' in tape:
+        for i in range(len(tape)):
+            if tape[i] == '{':
+                left_layers.append(i)
+            elif tape[i] == '}':
+                right_layers.append(i)
+        ## to get pairs, take left_layers[len(left_layers)-1] and right_layers[0]
+        while len(left_layers) > 0:
+            command = tape[left_layers[-1]:right_layers[0]+1]
+            tape = ''.join([' ' if x in [y for y in range(left_layers[-1], right_layers[0]+1)] else x for x in range(len(tape))])
+            del left_layers[-1]
+            del right_layers[0]
+            process_paren_s_command(command)
+    else:
+        pass
+        
+            
+            
                     
 
 
