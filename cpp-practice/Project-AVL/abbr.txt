@@ -1,0 +1,3300 @@
+KWIS 	Know What I'm Saying?
+LBH 	Let's Be Honest
+ILYAAF 	I Love You As A Friend
+MAWOY 	May Angels Watch Over You
+HMU 	Hit Me Up
+MBA 	Masters of Business Association
+TTFW 	Too Tacky For Words
+TYM 	Thank You Much
+MOQ 	Minimum Order Quantity
+ILYL 	I Love You Lots
+HMUL 	Hit Me Up Later
+ILYSDM 	I Love You So Damn Much
+LBM 	Little Big Man
+LZ 	Landing Zone
+MA 	Mom alert
+NMO 	Not My Opinion
+GHD 	Good Hair Day
+GLTA 	Good Luck to All
+MOS 	Mom Over Shoulder
+ILYK 	I'll Let You Know
+GLTY 	Good Luck To You
+NMR 	Not My Responsibility
+NYU 	New York University
+OA 	Over Acting Over Achiever
+LGT 	Link Goes To...
+ILYSM 	I Love You So Much
+MYT 	Meet You There
+NA 	Not Available
+LYTD 	Love You To Death
+OHW 	One Hit Wonder
+PFA 	Please Find Attached
+AOW 	All Out War
+PIC 	Picture Partner In Crime
+RSPB 	Royal Society for the Protection of Birds
+RSVP 	Repondez s'il vous plait (Please reply)
+    MU   Miss You
+   TGIM 	Thank God It's Monday
+PVC 	Polyvinyl Chloride, vinyl
+    H&K   Hugs & Kisses
+    H2CUS   Hope To See You Soon
+    H8   Hate
+    HAG1    Have A Good One
+    HAGN   Have A Good Night
+    HAND   Have A Nice Day
+    HAWT   Have A Wonderful Day (out-dated, see next in list)
+    HMB   Hit Be Back
+    HMU   Hit Me Up
+    HOAS   Hold On A Second
+    HRU   How Are You
+    HT or H/T   Hat Tip or Heard Through
+    HTH   Hope This Helps / Happy To Help
+    HW   Homework
+IAC   In Any Case
+    IAE   In Any Event
+    IANAL   I Am Not A Lawyer
+    IAO   I Am Out (of here)
+    IC   I See
+    ICYMI   In Case You Missed It
+    IDC   I Don't Care
+    IHNI  I have no idea
+    IIRC   If I Remember Correctly
+    IKR   I Know Right
+    ILY   I Love You
+    IM    Instant Message
+    IMHO   In My Humble Opinion
+    IMO   In My Opinion
+    IMS   I Am Sorry
+    IRL   In Real Life
+    ISLY   I Still Love You
+    ISO   In Search Of
+    IU2U   It's Up To You
+    IYKWIM   If You Know What I Mean
+    JK   Just Kidding
+    J4F   Just For Fun
+    JIC  Just In Case
+    JLMK   Just Let Me Know
+    JMO   Just My Opinion
+    JSYK   Just So You Know
+    JW   Just Wondering
+    K or KK   Okay
+    KISS   Keep It Simple, Stupid
+    KIT   Keep In Touch
+    L8   Late
+    L8R   Later
+    LHO   Laughing Head Off
+    LMAO   Laughing My Ass Off
+    LMBO   Laughing My Butt Off
+    LMK   Let Me Know
+    LOL   Laughing Out Loud
+    LOTI   Laughing On The Inside
+    LTNS   Long Time No See
+    LYLAS   Love You Like A Sister
+    LYSM   Love You So Much
+    MC   Merry Christmas
+    PAW   Parents Are Watching
+    PCM   Please Call Me
+    PLS   Please
+    POV   Point Of View
+    PPL   People
+    PTB   Please Text Back
+    PTMM   Please Tell Me More
+    QQ   Crying
+    RAK   Random Act of Kindness
+    RBTL   Read Between The Lines
+    RIP   Rest In Peace
+    RL   Real Life
+    ROFL   Rolling On the Floor Laughing
+    RT   Real Time
+    RTM or RTFM   Read The Manual
+    RYS   Are You Single?
+    SBY   Somebody
+    SFAIK  So Far As I Know
+    SH  Sh** Happens
+    SIMYC   Sorry I Missed Your Call
+    SIS   Sister
+    SITD   Still In The Dark
+    SMH   Shaking My Head
+    SOL   Sooner Or Later
+    SRSLY   Seriously
+    SRY   Sorry
+    SSDD   Same Stuff, Different Day
+    STBY   Sucks To Be You
+    SWAK   Sealed (or Sent) With A Kiss
+    SWYP   So, What's Your Problem?
+    TAFN    That's All For Now
+    TBA   To Be Announced
+    TBC   To Be Continued
+    TBH   To Be Honest
+    TBL   Text back later
+    TCB   Take care of business
+    TFH   Thread From Hell
+    TFS   Thanks For Sharing
+    TFTI   Thanks For The Invitation
+    TGIF   Thank God It's Friday
+    THX   Thanks
+    TIA  Thanks In Advance
+    TIAD   Tomorrow Is Another Day
+    TIME   Tears In My Eyes
+    TLC   Tender Loving Care
+    TLK2UL8R   Talk To You Later
+    TMI   Too Much Information
+    TMRW   Tomorrow
+    TTYL   Talk To You Later
+    TTYS   Talk To You Soon
+    TYFYC   Thank You For Your Comment
+    TYVM   Thank You Very Much
+    U4E   You Forever
+    UR   Your
+    VAT   Value Added Tax
+    VBG   Very Big Grin
+    VSF   Very Sad Face
+    WAM   Wait A Minute
+    WB   Welcome Back
+    WC   Who Cares
+    WE   Whatever
+    WEG   Wicked Evil Grin
+    WITP   What Is The Point?
+    WKND   Weekend
+    WTF   What The F***
+    WTH  What The Heck?
+    WTPA   Where The Party At?
+    WUF   Where Are You From?
+    WYCM   Will You Call Me?
+    WYWH   Wish You Were Here
+    XLNT   Excellent
+    XOXO   Hugs and Kisses
+    YCMU   You Crack Me Up
+    YGM   You've Got Mail
+    YMMV   Your Mileage May Vary
+    YOLO   You Only Live Once
+    YTB   You're The Best
+    YW   You're Welcome
+    YWSYLS   You Win Some, You Lose Some
+AAB 	Average At Best
+AAC 	Apple Audio Compression
+AAF 	Always and Forever
+AAK 	Alive And Kicking
+AAMOF 	As A Matter Of Fact
+AAP 	Always A Pleasure
+AAR 	At Any Rate
+AARP 	American Association of Retired Persons
+AAT 	And Another Thing At All Times
+AAWY 	And Also With You
+AAYF 	As Always, Your Friend
+ABC 	American Born Chinese
+ABD 	Already Been Done
+ABDC 	America's Best Dance Crew (TV show)
+ABF 	All But Face
+ABFAB 	Absolutely Fabulous
+ABH 	Actual Bodily Harm
+ABP 	Already Been Posted
+ABU 	Anyone but (Manchester) United
+AC 	Air Conditioning Alternating Current
+ACLU 	American Civil Liberties Union
+ACME 	A Company that Makes Everything
+ACP 	Automatic Colt Pistol
+ACTA 	Anti-Counterfeiting Trade Agreement
+ACU 	Army Combat Uniform
+AD 	Anno Domini (in the year of our Lord)
+ADAD 	Another Day Another Dollar
+ADD 	Attention Deficit Disorder
+ADED 	All Day Every Day
+ADGTH 	All Dogs Go To Heaven
+ADHD 	Attention Deficit Hyperactivity Disorder
+ADL 	All Day Long
+ADN 	Any Day Now
+ADR 	All Due Respect
+ADS 	Aim(ing) Down Sights
+ADSL 	Asymmetric Digital Subscriber Line
+ADTR 	A Day To Remember (band)
+AE 	American Eagle (clothing)
+AEAE 	And Ever And Ever
+AEAP 	As Early As Possible
+AFAIA 	As Far As I'm Aware
+AFAIAA 	As Far As I Am Aware
+AFAIAC 	As Far As I Am Concerned
+AFAIC 	As Far As I'm Concerned
+AFAICS 	As Far As I Can See
+AFAICT 	As Far As I Can Tell
+AFAIK 	As Far As I Know
+AFAIR 	As Far As I Remember
+AFAP 	As Far As Possible
+AFC 	Away From Computer
+AFFA 	Angels Forever, Forever Angels
+AFI 	A Fire Inside (Band)
+AFK 	Away From Keyboard
+AFL 	Australian Football League
+AFN 	All For Now
+AFP 	Away From Phone
+AFRL 	Away From Real Life
+AFS 	Always, Forever and Seriously
+AGC 	Automatic Gain Control
+AGH 	Ain't Gonna Happen
+AGM 	Annual General Meeting
+AGP 	Accelerated Graphics Port
+AGT 	America's Got Talent (TV show)
+AGW 	All Going Well
+AI 	As If
+YUM 	Said when something tastes good or is attractive
+YVW 	You're Very Welcome
+YW 	You're Welcome
+YWCA 	Young Women's Christian Association
+YWIMC 	Your Wish Is My Command
+YWSYLS 	You Win Some, You Lose Some
+YWU? 	Yo Waz Up?
+SUS Suspect
+Simp a person who is subservient to someone else
+Yeet exclamation
+Lit something exciting, fresh, or worthwhile
+Cap a lie
+bet no
+dope high quality, mind blowing
+fire awesome
+HAYT 	How Are You Today?
+AIB 	Am I Boverd?
+AIDS 	Acquired Immune Deficiency Syndrome
+AIGF 	All In Good Fun
+AIIC 	As If I Care
+AIKRN 	All I know right now
+AIMH 	Always In My Heart
+AINEC 	And It's Not Even Close
+AIO 	All In One
+AISB 	As I Said Before
+AISI 	As I See it
+AITR 	Adult In The Room
+AITYD 	And I Think You Do
+AIUI 	As I Understand it
+AIYC 	As If You Care
+AJ 	Apple Juice
+AKTF 	Always Keep the Faith
+ALF 	Animal Liberation Front
+ALG 	Ain't Life Grand
+ALIHAL 	At Least I Have A Life
+ALKQN 	Almighty Latin King and Queen Nation
+ALOL 	Actually Laughing Out Loud
+ALOTBSOL 	Always Look On The Bright Side Of Life
+ALU 	Arithmetic Logic Unit
+ALWP 	Actual Laughter Was Produced
+AM 	Ante Meridiem (before midday)
+AMA 	Ask Me Anything
+AMAA 	Ask Me Almost Anything
+AMAP 	As Much/Many As Possible
+AMC 	American Motors Corportation
+AMD 	Advanced Micro Devices
+MBFAM 	My Brother From Another Mother
+MBN 	Must Be Nice
+MBO 	Must Be Off Management Buy-Out
+MBPS 	MegaBits/Bytes Per Second
+MBR 	Master Boot Record
+MBT 	Masai Barefoot Technology (trainers)
+MC 	Master of Ceremonies
+MCL 	Much Clown Love
+MCM 	Man Crush Monday
+MCP 	Male Chauvanist Pig
+MCR 	My Chemical Romance (band)
+MCW 	Man Crush Wednesday
+MDF 	Medium Density Fiberboard
+MDK 	Murder Death Kill
+MDR 	Mort De Rire (  in French)
+MDW 	Memorial Day Weekend
+MEGO 	My Eyes Glazed Over
+MFC 	Mildly Fat Chick Microsoft Foundation Classes
+MFEO 	Made For Each Other
+MFG 	Mit Freundlichen Gruessen (German)
+MFL 	Marked For Later
+MFW 	My Face When …
+MGBY 	May God Bless You
+MGD 	Miller Genuine Draft
+MGK 	Machine Gun Kelly
+MGM 	Male Genital Mutilation
+MGMT 	The Management (band)
+MGO 	Metal Gear Online (game)
+MGS 	Metal Gear Solid (game)
+MH 	Map Hack
+MHBFY 	My Heart Bleeds For You
+MHO 	My Honest Opinion
+MHOTY 	My Hat's Off To You
+AMG 	Ah My God
+AML 	All My Love
+AMN 	Any Minute Now
+AMOF 	As a Matter of Fact
+AMOG 	Alpha Male Of Group
+AMT 	Alpha-Methyltryptamine
+AMV 	Anime Music Video
+AMW 	America's Most Wanted (TV show)
+AN 	Author's Note
+ANC 	African National Congress
+ANFAWFOS 	And Now For A Word From Our Sponsor
+ANFSCD 	And Now For Something Completely Different
+ANSI 	American National Standards Institute
+ANTM 	America's Next Top Model
+ANZAC 	Australian and New Zealand Army Corps
+AO 	Adults Only
+AOB 	Any Other Business
+AOD 	All Of Day
+AOE 	Area Of Effect
+AOK 	All OK
+AOM 	Age of Mythology (game)
+AON 	As Of Now
+AOS 	Ahead Of Schedule
+AOT 	As Opposed To Among Other Things
+AOTA 	All Of The Above
+AOTS 	Attack of the Show (TV show)
+ARPA 	Advanced Research Projects Agency (made early internet)
+ARPANET 	Advanced Research Projects Agency Network (early internet)
+ARPU 	Average Revenue Per User
+ASAIC 	As Soon As I Can
+BB 	Be Back
+BB4N 	Bye-Bye For Now
+BBAM 	Be Back After Meal
+BBB 	Bugging Beyond Belief
+BBC 	British Broadcasting Corporation
+BBEG 	Big Bad Evil Guy
+BBFL 	Best Buds For Life
+BBFN 	Bye Bye For Now
+BBG 	Best Be Going
+BBIAB 	Be Back In A Bit
+BBIAF 	Be Back In A Few
+BBIAM 	Be Back In A Minute
+UV 	Unpleasant Visual
+UW 	You're Welcome
+UWS 	Upper West Side (of Manhattan)
+UE 	User Experience
+UY 	Up Yours
+VA 	Various Artists
+VBD 	Very Big Deal
+VBG 	Very Big Grin
+VBL 	Visible Bra Line
+VBR 	Variable Bit Rate
+VBS 	Very Big Smile
+VC 	Voice Chat
+VCARD 	Virtual (online) business card
+VCD 	Video Compact Disc
+VCR 	Video Cassette Recorder
+VDU 	Visual Display Unit
+VFM 	Value For Money
+VG 	Video Game Very Good
+VGA 	Video Graphics Array/Adaptor
+VGC 	Very Good Condition
+VGG 	Very Good Game
+VGL 	Very Good Looking
+BBIAS 	Be Back In A Sec
+BBIAW 	Be Back In A While
+BBK 	Boy Better Know
+BBL 	Be Back Later
+BBM 	Blackberry Messaging
+BBML 	Be Back Much Later
+BBN 	Be Back Never
+BBO 	Being Bored Online
+BBQ 	Barbecue Better Be Quick
+BBR 	Blonde, Brunette, Redhead
+BBS 	Be Back Soon
+BBT 	Be Back Tomorrow
+BBV 	Brags Beats and Variance
+ASAIK 	As Soon As I Know
+ASAP 	As Soon As Possible
+ASAS 	As Soon As Sensible
+ASAT 	As Simple As That
+ASAYC 	As Soon As You Can
+ASBO 	Anti Social Behaviour Order
+ASCII 	American Standard Code for Information Interchange
+ASPCA 	American Society for the Prevention of Cruelty to Animals
+ATT 	American Telephone & Telegraph
+ATA 	Ait To Air Actual Time of Arrival
+ATAP 	Any Time, Any Place
+ATB 	All The Best
+ATC 	Air Traffic Control
+ATD 	Attention to Detail
+BCBW 	Bow Chica Bow Wow
+BCC 	Blind Carbon Copy
+BCD 	Behind Closed Doors
+BCE 	Before Common Era
+BCF 	Best Cousin Forever
+BCG 	Birth Control Glasses
+BCS 	Bowl Championship Series
+BD 	Big Deal
+BDN 	Busy Doing Nothing
+BDOML 	Best Day Of My Life
+BDU 	Brain Dead User Battle Dress Uniform
+BFA 	Best Friends Always
+BFAB 	Born From A Boombox Back For A Bit
+BFAM 	Brother From Another Mother
+BFB 	Better From Behind
+BFF 	Best Friends Forever
+BFFAE 	Best Friends Forever And Ever Best Friends For All Eternity
+BFFL 	Best Friend For Life
+BFFLE 	Best Friends For Like Ever
+BFFLTDDUP 	Best Friends For Life Till Death Do Us Part
+BFFN 	Best Friend For Now
+BFFWB 	Best Friend Forever With Benefits
+BFITW 	Best Friend In The World
+BFK 	Big Fat Kiss
+BFMV 	Bullet For My Valentine (band)
+BFN 	Bye For Now
+BFP 	Big Fat Positive
+BFTP 	Blast From The Past
+BFUT 	Best Friends Until Tomorrow
+BFWB 	Best Friend With Benefits
+BG 	Baby Gangster
+BGF 	Best Girl Friend
+BGM 	Background Music
+BGT 	Britain's Got Talent (TV show)
+BH 	Be Happy
+BHD 	Bad Hair Day
+BHH 	Bless His/Her Heart
+BHL8 	Be Home Late
+BHM 	Big Handsome Man
+BHS 	Be Home Soon
+BIAB 	Back In A Bit
+BIC 	Believe It Comrade
+BICBW 	But I Could Be Wrong
+BIEH 	Best I Ever Had
+BIFFL 	Best Internet Friend For Life
+BING 	But It's Not Google
+BM 	Bowel Movement
+BM4L 	Best Mates For Life
+BMAK 	Blow Me A Kiss
+BMB 	Bebo Me Back
+BMBO 	Blow My Brains Out
+BME 	Body Modification Ezine
+BMFE 	Best Mates Forever
+BMFL 	Best Mates For Life
+BMG 	Be My Guest
+BMI 	Body Mass Index
+BML 	Bless My Life
+BMOC 	Big Man On Campus
+BMS 	Bitchy Men Syndrome
+BMT 	Before My Time Basic Military Training
+BMTH 	Bring Me The Horizon (Band)
+BMTTVE 	Best Mates 'Til The Very End
+BMUS 	Beam me up, Scotty
+BMV 	Be My Valentine
+BMW 	Bavarian Motor Works (car manufacturer)
+BMX 	Bicycle Motocross
+BNB 	Bed and Breakfast
+BNF 	Big Name Fan
+BNI 	Batteries Not Included
+BNIB 	Brand New In Box
+BNOC 	Big Name On Campus
+BNP 	British National Party
+BNR 	But Not Really
+BNWOT 	Brand New Without Tags
+BNWT 	Brand New With Tags
+BO 	Body Odour
+BOAT 	Bust Out Another Thousand
+BOBFOC 	Body Off Baywatch, Face Off Crimewatch
+BOED 	Book of Exalted Deeds
+BOGO 	Buy One Get One
+BOGOF 	Buy One Get One Free
+BOGSAT 	Bunch Of Guys Sitting Around Talking
+CC 	Carbon Copy
+CCC 	Coricidin Cough & Cold (Dextromethorophan or DXM).
+CCG 	Collectible Card Game
+CCIE 	Cisco Certified Internetwork Expert
+CCL 	Couldn't Care Less
+CCNA 	Cisco Certified Network Associate
+CCR 	Creedence Clearwater Revival (band)
+CCTV 	Closed-Circuit Television
+CCW 	Counterclockwise
+CD 	Compact Disc
+CDC 	Cult of the Dead Cow Crudely Drawn Cock
+CDMA 	Code Division Multiple Access (voice/data transmission)
+CDRW 	Compact Disk Rewritable
+CLWY 	Can't Live Without You
+CM 	Call Me
+CMAR 	Cry Me A River
+CMB 	Call Me Back
+CME 	Close My Eyes
+CMEO 	Crying My Eyes Out
+CMH 	Cross My Heart
+CMHO 	Cry My Heart Out
+CMI 	Count Me In
+CMIIW 	Correct Me If I'm wrong.
+CMIYC 	Catch Me If You Can
+CML 	Call Me Later
+CMN 	Call Me Now
+CMOS 	Complementary Metal-Oxide Semiconductor
+CMS 	Content Management System
+CMU 	Cracks Me Up
+CMYK 	Cyan, Magenta, Yellow, blacK
+CNN 	Cable News Network
+CNY 	Chinese New Year
+CO 	Commanding Officer
+COA 	Certificate Of Authenticity
+COD 	Cash On Delivery  Call Of Duty
+COL 	Crying Out Loud
+CRB 	Criminal Records Bureau (UK)
+CRBT 	Crying Real Big Tears
+CWTSY 	Can't Wait To See You
+CWYL 	Chat With You Later.
+CYB 	Count Your Blessings
+CYBI 	Can You Believe It?
+CYDI 	Can You Dig It?
+CYDM 	Check Your Direct Messages
+CYE 	Check Your Email
+CYF 	Cross Your Fingers
+CYL 	Catch You Later
+CYM 	Check Your Mail
+DLN 	Don't Look Now
+DLS 	Dirty Little Secret
+DLTBBB 	Don't Let The Bed Bugs Bite
+DLTBGYD 	Don't Let The Bastards Grind You Down
+DLTM 	Don't Lie To Me
+DLV 	Demonstration of Lower Value
+DM 	Direct Message
+DMAF 	Don't Make A Fuss
+DMAL 	Drop Me A Line
+DMB 	Dave Matthews Band
+DMC 	Deep Meaningful Conversation
+DMCA 	Digital Millennium Copyright Act
+DMI 	Don't Mention It
+DMIID 	Don't Mind If I Do
+DMM 	Don't Mind Me
+DMML 	Don't Make Me Laugh
+DMS 	Dirty Money Syndicate
+DMT 	Di-Methyl Tryptamine (drug)
+DMTA 	Dirty Minds Think Alike
+DMV 	Department of Motor Vehicles
+DMW 	Dead Man Walking
+DMX 	Dark Man X (rapper)
+DMY 	Don't Mess Yourself
+DMZ 	De-militarized zone
+DN 	Doing Nothing
+DNA 	Deoxyribonucleic Acid Did Not Attend Does Not Apply
+DNC 	Democratic National Committee
+DND 	Do Not Disturb
+DNDC 	Don't Know, Don't Care
+DNE 	Do Not Erase Does Not Exist
+DNF 	Did Not Finish
+DNFTT 	Do Not Feed The Troll
+DNK 	Do Not Know
+DNM 	Deep and Meaningful
+DNP 	Do Not Post
+DNR 	Do Not Resuscitate
+DNS 	Domain Name Service Did Not Start
+DNTK 	Don't Need To Know
+DNW 	Do Not Want
+DOA 	Dead On Arrival
+DOB 	Date Of Birth
+DOC 	Doctor Drug of Choice
+DOD 	Day of Defeat
+DOE 	Depends On Experience
+DOF 	Depth of Field
+DOFL 	Dying On Floor Laughing
+DRT 	Dead Right There
+DS 	Darling Son
+DSD 	Do Some Damage
+DSL 	Digital Subscriber Line
+DSLR 	Digital Single Lens Reflex (camera)
+DSP 	Digital Signal Processing
+DSS 	Department of Social Services
+DST 	Daylight Saving Time
+DT 	Down Town
+DTA 	Don't Trust Anyone
+DTAM 	Death To All Men
+DTB 	Don't Text Back
+DTC 	Down To Cuddle
+DTD 	Drunk Till Dawn Drunk Till Death
+DTE 	Down To Earth
+DTH 	Down To Hang
+DTL 	Does The Look
+DTM 	Doing Too Much Dead To Me
+DTMS 	Does That Make Sense?
+DTMWTD 	Don't Tell Me What To Do
+DTP 	Disturbing The Peace
+DTR 	Define The Relationship
+DTRT 	Do The Right Thing
+DTS 	Down The Shore Down To Snuggle
+DTT 	Don't Touch That
+DTTC 	Don't Text The Cell
+DTTM 	Don't Talk To Me
+DTYT 	Don't Take Your Time
+EBM 	Electronic Body Music
+EBT 	Electronic Benefits Transfer
+ELOL 	Evil Laugh Out Loud
+EOB 	End Of Business
+EOC 	End Of Conversion
+EOD 	End Of Discussion
+EOE 	Equal Opportunity Employer
+EOF 	End Of File
+EOG 	End Of Grade
+EOL 	End Of Lecture
+EOM 	End Of Message
+EOR 	End Of Rant
+EOS 	End Of Show
+EOT 	End Of Thread (i.e. end of discussion)
+EOTD 	End Of The Day
+EOTW 	End Of The World
+EOTWAWKI 	End Of The World As We Know It
+EOW 	End Of Watch
+EPOS 	Electronic Point Of Sale
+EPROM 	Electronically Programmable ROM
+ERP 	Erotic Role-Play
+ESA 	European Space Agency
+ESB 	Empire Stikes Back (Star Wars)
+ESD 	Electro-Static Discharge
+ESL 	English as Second Language
+ESOL 	English for Speakers of Other Languages
+ESP 	Extra Sensory Perception
+ESPN 	Entertainment and Sports Programming Network
+ESRB 	Entertainment Software Rating Board
+EST 	Eastern Standard Time Established
+ESTD 	Easier Said Than Done
+ET 	Extra Terrestrial
+ETA 	Estimated Time of Arrival Edited to Add
+ETC 	Et Cetera (and so on)
+ETD 	Estimated Time of Departure
+ETF 	Escape The Fate (band)
+ETID 	EveryTime I Die (band)
+ETW 	Enjoy The Weekend
+EU 	European Union
+EUA 	End User Agreement
+EUC 	Excellent Used Condition
+EULA 	End User License Agreement
+EV 	Expected Value
+FYA 	For Your Amusement
+FYC 	For Your Convenience For Your Consideration
+FYE 	For Your Entertainment
+FYEO 	For Your Eyes Only
+FYI 	For Your Information
+FYK 	For Your Knowledge
+FYM 	Free Your Mind
+FYP 	Fixed Your Post
+FYR 	For Your Review For Your Records
+FYT 	For Your Time
+GOAT 	Greatest Of All Time
+GA 	Go Ahead
+GAC 	Guilty As Charged Get A Clue
+GAFIA 	Get Away From It All
+GAFM 	Get Away From Me
+GB 	Great Britain Gigabyte
+GBA 	God Bless America
+GBFN 	Goodbye for Now
+GBH 	Grievous Bodily Harm
+GBML 	Good Bye My Love
+GBNF 	Gone But Not Forgotten
+GBP 	Great British Pounds (Sterling)
+GBTM 	Get Back To Me
+GBTW 	Get Back To Work
+GBU 	God Bless You
+GBWY 	God Be With You
+GBY 	God Bless You
+GC 	Good Contition
+GCF 	Good Clean Fun
+GCMG 	God Calls Me God
+GCSE 	General Certificate of Secondary Education (UK)
+GCWOK 	Gay Couple Without Kids
+GD 	Gangsta Disciple
+GDFR 	Going Down For Real
+GDI 	God Damn It
+GDP 	Gross Domestic Product
+GE 	Good Evening
+GED 	General Educational Development
+GFA 	Grenade Free America
+GFAK 	Go Fly A Kite
+TBR 	To Be Real
+TBS 	Tablespoon To Be Specified
+TBSS 	Too Bad, So Sad
+TBT 	Truth Be Told
+TBTF 	Too Big To Fail
+TBTG 	Thanks Be To God
+TBTH 	To Be Totally Honest
+TBTP 	That's Beside The Point
+TBU 	To Be Updated
+TBYS 	Think Before You Speak
+TC 	Take Care
+TCB 	Taking Care of  Business
+TCBY 	The Country's Best Yogurt
+TCCIC 	Take Care ‘Cause I Care
+TCFC 	Too Close For Comfort
+TCFN 	Take Care For Now
+TCFS 	Too Cool For School
+TCG 	Trading Card Game
+TCGB 	Take Care, God Bless
+TCK 	Third Culture Kid
+TCL 	Tool Command Language
+TCOB 	Taking Care of Buisness
+TCOY 	Take Care Of Yourself
+TCP 	Transmission Control Protocol
+TCP/IP 	Transmission Control Protocol/Internet Protocol
+TCTC 	To Close To Call
+TD 	Touchdown
+TDDUP 	Til Death Do Us Part
+TDDWP 	Til Death Do We Part
+TDF 	To Die For
+TDG 	Too Damn Good Three Days Grace (band)
+TDH 	Tall, Dark, and Handsome
+TDI 	Turbo Direct Injection Turbo Diesel Injection
+TDL 	To Do List
+TDM 	Team DeathMatch
+GFC 	Global Financial Crisis
+GFETE 	Grinning From Ear To Ear
+GFF 	Grenade Free Foundation
+GFI 	Go For It
+GFN 	Gone For Now
+GFP 	Good For Pics
+GFTW 	Go For The Win
+GFU 	Good For You
+GFWL 	Games For Windows Live
+GFY 	Good For You
+GG 	Good Game
+GGA 	Good Game All
+GGBB 	Good Game Bye Bye
+GGG 	Good, Giving, and Game (in bed)
+GGN 	Gotta Go Now
+GGNORE 	Good Game No Rematch
+GGOH 	Gotta Get Outta Here
+GH 	Guitar Hero
+GHB 	Gamma Hydroxybutyrate (drug)
+GN 	Good Night
+GND 	Girl Next Door
+GNE 	Good Night and Everything
+GNFB 	Good Night Facebook
+GNSD 	Good Night, Sweet Dreams
+GOAT 	Greatest Of All Time
+GOMER 	Get Out of My Emergency Room, unwelcome patient
+GOMF 	Get Outta My Face
+GOML 	Get On My Level
+GOOMF 	Get Out Of My Face
+GOOML 	Get Out Of My Life
+GOP 	Grand Old Party
+GP 	General Principle
+GPA 	Grade-Point Average
+GPC 	Generic Pack of Cigarettes Get/Post/Cookie (web pages)
+GPL 	General Public License
+GPOY 	Gratuitous Picture Of Yourself
+GPOYW 	Gratuitous Picture Of Yourself Wednesday
+GPRS 	General Packet Radio Services
+GPS 	Global Positioning System
+GPU 	Graphics Processing Unit
+GR 	Gotta Run
+GSD 	Getting Stuff Done
+GSM 	Global System for Mobile communications
+GSOH 	Good Sense Of Humor
+GSR 	Gun Shot Residue
+SAE 	Self Addressed Envelope
+SAFM 	Stay Away From Me
+SAHD 	Stay At Home Dad
+SAHM 	Stay At Home Mom
+SAHW 	Stay At Home Wife
+SALTS 	Smiled A Little Then Stopped
+SAM 	Stop Annoying Me
+SAP 	Sad And Pathetic Fool
+SASE 	Self-Addressed, Stamped Envelope
+SAT 	Scholastic Assessment Test
+SATA 	Serial Advanced Technology Attachment
+SATC 	Sex And The City
+SATS 	Standard Attainment Tests
+SBD 	Silent But Deadly
+GSTQ 	God Save The Queen
+GSW 	Gun Shot Wound
+GTB 	Go To Bed
+GTW 	Got To Work
+GU 	Grow Up
+GUTI 	Get Used To It
+GW 	Good Work
+GWAS 	Game Was A Success
+GWC 	Guy With Camera
+GWG 	Girl With Glasses
+GWI 	Get With It
+GWK 	Game Winning Kill
+GWP 	Gift With Purchase
+GWR 	Guinness World Records
+GWS 	Get Well Soon
+GWTF 	Go With The Flow
+GWTP 	Get With The Program
+GYALDEM 	Group of girls
+GYC 	Get Your Coat
+GYFS 	Get Your Facts Straight
+GYO 	Get Your Own
+GYT 	Get Yourself Tested
+HAGD 	Have A Good Day
+HAGE 	Have A Good Evening
+HAGL 	Have A Good Life
+HAGN 	Have A Good Night
+HAGO 	Have A Good One
+HAGS 	Have A Great Summer
+HAGT 	Have A Great Time
+HAISTK 	How Am I Supposed To Know?
+HAND 	Have A Nice Day
+HAWT 	Hot Having A Wonderful Time
+HAY 	How Are You
+HAYD 	How Are You Doing?
+HDYK 	How Do/Did You Know?
+HE 	Happy Ending High Explosives
+HEA 	Happily Ever After
+HENRY 	High Earner, Not Rich Yet
+HF 	Have Fun
+HFFA 	Hot From Far Away
+HFGL 	Have Fun, Good Luck
+HFY 	Here For You Happy for You
+HG 	Holy Grail
+HGH 	Haters Gonna Hate
+HGI 	How Goes It?
+HGL 	Happy Go Lucky
+HGTV 	Home and Garden Television
+HGV 	Heavy Goods Vehicle
+HH 	Holding Hands
+HHIS 	Hanging Head In Shame
+KH 	Kingdom Hearts ( )
+KHYF 	Know How You Feel
+KIA 	Know It All
+KICKS 	Shoes Thrills
+KIG 	Keep It Gangsta
+KIM 	Keep It Moving
+KIO 	Knock it off
+KIP 	Sleep Bed
+KIR 	Keepin' It Real
+IDK 	I Don't Know
+IDKE 	I Don't Know Either
+IDKW 	I Don't Know Why
+IDKWTD 	I Don't Know What To Do
+IDKWYM 	I Don't Know What You Mean
+IDKY 	I Don't Know Why
+KM 	Keep Mum
+KMFC 	Keeping My Fingers Crossed
+KML 	Killing Myself Laughing
+KMN 	Kill Me Now
+KMP 	Keep Me Posted
+KMT 	Kiss My Teeth
+KMU 	Keep Me Updated
+HHOJ 	Ha-Ha, Only Joking
+HHOK 	Ha-Ha, Only Kidding
+HHVF 	Ha-Ha, Very Funny
+HHWW 	Holding Hands While Walking
+HIG 	How's It Going?
+HIIK 	Hell If I Know
+HIMYM 	How I Met Your Mother (TV show)
+HIV 	Human Immunodeficiency Virus
+HIWTH 	Hate It When That Happens
+HJNTIY 	He's Just Not That Into You
+HK 	Hong Kong Hostile Kids
+HL 	Half Life (game)
+HLAS 	Hook, Line And Sinker
+HMB 	Hit Me Back (reply)
+HMI 	Human Machine Interface
+HMIHY 	How May I Help You?
+HML 	Hate My Life
+HMP 	Help Me, Please
+HMS 	Her Majesty's Ship (UK)
+HST 	High Speed Train
+HSV2 	Herpes Simplex Virus 2
+HT 	Hat Tip (Thanks) Home Time Handheld Transceiver
+HTBT 	Had To Be There
+HTC 	Hit The Cell
+HTE 	Hard To Explain
+HTG 	Hard To Get
+HTH 	Hope That Helps How The Hell
+HTHFYS 	Hope To Hear From You Soon
+HTM 	Hand To Mouth
+HTML 	Hypertext Markup Language
+HTSYS 	Hope To See You Soon
+HTTP 	Hyper-Text Transfer Protocol
+HTTPS 	Hyper-Text Transfer Protocol Secure
+HTTR 	Hail To The Redskins
+HU 	Hollywood Undead (Band)
+HUA 	Heard Understood Acknowledged
+HVAC 	Heating, Ventilating, Air Conditioning
+HVD 	Happy Valentine's Day
+HWB 	Hottie With Body
+HWGA 	Here We Go Again
+HWP 	Height Weight Proportional
+HWSNBN 	He Who Shall Not Be Named
+HWU 	Hey, What's Up?
+HWYD 	How Was Your Day?
+HYB 	How You Been?
+HYD 	How Ya Doing?
+HYFB 	Hope You Feel Better
+IDL 	I Don't Like …
+IDLI 	I Don't Like It
+KIRF 	Keeping It Real Fake
+KIS 	Keep It Simple
+KISA 	Knight In Shining Armour
+KISS 	Keep It Simple, Stupid
+KIT 	Keep In Touch
+KIU 	Keep It Up
+KIV 	Keep In View
+HYG 	Here You Go
+HYH 	Have You Heard Hold Your Horses
+HYIP 	High Yield Investment Program
+HYP 	Harvard, Yale, Princeton
+HYS 	Have Your Say
+HYU 	Hit You Up
+IA 	I Agree
+IAB 	I Am Bored
+IABW 	In A Bad Way
+KYFC 	Keep Your Fingers Crossed
+KYO 	Knock Yourself Out
+KYP 	Keep You Posted
+LAFS 	Love At First Sight
+LAK 	Love And Kisses
+LAL 	Laughing A Lot/Little
+LALB 	Laughing A Little Bit
+LAM 	Leave A Message
+LAMN 	Look At Me Now
+LAN 	Local Area Network
+NMS 	Not My Style
+NMT 	Not My Type
+NMU 	Not Much, You?
+NMW 	No Matter What
+NMWH 	No Matter What Happens
+NMY 	Nice Meeting You
+NN 	No Need
+NNITO 	Not Necessarily In That Order
+NNTO 	No Need To Open
+NNTP 	Network News Transfer Protocol
+NNTR 	No Need To Reply
+NRL 	National Rugby League
+NRN 	No Reply Necessary
+NSA 	No Strings Attached
+NSAW 	Not Saying A Word
+NSD 	Never Say Die
+NSF 	Not Sufficient Funds Not So Fast
+NSFA 	Not Safe For Anyone
+GTBB 	Good To Be Back
+GTBOSH 	Glad To Be Of Some Help
+GTD 	Getting Things Done
+GTG 	Got To Go
+GTGG 	Got To Get Going
+GTH 	Go To Hell
+NSFL 	Not Safe For Life
+NSFTBC 	Not Sorry For The Broadcast
+NSFV 	Not Safe for Viewing
+NSFW 	Not Safe For Work
+NVN 	Not Very Nice
+NVNG 	Nothing Ventured, Nothing Gained
+NW 	No Way
+NWIH 	No Way In Hell
+NWIM 	Not What I Mean
+NWJ 	No Way Jose
+NWLY 	Never Wanna Lose You
+NWM 	No Worries Mate
+NWNC 	No Woman, No Cry
+NWO 	New World Order
+NWOT 	New Without Tags (eBay)
+NWS 	Not Work Safe
+NWT 	New With Tags
+NY 	New York
+NYB 	Not Your Business
+NYC 	New York City
+NYD 	New Year's Day
+NYE 	New Years Eve
+NYF 	Not Your Fault
+NYI 	Not Yet Implemented
+NYK 	Not Yet Known Now You Know
+NYOB 	Not Your Own Business
+NYP 	Not Your Problem
+NYPD 	New York Police Department
+NYSE 	New York Stock Exchange
+NYT 	Not Your Type
+LAPD 	Los Angeles Police Department
+LARP 	Live Action Role Play
+LART 	Luser Attitude Readjustment Tool
+LASER 	Light Amplification by Stimulated Emission of Radiation
+LAT 	Living Apart Together
+LATM 	Laughing At The Moment
+LBC 	Long Beach, California
+LBD 	Little Black Dress
+LBDN 	Look Busy Doing Nothing
+IAC 	In Any Case
+IAD 	It All Depends
+IAE 	In Any Event
+IAG 	It's All Good
+IAK 	I Already Know
+IAL 	I Ain't Laughing I Actually Laughed
+IALTO 	I Always Love That One
+IAMA 	I Am Mildly Amused
+IANAD 	I Am Not A Doctor
+IANAL 	I Am Not A Lawyer (this is an uninformed opinion)
+IAS 	In A Second
+IAU 	I Adore You
+IAW 	In Accordance With I Agree With
+IAWTC 	I Agree With That/This Comment
+IAWTCSM 	I Agree With This Comment So Much
+IAWTP 	I Agree With This Post
+IAY 	I Adore You
+IB 	I'm Back
+IB2D 	I Beg To Differ
+IB4TL 	In Before The Lock
+IBAN 	International Bank Account Number
+IBB 	I'll Be Back
+IBK 	Idiot Behind Keyboard
+IBL 	In Before Lock
+IBM 	International Business Machines
+IBMTS 	I've Been Meaning To Say
+IBS 	Irritable Bowel Syndrome
+IBTD 	In Before The Delete I Beg To Differ
+IBTL 	In Before the Lock
+IBUWU 	I'm Breaking Up With You
+IBW 	I'll Be Waiting
+IBYP 	I Beg Your Pardon
+ICAM 	I Couldn't Agree More
+ICAY 	I Care About You
+ICB 	I Can't Believe…
+ICBB 	I Can't Be Bothered
+ICBI 	I Can't Believe It
+ICBINB 	I Can't Believe It's Not Butter
+ICBM 	Intercontinental Ballistic Missile
+ICBSST 	I Can't Believe She Said That
+ICBW 	It Could Be Worse
+ICC 	Ice Crown Citadel ( )
+ICCL 	I Couldn't Care Less
+ICR 	I Can't Remember
+ICSL 	I Couldn't/Can't Stop Laughing
+ICSTAY 	I Can't Stop Thinking About You
+ICT 	Information and Communication Technology
+ICU 	Intensive Care Unit I See You
+ICW 	In Connection With I Can't Wait
+ICYDK 	In Case You Didn't Know
+ICYMI 	In Case You Missed It
+IDBI 	I Don't Believe It
+IDBY 	I Don't Believe You
+IDC 	I Don't Care
+IDE 	Integrated Development Environment Integrated Device Electronics
+IDEC 	I Don't Even Care
+IDEK 	I Don't Even Know
+TMTH 	Too Much To Handle
+TMTOWTDI 	There's More Than One Way To Do It
+TMTS 	Too Much Too Soon
+TMTT 	Too Much To Text
+TMY 	Tell Me Why
+TMZ 	Thirty Mile Zone (celebrity news site)
+TNA 	Total Nonstop Action
+TNB 	There's Nothing Better
+TNBM 	True Norwegian Black Metal
+IDEKY 	I Don't Even Know You
+IDEWTK 	I Don't Even Want To Know
+IDFG 	I Don't Feel Good
+IDFLI 	I Don't Feel Like It
+IDGAD 	I Don't Give A Damn
+IDGHP 	I Don't Get His/Her Point
+IDGI 	I Don't Get It
+IDHAC 	I Don't Have A Clue
+IDHTT 	I Don't Have The Time
+IDI 	I Doubt It
+IDJ 	I Don't Judge
+IDLT 	I Don't Like That
+IDLY 	I Don't Love/Like You
+IDM 	It Doesn't Matter Intelligent Dance Music
+IDK 	I Don't Know
+GMA 	Good Morning, America
+GMAB 	Give Me A Break
+GMT 	Greenwich Mean Time
+GMTA 	Great Minds Think Alike
+TFFW 	Too Funny For Words
+IED 	Improvised Explosive Device
+IEEE 	Institute of Electrical and Electronics Engineers
+IDNK 	I Do Not Know
+IDR 	I Don't Remember
+IDRC 	I Don't Really Care
+IDRK 	I Don't Really Know
+IDST 	If Destroyed, Still True
+IDT 	I Don't Think
+IDTS 	I Don't Think So
+IDU 	I Don't Understand
+IHT 	I Hate This
+IHY 	I Hate You
+IHYDM 	I Hope You Don't Mind
+IHYSM 	I Hate You So Much
+IIB 	Ignorance Is Bliss
+IIFYM 	If It Fits Your Macros
+IIH 	If I'm Honest
+IIL 	I'm In Love
+IINM 	If I'm Not Mistaken
+IIR 	Idiot In Room
+IIRC 	If I Remember Correctly
+IIS 	Internet Information Services
+IITUWUTMAS 	If I Tell You Will You Tell Me A Secret?
+IITWI 	In It To Win It
+IITYWIMIWHTKY 	If I Tell You What It Means I Will Have to Kill You
+IITYWTMWYBMAD 	If I Tell You What This Means Will You Buy Me a Drink?
+IITYWTMWYKM 	If I Tell You What This Means Will You Kiss Me?
+IITYWYBMAD 	If I Tell You Will You Buy Me A Drink
+IIUC 	If I Understand Correctly
+IIWII 	It Is What It Is
+IIWY 	If I Were You
+IJ 	I'm Joking
+IJAF 	It's Just A Fact
+IJDK 	I Just Don't Know
+IJG 	I Just Giggled
+IJK 	I'm Just kidding
+IJL 	I Just Laughed
+IJS 	I'm Just Saying
+IJWTK 	I Just Want To Know
+IJWTS 	I Just Want To Say
+IK 	I Know
+IKH 	I Know, Huh?
+IKHYF 	I Know How You Feel
+IKLY 	I Kinda Like You
+IKM 	I Know Man
+IKMTY 	I Know More Than You
+IKN 	I Know Not
+IKR 	I Know, Right
+IKT 	I Knew That
+IKTF 	I Know The Feeling
+IKTR 	I Know That's Right
+IKWUM 	I Know What You Mean
+IKWYDLS 	I Know What You Did Last Summer
+IKWYL 	I Know Where You Live
+IKWYM 	I Know What You Mean
+IKY 	I Know You
+IKYP 	I'll Keep You Posted
+IL 	In Love
+ILD 	Ich Liebe Dich (I Love You)
+ILH 	I Love Him/Her
+ILI 	I Love It
+ILM 	I lige m
+TTIWWP 	This Thread Is Worthless Without Pictures
+TTJASI 	Take This Job And Shove It
+TTM 	Talk To Me
+TTMAB 	TO THE MOON AND BACK
+TTML 	Talk To Me Later
+TTO 	Time To Own
+TTOTM 	That Time Of The Month
+TTP 	To The Point
+TTR 	Time To Relax
+TTT 	Third Tier Toilet (bad school)
+TTTE 	Thomas The Tank Engine
+TTTH 	Talk To The Hand
+TTTT 	These Things Take Time
+TTTTY 	Time To Talk To You
+TTUL 	Talk To You Later
+TTUS 	Talk To You Soon.
+TTUT 	Talk To You Tomorrow
+TTUTT 	To Tell You the Truth
+TTY 	Talk To You
+TTYF 	Talk To You Forever
+TTYIAB 	Talk To You In A Bit
+TTYITM 	Talk To You In The Morning
+TTYL 	Talk To You Later
+TTYM 	Talk to You Ma
+TTYN 	Talk To You Never
+TTYRS 	Talk To You Real Soon
+ILML 	I Love My Life
+ILMO 	In Loving Memory Of
+ILNY 	I Love New York
+ILS 	Inflated Lat Syndrome
+ILT 	I Like That
+ILY 	I Love You
+ILY2 	I Love You Too
+ILYA 	I Love You All
+IM 	Instant Message
+IMAHO 	In My Absolutely Honest Opinion
+IMAO 	In My Arrogant Opinion
+IMAP 	Internet Message Access Protocol
+IMBO 	In My Biased Opinion
+IMCO 	In My Considered Opinion
+IMD 	In My Defence
+IMDB 	Internet Movie Database
+IME 	In My Experience
+IMEO 	In My Educated Opinion
+IMF 	International Monetary Fund
+IMH 	In My Head
+IMHO 	In My Humble Opinion
+IMK 	In My Knowledge
+IMMAO 	In My Most Arrogant Opinion
+IMMD 	It Made My Day
+IMML 	It Made Me Laugh
+IMNSHO 	In My Not So Humble Opinion
+IMO 	In My Opinion
+IMOO 	In My Own Opinion
+IMP 	It's My Pleasure
+IMPO 	In My Personal Opinion
+IMR 	I Mean, Really
+IMS 	Irritable Male Syndrome
+IMSMR 	If Memory Serves Me Right
+IMU 	I Miss You
+IMUSM 	I Miss You So Much
+IMVU 	Instant Messaging Virtual Universe
+IMWTK 	Inquiring Minds Want To Know
+IMY 	I Miss You
+IMYA 	I Miss You Already
+IMYM 	I Miss You More
+IMYSM 	I Miss You So Much
+IMYT 	I Miss You Too
+INAH 	I Need A Hug
+INB 	I'm Not Bothered
+INBD 	It's No Big Deal
+INCYDK 	In Case You Didn't Know
+INPO 	In No Particular Order
+INRS 	It's Not Rocket Science
+INS 	I'm Not Sure
+INTK 	I Need To Know
+INTP 	Introverted iNtuitive Thinking Perceiving (personality type indicator)
+INVU 	I Envy You
+INWLY 	I Never Wanna Lose You
+INY 	I Need You
+IOAB 	I'm On A Boat
+IOC 	International Olympic Committee
+IOH 	I'm Outta Here
+IOI 	Indication of Interest I'm Over It
+IOIC 	If Only I Could
+IOKIYAR 	It's Okay If You're A Republican
+IOM 	Isle Of Man
+IOMW 	I'm On My Way
+ION 	In Other News
+IOU 	I Owe You
+IOW 	In Other Words
+IOYK 	If Only You Knew
+IP 	Internet Protocol Intellectual Property
+IPA 	India Pale Ale Internet Protocol Address
+IPC 	Ignore Post Count
+IPO 	Initial Public Offering
+IQ 	Intelligence Quotient
+IR 	Infrared Injured Reserve
+IRA 	Irish Republican Army
+IRAH 	Insert Relevant Acronym Here
+IRC 	Internet Relay Chat
+IRDC 	I Really Don't Care
+IRDK 	I Really Don't Know
+IRL 	In Real Life
+IRLY 	I Really Like You
+IRMC 	I Rest My Case
+IRS 	Internal Revenue Service
+ISB 	I'm So Bored
+ISBN 	International Standard Book Number
+ISDK 	I Simply Don't Know
+ISDN 	Integrated Services Digital Network
+ISHK 	I Should Have Known
+ISLY 	I Still Love You
+ISO 	In Search Of
+ISP 	Internet Service Provider
+ISS 	International Space Station I'm So Sorry
+ISSN 	International Standard Serial Number
+ISTATOY 	I Saw This And Thought Of You
+ISTG 	I Swear To God
+ISTM 	It Seems To Me
+ISTR 	I Seem To Recall
+ISWYDT 	I See What You Did There
+ISWYM 	I See What You Mean
+IT 	Information Technology
+ITA 	I Totally Agree
+ITAI 	I'll Think About It
+ITALY 	I Trust And Love You
+ITC 	In This Channel In That Case
+ITF 	In The Future
+ITG 	In The Groove
+ITIAILWY 	I Think I Am In Love With You
+ITIKY 	I Think I Know You
+ITILU 	I Think I Love You
+ITILY 	I Think I Love You
+ITK 	In The Know
+ITM 	In the Mouth
+ITMA 	It's That Man Again
+ITN 	I Think Not
+ITO 	In Terms Of
+ITOY 	I'm Thinking Of You
+ITP 	Inside The Perimeter
+ITS 	I Think/Thought So
+ITSO 	In The Style Of
+ITT 	In This Thread
+ITTET 	In These Tough Economic Times
+ITV 	Independent TV (UK)
+ITWYM 	Is That What You Mean?
+OAN 	On Another Note
+OAO 	Over And Out
+OAP 	Old Age Pensioner
+OATUS 	On A Totally Unrelated Subject
+OAUS 	On An Unrelated Subject
+OB 	Oh, Brother
+OBBY 	Oh, Baby
+OBE 	Overcome By Events Out of Body Experience Order of the British Empire
+OBHWF 	One Big Happy Weasely Family
+OBO 	Or Best Offer
+OBQ 	Oh, Be Quiet
+OBTW 	Oh, By The Way
+OBX 	Outer Banks North Carolina
+OC 	Of Course Original Character Orange County
+OCD 	Obsessive Compulsive Disorder
+OCN 	Of Course Not
+OCO 	Oh, Come On
+OCR 	Optical Character Recognition
+OCT 	On Company Time
+ODAAT 	One Day At  A Time
+ODF 	Own Damn Fault
+ODG 	Oh Dear God
+ODL 	Oh Dear Lord
+ODST 	Orbital Drop Shock Trooper (Gaming)
+ODT 	On Dis Ting
+OE 	Outlook Express Operator Error
+OED 	Oxford English Dictionary
+OEM 	Original Equipment Manufacurer
+OFGS 	Oh, For God's Sake
+OFH 	Old Folks' Home
+OFOC 	Overwhelming Feelings of Concern
+OG 	Original Gangster Old Git
+OGIM 	Oh God It's Monday
+OGK 	Only God Knows
+OGN 	Online Gaming Network
+OH 	Other Half
+OHAC 	Own House And Car
+OHIM 	Oh Hell, It's Monday
+OHKO 	One Hit Knock Out
+OHN 	Oh Hell, No!
+OHS 	Operator Head Space
+OHT 	One Handed Typing
+LBNL 	Last But Not Least
+LBR 	Loser Beyond Repair
+LBRS 	Lower Blackrock Spire ( )
+LBVS 	Laughing But Very Serious
+LBW 	Leg Before Wicket (cricket)
+LC 	Lower Case
+LCD 	Liquid Crystal Display
+LCTS 	Let's Change The Subject
+LD 	Link Dead (Disconnection From Internet)
+LDA 	Long Distance Affair
+LDH 	Long Distance Hug
+LDI 	Let's Do It
+LDL 	Long Distance Lover
+LDO 	Like Duh, Obviously
+LDR 	Long Distance Relationship
+LDS 	Latter Day Saint
+LE 	Limited Edition Law Enforcement
+LEC 	Local Exchange Carrier
+LED 	Light Emiting Diode
+LEO 	Law Enforcement Officer
+LEV 	Low Emission Vehicle
+LF 	Looking For
+LF1M 	Looking For One More
+LFDY 	Live Fast, Die Young
+LFG 	Looking For Group
+LFM 	Looking For More
+LFMF 	Learn From My Fail
+LFP 	Looking For Party (in  )
+LFTI 	Looking Forward To It
+LFTSU 	Look Forward To Seeing You
+LFW 	Looking For Work
+LG 	Little Girl
+LGBTQ 	Lesbian, Gay, Bisexual, Trans, Questioning
+LGD 	Let's Get Drunk
+LGFB 	Looks Good From Behind
+LGMH 	Love Gives Me Hope
+LGO 	Life Goes On
+ITYF 	I Think You'll Find
+ITYL 	I'll Tell You Later
+ITYM 	I Think You Mean
+ITYS 	I Told You So
+IVF 	In Vitro Fertilization
+IWALY 	I Will Always Love You
+IWBB 	I Will Be Back
+IWC 	Internet Wrestling Community
+IWHI 	I Would Hit It
+IWID 	It's What I Do
+IWIK 	I Wish I Knew
+IWIWT 	I Wish I Were There
+IYTT 	If You Think That
+IYW 	If You Want/Will
+IYWW 	If You Were Wondering
+J 	Joking
+JAF 	Just A Friend
+JAPAN 	Just Always Pray At Night
+JAS 	Just A Second
+JAT 	Just A Thought
+JATQ 	Just Answer The Question
+JB 	Jail Bait Jonas Brothers
+JBH 	Just Being Honest
+AOYP 	Angel on Your Pillow
+AP 	Associated Press
+APB 	All Points Bulletin
+APC 	Armoured Personnel Carrier
+API 	Application Programming Interface
+APM 	Actions Per Minute
+APN 	As Per Normal
+APO 	Authorized Personnel Only
+APU 	As Per Usual
+APYR 	As Per Your Request
+AQ 	Adventure Quest (game)
+AQAP 	As Quickly As Possible
+AQF 	Ay Que Funny,
+ARK 	Act of Random Kindness
+PFB 	Please Find Below
+PFC 	Private First Class
+PFP 	Picture For Proof
+PG 	Parental Guidance
+PGA 	Professional Golfers' Association
+PGDA 	Pretty Goddamn Awesome
+PGP 	Pretty Good Privacy (encryption)
+PHAT 	Pretty Hot And Tempting
+PHB 	Pointy-Haired Boss (from Dilbert)
+PIBE 	Play It By Ear
+JBT 	Jack-Booted Thug
+JBU 	Just Between Us
+JBY 	Just Be Yourself
+JC 	Jesus Christ Just Curious Just Chilling
+JCB 	J C Bamford (excavator manufacturer)
+JD 	Jack Daniel's
+JDI 	Just Do It
+JDLR 	Just Doesn't Look Right
+JDM 	Japanese Domestic Market
+JFF 	Just For Fun
+JFK 	John Fitzgerald Kennedy New York airport Just For Kicks
+JFN 	Just For Now
+JFT 	Just For Today
+JFTR 	Just For The Record
+NOC 	No One Cares
+NOI 	No Offense Intended
+NOK 	Not Okay No One Knows
+NOKD 	Not Our Kind, Dear
+NOLY 	No One Likes You
+NOM 	No Offence Meant
+NOMB 	None Of My Business
+NOS 	New Old Stock
+NOTA 	None Of The Above
+NOTB 	None Of Their Business
+NOTW 	Not Of This World
+NOYB 	None Of Your Business
+NOYDB 	None Of Your Damn Business
+NP 	No Problem
+NPAA 	No Problem At All
+NPC 	Non Player Character ( )
+NPI 	No Pun Intended
+NPNT 	No Picture, No Talk
+NPO 	Never Pull Out
+NPR 	National Public Radio No Purchase Required
+NPW 	No Problem Whatsoever
+NPZ 	No Problems
+NQAT 	No Question About That
+NQR 	Not Quite Right
+NR 	No Reply No Reserve
+NRA 	National Rifle Association
+NRE 	New Relationship Energy
+NRFB 	Never Removed From Box
+NRI 	Non-Repairable Item
+JFY 	Just For You
+JFYI 	Just For Your Information
+JG 	Juicy Gossip
+JGB 	Just Got Back
+JGH 	Just Got Home
+JGI 	Just Google It
+JGL 	Just Get Lost
+JHC 	Jesus H Christ
+JHP 	Jacketed Hollow Point (bullet)
+JIC 	Just In Case
+JICYDK 	Just In Case You Didn't Know
+JJ 	Just Joking
+JK 	Just Kidding
+JKD 	Jeet Kune Do (Martial Art)
+JLMK 	Just Let Me Know
+JLS 	Jack the Lad Swing (band)
+JLT 	Just like that
+JLUK 	Just Letting You Know
+OJ 	Only Joking
+OJD 	Obsessive Jonas (Brothers) Disorder
+OJT 	On Job Training
+OLED 	Organic Light-Emitting Diode
+OLLG 	One Less Lonely Girl
+OLOY 	Only Losers Obey Yolo
+OLTL 	One Life To Live
+OM 	Old Man
+OMA 	Oh My Allah
+OMB 	On My Break
+OMD 	Oh My Days
+OMDB 	Over My Dead Body
+OMFSM 	Oh My Flying Spaghetti Monster
+OMFUG 	Other Music Found UnderGround
+OMG 	Oh My God
+OMGA 	Oh My Giddy Aunt
+OMGD 	Oh My God Dude
+OMGNA 	Oh My Gosh, Not Again
+OMJ 	Oh My Jonas ( )
+OMJC 	Oh My Jesus Christ
+OML 	Oh My Lord
+OMS 	Oh My Science
+OMSJ 	Oh My Sweet Jesus!
+OMT 	One More Thing
+OMW 	On My Way
+OMWH 	On My Way Home
+OMZ 	Oh My Zeus
+ONM 	Oh, Never Mind
+ONNA 	Oh No, Not Again
+ONNTA 	Oh No, Not This Again
+ONO 	Or Nearest Offer
+ONS 	One Night Stand
+ONTD 	Oh No They Didn't
+ONYD 	Oh No You Didn't
+OOA 	Out Of Ammo
+OOAK 	One Of A Kind
+OOBE 	Out Of Body Experience
+OOC 	Out Of Control/Character/Context
+OOF 	Out Of Office
+OOH 	Out Of Here
+OOI 	Out Of Interest
+OOM 	Out Of Mana ( )
+OOMF 	One Of My Friends/Followers
+OOML 	Out Of My League
+OOMM 	Out Of My Mind
+OOO 	Out Of Office
+OOP 	Out Of Place
+OOS 	Out Of Style
+OOSOOM 	Out Of Sight, Out Of Mind
+OOT 	Out Of Town
+OOTB 	Out Of The Box
+OOTC 	Obligatory On-Topic Comment
+OOTD 	Offer Of The Day Outfit Of The Day
+OOTO 	Out Of The Office
+OOTW 	Out Of This World
+OOYL 	Out Of Your League
+OOYM 	Out Of Your Mind
+OP 	Original Poster
+OPB 	Other People's Business
+OPK 	Other People's Kids
+OPM 	Other People's Money
+OPPS 	Misspelling of ‘oops'
+OSFA 	One Size Fits All
+OSLT 	Or Something Like That
+OSO 	Other Significant Other
+OSS 	Open Source Software
+OST 	Original Sound Track
+OT 	Off Topic
+OTA 	Over The Air
+OTB 	Off The boat
+OTC 	Over The Counter
+OTD 	On The Dot Out The Door
+OTE 	Over The Edge
+OTF 	Off Topic Forum
+OTFL 	On The Floor Laughing
+OTG 	On The Go Off The Ground
+OTH 	Off The Hook
+OTK 	Over The Knee
+OTLTA 	One Thing Led To Another
+OTM 	Of The Moment One Track Mind
+OTN 	On That Note
+OTO 	One Time Only
+OTOH 	On The Other Hand
+OTOOH 	On The Other Other Hand
+OTP 	One True Pairing
+OTR 	On The Run
+OTS 	On The Side
+OTT 	Over The Top
+OTTH 	On The Third Hand
+OTTOMH 	Off The Top Of My Head
+OTW 	On The Way
+OTW 	On The Whole
+OTY 	Over To You
+OU 	Open University
+OUAT 	Once Upon A Time
+OUO 	Official Use Only
+OVA 	Original Video Animation
+OVNO 	Or Very Near Offer
+OWK 	Other World Kingdom
+OWNM 	Oh Well, Never Mind
+OWOA 	One Way Or Another
+OWS 	Occupy Wall Street
+OWTTE 	Or Words To That Effect
+OY 	Oh Yeah
+OYB 	On Your Bike
+OYG 	Oh Your God
+OYO 	On Your Own
+PA 	Personal Assistant
+PABX 	Private Automatic Branch Exchange
+PAN 	Personal Area Network
+PATD 	Panic At The Disco (band)
+PATT 	Party All The Time
+PAYE 	Pay As You Earn
+PAYG 	Pay As You Go
+PB 	Personal Best
+PBB 	Pirate Bulletin Board
+PBJ 	Peanut Butter and Jelly
+PBN 	Paintball Nation
+PBP 	Please Be Patient
+PBQ 	Please Be Quiet
+PBR 	Pabst Blue Ribbon (beer)
+PBS 	Public Broadcasting Service
+PBUH 	Peace Be Upon Him
+PBWY 	Peace Be With You
+PC 	Politically Correct Personal Computer
+PCB 	Printed Circuit Board  Please Come Back
+PCI 	Peripheral Component Interconnect
+PCM 	Please Call Me
+PCMCIA 	Personal Computer Memory Card International Association
+PCMIA 	Personal Computer Manufacturer Interface Adaptor
+PCMR 	PC Master Race
+PD 	Public Domain
+PDA 	Personal Digital Assistant
+PDBAZ 	Please Don't Be A Zombie
+PDEA 	Public Display of Elderly Affection
+PDF 	Portable Document Format
+PDG 	Pretty Damn Good
+PDOA 	Public Display Of Affection
+PDP 	Pretty Darn Precious
+PDQ 	Pretty Damn Quick
+PDT 	Pacific Daylight Time
+PE 	Physical Education
+PEBCAC 	Problem Exists Between Chair And Computer
+PEBCAK 	Problem Exists Between Chair And Keyboard
+PEBKAC 	Problem Exists Between Keyboard And Chair
+PEMDAS 	Parenthesis, Exponents, Multiply, Divide, Add, Subtract
+PEWS 	Post Election Withdrawal Syndrome
+JLY 	Jesus Loves You
+JLYK 	Just Letting You Know
+JM 	Just Messing
+JMA 	Just Messing Around
+YTD 	Year To Date
+YTM 	You're The Man
+YTML 	You'll Thank Me Later
+YTMND 	You're The Man Now, Dog
+YTO 	You're The One
+YTP 	YouTube Poop
+YTTM 	You Talk Too Much You Talking To Me?
+HBD 	Happy Birthday
+HBK 	Heart Break Kid
+HBN 	How About Now
+HBO 	Home Box Office
+JMHO 	Just My Humble Opinion
+JML 	Just My Luck
+JMO 	Just My Opinion
+JMS 	Just Making Sure
+JMT 	Just My Thoughts
+JN 	Just Now
+JOOC 	Just Out Of Curiosity
+JP 	Just Playin'
+JUAD 	Jumping Up And Down
+JV 	Junior Varsity, amateur
+JW 	Just Wondering
+JWAS 	Just Wait And See
+JWD 	Job Well Done
+JWG 	Just a Wild Guess
+JWTK 	Just Wanted To Know
+JWTLYK 	Just Wanted To Let You Know
+JWU 	Just Woke Up
+JWW 	Just Was Wondering
+KAFM 	Keep Away From Me
+KCACO 	Keep Calm And Carry On
+KCCO 	Keep Calm and Chive On
+KD 	Kraft Dinner
+KDR 	Kill/Death Ratio
+KF 	Kinda Funny
+KFC 	Kentucky Fried Chicken
+KGB 	Russian secret police
+KOD 	Kiss Of Death
+KOS 	Kill On Sight
+KOTC 	Kiss On The Cheek
+KOTH 	King of the Hill (game)
+KOTL 	Kiss On The Lips
+KOTOR 	Knights Of The Old Republic (Game)
+KP 	Korean Pride
+KPC 	Keep Parents Clueless
+KPG 	Keep the Party Going
+KPI 	Key Performance Indicator
+KR 	Kind Regards
+KRO 	Keep Right On
+KS 	Kill Steal
+KTBFFH 	Keep The Blue Flag Flying High! (Chelsea FC Moto)
+KTBSPA 	Keep The Backstreet Pride Alive
+KTF 	Keep The Faith
+KWIM 	Know What I Mean?
+PVE 	Player versus Environment ( )
+PVM 	Player Versus Monster
+PVP 	Player v Player
+PVR 	Personal Video Recorder
+PWOR 	Proceeding With Orders Recieved
+PWOS 	Parents Watching Over Shoulder
+PX 	Post Exchange Part Exchange
+PYP 	Play Your Position
+PYT 	Pretty Young Thing
+QA 	Quality Assurance Question and Answer
+QANTAS 	Queensland and Northern Territory Aerial Service
+QAP 	Quick As Possible Quickly As Possible
+QB 	Quarter Back
+QC 	Quality Control
+QED 	Quod Erat Demonstrandum (it has been proved)
+QFE 	Quoted For Emphasis
+QFMT 	Quoted For More Truth
+QFP 	Quoted For Posterity
+QFT 	Quoted For Truth
+QI 	Quite Interesting
+QL 	Quite Laughing
+QNO 	Quiet Night Out
+QOL 	Quality Of Life
+QOS 	Quantam Of Solace
+QOTD 	Quote Of The Day
+QOTSA 	Queens Of The Stone Age (Band)
+QP 	Quarter Pound (of weed)
+QQ4U 	Quick Question For You
+QS 	Quick Scope
+QVC 	Quality Value Convenience (shopping channel)
+R5 	Region 5 (DVD region)
+RA 	Resident Advisor Resident Assistant
+RAC 	Rock Against Communism
+RAK 	Random Act of Kindness
+RAM 	Random Access Memory
+RAOK 	Random Act Of Kindness
+RAS 	Remote Access Server
+RATM 	Rage Against the Machine (band)
+RAWL 	Roll Around While Laughing
+RAWR 	Right Answer, Wrong Reason
+RBAY 	Right Back At You
+RBG 	Revolutionary But Gangsta
+RBTL 	Read Between The Lines
+RBV 	Red Bull and Vodka
+RC 	Random Chat Radio Controlled
+RCT 	Roller Coster Tycoon
+RD 	Real Deal
+RDC 	Really Don't Care
+RDH 	Rate Date Hate
+RDJ 	Robert Downey Jr.
+RDM 	Random Death Match
+RDO 	Regular Day Off
+RDR 	Red Dead Redemption (Game)
+RFC 	Request For Comment
+RFI 	Request For Information
+RFID 	Radio Frequency Identification
+RFP 	Request for Proposal
+RFQ 	Request For Quotation
+RFT 	Right First Time
+RFTS 	Reach For The Stars
+RFYL 	Run For Your Life
+RGB 	Red, Green, Blue
+RHCP 	Red Hot Chili Peppers (Band)
+RHD 	Right Hand Drive
+RHI 	Rumour Has It
+RHIP 	Rank Has Its Privileges
+RHS 	Right Hand Side
+RINO 	Republican In Name Only
+RIYL 	Recommended If You Like
+RL 	Real Life
+ATEOTD 	At The End Of The Day
+ATF 	All Time Favorite
+ATGATT 	All The Gear All The Time (motorcycling)
+ATH 	All Time High
+ATM 	At The Moment Automated Teller Machine (cash machine)
+ATMO 	According To My Opinion
+ATN 	Any Time Now
+ATOY 	Always Thinking of you
+ATQ 	Answer The Question
+ATST 	At The Same Time
+ATT 	At This Time All The Time
+ATTT 	Ain't That The Truth
+ATV 	All Terrain Vehicle
+ATVB 	All The Very Best
+ATW 	All The Way
+ATWA 	All The Way Alive
+BAC 	Back At Computer
+BACS 	Bankers Automated Clearing System
+BAGL 	Bust A Gut Laughing
+BAH 	Bored As Hell
+BBWL 	Be Back Way Later
+BC 	Before Christ
+RLAB 	Roll Like A Buffalo
+RLF 	Real Life Friend
+RLTW 	Rangers Lead The Way
+RMA 	Return Merchandise Authorization
+RME 	Rolling My Eyes
+RML 	Read My Lips
+GLU 	Guys/Girsl Like Us
+GLWS 	Good Luck With Sale
+GLWT 	Good Luck With That
+GM 	Good Morning
+IEP 	Individualized Education Program
+IFM 	In Fond Memory
+IGI 	I Get It
+IGM 	I Got Mine
+IGMC 	I'll Get My Coat
+IGN 	In Game Name
+IGNB 	I'm Going Now, Bye
+IGNTS 	I've Got Nothing To Say
+GMV 	Got My Vote
+GMY 	Good Man Yourself
+NMP 	Not My Problem
+RMT 	Real-Money Trading
+RMV 	Results May Vary
+RN 	Right Now Registered Nurse
+RNA 	Ribonucleic Acid
+RNB 	Rhythm And Blues
+RNG 	Random Number Generator
+RNR 	Rock 'N Roll
+RO 	Ragnarok Online ( )
+ROAR 	Right Of Admission Reserved
+ROFC 	Rolling On Floor Crying
+ROFL 	Rolling On Floor Laughing
+ROFLMFAO 	Rolling On Floor Laughing My F***ing A** Off
+ROFLOL 	Rolling On Floor, Laughing Out Loud
+ROG 	Really Old Git
+ROH 	Ring of Honor (wrestling)
+ROI 	Return on Investment
+ROLF 	Rolling On Laughing Floor
+ROR 	Raughing out Roud
+ROS 	Right On Schedule
+ROTC 	Reserve Officer Training Corps
+ROTF 	Rolling On The Floor (laughing is implied)
+ROTFFNAR 	Rolling On The Floor For No Apparent Reason
+ROTFL 	Rolling On The Floor Laughing
+ROTFLOL 	Rolling On The Floor Laughing Out Loud
+RT 	Retweet Real Time
+RTA 	Road Traffic Accident
+RTB 	Return To Base
+RTD 	Ready To Drink
+RTF 	Return The Favour
+RTFAQ 	Read The FAQ
+TLOL 	Truly Laughing Out Loud
+TLTR 	Too Long To Read
+TLYK 	To Let You Know
+TM 	Text Message Text Me Trademark
+TMA 	Take My Advice
+TMAI 	Tell Me About It
+TMB 	Text Me Back
+TMBG 	They Might Be Giants (band)
+RTFD 	Read The F***ing Description
+RTFI 	Read The Flipping Instructions
+RTFM 	Read The Flipping Manual
+RTFT 	Read The Flipping Thread
+RTG 	Ready To Go
+RTM 	Read The Manual
+RTO 	Radio Telephone Operator
+RTR 	Roll Tide Roll
+RTS 	Real Time Strategy
+RTV 	Rock The Vote
+RTW 	Ready To Wear Round The World
+RV 	Recreational Vehicle
+RVB 	Red Versus Blue (popular web-series)
+RVR 	Realm Versus Realm
+RW 	Read-Write
+RWD 	Rear Wheel Drive
+RWL 	Roaring With Laughter
+JPA 	Just Playing Around
+JPEG 	Joint Photographic Experts Group Image file format
+JROTC 	Junior Reserve Officer Training Corps
+JRPG 	Japanese Role Playing Game
+JS 	Just Saying
+JSMN 	Just Shoot Me Now
+JSP 	Java Server Pages
+JSU 	Just Shut Up
+JSYK 	Just So You Know
+JTB 	Just Too Bad
+JTC 	Join The Club
+JTLYK 	Just To Let You Know
+JTOL 	Just Thinking Out Loud
+JTOY 	Just Thinking Of You
+JTTY 	Just To Tell You
+JTUSK 	Just Thought You Should Know
+RWNJ 	Right Wing Nut Job
+RWP 	Random Wall Post
+RWYS 	Reap What You Sow
+RYC 	Regarding Your Comment
+RYN 	Read Your Note Regarding Your Note
+RYO 	Roll Your Own
+SA 	Sibling Alert
+SAB 	Smoking A Blunt
+SBI 	Surrounded By Incompetence
+SBJ 	Sweet Baby Jesus
+SBS 	Step By Step
+SBSP 	SpongeBob SquarePants
+SBT 	Sorry 'Bout That
+SCNR 	Sorry, Could Not Resist
+SCOTUS 	Supreme Court Of The United States
+SCSI 	Small Computer System Interface
+SCUBA 	Self-Contained Underwater Breathing Apparatus
+SD 	Sweet Dreams
+SDA 	Seventh-Day Adventist
+SDK 	Software Development Kit
+SDMF 	Strength, Determination, Merciless, Forever
+SDRAM 	Synchronous Dynamic Random Access Memory
+SEO 	Search Engine Optimization
+SEP 	Somebody Else's Problem
+SERP 	Search Engine Results Page
+SF 	Science Fiction
+SFAM 	Sister From Another Mister
+SFLR 	Sorry For Late Reply
+SFO 	San Francisco International Airport
+SFP 	Sorry for Partying
+SFR 	Smiling For Real
+SFSG 	So Far So Good
+SFTBC 	Sorry For The Broadcast
+SFW 	Safe For Work
+SGTM 	Sounds Good To Me
+SH 	Same Here
+SHU 	Secure Housing Unit
+SIWOTI 	Someone Is Wrong On The Internet
+SLOL 	Seriously Laughing Out Loud
+SLR 	Single Lens Reflex (camera)
+SMAO 	Study My Ass Off
+SMDH 	Shaking My Damn Head
+SMDHE 	Some Mothers Do Have Em
+SME 	Small/Medium Enterprises
+SMGDH 	Shaking My God Damn Head
+SMH 	Shaking My Head
+SMHID 	Shaking My Head In Despair
+SMHL 	Shaking My Head Laughing
+SMIB 	Southern Maryland Inbred
+SMIDSY 	Sorry Mate, I Didn't See You
+SML 	Screw My Life Story of My Life
+SMN 	Shoot Me Now
+SMOG 	Sweet Mother Of God
+SMOP 	Simple Matter Of Programming
+SMS 	Short Message Service
+SMT 	Sucking My Teeth
+SMTP 	Simple Mail Transfer Protocol
+SNAFU 	Situation Normal, All Fouled Up
+SNAG 	Sensitive New Age Guy Sausage
+SNC 	Social Network Check
+SND 	Search And Destroy
+SNES 	Super Nintendo Entertainment System
+SNF 	So Not Funny
+SNM 	Say No More
+SNR 	Signal To Noise Ratio
+SNYK 	So Now You Know
+SO 	Significant Other Shout Out
+SOA 	State Of Alert (band)
+SOAD 	System Of A Down (Band)
+SOAG 	Son Of A Gun
+SOG 	Sea Of Green (cannabis growing)
+SOH 	Sense Of Humor
+SOHF 	Sense Of Humor Failure
+SOI 	Statement of Intent
+SOIDH 	Screenshot Or It Didn't Happen
+SOML 	Story Of My Life
+SOMSW 	Someone Over My Shoulder Watching
+SOOC 	Straight Out Of Camera (not Photoshopped)
+SOOD 	Cool
+SOOTB 	Straight Out Of The Box
+SOP 	Standard Operating Procedure
+SOPA 	Stop Online Piracy Act
+SORN 	Statutory Off Road Notification
+SOS 	Save Our Souls (Help!)
+SOTA 	State Of The Art
+SRH 	Supporting Radical Habits (Clothing)
+SRM 	Stark Raving Mad
+SRO 	Standing Room Only
+SRT 	Street and Racing Technology
+SS 	Screen Shot
+SSA 	Subject Says All
+SSBB 	Super Smash Brothers Brawl (game)
+SSBHM 	Super Sized
+SSC 	Safe, Sane, Consensual
+SSD 	Solid State Drive
+SSDD 	Same Stuff Different Day
+SSH 	Secure Shell (Unix program)
+SSID 	Service Set Identifier
+SSL 	Secure Socket Layer See Subject Line
+SSTS 	Snickering Softly To Self
+SSWA 	So Say We All
+STW 	Search The Web
+STY 	Same To You
+STYL 	Speak To You Later
+SU 	Shut Up
+SUAD 	Shut Up And Drive
+SUL 	See You Later
+SULA 	Sweaty Upper Lip Alert
+TB 	Text Back
+TBA 	To Be Announced
+TBBH 	To Be Brutally Honest
+TBBT 	The Big Bang Theory (TV Show)
+TBC 	To Be Continued
+TBCH 	To Be Completely Honest
+TBD 	To Be Decided
+TBE 	To be Edited
+TBF 	To Be Fair
+TBFU 	Too Bad For You
+TBH 	To Be Honest
+TBM 	Tactical Boyfriend Mention
+TBMS 	To Be More Specific
+TBNT 	Thanks, But No Thanks
+TBPH 	To Be Perfectly Honest
+TBQF 	To Be Quite Frank
+NSM 	Not So Much
+NSN 	Not So Nice
+NSPCC 	National Society for Prevention of Cruelty to Children
+NSW 	New South Wales
+NT 	No Thanks
+NTB 	Not That Bothered Not Too Bad
+NTBCW 	Not To Be Confused With
+NTMY 	Nice To Meet You
+NTN 	No Thanks Needed
+NTR 	Nothing To Report
+NTS 	Nothing To Say Note To Self
+NTSC 	National Television System Committee video standard
+NTSH 	Nothing To See Here
+NTT 	Name That Tune Not Touching That!
+NTTAWWT 	Not That There's Anything Wrong With That
+NTTU 	Not Talking To You
+NTW 	Not To Worry
+NTWF 	Neopian Times Writers Forum
+NTY 	No Thank You
+NUS 	National Union of Students
+NVMS 	No Visible Means of Support
+TBQFH 	To Be Quite F***ing Honest
+TBQH 	To Be Quite Honest
+TDS 	Technical Dificulties
+TDTF 	Too Drunk to Function
+TDWP 	The Devil Wears Prada (Band)
+TDY 	Temporarily Deployed for a Year
+TEOTWAWKI 	The End Of The World As We Know It
+TFA 	Thanks For Asking
+TFC 	Team Fortress Classic (game)
+TFCD 	Time For Compact Disc
+IGS 	I Guess So
+IGTG 	I Got To Go
+IGU 	I Give Up
+IGWT 	In God We Trust
+IGY 	I Get You
+IGYB 	I've Got Your Back
+IH8U 	I Hate You
+IHAC 	I Have A Customer…
+IHDK 	I Honestly Don't Know
+IHM 	I Hate Mondays
+IHML 	I Hate My Life
+IHNC 	I Have No Clue
+IHNI 	I Have No Idea
+TFI 	Thanks For the Information
+TFIOS 	The Fault In Our Stars
+TFL 	Tip For Life Transport For London
+TFLMK 	Thanks For Letting Me Know
+TFLMS 	Thanks For Letting Me Share
+TFLN 	Texts From Last Night
+TFM 	Total Frat Move
+TFMTK 	That's For Me To Know
+MOC 	Marriage Of Convenience My Own Creation
+MOH 	My Other Half
+MOL 	More Or Less
+MOO 	Matter of Opinion My Own Opinion
+MOPO 	Master Of the Painfully Obvious
+NGH 	Not Gonna Happen
+NGL 	Not Gonna Lie
+NGO 	Non-Governmental Organization
+NGU 	Never Give Up
+NGUNS 	Never Give Up, Never Surrender
+NH 	Nice hand (poker slang)
+NHB 	No Holding Back No Holds Barred
+NHD 	No Harm Done
+NHF 	No Hard Feelings
+NHFT 	Not Here For That
+NHL 	National Hockey League
+NHN 	Not Here Now
+NHOI 	Never Heard Of It
+TFP 	Thanks For Playing
+TFRM 	Thanks For Reminding Me
+TFS 	Thanks For Sharing
+TFT 	The Frozen Throne (Warcraft III) Thin Film Transistor
+TFTA 	Thanks For The Add
+TFTC 	Thanks For The (Geo)Cache
+TFTD 	Thought For The Day
+TFTI 	Thanks For The Info
+TFTL 	Thanks for the Link
+TG 	Thank God Transgender Too Good
+TGAL 	Think Globally, Act Locally
+TGFG 	Thank God For Google
+TGFI 	Thank God For the Internet
+NBC 	National Broadcasting Company
+NBD 	No Big Deal
+NBF 	New Best Friend
+NBIF 	No Basis In Fact
+NBK 	Natural Born Killers Never Been Kissed
+NBM 	Nil By Mouth Not Before Midnight
+NBSB 	No Boyfriend Since Birth
+NBT 	Nothing But Trouble
+NBTD 	Nothing Better To Do
+TGFL 	Thank God For Life
+TGFT 	Thank God For That
+TGI 	Thank God It's …
+TGIA 	Thank God I'm Alive
+TGIAF 	Thank God It's Almost Friday
+TGIF 	Thank God It's Friday
+TLI 	Too Little Information
+TLND 	True Love Never Dies
+TMBI 	Tell Me 'Bout It
+TME 	Too Much Effort
+TMF 	Too Much Forehead
+TMH 	Touch My Hand
+IDUNNO 	I Don't Know
+IDW 	I Don't Want
+IDWK 	I Don't Wanna Know
+IDWT 	I Don't Want To
+IDWTAI 	I Don't Wanna Talk About It
+IDWTK 	I Don't Want to Know
+IE 	Id Est (that is) Internet Explorer
+IHO 	In Honor Of
+IHOP 	International House of Pancakes
+IHP 	I Hate People
+IHS 	I Hope So
+TMI 	Too Much Information
+TMK 	To My Knowledge
+TML 	Thank Me Later Text Me Later
+TMLT 	To My Last Tweet
+TMM 	Tell Me More
+TMMS 	That Made Me Smile
+TMN 	Touch Me Not
+TMNT 	Teenage Mutant Ninja Turtles
+TMP 	Tactical Machine Pistol
+TMR 	Tomorrow
+TMRW 	Tomorrow
+TMS 	Too Much Swag(ger)
+TMSIDK 	Tell Me Something I Don't Know
+TMT 	Too Much Tuna
+TMTC 	Too Many To Count
+TNF 	That's Not Funny
+TNG 	The Next Generation (Star Trek)
+TNL 	To Next Level
+TNLN 	Took Nothing Left Nothing
+TNO 	Trust No One
+PSI 	Pounds per Square Inch (pressure) Greek letter
+PSM 	Personal Short Message
+PSN 	Playstation Network
+PSP 	PlayStation Portable
+PSR 	Pretty Standard, Really
+PST 	Please Send Tell Pacific Standard Time
+PSTN 	Public Switched Telephone Network
+PSU 	Power Supply Unit
+PT 	Phantasy Tour Physical Training
+PTB 	Powers That Be Pass The Buck Please Text Back
+PTC 	Popping The Collar
+PTI 	Pardon The Interruption
+PTL 	Praise The Lord
+PTM 	Please Tell Me
+GTHBA 	Good Times Had By All
+GTHO 	Get The Hell Out
+GTK 	Good To Know
+GTM 	Giggling To Myself
+GTO 	Gran Turismo Omologato
+GTRM 	Going To Read Mail
+GTSY 	Good To See You
+GTTS 	Got The T-Shirt
+PTO 	Paid Time Off
+PTP 	Pay To Play Peer To Peer
+TNOP 	Totally Not Our Problem
+TNOT 	Take Note Of That
+TNSL 	Took Nothing, Signed Logbook (geocaching)
+TNSTAAFL 	There's No Such Thing As A Free Lunch
+TNT 	Til Next Time
+TNTM 	That's News To Me
+TO 	Time Out
+TOC 	Table Of Contents
+TOD 	Time Of Death Time Of Day
+TOEFL 	Test Of English as a Foreign Language
+TOEIC 	Test Of English for International Communication
+TOFT 	Take One For the Team
+TOFTT 	Take One For The Team
+TOH 	The Other Half
+TOL 	Thinking Out Loud Thinking Of Laughing
+TOM 	Time Of Month
+TOTB 	Think Outside the Box
+TOTD 	Tip Of The Day Tweet Of The Day
+TOTGA 	The One That Got Away
+TOTM 	Time Of The Month
+TOTUS 	Teleprompter Of The United States
+TOY 	Thinking Of You
+TP 	Toilet Paper Town Portal (diablo 2)
+TPAM 	The Person Above Me
+TPB 	The Pirate Bay
+TPE 	Total Power Exchange
+PNR 	Passenger Name Record
+PNW 	Pacific North West
+POA 	Plan Of Action
+POD 	Passed Out Drunk
+POF 	Plenty of Fish  (dating site)
+POI 	Point Of Interest
+POIDH 	Pics Or It Didn't Happen
+POMO 	Permanent Open Market Operations Post Modern A Group Of Native American People In California
+PONR 	Point Of No Return
+POTC 	Pirates Of The Carribean
+POTD 	Post Of The Day
+POTO 	Phantom Of The Opera
+POTS 	Parents Over The Shoulder (parents watching, I can't really talk)
+POTUS 	President of the United States
+POTW 	Patient of the Week (House M.D.)
+POTY 	Post Of The Year
+POV 	Point Of View
+POW 	Prisioner of War
+TPK 	Total Party Kill
+TPO 	Time, Place, Occasion
+TPS 	Totally pointless stuff
+TPT 	Trailer Park Trash
+TPTB 	The Powers That Be
+TR 	Triple Rainbow
+TRDMC 	Tears Running Down My Cheeks
+TRDMF 	Tears Running Down My Face
+TRG 	Tiny Rascal Gang
+TYMBI 	Thought You Might Be Interested
+TYS 	Thank You Sir
+TYSM 	Thank You So Much
+TYSVM 	Thank You So Very Much
+TYT 	Take Your Time
+TYVM 	Thank You Very Much
+URI 	Uniform Resource Indicator, URL
+URL 	Uniform Resource Locator, internet address
+US 	United States
+LMG 	Light Machine Gun
+LMGTFY 	Let Me Google That For You
+LMHO 	Laughing My Head Off
+LMIRL 	Let's Meet In Real Life
+LMK 	Let Me Know
+LML 	Love My Life
+LMPO 	Laughing My Pants Off
+LMR 	Last Minute Resistance
+LMS 	Like My Status Last Man Standing
+LMSO 	Laughing My Socks Off
+LMT 	Let Me Think
+LMTAL 	Let Me Take A Look
+LNF 	Life's Not Fair
+LNIB 	Like New In Box
+LNT 	Leave No Trace
+LOA 	Leave of Absence
+LOL 	Laughing Out Loud
+LOLAK 	Lots Of Love And Kisses
+LOLL 	Laugh Out Loud Literally
+LOLOL 	Lots Of Laughing Out Loud
+LOLV 	Lots Of Love
+LOMB 	Lying On My Bed
+LOML 	Love Of My Life
+LOMO 	Lights Out, Missionary Only
+LOOL 	Laughing Outlandishly Out Loud
+LOQ 	Laugh Out Quietly
+USA 	United States of America
+USAF 	United States Air Force
+USB 	Universal Serial Bus
+USBM 	United States Black Metal
+USC 	University of Southern California
+USCG 	United States Coast Guard
+USD 	United States Dollar
+USMC 	United States Marine Corps
+USP 	Unique Selling Point
+USPS 	United States Postal Service
+USS 	United States Ship
+USSR 	Union of Soviet Socialist Republics
+USW 	Und So Weiter (German for etc)
+UT 	Unreal Tournament
+UTC 	Coordinated Universal Time Under The Counter
+UTD 	Up To Date
+UTE 	Utility vehicle, pickup truck
+UTF 	Unicode Transformation Format
+UTFL 	Use The Force, Luke
+UTH 	Up The Hoods
+UTI 	Urinary Tract Infection
+UTO 	Unable To Obtain
+UTP 	Up-Town Projects
+UTR 	Under The Radar
+UTS 	Under The Skin
+UTT 	Under The Table
+VGM 	Video Game Music
+VH1 	Video Hits One (TV channel)
+VHF 	Very High Frequency
+VHS 	Video Home System
+VIBE 	Atmosphere, ambience
+VID 	Video
+VIG 	Interest paid on a loan
+VIN 	Vehicle Identification Number
+VIP 	Very Important Person
+VIZ 	Adult comic Namely (videlicet in Latin)
+VJ 	Video Jockey (like   with lights and video)
+VLAN 	Virtual Local Area Network
+VLSI 	Very Large-Scale Integration
+VM 	Voice Mail
+VMA 	Video Music Awards
+VMI 	Virginia Military Institute
+VN 	Very Nice
+VNC 	Virtual Network Computing
+VNDS 	Very Near Dead Stock
+VNH 	Very Nice Hand (in online card games, especialy poker)
+VNS 	Very Nice Shot
+VOA 	Voice Of America
+VOD 	Video-On-Demand
+VOIP 	Voice Over   – internet telephony
+VP 	Vice President
+VPL 	Visible Panty Line
+VPN 	Virtual Private Network
+VR 	Virtual Reality
+VS 	Versus, against
+VT 	Video Tape
+VTL 	Visible Thong Line
+VTPR 	View To Permanent Relationship
+VTR 	Video Tape Recorder
+VV 	Very Very
+VVN 	Very Very Nice
+VWP 	Very Well Played Very Well Put
+WAFWOT 	What A F***ing Waste Of Time
+WAJ 	What A Joke
+WAK 	Weird, awful
+ILYSMB 	I Love You So Much Baby
+ILYSMM 	I Love You So Much More
+ILYT 	I Love You Too
+ILYTB 	I Love You To Bits
+ILYVM 	I Love You Very Much
+ILYWAMH 	I Love You With All My Heart
+LGTM 	Looks Good To Me
+LH 	Living Hell
+LHH 	Laughing Hella Hard
+LHK 	Love, Hugs and Kisses
+LHM 	Lord Have Mercy Lord Help Me
+LHYW 	Like Hell You Will
+LI 	Laughing Inside
+LIFO 	Last In First Out
+LIG 	Let It Go
+LIH 	Laugh In Head
+LIHOP 	Let It Happen On Purpose
+LIITA 	Love Is In The Air
+LILABOC 	Life Is Like A Box Of Chocolates
+LIMB 	Laughing In My Brain
+LIMH 	Laughing In My Head
+LIMM 	Laughing In My Mind
+LIRL 	Laughing In Real Life
+LIS 	Laughing In Silence
+LITS 	Life Is Too Short
+LIU 	Look It Up
+LJBF 	Let's Just Be Friends
+LL 	Laugh Loudly, LOL
+LLAP 	Live Long and Prosper
+LLC 	Limited Liability Company Laughing Like Crazy
+LLH 	Laughing Like Hell
+LLL 	Loony Liberal Left
+LLTTF 	Living Life To The Fullest
+LM 	Loud Mouth
+LMA 	Leave Me Alone
+LMAD 	Let's Make A Deal
+LMAM 	Leave Me A Message
+LMAP 	Leave Me Alone Please
+LMC 	Let Me Check
+LMCO 	Laughing My Cats Off
+LORL 	Laugh Out Really Loud
+LOS 	Line Of Site
+LOTD 	Link Of The Day
+LOTI 	Laughing On The Inside
+LOTR 	Lord of the Rings
+LOTRO 	Lord Of The Rings Online ( )
+LOVL 	Laughing Out Very Loud
+LOYOL 	Live Out Your Own Life
+LOZ 	Legend of Zelda
+LP 	Long Play (record)
+LPG 	Liquefied Petroleum Gas
+LPT 	Life Pro Tip
+LQI 	Laughing Quietly Inside
+LQL 	Laughing Quite Loudly
+LQTM 	Laughing Quietly To Myself
+LQTMS 	Laughing Quietly To Myself
+LQTY 	Laughing Quietly To Yourself
+LRF 	Low Resolution Fox
+LRG 	Lifted Research Group (clothing)
+LRL 	Laughing Really Loud
+LSAT 	Law School Admission Test
+LSE 	London School of Economics Low Self-Esteem
+LSH 	Laughing So Hard
+LSHIC 	Laughing So Hard I'm Crying
+LSHIDMT 	Laughing So Hard I Drop My Taco
+LSHMBH 	Laughing So Hard My Belly Hurts
+LSI 	Limited Social Interaction
+LSMFT 	Lucky Strike Means Fine Tobacco
+LSMIH 	Laughing So Much It Hurts
+LSP 	Love Sick Puppy
+LSS 	Last Song Syndrome
+LSTM 	Laughing Silently To Myself
+LTA 	Love To All
+LTB 	Looking To Buy
+LTD 	Live/Living The Dream
+LTG 	Learn To Google
+LTH 	Love Truth Honor
+LTIC 	Laugh Til I Cry
+LTL 	Living The Life
+LTM 	Laughing To Myself
+LTMA 	Less Talk, More Action
+LTMQ 	Laughing To Myself Quietly
+LTMS 	Laughing To Myself
+LTNC 	Long Time No Chat
+LTNS 	Long Time No See
+LTNT 	Long Time No Talk
+LTP 	Lost The Plot
+LTR 	Long term relationship
+LTS 	Laugh To Self
+LTY 	Laugh To Yourself
+LUI 	Living Under the Infuence
+LUL 	Lame Uncomfortable Laugh
+LULAB 	Love You Like A Brother
+LULAS 	Love You Like A Sister
+LV 	Louis Vuitton Las Vegas Level
+LW 	Lucky Win
+LWICD 	Look What I Can Do
+LWKM 	Laugh Wan Kill Me ( )
+LWKMD 	Laugh Wan Kill Me Die
+LWM 	Laugh With Me
+LWP 	Laughing With Passion
+LWT 	Look Who's Talking
+LWWY 	Live While We're Young
+LY 	Love You
+LYA 	Love You Always
+LYAAF 	Love You As A Friend Love You Always And Forever
+LYB 	Love You, Bye
+LYF 	Love You Forever
+LYK 	Let you know
+LYL 	Love You Lots
+LYLAB 	Love You Like A Brother
+LYLAF 	Love You Like A Friend
+LYLAS 	Love You Like A Sister
+LYLC 	Love You Like Crazy
+LYLMB 	Love You Like My Brother
+MAAB 	Male-Assigned At Birth
+MAC 	Media Access Control Macintosh
+MADD 	Mothers Against Drunk Driving
+MAPOTI 	Most Annoying People On The Internet
+MAS 	Mildly Amused Smirk
+MAW 	Might As Well
+MTE 	My Thoughts Exactly
+MTF 	Male To Female
+MTFBWY 	May The Force Be With You
+MTG 	Magic: The Gathering (game)
+MTLBWY 	May The Lord Be With You
+MTO 	Media Take Out (gossip website)
+MTUK 	More Than You Know
+MTV 	Music Television
+MTW 	Mum's the Word
+MTYK 	More Than You Know
+MU 	Multi User
+MUA 	Make-Up Alley (website)
+MUD 	Multi-User Dungeon,
+MUNG 	Mash Until No Good
+MVA 	Motor Vehicle Accident
+MVP 	Most Valuable Player
+MW2 	Modern Warfare 2 (game)
+MW3 	Modern Warfare 3 (game)
+MWC 	Married With Children
+MWI 	Mad With It (drunk)
+MWPP 	Moony, Wormtail, Padfoot, and Prongs (Harry Potter)
+MY 	Miss You
+MYB 	Mind Your Business
+MYCH 	Maybe You Can Help
+MYF 	Miss Your  Face
+MYGGWY 	May Your God Go With You
+MYL 	Miss You Loads
+MYMP 	Make Your Mama Proud
+MYOB 	Mind Your Own Business
+MYODB 	Mind Your Own Damn Business
+MYSM 	Miss You So Much
+WAL 	What A Loser
+WAM 	Wait A Minute What A Mess
+WAMH 	With All My Heart
+WAMHAS 	With All My Heart And Soul
+WAML 	With All My Love
+WAP 	Wireless Access Point
+WAPCE 	Women Are Pure Concentrated Evil
+WAREZ 	Cracked/pirate software
+WAS 	Wait And See
+WAY 	Where Are You?
+WAYD 	What Are You Doing
+WAYDRN 	What Are You Doing Right Now?
+WAYLT 	What Are You Listening To?
+WAYOA 	What Are You On About?
+WAYTA 	What Are You Talking About
+WAYWO 	What Are You Working On?
+WBB 	Will Be Back
+WBM 	Wanna-Be Moderator
+WBN 	Would Be Nice
+WBR 	With Best Regards
+WBS 	Write Back Soon
+WBT 	Will Be There
+WBU 	What About You?
+WBY 	What (A)bout You?
+WCB 	Will Call Back
+WCG 	World Cyber Games
+WCIS 	What Can I Say
+WCS 	Worst Case Scenario
+WCW 	World Championship Wrestling
+WCYD 	What Can You Do?
+WD 	Well Done
+WDE 	Worst Day Ever
+WDFD 	Whoop Dee F***ing Doo
+WDH 	What Da Hell
+WDIB 	Why Do I Bother?
+WDIC 	What Do I Care?
+WDIM 	What Does It Mean?
+WDITOT 	Why Didn't I Think Of That
+WDMB 	Will Do My Best
+WDOML 	Worst Day Of My Life
+WDTM 	What Does That Mean?
+WDUD 	What Do You Do?
+WDUM 	What Do You Mean?
+WDUT 	What Do You Think?
+WDW 	Who Dares Wins
+WDY 	Why Don't You?
+WDYD 	What Did You Do?
+WDYDT 	Why Did You Do That? What Did You Do Today?
+WDYE 	What Did You Expect?
+WDYG 	Where Did You Go?
+WDYM 	What Do You Mean?
+WDYMBT 	What Do You Mean By That?
+WDYS 	What Did You Say?
+WDYT 	What Do You Think?
+WDYW 	What Do You Want?
+WDYWFM 	What Do You Want From Me?
+WDYWT 	What Did You Wear Today?
+WDYWTTA 	What Do You Want To Talk About?
+WEF 	With Effect From
+WEP 	Wireless Encryption Protocol
+WFYB 	Whatever Floats Your Boat
+WHYB 	Where Have You Been?
+WHYD 	What Have You Done?
+WIA 	Wounded In Action
+WIP 	Work In Progress
+WIR 	When It's Ready
+WITH 	Where In The Hell
+WITW 	What In The World
+WIUWY 	What Is Up With You?
+WIWT 	What I Wore Today Wish I Was There
+WIWWU 	Wish I Was With You
+WIWWY 	What Is Wrong With You?
+WIYP 	What Is Your Problem?
+WJD 	What Jesus Did
+WKS 	Well Kept Secret
+WKYP 	Will Keep You Posted
+WLM 	Windows Live Messenger
+WLTM 	Would Like To Meet
+WLYB 	Who Loves You Baby
+WLYK 	Will Let You Know
+WM 	Woman Marine
+WMA 	Windows Media Audio
+WMD 	Weapons of Mass Destruction
+WMF 	Wagging My Finger
+WMG 	Warner Music Group
+WML 	Wish Me Luck
+WMMOWS 	Wash My Mouth Out With Soap!
+WMP 	Windows Media Player With Much Pleasure
+WMV 	Windows Media Video
+WMYB 	What Makes You Beautiful
+WN 	Why Not? What's New?
+WNDITWB 	We Never Did It This Way Before
+WNL 	Within Normal Limits
+WNOHGB 	Where No One Has Gone Before
+WNTT 	We Need To Talk
+WNWY 	What's New With You?
+WOAT 	Worst Of All Time
+WOB 	Waste Of Bandwith
+WOC 	Women of Color
+WOE 	What On Earth
+WOF 	While On Fire
+WOM 	Women Over Mates
+WOMBAT 	Waste Of Money, Brains, And Time
+WOS 	Waste Of Space Wife Over Shoulder
+WOTAM 	Waste of Time and Money
+WOTCHER 	What are you up to??
+WOTD 	Word Of The Day
+WOTLK 	Wrath Of The Lich King
+WOTS 	Word On The Street
+WP 	Wrong Person Well Played
+WPA 	Wi-Fi Protected Access
+WPM 	Words Per Minute
+WR 	Warm Regards
+WRT 	With Regard To
+WRU 	Where Are You?
+WRUD 	What Are You Doing?
+WRUTA 	What Are You Talking About?
+WRYD 	What Are You Doing?
+WRYTA 	What Are You Talking About?
+WSIC 	Why Should I Care?
+WSM 	Woman Seeking Man
+WSP 	What's up?
+WSS 	Why So Serious?
+WST 	We're Still Friends
+WSUL 	Will See You Later
+WSWTA 	What Shall We Talk About?
+WT? 	What The …? or Who the …?
+WTA 	Winner Takes All
+WTB 	Want To Buy
+WTBS 	With That Being Said
+WTC 	World Trade Center What The Crap
+WTD 	What The Deuce?
+WTDT 	What To Do Today
+WTDTA 	Where They Do That At?
+WTFT 	What The French Toast (polite  )
+WTG 	Way To Go
+WTGP 	Way To Go, Partner
+WTGP? 	Want To Go Private?
+WTH 	What/Where/Who The Hell
+WTHAY 	Who The Hell Are You?
+WTHC 	Who The Hell Cares?
+WTHIGO 	What The Hell Is Going On?
+WTHIT 	What The Hell Is That?
+WTHIWWY 	What The Hell Is Wrong With You?
+WTHN 	Why The Heck Not?
+WTHRU 	Who The Hell Are You?
+WTII 	What time Is It?
+WTK 	Want To Know
+WTL 	Will Talk Later
+WTLW 	Welcome To Last Week
+WTM 	What's The Matter?
+WTMI 	Way Too Much Information
+WTML 	Welcome To My Life
+WTMW 	Welcome To My World
+WTO 	World Trade Organization
+WTP 	What's The Point?
+WTT 	Want To Trade
+WTTC 	Welcome To The club
+WTTIR 	When The Time Is Right
+WTTJ 	Welcome To The Jungle
+WTTM 	Without Thinking Too Much
+WTW 	Walk Through Walls (gaming) Walk this Way
+WTY 	Why, Thank You
+WTYO 	Whatever Turns You On
+WUCIWUG 	What You See Is What You Get
+WUD 	What You Doing?
+WUF 	Where are you from?
+WUG 	What You Got? Where You Going?
+WUGOWM 	Will You Go Out With Me?
+WUL 	Watched User List
+WULA 	What're you Looking At?
+WULLNP 	Wishing You Long Life And Prosperity
+WUM 	Woman Wind-Up Merchant
+WUW 	What You Want?
+WUWCB 	What do You Want to Chat about?
+WUWH 	Wish You Were Here
+WUWT 	What's Up With That
+WUWTA 	What You Wanna Talk About?
+WUWTB 	What You Wanna Talk ‘Bout?
+WUWU 	What's Up With You?
+WWA 	Wiggers with attitude
+WWBD 	What Would Batman Do?
+WWCND 	What Would Chuck Norris Do?
+WWE 	World Wrestling Entertainment
+WWF 	World Wildlife Fund 
+WWIC 	Why Would I Care?
+WWIT 	What Was I Thinking?
+WWJBD 	What Would Jason Bourne Do?
+GIWIST 	Gee, I Wish I'd Said That.
+GIY 	Google It Yourself
+GIYF 	Google Is Your Friend
+GJ 	Good Job
+GJOAC 	Go Jump Off A Cliff
+GJWHF 	Girls Just Wanna Have Fun
+GK 	Good Kid
+GKY 	Go Kill Yourself
+GL 	Good Luck Good Looking
+GL HF 	Good Luck, Have Fun
+GLA 	Good Luck All
+GLAG 	Giggling Like A Girl
+GLOTR 	Good Luck On The Rebuild
+WWJD 	What Would Jesus Do?
+WWJP 	What Would Jesus Post?
+WWOTW 	Wicked Witch Of The West
+WWTBAM 	Who Wants To Be A Millionaire?
+WWU 	Where Were You?
+WWW 	World Wide Web
+WWWY 	What's Wrong With You?
+WWY 	Where Were You?
+WWYD 	What Would You Do?
+WWYDT 	Why Would You Do That?
+WYA 	Where You At?
+WYATB 	Wish You All The Best
+WYB 	Watch Your Back
+WYBD 	What've You Been Doing?
+WYBMV 	Will You Be My Valentine?
+WYCM 	Will You Call Me?
+WYD 	What You Doing?
+WYDN 	What You Doing Now?
+WYF 	What's Your Favorite …?
+WYG 	What You Get
+WYGOWM 	Will You Go Out With Me?
+WYK 	Would You Kindly
+WYL 	Whatever You Like
+NAA 	Not At All
+NABD 	Not A Big Deal
+NAC 	Not A Chance Not A Chain (letter)
+NAGL 	Not A Good Look
+    AMA  Ask Me Anything
+    AMBW   All My Best Wishes
+    AML   All My Love
+    AOTA   All Of The Above
+    ASAP   As Soon As Possible
+NAK 	Nursing At Keyboard
+NAL 	Need A Life
+NALGAS 	Buttocks
+NALGO 	Not A Lot Going On
+NALOPKT 	Not A Lot Of People Know That.
+NAMBLA 	North American Man/Boy Love Association
+NAP 	Not A Problem
+NARP 	Non-Athletic Regular Person
+NARU 	Not A Registered User
+NAS 	Network Attached Storage
+NASA 	National Aeronautics and Space Administration
+NASCAR 	National Association for Stock Car Auto Racing
+NASDAQ 	National Association of Securities Dealers Automated Quotation
+NASL 	Name, Age, Sex, Location
+NATM 	Not At The Moment
+NATO 	North Atlantic Treaty Organization
+NATTY 	Natural Light beer Smart, good, cool
+NB 	Not Bad Nota Bene (Latin for please note)
+NBA 	National Basketball Association
+NBB 	Never Been Better
+NBTW 	Now Back To Work
+NC 	No Comment No Choice
+NC-17 	No Children under 17 (movie rating)
+NCAA 	National Collegiate Athletic Association
+NCB 	Never Coming Back
+NCIS 	Naval Criminal Investigative Service (TV show)
+NCMO 	Non-Committal Make Out
+NCNR 	Non-Cancelable, Non-Returnable
+NCNS 	No Call, No Show
+NCO 	Non-Commissioned Officer
+NDA 	Non-Disclosure Agreement
+NDE 	Near Death Experience
+NDI 	Neither Do I
+NDP 	New Democratic Party
+NDR 	Non-Delivery Report/Receipt
+NDS 	Nintendo DS
+NEA 	National Education Association
+NED 	Non-Educated Delinquent
+NEDM 	Not Even Doom Music
+NEET 	Not in Education, Employment or Training
+NEGL 	Not Even Gonna Lie
+NEGU 	Never Ever Give Up
+NEI 	Not Enough Information
+NER 	Non-Existent Relationship
+NF 	Not Funny
+NFA 	No Further Action
+NFAA 	Not Funny At All
+NFI 	No Freakin Idea
+NFL 	National Football League
+NFM 	No Further Message
+NFN 	Normal For Norfolk
+NFS 	Not For Sale
+NFSW 	Not For Showing Wife
+NFT 	No Further Text
+NFY 	Not Fixed Yet
+NFZ 	No Fly Zone
+NG 	No Good
+MBD 	My Bad Dudes
+MBF 	My Best Friend
+MHR 	Many Happy Returns
+MI6 	Military Intelligence Service 6
+MIA 	Missing In Action
+MIB 	Mint In Box
+MIDI 	Musical Instrument Digital Interface
+MIGA 	Make It Go Away
+MIH 	Make It Happen
+MIHOP 	Made It Happen on Purpose
+MIL 	Mother In Law
+MIMO 	Multiple Input Multiple Output
+MIP 	Minor In Possession
+MIPS 	Million Instructions Per Second
+MIRL 	Meet In Real Life
+MISB 	Mint (condition) In Sealed Box
+MISO 	My Internet Shut Off
+MJ 	Michael Jackson Michael Jordan Marijuana
+MLAS 	My Lips Are Sealed
+MLB 	Major League Baseball
+MLG 	Major League Gaming
+MLIA 	My Life Is Average
+MLIB 	My Life Is Bro
+MLIG 	My Life Is Great/Good
+MLIM 	My Life Is Magic
+MLM 	Multi-Level Marketing Middle finger (mlm)
+MLP 	My Little Pony
+MLS 	My Life Sucks
+MLTR 	Multiple Long Term Relationships
+MLYP 	Much Like Your Post
+MM 	Married Man
+MM2 	Message Mode 2 ( )
+MMA 	Meet Me At…
+MMAMP 	Meet Me At My Place
+MMAO 	Make Me An Offer
+MMC 	MultiMedia Card
+MMD 	Make My Day
+MMH 	Meet Me Halfway
+MMI 	Me Myself and I
+MML 	Made Me Laugh
+MMOFPS 	Massively Multiplayer Online First Person Shooter
+MMORPG 	Massively Multiplayer Online Role Playing Game
+MMS 	Multimedia Messaging Service
+MMT 	Makes Me Think
+MMV 	Mileage May Vary
+MNC 	Mobile Network Code
+MNF 	Monday Night Football
+MNT 	Maybe Next Time
+MO 	Modus Operandi (method of operation)
+MOAB 	Mother of All Bombs Massive Ordnance Air Blast
+MOAM 	Man On A Mission
+MOAS 	Mother Of All Secrets
+MOBA 	Multiplayer Online Battle Arena
+NHS 	National Health Service
+NHTB 	Never Heard That Before
+NI 	No Idea
+NIAMY 	Never In A Million Years
+NIB 	New In Box
+NIC 	Network Interface Card
+NICE 	National Institute of Clinical Excellence
+NICU 	Neonatal Intensive Care Unit
+NID 	Never In Doubt
+IWM 	It Wasn't Me
+IWOOT 	I Want One Of Those
+IWTD 	I Want To Die
+IWY 	I Want You
+IYAM 	If You Ask Me
+IYBTYBA 	If You Believe That, You'll Believe Anything
+IYD 	In Your Dreams
+IYDK 	If You Didn't Know
+IYDM 	If You Don't Mind
+IYF 	In Your Face
+IYGM 	If You Get Me
+IYH 	In Your Head
+IYKWIM 	If You Know What I Mean
+IYL 	If You're Lucky It's Your Life
+IYO 	In Your Opinion
+IYSS 	If You Say So
+IYSWIM 	If You See What I Mean
+NIK 	Now I Know
+NIMBY 	Not In My Back Yard
+NIML 	Never In My Life Not In My Lifetime
+NIN 	Nine Inch Nails
+NISM 	Need I Say More?
+NITM 	Not In The Mood
+NITW 	Not In That Way
+NJ 	Not Joking Nice Job
+NJPW 	New Japan Pro Wrestling
+NK 	No Kidding Not Known
+NKA 	No Known Allergies
+NKOTB 	New Kid On The Block
+NKZ 	No Kill Zone
+NLA 	No Longer Available
+NLI 	Not Logged In
+TGIO 	Thank God It's Over
+TGIT 	Thank God It's Thursday
+TGOD 	Taylor Gang Or Die
+TGP 	Thumbnail Gallery Post
+TGTBT 	Too Good To Be True
+THABTO 	Two Heads Are Better Than One
+PICNIC 	Problem In Chair Not In Computer
+PIMPL 	Pee In My Pants Laughing
+PIN 	Personal Identification Number
+PIPA 	Protect IP Act
+PIQ 	Person In Question
+PIR 	Parent In Room
+PITME 	Peace In the Middle East
+PITR 	Parent In The Room
+PIU 	Pump It Up
+PNL 	Peace And Love
+PNP 	Party and Play
+PPB 	Parts Per Billion
+PPC 	Pay Per Click
+RSPCA 	Royal Society for the Prevention of Cruelty to Animals
+RSS 	Rich Site Summary Really Simple Syndication
+PPD 	Post Potter Depression
+PPM 	Parts Per Million
+PPPW 	Per Person, Per Week
+PPS 	Post-Post Script
+PPU 	Please Pick Up
+PPV 	Pay Per View
+PQ 	Party Quest (game)
+PR 	Public Relations
+PRC 	People's Republic of China
+PS 	PhotoShop Play Station Post Script
+PS & QS 	Pints and Quarts Please and Thank Yous
+PS2 	Play Station 2
+PS3 	Play Station 3
+PS4 	PlayStation 4
+PSA 	Publice Service Announcement
+PSB 	Please See Below
+PSH 	Dismissive expression
+PTSD 	Post Traumatic Stress Disorder
+PTT 	Push-To-Talk
+PTW 	Play To Win Professional Time Waster
+PTZ 	Pan-Tilt-Zoom
+PUA 	Pick Up Artist
+PUG 	Pick Up Group
+PUV 	Public Utility Vehicle
+PV 	Promotional Video
+NLM 	No Laughing Matter
+NLT 	No later than…
+NLYG 	Never Let You Go
+NM 	Never Mind Nothing Much No Message
+NME 	New Musical Express (magazine)
+NMF 	Not My Fault
+NMG 	No Mames Guey (OMG)
+NMH 	Nodding My Head
+NMHJC 	Not Much Happening Just Chilling
+NMI 	Need More Info
+NMJ 	Not My Job
+NMJC 	Not Much Just Chat
+NMJCU 	Not Much, Just Chillin', U?
+NMN 	No Middle Name
+LYLT 	Love You Long Time
+LYM 	Love You More
+LYMI 	Love You, Mean It
+LYMY 	Love You, Miss You
+LYMYWY 	Love You, Miss You, Want You
+LYR 	Love You Really
+LYSM 	Love You So Much
+LYT 	Love You Too
+WYLABOCTGWTR 	Would You Like A Bowl Of Cream To Go With That Remark?
+WYLASOMWTC 	Would You Like A Saucer Of Milk With That Comment?
+WYLION 	Whether You Like It Or Not
+WYLSCWTW 	Would You Like Some Cheese With That Whine?
+WYLT 	What You Listening To?
+WYM 	Watch Your Mouth What You Mean?
+WYMM 	Will You Marry Me?
+WYN 	What's Your Name?
+WYP 	What's Your Problem?
+WYR 	Would You Rather
+WYS 	What You Said
+WYSIWYG 	What You See Is What You Get
+WYTA 	What You Talking About?
+WYUT 	What You Up To
+WYW 	Whatever You Want
+WYWH 	Wish You Were Here
+WYWTA 	What You Wanna Talk About
+YAGB 	You Ain't Grizz Baby ( )
+YALA 	You Always Live Again
+YANA 	You Are Not Alone
+YATB 	You Are The Best
+YATK 	You Are Too Kind
+YATLOML 	You Are The Love Of My Life
+YAVW 	You Are Very Welcome
+YAW 	You Are Welcome
+YBS 	You'll Be Sorry
+YBTJ 	You Be The Judge
+YBW 	You've Been Warned
+YBWM 	You Belong With Me
+YCMIU 	You Couldn't Make It Up
+YCMU 	You Crack Me Up
+YDEK 	You Don't Even Know
+YDI 	You Deserve It
+YDK 	You Don't Know
+YDL 	Yellow Dog Linux
+YDMS 	You Don't Make Sense
+YDMT 	You Don't Mean That
+YDS 	You Don't Say
+YDU 	You Don't Understand
+YF 	Your Friend
+YFW 	Your Face When
+YG 	Young Gangster
+YGG 	You Go Girl
+YGI 	You Got It
+YGLT 	You're Gonna Love This
+YGM 	You Get Me? You've Got Mail
+YGPM 	You've Got Private Message
+YGTBK 	You've Got To Be Kidding
+YGTBKM 	You've Got To Be Kidding Me
+YGTI 	You Get The Idea
+YGTR 	You Got That Right
+YHA 	Youth Hostel Association
+YHBT 	You Have Been Trolled
+YHBW 	You Have Been Warned
+YHGASP 	You Have Got A Serious Problem
+YHL 	You Have Lost
+YHM 	You Have Mail
+YHNI 	You Have No Idea
+YHTBT 	You Had To Be There
+YID 	Yes I Do
+YIK 	Yes, I Know
+YITB 	Yours In The Bond
+YITE 	Are You All Right?
+YJLTG 	You Just Lost The Game
+YK 	You're Kidding
+YKHII 	You Know How It Is
+YKIMS 	You Know It Makes Sense
+YKTR 	You Know the Rest
+YKW 	You Know Who
+YKWIM 	You Know What I Mean
+YKWIS 	You Know What I'm Saying?
+YKYLM 	You Know You Love Me
+YL 	Young Lady
+YLI 	You Love It
+YLM 	You Love Me?
+YLOD 	Yellow Light Of Death
+YLYL 	You Laugh You Lose
+YM 	Yahoo Messenger Your Mom
+YMBJ 	You Must Be Joking
+YMCA 	Young Mens Christian Association
+YMCMB 	Young Money Cash Money Billionaires
+YMMD 	You Made My Day
+YMML 	You Make Me Laugh
+YMMS 	You Make Me Smile
+YMMV 	Your Mileage May Vary
+YMW 	You're Most Welcome
+YNK 	You Never Know
+YNW 	You're Not Welcome
+YNWA 	You'll Never Walk Alone
+YOLF 	You Only Live Forever
+YOLO 	You Only Live Once
+YOMB 	You Owe Me Big
+YOYO 	You're On Your Own
+YP 	Your Problem
+YQW 	You're Quite Welcome
+YR 	Yea, Right.
+YRG 	You Are Good!
+YRMV 	Your Results May Vary
+YRO 	Your Rights Online
+YRU 	Why Are You?
+PK 	Player Kill ( )
+PKB 	Pot, Kettle, Black
+PKI 	Public Key Infrastructure
+PKIT 	Please Keep In Touch
+PLA 	People's Liberation Army
+PLC 	Public Limited Company
+PLD 	Poor Life Decision
+PLH 	Peace, Love and Happiness
+PLI 	Potential Love Interest
+PLL 	Pretty Little Liar
+PLMA 	Please Leave Me Alone
+PLMK 	Please Let Me Know
+PLOS 	Parents Looking Over Shoulder
+PLP 	People Lazily Procrastinating
+PLR 	Private Label Rights
+PLRN 	Please Leave Right Now
+PLU 	People Like Us
+PLUR 	Peace, Love, Unity, and Respect
+PM 	Private Message Post Meridiem (afternoon)
+PMA 	Positive Mental Attitude
+PMB 	Private Message Box
+PMC 	Post Meal Cigarette
+PMD 	Put Me Down
+PMF 	Pardon My French
+PMFJI 	Pardon Me For Jumping In
+PMIGBOM 	Put Mind In Gear, Before Opening Mouth!
+PMJI 	Pardon My Jumping In
+PMT 	Pre-Menstrual Tension
+PMYMHMMFSWGAD 	Pardon Me, You Must Have Mistaken Me For Someone Who Gives A Damn
+PNC 	Point and Click Partner in Crime
+YSC 	Your So Cute
+YSI 	You Stupid Idiot
+YSK 	You Should Know
+YSMTU 	You So Made That Up
+YSS 	You Suck Severely
+YSVW 	You're So Very Welcome
+YSYL 	You Snooze, You Loose
+YT? 	You Think ?
+YTB 	You're The Best
+HBP 	Half-Blood Prince (Harry Potter)
+HBT 	How ‘Bout That
+HBTU 	Happy Birthday To You
+HBTY 	Happy Birthday To You
+HBY 	How About You?
+HC 	Holy Cow
+HCDAJFU 	He Could Do A Job For Us
+HCIT 	How Cool Is That?
+HD 	High-Definition
+HDD 	Hard Disk Drive
+HDMI 	High Definition Multimedia Interface
+HDTH 	How Did That Happen?
+HDTV 	High Definition Television
+HDY 	How Dare You
+HDYD 	How Do You Do?
+HDYDT 	How Did You Do That?
+    MGMT   Management
+    MM   Music Monday
+    MSM   Mainstream Media
+	ROTGL 	Rolling On The Ground Laughing
+ROTK 	Return of the King
+ROTM 	Run Of The Mill
+ROV 	Remotely Operated Vehicle
+ROW 	Rest Of the World
+ROY 	Relative of yours?
+RPC 	Role Playing Chat
+RPF 	Real Person Fiction
+RPG 	Rocket Propelled Grenade Role Playing Game
+RPM 	Revolutions Per Minute
+RPS 	Rock Paper Scissors
+RQ 	Random Questions
+RSI 	Repetitive Strain Injury
+RSN 	Real Soon Now
+THWU 	To Hell With You
+TIIC 	The Idiots In Charge
+TINAG 	This Is Not A Game
+TINALO 	This Is Not A Legal Opinion
+TINAR 	This Is Not A Recommendation
+TINSTAFL 	There Is No Such Thing As Free Lunch
+TLA 	Three Letter Acronym
+TLC 	Tender Loving Care
+TLD 	Top Level Domain
+TLDNR 	Too Long; Did Not Read
+TLDR 	Too Long; Didn't Read
+TLDW 	Too Long; Didn't Watch
+TLGO 	The List Goes On
+ MYOB   Mind Your Own Business
+    NAGI   Not A Good Idea
+    NFM   Not For Me
+    NFS   Not For Sale
+    NM   Nothing Much
+    NM   Not Much
+    NOYB   None Of Your Business
+    NP   No Problem
+    NSFL   Not Safe For Life
+    NSFW   Not Safe For Work
+    NTS   Note To Self
+    NVM   Never Mind
+    OH   Overheard
+    OIC   Oh, I See
+    OMG   Oh My God
+    OMW  On My Way
+    ORLY   Oh, Really?
+    OT   Off Topic
+    OTB   Off To Bed
+    OTOH   On The Other Hand
+    OTP   On The Phone
+    OTT   Over The Top
+    B4   Before
+    B4N   Bye For Now
+    BAU   Business As Usual
+    BBIAF   Be Back In A Few
+    BBIAM   Be Back In A Minute
+	MOT 	Ministry Of Transport test for car safety
+MOTB 	Mother Of The Bride
+MOTD 	Message Of The Day Match Of The Day
+MOTKU 	Master Of The Known Universe
+MOTO 	Master Of The Obvious
+MOTWYW 	Make Of That What You Will
+MOU 	Memorandum Of Understanding
+MP 	Military Police Member of Parliament
+MPA 	Music Publishers' Association
+MPAA 	Motion Picture Assosciation of America
+MPE 	My Point Exactly
+MPEG 	Moving Picture Experts Group Audio/visual file format
+MPG 	Miles Per Gallon
+MPH 	Miles Per Hour
+MPO 	My Personal Opinion
+MPOG 	Multiplayer Online Game
+MPUA 	Master Pick Up Artist
+MPV 	Multi-Purpose Vehicle
+MR 	Mentally Retarded
+MRE 	Meal, Ready to Eat
+MRI 	Magnetic Resonance Imaging
+MRP 	Manufacturer's Recommended Price
+MRW 	My Reaction When…
+MSDN 	Microsoft Developer Network
+MSDOS 	Microsoft Disk Operating System
+MS-DOS 	Microsoft Disk Operating System
+MSF 	Male Seeking Female
+MSFAM 	My Sister From Another Mister
+MSG 	Message Monosodium Glutamate
+MSI 	Mindless Self Indulgence (band)
+MSM 	Mainstream Media
+MSRP 	Manufacturer's Suggested Retail Price
+MST 	Mystery Science Theater
+MTA 	More Than Anything
+MTBF 	Mean Time Between Failures (reliability)
+MTBMW 	May The Best Man Win
+MTC 	More To Come
+MTD 	Month To Date
+ILYAM 	I Love You As a Mate
+ILYB 	I Love You Both
+ILYF 	I'll Love You Forever
+ILYG 	I Love You Guys/Girls
+    BBIAS   Be Back In A Sec
+    BBS   Be Back Soon
+    BBT  Be Back Tomorrow
+    BCNU   Be Seeing You
+    BCOY   Big Crush On You
+    BD   Big Deal
+    BF   Best Friend
+    BFAW   Best Friend At Work
+    BFD   Big Freaking Deal
+    BFF   Best Friends Forever
+    BFFN   Best Friend For Now
+    BFN   Bye For Now
+    BG   Big Grin
+    BGWM   Be Gentle With Me
+    BHL8   Be Home Late
+    BIB   Boss Is Back
+    BN  Bad News
+    BOL   Be On Later
+    BOT   Back On Topic
+    BOYF   Boyfriend
+    BRB   Be Right Back
+    BRH   Be Right Here
+    BRO   Brother
+    BRT   Be Right There
+    BT   But
+    BTW   By The Way
+    BYOC   Bring Your Own Computer
+    CMB      Call Me Back
+    CMIIW   Correct Me If I'm Wrong
+    COB   Close Of Business
+    CSL  Can't Stop Laughing
+    CU   See You
+    CUA   See You Around
+    CUL  See You Later
+    CWYL   Chat With You Later
+    CYA   Cover Your Ass
+    CYE   Check Your E-mail
+    CYO   See You Online
+DKDC   Don't Know, Don't Care
+    DM   Direct Message
+    DTS   Don't Think So
+    DUR   Do You Remember?
+    DWBH   Don't Worry, Be Happy
+    E1  Everyone
+    EF4T   Effort
+    EOD   End Of Discussion
+    F2F  Face To Face
+    FAQ   Frequently Asked Questions
+    FB   Facebook
+    FF   Follow Friday
+    FISH   First In, Still Here
+    FITB   Fill In The Blank
+    FTBOMH   From The Bottom Of My Heart
+    FTL   For The Loss / For The Lose
+    FTW   For The Win
+	 121   One-to-one (private chat initiation)
+    2day   Today
+    2M2H   Too Much Too Handle
+    2moro   Tomorrow
+    2nite   Tonight
+    4EAE   For Ever And Ever
+    AAF   As A Friend
+    AAR   At Any Rate
+    AAYF   As Always, Your Friend
+    ABD   Already Been Done
+    ACK   Acknowledge
+	NTD 	Nothing To Do
+NTFS 	New Technology File System
+NTK 	Need To Know
+NTL 	NeverTheLess
+NTM 	Not Too Much
+    ADIH   Another Day In Hell
+    ADN   Any Day Now
+    ADR   Address
+    AEAP   As Early As Possible
+    AFAIC   As Far As I am Concerned
+    AFAIK   As Far As I know
+    AKA   Also Known As
+    ATB   All The Best
+    ATEOTD   At The End Of The Day
+    ATM   At The Moment
+    AWOL   Absent Without Leave
+	TTG 	Time To Go
+TTGG 	Time To Go Girl
+TTH 	Trying Too Hard
+TTIUWP 	This Thread Is Useless Without Pictures
+TTYS 	Talk To You Soon
+TTYT 	Talk To You Tomorrow
+TTYTT 	To Tell You The Truth
+TTYVS 	Talk To You Very Soon
+TUL 	Tell You Later Text You Later
+TVM 	Thanks Very Much
+TW 	Trigger Warning
+TWAIN 	Technology Without An Interesting Name
+TWLOHA 	To Write Love On Her Arms
+TWOC 	Taken Without Owner's Consent
+TWTMC 	To Whom This May Concern
+TWU 	That's What's Up
+TWYL 	Talk With You Later
+TWYMS 	That's What Your Mom Said
+TY 	Thank You
+TYB 	Try Your Best
+TYBG 	Thank You Based God
+TYFAYS 	Thank You For All Your Support
+TYFE 	Thank You For Everything
+TYFYT 	Thank You For Your Time
+TYG 	There You Go
+TYJ 	Thank You Jesus
+TYL 	Text You Later
+TYLJ 	Thank You Lord Jesus
+    AYDY   Are You Done Yet?
+    AYEC   At Your Earliest Convenience
+    AYOR    At Your Own Risk
+    AYS    Are You Serious?
+    AYSOS   Are You Stupid Or Something?
+    AYT   Are You There?
+    BC   Because
+    FWB   Friend With Benefits
+    FWIW   For What It's Worth
+    FYEO   For Your Eyes Only
+    FYI   For Your Information
+    G4C   Going For Coffee
+    GA   Go Ahead
+    GAC   Get A Clue
+    GAS   Greetings And Salutations
+    GB   Goodbye
+    GBU   God Bless You
+    GF   Girl Friend
+    GFN   Gone For Now
+    GLHF   Good Luck, Have Fun
+    GMTA   Great Minds Think Alike
+    GNITE   Good Night
+    GR8    Great
+    GRATZ   Congratulations
+    GRL   Girl
+    GTSY   Great (or good) To See You

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+
+ps -x
+
+declare -i pID=$(pidof scrollnum)
+
+kill -19 $pID
+
+clearhat
+
+python3 secondscript.py

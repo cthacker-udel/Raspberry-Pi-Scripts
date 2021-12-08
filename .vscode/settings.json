@@ -1,0 +1,13 @@
+{
+    "files.associations": {
+        "vector": "cpp",
+        "iostream": "cpp",
+        "ostream": "cpp",
+        "cstdlib": "c",
+        "limits": "cpp",
+        "limits.h": "c",
+        "xstring": "cpp",
+        "system_error": "c",
+        "xtr1common": "c"
+    },
+}

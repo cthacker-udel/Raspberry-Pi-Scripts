@@ -1,0 +1,24 @@
+TODO: 
+1) Read through the "rules.txt"
+2) Look at the "card.h" for the struct that will be at the center of the
+   program. 
+3) Think about the set of functions shown. What will they be used for
+   in the game? Which rules match up with which function? Make comments in
+   the playGame() function about the order of function calls, any required
+   loops, and any other "high-level" design.
+4) Finish defining the showPile() function in "card.c". You should test it
+   using the small pile of cards defined in main().
+5) Define the totalPile() function. Again, test using the small pile of
+   cards defined in main().
+6) Now that you've some idea how to work with the cardT structures,
+   switch back to thinking about how to put the whole program together.
+   The cardAR.o file 
+6) Define the "make_deck" function. To start, don't worry about making a
+   whole deck's worth of cards: just see if you can put 13 cards in to a
+   pile and then have "count_cards" do the right thing. Add new cards to
+   the *head* of the linked list you are generating: don't forget that
+   "pointers" are *variables*! They can change their values. Test with
+   show() and total().
+7) Write a "deal()" that removes one card from the end of a pile and
+   returns a pointer to it. Test by showing the original pile and the
+   new "pile" of one card.
