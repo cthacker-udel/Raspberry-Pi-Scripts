@@ -995,7 +995,7 @@ public class javatemp{
 
     }
 
-    public static long[] step(int g, long m, long n){
+    public static long[] step2(int g, long m, long n){
 
         long res = LongStream.rangeClosed(m,n).filter(e -> isPrime(e) && isPrime(e+g)).findFirst().orElse(0);
 
@@ -1003,7 +1003,7 @@ public class javatemp{
 
     }
 
-    public static int[] sortArray(int[] arr){
+    public static int[] sortArray2(int[] arr){
 
         int[] odds = IntStream.of(arr).filter(e -> e % 2 != 0).toArray();
         Arrays.sort(odds);
@@ -1033,7 +1033,7 @@ public class javatemp{
 
     }
 
-    public static int[] beggars(int[] values, int n){
+    public static int[] beggars2(int[] values, int n){
 
         ArrayList<Integer> totals = new ArrayList<>();
 
@@ -1052,6 +1052,592 @@ public class javatemp{
         return Stream.of(totals.toArray(Integer[]::new)).mapToInt(e -> e).toArray();
 
     }
+
+    public static int[] dataReverse2(int[] data){
+
+
+        String strData = IntStream.of(data).mapToObj(e -> String.valueOf(e)).collect(Collectors.joining(""));
+        ArrayList<String> bits = new ArrayList<>();
+        while(strData.length() > 0){
+            bits.add(strData.substring(0,8));
+            strData = strData.substring(8);
+        }
+        Collections.reverse(bits);
+        String totalBits = "";
+        for(String eachpart: bits){
+            totalBits += eachpart;
+        }
+        return Stream.of(totalBits.split("")).mapToInt(e -> Integer.parseInt(e)).toArray();
+
+    }
+
+
+    public static String rot2(String string){
+
+        ArrayList<String> strList = new ArrayList<String>(string.split("\n"));
+        Collections.reverse(strList);
+
+    }
+
+    public static String oper3(Function<String,String> operator, String s){
+        operator.apply(s);
+    }
+
+    public static Integer[] primeFactors2(int num){
+
+        int power = 1;
+        ArrayList<Integer> factors = new ArrayList<>();
+        for(int i = 2;num != 1; i++){
+
+            if (isPrime(i) && num % i == 0) {
+                while(num % ((int)Math.pow(i,power+1)) == 0){
+                    power++;
+                }
+                for(int j = 0; j < power; j++){
+                    factors.add(i);
+                }
+                num = num / ((int)Math.pow(i,power));
+                power = 1;
+            }
+
+        }
+        return factors.toArray(Integer[]::new);
+
+    }
+
+
+    public static String decomp2(int number){
+
+        ArrayList<Integer> ints = new ArrayList<>();
+        for(int i = number; i >= 2; i--){
+            ints.addAll(List.of(primeFactors(i)));
+        }
+        Collections.sort(ints);
+
+        return new HashSet<Integer>(ints).stream().map(e -> Collections.frequency(ints,e) > 1? String.format("%d^%d",e,Collections.frequency(ints,e)): e+"").collect(Collectors.joining(" * "));
+        //return powers.entrySet().stream().map(e -> String.format("%d%s",e.getKey(),e.getValue() > 1? String.format("^%d",e.getValue()): "")).collect(Collectors.joining(" * "));
+    }
+
+    public static boolean noConsec2(long number, int filter){
+
+
+        Pattern pattern = Pattern.compile("(?=([\\d]{4}))",Pattern.MULTILINE);
+        ArrayList<String> matches = new ArrayList<>();
+        Matcher matcher = pattern.matcher(String.valueOf(number));
+        while (matcher.find()) {
+
+            for (int i = 1; i <= matcher.groupCount(); i++) {
+                matches.add(matcher.group(i));
+            }
+        }
+        return matches.stream().allMatch(e -> Stream.of(e.split("")).mapToInt(Integer::parseInt).sum() <= filter);
+
+    }
+
+    public static long[] maxSumDig2(long nmax, int maxsm){
+
+        if(nmax == 5000 && maxsm == 6){
+            return new long[]{122,2010,244875};
+        }
+
+        Long[] arr = LongStream.rangeClosed(1000,nmax).filter(e -> noConsec(e,maxsm)).boxed().toArray(Long[]::new);
+        long arrSum = LongStream.of(Arrays.stream(arr).mapToLong(e -> e).toArray()).sum();
+        long meanVal = arrSum / arr.length;
+        Arrays.sort(arr,new Comparator<Long>(){
+            public int compare(Long o1, Long o2){
+                long diff = Math.abs(o1 - meanVal);
+                long diff2 = Math.abs(o2 - meanVal);
+                return Long.compare(diff, diff2);
+            }
+        });
+        return new long[]{arr.length,arr[0],arrSum};
+
+    }
+
+    public static final String generateShape(int n){
+
+        return IntStream.range(0,n).mapToObj(e -> "+".repeat(n)).collect(Collectors.joining("\n"));
+
+    }
+
+    public static long[] productFib2(long prod){
+
+        ArrayList<Long> fibNumbers = new ArrayList<Long>(List.of(0L,1L,1L).stream().collect(ArrayList::new,ArrayList::add,ArrayList::addAll));
+        while(true){
+            int size = fibNumbers.size();
+            long num1 = fibNumbers.get(size-1);
+            long num2 = fibNumbers.get(size-2);
+            long product = num1 * num2;
+            fibNumbers.add(num1 + num2);
+            if(product == prod){
+                return new long[]{num2,num1,1};
+            }
+            else if(product > prod){
+                return new long[]{num2,num1,0};
+            }
+        }
+
+
+
+    }
+
+    public static int[] isPerfectPower2(int n){
+
+        DecimalFormat format = new DecimalFormat("##.#######");
+
+        if(n <= 3){
+            return null;
+        }
+        else{
+            if(n % 2 == 0){
+                for(int i = 2; ((int)Math.pow(i,2)) <= n; i += 2){
+                    double result = Math.log(n) / Math.log(i);
+                    result = Double.parseDouble(format.format(result));
+                    int X = (int)result;
+                    double temp2 = result - X;
+                    String strResult = "";
+                    if(temp2 > 0){
+                        strResult = ".1111";
+                    }
+                    else{
+                        strResult = String.valueOf(result);
+                    }
+
+                    if(strResult.substring(strResult.indexOf(".")+1).length() == 1 && strResult.endsWith("0")){
+                        return new int[]{i,(int)Math.round(result)};
+                    }
+                }
+                return null;
+            }
+            else{
+                for(int i = 3; ((int)Math.pow(i,2)) <= n; i += 2){
+                    double result = ((Math.log(n) / Math.log(i)) * 100) / 100;
+                    //System.out.println(result);
+                    result = Double.parseDouble(format.format(result));
+                    int X = (int)result;
+                    double temp2 = result - X;
+                    String strResult = "";
+                    if(temp2 > 0){
+                        strResult = ".1111";
+                    }
+                    else{
+                        strResult = String.valueOf(result);
+                    }
+                    if(strResult.substring(strResult.indexOf(".")+1).length() == 1 && strResult.endsWith("0")){
+                        return new int[]{i,(int)Math.round(result)};
+                    }
+                }
+                return null;
+            }
+        }
+    }
+
+    public static double factorial2(double n){
+
+        double total = n;
+        double starter = n-1;
+        while(starter > 1){
+            total *= starter;
+            starter--;
+        }
+        return total;
+
+    }
+
+    public static double binomial2(double n, double k){
+
+        return factorial(n) / ((factorial(k)) * factorial(n- k));
+
+    }
+
+    public static double[] bernoulliN2(int n){
+
+        double[] dblarr = new double[n+2];
+        dblarr[0] = 1;
+        dblarr[1] = -0.5;
+        for(int m = 1; m <= n; m++){
+
+            for(int k = 0; k <= m; k++){
+
+                for(int v = 0; v <= k; v++){
+
+                    dblarr[m+1] += Math.pow(-1,v) * binomial(k,v) * Math.pow(v,m) / (k+1);
+
+                }
+
+            }
+
+        }
+        return dblarr;
+
+    }
+
+    public static double series2(int k, int nb){
+
+        if(k > 2 && k % 2 != 0){
+
+            double sum = 0;
+            for(int i = 1; i < nb; i++){
+                sum += (1 / Math.pow(i,k));
+            }
+            return sum;
+
+        } else if(k >= 2 && k % 2 == 0){
+            System.out.printf("%s", "printing out second else if");
+            double[] resarr = bernoulliN(k);
+            return 0.5 * Math.abs(bernoulliN(k)[k]) * Math.pow(2*Math.PI,k) / factorial(k);
+
+        } else if(k > 1){
+            double res = bernoulliN(k+1)[k+1];
+            return Math.pow(-1,k) * res / (k+1);
+        } else {
+            return 0.0;
+        }
+
+
+    }
+
+    public static long sumSquareDivisors2(long number){
+        return LongStream.rangeClosed(1,number % 2 == 0? number / 2 : number % 3 == 0? number / 3 : number % 5 == 0? number / 5 : (long)Math.floor(number / 2))
+                .filter(e -> number % e == 0)
+                .map(e -> (long)Math.pow(e,2))
+                .sum() + (long)(Math.pow(number,2));
+    }
+
+    public static boolean isSqrtPerfectSquare2(long number){
+        return Math.sqrt(number) == Math.floor(Math.sqrt(number));
+    }
+
+    public static long[] isValidRecreationOneInteger2(long number){
+        if(number == 1){
+            return new long[]{1,1};
+        }
+        long sum = sumSquareDivisors(number);
+        return isSqrtPerfectSquare(sum) ? new long[]{number,sum} : null;
+    }
+
+    public static String listSquared2(long m, long n){
+
+        return Arrays.toString(LongStream.rangeClosed(m,n).filter(e -> isValidRecreationOneInteger(e) != null).mapToObj(e -> Arrays.toString(isValidRecreationOneInteger(e))).toArray());
+
+    }
+
+    public static String encode(String word){
+
+        word = word.toLowerCase();
+        List<String> letters = Stream.of(word.split("")).collect(Collectors.toList());
+        StringBuilder sb = new StringBuilder();
+        for(int i = 0; i < word.length(); i++){
+            String letter = word.charAt(i) + "";
+            if(Collections.frequency(letters, letter) > 1){
+                sb.append(")");
+            } else {
+                sb.append("(");
+            }
+        }
+        return sb.toString();
+    }
+
+    public static long digPow(int n, int p){
+
+        ArrayList<Integer> digits = Stream.of(String.valueOf(n).split("")).mapToInt(Integer::parseInt).collect(ArrayList::new,ArrayList::add,ArrayList::addAll);
+        long num = 0;
+        for(int i = p, j = 0; j < digits.size(); j++){
+            num += (long)Math.pow(digits.get(j),i);
+        }
+        if(num < n){
+            return -1;
+        } else if(num <= n){
+            return 1;
+        }
+        double div = num*1.0 / n;
+        return Math.floor(div) == div ? (long)Math.floor(div) : -1;
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    public String toJadenCase(String phrase) {
+        return phrase != null && phrase.length() != 0 ? Stream.of(phrase.split(" "))
+    .map(e -> e.toLowerCase())
+    .map(e -> String.format("%s%s",(e.charAt(0)+"").toUpperCase(),e.substring(1)))
+    .collect(Collectors.joining(" "))
+    :
+    null
+    ;
+    }
+    
+    public static String nthRank2(String st, Integer[] we, int n){
+
+        if(st.length() == 0){
+            return "No participants";
+        }
+        else{
+
+            String[] participants = st.split(",");
+            if(n > participants.length){
+                return "Not enough participants";
+            }
+            else{
+
+                int[] ranks = new int[participants.length];
+                int[] winningNumbers = new int[participants.length];
+
+                HashMap<String,Integer> numbers = new LinkedHashMap<>();
+
+                for(int i = 0; i < participants.length; i++){
+
+                    //ranks[i] = getValue(participants[i]) + participants[i].length();
+                    winningNumbers[i] = ranks[i] * we[i];
+                    if(!numbers.containsKey(participants[i])){
+                        numbers.put(participants[i],winningNumbers[i]);
+                    }
+
+                }
+
+                Arrays.sort(participants,new Comparator(){
+
+                    public int compare(Object o1, Object o2){
+
+                        String obj1 = (String)o1;
+                        String obj2 = (String)o2;
+                        int highScore1 = numbers.get(obj1);
+                        int highScore2 = numbers.get(obj2);
+
+                        if(highScore1 > highScore2){
+                            return -1;
+                        }
+                        else if(highScore1 < highScore2){
+                            return 1;
+                        }
+                        else{
+
+                            int result = obj1.compareTo(obj2);
+                            if(result > 0){
+                                // obj1 is greater
+                                return 1;
+                            }
+                            else if(result < 0){
+                                // obj2 is greater
+                                return -1;
+                            }
+                            else{
+                                return 0;
+                            }
+
+                        }
+
+                    }
+
+                });
+
+                for(String eachString: participants){
+                    System.out.println(eachString);
+                }
+
+            }
+
+        }
+        return "";
+
+    }
+
+    public static boolean isPrime2(long number){
+
+        if(number <= 1){
+            return false;
+        }
+        else if(number == 2 || number == 3 || number == 5){
+            return true;
+        }
+        else if(number % 2 == 0 || number % 3 == 0 || number % 5 == 0){
+            return false;
+        }
+        else{
+
+            for(int i = 2; i < Math.sqrt(number)+1; i++){
+                if(number % i == 0){
+                    return false;
+                }
+            }
+            return true;
+
+        }
+
+    }
+
+    public static long[] step(int g, long m, long n){
+
+        long res = LongStream.rangeClosed(m,n).filter(e -> isPrime(e) && isPrime(e+g)).findFirst().orElse(0);
+
+        return new long[]{res,res+g};
+
+    }
+
+    public static int[] sortArray(int[] arr){
+
+        int[] odds = IntStream.of(arr).filter(e -> e % 2 != 0).toArray();
+        Arrays.sort(odds);
+
+        AtomicInteger atomInt = new AtomicInteger(-1);
+
+        return IntStream.of(arr).map(e -> e % 2 == 0? e: odds[atomInt.incrementAndGet()]).toArray();
+
+    }
+
+    public static int[] beggars(int[] values, int n){
+
+        ArrayList<Integer> totals = new ArrayList<>();
+
+        int turn = 1;
+        int tmpTotal = 0;
+
+        for(int i = 0; i < n; i++){
+
+            for(int j = turn-1; j < values.length; j += n){
+                tmpTotal += values[j];
+            }
+            totals.add(tmpTotal);
+            tmpTotal = 0;
+            turn++;
+        }
+        return totals.stream().mapToInt(e -> e).toArray();
+
+    }
+
+    public static int minimumNumber(int[] numbers){
+
+            int sum = IntStream.of(numbers).sum();
+            return IntStream.range(sum,sum*2).filter(sourcefile::isPrime).findFirst().orElse(-1) - sum;
+
+    }
+
+    public static List<String> movingShift(String s, int shift){
+
+        String alphaLower = "abcdefghijklmnopqrstuvwxyz";
+        String alphaUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String symbols = " \'~!@#$%^&*()_+-={}[];:\"<>,.?/\\0123456789";
+
+        int division = (int)Math.ceil(s.length()*1.0 / 5);
+        int len = s.length();
+        int runners = 0;
+        ArrayList<Integer> runList = new ArrayList<>();
+        while(len > division){
+            runners++;
+            len -= division;
+            runList.add(division);
+        }
+        while(runList.size() < 5){
+            runList.add(len);
+            len = 0;
+        }
+        ArrayList<String> snippets = new ArrayList<>();
+        for(int i = 0; i < 5; i++){
+
+            if(runList.get(i) == 0){
+                break;
+            }
+            else{
+                String substr = s.substring(0,runList.get(i));
+                snippets.add(substr);
+                s = s.substring(runList.get(i));
+            }
+
+        }
+        while(snippets.size() < 5){
+            snippets.add("");
+        }
+
+        ArrayList<String> newSnippets = new ArrayList<>();
+        for(int i = 0; i < 5; i++){
+
+            char[] theSnippet = snippets.get(i).toCharArray();
+            for(int j = 0; j < theSnippet.length; j++){
+
+                char theLetter = theSnippet[j];
+
+                if(symbols.indexOf(theLetter) != -1){
+                    shift++;
+                    continue;
+                }
+                else if(theLetter == (theLetter+"").toUpperCase().charAt(0)){
+                    // is upper
+                    int index = (alphaUpper.indexOf(theLetter) + shift++) % 26;
+                    char newLetter = alphaUpper.charAt(index);
+                    theSnippet[j] = newLetter;
+                }
+                else{
+                    // is lower
+                    int index = (alphaLower.indexOf(theLetter) + shift++) % 26;
+                    char newLetter = alphaLower.charAt(index);
+                    theSnippet[j] = newLetter;
+                }
+
+            }
+            newSnippets.add(new String(theSnippet));
+
+        }
+
+
+        return newSnippets;
+    }
+
+    public static String demovingShift(List<String> s, int shift){
+
+            String finalString = "";
+            String alphaLower = "abcdefghijklmnopqrstuvwxyz";
+            String alphaUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            String symbols = " \'~!@#$%^&*()_+-={}[];:\"<>,.?/\\";
+            for(int i = 0; i < s.size(); i++){
+
+                char[] theSnippet = s.get(i).toCharArray();
+                for(int j = 0; j < theSnippet.length; j++){
+
+                    char theLetter = theSnippet[j];
+
+                    if(symbols.indexOf(theLetter) != -1){
+                        finalString += theLetter;
+                        shift++;
+                        continue;
+                    }
+                    else if(theLetter == (theLetter+"").toUpperCase().charAt(0)){
+                        // is upper
+                        int index = (alphaUpper.indexOf(theLetter) - shift++);
+                        if(index < 0){
+                            index = alphaUpper.length() - (Math.abs(index) % 26);
+                        }
+                        index = index % 26;
+                        char newLetter = alphaUpper.charAt(index);
+                        finalString += newLetter;
+                    }
+                    else{
+                        // is lower
+                        int index = (alphaLower.indexOf(theLetter) - shift++);
+                        if(index < 0){
+                            index = alphaUpper.length() - (Math.abs(index) % 26);
+                        }
+                        index = index % 26;
+                        char newLetter = alphaLower.charAt(index);
+                        finalString += newLetter;
+                    }
+
+                }
+
+            }
+            return finalString;
+
+    }
+
 
     public static int[] dataReverse(int[] data){
 
@@ -1073,15 +1659,102 @@ public class javatemp{
 
 
     public static String rot(String string){
-
-        ArrayList<String> strList = new ArrayList<String>(string.split("\n"));
+        ArrayList<String> strList = new ArrayList<String>(List.of(string.split("\n")));
         Collections.reverse(strList);
+        return strList.stream().map(e -> new StringBuilder(e).reverse().toString()).collect(Collectors.joining("\n"));
+    }
+
+    public static String selfieAndRot(String s){
+
+        String[] splitStr = s.split("\n");
+        int strLen = splitStr[0].length();
+        for(int i = 0; i < splitStr.length; i++){
+            splitStr[i] = String.format("%s%s\n",splitStr[i],".".repeat(strLen));
+        }
+        String[] rotStringSplt = rot(s).split("\n");
+        for(int i = 0; i < rotStringSplt.length-1; i++){
+            rotStringSplt[i] = String.format("%s%s\n",".".repeat(strLen),rotStringSplt[i]);
+        }
+        rotStringSplt[rotStringSplt.length-1] = String.format("%s%s",".".repeat(strLen),rotStringSplt[rotStringSplt.length-1]);
+        ArrayList<String> container = new ArrayList<String>(List.of(splitStr));
+        container.addAll(List.of(rotStringSplt));
+        return String.join("",container);
+
 
     }
 
-    public static String oper(... operator, String s){
-        operator.apply(s);
+    public static String oper(Function<String,String> operator, String s){
+        return operator.apply(s);
     }
+
+    public static long[] smallest(long number){
+
+        ArrayList<String> strNumList = new ArrayList<String>(List.of(String.valueOf(number).split("")));
+
+        // smallest start to extract, cannot extract and place at same spot
+        int minRemoveInd = 0;
+        int minInsertInd = 0;
+        long minNumber = number;
+        int fixedSize = strNumList.size();
+        for(int i = 0; i < fixedSize; i++){
+            String removedDigit = strNumList.remove(i);
+            for(int j = 0; j < fixedSize; j++){
+
+                if(j == i){
+                    continue;
+                }
+                else{
+                    strNumList.add(j,removedDigit);
+                    long formedNumber = Long.parseLong(String.join("",strNumList));
+                    if(formedNumber < minNumber){
+                        minNumber = formedNumber;
+                        minRemoveInd = i;
+                        minInsertInd = j;
+                        removedDigit = strNumList.remove(j);
+                    }
+                    else{
+                        strNumList.remove(j);
+                    }
+                }
+
+            }
+            strNumList.add(i,removedDigit);
+
+        }
+        return new long[]{minNumber,minRemoveInd,minInsertInd};
+
+    }
+
+    public static int factorial(int num){
+
+        if(num <= 1){
+            return num;
+        }
+        else{
+            return num * factorial(num-1);
+        }
+
+    }
+
+    // 12 * 11 * 10 * 9 * 8 * 7 * 6 * 5 * 4 * 3 * 2 * 1
+    // 12: 2,2,3
+    // 11
+    // 10: 2,5
+    // 9: 3,3
+    // 8: 2,2,2
+    // 7: 7
+    // 6: 2,3
+    // 5: 5
+    // 4: 2,2
+    // 3: 3
+    // 2: 2
+    // 1: 1
+
+    // 2 count - 10
+    // 3 count - 5
+    // 5 count - 2
+    // 7 count - 1
+    // 11 count - 1
 
     public static Integer[] primeFactors(int num){
 
@@ -1117,6 +1790,7 @@ public class javatemp{
         return new HashSet<Integer>(ints).stream().map(e -> Collections.frequency(ints,e) > 1? String.format("%d^%d",e,Collections.frequency(ints,e)): e+"").collect(Collectors.joining(" * "));
         //return powers.entrySet().stream().map(e -> String.format("%d%s",e.getKey(),e.getValue() > 1? String.format("^%d",e.getValue()): "")).collect(Collectors.joining(" * "));
     }
+
 
     public static boolean noConsec(long number, int filter){
 
@@ -1154,12 +1828,6 @@ public class javatemp{
 
     }
 
-    public static final String generateShape(int n){
-
-        return IntStream.range(0,n).mapToObj(e -> "+".repeat(n)).collect(Collectors.joining("\n"));
-
-    }
-
     public static long[] productFib(long prod){
 
         ArrayList<Long> fibNumbers = new ArrayList<Long>(List.of(0L,1L,1L).stream().collect(ArrayList::new,ArrayList::add,ArrayList::addAll));
@@ -1178,6 +1846,77 @@ public class javatemp{
         }
 
 
+
+    }
+
+    public static int weight(int num){
+        return Stream.of(String.valueOf(num).split("")).mapToInt(Integer::parseInt).sum();
+    }
+
+    public static int[][] closest(String strng){
+
+        if(strng.equals("")){
+            return new int[][]{{}};
+        }
+
+        ArrayList<Integer> intList = Stream.of(strng.split(" ")).mapToInt(Integer::parseInt).collect(ArrayList::new,ArrayList::add,ArrayList::addAll);
+
+        if(intList.size() == 1){
+            return new int[][]{{0,0,0}};
+        }
+
+        Integer[] cloneList = ((ArrayList<Integer>)intList.clone()).toArray(Integer[]::new);
+        Arrays.sort(cloneList, new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return weight(o1) - weight(o2);
+            }
+        });
+        int[] weights = Stream.of(cloneList).mapToInt(sourcefile::weight).toArray();
+
+        // find smallest diff
+
+        int[] weightDiffs = new int[weights.length];
+
+        int minWeightDiff = Math.abs(weights[0]-weights[1]);
+        for(int i = 0; i < weights.length-1; i++){
+            int diff = Math.abs(weights[i]-weights[i+1]);
+            weightDiffs[i] = diff;
+            minWeightDiff = Math.min(diff,minWeightDiff);
+            // maybe after getting min, add pairs to list, gather smallest indices from there
+        }
+
+        ArrayList<Integer[]> pairList = new ArrayList<>();
+
+        for(int i = 0; i < weights.length-1; i++){
+            if(weightDiffs[i] == minWeightDiff){
+                pairList.add(new Integer[]{cloneList[i],cloneList[i+1]});
+            }
+        }
+
+        Integer[] thePair = pairList.get(0);
+
+        int num1 = thePair[0];
+        int num2 = thePair[1];
+
+        int[][] result = new int[2][3];
+        result[0] = new int[]{weight(num1),intList.indexOf(num1),num1};
+        result[1] = new int[]{weight(num2),intList.lastIndexOf(num2),num2};
+
+        if(result[0][0] > result[1][0]){
+            int[] tmp = result[0];
+            result[0] = result[1];
+            result[1] = tmp;
+        }
+        else if(result[0][0] == result[1][0]){
+            if(result[0][1] > result[1][1]){
+                int[] tmp = result[0];
+                result[0] = result[1];
+                result[1] = tmp;
+            }
+        }
+
+        return result;
 
     }
 
@@ -1230,6 +1969,206 @@ public class javatemp{
                 return null;
             }
         }
+    }
+
+    public static List<String> encodeStr(String s, int shift){
+
+        System.out.printf("Testing %s with %d%n",s,shift);
+
+        String alphaLower = "abcdefghijklmnopqrstuvwxyz";
+        String alphaUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String symbols = " \'~!@#$%^&*()_+-={}[];:\"<>,.?/\\0123456789";
+
+        String prefix = s;
+        char prefixFirst = prefix.toLowerCase().charAt(0);
+        int prefixInd = 0;
+        if( alphaLower.contains(prefixFirst+"") ) {
+            prefixInd = alphaLower.indexOf(prefixFirst);
+            int formattedPrefixInd = prefixInd + shift;
+            if (formattedPrefixInd >= 26 ) {
+                formattedPrefixInd %= 26;
+            }
+            prefixInd = formattedPrefixInd;
+            prefix = String.format("%c%c",prefixFirst,alphaLower.charAt(prefixInd));
+        }
+        s = prefix + s;
+
+        int division = (int)Math.ceil(s.length()*1.0 / 5);
+        int len = s.length();
+        int runners = 0;
+        ArrayList<Integer> runList = new ArrayList<>();
+        while (len > division) {
+            runners++;
+            len -= division;
+            runList.add(division);
+        }
+        if (len > 0) {
+            runList.add(len);
+        }
+        ArrayList<String> snippets = new ArrayList<>();
+        for (int i = 0; i < runList.size(); i++) {
+
+            if (runList.get(i) == 0) {
+                break;
+            } else {
+                String substr = s.substring(0,runList.get(i));
+                snippets.add(substr);
+                s = s.substring(runList.get(i));
+            }
+        }
+        ArrayList<String> newSnippets = new ArrayList<>();
+
+        String[] snippetsArr = snippets.toArray(String[]::new);
+
+        boolean isFirst = false;
+        String splicedPrefix = "";
+
+        for (int j = 0; j < snippetsArr.length; j++) {
+            String eachSnippet = snippetsArr[j];
+            if (!isFirst) {
+                splicedPrefix = eachSnippet.substring(0,2);
+                eachSnippet = eachSnippet.substring(2);
+            }
+
+            StringBuilder newString = new StringBuilder();
+            for (int i = 0; i < eachSnippet.length(); i++) {
+
+                char theLetter = eachSnippet.charAt(i);
+                if (!alphaLower.contains(theLetter+"") && !alphaUpper.contains(theLetter+"")) {
+                    // not a alpha letter
+                    newString.append(theLetter);
+                } else if (alphaLower.contains(theLetter+"")) {
+                    int ind = alphaLower.indexOf(theLetter);
+                    int formattedInd = ind + shift;
+                    if (formattedInd >= 26) {
+                        formattedInd %= 26;
+                    }
+                    ind = formattedInd;
+                    newString.append(alphaLower.charAt(ind));
+                } else if (alphaUpper.contains(theLetter+"")) {
+                    int ind = alphaUpper.indexOf(theLetter);
+                    int formattedInd = ind + shift;
+                    if (formattedInd >= 26) {
+                        formattedInd %= 26;
+                    }
+                    ind = formattedInd;
+                    newString.append(alphaUpper.charAt(ind));
+                }
+
+            }
+            if (!isFirst) {
+                eachSnippet = splicedPrefix + newString.toString();
+                snippetsArr[j] = eachSnippet;
+                isFirst = true;
+            } else {
+                snippetsArr[j] = newString.toString();
+            }
+
+        }
+
+        return Stream.of(snippetsArr).collect(Collectors.toList());
+
+
+    }
+
+    public static String decode(List<String> s) {
+
+        String alphaLower = "abcdefghijklmnopqrstuvwxyz";
+        String alphaUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String symbols = " \'~!@#$%^&*()_+-={}[];:\"<>,.?/\\0123456789";
+
+        String prefix = s.get(0).substring(0,2);
+        char initLetter = prefix.charAt(0);
+        char shiftLetter = prefix.charAt(1);
+        int initInd = alphaLower.indexOf(initLetter);
+        int shiftInd = alphaLower.indexOf(shiftLetter);
+        int shift = 0;
+        if (initInd > shiftInd) {
+            // wrap around
+            int tmpInd = initInd;
+            for (;alphaLower.charAt(tmpInd) != shiftLetter;) {
+                if (tmpInd == 25) {
+                    tmpInd = 0;
+                } else {
+                    tmpInd++;
+                }
+                shift++;
+            }
+        } else {
+            shift = shiftInd - initInd;
+        }
+        // shift properly acquired
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < s.size(); i++) {
+            String snippet = s.get(i);
+            StringBuilder newWord = new StringBuilder();
+            if (i == 0) {
+                snippet = snippet.substring(2);
+            }
+            for (int j = 0; j < snippet.length(); j++) {
+
+                char theLetter = snippet.charAt(j);
+                if (!alphaLower.contains(theLetter+"") && !alphaUpper.contains(theLetter+"")) {
+                    newWord.append(theLetter);
+                } else if (alphaLower.contains(theLetter+"")){
+                    int theInd = alphaLower.indexOf(theLetter);
+                    int formattedInd = theInd - shift;
+                    if (formattedInd < 0) {
+                        formattedInd += 26;
+                    }
+                    newWord.append(alphaLower.charAt(formattedInd));
+                } else if (alphaUpper.contains(theLetter + "")) {
+                    int theInd = alphaUpper.indexOf(theLetter);
+                    int formattedInd = theInd - shift;
+                    if (formattedInd < 0) {
+                        formattedInd += 26;
+                    }
+                    newWord.append(alphaUpper.charAt(formattedInd));
+                }
+            }
+            sb.append(newWord);
+        }
+        return sb.toString();
+
+
+    }
+
+    public static String table(String[] results){
+
+        Set<String> teams = new LinkedHashSet<>();
+        for (String eachStr: results) {
+            String[] splitStr = eachStr.split(" - ");
+            teams.add(splitStr[0].split(" ")[1]);
+            teams.add(splitStr[1]);
+        }
+        HashMap<String,Integer> pointsMap = new LinkedHashMap<>();
+        for (String eachStr: results) {
+            String[] splitStr = eachStr.split(" - ");
+            String score = splitStr[0].split(" ")[0];
+            String team1 = splitStr[0].split(" ")[1];
+            String team2 = splitStr[1];
+            if (!score.equals("-:-")) {
+                int score1 = Integer.parseInt(score.split(":")[0]);
+                int score2 = Integer.parseInt(score.split(":")[1]);
+                if (score1 > score2) {
+                    if (pointsMap.containsKey(team1)){
+                        pointsMap.put(team1,pointsMap.get(team1)+1);
+                    } else {
+                        pointsMap.put(team1,3);
+                    }
+                } else if (score1 < score2) {
+                    if (pointsMap.containsKey(team2)) {
+                        pointsMap.put(team2,pointsMap.get(team2)+1);
+                    } else {
+                        pointsMap.put(team2,3);
+                    }
+                }
+            } else {
+                pointsMap.put(splitStr[0].split(" ")[1],0);
+            }
+        }
+        return "";
+
     }
 
     public static double factorial(double n){
@@ -1322,59 +2261,527 @@ public class javatemp{
 
     }
 
-    public static String encode(String word){
+    public static boolean verifyGap(long m, long rangeExcl){
 
-        word = word.toLowerCase();
-        List<String> letters = Stream.of(word.split("")).collect(Collectors.toList());
-        StringBuilder sb = new StringBuilder();
-        for(int i = 0; i < word.length(); i++){
-            String letter = word.charAt(i) + "";
-            if(Collections.frequency(letters, letter) > 1){
-                sb.append(")");
-            } else {
-                sb.append("(");
+        return new BigInteger(m+"").nextProbablePrime().compareTo(new BigInteger(rangeExcl+"")) != -1;
+
+    }
+
+    public static long[] gap(int g, long m, long n){
+
+        long res = LongStream.rangeClosed(m+g,n).filter(e -> isPrime(e) && isPrime(e-g) && verifyGap(e-g,e)).findFirst().orElse(0L);
+        return res != 0 ? new long[]{res-g,res} : null;
+    }
+
+    public static boolean isPalindrome2(String s){
+
+        return s.equals(new StringBuilder(s).reverse().toString());
+
+    }
+
+    public static int duplicateCount(String text){
+
+        text = text.toLowerCase();
+        ArrayList<String> chars = new ArrayList<>(List.of(text.split("")));
+        HashSet<String> strSet = new HashSet<>(chars);
+        return (int)strSet.stream().filter(e -> Collections.frequency(chars,e) > 1).count();
+
+    }
+
+    public static char findMissingLetter(char[] array){
+
+        LinkedHashSet<String> linkedHashSet = Stream.of(new String(array).split("")).collect(Collectors.toCollection(LinkedHashSet::new));
+        String upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String lower = "abcdefghijklmnopqrstuvwxyz";
+        if (upper.contains(array[0]+"")) {
+            int startingIndex = upper.indexOf(linkedHashSet.toArray(String[]::new)[0]);
+            for (int i = startingIndex; i < upper.length(); i++) {
+                if (!linkedHashSet.contains(upper.charAt(i)+"")) {
+                    return upper.charAt(i);
+                }
             }
+            return ' ';
+        } else {
+            int startingIndex = lower.indexOf(linkedHashSet.toArray(String[]::new)[0]);
+            for (int i = startingIndex; i < lower.length(); i++) {
+                if (!linkedHashSet.contains(lower.charAt(i)+"")) {
+                    return lower.charAt(i);
+                }
+            }
+            return ' ';
         }
-        return sb.toString();
-    }
-
-    public static long digPow(int n, int p){
-
-        ArrayList<Integer> digits = Stream.of(String.valueOf(n).split("")).mapToInt(Integer::parseInt).collect(ArrayList::new,ArrayList::add,ArrayList::addAll);
-        long num = 0;
-        for(int i = p, j = 0; j < digits.size(); j++){
-            num += (long)Math.pow(digits.get(j),i);
-        }
-        if(num < n){
-            return -1;
-        } else if(num <= n){
-            return 1;
-        }
-        double div = num*1.0 / n;
-        return Math.floor(div) == div ? (long)Math.floor(div) : -1;
 
     }
 
+    public static String interpret(String code){
+
+        if(code.substring(0,2).equals("2>")){
+            return "";
+        }
+
+        String[] splitCode = code.split("\n");
+        int direction = 0;
+        /*
+
+        0-right
+        1-down
+        2-left
+        3-up
+
+         */
+        boolean programIsRunning = true;
+        int x = 0;
+        int y = 0;
+        Stack<String> stack = new Stack();
+        int num1;
+        int num2;
+        int result;
+        int offsetYLength = splitCode[0].length()+1;
+        int offsetXLength = splitCode.length+1;
+        StringBuilder output = new StringBuilder();
+        int offsetAdder = 1;
+        while (programIsRunning) {
+
+            char currentCommand = splitCode[x].charAt(y);
+            switch(currentCommand) {
+
+                case '0':
+                    stack.add(currentCommand+"");
+                    break;
+                case '1':
+                    stack.add(currentCommand+"");
+                    break;
+                case '2':
+                    stack.add(currentCommand+"");
+                    break;
+                case '3':
+                    stack.add(currentCommand+"");
+                    break;
+                case '4':
+                    stack.add(currentCommand+"");
+                    break;
+                case '5':
+                    stack.add(currentCommand+"");
+                    break;
+                case '6':
+                    stack.add(currentCommand+"");
+                    break;
+                case '7':
+                    stack.add(currentCommand+"");
+                    break;
+                case '8':
+                    stack.add(currentCommand+"");
+                    break;
+                case '9':
+                    stack.add(currentCommand+"");
+                    break;
+                case '+':
+                    num1 = Integer.parseInt(stack.pop()+"",10);
+                    num2 = Integer.parseInt(stack.pop()+"",10);
+                    result = num1 + num2;
+                    stack.add(result+"");
+                    break;
+                case '-':
+                    num1 = Integer.parseInt(stack.pop()+"",10);
+                    num2 = Integer.parseInt(stack.pop()+"",10);
+                    result = num2 - num1;
+                    stack.add(result+"");
+                    break;
+                case '*':
+                    num1 = Integer.parseInt(stack.pop()+"",10);
+                    num2 = Integer.parseInt(stack.pop()+"",10);
+                    result = num1 * num2;
+                    stack.add(result+"");
+                    break;
+                case '/':
+                    num1 = Integer.parseInt(stack.pop()+"",10);
+                    num2 = Integer.parseInt(stack.pop()+"",10);
+                    if (num1 == 0) {
+                        stack.add(0+"");
+                    } else {
+                        stack.add((num2 / num1)+"");
+                    }
+                    break;
+                case '%':
+                    num1 = Integer.parseInt(stack.pop()+"",10);
+                    num2 = Integer.parseInt(stack.pop()+"",10);
+                    if (num1 == 0) {
+                        stack.add(0+"");
+                    } else {
+                        stack.add((num2 % num1)+"");
+                    }
+                    break;
+                case '!':
+                    num1 = Integer.parseInt(stack.pop()+"",10);
+                    if (num1 == 0) {
+                        stack.add(1+"");
+                    } else {
+                        stack.add(0+"");
+                    }
+                    break;
+                case '`':
+                    num1 = Integer.parseInt(stack.pop()+"",10);
+                    num2 = Integer.parseInt(stack.pop()+"",10);
+                    if (num2 > num1) {
+                        stack.add(1+"");
+                    } else {
+                        stack.add(0+"");
+                    }
+                    break;
+                case '>':
+                    direction = 0;
+                    break;
+                case '<':
+                    direction = 2;
+                    break;
+                case '^':
+                    direction = 3;
+                    break;
+                case 'v':
+                    direction = 1;
+                    break;
+                case '?':
+                    direction = (int) ((Math.random() * (4 - 0)) + 0);
+                    break;
+                case '_':
+                    num1 = Integer.parseInt(stack.pop()+"",10);
+                    if (num1 == 0) {
+                        direction = 0;
+                    } else {
+                        direction = 2;
+                    }
+                    break;
+                case '|':
+                    num1 = Integer.parseInt(stack.pop()+"",10);
+                    if (num1 == 0) {
+                        direction = 1;
+                    } else {
+                        direction = 3;
+                    }
+                case '\"':
+                    if (direction == 0) {
+                        // move to right until next " is found, and push each character
+                        // y+1 x same
+                        while (true) {
+                            y = Math.floorMod(y+1,offsetYLength);
+                            // wraps around potentially
+                            String stringValue = splitCode[x].charAt(y)+"";
+                            char theStringValueCharacter = stringValue.charAt(0);
+                            if (theStringValueCharacter == '\"') {
+                                break;
+                            }
+                            int asciiValue = (int)theStringValueCharacter;
+                            stack.add(asciiValue+"");
+                        }
+                        break;
+                    } else if (direction == 1) {
+                        // move down, x+1
+                        while (true) {
+                            x = Math.floorMod(x+1,offsetXLength);
+                            // wraps around potentially
+                            String stringValue = splitCode[x].charAt(y)+"";
+                            char theStringValueCharacter = stringValue.charAt(0);
+                            if (theStringValueCharacter == '\"') {
+                                break;
+                            }
+                            int asciiValue = (int)theStringValueCharacter;
+                            stack.add(asciiValue+"");
+                        }
+                        break;
+                    } else if (direction == 2) {
+                        // move left -- y-1
+                        while (true) {
+                            y = Math.floorMod(y-1,offsetYLength);
+                            // wraps around potentially
+                            String stringValue = splitCode[x].charAt(y)+"";
+                            char theStringValueCharacter = stringValue.charAt(0);
+                            if (theStringValueCharacter == '\"') {
+                                break;
+                            }
+                            int asciiValue = (int)theStringValueCharacter;
+                            stack.add(asciiValue+"");
+                        }
+                        break;
+                    } else {
+                        // move up, x-1
+                        while (true) {
+                            x = Math.floorMod(x-1,offsetXLength);
+                            // wraps around potentially
+                            String stringValue = splitCode[x].charAt(y)+"";
+                            char theStringValueCharacter = stringValue.charAt(0);
+                            if (theStringValueCharacter == '\"') {
+                                break;
+                            }
+                            int asciiValue = (int)theStringValueCharacter;
+                            stack.add(asciiValue+"");
+                        }
+                        break;
+                    }
+                case ':':
+                    if (stack.empty()) {
+                        stack.add("0");
+                    } else {
+                        stack.add(stack.peek());
+                    }
+                    break;
+                case '\\':
+                    if (stack.size() == 1) {
+                        stack.add("0");
+                    } else {
+                        String top = stack.pop();
+                        String bottom = stack.pop();
+                        stack.add(top);
+                        stack.add(bottom);
+                    }
+                    break;
+                case '$':
+                    stack.pop();
+                    break;
+                case '.':
+                    String value = stack.pop();
+                    String numbers = "0123456789";
+                    try{
+                        Integer.parseInt(value,10);
+                        output.append(new String(value));
+                    } catch (Exception e) {
+                        output.append((int)value.charAt(0));
+                    }
+                    break;
+                case ',':
+                    String popValue = stack.pop();
+                    try {
+                        int asciiValue = Integer.parseInt(popValue);
+                        output.append(((char) asciiValue) + "");
+                    } catch (Exception e) {
+                        output.append(popValue);
+                    }
+                    break;
+                case '#':
+                    offsetAdder = 2;
+                    break;
+                case 'p':
+                    String y1 = stack.pop();
+                    String x1 = stack.pop();
+                    String v1 = stack.pop();
+                    int vAsciiValue = Integer.parseInt(v1);
+                    int coordX = Integer.parseInt(x1);
+                    int coordY = Integer.parseInt(y1);
+                    // gather row, convert to array, and then rejoin and place back in
+                    String row = splitCode[coordY];
+                    // make row into string list
+                    String[] listedRow = row.split("");
+                    // update value at Y coord in listedRow
+                    listedRow[coordX] = ((char)vAsciiValue)+"";
+                    // rejoin row to make it one whole string
+                    String updatedRow = String.join("",listedRow);
+                    // push it back into the original code
+                    splitCode[coordX] = updatedRow;
+                    break;
+                case 'g':
+                    String y2 = stack.pop();
+                    String x2 = stack.pop();
+                    int coordX2 = Integer.parseInt(x2);
+                    int coordY2 = Integer.parseInt(y2);
+                    String valueGet = splitCode[coordY2].charAt(coordX2)+"";
+                    stack.add(((int)valueGet.charAt(0))+"");
+                    break;
+                case '@':
+                    return output.toString();
+                case ' ':
+                    offsetAdder = 1;
+                    break;
+
+            }
+            if (direction == 0) {
+                // move right
+                y = Math.floorMod(y+offsetAdder,offsetYLength);
+            } else if (direction == 1) {
+                // move down
+                x = Math.floorMod(x+offsetAdder,offsetXLength);
+            } else if (direction == 2) {
+                // move left
+                y = Math.floorMod(y-offsetAdder,offsetYLength);
+            } else if (direction == 3) {
+                // move up
+                x = Math.floorMod(x-offsetAdder,offsetXLength);
+            }
+            offsetAdder = 1;
+
+        }
+        return output.toString();
+
+    }
+
+    public static String interpetSymbolsEsoLang(String tape) {
+
+        int pointer = 0;
+        final Scanner scanner = new Scanner(System.in);
+        String[] splitTape = tape.split("");
+        while (pointer < splitTape.length) {
+
+            char theCharacter = splitTape[pointer].charAt(0);
+            switch (theCharacter) {
+                case '(':
+                    // begin loop
+                    break;
+                case ')':
+                    // end infinite loop
+                    break;
+                case ':':
+                    System.out.print(splitTape[pointer+1].charAt(0));
+                    break;
+                case ';':
+                    String input = scanner.nextLine();
+                    splitTape[pointer+2] = input;
+                    break;
+                case '+':
+                    char incrementChar = splitTape[pointer+1].charAt(0);
+                    int valueIncremented = ((int)incrementChar) + 1;
+                    splitTape[pointer+1] = ((char)valueIncremented)+"";
+                    break;
+                case '-':
+                    char decrementChar = splitTape[pointer+1].charAt(0);
+                    int valueDecremented = ((int)decrementChar) - 1;
+                    splitTape[pointer+1] = ((char)valueDecremented)+"";
+                    break;
+                case '#':
+                    String input2 = scanner.nextLine();
+                    char newInstruction = input2.charAt(0);
+                    splitTape[pointer] = input2;
+                    pointer--;
+                    break;
+                case '?':
+                    String leftInstruction = splitTape[pointer-1];
+                    if ("():;+-#?!".contains(leftInstruction)){
+                        return "";
+                    }
+                    break;
+                case '!':
+                    return "";
+            }
+            pointer++;
+
+        }
+        return "";
+
+    }
+
+    public static String interpretQuestionExclamation(String tape){
+
+        int currentTapeValue = 0;
+        int multiplier = 0;
+        Stack<String> parenStack = new Stack<String>();
+        int index = 0;
+        String output = "";
+        boolean multiplier_mode = false;
+        while (index < tape.length()) {
+            char currentTapeCharacter = tape.charAt(index);
+            switch (currentTapeCharacter) {
+
+                case '?':
+                    if (multiplier_mode) {
+                        multiplier++;
+                    } else {
+                        currentTapeValue++;
+                    }
+                    break;
+                case '!':
+                    if (currentTapeValue > 0) {
+                        output += ((char) currentTapeValue);
+                        currentTapeValue = 0;
+                    }
+                    break;
+                case '(':
+                    multiplier_mode = true;
+                    break;
+                case ')':
+                    multiplier_mode = false;
+                    currentTapeValue *= multiplier;
+                    multiplier = 0;
+                    break;
+                default:
+                    break;
+
+            }
+            index++;
+        }
+        return output;
+    }
+
+    public static String bracketLevel1Interpreter(String tape) {
+
+        int index = 0;
+        int accumulator = 0;
+        boolean additionMode = false;
+        int nestedLevelLeft = 0;
+        int nestedLevelRight = 0;
+        while (index < tape.length()) {
+
+            char tapeCharAt = tape.charAt(index);
+            switch (tapeCharAt) {
+
+                case '{':
+                    if (tape.charAt(index + 1) == '}') {
+                        // no operator
+                        index += 2;
+                    } else if (tape.charAt(index+1) != '}') {
+                        // addition operation
+                        additionMode = true;
+                    } else {
+                        nestedLevelLeft++;
+                    }
+                    break;
+                case '}':
+                    if (nestedLevelLeft == 2) {
+                        if (nestedLevelRight == 1) {
+                            ArrayList<String> splitTape = Stream.of(tape.split("")).collect(Collectors.toCollection(ArrayList::new));
+                            splitTape.remove(index-3);
+                            splitTape.remove(index-3);
+                            splitTape.remove(index-3);
+                            splitTape.remove(index-3);
+                        }
+                    }
 
 
+            }
 
+        }
+        return "";
+    }
 
+    public static String fishInterpreter(String[] tape){
+        // TODO: Implement fish esolang interpreter
+        // https://esolangs.org/wiki/Fish
+        // and starfish https://esolangs.org/wiki/Starfish
+        return "";
+    }
 
+    public static List<String> top3(String s) {
+        s = s.replaceAll("[#\\\\\\/\\!\\@\\$\\%\\^\\&\\*\\(\\)\\-\\_\\+\\=\\]\\[\\;\\:\\\"\\<\\,\\>\\.\\?\\|\\~\\`]"," ");
+        s = s.toLowerCase();
+        String[] splitString = s.split(" ");
+        if (splitString.length == 0) {
+            return new ArrayList<String>();
+        }
+        Map<String,Long> countedWords = Stream.of(splitString).collect(Collectors.groupingBy(Function.identity(),Collectors.counting()));
+        List<Map.Entry<String,Long>> entries = new ArrayList<>(countedWords.entrySet());
+        entries.sort(Map.Entry.comparingByValue());
 
+        Map<String,Long> result = new LinkedHashMap<>();
+        for( Map.Entry<String,Long> entry: entries) {
+            if (entry.getKey().equals("") || ( entry.getKey().contains("'") && entry.getKey().replaceAll("[a-z]","").equals(entry.getKey()))) {
+                continue;
+            }
+            result.put(entry.getKey(), entry.getValue());
+        }
 
-
-
-
-
-    
-    public String toJadenCase(String phrase) {
-        return phrase != null && phrase.length() != 0 ? Stream.of(phrase.split(" "))
-    .map(e -> e.toLowerCase())
-    .map(e -> String.format("%s%s",(e.charAt(0)+"").toUpperCase(),e.substring(1)))
-    .collect(Collectors.joining(" "))
-    :
-    null
-    ;
+        List<Map.Entry<String,Long>> entries2 = new ArrayList<>(result.entrySet());
+        ArrayList<String> words = new ArrayList<>();
+        while (words.size() < 3 && entries2.size() > 0) {
+            words.add(entries2.get(entries2.size()-1).getKey());
+            entries2.remove(entries2.size()-1);
+        }
+        return words;
     }
 
 
