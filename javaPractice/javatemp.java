@@ -1105,6 +1105,116 @@ public class javatemp{
 
     }
 
+    public static String amNowInterpreter(String tape) {
+
+        Stack<Integer> stack = new Stack<>();
+        String[] splitTape = tape.split(" ");
+        final Scanner scanner = new Scanner(System.in);
+        int register = 0;
+        int index = 0;
+        String output = "";
+        while (index < splitTape.length) {
+
+            String command = splitTape[index];
+            switch (command) {
+
+                case "-": {
+                    stack.add(0);
+                    break;
+                }
+                case "=": {
+                    register += 1;
+                    break;
+                }
+                case "≡": {
+                    register += 10;
+                    break;
+                }
+                case "~": {
+                    register += 100;
+                    break;
+                }
+                case "∽": {
+                    register *= -1;
+                    break;
+                }
+                case "∸": {
+                    int[] values = stack.stream().mapToInt(e -> e).toArray();
+                    int firstValue = values[0];
+                    values = Arrays.copyOfRange(values,1,values.length);
+                    stack = IntStream.of(values).collect(Stack::new,Stack::add,Stack::addAll);
+                    stack.add(firstValue);
+                    break;
+                }
+                case "--": {
+                    int[] values = stack.stream().mapToInt(e -> e).toArray();
+                    int lastValue = values[values.length-1];
+                    values = Arrays.copyOfRange(values,0,values.length-1);
+                    stack = new Stack<>();
+                    stack.add(lastValue);
+                    stack.addAll(IntStream.of(values).collect(Stack::new,Stack::add,Stack::addAll));
+                    break;
+                }
+                case "-=": {
+                    stack.pop();
+                    break;
+                }
+                case "-≡":  {
+                    int val1 = stack.pop();
+                    int val2 = stack.pop();
+                    stack.add(val1);
+                    stack.add(val2);
+                    break;
+                }
+                case "-~": {
+                    stack.add(stack.peek());
+                    break;
+                }
+                case "-∽": {
+                    int value = stack.peek();
+                    break;
+                }
+                case "-∸": {
+                    break;
+                }
+                case "=-": {
+                    stack.add(stack.pop()+stack.pop());
+                    break;
+                }
+                case "==": {
+                    stack.add(stack.pop()-stack.pop());
+                    break;
+                }
+                case "=≡": {
+                    stack.add(stack.pop() * stack.pop());
+                    break;
+                }
+                case "=~": {
+                    stack.add(stack.pop() / stack.pop());
+                    break;
+                }
+                case "=∸": {
+                    System.out.println("Enter character to be read in and its ascii code to be pushed onto the stack");
+                    String input = scanner.nextLine();
+                    stack.add((int)input.charAt(0));
+                    break;
+                }
+                case "≡-": {
+                    output += stack.pop().intValue()+"";
+                    break;
+                }
+                case "≡=": {
+                    output += ((char)stack.pop().intValue());
+                    break;
+                }
+            }
+            index++;
+
+        }
+        return output;
+
+    }
+
 
     public static String decomp2(int number){
 
