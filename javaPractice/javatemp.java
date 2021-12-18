@@ -1216,6 +1216,7 @@ public class javatemp{
     }
 
 
+
     public static String decomp2(int number){
 
         ArrayList<Integer> ints = new ArrayList<>();
@@ -2894,10 +2895,161 @@ public class javatemp{
         return words;
     }
 
+    public static long properFractions(long n) {
+
+        // 10  --> 1/10 2/10 4/10 5/10 6/10 8/10 
+        // % 2 = 
+        // 20 --> 7, 12/20 14/20 15/20 16/20 18/20
+
+        if (isPrime(n)) {
+            return n-1;
+        } else {
+
+            Integer[] factors = primeFactors(n);
+            System.out.println(Arrays.toString(factors));
+
+        }
+
+        // 1,2,3,4,5,6,7,8
+
+
+    }
+
+    public boolean isValid(String braces) {
+
+        Stack<String> braceStack = new Stack<>();
+        String peekedValue;
+
+        for (int i = 0; i < braces.length(); i++) {
+            char braceChar = braces.charAt(i);
+            switch (braceChar) {
+                case ']':
+                    if (braceStack.size() == 0) {
+                        return false;
+                    }
+                    peekedValue = braceStack.peek();
+                    if (peekedValue != "[") {
+                        return false;
+                    } else {
+                        braceStack.pop();
+                    }
+                    break;
+                case '[':
+                    braceStack.add("[");
+                    break;
+                case ')':
+                    if (braceStack.size() == 0) {
+                        return false;
+                    }
+                    peekedValue = braceStack.peek();
+                    if (peekedValue != "(") {
+                        return false;
+                    } else {
+                        braceStack.pop();
+                    }
+                    break;
+                case '(':
+                    braceStack.add("(");
+                    break;
+                case '}':
+                    if (braceStack.size() == 0) {
+                        return false;
+                    }
+                    peekedValue = braceStack.peek();
+                    if (peekedValue != "{") {
+                        return false;
+                    } else {
+                        braceStack.pop();
+                    }
+                    break;
+                case '{':
+                    braceStack.add("{");
+                    break;
+                default:
+                    return false; 
+            }
+        }
+        return braceStack.size() == 0; 
+
+    }
+    public static int findParityOutlier(int[] integers) {
+
+        int evenCount = IntStream.of(Arrays.copyOf(integers,3)).map(e -> e % 2 == 0 ? 1 : 0).sum();
+        int oddCount = IntStream.of(Arrays.copyOf(integers,3)).map(e -> e % 2 != 0 ? 1 : 0).sum();
+        if (evenCount <= 1) {
+            // search for evens
+            return IntStream.of(integers).filter(e -> e % 2 == 0).findFirst().getAsInt();
+        } else {
+            // search for odds
+            return IntStream.of(integers).filter(e -> e % 2 != 0).findFirst().getAsInt();
+        }
+    }
+
+    public static String longestConsec(String[] strarr, int k) {
+
+        if (strarr.length == 0 || k > strarr.length || k <= 0) {
+            return "";
+        }
+
+        int maxLength = 0;
+        String maxString = "";
+        String concattedString = "";
+        for (int i = 0; i < strarr.length-k+1; i++) {
+
+            for (int j = i, counter = 0; counter < k; counter++, j++) {
+                concattedString += strarr[j];
+            }
+            if (concattedString.length() > maxLength) {
+                maxString = concattedString;
+                maxLength = concattedString.length();
+                concattedString = "";
+            } else {
+                concattedString = "";
+            }
+
+        }
+        System.out.printf("\nMax String = %s\n", maxString);
+        return maxString;
+    }
+
+    public static int countSmileys(List<String> arr) {
+
+        Pattern pattern = Pattern.compile("[:;]{1}[-~]{0,1}[)D]{1}");
+        return arr.stream().mapToInt(eachSmiley -> pattern.matcher(eachSmiley).matches() ? 1 : 0).sum();
+
+    }
+
+    public static String[] solution(String s) {
+
+        ArrayList<String> strings = new ArrayList<>();
+        String emptyString = "";
+        for (int i = 0; i < s.length(); i++) {
+
+            emptyString += s.charAt(i)+"";
+            if (emptyString.length() == 2) {
+                strings.add(emptyString);
+                emptyString = "";
+            }
+
+        }
+        if (emptyString.length() > 0) {
+            strings.add(emptyString + "_");
+        }
+        return strings.toArray(String[]::new);
+
+    }
+
+    public static int[] arrayDiff(int[] a, int[] b) {
+        ArrayList<Integer> aList = new ArrayList<Integer>(Arrays.asList(Arrays.stream(a).boxed().toArray(Integer[]::new)));
+        ArrayList<Integer> bList = new ArrayList<Integer>(Arrays.asList(Arrays.stream(b).boxed().toArray(Integer[]::new)));
+        aList.removeAll(bList);
+        return aList.stream().mapToInt(e -> e).toArray();
+    }
+
 
     public static void main(String[] args){
 
-        
+        properFractions(20);
 
     }
 
