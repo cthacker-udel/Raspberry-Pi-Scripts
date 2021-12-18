@@ -3469,3 +3469,75 @@ def acl_interpreter(tape):
             else:
                 curr_cell -= 1
         elif eachcommand == '3':
+            pass
+    return ''
+
+def month_value(month):
+    month_values = {'January': 1, 'February': 2, 'March': 3, 'April': 4, 'May': 5, 'June': 6, 'July': 7, 'August': 8, 'September': 9, 'October': 10, 'November': 11, 'December': 12}
+    return month_values[month]
+
+def months_interval(date1: datetime.date, date2: datetime.date):
+
+    if date2.year < date1.year:
+        date1,date2 = date2, date1
+    elif date2.year == date1.year and date1.month > date2.month:
+        date1,date2 = date2, date1
+
+    months = { 1: 'January', 2: 'February', 3: 'March', 4: 'April', 5: 'May', 6: 'June', 7: 'July', 8: 'August', 9: 'September', 10: 'October', 11: 'November', 12: 'December'}
+
+    start_month = date1.month
+    names = [months[start_month]]
+    start_year = date1.year
+    while start_month != date2.month or start_year != date2.year:
+        if start_month == 12:
+            start_month = 1
+            start_year += 1
+            if months[start_month] not in names:
+                names.append(months[start_month])
+        else:
+            start_month += 1
+            if months[start_month] not in names:
+                names.append(months[start_month])
+    return sorted(names, key=month_value)
+
+
+def is_it_inside(file_system, folder1, folder2):
+
+    if folder1 == folder2:
+        return True
+    if folder2 not in file_system:
+        return False
+    for eachsubfolder in file_system[folder2]:
+        if eachsubfolder in file_system:
+            return is_it_inside(file_system, folder1, eachsubfolder)
+        elif folder1 in file_system[folder2]:
+            return True
+    return False
+
+
+def iso_group(lst,maxnum=[-100]):
+    # your recursive solution here
+    if len(lst) == 0:
+        if len(maxnum) == 1:
+            return maxnum[0]
+        else:
+            return maxnum
+    elif len(lst) == 1:
+        max_num = lst[0]
+        if max_num == maxnum[0]:
+            ## already found max
+            return iso_group([], maxnum[:] + [max_num])
+        else:
+            if max_num < maxnum[0]:
+                return iso_group([], maxnum)
+            else:
+                return iso_group([], [max_num])
+    else:
+        max_num = lst[0]
+        if max_num == maxnum[0]:
+            return iso_group(lst[1:], maxnum[:] + [max_num])
+        else:
+            if max_num < maxnum[0]:
+                return iso_group(lst[1:], maxnum)
+            else:
+                return iso_group(lst[1:],[max_num])
