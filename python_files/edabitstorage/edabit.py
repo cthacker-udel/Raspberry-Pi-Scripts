@@ -7,6 +7,9 @@ import collections
 import copy
 from pprint import pprint
 from datetime import time
+import fractions
+from dateutil.parser import parser
+from time import perf_counter
 
 def is_prime(number):
 
@@ -22,6 +25,35 @@ def is_prime(number):
             if number % i == 0:
                 return False
         return True
+    
+
+def prime_factors(number):
+    
+    factors = []
+    
+    i = 2
+    while i <= number and number != 1:
+        if is_prime(number):
+            factors.append(number)
+            number = 1
+            continue
+        elif is_prime(i) and number % i == 0:
+            while number % i == 0:
+                number /= i
+                factors.append(i)
+            i = 2
+        else:
+            i += 1
+    return factors
+        
+    
+def proper_frac_gcd(a, b):
+    prime_factors_a = prime_factors(a)
+    prime_factors_b = prime_factors(b)
+    return [x for x in prime_factors_a if x in prime_factors_b] == []
+    
+    
+    
 
 """
 def __init__(self):
@@ -3541,3 +3573,168 @@ def iso_group(lst,maxnum=[-100]):
                 return iso_group(lst[1:], maxnum)
             else:
                 return iso_group(lst[1:],[max_num])
+
+
+def is_valid_subsequence(sequence1, sequence2):
+    
+    prev_index = -1
+    for eachnumber in sequence2:
+        try:
+            index = sequence1.index(eachnumber)
+            if index == -1:
+                return False
+            if prev_index == -1:
+                prev_index = index
+                for i in range(index+1):
+                    sequence1[i] = 0
+            elif index < prev_index:
+                return False
+            else:
+                prev_index = index
+                for i in range(index+1):
+                    sequence1[i] = 0
+        except Exception as e:
+            return False
+    return True
+
+print(is_valid_subsequence([5, 1, 22, 25, 6, -1, 8, 10],[1, 6, -1, 10]))#True)
+print(is_valid_subsequence([5, 1, 22, 25, 6, -1, 8, 10], [5, 1, 22, 25, 6, -1, 8, 10]))#True)
+print(is_valid_subsequence([5, 1, 22, 25, 6, -1, 8, 10], [22, 25, 6]))#True)
+print(is_valid_subsequence([1, 1, 6, 1],[1, 1, 1, 6]))#False)
+print(is_valid_subsequence([1, 2, 3, 4],[2, 4]))#True)
+
+
+def bit_rotate(n, m, d):
+    
+    if d:
+        bin_result = bin(n)[2:]
+        count = 0
+        while count < m:
+            bin_result = bin_result[-1] + bin_result[0:-1]
+            count += 1
+        return int(bin_result, 2)
+    else:
+        bin_result = bin(n)[2:]
+        count = 0
+        while count < m:
+            bin_result = bin_result[1:] + bin_result[0]
+            count += 1
+        return int(bin_result, 2)
+    
+    
+print(bit_rotate(17, 2, False))
+
+
+def sim_prop_frac(max_den):
+    
+    count = 0
+    for i in range(2,max_den+1): # 2-7
+        for j in range(1, i): #
+            if proper_frac_gcd(i, j) == 1:
+                #print('{}/{}'.format(j,i))
+                count += 1
+    return count
+                
+
+print(sim_prop_frac(10))
+print(proper_frac_gcd(1,2))
+
+
+def compress(alist):
+    
+    compressed_string = ''.join(alist)
+    emptystring = ''
+    for k, g in itertools.groupby(compressed_string):
+        group = list(g)
+        key = k
+        if len(group) > 1:
+            emptystring += '{}{}'.format(key,len(group))
+        else:
+            emptystring += key
+    return emptystring
+        
+        
+        
+compress(["a", "a", "a", "b", "b", "a", "a"])
+
+def islands_perimeter(island):
+
+    ### 0 example of how perimeter is calculated step by step, only just one sentence, bad description
+
+    total_perimeter = 0
+    north_neighbor = 0
+    south_neighbor = 0
+    east_neighbor = 0
+    west_neighbor = 0
+    
+    for i in range(len(island)):
+        for j in range(len(island[0])):
+            if island[i][j] == 0:
+                continue
+            if i != 0:
+                north_neighbor = island[i-1][j]
+            if i != (len(island)-1):
+                south_neighbor = island[i+1][j]
+            if j != 0:
+                west_neighbor = island[i][j-1]
+            if j != (len(island[0])-1):
+                east_neighbor = island[i][j+1]
+            total_perimeter += north_neighbor
+            total_perimeter += south_neighbor
+            total_perimeter += east_neighbor
+            total_perimeter += west_neighbor
+            total_perimeter += 1
+            if north_neighbor+south_neighbor+east_neighbor+west_neighbor == 0:
+                total_perimeter += 4
+            north_neighbor, south_neighbor, east_neighbor, west_neighbor = 0,0,0,0
+    return total_perimeter
+
+
+
+def news_at_ten(astr, n):
+    
+    full_news = []
+    starting_position = n
+    new_string = ''
+    str_started = 0
+    while starting_position != -1:
+        for i in range(n+1):
+            if i < starting_position:
+                new_string += ' '
+            elif i > starting_position:
+                if str_started != len(astr):
+                    new_string += astr[str_started]
+                    str_started += 1
+                else:
+                    new_string += ' '
+        print(len(new_string))
+        full_news.append(new_string)
+        new_string = ''
+        starting_position -= 1
+        str_started = 0
+    
+    substr_begin = 1
+    str_started = 0
+    while substr_begin != len(astr):
+        the_sub_word = astr[substr_begin:]
+        for i in range(n):
+            if i < len(the_sub_word):
+                new_string += the_sub_word[str_started]
+                str_started += 1
+            else:
+                new_string += ' '
+        print(len(new_string))
+        full_news.append(new_string)
+        new_string = ''
+        str_started = 0
+        substr_begin += 1
+    full_news.append(' ' * n)
+                
+    return full_news
+                    
+    
+print(news_at_ten("edabit", 10))
+    
+ #['          ', '         e', '        ed', '       eda', '      edab', '     edabi', '    edabit', '   edabit ', '  edabit  ', ' edabit   ', 'edabit    ', 'dabit      ', 'abit       ', 'bit        ', 'it         ', 't          ', '          ']
+ #['          ', '         e', '        ed', '       eda', '      edab', '     edabi', '    edabit', '   edabit ', '  edabit  ', ' edabit   ', 'edabit    ', 'dabit     ', 'abit      ', 'bit       ', 'it        ', 't         ', '          ']
+    
