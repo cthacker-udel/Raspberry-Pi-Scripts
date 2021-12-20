@@ -3046,6 +3046,128 @@ public class javatemp{
         return aList.stream().mapToInt(e -> e).toArray();
     }
 
+    public static String makeReadable(int seconds) {
+
+        int hours = 0;
+        int minutes = 0;
+        int s = 0;
+        while (seconds >= 86400) {
+            hours += 24;
+            seconds -= 86400;
+        }
+        while (seconds >= 3600) {
+            hours++;
+            seconds -= 3600;
+        }
+        while (seconds >= 60) {
+            minutes++;
+            seconds -= 60;
+        }
+        s = seconds;
+        String hrString = ""+hours;
+        String minString = ""+minutes;
+        String secondString = ""+s;
+        while (hrString.length() < 2) {
+            hrString = "0" + hrString;
+        }
+        while (minString.length() < 2) {
+            minString = "0" + minString;
+        }
+        while (secondString.length() < 2) {
+            secondString = "0" + secondString;
+        }
+        return String.format("%s:%s:%s",hrString,minString,secondString);
+
+    }
+
+    public static boolean isValid(char[] walk) {
+
+        if (walk.length != 10) {
+            return false;
+        } else {
+            int x = 0;
+            int y = 0;
+            for (char eachStep: walk) {
+
+                switch(eachStep) {
+                    case 'n':
+                        y++;
+                        break;
+                    case 's':
+                        y--;
+                        break;
+                    case 'e':
+                        x++;
+                        break;
+                    case 'w':
+                        x--;
+                        break;
+                }
+
+            }
+            return x == 0 && y == 0;
+        }
+
+    }
+
+    public static int rowSumOddNumbers(int n) {
+
+        int rowNum = 1;
+        int diff = 2;
+        int starting = 1;
+        while (rowNum < n) {
+            rowNum++;
+            starting += diff;
+            diff += 2;
+        }
+        int count = 0;
+        int total = 0;
+        for (int i = starting; count < rowNum; i++) {
+            if (i % 2 != 0) {
+                total += i;
+                count++;
+            }
+        }
+        return total;
+    }
+
+    public static String translate(String speech, String[] vocabulary) {
+
+        ArrayList<String> vocabList = new ArrayList<>(List.of(vocabulary));
+
+        String[] splitSpeech = speech.split(" ");
+        while (vocabList.size() > 0 && String.join("", splitSpeech).contains("*")) {
+
+            for(int i = 0; i < splitSpeech.length; i++) {
+
+                String formattedWord = splitSpeech[i].replaceAll("[\\.\\,\\?\\!]","").replaceAll("\\*",".");
+                Pattern pattern = Pattern.compile(formattedWord);
+                ArrayList<Integer> indexesVocab = new ArrayList<>();
+                ArrayList<Integer> indexesWords = new ArrayList<>();
+                for (int j = 0; j < vocabList.size(); j++) {
+                    String grabbedVocabWord = vocabList.get(j);
+                    if (pattern.matcher(grabbedVocabWord).matches()) {
+                        indexesVocab.add(j);
+                        indexesWords.add(i);
+                    } if (indexesVocab.size() > 1) {
+                        // too many matches, reset
+                        indexesVocab.clear();
+                        indexesWords.clear();
+                        break;
+                    }
+                }
+                if (indexesVocab.size() == 1) {
+                    // only 1 match
+                    splitSpeech[i] = splitSpeech[i].replaceAll(formattedWord, vocabList.get(indexesVocab.get(0)));
+                    vocabList.remove(vocabList.get(indexesVocab.get(0)));
+                }
+
+            }
+
+        }
+        return String.join(" ", splitSpeech);
+    }
+
 
     public static void main(String[] args){
 
