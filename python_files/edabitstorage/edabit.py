@@ -3738,3 +3738,52 @@ print(news_at_ten("edabit", 10))
  #['          ', '         e', '        ed', '       eda', '      edab', '     edabi', '    edabit', '   edabit ', '  edabit  ', ' edabit   ', 'edabit    ', 'dabit      ', 'abit       ', 'bit        ', 'it         ', 't          ', '          ']
  #['          ', '         e', '        ed', '       eda', '      edab', '     edabi', '    edabit', '   edabit ', '  edabit  ', ' edabit   ', 'edabit    ', 'dabit     ', 'abit      ', 'bit       ', 'it        ', 't         ', '          ']
     
+def validate(number):
+    expr1 = r'^[+][\d][-][\d]{3}[-][\d]{3}[-][\d]{4}$'
+    expr2 = r'^[\d]{3}[-][\d]{3}[-][\d]{4}$'
+    expr3 = r'^[\d][-][\d]{3}[-][\d]{3}[-][\d]{4}$'
+    expr4 = r'^[(][\d]{3}[)] [\d]{3}[-][\d]{4}$'
+    expr5 = r'^[\d]{1} [(][\d]{3}[)] [\d]{3}[-][\d]{4}$'
+    expr6 = r'^[\d]{3}[.][\d]{3}[.][\d]{4}$'
+    expr7 = r'^[\d]{1}[.][\d]{3}[.][\d]{3}[.][\d]{4}$'
+    expr8 = r'^[\d]{1}[\/][\d]{3}[\/][\d]{3}[\/][\d]{4}$'
+    expr9 = r'^[\d]{1} [\d]{3} [\d]{3} [\d]{4}$'
+    expr10 = r'^[\d]{3}[\/][\d]{3}[\/][\d]{4}$'
+    expr11 = r'^[\d]{11}$'
+    expr12 = r'^[\d]{3} [\d]{3} [\d]{4}$'
+    expr13 = r'^[\d]{10}$'
+
+    expressions = [expr1, expr2, expr3, expr4, expr5, expr6, expr7, expr8, expr9, expr10, expr11, expr12, expr13]
+
+    for eachexpression in expressions:
+        print(re.match(eachexpression, number, re.MULTILINE))
+        if re.match(eachexpression, number, re.MULTILINE):
+            return True
+    return False
+
+
+def distance_to_nearest_vowel(astring):
+
+    vowels = 'aeiouAEIOU'
+    dist = []
+    for i in range(len(astring)):
+        letter = astring[i]
+        if letter in vowels:
+            dist.append(0)
+        else:
+            j = i
+            k = i
+            while j >= 0 or k < len(astring):
+                letter2 = astring[j]
+                letter3 = astring[k]
+                if letter2 in vowels:
+                    dist.append(abs(j - i))
+                    break
+                elif letter3 in vowels:
+                    dist.append(abs(k - i))
+                    break
+                if j > 0:
+                    j -= 1
+                if k < len(astring)-1:
+                    k += 1
+    return dist
