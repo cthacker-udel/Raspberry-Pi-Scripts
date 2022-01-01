@@ -3168,6 +3168,91 @@ public class javatemp{
         return String.join(" ", splitSpeech);
     }
 
+    public static void ppcg_conor_obrienI(String tape){
+
+        Stack<Integer> stack = new Stack();
+        for(int i = 0; i < tape.length(); i++){
+
+            char theChar = tape.charAt(i);
+            switch(theChar){
+
+                case '!':
+                    stack.push(stack.peek());
+                    break;
+                case '@':
+                    System.out.println((char)stack.pop().intValue());
+                    break;
+                case '#':
+                    System.out.println(stack.pop());
+                    break;
+                case '$':
+                    int val1 = stack.pop();
+                    int val2 = stack.pop();
+                    stack.push(val1);
+                    stack.push(val2);
+                    break;
+                case '%':
+                    int val3 = stack.pop();
+                    Stack newStack = new Stack();
+                    newStack.add(val3);
+                    newStack.addAll(stack);
+                    stack = (Stack<Integer>)newStack.clone();
+            }
+
+        }
+    }
+
+    public static String workOnStrings(String str1, String str2) {
+
+        String lowerA = str1.toLowerCase(Locale.ROOT);
+        String lowerB = str2.toLowerCase(Locale.ROOT);
+
+        ArrayList<String> str1List = Stream.of(lowerA.split("")).collect(Collectors.toCollection(ArrayList::new));
+
+        ArrayList<String> str2List = Stream.of(lowerB.split("")).collect(Collectors.toCollection(ArrayList::new));
+
+        String formattedString1 = Stream.of(lowerA.split("")).map(e -> Collections.frequency(str2List, e) + "").collect(Collectors.joining(""));
+
+        String formattedString2 = Stream.of(lowerB.split("")).map(e -> Collections.frequency(str1List, e) + "").collect(Collectors.joining(""));
+
+        String newString1 = "";
+
+        String newString2 = "";
+
+        for (int i = 0; i < str1.length(); i++) {
+            int formattedString1Char = Integer.parseInt(formattedString1.charAt(i)+"", 10);
+            String str1Letter = str1.charAt(i)+"";
+            if (formattedString1Char % 2 != 0) {
+                if (str1Letter.toLowerCase(Locale.ROOT).equals(str1Letter)) {
+                    // is lower
+                    newString1 += str1Letter.toUpperCase(Locale.ROOT);
+                } else {
+                    newString1 += str1Letter.toLowerCase(Locale.ROOT);
+                }
+            } else {
+                newString1 += str1Letter;
+            }
+        }
+
+        for (int i = 0; i < str2.length(); i++) {
+
+          int formattedString2Char = Integer.parseInt(formattedString2.charAt(i)+"", 10);
+          String str2Letter = str2.charAt(i)+"";
+          if (formattedString2Char % 2 != 0) {
+              if (str2Letter.toLowerCase(Locale.ROOT).equals(str2Letter)) {
+                  newString2 += str2Letter.toUpperCase(Locale.ROOT);
+              } else {
+                  newString2 += str2Letter.toLowerCase(Locale.ROOT);
+              }
+          } else {
+              newString2 += str2Letter;
+          }
+
+        }
+        return newString1 + newString2;
+
+    }
+
 
     public static void main(String[] args){
 
