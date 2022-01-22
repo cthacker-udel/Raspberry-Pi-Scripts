@@ -3,6 +3,6 @@
   "version": "1.0.0",
   "dependencies": {
     "lodash": "^4.17.21",
-    "node-fetch": "^3.0.0"
+    "node-fetch": "^3.1.1"
   }
 }
