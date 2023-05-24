@@ -126,7 +126,7 @@ int Board::primeCount(){
                 for(int l = 0; l < size4; l++){
                     int value = *(*(*(*(board+i)+j)+k)+l);
                     if(isPrime(value)){
-                        count++:
+                        count++;
                     }
                 }
             }
